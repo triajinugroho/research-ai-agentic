@@ -16,7 +16,7 @@
 | **Tahun Akademik** | 2025/2026 |
 | **Prasyarat** | Statistika dan Matematika Dasar (Semester 1) |
 | **Ko-requisite** | Algoritma dan Pemrograman |
-| **Dosen Pengampu** | [Nama Dosen Pengampu] |
+| **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
 | **Waktu Pertemuan** | 1x per minggu @ 100 menit (50 menit teori + 50 menit praktikum) |
 | **Platform** | LMS UAI (utama), Google Colab (coding), GitHub (portfolio) |
 

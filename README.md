@@ -3,6 +3,7 @@
 > **Mata Kuliah:** Analisis Data Statistik (2 SKS)
 > **Program Studi:** Informatika, Universitas Al Azhar Indonesia
 > **Semester:** Genap 2025/2026 (Tingkat 1)
+> **Dosen Pengampu:** Tri Aji Nugroho, S.T., M.T.
 > **Pendekatan:** Outcome-Based Education (OBE) | AI-Augmented
 
 ---
