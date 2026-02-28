@@ -1,5 +1,6 @@
 # Analisis Strategis: Mata Kuliah Analisis Data Statistik
 ## Prodi Informatika — Universitas Al Azhar Indonesia
+### Disusun oleh: Tri Aji Nugroho, S.T., M.T.
 
 > Dokumen ini menyajikan analisis strategis komprehensif untuk merancang mata kuliah Analisis Data Statistik yang future-proof, relevan, dan berdampak tinggi di era AI.
 

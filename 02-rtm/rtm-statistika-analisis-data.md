@@ -2,6 +2,7 @@
 
 ## Mata Kuliah: Analisis Data Statistik
 ### Prodi Informatika — Universitas Al Azhar Indonesia — Semester Genap 2025/2026
+### Dosen Pengampu: Tri Aji Nugroho, S.T., M.T.
 
 ---
 
