@@ -31,7 +31,7 @@
 | **Fakultas** | Sains dan Teknologi |
 | **Program Studi** | Informatika |
 | **Edisi** | Pertama, 2025 |
-| **Jumlah Bab** | 13 Bab + Lampiran |
+| **Jumlah Bab** | 14 Bab + Lampiran |
 | **Sasaran Pembaca** | Mahasiswa S1 Informatika Semester 2 |
 | **Pendekatan** | Outcome-Based Education (OBE), AI-Augmented |
 
@@ -59,7 +59,7 @@ Berbeda dari buku statistik konvensional, buku ajar ini dirancang dengan beberap
 
 5. **Nilai-nilai Islami** — Sebagai bagian dari Universitas Al Azhar Indonesia, buku ini menanamkan nilai-nilai amanah, keadilan, dan transparansi dalam setiap aspek analisis data.
 
-Buku ini terdiri dari **13 bab** yang disusun secara progresif — dari fondasi statistika deskriptif hingga frontier machine learning dan AI-augmented analysis. Setiap bab dilengkapi dengan:
+Buku ini terdiri dari **14 bab** yang disusun secara progresif — dari fondasi statistika deskriptif hingga frontier machine learning dan AI-augmented analysis. Setiap bab dilengkapi dengan:
 - Tujuan pembelajaran yang jelas
 - Penjelasan teori dengan bahasa yang mudah dipahami
 - Contoh komputasi dengan kode Python yang siap dijalankan
@@ -67,7 +67,7 @@ Buku ini terdiri dari **13 bab** yang disusun secara progresif — dari fondasi 
 - Latihan soal bertingkat (dasar, menengah, mahir)
 - "AI Corner" — panduan interaksi dengan AI untuk topik tersebut
 
-Buku ini dirancang untuk dibaca secara **berurutan** dari Bab 1 hingga Bab 13, karena setiap bab membangun fondasi untuk bab berikutnya. Namun, mahasiswa juga dapat menggunakan bab tertentu sebagai referensi mandiri sesuai kebutuhan.
+Buku ini dirancang untuk dibaca secara **berurutan** dari Bab 1 hingga Bab 14, karena setiap bab membangun fondasi untuk bab berikutnya. Namun, mahasiswa juga dapat menggunakan bab tertentu sebagai referensi mandiri sesuai kebutuhan.
 
 Semoga buku ajar ini bermanfaat bagi mahasiswa, rekan dosen, dan siapa pun yang ingin mempelajari statistik dengan pendekatan modern. Kritik dan saran sangat kami harapkan untuk perbaikan edisi selanjutnya.
 
@@ -88,10 +88,11 @@ Universitas Al Azhar Indonesia
 |-----|-------|---------|
 | — | Halaman Depan | i |
 | — | Kata Pengantar | ii |
-| — | Daftar Isi | iv |
-| — | Daftar Tabel | vi |
-| — | Daftar Gambar | vii |
-| — | Peta Capaian Pembelajaran | viii |
+| — | Mengapa Buku Ini? — Positioning dan Keunggulan | iv |
+| — | Daftar Isi | vi |
+| — | Daftar Tabel | viii |
+| — | Daftar Gambar | ix |
+| — | Peta Capaian Pembelajaran | x |
 | **BAGIAN I** | **FONDASI STATISTIKA** | |
 | 1 | Pengantar Statistika di Era AI | 1 |
 | 2 | Statistika Deskriptif dan Eksplorasi Data dengan Python | 25 |
@@ -109,13 +110,15 @@ Universitas Al Azhar Indonesia
 | **BAGIAN IV** | **FRONTIER: ML DAN AI** | |
 | 12 | Pengantar Machine Learning Statistik | 340 |
 | 13 | AI-Augmented Data Analysis | 375 |
+| 14 | Proyek Akhir: Analisis Data End-to-End dengan AI sebagai Co-Analyst | 405 |
+| — | **Penutup: Refleksi dan Langkah ke Depan** | 440 |
 | **LAMPIRAN** | | |
-| A | Tabel Statistik (Z, t, Chi-Square, F) | 405 |
-| B | Formularium Statistik | 415 |
-| C | Glosarium Istilah | 425 |
-| D | Panduan Instalasi dan Setup Python | 435 |
-| E | Daftar Pustaka | 440 |
-| F | Indeks | 445 |
+| A | Tabel Statistik (Z, t, Chi-Square, F) | 450 |
+| B | Formularium Statistik | 460 |
+| C | Glosarium Istilah | 470 |
+| D | Panduan Instalasi dan Setup Python | 480 |
+| E | Daftar Pustaka | 485 |
+| F | Indeks | 490 |
 
 ---
 
@@ -153,7 +156,7 @@ PROFIL LULUSAN PRODI INFORMATIKA UAI
     │   → Bab 10, 11                                                   │
     │                                                                   │
     │ CPMK-7 [C5-C6] Merancang analisis end-to-end dengan AI          │
-    │   → Bab 12, 13                                                   │
+    │   → Bab 12, 13, 14                                               │
     └───────────────────────────────────────────────────────────────────┘
 ```
 
@@ -167,8 +170,8 @@ PROFIL LULUSAN PRODI INFORMATIKA UAI
 5. Catat pertanyaan dan diskusikan di kelas
 
 **Untuk Dosen:**
-1. Buku ini dirancang untuk 16 minggu perkuliahan (2 SKS)
-2. Setiap bab dapat diselesaikan dalam 1-2 pertemuan
+1. Buku ini dirancang untuk 16 minggu perkuliahan (2 SKS), termasuk proyek akhir
+2. Setiap bab dapat diselesaikan dalam 1-2 pertemuan; Bab 14 (Proyek Akhir) berjalan paralel di minggu 13-16
 3. Gunakan bersama RPS, RTM, dan lab manual yang tersedia di repository
 4. Latihan soal di buku dapat digunakan sebagai tugas tambahan
 
