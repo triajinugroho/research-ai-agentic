@@ -106,21 +106,13 @@ else:
 ### 4. Nested Loop dan Loop Trace Table (CPMK-3.8)
 
 ```python
-# Tabel perkalian 1-5
-for i in range(1, 6):
+for i in range(1, 6):          # Tabel perkalian 1-5
     for j in range(1, 6):
         print(f"{i*j:4}", end="")
     print()
 ```
 
-**Loop Trace Table** -- melacak nilai variabel di setiap iterasi:
-
-```python
-total = 0
-for i in range(1, 4):
-    for j in range(1, 3):
-        total += i * j
-```
+**Loop Trace Table** -- melacak nilai variabel di setiap iterasi. Contoh: `total = 0; for i in range(1,4): for j in range(1,3): total += i*j`
 
 | Iterasi | i | j | i * j | total |
 |---------|---|---|-------|-------|
@@ -134,15 +126,10 @@ for i in range(1, 4):
 **Mencetak pola dengan nested loop:**
 
 ```python
-# Pola segitiga bintang rata kiri       # Pola segitiga rata kanan
+# Segitiga rata kiri                    # Segitiga rata kanan
 n = 5                                    # n = 5
 for i in range(1, n + 1):               # for i in range(1, n + 1):
     print("*" * i)                       #     print(" " * (n - i) + "*" * i)
-# *                                      #     *
-# **                                     #    **
-# ***                                    #   ***
-# ****                                   #  ****
-# *****                                  # *****
 ```
 
 ---

@@ -7,35 +7,27 @@
 Dokumen ini berisi kumpulan resource, platform latihan, contoh data, dan problem set
 yang dirancang untuk mendukung pembelajaran pemrograman Python secara mandiri.
 
----
-
 ## 1. Platform Latihan Online
 
-Berikut adalah platform yang direkomendasikan untuk berlatih pemrograman di luar jam kuliah:
+| Platform        | URL                        | Fokus                         | Level                 | Gratis? |
+|-----------------|----------------------------|-------------------------------|-----------------------|---------|
+| HackerRank      | hackerrank.com             | Python practice, algorithms   | Beginner-Advanced     | Ya      |
+| LeetCode (Easy) | leetcode.com               | Algorithm problems            | Beginner              | Sebagian|
+| Replit          | replit.com                 | Online Python IDE             | Beginner              | Ya      |
+| Exercism        | exercism.org               | Python track                  | Beginner-Intermediate | Ya      |
+| CodingBat       | codingbat.com              | Logic problems                | Beginner              | Ya      |
+| Advent of Code  | adventofcode.com           | Annual programming puzzles    | Intermediate          | Ya      |
+| Google Colab    | colab.research.google.com  | Notebook IDE                  | All levels            | Ya      |
+| Kaggle          | kaggle.com                 | Notebooks, data, competitions | Beginner-Advanced     | Ya      |
 
-| Platform       | URL                          | Fokus                          | Level                 | Gratis? |
-|----------------|------------------------------|--------------------------------|-----------------------|---------|
-| HackerRank     | hackerrank.com               | Python practice, algorithms    | Beginner-Advanced     | Ya      |
-| LeetCode (Easy)| leetcode.com                 | Algorithm problems             | Beginner              | Sebagian|
-| Replit         | replit.com                   | Online Python IDE              | Beginner              | Ya      |
-| Exercism       | exercism.org                 | Python track                   | Beginner-Intermediate | Ya      |
-| CodingBat      | codingbat.com                | Logic problems                 | Beginner              | Ya      |
-| Advent of Code | adventofcode.com             | Annual programming puzzles     | Intermediate          | Ya      |
-| Google Colab   | colab.research.google.com    | Notebook IDE                   | All levels            | Ya      |
-| Kaggle         | kaggle.com                   | Notebooks, data, competitions  | Beginner-Advanced     | Ya      |
-
-> **Tips:** Mulailah dari HackerRank atau CodingBat untuk membangun fondasi logika,
-> kemudian gunakan Google Colab atau Replit sebagai IDE online untuk mengerjakan tugas kuliah.
-
----
+> **Tips:** Mulailah dari HackerRank atau CodingBat untuk fondasi logika, lalu gunakan
+> Google Colab atau Replit sebagai IDE online untuk mengerjakan tugas kuliah.
 
 ## 2. Contoh File Data untuk Latihan File I/O
 
-Berikut adalah contoh file CSV yang dapat dibuat atau di-copy-paste ke Google Colab
-untuk latihan membaca, menulis, dan mengolah file menggunakan Python.
+Berikut contoh file CSV yang dapat di-copy-paste ke Google Colab untuk latihan File I/O.
 
-### a. `mahasiswa.csv` — Data Mahasiswa (10 baris)
-
+### a. `mahasiswa.csv`
 ```csv
 NIM,Nama,Prodi,IPK
 2024001,Aisyah Putri,Informatika,3.75
@@ -50,8 +42,7 @@ NIM,Nama,Prodi,IPK
 2024010,Joko Widodo,Sistem Informasi,3.55
 ```
 
-### b. `menu_kantin.csv` — Menu Kantin Kampus (15 baris)
-
+### b. `menu_kantin.csv`
 ```csv
 Nama_Menu,Harga,Kategori
 Nasi Goreng,15000,Makanan
@@ -71,8 +62,7 @@ Tahu Crispy,8000,Snack
 Risoles,7000,Snack
 ```
 
-### c. `buku_perpustakaan.csv` — Katalog Buku Perpustakaan (10 baris)
-
+### c. `buku_perpustakaan.csv`
 ```csv
 ISBN,Judul,Penulis,Tahun,Status
 978-602-001,Pemrograman Python Dasar,Ahmad Fauzi,2022,Tersedia
@@ -87,8 +77,7 @@ ISBN,Judul,Penulis,Tahun,Status
 978-602-010,Statistika Komputasi,Joni Iskandar,2022,Dipinjam
 ```
 
-### d. `transaksi.csv` — Data Transaksi Toko (20 baris)
-
+### d. `transaksi.csv`
 ```csv
 Tanggal,Item,Qty,Harga
 2025-01-02,Buku Tulis,3,8500
@@ -113,87 +102,44 @@ Tanggal,Item,Qty,Harga
 2025-01-15,Spidol,2,7000
 ```
 
----
-
 ## 3. Problem Set Bertema Indonesia
 
-Sepuluh tantangan pemrograman dengan konteks lokal Indonesia:
-
-### 1. Hitung Pajak Progresif PPh 21
-- **Deskripsi:** Buat program yang menghitung pajak penghasilan berdasarkan tarif progresif (5%, 15%, 25%, 30%, 35%) sesuai bracket penghasilan kena pajak tahunan.
-- **Konsep:** Percabangan bertingkat (`if-elif-else`), operasi aritmatika, input/output.
-- **Tingkat Kesulitan:** Mudah
-
-### 2. Konversi Rupiah ke Mata Uang Asing (Multi-Currency)
-- **Deskripsi:** Program konverter mata uang yang mendukung minimal 5 mata uang (USD, EUR, SGD, MYR, JPY) dengan kurs yang dapat diperbarui.
-- **Konsep:** Dictionary, fungsi, loop menu, format angka.
-- **Tingkat Kesulitan:** Mudah
-
-### 3. Sistem Scoring UTBK/SNBT
-- **Deskripsi:** Simulasi perhitungan skor UTBK dari beberapa subtes (Penalaran Umum, Pengetahuan Kuantitatif, dll.) dengan bobot masing-masing.
-- **Konsep:** List, loop, fungsi, perhitungan rata-rata berbobot.
-- **Tingkat Kesulitan:** Mudah-Menengah
-
-### 4. Penjadwalan Sholat (Berdasarkan Waktu)
-- **Deskripsi:** Program yang menampilkan jadwal sholat harian dan memberi notifikasi waktu sholat berikutnya berdasarkan waktu saat ini.
-- **Konsep:** Modul `datetime`, perbandingan waktu, percabangan.
-- **Tingkat Kesulitan:** Menengah
-
-### 5. Kalkulator Zakat
-- **Deskripsi:** Hitung zakat mal (emas, penghasilan, perdagangan) dan zakat fitrah berdasarkan nisab dan kadar yang berlaku.
-- **Konsep:** Fungsi dengan parameter, percabangan, dictionary untuk jenis zakat.
-- **Tingkat Kesulitan:** Mudah-Menengah
-
-### 6. Analisis Data BPS (Populasi per Provinsi)
-- **Deskripsi:** Baca data populasi 38 provinsi dari file CSV, tampilkan statistik (total, rata-rata, terbesar, terkecil) dan sorting.
-- **Konsep:** File I/O, list of dictionaries, sorting, statistik dasar.
-- **Tingkat Kesulitan:** Menengah
-
-### 7. Sistem Antrian Puskesmas
-- **Deskripsi:** Simulasi sistem antrian pasien dengan fitur: ambil nomor antrian, panggil pasien, lihat daftar tunggu, dan prioritas lansia.
-- **Konsep:** List sebagai queue, loop, fungsi, menu interaktif.
-- **Tingkat Kesulitan:** Menengah
-
-### 8. Pencarian Rute TransJakarta (Simplified)
-- **Deskripsi:** Diberikan daftar halte dan koridor, cari rute dari halte A ke halte B (satu koridor atau transit satu kali).
-- **Konsep:** Dictionary of lists, nested loop, pencarian linear, algoritma sederhana.
-- **Tingkat Kesulitan:** Menengah-Sulit
-
-### 9. E-Commerce Product Sorting (by Price, Rating, Sales)
-- **Deskripsi:** Kelola daftar produk yang bisa diurutkan berdasarkan harga, rating, atau jumlah penjualan, dengan fitur filter kategori.
-- **Konsep:** List of dictionaries, sorting dengan key, fungsi `lambda`, filter.
-- **Tingkat Kesulitan:** Menengah
-
-### 10. Analisis Sentimen Review Tokopedia (Simplified Word Matching)
-- **Deskripsi:** Analisis review produk sederhana menggunakan pencocokan kata positif/negatif dalam Bahasa Indonesia untuk menentukan sentimen.
-- **Konsep:** String processing, dictionary, file I/O, loop, persentase.
-- **Tingkat Kesulitan:** Menengah-Sulit
-
----
+| No | Tantangan | Konsep Utama | Kesulitan |
+|----|-----------|-------------|-----------|
+| 1 | **Hitung Pajak Progresif PPh 21** — Hitung pajak berdasarkan tarif bracket (5%-35%) | `if-elif-else`, aritmatika | Mudah |
+| 2 | **Konversi Rupiah Multi-Currency** — Konverter ke USD, EUR, SGD, MYR, JPY | Dictionary, fungsi, loop menu | Mudah |
+| 3 | **Sistem Scoring UTBK/SNBT** — Hitung skor dari beberapa subtes berbobot | List, loop, rata-rata berbobot | Mudah-Menengah |
+| 4 | **Penjadwalan Sholat** — Tampilkan waktu sholat berikutnya dari waktu saat ini | `datetime`, perbandingan waktu | Menengah |
+| 5 | **Kalkulator Zakat** — Hitung zakat mal dan fitrah berdasarkan nisab | Fungsi, parameter, dictionary | Mudah-Menengah |
+| 6 | **Analisis Data BPS** — Statistik populasi 38 provinsi dari file CSV | File I/O, sorting, statistik | Menengah |
+| 7 | **Sistem Antrian Puskesmas** — Simulasi antrian dengan prioritas lansia | List (queue), menu interaktif | Menengah |
+| 8 | **Pencarian Rute TransJakarta** — Cari rute antar halte, maks 1x transit | Dict of lists, pencarian | Menengah-Sulit |
+| 9 | **E-Commerce Product Sorting** — Urutkan produk by harga/rating/sales + filter | Sorting, `lambda`, filter | Menengah |
+| 10 | **Analisis Sentimen Review** — Word matching positif/negatif Bahasa Indonesia | String processing, File I/O | Menengah-Sulit |
 
 ## 4. Referensi Dokumentasi
 
 | Referensi | URL | Keterangan |
 |-----------|-----|------------|
-| Python 3.x Documentation | docs.python.org/3/ | Dokumentasi resmi Python, referensi utama |
-| PEP 8 Style Guide | peps.python.org/pep-0008/ | Panduan penulisan kode Python yang rapi dan konsisten |
+| Python 3.x Documentation | docs.python.org/3/ | Dokumentasi resmi, referensi utama |
+| PEP 8 Style Guide | peps.python.org/pep-0008/ | Panduan penulisan kode yang rapi |
 | Google Colab Getting Started | colab.research.google.com | Panduan memulai notebook di cloud |
-| Python Built-in Functions | docs.python.org/3/library/functions.html | Daftar lengkap fungsi bawaan Python |
+| Python Built-in Functions | docs.python.org/3/library/functions.html | Daftar lengkap fungsi bawaan |
 
 ---
 
 ## 5. Rekomendasi Belajar Mandiri
 
-### YouTube Channels
+**YouTube Channels:**
 - **Corey Schafer** — Tutorial Python mendalam dan terstruktur (Bahasa Inggris)
 - **Tech With Tim** — Project-based Python tutorials (Bahasa Inggris)
 - **Kelas Terbuka** — Tutorial pemrograman dalam Bahasa Indonesia
 
-### Buku
+**Buku:**
 - **Think Python** (Allen B. Downey) — Pendekatan ilmu komputer untuk belajar Python
-- **Automate the Boring Stuff with Python** (Al Sweigart) — Belajar Python melalui otomasi tugas sehari-hari
+- **Automate the Boring Stuff with Python** (Al Sweigart) — Python melalui otomasi tugas sehari-hari
 
-### Komunitas
+**Komunitas:**
 - **r/learnpython** — Subreddit untuk pemula Python
 - **Stack Overflow** — Forum tanya jawab pemrograman terbesar
 - **Python Discord** — Komunitas real-time untuk diskusi dan bantuan

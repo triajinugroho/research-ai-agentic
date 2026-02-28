@@ -51,17 +51,7 @@ aktif = True            # boolean
 | Bersifat case-sensitive | `Nama` berbeda dengan `nama` | -- |
 | Tidak boleh menggunakan keyword Python | `jumlah`, `data` | `for`, `if`, `class` |
 
-**Konvensi penamaan (snake_case):**
-
-```python
-# Direkomendasikan (snake_case)
-nama_mahasiswa = "Siti Aminah"
-nilai_rata_rata = 85.5
-
-# Tidak direkomendasikan
-NamaMahasiswa = "Siti Aminah"    # PascalCase (untuk nama class)
-nilairatarata = 85.5              # sulit dibaca
-```
+**Konvensi penamaan:** Gunakan `snake_case` untuk variabel (contoh: `nama_mahasiswa`, `nilai_rata_rata`). Hindari `PascalCase` (khusus untuk nama class) dan penulisan tanpa pemisah yang sulit dibaca.
 
 ### 2. Tipe Data Dasar (CPMK-2.2)
 
@@ -74,14 +64,7 @@ Python memiliki empat tipe data dasar yang sering digunakan:
 | `str` | Teks/string (diapit tanda kutip) | `"Halo"`, `'UAI'` | `type("Halo")` -> `<class 'str'>` |
 | `bool` | Nilai logika (benar/salah) | `True`, `False` | `type(True)` -> `<class 'bool'>` |
 
-```python
-# Memeriksa tipe data
-bilangan = 42
-print(type(bilangan))    # <class 'int'>
-
-nama = "Informatika"
-print(type(nama))        # <class 'str'>
-```
+Gunakan fungsi `type()` untuk memeriksa tipe data: `type(42)` menghasilkan `<class 'int'>`, `type("Halo")` menghasilkan `<class 'str'>`.
 
 ### 3. Operator (CPMK-2.3)
 

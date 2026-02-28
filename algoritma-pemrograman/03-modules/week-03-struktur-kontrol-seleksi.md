@@ -35,15 +35,8 @@ Setelah menyelesaikan modul ini, mahasiswa mampu:
 
 Struktur seleksi memungkinkan program mengambil keputusan berdasarkan kondisi tertentu. Alur eksekusi tidak lagi linear, melainkan bergantung pada hasil evaluasi kondisi (True atau False).
 
-#### Struktur if Sederhana
-
 ```python
-# Sintaks dasar if
-if kondisi:
-    # blok kode dieksekusi jika kondisi bernilai True
-    pernyataan
-
-# Contoh: memeriksa bilangan positif
+# Sintaks: if kondisi: -> blok kode dieksekusi jika True
 bilangan = int(input("Masukkan bilangan: "))
 if bilangan > 0:
     print("Bilangan tersebut adalah bilangan positif")
@@ -99,19 +92,15 @@ print(f"Nilai huruf: {huruf}")
 Kondisi majemuk (compound condition) menggabungkan dua atau lebih ekspresi boolean menggunakan operator logika.
 
 ```python
-# Operator and -- kedua kondisi harus True
-usia = 20
-memiliki_ktp = True
+# and -- kedua kondisi harus True
 if usia >= 17 and memiliki_ktp:
     print("Anda berhak memilih dalam pemilu")
 
-# Operator or -- salah satu kondisi True sudah cukup
-hari = "Sabtu"
+# or -- salah satu kondisi True sudah cukup
 if hari == "Sabtu" or hari == "Minggu":
     print("Hari libur")
 
-# Operator not -- membalik nilai logika
-hujan = False
+# not -- membalik nilai logika
 if not hujan:
     print("Cuaca cerah, ayo berolahraga!")
 ```
@@ -165,14 +154,8 @@ else:
 
 ```python
 # Sintaks: nilai_jika_true if kondisi else nilai_jika_false
-usia = 20
 status = "Dewasa" if usia >= 17 else "Anak-anak"
-print(status)  # Dewasa
-
-# Contoh: menentukan ganjil/genap
-bilangan = 7
 jenis = "Genap" if bilangan % 2 == 0 else "Ganjil"
-print(f"{bilangan} adalah bilangan {jenis}")  # 7 adalah bilangan Ganjil
 ```
 
 ---
