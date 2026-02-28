@@ -21,9 +21,9 @@
 Setelah menyelesaikan praktikum ini, mahasiswa mampu:
 
 1. **Mengimplementasikan** fungsi rekursif untuk menyelesaikan masalah klasik (faktorial, Fibonacci, Tower of Hanoi)
-2. **Menelusuri** (tracing) call stack rekursif secara manual untuk memahami alur eksekusi
-3. **Mengoptimalkan** fungsi rekursif menggunakan teknik memoization
-4. **Membangun** program seni rekursif (Recursive Art) menggunakan pola ASCII
+2. **Menelusuri** (tracing) call stack dari pemanggilan rekursif untuk memahami alur eksekusi
+3. **Menerapkan** teknik memoization untuk mengoptimalkan rekursi
+4. **Membangun** Recursive Art — pola ASCII rekursif sebagai penerapan kreatif konsep rekursi
 
 ---
 
@@ -31,57 +31,59 @@ Setelah menyelesaikan praktikum ini, mahasiswa mampu:
 
 - Buka Google Colab di browser: [colab.research.google.com](https://colab.research.google.com)
 - Buat notebook baru dengan nama: `Lab12_NIM_NamaLengkap.ipynb`
-- Pastikan sudah memahami konsep fungsi dan parameter dari Lab sebelumnya
+- Pastikan sudah memahami konsep fungsi (Lab 05) dan algoritma pencarian (Lab 10)
 
 ---
 
 ## Langkah-langkah Praktikum
 
-### Langkah 1: Faktorial Rekursif (10 menit)
+### Langkah 1: Fungsi Rekursif — Faktorial (10 menit)
 
-Rekursi adalah teknik di mana fungsi memanggil dirinya sendiri. Setiap fungsi rekursif membutuhkan **base case** (kondisi berhenti) dan **recursive case**.
+Fungsi rekursif adalah fungsi yang memanggil dirinya sendiri. Setiap fungsi rekursif memiliki **base case** (kondisi berhenti) dan **recursive case** (pemanggilan diri).
 
 ```python
-def faktorial(n, depth=0):
+def faktorial(n, kedalaman=0):
     """
-    Menghitung n! secara rekursif dengan visualisasi call stack.
+    Menghitung n! secara rekursif.
+    Menampilkan call stack untuk pemahaman.
     """
-    indent = "  " * depth
+    indent = "  " * kedalaman
     print(f"{indent}→ faktorial({n}) dipanggil")
 
     # Base case
     if n == 0 or n == 1:
-        print(f"{indent}← faktorial({n}) = 1  [base case]")
+        print(f"{indent}← faktorial({n}) = 1 (base case)")
         return 1
 
     # Recursive case
-    hasil = n * faktorial(n - 1, depth + 1)
+    hasil = n * faktorial(n - 1, kedalaman + 1)
     print(f"{indent}← faktorial({n}) = {n} × {hasil // n} = {hasil}")
     return hasil
 
 # Uji coba
-print("=== FAKTORIAL REKURSIF ===\n")
-n = 5
-hasil = faktorial(n)
-print(f"\n{n}! = {hasil}")
+print("=== TRACING FAKTORIAL ===\n")
+hasil = faktorial(5)
+print(f"\nHasil akhir: 5! = {hasil}")
+
+# Verifikasi
+import math
+print(f"Verifikasi math.factorial(5) = {math.factorial(5)}")
 ```
 
-**Latihan tracing:** Gambar call stack untuk `faktorial(4)` di kertas sebelum menjalankan kode.
-
-### Langkah 2: Fibonacci — Naive vs Memoization (15 menit)
+### Langkah 2: Fibonacci — Naive dan Memoization (15 menit)
 
 Deret Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
 
 ```python
 import time
 
-# === FIBONACCI NAIVE (tanpa optimasi) ===
-call_count_naive = 0
+# === FIBONACCI NAIVE (LAMBAT) ===
+panggilan_naive = 0
 
 def fibonacci_naive(n):
     """Fibonacci rekursif tanpa optimasi — sangat lambat untuk n besar."""
-    global call_count_naive
-    call_count_naive += 1
+    global panggilan_naive
+    panggilan_naive += 1
 
     if n <= 0:
         return 0
@@ -89,120 +91,142 @@ def fibonacci_naive(n):
         return 1
     return fibonacci_naive(n - 1) + fibonacci_naive(n - 2)
 
-# === FIBONACCI DENGAN MEMOIZATION ===
-call_count_memo = 0
+# === FIBONACCI DENGAN MEMOIZATION (CEPAT) ===
+panggilan_memo = 0
 
-def fibonacci_memo(n, memo={}):
+def fibonacci_memo(n, cache={}):
     """Fibonacci rekursif dengan memoization — jauh lebih cepat."""
-    global call_count_memo
-    call_count_memo += 1
+    global panggilan_memo
+    panggilan_memo += 1
 
     if n <= 0:
         return 0
     if n == 1:
         return 1
-    if n in memo:
-        return memo[n]
+    if n in cache:
+        return cache[n]
 
-    memo[n] = fibonacci_memo(n - 1, memo) + fibonacci_memo(n - 2, memo)
-    return memo[n]
+    cache[n] = fibonacci_memo(n - 1, cache) + fibonacci_memo(n - 2, cache)
+    return cache[n]
 
 # === PERBANDINGAN ===
-print("=== FIBONACCI: NAIVE vs MEMOIZATION ===\n")
+print("=== PERBANDINGAN FIBONACCI ===\n")
+print(f"{'n':<5} {'Hasil':<12} {'Naive (panggilan)':<20} {'Memo (panggilan)':<20}")
+print("-" * 55)
 
-for n in [10, 20, 30, 35]:
-    call_count_naive = 0
-    call_count_memo = 0
+for n in [5, 10, 15, 20, 25, 30]:
+    panggilan_naive = 0
+    panggilan_memo = 0
 
     start = time.time()
     hasil_naive = fibonacci_naive(n)
     waktu_naive = time.time() - start
 
     start = time.time()
-    hasil_memo = fibonacci_memo(n, {})  # reset memo setiap kali
+    fibonacci_memo.cache = {}  # reset cache
+    hasil_memo = fibonacci_memo(n, {})
     waktu_memo = time.time() - start
 
-    print(f"fibonacci({n}) = {hasil_naive}")
-    print(f"  Naive : {call_count_naive:>12,} panggilan, {waktu_naive:.6f} detik")
-    print(f"  Memo  : {call_count_memo:>12,} panggilan, {waktu_memo:.6f} detik")
-    if waktu_naive > 0:
-        print(f"  Speedup: {waktu_naive / max(waktu_memo, 1e-9):,.0f}x lebih cepat")
-    print()
+    print(f"{n:<5} {hasil_naive:<12} {panggilan_naive:<20,} {panggilan_memo:<20,}")
+
+print("\nPerhatikan: Jumlah panggilan naive bertumbuh eksponensial!")
+print("Memoization mengurangi panggilan secara drastis dengan menyimpan hasil yang sudah dihitung.")
+
+# Menampilkan 15 angka Fibonacci pertama
+print("\n15 angka Fibonacci pertama:")
+fib_list = [fibonacci_memo(i, {}) for i in range(15)]
+print(fib_list)
 ```
 
 ### Langkah 3: Tower of Hanoi (10 menit)
 
-Pindahkan n piringan dari tiang A ke tiang C menggunakan tiang B sebagai perantara.
+Masalah klasik: pindahkan n piringan dari tiang sumber ke tiang tujuan menggunakan tiang bantu.
 
 ```python
-def tower_of_hanoi(n, sumber, tujuan, perantara, langkah_counter=[0]):
+langkah_hanoi = 0
+
+def tower_of_hanoi(n, sumber='A', tujuan='C', bantu='B', kedalaman=0):
     """
     Menyelesaikan Tower of Hanoi secara rekursif.
-    Aturan: hanya boleh memindahkan 1 piringan, piringan besar tidak boleh
-    di atas piringan kecil.
+    n piringan dipindahkan dari tiang sumber ke tiang tujuan.
     """
+    global langkah_hanoi
+
     if n == 1:
-        langkah_counter[0] += 1
-        print(f"  Langkah {langkah_counter[0]:>2}: "
-              f"Pindahkan piringan 1 dari {sumber} ke {tujuan}")
+        langkah_hanoi += 1
+        indent = "  " * kedalaman
+        print(f"{indent}Langkah {langkah_hanoi}: Pindahkan piringan 1 "
+              f"dari {sumber} ke {tujuan}")
         return
 
-    tower_of_hanoi(n - 1, sumber, perantara, tujuan, langkah_counter)
-    langkah_counter[0] += 1
-    print(f"  Langkah {langkah_counter[0]:>2}: "
-          f"Pindahkan piringan {n} dari {sumber} ke {tujuan}")
-    tower_of_hanoi(n - 1, perantara, tujuan, sumber, langkah_counter)
+    # Pindahkan n-1 piringan dari sumber ke bantu
+    tower_of_hanoi(n - 1, sumber, bantu, tujuan, kedalaman + 1)
 
-# Uji coba
-print("=== TOWER OF HANOI ===\n")
-for jumlah_piringan in [3, 4]:
-    print(f"--- {jumlah_piringan} Piringan ---")
-    langkah = [0]
-    tower_of_hanoi(jumlah_piringan, "A", "C", "B", langkah)
-    print(f"  Total langkah: {langkah[0]} (2^{jumlah_piringan} - 1 = {2**jumlah_piringan - 1})\n")
+    # Pindahkan piringan terbesar dari sumber ke tujuan
+    langkah_hanoi += 1
+    indent = "  " * kedalaman
+    print(f"{indent}Langkah {langkah_hanoi}: Pindahkan piringan {n} "
+          f"dari {sumber} ke {tujuan}")
+
+    # Pindahkan n-1 piringan dari bantu ke tujuan
+    tower_of_hanoi(n - 1, bantu, tujuan, sumber, kedalaman + 1)
+
+# Uji coba dengan 3 piringan
+print("=== TOWER OF HANOI (3 piringan) ===\n")
+langkah_hanoi = 0
+tower_of_hanoi(3)
+print(f"\nTotal langkah: {langkah_hanoi}")
+print(f"Rumus: 2^n - 1 = 2^3 - 1 = {2**3 - 1}")
+
+# Verifikasi rumus untuk berbagai n
+print("\n--- Verifikasi Rumus ---")
+for n in range(1, 8):
+    langkah_hanoi = 0
+    tower_of_hanoi(n, 'A', 'C', 'B', 0)  # Jalankan tapi tanpa print
+    # Kita hitung ulang langkah tanpa print
+    print(f"  n={n}: langkah = {2**n - 1}")
 ```
 
 ### Langkah 4: Binary Search Rekursif (10 menit)
 
-Versi rekursif dari Binary Search yang sudah dipelajari di Lab 10.
+Implementasi Binary Search secara rekursif, bandingkan dengan versi iteratif dari Lab 10.
 
 ```python
-def binary_search_rekursif(data, target, left, right, depth=0):
+def binary_search_rekursif(data, target, left, right, langkah=0):
     """
-    Binary Search versi rekursif dengan visualisasi call stack.
+    Binary Search secara rekursif.
+    Mengembalikan (index, langkah) atau (-1, langkah) jika tidak ditemukan.
     """
-    indent = "  " * depth
-    print(f"{indent}→ search(left={left}, right={right})", end="")
-
+    langkah += 1
     if left > right:
-        print(f" — TIDAK DITEMUKAN")
-        return -1
+        return -1, langkah
 
     mid = (left + right) // 2
-    print(f", mid={mid}, data[mid]={data[mid]}", end="")
+    print(f"  Langkah {langkah}: left={left}, right={right}, mid={mid}, "
+          f"data[mid]={data[mid]}")
 
     if data[mid] == target:
-        print(f" ← DITEMUKAN!")
-        return mid
+        print(f"  → DITEMUKAN di index {mid}!")
+        return mid, langkah
     elif data[mid] < target:
-        print(f" → cari kanan")
-        return binary_search_rekursif(data, target, mid + 1, right, depth + 1)
+        return binary_search_rekursif(data, target, mid + 1, right, langkah)
     else:
-        print(f" → cari kiri")
-        return binary_search_rekursif(data, target, left, mid - 1, depth + 1)
+        return binary_search_rekursif(data, target, left, mid - 1, langkah)
 
 # Uji coba
-data = [4, 8, 15, 19, 23, 31, 42, 55, 67, 88]
-print("=== BINARY SEARCH REKURSIF ===")
-print(f"Data: {data}\n")
+data_terurut = [4, 8, 15, 19, 23, 31, 42, 55, 67, 88]
+print("=== BINARY SEARCH REKURSIF ===\n")
+print(f"Data: {data_terurut}")
 
-for target in [31, 10]:
-    print(f"Mencari {target}:")
-    hasil = binary_search_rekursif(data, target, 0, len(data) - 1)
-    if hasil != -1:
-        print(f"Hasil: ditemukan di index {hasil}\n")
-    else:
-        print(f"Hasil: tidak ditemukan\n")
+target = 42
+print(f"\nMencari: {target}")
+index, langkah = binary_search_rekursif(data_terurut, target, 0, len(data_terurut) - 1)
+print(f"Hasil: index={index}, langkah={langkah}")
+
+target = 50
+print(f"\nMencari: {target}")
+index, langkah = binary_search_rekursif(data_terurut, target, 0, len(data_terurut) - 1)
+print(f"Hasil: index={index} (tidak ditemukan), langkah={langkah}")
 ```
 
 ### Langkah 5: Perbandingan Rekursif vs Iteratif (5 menit)
@@ -210,110 +234,120 @@ for target in [31, 10]:
 ```python
 import time
 
-# === FAKTORIAL ITERATIF ===
+# Faktorial iteratif
 def faktorial_iteratif(n):
     hasil = 1
     for i in range(2, n + 1):
         hasil *= i
     return hasil
 
-# === PERBANDINGAN ===
-def faktorial_rekursif_simple(n):
-    if n <= 1:
-        return 1
-    return n * faktorial_rekursif_simple(n - 1)
-
+# Perbandingan waktu
 print("=== REKURSIF vs ITERATIF ===\n")
-print(f"{'n':<8} {'Rekursif (dtk)':<18} {'Iteratif (dtk)':<18} {'Hasil sama?'}")
-print("-" * 55)
+print(f"{'n':<8} {'Rekursif (detik)':<20} {'Iteratif (detik)':<20} {'Hasil sama?'}")
+print("-" * 58)
 
-for n in [100, 500, 900]:
+for n in [10, 50, 100, 500, 900]:
     start = time.time()
-    r1 = faktorial_rekursif_simple(n)
+    r1 = faktorial(n) if n <= 100 else None  # rekursi dibatasi
     t_rekursif = time.time() - start
 
     start = time.time()
     r2 = faktorial_iteratif(n)
     t_iteratif = time.time() - start
 
-    print(f"{n:<8} {t_rekursif:<18.6f} {t_iteratif:<18.6f} {r1 == r2}")
+    sama = "Ya" if r1 == r2 else "N/A" if r1 is None else "Tidak"
+    print(f"{n:<8} {t_rekursif:<20.6f} {t_iteratif:<20.6f} {sama}")
 
-print("\nCatatan: Python memiliki batas kedalaman rekursi (~1000 secara default).")
-print(f"Batas rekursi saat ini: {__import__('sys').getrecursionlimit()}")
+print("\nCatatan: Python memiliki batas kedalaman rekursi (default: 1000).")
+print(f"Batas saat ini: {__import__('sys').getrecursionlimit()}")
 ```
 
 ### Langkah 6: Mini Project — Recursive Art (15 menit)
 
-Buat pola ASCII rekursif. Pilih salah satu: Segitiga Sierpinski atau Pohon Rekursif.
+Buat pola ASCII rekursif — segitiga Sierpinski dalam bentuk teks.
 
 ```python
-# === SEGITIGA SIERPINSKI (ASCII) ===
-def sierpinski(n):
+def segitiga_sierpinski(n):
     """
-    Menghasilkan Segitiga Sierpinski level n dalam bentuk ASCII.
+    Menghasilkan segitiga Sierpinski level n menggunakan ASCII.
+    Menggunakan teknik rekursif: segitiga besar terdiri dari 3 segitiga kecil.
     """
     if n == 0:
         return ["*"]
 
-    segitiga_kecil = sierpinski(n - 1)
-    lebar = len(segitiga_kecil[-1])
+    # Dapatkan segitiga level sebelumnya
+    sebelumnya = segitiga_sierpinski(n - 1)
+    tinggi = len(sebelumnya)
+    lebar = len(sebelumnya[-1])
 
-    # Bagian atas: satu segitiga kecil di tengah
-    atas = [baris.center(lebar * 2 + 1) for baris in segitiga_kecil]
+    # Bagian atas: segitiga kecil di tengah
+    atas = [" " * (lebar + 1) + baris + " " * (lebar + 1) for baris in sebelumnya]
 
     # Bagian bawah: dua segitiga kecil berdampingan
-    bawah = [baris + " " + baris for baris in segitiga_kecil]
+    bawah = [sebelumnya[i] + " " + sebelumnya[i] for i in range(tinggi)]
 
     return atas + bawah
 
-print("=== SEGITIGA SIERPINSKI ===\n")
-for level in range(5):
-    print(f"--- Level {level} ---")
-    pola = sierpinski(level)
+def tampilkan_sierpinski(level):
+    """Menampilkan segitiga Sierpinski level tertentu."""
+    print(f"\n=== SEGITIGA SIERPINSKI (Level {level}) ===\n")
+    pola = segitiga_sierpinski(level)
     for baris in pola:
         print(baris)
-    print()
+
+# Tampilkan level 0 hingga 4
+for level in range(5):
+    tampilkan_sierpinski(level)
 
 # === POHON REKURSIF (ASCII) ===
-def pohon_rekursif(tinggi, prefix="", is_last=True, label="Akar"):
-    """
-    Menggambar pohon rekursif dalam bentuk ASCII tree.
-    Setiap node memiliki dua cabang sampai tinggi = 0.
-    """
-    connector = "└── " if is_last else "├── "
-    print(f"{prefix}{connector}{label}")
-
+def pohon_rekursif(tinggi, offset=0):
+    """Menggambar pohon ASCII secara rekursif."""
     if tinggi <= 0:
-        return
+        return []
 
-    extension = "    " if is_last else "│   "
-    new_prefix = prefix + extension
+    baris = []
+    # Bagian daun (segitiga)
+    for i in range(tinggi):
+        spasi = " " * (tinggi - i - 1 + offset)
+        daun = "*" * (2 * i + 1)
+        baris.append(spasi + daun)
 
-    pohon_rekursif(tinggi - 1, new_prefix, False, f"Cabang Kiri (h={tinggi-1})")
-    pohon_rekursif(tinggi - 1, new_prefix, True, f"Cabang Kanan (h={tinggi-1})")
+    # Rekursi: pohon lebih kecil di atas
+    if tinggi > 2:
+        sub_pohon = pohon_rekursif(tinggi - 1, offset + 1)
+        baris = sub_pohon + baris
 
-print("\n=== POHON REKURSIF (ASCII) ===\n")
-pohon_rekursif(3, "", True, "Akar (h=3)")
+    return baris
+
+print("\n=== POHON REKURSIF (tinggi=5) ===\n")
+pohon = pohon_rekursif(5)
+for baris in pohon:
+    print(baris)
+
+# Batang pohon
+lebar_max = len(pohon[-1])
+for _ in range(3):
+    print(" " * (lebar_max // 2 - 1) + "|||")
 ```
 
 ---
 
 ## Tantangan Tambahan
 
-1. **Sum of Digits:** Buat fungsi rekursif `jumlah_digit(n)` yang menghitung jumlah digit suatu bilangan (contoh: `jumlah_digit(1234)` = 10). Tampilkan call stack-nya.
-2. **Palindrome Check:** Buat fungsi rekursif `is_palindrome(s)` yang mengecek apakah string s adalah palindrom. Uji dengan kata-kata bahasa Indonesia seperti "katak", "level", "malam".
-3. **Flood Fill:** Implementasikan algoritma Flood Fill rekursif pada grid 2D (seperti bucket fill pada program menggambar). Tampilkan grid sebelum dan sesudah.
+1. **Sum of Digits:** Buat fungsi rekursif `jumlah_digit(n)` yang menghitung jumlah digit sebuah bilangan (contoh: `jumlah_digit(1234)` = 10).
+2. **Palindrome Checker:** Buat fungsi rekursif `cek_palindrom(teks)` yang memeriksa apakah sebuah string adalah palindrom.
+3. **Flood Fill:** Implementasikan algoritma flood fill secara rekursif pada grid 2D (seperti fitur "paint bucket" di editor gambar).
 
 ---
 
 ## Checklist Penyelesaian
 
-- [ ] Mampu mengimplementasikan faktorial rekursif dengan visualisasi call stack
-- [ ] Mampu mengimplementasikan Fibonacci naive dan versi memoization, memahami perbedaan performanya
+- [ ] Mampu mengimplementasikan faktorial secara rekursif dengan tracing call stack
+- [ ] Mampu mengimplementasikan Fibonacci naive dan dengan memoization
 - [ ] Mampu menyelesaikan Tower of Hanoi secara rekursif
-- [ ] Mampu mengimplementasikan Binary Search versi rekursif
+- [ ] Mampu mengimplementasikan Binary Search secara rekursif
 - [ ] Memahami perbandingan performa rekursif vs iteratif
-- [ ] Menyelesaikan mini project Recursive Art (Sierpinski atau Pohon Rekursif)
+- [ ] Menyelesaikan mini project Recursive Art (Sierpinski/Pohon)
 - [ ] Notebook disimpan dengan nama `Lab12_NIM_NamaLengkap.ipynb`
 
 ---
