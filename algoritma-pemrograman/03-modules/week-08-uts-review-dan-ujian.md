@@ -14,7 +14,6 @@
 | Pengajar       | Tri Aji Nugroho, S.T., M.T.                                        |
 | Program Studi  | Informatika, Universitas Al Azhar Indonesia                         |
 | Semester       | Genap 2025/2026                                                     |
-| Bahasa         | Python                                                              |
 
 ---
 
@@ -22,9 +21,9 @@
 
 Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
-1. **Mengidentifikasi** konsep-konsep kunci dari setiap topik yang telah dipelajari pada Minggu 1--7 sebagai persiapan UTS.
-2. **Menganalisis** potongan kode Python (code tracing) dan menentukan output yang dihasilkan secara tepat.
-3. **Menyelesaikan** soal-soal pemrograman yang mengintegrasikan berbagai konsep fondasi dan modularitas.
+1. **Mengidentifikasi** konsep kunci dari setiap topik Minggu 1--7 sebagai persiapan UTS.
+2. **Menganalisis** potongan kode Python (code tracing) dan menentukan output secara tepat.
+3. **Menyelesaikan** soal pemrograman yang mengintegrasikan konsep fondasi dan modularitas.
 
 ---
 
@@ -34,63 +33,52 @@ Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
 #### Phase 1: Fondasi (Minggu 1--4)
 
-| Minggu | Topik                              | Konsep Kunci                                                    |
-|--------|------------------------------------|-----------------------------------------------------------------|
-| 1      | Pengantar Algoritma & Python       | Definisi algoritma, flowchart, pseudocode, Google Colab, `print()`, `input()` |
-| 2      | Variabel, Tipe Data, Operator      | Variabel, `int`, `float`, `str`, `bool`, operator aritmatika, perbandingan, logika, type casting |
-| 3      | Percabangan (Selection)            | `if`, `elif`, `else`, nested if, operator logika dalam kondisi  |
-| 4      | Perulangan (Iteration)             | `for`, `while`, `range()`, `break`, `continue`, nested loop, akumulator pattern |
+| Minggu | Topik                         | Konsep Kunci                                                  |
+|--------|-------------------------------|---------------------------------------------------------------|
+| 1      | Pengantar Algoritma & Python  | Algoritma, flowchart, pseudocode, `print()`, `input()`        |
+| 2      | Variabel, Tipe Data, Operator | `int`, `float`, `str`, `bool`, operator aritmatika/logika     |
+| 3      | Percabangan (Selection)       | `if`, `elif`, `else`, nested if, operator logika              |
+| 4      | Perulangan (Iteration)        | `for`, `while`, `range()`, `break`, `continue`, nested loop   |
 
 #### Phase 2: Modularitas (Minggu 5--7)
 
-| Minggu | Topik                              | Konsep Kunci                                                    |
-|--------|------------------------------------|-----------------------------------------------------------------|
-| 5      | Fungsi dan Modularitas             | `def`, parameter, `return`, scope (lokal/global), DRY, top-down design, docstring |
-| 6      | String dan Pengolahan Teks         | Indexing, slicing, string methods, f-string, file I/O, `with` statement |
-| 7      | List, Tuple, dan Operasi Koleksi   | List CRUD, list comprehension, nested list, tuple, `len`, `sum`, `min`, `max`, `sorted`, `enumerate`, `zip` |
+| Minggu | Topik                         | Konsep Kunci                                                  |
+|--------|-------------------------------|---------------------------------------------------------------|
+| 5      | Fungsi dan Modularitas        | `def`, parameter, `return`, scope, DRY, docstring             |
+| 6      | String dan Pengolahan Teks    | Indexing, slicing, string methods, f-string, file I/O         |
+| 7      | List, Tuple, Operasi Koleksi  | List CRUD, list comprehension, tuple, `enumerate`, `zip`      |
 
 ### 8.2 Tipe Soal UTS
 
-| Tipe Soal                   | Bobot | Jumlah | Deskripsi                                                      |
-|-----------------------------|-------|--------|----------------------------------------------------------------|
-| Pilihan Ganda (PG)          | 20%   | 10     | Konsep dasar, terminologi, output sederhana                    |
-| Code Tracing                | 30%   | 5      | Membaca kode dan menentukan output secara manual               |
-| Tulis Kode                  | 30%   | 3      | Menulis fungsi/program sesuai spesifikasi yang diberikan       |
-| Essay / Desain Algoritma    | 20%   | 2      | Menjelaskan konsep dan merancang solusi algoritmik             |
+| Tipe Soal                | Bobot | Jumlah | Deskripsi                                    |
+|--------------------------|-------|--------|----------------------------------------------|
+| Pilihan Ganda (PG)       | 20%   | 10     | Konsep dasar, terminologi, output sederhana  |
+| Code Tracing             | 30%   | 5      | Membaca kode dan menentukan output manual    |
+| Tulis Kode               | 30%   | 3      | Menulis fungsi/program sesuai spesifikasi    |
+| Essay / Desain Algoritma | 20%   | 2      | Menjelaskan konsep, merancang solusi         |
 
-**Format UTS:**
-- Durasi: **100 menit**
-- Sifat: **Closed-book** (buku tertutup)
-- Alat bantu: **Tidak diperkenankan** menggunakan AI, internet, atau catatan
-- Media: Kertas (ujian tertulis)
+**Format UTS:** Durasi 100 menit, closed-book, tanpa AI/internet/catatan, ujian tertulis (kertas).
 
 ### 8.3 Tips Persiapan UTS
 
-1. **Kuasai Konsep Dasar:** Pastikan memahami variabel, tipe data, operator, dan alur kontrol (percabangan & perulangan) secara mendalam.
-2. **Latih Code Tracing:** Biasakan membaca kode baris per baris dan menentukan output secara manual tanpa menjalankan program.
-3. **Hafal Sintaks Penting:** Pastikan dapat menulis `def`, `for`, `while`, `if`, list operations, dan string methods tanpa bantuan auto-complete.
-4. **Pahami Fungsi:** Kuasai konsep parameter, return value, dan scope. Ini adalah topik yang sering diujikan.
-5. **Kerjakan Latihan:** Ulangi semua latihan dari Minggu 1--7 dan coba soal-soal latihan di bawah ini.
-6. **Manajemen Waktu:** Kerjakan soal yang mudah terlebih dahulu, baru kembali ke soal yang sulit.
+1. **Kuasai Konsep Dasar** -- variabel, tipe data, operator, percabangan, dan perulangan.
+2. **Latih Code Tracing** -- baca kode baris per baris, tentukan output tanpa menjalankan program.
+3. **Hafal Sintaks Penting** -- `def`, `for`, `while`, `if`, list operations, string methods.
+4. **Pahami Fungsi** -- parameter, return value, dan scope sering diujikan.
+5. **Kerjakan Latihan** -- ulangi semua latihan Minggu 1--7 dan soal latihan di bawah.
+6. **Manajemen Waktu** -- kerjakan soal mudah terlebih dahulu.
 
 ### 8.4 Contoh Soal Latihan
 
-#### Soal 1: Pilihan Ganda
-Apa output dari kode berikut?
+**Soal 1 (PG):** Apa output dari kode berikut?
 ```python
 x = 10
 y = 3
 print(x // y, x % y)
 ```
-- (a) 3.33 1
-- (b) 3 1
-- (c) 3.0 1.0
-- (d) 10 3
+(a) 3.33 1 -- (b) **3 1** -- (c) 3.0 1.0 -- (d) 10 3
 
-**Jawaban:** (b) — operator `//` adalah floor division, `%` adalah modulo.
-
-#### Soal 2: Code Tracing
-Tentukan output dari kode berikut:
+**Soal 2 (Code Tracing):** Tentukan output:
 ```python
 def misteri(n):
     hasil = ""
@@ -98,94 +86,47 @@ def misteri(n):
         hasil += str(i)
     return hasil
 
-x = misteri(5)
-print(x, type(x).__name__)
+print(misteri(5), type(misteri(5)).__name__)
 ```
+**Jawaban:** `54321 str`
 
-**Jawaban:** `54321 str` — fungsi menggabungkan angka dari n sampai 1 menjadi string.
-
-#### Soal 3: Code Tracing
-Tentukan output dari kode berikut:
+**Soal 3 (Code Tracing):** Tentukan output:
 ```python
 data = [10, 20, 30, 40, 50]
-hasil = []
-for i in range(len(data)):
-    if data[i] % 20 == 0:
-        hasil.append(data[i] * 2)
-
+hasil = [x * 2 for x in data if x % 20 == 0]
 print(hasil)
 print(sum(hasil))
 ```
+**Jawaban:** `[40, 80]` dan `120`
 
-**Jawaban:** `[40, 80]` dan `120` — hanya elemen yang habis dibagi 20 (yaitu 20 dan 40) yang diproses.
-
-#### Soal 4: Tulis Kode
-Buatlah fungsi `hitung_huruf_vokal(teks)` yang menerima sebuah string dan mengembalikan jumlah huruf vokal (a, i, u, e, o) dalam string tersebut. Huruf besar dan kecil dihitung sama.
-
-**Contoh jawaban:**
+**Soal 4 (Tulis Kode):** Buat fungsi `hitung_huruf_vokal(teks)` yang mengembalikan jumlah huruf vokal.
 ```python
-def hitung_huruf_vokal(teks):
-    """Menghitung jumlah huruf vokal dalam teks."""
-    vokal = "aiueoAIUEO"
-    jumlah = 0
-    for huruf in teks:
-        if huruf in vokal:
-            jumlah += 1
-    return jumlah
-
-# Alternatif menggunakan list comprehension:
 def hitung_huruf_vokal(teks):
     """Menghitung jumlah huruf vokal dalam teks."""
     return sum(1 for h in teks.lower() if h in "aiueo")
 ```
 
-#### Soal 5: Code Tracing
-Tentukan output dari kode berikut:
+**Soal 5 (Code Tracing):** Tentukan output:
 ```python
 def proses(data):
-    hasil = []
-    for item in data:
-        if item > 0:
-            hasil.append(item ** 2)
-        else:
-            hasil.append(abs(item))
-    return hasil
+    return [x**2 if x > 0 else abs(x) for x in data]
 
-angka = [-3, 4, -1, 5, 0, -2]
-print(proses(angka))
+print(proses([-3, 4, -1, 5, 0, -2]))
 ```
+**Jawaban:** `[3, 16, 1, 25, 0, 2]`
 
-**Jawaban:** `[3, 16, 1, 25, 0, 2]` — angka positif dikuadratkan, angka negatif/nol diambil nilai absolutnya.
+**Soal 6 (Essay):** Jelaskan perbedaan variabel lokal dan global. Berikan contoh kasus di mana variabel global menyebabkan bug dan cara mengatasinya dengan parameter/return.
 
-#### Soal 6: Essay / Desain Algoritma
-Jelaskan perbedaan antara variabel lokal dan variabel global dalam Python. Berikan contoh kasus di mana penggunaan variabel global dapat menyebabkan bug, dan bagaimana cara mengatasinya menggunakan parameter dan return value.
-
-#### Soal 7: Tulis Kode
-Buatlah fungsi `ringkasan_data(angka_list)` yang menerima list bilangan bulat dan mengembalikan tuple berisi `(rata_rata, nilai_max, nilai_min, jumlah_genap)`.
-
-**Contoh jawaban:**
+**Soal 7 (Tulis Kode):** Buat fungsi `ringkasan_data(angka_list)` yang mengembalikan tuple `(rata_rata, max, min, jumlah_genap)`.
 ```python
 def ringkasan_data(angka_list):
     """Menghitung ringkasan statistik dari list angka."""
-    rata_rata = sum(angka_list) / len(angka_list)
-    nilai_max = max(angka_list)
-    nilai_min = min(angka_list)
-    jumlah_genap = sum(1 for x in angka_list if x % 2 == 0)
-    return rata_rata, nilai_max, nilai_min, jumlah_genap
-
-# Penggunaan
-avg, hi, lo, genap = ringkasan_data([10, 23, 44, 7, 36, 15])
-print(f"Rata-rata: {avg:.1f}, Max: {hi}, Min: {lo}, Genap: {genap}")
+    rata = sum(angka_list) / len(angka_list)
+    return rata, max(angka_list), min(angka_list), sum(1 for x in angka_list if x % 2 == 0)
 ```
 
-#### Soal 8: Pilihan Ganda
-Manakah yang merupakan tipe data **immutable** di Python?
-- (a) list
-- (b) dictionary
-- (c) tuple
-- (d) set
-
-**Jawaban:** (c) — tuple bersifat immutable, tidak dapat diubah setelah dibuat.
+**Soal 8 (PG):** Tipe data **immutable** di Python?
+(a) list -- (b) dictionary -- (c) **tuple** -- (d) set
 
 ---
 
@@ -193,25 +134,25 @@ Manakah yang merupakan tipe data **immutable** di Python?
 
 ### Pre-class (15 menit)
 - Membaca ringkasan materi Minggu 1--7 pada modul ini.
-- Menyiapkan daftar topik atau konsep yang masih belum dipahami untuk ditanyakan saat sesi review.
-- Mengerjakan 2--3 soal latihan secara mandiri sebelum kelas.
+- Menyiapkan daftar topik yang masih belum dipahami untuk sesi review.
+- Mengerjakan 2--3 soal latihan secara mandiri.
 
 ### In-class (150 menit)
 
-| Waktu (menit)  | Kegiatan                                                      | Metode           |
-|----------------|---------------------------------------------------------------|------------------|
-| 0 -- 5         | Pembukaan dan penjelasan agenda hari ini                       | Ceramah          |
-| 5 -- 20        | Review Phase 1: Fondasi (Minggu 1--4)                          | Ceramah & Diskusi|
-| 20 -- 35       | Review Phase 2: Modularitas (Minggu 5--7)                      | Ceramah & Diskusi|
-| 35 -- 50       | Tanya jawab terbuka dan pembahasan soal latihan                | Diskusi          |
-| 50 -- 55       | Persiapan ujian: distribusi soal, penjelasan aturan            | —                |
-| 55 -- 155      | **Ujian Tengah Semester (UTS) — 100 menit**                    | Ujian Tertulis   |
+| Waktu (menit) | Kegiatan                                                | Metode           |
+|----------------|---------------------------------------------------------|------------------|
+| 0 -- 5         | Pembukaan dan penjelasan agenda                          | Ceramah          |
+| 5 -- 20        | Review Phase 1: Fondasi (Minggu 1--4)                    | Ceramah & Diskusi|
+| 20 -- 35       | Review Phase 2: Modularitas (Minggu 5--7)                | Ceramah & Diskusi|
+| 35 -- 50       | Tanya jawab terbuka dan pembahasan soal latihan          | Diskusi          |
+| 50 -- 55       | Persiapan ujian: distribusi soal, penjelasan aturan      | --               |
+| 55 -- 155      | **Ujian Tengah Semester (UTS) -- 100 menit**              | Ujian Tertulis   |
 
-> **Catatan:** Jika jadwal UTS dilaksanakan pada sesi terpisah sesuai kebijakan universitas, maka sesi in-class 150 menit seluruhnya digunakan untuk review, latihan soal, dan tanya jawab. Ujian dilaksanakan sesuai jadwal UTS resmi.
+> **Catatan:** Jika UTS dijadwalkan pada sesi terpisah sesuai kebijakan universitas, seluruh 150 menit digunakan untuk review, latihan, dan tanya jawab.
 
 ### Post-class (15 menit)
-- Refleksi mandiri terhadap performa UTS: identifikasi topik yang masih perlu diperkuat.
-- Membaca materi Minggu 9 tentang topik Phase 3 berikutnya sebagai persiapan.
+- Refleksi mandiri terhadap performa UTS.
+- Membaca materi Minggu 9 sebagai persiapan Phase 3.
 
 ---
 
@@ -219,18 +160,18 @@ Manakah yang merupakan tipe data **immutable** di Python?
 
 Tidak ada tugas formal pada minggu ini. Mahasiswa diharapkan:
 
-1. Mengumpulkan **Tugas T4** (Data Processing with Collections) sebelum UTS dimulai.
-2. Mempersiapkan diri untuk UTS dengan mengerjakan soal-soal latihan di atas.
-3. Mereview seluruh catatan, latihan, dan tugas dari Minggu 1--7.
+1. Mengumpulkan **Tugas T4** sebelum UTS dimulai.
+2. Mempersiapkan diri dengan mengerjakan soal-soal latihan di atas.
+3. Mereview seluruh catatan dan tugas dari Minggu 1--7.
 
 ---
 
 ## Referensi
 
-1. Downey, A. (2015). *Think Python: How to Think Like a Computer Scientist*, 2nd Edition. O'Reilly Media. — Chapters 1--12 (seluruh materi yang relevan).
-2. Matthes, E. (2023). *Python Crash Course*, 3rd Edition. No Starch Press. — Chapters 1--10 (seluruh materi yang relevan).
-3. Python Software Foundation. *The Python Tutorial*. [https://docs.python.org/3/tutorial/](https://docs.python.org/3/tutorial/)
-4. Sweigart, A. (2019). *Automate the Boring Stuff with Python*, 2nd Edition. No Starch Press. — Chapters 1--6 (seluruh materi yang relevan).
+1. Downey, A. (2015). *Think Python*, 2nd Ed. O'Reilly. -- Ch. 1--12.
+2. Matthes, E. (2023). *Python Crash Course*, 3rd Ed. No Starch Press. -- Ch. 1--10.
+3. Python Docs. *The Python Tutorial*. [https://docs.python.org/3/tutorial/](https://docs.python.org/3/tutorial/)
+4. Sweigart, A. (2019). *Automate the Boring Stuff with Python*, 2nd Ed. -- Ch. 1--6.
 
 ---
 

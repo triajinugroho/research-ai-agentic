@@ -14,7 +14,7 @@
 | **CPMK** | CPMK-7 |
 | **Sub-CPMK** | CPMK-7.1, CPMK-7.2, CPMK-7.3, CPMK-7.4 |
 | **Durasi** | 150 menit (Teori: 75 menit, Praktik: 75 menit) |
-| **Metode** | Ceramah interaktif, Analisis kode, Eksperimen performa, Diskusi |
+| **Metode** | Ceramah interaktif, Visualisasi, Analisis kode, Praktik |
 
 ---
 
@@ -22,10 +22,10 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Menjelaskan** konsep efisiensi algoritma dan mengapa analisis kompleksitas penting dalam pengembangan perangkat lunak (CPMK-7.1)
-2. **Menganalisis** kompleksitas waktu (time complexity) dari potongan kode Python menggunakan notasi Big-O (CPMK-7.2)
-3. **Membedakan** kelas-kelas kompleksitas umum (O(1), O(log n), O(n), O(n log n), O(n^2), O(2^n)) serta implikasinya terhadap skalabilitas program (CPMK-7.3)
-4. **Mengevaluasi** trade-off antara kompleksitas waktu dan ruang (space complexity) serta menerapkan strategi optimasi pada kode yang sudah ada (CPMK-7.4)
+1. **Menjelaskan** mengapa efisiensi algoritma penting dan bagaimana notasi Big-O digunakan untuk mengukur kompleksitas waktu dan ruang (CPMK-7.1)
+2. **Mengklasifikasikan** algoritma ke dalam kelas kompleksitas yang sesuai: O(1), O(log n), O(n), O(n log n), O(n^2), O(2^n) (CPMK-7.2)
+3. **Menganalisis** potongan kode Python untuk menentukan kompleksitas Big-O secara sistematis (CPMK-7.3)
+4. **Mengevaluasi** trade-off antara kompleksitas waktu dan ruang serta menerapkan teknik optimasi pada algoritma yang telah dipelajari (CPMK-7.4)
 
 ---
 
@@ -33,54 +33,85 @@ Setelah menyelesaikan modul ini, mahasiswa mampu:
 
 ### 1. Mengapa Efisiensi Algoritma Penting? (CPMK-7.1)
 
-Dua program yang menghasilkan output identik bisa memiliki waktu eksekusi yang sangat berbeda. Pada data kecil, perbedaannya tidak terasa. Namun ketika data tumbuh menjadi jutaan atau miliaran, algoritma yang tidak efisien bisa memakan waktu berjam-jam, sedangkan algoritma efisien selesai dalam hitungan detik.
+Dua algoritma yang menghasilkan output benar bisa memiliki kinerja yang sangat berbeda. Bayangkan mencari nama di buku telepon 1 juta entri:
 
-**Ilustrasi dampak pertumbuhan data:**
+- **Linear Search** -- periksa satu per satu: hingga 1.000.000 langkah
+- **Binary Search** -- bagi dua berulang: maksimal 20 langkah
 
-| Ukuran Input (n) | O(n) | O(n^2) | O(2^n) |
-|-------------------|------|--------|--------|
-| 10 | 10 operasi | 100 operasi | 1.024 operasi |
-| 100 | 100 operasi | 10.000 operasi | ~10^30 operasi |
-| 1.000 | 1.000 operasi | 1.000.000 operasi | Tidak terhitung |
-| 1.000.000 | 1.000.000 operasi | 10^12 operasi | Tidak terhitung |
+Perbedaan ini semakin dramatis seiring bertambahnya ukuran data. Di dunia nyata, aplikasi yang lambat kehilangan pengguna, server yang tidak efisien membuang energi, dan sistem kritis bisa gagal memenuhi tenggat waktu.
 
-> **Refleksi:** Jika satu operasi memakan 1 mikrodetik, O(n^2) dengan n=1.000.000 membutuhkan sekitar 11,5 hari. Algoritma O(n log n) hanya membutuhkan sekitar 20 detik.
+**Pengukuran efisiensi:**
 
-### 2. Notasi Big-O: Definisi dan Aturan (CPMK-7.2)
+- **Kompleksitas Waktu (Time Complexity)** -- berapa banyak operasi dasar yang diperlukan relatif terhadap ukuran input *n*
+- **Kompleksitas Ruang (Space Complexity)** -- berapa banyak memori tambahan yang diperlukan relatif terhadap ukuran input *n*
+- Fokus pada **worst-case** (kasus terburuk) sebagai jaminan performa
 
-**Definisi formal:** f(n) = O(g(n)) jika terdapat konstanta positif c dan n0 sedemikian hingga f(n) <= c * g(n) untuk semua n >= n0.
+### 2. Notasi Big-O: Definisi Formal dan Informal (CPMK-7.1)
 
-**Definisi informal:** Big-O menggambarkan *batas atas* laju pertumbuhan suatu fungsi ketika input mendekati tak hingga. Kita hanya peduli pada suku dominan dan mengabaikan konstanta.
+**Definisi informal:** Big-O menggambarkan laju pertumbuhan jumlah operasi seiring bertambahnya ukuran input. Kita mengabaikan konstanta dan suku-suku yang lebih kecil.
 
-**Aturan praktis menghitung Big-O:**
+**Definisi formal:** f(n) = O(g(n)) jika terdapat konstanta positif *c* dan *n0* sedemikian hingga f(n) <= c * g(n) untuk semua n >= n0.
 
-1. **Abaikan konstanta** -- 5n menjadi O(n), 100n^2 menjadi O(n^2)
-2. **Ambil suku dominan** -- n^2 + 3n + 7 menjadi O(n^2)
-3. **Loop berurutan dijumlahkan** -- O(n) + O(n) = O(n)
-4. **Loop bersarang dikalikan** -- O(n) * O(n) = O(n^2)
+**Aturan penyederhanaan:**
 
-### 3. Kelas-kelas Kompleksitas Umum (CPMK-7.3)
+- Abaikan konstanta pengali: 5n -> O(n)
+- Ambil suku dominan: n^2 + 3n + 7 -> O(n^2)
+- Operasi berurutan dijumlahkan: O(n) + O(n^2) -> O(n^2)
+- Operasi bersarang dikalikan: loop O(n) di dalam loop O(n) -> O(n^2)
 
-| Kelas | Nama | Contoh Algoritma | Pertumbuhan |
-|-------|------|------------------|-------------|
-| O(1) | Konstan | Akses elemen list via indeks | Tetap sama |
-| O(log n) | Logaritmik | Binary search | Sangat lambat naik |
-| O(n) | Linear | Linear search, traversal list | Sebanding input |
-| O(n log n) | Linearitmik | Merge sort, Tim sort | Sedikit di atas linear |
-| O(n^2) | Kuadratik | Bubble sort, Selection sort | Naik cepat |
-| O(2^n) | Eksponensial | Brute-force subset | Meledak sangat cepat |
+### 3. Kelas Kompleksitas Umum (CPMK-7.2)
 
-**Contoh kode untuk setiap kelas:**
+| Notasi | Nama | Contoh Algoritma | n=10 | n=1.000 | n=1.000.000 |
+|--------|------|------------------|------|---------|-------------|
+| O(1) | Konstan | Akses indeks list | 1 | 1 | 1 |
+| O(log n) | Logaritmik | Binary Search | 3 | 10 | 20 |
+| O(n) | Linear | Linear Search | 10 | 1.000 | 1.000.000 |
+| O(n log n) | Linearitmik | Merge Sort, Timsort | 33 | 10.000 | 20.000.000 |
+| O(n^2) | Kuadratik | Bubble Sort, Selection Sort | 100 | 1.000.000 | 10^12 |
+| O(2^n) | Eksponensial | Brute-force subset | 1.024 | ~10^301 | -- |
+
+**Urutan dari tercepat ke terlambat:**
+
+O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n)
+
+### 4. Menghitung Big-O dari Kode Python (CPMK-7.3)
+
+**Contoh 1 -- O(1): Akses langsung**
 
 ```python
-# O(1) -- Konstan
-def akses_elemen(data, indeks):
-    return data[indeks]  # Selalu 1 operasi
+def ambil_elemen(data, index):
+    return data[index]  # Satu operasi, tidak tergantung ukuran data
+```
 
-# O(log n) -- Logaritmik
+**Contoh 2 -- O(n): Satu loop**
+
+```python
+def cari_linear(data, target):
+    for item in data:       # Loop n kali
+        if item == target:  # O(1) per iterasi
+            return True
+    return False
+# Total: O(n)
+```
+
+**Contoh 3 -- O(n^2): Loop bersarang**
+
+```python
+def bubble_sort(data):
+    n = len(data)
+    for i in range(n):              # Loop luar: n kali
+        for j in range(n - 1 - i):  # Loop dalam: ~n kali
+            if data[j] > data[j+1]:
+                data[j], data[j+1] = data[j+1], data[j]
+# Total: O(n) * O(n) = O(n^2)
+```
+
+**Contoh 4 -- O(log n): Pembagian berulang**
+
+```python
 def binary_search(data, target):
     low, high = 0, len(data) - 1
-    while low <= high:
+    while low <= high:                  # Setiap iterasi membagi ruang pencarian menjadi setengah
         mid = (low + high) // 2
         if data[mid] == target:
             return mid
@@ -89,124 +120,88 @@ def binary_search(data, target):
         else:
             high = mid - 1
     return -1
-
-# O(n) -- Linear
-def cari_maksimum(data):
-    maks = data[0]
-    for elemen in data:  # Loop n kali
-        if elemen > maks:
-            maks = elemen
-    return maks
-
-# O(n^2) -- Kuadratik
-def bubble_sort(data):
-    n = len(data)
-    for i in range(n):            # Loop luar: n kali
-        for j in range(n - 1 - i):  # Loop dalam: n kali
-            if data[j] > data[j + 1]:
-                data[j], data[j + 1] = data[j + 1], data[j]
-    return data
+# Total: O(log n)
 ```
 
-### 4. Menghitung Big-O dari Kode (CPMK-7.2)
+### 5. Kompleksitas Ruang (Space Complexity) (CPMK-7.3)
 
-**Latihan analisis -- tentukan Big-O:**
+Selain waktu, kita juga menganalisis memori tambahan yang digunakan:
 
 ```python
-# Soal 1: Berapa kompleksitasnya?
-def mystery_a(n):
-    total = 0           # O(1)
-    for i in range(n):  # O(n)
-        total += i      # O(1)
-    return total         # O(1)
-# Jawaban: O(n)
+# O(1) space -- in-place
+def tukar(data, i, j):
+    data[i], data[j] = data[j], data[i]
 
-# Soal 2: Berapa kompleksitasnya?
-def mystery_b(data):
-    n = len(data)
-    for i in range(n):          # O(n)
-        for j in range(n):      # O(n)
-            print(data[i], data[j])  # O(1)
-# Jawaban: O(n^2)
-
-# Soal 3: Berapa kompleksitasnya?
-def mystery_c(n):
-    i = n
-    while i > 1:   # Berapa kali loop berjalan?
-        i = i // 2
-# Jawaban: O(log n) -- karena i dibagi 2 setiap iterasi
+# O(n) space -- membuat list baru
+def duplikat(data):
+    hasil = []
+    for item in data:
+        hasil.append(item)
+        hasil.append(item)
+    return hasil
 ```
 
-### 5. Space Complexity dan Trade-off (CPMK-7.4)
+### 6. Trade-off Waktu vs Ruang (CPMK-7.4)
 
-**Space complexity** mengukur jumlah memori tambahan yang digunakan algoritma relatif terhadap ukuran input.
+Seringkali kita bisa mempercepat waktu dengan mengorbankan memori, atau sebaliknya:
 
-| Algoritma | Time Complexity | Space Complexity | Trade-off |
-|-----------|----------------|-----------------|-----------|
-| Bubble Sort | O(n^2) | O(1) | Lambat, hemat memori |
-| Merge Sort | O(n log n) | O(n) | Cepat, butuh memori ekstra |
-| Memoization Fibonacci | O(n) | O(n) | Cepat, butuh cache |
-| Recursive Fibonacci | O(2^n) | O(n) | Sangat lambat, stack depth |
-
-**Contoh optimasi dengan memoization:**
+| Pendekatan | Waktu | Ruang | Contoh |
+|------------|-------|-------|--------|
+| Brute-force cek duplikat | O(n^2) | O(1) | Dua loop bersarang |
+| Menggunakan set | O(n) | O(n) | Simpan elemen di set |
+| Sorting dulu, lalu cek tetangga | O(n log n) | O(1)* | Sort in-place, cek berdampingan |
 
 ```python
-# Tanpa optimasi: O(2^n) -- sangat lambat
-def fib_rekursif(n):
-    if n <= 1:
-        return n
-    return fib_rekursif(n - 1) + fib_rekursif(n - 2)
-
-# Dengan memoization: O(n) -- jauh lebih cepat
-def fib_memo(n, cache={}):
-    if n in cache:
-        return cache[n]
-    if n <= 1:
-        return n
-    cache[n] = fib_memo(n - 1, cache) + fib_memo(n - 2, cache)
-    return cache[n]
-```
-
-### 6. Review Kompleksitas Algoritma Sepanjang Semester (CPMK-7.3)
-
-| Minggu | Algoritma/Operasi | Time Complexity | Space Complexity |
-|--------|-------------------|----------------|-----------------|
-| 5 | Linear Search | O(n) | O(1) |
-| 5 | Binary Search | O(log n) | O(1) |
-| 9 | Bubble Sort | O(n^2) | O(1) |
-| 9 | Selection Sort | O(n^2) | O(1) |
-| 10 | Merge Sort | O(n log n) | O(n) |
-| 10 | Quick Sort | O(n log n) avg | O(log n) |
-| 11 | Stack push/pop | O(1) | O(n) |
-| 11 | Queue enqueue/dequeue | O(1) | O(n) |
-| 12 | Dictionary lookup | O(1) avg | O(n) |
-
-### 7. Contoh Optimasi Kode (CPMK-7.4)
-
-```python
-import time
-
-# Versi lambat: O(n^2) -- cek duplikat dengan nested loop
-def cek_duplikat_lambat(data):
+# Pendekatan 1: O(n^2) waktu, O(1) ruang
+def ada_duplikat_v1(data):
     for i in range(len(data)):
         for j in range(i + 1, len(data)):
             if data[i] == data[j]:
                 return True
     return False
 
-# Versi cepat: O(n) -- cek duplikat dengan set
-def cek_duplikat_cepat(data):
-    return len(data) != len(set(data))
+# Pendekatan 2: O(n) waktu, O(n) ruang
+def ada_duplikat_v2(data):
+    dilihat = set()
+    for item in data:
+        if item in dilihat:
+            return True
+        dilihat.add(item)
+    return False
+```
 
-# Pengukuran waktu
-data_besar = list(range(10000)) + [0]  # Duplikat di akhir
-start = time.time()
-cek_duplikat_lambat(data_besar)
-print(f"Lambat: {time.time() - start:.4f} detik")
+### 7. Review Kompleksitas Algoritma yang Telah Dipelajari (CPMK-7.4)
 
-start = time.time()
-cek_duplikat_cepat(data_besar)
-print(f"Cepat: {time.time() - start:.6f} detik")
+| Algoritma | Waktu (Best) | Waktu (Worst) | Ruang | Minggu |
+|-----------|-------------|---------------|-------|--------|
+| Linear Search | O(1) | O(n) | O(1) | 9 |
+| Binary Search | O(1) | O(log n) | O(1) | 9 |
+| Bubble Sort | O(n) | O(n^2) | O(1) | 10 |
+| Selection Sort | O(n^2) | O(n^2) | O(1) | 10 |
+| Insertion Sort | O(n) | O(n^2) | O(1) | 10 |
+| Merge Sort | O(n log n) | O(n log n) | O(n) | 10 |
+| Stack (push/pop) | O(1) | O(1) | O(n) | 11 |
+| Queue (enqueue/dequeue) | O(1) | O(1) | O(n) | 11 |
+
+### 8. Teknik Optimasi dan Contoh (CPMK-7.4)
+
+**Mengukur waktu eksekusi di Python:**
+
+```python
+import time
+
+def ukur_waktu(fungsi, *args):
+    mulai = time.time()
+    hasil = fungsi(*args)
+    selesai = time.time()
+    print(f"Waktu: {selesai - mulai:.6f} detik")
+    return hasil
+
+# Contoh: bandingkan dua pendekatan cari duplikat
+import random
+data_besar = random.sample(range(100_000), 50_000)
+ukur_waktu(ada_duplikat_v1, data_besar)  # Lambat (O(n^2))
+ukur_waktu(ada_duplikat_v2, data_besar)  # Cepat (O(n))
 ```
 
 ---
@@ -215,46 +210,46 @@ print(f"Cepat: {time.time() - start:.6f} detik")
 
 ### Pre-class (15 menit)
 
-1. Menonton video "Big-O Notation in 5 Minutes" dan mencatat 3 poin utama (8 menit)
-2. Membaca ringkasan tentang mengapa performa algoritma penting dalam industri software (7 menit)
+1. Menonton video "Big-O Notation in 5 Minutes" dan mencatat poin-poin kunci (8 menit)
+2. Membaca ringkasan tabel kelas kompleksitas dan mencoba menghafal urutannya dari tercepat ke terlambat (7 menit)
 
 ### In-class (120 menit)
 
 | Waktu | Kegiatan | Metode |
 |-------|----------|--------|
-| 0--25 menit | Ceramah: Mengapa efisiensi penting, notasi Big-O formal dan informal, aturan perhitungan | Ceramah interaktif dengan visualisasi kurva pertumbuhan |
-| 25--45 menit | Ceramah: Kelas-kelas kompleksitas umum dengan contoh kode Python | Ceramah dan demonstrasi kode |
-| 45--65 menit | Latihan: Menganalisis potongan kode dan menentukan Big-O (6 soal bertingkat) | Praktik terbimbing |
-| 65--80 menit | Ceramah: Space complexity, trade-off waktu vs ruang, memoization | Ceramah interaktif |
-| 80--100 menit | Lab: Pengukuran waktu eksekusi -- membandingkan linear search vs binary search, bubble sort vs merge sort pada berbagai ukuran data | Eksperimen performa (praktik mandiri) |
-| 100--120 menit | Tantangan optimasi: Diberikan 3 kode tidak efisien, mahasiswa mengoptimasi dan mengukur peningkatan performa | Tantangan kelompok |
+| 0--25 menit | Ceramah: Mengapa efisiensi penting, definisi Big-O formal dan informal, aturan penyederhanaan | Ceramah interaktif dengan visualisasi kurva pertumbuhan |
+| 25--45 menit | Ceramah: Kelas kompleksitas umum dengan tabel perbandingan dan contoh algoritma nyata | Ceramah dengan tabel dan grafik |
+| 45--70 menit | Latihan terbimbing: Menganalisis 6 potongan kode Python untuk menentukan Big-O masing-masing | Analisis kode bersama |
+| 70--80 menit | Diskusi: Trade-off waktu vs ruang -- kapan mengorbankan memori untuk kecepatan? | Diskusi kelas |
+| 80--100 menit | Hands-on: Performance timing lab -- mengukur waktu eksekusi berbagai algoritma sorting dan searching pada data berbagai ukuran | Praktik mandiri |
+| 100--120 menit | Optimization challenge: Diberikan kode O(n^2), mahasiswa mengoptimasi menjadi O(n) atau O(n log n) | Praktik dan presentasi solusi |
 
 ### Post-class (15 menit)
 
-1. Mengerjakan 5 soal analisis Big-O dari kode Python yang diberikan di LMS (10 menit)
-2. Menuliskan ringkasan pribadi: tabel kompleksitas semua algoritma yang dipelajari semester ini (5 menit)
+1. Menyelesaikan tabel review kompleksitas untuk semua algoritma yang telah dipelajari di Minggu 9--12 (8 menit)
+2. Mengerjakan 3 soal latihan analisis Big-O dari potongan kode yang diberikan di Google Classroom (7 menit)
 
 ---
 
 ## Penugasan
 
-**Tugas Minggu 13: Analisis dan Optimasi Kompleksitas**
+**Tugas 13: Analisis dan Optimasi Algoritma**
 
-1. Tentukan Big-O (time dan space) dari 5 potongan kode yang diberikan, sertakan penjelasan langkah demi langkah
-2. Diberikan sebuah fungsi Python yang tidak efisien, tuliskan versi optimal-nya dan ukur perbedaan waktu eksekusi menggunakan modul `time`
-3. Buat tabel ringkasan seluruh algoritma yang dipelajari dari Minggu 1--13 beserta kompleksitasnya
+1. Analisis Big-O dari 5 potongan kode yang diberikan (sertakan langkah-langkah penalaran)
+2. Diberikan sebuah fungsi Python yang berjalan O(n^2), tulis versi optimasi yang berjalan O(n) dan jelaskan trade-off yang terjadi
+3. Jalankan eksperimen timing untuk membandingkan Bubble Sort vs built-in `sorted()` pada data ukuran 1.000, 5.000, dan 10.000 -- sajikan hasil dalam tabel
 
-**Deadline:** Sebelum pertemuan Minggu 14.
+**Deadline:** Sebelum pertemuan Minggu 14
 
 ---
 
 ## Referensi
 
 1. Gaddis, T. (2021). *Starting Out with Python*, 5th Edition. Pearson. -- Bab 12 (Recursion) dan Appendix tentang Algorithm Analysis.
-2. Cormen, T. H., et al. (2022). *Introduction to Algorithms*, 4th Edition. MIT Press. -- Bab 3: Growth of Functions.
-3. Zelle, J. (2016). *Python Programming: An Introduction to Computer Science*, 3rd Edition. Franklin, Beedle & Associates. -- Bab 13.
-4. Sweigart, A. (2020). *Beyond the Basic Stuff with Python*. No Starch Press. -- Bab 13: Big-O.
-5. Big-O Cheat Sheet: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
+2. Zelle, J. (2016). *Python Programming: An Introduction to Computer Science*, 3rd Edition. Franklin, Beedle & Associates. -- Bab 13.
+3. Cormen, T. H., et al. (2009). *Introduction to Algorithms*, 3rd Edition. MIT Press. -- Bab 1--3 (Growth of Functions).
+4. Big-O Cheat Sheet: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
+5. Python Time Complexity Wiki: [https://wiki.python.org/moin/TimeComplexity](https://wiki.python.org/moin/TimeComplexity)
 
 ---
 
