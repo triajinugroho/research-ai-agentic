@@ -114,15 +114,7 @@ if not hujan:
 | False | True | False | True | True |
 | False | False | False | False | True |
 
-**Prioritas operator logika:** `not` (tertinggi) > `and` > `or` (terendah).
-
-```python
-# Contoh prioritas operator
-# not True or False and True
-# -> (not True) or (False and True)
-# -> False or False
-# -> False
-```
+**Prioritas operator logika:** `not` (tertinggi) > `and` > `or` (terendah). Contoh: `not True or False and True` dievaluasi sebagai `(not True) or (False and True)` = `False or False` = `False`.
 
 ### 4. Nested if dan Conditional Expression (CPMK-3.4)
 

@@ -126,8 +126,6 @@ Tanggal,Item,Qty,Harga
 | Google Colab Getting Started | colab.research.google.com | Panduan memulai notebook di cloud |
 | Python Built-in Functions | docs.python.org/3/library/functions.html | Daftar lengkap fungsi bawaan |
 
----
-
 ## 5. Rekomendasi Belajar Mandiri
 
 **YouTube Channels:**
@@ -143,7 +141,5 @@ Tanggal,Item,Qty,Harga
 - **r/learnpython** — Subreddit untuk pemula Python
 - **Stack Overflow** — Forum tanya jawab pemrograman terbesar
 - **Python Discord** — Komunitas real-time untuk diskusi dan bantuan
-
----
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
