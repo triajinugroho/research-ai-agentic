@@ -762,4 +762,4 @@ Hitung: (a) Accuracy, (b) Precision, (c) Recall, (d) F1-Score untuk kelas "Fraud
 
 ---
 
-*Bab berikutnya: **Bab 13 — AI-Augmented Data Analysis dan Proyek Akhir***
+*Bab berikutnya: **Bab 13 — AI-Augmented Data Analysis***
