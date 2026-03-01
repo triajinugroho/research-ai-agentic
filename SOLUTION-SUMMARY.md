@@ -4,13 +4,13 @@ Semua masalah telah diselesaikan. Berikut ringkasan lengkap:
 
 ## ✅ Masalah yang Diselesaikan
 
-### 1. PATH Warning (FIXED)
+### 1. PATH Warning (Fixed)
 **Masalah:** Script pip/jupyter tidak ditemukan di PATH  
 **Solusi:** Dijalankan perintah untuk menambahkan `C:\Users\triaj\AppData\Roaming\Python\Python314\Scripts` ke `PATH` secara permanen di level User.
 
 **Status:** ✅ Selesai. Restart terminal/VS Code untuk menerapkan.
 
-### 2. --break-system-packages Risk (DOCUMENTED)
+### 2. Break-System-Packages Risk (Documented)
 **Masalah:** Menggunakan override untuk install di system Python yang dikelola `uv`  
 **Solusi:** Disediakan alternatif lebih aman:
 - File: `setup-venv.ps1` - Script untuk membuat virtual environment isolated
@@ -18,7 +18,7 @@ Semua masalah telah diselesaikan. Berikut ringkasan lengkap:
 
 **Status:** ✅ Selesai. Gunakan `setup-venv.ps1` jika ingin environment yang lebih aman.
 
-### 3. Notebook Dependencies (INSTALLED)
+### 3. Notebook Dependencies (Installed)
 Paket berikut terpasang dan berfungsi:
 - numpy == 2.4.2
 - pandas == 3.0.1
@@ -29,7 +29,7 @@ Paket berikut terpasang dan berfungsi:
 
 **Status:** ✅ Selesai. File `requirements.txt` tersimpan untuk reproducibility.
 
-### 4. Notebook Content (PREPARED)
+### 4. Notebook Content (Prepared)
 - ✅ Setup cell dengan imports dan utility functions
 - ✅ Markdown header untuk benchmark section
 - ✅ Benchmark cell: perbandingan `built-in sorted` vs `numpy.sort`
@@ -39,7 +39,7 @@ Paket berikut terpasang dan berfungsi:
 
 **Status:** ✅ Selesai. Notebook siap digunakan dan dijalankan.
 
-### 5. Version Control (COMMITTED)
+### 5. Version Control (Committed)
 Semua file sudah di-commit dengan pesan deskriptif:
 - `requirements.txt` - dependency list
 - `README-SETUP.md` - troubleshooting & setup instructions
@@ -49,24 +49,29 @@ Semua file sudah di-commit dengan pesan deskriptif:
 
 **Status:** ✅ Selesai. Commit hash: da3858c
 
-## 📋 Next Steps Recommended
+## 📋 Next Steps (Recommended)
 
 ### Option A: Gunakan Environment Saat Ini
+
 Jika PATH sudah ter-update (setelah restart terminal):
+
 ```powershell
 # Langsung jalankan notebook
 # Notebook akan menggunakan Python system yang sudah terinstall
 ```
 
-### Option B: Setup Virtual Environment (RECOMMENDED)
+### Option B: Setup Virtual Environment (Recommended)
 Lebih aman dan reproducible:
+
 ```powershell
 # Jalankan script setup
 .\setup-venv.ps1
 ```
+
 Setelah selesai, VS Code akan menawarkan untuk memilih kernel environment baru.
 
 ### Option C: Reinstall dari requirements.txt
+
 ```powershell
 # Dengan venv aktif:
 pip install -r requirements.txt
