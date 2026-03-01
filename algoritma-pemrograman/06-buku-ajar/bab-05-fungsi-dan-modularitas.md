@@ -10,973 +10,1304 @@ Algoritma dan Pemrograman — Prodi Informatika, Universitas Al Azhar Indonesia
 Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
-|----------|-----------|---------------|
+|----------|-----------|:------------:|
 | CPMK-4.1 | Mendefinisikan fungsi dengan parameter dan return value | C3 (Menerapkan) |
 | CPMK-4.2 | Menerapkan prinsip DRY dan dekomposisi top-down | C3 (Menerapkan) |
 | CPMK-4.3 | Menjelaskan konsep scope (local vs global) | C2 (Memahami) |
 | CPMK-4.4 | Menggunakan docstring dan dokumentasi fungsi | C3 (Menerapkan) |
 
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+**Estimasi Waktu:** 2 pertemuan (masing-masing 2 × 50 menit)
 
-**Prasyarat:** Mahasiswa telah memahami materi Bab 1–4 (variabel, tipe data, seleksi, perulangan).
-
----
-
-## 5.1 Apa Itu Fungsi?
-
-### 5.1.1 Definisi dan Analogi
-
-**Fungsi** dalam pemrograman adalah blok kode yang diberi nama, melakukan tugas tertentu, dan dapat dipanggil berulang kali kapan pun dibutuhkan.
-
-**Analogi: Fungsi = Resep Masakan**
-
-Bayangkan Anda seorang koki di restoran Padang. Setiap hari, Anda memasak rendang, gulai, dan sambal. Alih-alih mengingat langkah-langkah dari awal setiap kali, Anda memiliki **resep** (fungsi) yang tinggal diikuti:
-
-```
-┌─────────────────────────────────────────────────────┐
-│  RESEP RENDANG (= fungsi)                           │
-│                                                     │
-│  Bahan (= parameter):                               │
-│    - daging 1 kg                                     │
-│    - santan 1 liter                                  │
-│    - bumbu halus                                     │
-│                                                     │
-│  Langkah-langkah (= body fungsi):                   │
-│    1. Panaskan santan                                │
-│    2. Tumis bumbu                                    │
-│    3. Masukkan daging                                │
-│    4. Masak hingga kering                            │
-│                                                     │
-│  Hasil (= return value):                             │
-│    → Rendang siap saji                               │
-└─────────────────────────────────────────────────────┘
-```
-
-Kunci dari analogi ini:
-- **Nama resep** = nama fungsi → agar bisa dipanggil kapan saja
-- **Bahan** = parameter → input yang dibutuhkan
-- **Langkah** = body fungsi → proses yang dilakukan
-- **Hasil** = return value → output yang dikembalikan
-
-### 5.1.2 Mengapa Fungsi Penting?
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│              4 ALASAN FUNGSI PENTING                         │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  1. MODULARITY (Modularitas)                                │
-│     Program dipecah menjadi bagian-bagian kecil             │
-│     yang mudah dikelola dan dipahami                        │
-│                                                             │
-│  2. REUSABILITY (Dapat Digunakan Ulang)                     │
-│     Tulis sekali, panggil berkali-kali                      │
-│     Tidak perlu copy-paste kode yang sama                   │
-│                                                             │
-│  3. READABILITY (Keterbacaan)                               │
-│     Program utama menjadi ringkas dan jelas                 │
-│     hitung_total() lebih mudah dibaca dari 20 baris kode    │
-│                                                             │
-│  4. MAINTAINABILITY (Kemudahan Pemeliharaan)                │
-│     Jika ada bug, cukup perbaiki di satu fungsi             │
-│     Perubahan otomatis berlaku di semua pemanggilan          │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**Contoh tanpa fungsi (kode "spageti"):**
-```python
-# Menghitung luas persegi panjang — 3 kali copy-paste!
-panjang1 = 10
-lebar1 = 5
-luas1 = panjang1 * lebar1
-print(f"Luas 1: {luas1}")
-
-panjang2 = 7
-lebar2 = 3
-luas2 = panjang2 * lebar2
-print(f"Luas 2: {luas2}")
-
-panjang3 = 15
-lebar3 = 8
-luas3 = panjang3 * lebar3
-print(f"Luas 3: {luas3}")
-```
-
-**Contoh dengan fungsi (clean code):**
-```python
-def hitung_luas_persegi_panjang(panjang, lebar):
-    """Menghitung luas persegi panjang."""
-    return panjang * lebar
-
-# Panggil 3 kali — ringkas dan jelas!
-print(f"Luas 1: {hitung_luas_persegi_panjang(10, 5)}")
-print(f"Luas 2: {hitung_luas_persegi_panjang(7, 3)}")
-print(f"Luas 3: {hitung_luas_persegi_panjang(15, 8)}")
-```
-
-### 5.1.3 Fungsi Built-in Python
-
-Python sudah menyediakan banyak fungsi bawaan yang sering kita gunakan:
-
-| Fungsi | Deskripsi | Contoh |
-|--------|-----------|--------|
-| `print()` | Menampilkan output ke layar | `print("Halo")` |
-| `input()` | Menerima input dari pengguna | `nama = input("Nama: ")` |
-| `len()` | Menghitung panjang | `len("Python")` → 6 |
-| `type()` | Mengetahui tipe data | `type(42)` → `<class 'int'>` |
-| `int()` | Konversi ke integer | `int("10")` → 10 |
-| `float()` | Konversi ke float | `float("3.14")` → 3.14 |
-| `str()` | Konversi ke string | `str(42)` → "42" |
-| `range()` | Menghasilkan urutan angka | `range(1, 6)` → 1,2,3,4,5 |
-| `abs()` | Nilai absolut | `abs(-5)` → 5 |
-| `round()` | Pembulatan | `round(3.7)` → 4 |
-| `max()` | Nilai terbesar | `max(3, 7, 1)` → 7 |
-| `min()` | Nilai terkecil | `min(3, 7, 1)` → 1 |
-| `sum()` | Total penjumlahan | `sum([1,2,3])` → 6 |
-| `sorted()` | Mengurutkan | `sorted([3,1,2])` → [1,2,3] |
-
-> **Catatan:** Semua fungsi built-in ini dibuat oleh developer Python. Di bab ini, kita akan belajar **membuat fungsi sendiri** (user-defined functions).
+**Prasyarat:** Mahasiswa telah memahami materi Bab 1–4 (Pengantar Algoritma, Variabel & Tipe Data, Seleksi, dan Perulangan).
 
 ---
 
-## 5.2 Mendefinisikan Fungsi (`def`)
+## 5.1 Konsep Fungsi
+
+### 5.1.1 Mengapa Perlu Fungsi?
+
+Bayangkan Anda memiliki program yang perlu menghitung luas lingkaran di banyak tempat berbeda. Tanpa fungsi, kode Anda akan terlihat seperti ini:
+
+```python
+# TANPA fungsi — kode berulang dan rawan kesalahan!
+import math
+
+# Hitung luas lingkaran pertama
+jari_jari_1 = 7
+luas_1 = math.pi * jari_jari_1 ** 2
+print(f"Luas lingkaran 1: {luas_1:.2f}")
+
+# Hitung luas lingkaran kedua
+jari_jari_2 = 14
+luas_2 = math.pi * jari_jari_2 ** 2
+print(f"Luas lingkaran 2: {luas_2:.2f}")
+
+# Hitung luas lingkaran ketiga
+jari_jari_3 = 21
+luas_3 = math.pi * jari_jari_3 ** 2
+print(f"Luas lingkaran 3: {luas_3:.2f}")
+```
+
+Perhatikan bahwa rumus `math.pi * jari_jari ** 2` diulang **tiga kali**. Bagaimana jika ada kesalahan rumus? Anda harus memperbaikinya di tiga tempat! Bagaimana jika perlu menghitung untuk 100 lingkaran?
+
+Dengan fungsi, kode menjadi jauh lebih rapi:
+
+```python
+import math
+
+def hitung_luas_lingkaran(jari_jari):
+    """Menghitung luas lingkaran berdasarkan jari-jari."""
+    return math.pi * jari_jari ** 2
+
+# Tinggal panggil fungsi — rapi dan mudah diubah
+print(f"Luas lingkaran 1: {hitung_luas_lingkaran(7):.2f}")
+print(f"Luas lingkaran 2: {hitung_luas_lingkaran(14):.2f}")
+print(f"Luas lingkaran 3: {hitung_luas_lingkaran(21):.2f}")
+```
+
+**Analogi kehidupan sehari-hari:**
+
+Fungsi seperti **resep masakan**:
+- **Nama resep** = nama fungsi (misalnya `buat_nasi_goreng`)
+- **Bahan-bahan** = parameter (nasi, telur, kecap, bumbu)
+- **Langkah-langkah** = body fungsi (instruksi memasak)
+- **Hasil masakan** = return value (nasi goreng yang siap dimakan)
+
+Anda menulis resep **satu kali**, lalu bisa menggunakannya **berulang kali** tanpa harus mengingat ulang langkah-langkahnya.
+
+### 5.1.2 Apa Itu Fungsi?
+
+**Fungsi** adalah blok kode yang diberi nama, dirancang untuk melakukan **satu tugas tertentu**, dan dapat dipanggil (digunakan) berulang kali dari bagian program manapun.
+
+```
+┌─────────────────────────────────────────┐
+│           DEFINISI FUNGSI               │
+│                                         │
+│   def nama_fungsi(parameter):           │
+│       """Docstring penjelasan"""         │
+│       # instruksi-instruksi             │
+│       return hasil                      │
+│                                         │
+├─────────────────────────────────────────┤
+│           PEMANGGILAN FUNGSI            │
+│                                         │
+│   hasil = nama_fungsi(argumen)          │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+**Istilah penting:**
+
+| Istilah | Penjelasan | Contoh |
+|---------|------------|--------|
+| **Definisi** (`def`) | Membuat/mendaftarkan fungsi | `def sapa(nama):` |
+| **Parameter** | Variabel di definisi fungsi | `nama` dalam `def sapa(nama):` |
+| **Argumen** | Nilai yang dikirim saat memanggil | `"Ahmad"` dalam `sapa("Ahmad")` |
+| **Body** | Isi/instruksi dalam fungsi | Kode yang di-indent |
+| **Return value** | Nilai yang dikembalikan fungsi | `return hasil` |
+| **Pemanggilan** (call) | Mengeksekusi fungsi | `sapa("Ahmad")` |
+
+### 5.1.3 Keuntungan Menggunakan Fungsi
+
+| Keuntungan | Penjelasan |
+|------------|------------|
+| **Reusability** (Dapat digunakan ulang) | Tulis sekali, gunakan berkali-kali |
+| **Readability** (Mudah dibaca) | Nama fungsi menjelaskan apa yang dilakukan |
+| **Maintainability** (Mudah dipelihara) | Perubahan cukup di satu tempat |
+| **Testability** (Mudah diuji) | Setiap fungsi bisa diuji secara terpisah |
+| **Abstraksi** | Menyembunyikan detail implementasi |
+
+---
+
+## 5.2 Mendefinisikan dan Memanggil Fungsi
 
 ### 5.2.1 Sintaks Dasar
 
 ```python
-def nama_fungsi(parameter1, parameter2, ...):
+def nama_fungsi():
     """Docstring: penjelasan singkat fungsi."""
-    # Body fungsi — kode yang dijalankan
-    # ...
-    return nilai_kembali  # opsional
+    # body fungsi
+    pass
 ```
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    ANATOMI FUNGSI PYTHON                     │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  def hitung_diskon(harga, persen_diskon):                   │
-│  ▲   ▲              ▲                                       │
-│  │   │              └── Parameter (input)                   │
-│  │   └── Nama fungsi (snake_case)                           │
-│  └── Keyword 'def' (define)                                 │
-│                                                             │
-│      """Menghitung harga setelah diskon."""  ← Docstring    │
-│      potongan = harga * persen_diskon / 100 ← Body         │
-│      harga_akhir = harga - potongan         ← Body         │
-│      return harga_akhir                     ← Return value │
-│             ▲                                               │
-│             └── Nilai yang dikembalikan ke pemanggil        │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+**Aturan penamaan fungsi (sama dengan variabel):**
+- Gunakan huruf kecil dan underscore: `hitung_luas`, `cek_prima`
+- Nama harus deskriptif: `hitung_rata_rata` lebih baik dari `hr`
+- Diawali huruf atau underscore, tidak boleh dimulai angka
+- Tidak boleh menggunakan kata kunci Python (`def`, `if`, `while`, dll.)
 
-### 5.2.2 Fungsi Tanpa Parameter
-
-Fungsi paling sederhana: tidak menerima input dan tidak mengembalikan nilai.
+**Contoh fungsi sederhana tanpa parameter dan tanpa return:**
 
 ```python
-def salam():
-    """Menampilkan salam pembuka."""
-    print("Assalamu'alaikum Warahmatullahi Wabarakatuh")
-    print("Selamat datang di Sistem Informasi Mahasiswa")
-    print("Universitas Al Azhar Indonesia")
-    print("-" * 45)
+def sapa_selamat_datang():
+    """Menampilkan pesan selamat datang."""
+    print("=" * 40)
+    print("  SELAMAT DATANG DI PROGRAM KAMI")
+    print("  Universitas Al Azhar Indonesia")
+    print("=" * 40)
 
-# Panggil fungsi
-salam()
-salam()  # bisa dipanggil berulang kali
+# Memanggil fungsi
+sapa_selamat_datang()
 ```
 
-### 5.2.3 Fungsi Dengan Parameter
+Output:
+```
+========================================
+  SELAMAT DATANG DI PROGRAM KAMI
+  Universitas Al Azhar Indonesia
+========================================
+```
 
-Parameter membuat fungsi lebih fleksibel — bisa menerima input yang berbeda-beda.
+### 5.2.2 Fungsi dengan Parameter
+
+Parameter memungkinkan fungsi menerima **input** dari luar sehingga fungsi menjadi lebih fleksibel.
 
 ```python
-def salam_personal(nama, prodi):
-    """Menampilkan salam personal kepada mahasiswa."""
+def sapa(nama):
+    """Menyapa seseorang berdasarkan nama."""
     print(f"Assalamu'alaikum, {nama}!")
-    print(f"Selamat datang di Program Studi {prodi}")
+    print(f"Selamat datang di Prodi Informatika.")
 
-# Panggil dengan argumen berbeda
-salam_personal("Ahmad", "Informatika")
-salam_personal("Fatimah", "Sistem Informasi")
+# Memanggil dengan argumen berbeda
+sapa("Ahmad")
+sapa("Siti")
+sapa("Budi")
 ```
 
-**Perbedaan Parameter vs Argumen:**
-- **Parameter**: variabel di definisi fungsi → `nama`, `prodi`
-- **Argumen**: nilai aktual saat pemanggilan → `"Ahmad"`, `"Informatika"`
-
-### 5.2.4 Fungsi Dengan Return Value
-
-`return` mengembalikan nilai dari fungsi ke pemanggil.
-
-```python
-def hitung_ipk(total_mutu, total_sks):
-    """
-    Menghitung IPK mahasiswa.
-
-    Parameters:
-        total_mutu (float): Total nilai mutu (bobot × sks)
-        total_sks (int): Total SKS yang ditempuh
-
-    Returns:
-        float: IPK (0.00 - 4.00)
-    """
-    if total_sks == 0:
-        return 0.0
-    ipk = total_mutu / total_sks
-    return round(ipk, 2)
-
-# Panggil dan simpan hasil
-ipk_ahmad = hitung_ipk(135.5, 40)
-print(f"IPK Ahmad: {ipk_ahmad}")  # IPK Ahmad: 3.39
-
-ipk_siti = hitung_ipk(148.0, 40)
-print(f"IPK Siti: {ipk_siti}")    # IPK Siti: 3.70
+Output:
+```
+Assalamu'alaikum, Ahmad!
+Selamat datang di Prodi Informatika.
+Assalamu'alaikum, Siti!
+Selamat datang di Prodi Informatika.
+Assalamu'alaikum, Budi!
+Selamat datang di Prodi Informatika.
 ```
 
-> **Penting:** Ketika fungsi mencapai `return`, eksekusi fungsi **langsung berhenti**. Kode setelah `return` tidak akan dijalankan.
+**Fungsi dengan beberapa parameter:**
 
 ```python
-def cek_kelulusan(ipk):
-    """Menentukan status kelulusan berdasarkan IPK."""
-    if ipk >= 3.5:
-        return "Cum Laude"
-    elif ipk >= 3.0:
-        return "Sangat Memuaskan"
-    elif ipk >= 2.5:
-        return "Memuaskan"
-    elif ipk >= 2.0:
-        return "Cukup"
-    else:
-        return "Tidak Lulus"
-    # Kode di sini TIDAK AKAN dijalankan
-    print("Ini tidak akan pernah tampil")
+def perkenalan(nama, umur, prodi):
+    """Menampilkan data perkenalan mahasiswa."""
+    print(f"Nama  : {nama}")
+    print(f"Umur  : {umur} tahun")
+    print(f"Prodi : {prodi}")
+    print("-" * 30)
 
-print(cek_kelulusan(3.7))  # Cum Laude
-print(cek_kelulusan(2.3))  # Cukup
+perkenalan("Ahmad", 19, "Informatika")
+perkenalan("Siti", 20, "Sistem Informasi")
 ```
 
-### 5.2.5 Multiple Return Values
+### 5.2.3 Fungsi dengan Return Value
 
-Python memungkinkan fungsi mengembalikan lebih dari satu nilai menggunakan tuple:
+Fungsi yang mengembalikan nilai menggunakan kata kunci `return`. Ini memungkinkan hasil perhitungan digunakan di bagian lain program.
 
 ```python
-def statistik_nilai(daftar_nilai):
-    """
-    Menghitung statistik dasar dari daftar nilai.
+def hitung_luas_persegi(sisi):
+    """Menghitung luas persegi."""
+    luas = sisi * sisi
+    return luas
 
-    Returns:
-        tuple: (rata_rata, nilai_min, nilai_max)
-    """
-    rata_rata = sum(daftar_nilai) / len(daftar_nilai)
-    nilai_min = min(daftar_nilai)
-    nilai_max = max(daftar_nilai)
-    return rata_rata, nilai_min, nilai_max
+def hitung_keliling_persegi(sisi):
+    """Menghitung keliling persegi."""
+    return 4 * sisi
 
-# Panggil dan unpack hasilnya
-nilai = [85, 92, 78, 95, 88, 76, 91]
-rata, minimum, maksimum = statistik_nilai(nilai)
+# Menggunakan return value
+sisi = 5
+luas = hitung_luas_persegi(sisi)
+keliling = hitung_keliling_persegi(sisi)
+print(f"Persegi dengan sisi {sisi}:")
+print(f"  Luas     = {luas}")
+print(f"  Keliling = {keliling}")
+```
 
-print(f"Rata-rata: {rata:.2f}")  # Rata-rata: 86.43
-print(f"Minimum  : {minimum}")   # Minimum  : 76
-print(f"Maksimum : {maksimum}")  # Maksimum : 95
+Output:
+```
+Persegi dengan sisi 5:
+  Luas     = 25
+  Keliling = 20
+```
+
+**Perbedaan `print` vs `return`:**
+
+Ini adalah salah satu konsep yang sering membingungkan pemula:
+
+```python
+# Fungsi dengan print — hanya MENAMPILKAN, tidak mengembalikan nilai
+def tambah_print(a, b):
+    print(a + b)
+
+# Fungsi dengan return — MENGEMBALIKAN nilai yang bisa digunakan lagi
+def tambah_return(a, b):
+    return a + b
+
+# Perhatikan perbedaannya:
+hasil_print = tambah_print(3, 4)    # Menampilkan: 7
+print(f"hasil_print = {hasil_print}")  # Output: hasil_print = None
+
+hasil_return = tambah_return(3, 4)  # Tidak menampilkan apa-apa
+print(f"hasil_return = {hasil_return}")  # Output: hasil_return = 7
+
+# Return value bisa digunakan dalam perhitungan lanjutan
+total = tambah_return(3, 4) + tambah_return(5, 6)
+print(f"Total: {total}")  # Output: Total: 18
+```
+
+> **Tips Penting:** Gunakan `return` jika Anda ingin **menggunakan hasil** fungsi di tempat lain. Gunakan `print` hanya jika Anda ingin **menampilkan** sesuatu ke layar. Dalam banyak kasus, `return` lebih baik karena membuat fungsi lebih fleksibel.
+
+### 5.2.4 Fungsi dengan Multiple Return Values
+
+Python memungkinkan fungsi mengembalikan **lebih dari satu nilai** menggunakan tuple:
+
+```python
+def hitung_statistik(angka_list):
+    """Menghitung nilai minimum, maksimum, dan rata-rata dari list."""
+    nilai_min = min(angka_list)
+    nilai_max = max(angka_list)
+    rata_rata = sum(angka_list) / len(angka_list)
+    return nilai_min, nilai_max, rata_rata
+
+# Menggunakan multiple return values
+nilai = [85, 90, 78, 92, 88, 76, 95]
+minimum, maksimum, rerata = hitung_statistik(nilai)
+
+print(f"Nilai minimum : {minimum}")
+print(f"Nilai maksimum: {maksimum}")
+print(f"Rata-rata     : {rerata:.2f}")
+```
+
+Output:
+```
+Nilai minimum : 76
+Nilai maksimum: 95
+Rata-rata     : 86.29
+```
+
+### 5.2.5 Flowchart Pemanggilan Fungsi
+
+Berikut visualisasi alur eksekusi ketika sebuah fungsi dipanggil:
+
+```
+Program Utama              Fungsi hitung_luas(p, l)
+─────────────              ─────────────────────────
+     │
+     │  x = 10
+     │  y = 5
+     │
+     │  luas = hitung_luas(x, y)
+     │────────────────────────►  p = 10, l = 5
+     │                           │
+     │                           │  hasil = p * l
+     │                           │  hasil = 50
+     │                           │
+     │  luas = 50  ◄─────────────│  return hasil
+     │
+     │  print(luas) → 50
+     │
+     ▼
 ```
 
 ---
 
-## 5.3 Parameter dan Argumen
+## 5.3 Jenis-Jenis Parameter
 
-### 5.3.1 Positional Arguments
+### 5.3.1 Positional Parameter
 
-Argumen dicocokkan berdasarkan **posisi** (urutan).
+Parameter yang diisi berdasarkan **urutan posisi** saat pemanggilan:
 
 ```python
-def buat_biodata(nama, umur, kota):
-    """Membuat string biodata."""
-    return f"{nama}, {umur} tahun, dari {kota}"
+def buat_email(nama, domain):
+    """Membuat alamat email dari nama dan domain."""
+    # Nama diubah ke lowercase dan spasi diganti titik
+    username = nama.lower().replace(" ", ".")
+    return f"{username}@{domain}"
 
-# Urutan harus sesuai!
-print(buat_biodata("Ahmad", 19, "Jakarta"))
-# Output: Ahmad, 19 tahun, dari Jakarta
+# Urutan argumen HARUS sesuai urutan parameter
+email = buat_email("Ahmad Fadillah", "uai.ac.id")
+print(email)  # Output: ahmad.fadillah@uai.ac.id
 
-# Salah urutan → hasil aneh:
-print(buat_biodata(19, "Jakarta", "Ahmad"))
-# Output: 19, Jakarta tahun, dari Ahmad  ← SALAH!
+# SALAH — urutan tertukar!
+email_salah = buat_email("uai.ac.id", "Ahmad Fadillah")
+print(email_salah)  # Output: uai.ac.id@Ahmad Fadillah (tidak masuk akal!)
 ```
 
-### 5.3.2 Keyword Arguments
+### 5.3.2 Default Parameter
 
-Argumen dicocokkan berdasarkan **nama parameter**.
-
-```python
-# Urutan bebas jika pakai keyword arguments
-print(buat_biodata(kota="Bandung", nama="Siti", umur=20))
-# Output: Siti, 20 tahun, dari Bandung
-
-# Bisa campur: positional dulu, lalu keyword
-print(buat_biodata("Budi", kota="Surabaya", umur=21))
-# Output: Budi, 21 tahun, dari Surabaya
-```
-
-### 5.3.3 Default Parameters
-
-Memberikan nilai default pada parameter — jika tidak diisi, nilai default yang dipakai.
+Parameter yang memiliki **nilai bawaan** (default) jika tidak diisi saat pemanggilan:
 
 ```python
-def hitung_harga(harga_satuan, jumlah, diskon=0):
-    """
-    Menghitung total harga dengan diskon opsional.
+def sapa_mahasiswa(nama, prodi="Informatika", tahun=2024):
+    """Menyapa mahasiswa dengan data default."""
+    print(f"Halo {nama}!")
+    print(f"Prodi: {prodi}, Angkatan: {tahun}")
+    print()
 
-    Parameters:
-        harga_satuan (int): Harga per item dalam Rupiah
-        jumlah (int): Jumlah item
-        diskon (float): Persentase diskon (default: 0)
-
-    Returns:
-        int: Total harga setelah diskon
-    """
-    subtotal = harga_satuan * jumlah
-    potongan = subtotal * diskon / 100
-    return int(subtotal - potongan)
-
-# Tanpa diskon (default=0)
-print(hitung_harga(15000, 3))          # 45000
-
-# Dengan diskon 10%
-print(hitung_harga(15000, 3, 10))      # 40500
-
-# Dengan keyword argument
-print(hitung_harga(15000, 3, diskon=20))  # 36000
-```
-
-> **Aturan:** Parameter dengan default value HARUS diletakkan **setelah** parameter tanpa default.
-> ```python
-> def fungsi(a, b, c=10):    # ✓ Benar
-> def fungsi(a, b=10, c):    # ✗ SyntaxError!
-> ```
-
-### 5.3.4 *args dan **kwargs (Pengenalan)
-
-Untuk menerima **jumlah argumen yang tidak tetap**:
-
-```python
-def hitung_total(*harga_barang):
-    """Menghitung total dari sejumlah harga barang."""
-    total = sum(harga_barang)
-    return total
-
-# Bisa dipanggil dengan berapapun argumen
-print(hitung_total(15000, 25000))                    # 40000
-print(hitung_total(15000, 25000, 8000))              # 48000
-print(hitung_total(15000, 25000, 8000, 32000, 5000)) # 85000
-```
-
-```python
-def cetak_info(**info):
-    """Mencetak informasi dalam format key-value."""
-    for kunci, nilai in info.items():
-        print(f"  {kunci}: {nilai}")
-
-cetak_info(nama="Ahmad", nim="2025001", prodi="Informatika")
+# Tanpa default — menggunakan nilai default
+sapa_mahasiswa("Ahmad")
 # Output:
-#   nama: Ahmad
-#   nim: 2025001
-#   prodi: Informatika
+# Halo Ahmad!
+# Prodi: Informatika, Angkatan: 2024
+
+# Mengubah satu default
+sapa_mahasiswa("Siti", "Sistem Informasi")
+# Output:
+# Halo Siti!
+# Prodi: Sistem Informasi, Angkatan: 2024
+
+# Mengubah semua default
+sapa_mahasiswa("Budi", "Teknik Elektro", 2023)
+# Output:
+# Halo Budi!
+# Prodi: Teknik Elektro, Angkatan: 2023
 ```
 
-> **Catatan:** `*args` dan `**kwargs` adalah fitur lanjutan. Untuk mata kuliah ini, cukup memahami konsep dasarnya. Anda akan memperdalam ini di mata kuliah lanjutan.
+> **Aturan Penting:** Parameter dengan default value harus ditempatkan **setelah** parameter tanpa default. `def fungsi(a, b=10)` benar, tetapi `def fungsi(a=10, b)` akan menghasilkan `SyntaxError`.
+
+### 5.3.3 Keyword Argument
+
+Saat memanggil fungsi, argumen bisa dikirim menggunakan **nama parameter** sehingga urutan tidak penting:
+
+```python
+def daftar_matakuliah(nama_mk, sks, semester, dosen):
+    """Menampilkan informasi mata kuliah."""
+    print(f"Mata Kuliah : {nama_mk}")
+    print(f"SKS         : {sks}")
+    print(f"Semester    : {semester}")
+    print(f"Dosen       : {dosen}")
+    print()
+
+# Dengan keyword argument — urutan bebas
+daftar_matakuliah(
+    dosen="Tri Aji Nugroho",
+    nama_mk="Algoritma dan Pemrograman",
+    semester=1,
+    sks=3
+)
+
+# Campuran positional dan keyword
+daftar_matakuliah(
+    "Struktur Data",  # positional (nama_mk)
+    3,                 # positional (sks)
+    semester=2,        # keyword
+    dosen="Dr. Ahmad"  # keyword
+)
+```
+
+### 5.3.4 Arbitrary Arguments (*args dan **kwargs)
+
+Untuk fungsi yang menerima **jumlah argumen tidak tentu**:
+
+```python
+# *args — menerima argumen positional tak terbatas (sebagai tuple)
+def hitung_rata_rata(*nilai):
+    """Menghitung rata-rata dari sejumlah nilai."""
+    if len(nilai) == 0:
+        return 0
+    return sum(nilai) / len(nilai)
+
+print(hitung_rata_rata(85, 90, 78))         # Output: 84.33...
+print(hitung_rata_rata(90, 85, 92, 88, 76)) # Output: 86.2
+
+# **kwargs — menerima keyword argument tak terbatas (sebagai dictionary)
+def cetak_profil(**data):
+    """Mencetak profil berdasarkan data yang diberikan."""
+    print("=== PROFIL ===")
+    for kunci, nilai in data.items():
+        print(f"  {kunci}: {nilai}")
+    print()
+
+cetak_profil(nama="Ahmad", umur=19, prodi="Informatika", hobi="Coding")
+```
+
+Output:
+```
+=== PROFIL ===
+  nama: Ahmad
+  umur: 19
+  prodi: Informatika
+  hobi: Coding
+```
 
 ---
 
-## 5.4 Scope: Variabel Lokal vs Global
+## 5.4 Scope (Ruang Lingkup Variabel)
 
-### 5.4.1 Local Scope
+### 5.4.1 Local Scope vs Global Scope
 
-Variabel yang didefinisikan **di dalam fungsi** hanya bisa diakses di dalam fungsi tersebut:
-
-```python
-def hitung_luas():
-    panjang = 10  # variabel lokal
-    lebar = 5     # variabel lokal
-    luas = panjang * lebar
-    print(f"Di dalam fungsi: luas = {luas}")
-
-hitung_luas()
-# print(panjang)  # ERROR! NameError: name 'panjang' is not defined
-```
-
-### 5.4.2 Global Scope
-
-Variabel yang didefinisikan **di luar fungsi** bisa diakses dari mana saja:
+**Scope** menentukan di mana sebuah variabel bisa diakses. Ini adalah konsep fundamental yang harus dipahami agar terhindar dari bug yang sulit dilacak.
 
 ```python
-nama_universitas = "Universitas Al Azhar Indonesia"  # variabel global
+# Variabel GLOBAL — didefinisikan di luar fungsi
+nama_universitas = "Universitas Al Azhar Indonesia"
 
 def tampilkan_info():
-    print(f"Universitas: {nama_universitas}")  # bisa akses global
+    # Variabel LOCAL — didefinisikan di dalam fungsi
+    nama_prodi = "Informatika"
+    print(f"Universitas: {nama_universitas}")  # Bisa akses global
+    print(f"Prodi: {nama_prodi}")              # Bisa akses local
 
-tampilkan_info()  # Output: Universitas: Universitas Al Azhar Indonesia
-print(nama_universitas)  # Juga bisa diakses di luar fungsi
+tampilkan_info()
+# print(nama_prodi)  # ERROR! nama_prodi tidak dikenal di luar fungsi
 ```
 
-> **Penting:** Fungsi bisa **membaca** variabel global, tetapi tidak bisa **mengubah** variabel global secara langsung (kecuali menggunakan keyword `global`, yang **tidak disarankan**).
+**Visualisasi Scope:**
+
+```
+┌──────────────────────────────────────────────┐
+│                GLOBAL SCOPE                   │
+│                                               │
+│   nama_universitas = "UAI"                    │
+│                                               │
+│   ┌──────────────────────────────────────┐   │
+│   │          LOCAL SCOPE                  │   │
+│   │       (fungsi tampilkan_info)         │   │
+│   │                                       │   │
+│   │   nama_prodi = "Informatika"          │   │
+│   │                                       │   │
+│   │   ✓ Bisa akses nama_universitas      │   │
+│   │   ✓ Bisa akses nama_prodi            │   │
+│   │                                       │   │
+│   └──────────────────────────────────────┘   │
+│                                               │
+│   ✓ Bisa akses nama_universitas              │
+│   ✗ TIDAK bisa akses nama_prodi              │
+│                                               │
+└──────────────────────────────────────────────┘
+```
+
+### 5.4.2 Variabel Local Menyembunyikan Variabel Global
+
+Ketika variabel local memiliki nama yang sama dengan variabel global, variabel local **menyembunyikan** (shadowing) variabel global:
 
 ```python
-counter = 0
+x = 100  # variabel global
 
-def tambah_counter():
-    # counter += 1  # ERROR! UnboundLocalError
-    # Gunakan parameter dan return sebagai gantinya:
-    pass
+def ubah_x():
+    x = 50  # variabel LOCAL baru — BUKAN mengubah global!
+    print(f"Di dalam fungsi: x = {x}")  # Output: 50
 
-# Cara yang BENAR:
-def tambah(nilai):
-    """Menambahkan 1 ke nilai."""
-    return nilai + 1
-
-counter = tambah(counter)
-print(counter)  # 1
+ubah_x()
+print(f"Di luar fungsi: x = {x}")  # Output: 100 (tidak berubah!)
 ```
 
-### 5.4.3 Aturan LEGB
+> **Perhatian:** Ini adalah sumber bug yang sangat umum bagi pemula! Variabel di dalam fungsi yang memiliki nama sama dengan variabel global adalah variabel **baru** yang terpisah.
 
-Python mencari variabel menggunakan aturan **LEGB** (dari dalam ke luar):
+### 5.4.3 Kata Kunci `global`
 
-```
-┌─────────────────────────────────────────────────┐
-│  B — Built-in                                    │
-│  ┌─────────────────────────────────────────────┐ │
-│  │  G — Global                                  │ │
-│  │  ┌─────────────────────────────────────────┐ │ │
-│  │  │  E — Enclosing (fungsi pembungkus)      │ │ │
-│  │  │  ┌─────────────────────────────────────┐ │ │ │
-│  │  │  │  L — Local (fungsi saat ini)        │ │ │ │
-│  │  │  │                                     │ │ │ │
-│  │  │  │  Python mencari dari SINI dulu      │ │ │ │
-│  │  │  └─────────────────────────────────────┘ │ │ │
-│  │  └─────────────────────────────────────────┘ │ │
-│  └─────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────┘
-```
-
-| Level | Penjelasan | Contoh |
-|-------|-----------|--------|
-| **L** (Local) | Variabel di dalam fungsi saat ini | `x = 10` di dalam `def f():` |
-| **E** (Enclosing) | Variabel di fungsi pembungkus (nested function) | Fungsi di dalam fungsi |
-| **G** (Global) | Variabel di level modul/file | `x = 10` di luar semua fungsi |
-| **B** (Built-in) | Nama bawaan Python | `print`, `len`, `range` |
+Jika Anda **benar-benar perlu** mengubah variabel global dari dalam fungsi, gunakan kata kunci `global`:
 
 ```python
-x = "global"  # G
+skor_total = 0
 
-def fungsi_luar():
-    x = "enclosing"  # E
+def tambah_skor(poin):
+    global skor_total  # Deklarasi: kita akan mengubah variabel global
+    skor_total += poin
 
-    def fungsi_dalam():
-        x = "local"  # L
-        print(x)  # Menampilkan "local" (L ditemukan dulu)
-
-    fungsi_dalam()
-    print(x)  # Menampilkan "enclosing" (E)
-
-fungsi_luar()
-print(x)  # Menampilkan "global" (G)
+tambah_skor(10)
+print(f"Skor: {skor_total}")  # Output: 10
+tambah_skor(25)
+print(f"Skor: {skor_total}")  # Output: 35
 ```
 
-> **Best Practice:** Hindari penggunaan variabel global. Gunakan **parameter** untuk memasukkan data ke fungsi dan **return** untuk mengeluarkan hasil. Ini membuat kode lebih mudah dipahami dan di-debug.
+> **Peringatan:** Penggunaan `global` sebaiknya **dihindari** sebisa mungkin. Fungsi yang mengubah variabel global membuat program sulit diprediksi dan di-debug. Lebih baik gunakan parameter dan return value. Ini disebut prinsip **pure function** — fungsi yang hanya bergantung pada inputnya dan tidak memiliki efek samping.
+
+**Cara yang lebih baik (tanpa `global`):**
+
+```python
+def tambah_skor(skor_saat_ini, poin):
+    """Mengembalikan skor baru tanpa mengubah variabel global."""
+    return skor_saat_ini + poin
+
+skor = 0
+skor = tambah_skor(skor, 10)
+print(f"Skor: {skor}")  # Output: 10
+skor = tambah_skor(skor, 25)
+print(f"Skor: {skor}")  # Output: 35
+```
+
+### 5.4.4 Aturan LEGB (Resolusi Scope Python)
+
+Python mencari variabel dengan urutan **LEGB**:
+
+```
+L — Local      : Di dalam fungsi saat ini
+E — Enclosing  : Di fungsi pembungkus (nested function)
+G — Global     : Di level modul (file)
+B — Built-in   : Di namespace Python bawaan (print, len, dll.)
+```
+
+```python
+x = "global"  # G — Global
+
+def luar():
+    x = "enclosing"  # E — Enclosing
+
+    def dalam():
+        x = "local"  # L — Local
+        print(x)     # Mencari: Local → ditemukan!
+
+    dalam()
+    print(x)  # Mencari: Local (tidak ada) → Enclosing → ditemukan!
+
+luar()
+print(x)  # Mencari: Local (tidak ada) → Enclosing (tidak ada) → Global → ditemukan!
+```
+
+Output:
+```
+local
+enclosing
+global
+```
 
 ---
 
-## 5.5 Desain Top-Down dan Dekomposisi
+## 5.5 Prinsip DRY dan Dekomposisi
 
 ### 5.5.1 Prinsip DRY (Don't Repeat Yourself)
 
-**DRY** adalah salah satu prinsip terpenting dalam pemrograman:
+Prinsip DRY menyatakan: **setiap bagian pengetahuan harus memiliki satu representasi tunggal** dalam sistem. Jika Anda melihat kode yang sama diulang, itu adalah sinyal untuk membuat fungsi.
 
-> *"Every piece of knowledge must have a single, unambiguous, authoritative representation within a system."*
-
-**Contoh pelanggaran DRY:**
-```python
-# Kode TIDAK DRY — menghitung diskon berulang kali
-harga1 = 100000
-diskon1 = harga1 * 10 / 100
-total1 = harga1 - diskon1
-print(f"Total 1: Rp {total1:,.0f}")
-
-harga2 = 250000
-diskon2 = harga2 * 10 / 100
-total2 = harga2 - diskon2
-print(f"Total 2: Rp {total2:,.0f}")
-
-harga3 = 75000
-diskon3 = harga3 * 10 / 100
-total3 = harga3 - diskon3
-print(f"Total 3: Rp {total3:,.0f}")
-```
-
-**Contoh DRY:**
-```python
-def hitung_setelah_diskon(harga, persen=10):
-    """Menghitung harga setelah diskon."""
-    potongan = harga * persen / 100
-    return harga - potongan
-
-# Ringkas, jelas, dan mudah diubah!
-for harga in [100000, 250000, 75000]:
-    total = hitung_setelah_diskon(harga)
-    print(f"Harga: Rp {harga:>10,.0f} → Total: Rp {total:>10,.0f}")
-```
-
-### 5.5.2 Diagram Top-Down Design
-
-**Top-down design** adalah pendekatan memecah program besar menjadi fungsi-fungsi kecil, dari yang paling umum (atas) ke yang paling spesifik (bawah):
-
-```
-                    ┌────────────────────┐
-                    │   PROGRAM UTAMA    │
-                    │   (main)           │
-                    └────────┬───────────┘
-                             │
-            ┌────────────────┼─────────────────┐
-            │                │                 │
-     ┌──────▼──────┐  ┌─────▼──────┐  ┌──────▼──────┐
-     │   INPUT     │  │  PROSES    │  │   OUTPUT    │
-     │  (baca_data)│  │(hitung)    │  │(tampilkan)  │
-     └──────┬──────┘  └─────┬──────┘  └──────┬──────┘
-            │               │                │
-       ┌────▼────┐     ┌────▼─────┐    ┌─────▼─────┐
-       │validasi │     │hitung_   │    │cetak_     │
-       │_input() │     │subtotal()│    │struk()    │
-       └─────────┘     │hitung_   │    │cetak_     │
-                       │diskon()  │    │ringkasan()│
-                       │hitung_   │    └───────────┘
-                       │pajak()   │
-                       └──────────┘
-```
-
-### 5.5.3 Studi Kasus: Refactoring Program Kalkulator
-
-**SEBELUM (kode spageti tanpa fungsi):**
+**Contoh pelanggaran DRY dan perbaikannya:**
 
 ```python
-print("=== KALKULATOR SEDERHANA ===")
-print("1. Penjumlahan")
-print("2. Pengurangan")
-print("3. Perkalian")
-print("4. Pembagian")
-pilihan = input("Pilih operasi (1-4): ")
-angka1 = float(input("Masukkan angka pertama: "))
-angka2 = float(input("Masukkan angka kedua: "))
-if pilihan == "1":
-    hasil = angka1 + angka2
-    print(f"{angka1} + {angka2} = {hasil}")
-elif pilihan == "2":
-    hasil = angka1 - angka2
-    print(f"{angka1} - {angka2} = {hasil}")
-elif pilihan == "3":
-    hasil = angka1 * angka2
-    print(f"{angka1} * {angka2} = {hasil}")
-elif pilihan == "4":
-    if angka2 == 0:
-        print("Error: Tidak bisa membagi dengan nol!")
+# SEBELUM (MELANGGAR DRY) — kode sama diulang 3 kali
+print("=" * 50)
+print("LAPORAN NILAI MAHASISWA")
+print("Universitas Al Azhar Indonesia")
+print("=" * 50)
+
+# ... kode lainnya ...
+
+print("=" * 50)
+print("LAPORAN KEHADIRAN MAHASISWA")
+print("Universitas Al Azhar Indonesia")
+print("=" * 50)
+
+# ... kode lainnya ...
+
+print("=" * 50)
+print("LAPORAN AKTIVITAS MAHASISWA")
+print("Universitas Al Azhar Indonesia")
+print("=" * 50)
+```
+
+```python
+# SESUDAH (MENERAPKAN DRY) — fungsi menghilangkan duplikasi
+def cetak_header(judul):
+    """Mencetak header laporan dengan format standar."""
+    print("=" * 50)
+    print(judul)
+    print("Universitas Al Azhar Indonesia")
+    print("=" * 50)
+
+cetak_header("LAPORAN NILAI MAHASISWA")
+# ... kode lainnya ...
+cetak_header("LAPORAN KEHADIRAN MAHASISWA")
+# ... kode lainnya ...
+cetak_header("LAPORAN AKTIVITAS MAHASISWA")
+```
+
+### 5.5.2 Dekomposisi Top-Down
+
+**Dekomposisi top-down** adalah teknik memecah masalah besar menjadi sub-masalah yang lebih kecil dan lebih mudah dikelola. Setiap sub-masalah diimplementasikan sebagai fungsi terpisah.
+
+**Contoh: Program Manajemen Nilai Mahasiswa**
+
+Langkah 1 — Identifikasi masalah utama:
+```
+Program Manajemen Nilai
+├── Input data mahasiswa
+├── Hitung nilai akhir
+├── Tentukan grade huruf
+└── Tampilkan hasil
+```
+
+Langkah 2 — Implementasi masing-masing fungsi:
+
+```python
+def input_nilai():
+    """Meminta input nilai dari pengguna."""
+    nama = input("Nama mahasiswa: ")
+    tugas = float(input("Nilai tugas (0-100): "))
+    uts = float(input("Nilai UTS (0-100): "))
+    uas = float(input("Nilai UAS (0-100): "))
+    return nama, tugas, uts, uas
+
+def hitung_nilai_akhir(tugas, uts, uas):
+    """Menghitung nilai akhir dengan bobot tertentu.
+
+    Bobot: Tugas 30%, UTS 30%, UAS 40%
+    """
+    return tugas * 0.30 + uts * 0.30 + uas * 0.40
+
+def tentukan_grade(nilai_akhir):
+    """Menentukan grade huruf berdasarkan nilai akhir."""
+    if nilai_akhir >= 85:
+        return "A"
+    elif nilai_akhir >= 70:
+        return "B"
+    elif nilai_akhir >= 55:
+        return "C"
+    elif nilai_akhir >= 40:
+        return "D"
     else:
-        hasil = angka1 / angka2
-        print(f"{angka1} / {angka2} = {hasil}")
-else:
-    print("Pilihan tidak valid!")
+        return "E"
+
+def tampilkan_hasil(nama, tugas, uts, uas, nilai_akhir, grade):
+    """Menampilkan hasil penilaian dalam format tabel."""
+    print("\n" + "=" * 40)
+    print("     HASIL PENILAIAN MAHASISWA")
+    print("=" * 40)
+    print(f"  Nama        : {nama}")
+    print(f"  Tugas       : {tugas:.1f}")
+    print(f"  UTS         : {uts:.1f}")
+    print(f"  UAS         : {uas:.1f}")
+    print(f"  Nilai Akhir : {nilai_akhir:.2f}")
+    print(f"  Grade       : {grade}")
+    print("=" * 40)
+
+# Program utama — mudah dibaca karena terdekomposisi
+def main():
+    """Fungsi utama program manajemen nilai."""
+    nama, tugas, uts, uas = input_nilai()
+    nilai_akhir = hitung_nilai_akhir(tugas, uts, uas)
+    grade = tentukan_grade(nilai_akhir)
+    tampilkan_hasil(nama, tugas, uts, uas, nilai_akhir, grade)
+
+main()
 ```
 
-**SESUDAH (modular dengan fungsi):**
+> **Perhatikan** bagaimana fungsi `main()` menjadi sangat **mudah dibaca** — Anda bisa memahami alur program hanya dari nama-nama fungsi tanpa perlu membaca detail implementasinya.
+
+### 5.5.3 Prinsip Single Responsibility
+
+Setiap fungsi seharusnya hanya bertanggung jawab atas **satu tugas** saja. Jika sebuah fungsi melakukan terlalu banyak hal, pecah menjadi beberapa fungsi yang lebih kecil.
 
 ```python
-def tampilkan_menu():
-    """Menampilkan menu operasi kalkulator."""
-    print("\n=== KALKULATOR SEDERHANA ===")
-    print("1. Penjumlahan")
-    print("2. Pengurangan")
-    print("3. Perkalian")
-    print("4. Pembagian")
-    print("5. Keluar")
+# BURUK — satu fungsi melakukan terlalu banyak hal
+def proses_semua(data):
+    # Input, validasi, perhitungan, dan output semua di satu tempat
+    # ... sangat panjang dan sulit di-debug ...
+    pass
 
-def baca_angka(prompt):
-    """Membaca dan memvalidasi input angka dari pengguna."""
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Error: Masukkan angka yang valid!")
+# BAIK — setiap fungsi punya satu tanggung jawab
+def validasi_input(data):
+    """Hanya memvalidasi data input."""
+    pass
 
-def tambah(a, b):
-    """Menjumlahkan dua bilangan."""
-    return a + b
+def hitung_hasil(data_valid):
+    """Hanya menghitung hasil."""
+    pass
 
-def kurang(a, b):
-    """Mengurangkan dua bilangan."""
-    return a - b
-
-def kali(a, b):
-    """Mengalikan dua bilangan."""
-    return a * b
-
-def bagi(a, b):
-    """Membagi dua bilangan dengan validasi pembagian nol."""
-    if b == 0:
-        return None  # tidak bisa bagi nol
-    return a / b
-
-def jalankan_kalkulator():
-    """Fungsi utama yang menjalankan loop kalkulator."""
-    operasi = {
-        "1": ("+", tambah),
-        "2": ("-", kurang),
-        "3": ("*", kali),
-        "4": ("/", bagi),
-    }
-
-    while True:
-        tampilkan_menu()
-        pilihan = input("Pilih operasi (1-5): ").strip()
-
-        if pilihan == "5":
-            print("Terima kasih! Sampai jumpa.")
-            break
-
-        if pilihan not in operasi:
-            print("Pilihan tidak valid!")
-            continue
-
-        simbol, fungsi_operasi = operasi[pilihan]
-        a = baca_angka("Masukkan angka pertama : ")
-        b = baca_angka("Masukkan angka kedua   : ")
-
-        hasil = fungsi_operasi(a, b)
-
-        if hasil is None:
-            print("Error: Tidak bisa membagi dengan nol!")
-        else:
-            print(f"\n  {a} {simbol} {b} = {hasil}")
-
-# Jalankan program
-jalankan_kalkulator()
+def format_output(hasil):
+    """Hanya memformat output."""
+    pass
 ```
-
-**Perbandingan:**
-
-| Aspek | Sebelum | Sesudah |
-|-------|---------|---------|
-| Jumlah fungsi | 0 | 7 |
-| Kemudahan dibaca | Sulit | Mudah |
-| Menambah operasi baru | Ubah banyak kode | Tambah 1 fungsi + 1 baris di dict |
-| Validasi input | Tidak ada | Ada (baca_angka) |
-| Loop (ulang tanpa restart) | Tidak | Ya |
 
 ---
 
-## 5.6 Dokumentasi Fungsi
+## 5.6 Docstring dan Dokumentasi Fungsi
 
-### 5.6.1 Docstrings
+### 5.6.1 Apa Itu Docstring?
 
-**Docstring** adalah string dokumentasi yang ditulis tepat di baris pertama body fungsi:
+**Docstring** (documentation string) adalah string yang ditempatkan sebagai **baris pertama** di dalam fungsi untuk mendokumentasikan apa yang dilakukan fungsi tersebut.
 
 ```python
-def hitung_bmi(berat_kg, tinggi_cm):
-    """
-    Menghitung Body Mass Index (BMI).
+def hitung_bmi(berat_kg, tinggi_m):
+    """Menghitung Body Mass Index (BMI).
+
+    BMI dihitung dengan rumus: berat / tinggi^2
 
     Parameters:
         berat_kg (float): Berat badan dalam kilogram
-        tinggi_cm (float): Tinggi badan dalam sentimeter
+        tinggi_m (float): Tinggi badan dalam meter
 
     Returns:
         float: Nilai BMI
 
     Example:
-        >>> hitung_bmi(70, 175)
-        22.86
+        >>> hitung_bmi(70, 1.75)
+        22.857142857142858
     """
-    tinggi_m = tinggi_cm / 100
-    bmi = berat_kg / (tinggi_m ** 2)
-    return round(bmi, 2)
-
-# Docstring bisa diakses dengan help()
-help(hitung_bmi)
-
-# Atau dengan __doc__
-print(hitung_bmi.__doc__)
+    return berat_kg / (tinggi_m ** 2)
 ```
 
-### 5.6.2 Type Hints (Pengenalan)
-
-Python 3.5+ mendukung **type hints** — anotasi tipe data pada parameter dan return value:
+**Mengakses docstring:**
 
 ```python
-def hitung_diskon(harga: int, persen: float = 10.0) -> int:
-    """Menghitung harga setelah diskon."""
-    potongan = harga * persen / 100
-    return int(harga - potongan)
+# Cara melihat docstring sebuah fungsi
+print(hitung_bmi.__doc__)
 
-# Type hints TIDAK memaksa tipe data (hanya dokumentasi)
-# tetapi membantu IDE dan pembaca kode memahami fungsi
+# Atau menggunakan help()
+help(hitung_bmi)
 ```
 
-### 5.6.3 Best Practices Penamaan Fungsi
+### 5.6.2 Format Docstring
 
-| Aturan | Contoh Baik | Contoh Buruk |
-|--------|-------------|-------------|
-| Gunakan snake_case | `hitung_rata_rata()` | `hitungRataRata()` |
-| Gunakan kata kerja | `hitung_total()` | `total()` |
-| Nama deskriptif | `validasi_input_nim()` | `cek()` |
-| Singkat tapi jelas | `cari_mahasiswa()` | `fungsi_untuk_mencari_data_mahasiswa_berdasarkan_nim()` |
-| Boolean: awali is/has | `is_lulus()`, `has_prasyarat()` | `lulus()`, `prasyarat()` |
+**One-line docstring** — untuk fungsi sederhana:
+```python
+def kuadrat(n):
+    """Mengembalikan kuadrat dari n."""
+    return n ** 2
+```
+
+**Multi-line docstring** — untuk fungsi yang lebih kompleks:
+```python
+def cari_mahasiswa(daftar, nim):
+    """Mencari mahasiswa berdasarkan NIM.
+
+    Melakukan pencarian linear pada daftar mahasiswa.
+    Mengembalikan data mahasiswa jika ditemukan.
+
+    Parameters:
+        daftar (list): Daftar dictionary berisi data mahasiswa
+        nim (str): Nomor Induk Mahasiswa yang dicari
+
+    Returns:
+        dict: Data mahasiswa jika ditemukan
+        None: Jika mahasiswa tidak ditemukan
+    """
+    for mhs in daftar:
+        if mhs["nim"] == nim:
+            return mhs
+    return None
+```
+
+### 5.6.3 Mengapa Docstring Penting?
+
+1. **Membantu orang lain (dan diri Anda di masa depan)** memahami kode
+2. **IDE dan editor** menampilkan docstring sebagai tooltip/hint
+3. **Alat dokumentasi otomatis** (seperti Sphinx) menggunakannya untuk membuat dokumentasi
+4. **Melatih kebiasaan baik** dalam pengembangan perangkat lunak profesional
 
 ---
 
-## 5.7 Studi Kasus: Sistem Penilaian Mahasiswa
+## 5.7 Fungsi sebagai Abstraksi
 
-Program lengkap yang mendemonstrasikan semua konsep fungsi dalam konteks universitas Indonesia:
+### 5.7.1 Konsep Abstraksi
+
+**Abstraksi** adalah proses menyembunyikan detail implementasi dan hanya menampilkan **antarmuka** (interface) yang relevan. Fungsi adalah alat utama untuk mencapai abstraksi dalam pemrograman.
 
 ```python
-# ============================================================
-# SISTEM PENILAIAN MAHASISWA SEDERHANA
-# Mata Kuliah: Algoritma dan Pemrograman — UAI
-# ============================================================
+# Pengguna fungsi TIDAK PERLU tahu cara kerjanya di dalam
+# Cukup tahu: input apa, output apa
+hasil = sorted([3, 1, 4, 1, 5, 9, 2, 6])
+# Kita tidak perlu tahu algoritma sorting yang dipakai!
+# Cukup tahu: sorted() menerima list, mengembalikan list terurut
+```
 
-def input_nilai_mahasiswa():
-    """Meminta input nilai komponen dari pengguna."""
-    print("\nMasukkan nilai komponen (0-100):")
-    tugas = float(input("  Tugas Mingguan  : "))
-    kuis = float(input("  Kuis            : "))
-    uts = float(input("  UTS             : "))
-    proyek = float(input("  Proyek Akhir    : "))
-    uas = float(input("  UAS             : "))
-    partisipasi = float(input("  Partisipasi     : "))
-    return tugas, kuis, uts, proyek, uas, partisipasi
+**Analogi:**
 
-def hitung_nilai_akhir(tugas, kuis, uts, proyek, uas, partisipasi):
+Anda tidak perlu tahu cara mesin ATM bekerja di dalam untuk bisa mengambil uang. Yang Anda perlu tahu adalah:
+- **Input:** Kartu ATM + PIN + jumlah penarikan
+- **Output:** Uang tunai + struk
+
+### 5.7.2 Contoh: Membangun Library Fungsi Matematika
+
+```python
+# File: matematika.py — Library fungsi matematika kustom
+
+def faktorial(n):
+    """Menghitung faktorial dari n (n!).
+
+    Parameters:
+        n (int): Bilangan bulat non-negatif
+
+    Returns:
+        int: Hasil n!
     """
-    Menghitung nilai akhir berdasarkan bobot.
+    if n < 0:
+        return None  # Faktorial tidak terdefinisi untuk negatif
+    hasil = 1
+    for i in range(1, n + 1):
+        hasil *= i
+    return hasil
 
-    Bobot: Tugas 15%, Kuis 10%, UTS 20%, Proyek 25%, UAS 25%, Partisipasi 5%
+def is_prima(n):
+    """Memeriksa apakah n adalah bilangan prima.
+
+    Parameters:
+        n (int): Bilangan bulat positif
+
+    Returns:
+        bool: True jika prima, False jika bukan
     """
-    nilai_akhir = (
-        tugas * 0.15 +
-        kuis * 0.10 +
-        uts * 0.20 +
-        proyek * 0.25 +
-        uas * 0.25 +
-        partisipasi * 0.05
-    )
-    return round(nilai_akhir, 2)
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
-def konversi_huruf(nilai_akhir):
-    """Mengkonversi nilai angka ke huruf (standar UAI)."""
-    if nilai_akhir >= 85:
-        return "A"
-    elif nilai_akhir >= 80:
-        return "A-"
-    elif nilai_akhir >= 75:
-        return "B+"
-    elif nilai_akhir >= 70:
-        return "B"
-    elif nilai_akhir >= 65:
-        return "B-"
-    elif nilai_akhir >= 60:
-        return "C+"
-    elif nilai_akhir >= 55:
-        return "C"
-    elif nilai_akhir >= 50:
-        return "D"
-    else:
-        return "E"
+def fibonacci(n):
+    """Menghasilkan n bilangan Fibonacci pertama.
 
-def bobot_mutu(huruf):
-    """Mengembalikan bobot mutu dari nilai huruf."""
-    tabel = {
-        "A": 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0,
-        "B-": 2.7, "C+": 2.3, "C": 2.0, "D": 1.0, "E": 0.0
-    }
-    return tabel.get(huruf, 0.0)
+    Parameters:
+        n (int): Jumlah bilangan yang diinginkan
 
-def is_lulus(huruf):
-    """Menentukan apakah mahasiswa lulus (minimal C)."""
-    return huruf not in ("D", "E")
+    Returns:
+        list: Daftar bilangan Fibonacci
+    """
+    if n <= 0:
+        return []
+    if n == 1:
+        return [0]
 
-def cetak_hasil(nama, nim, nilai_akhir, huruf):
-    """Mencetak hasil penilaian dalam format rapi."""
-    print("\n" + "=" * 45)
-    print("       HASIL PENILAIAN MATA KULIAH")
-    print("    Algoritma dan Pemrograman — 3 SKS")
-    print("=" * 45)
-    print(f"  Nama        : {nama}")
-    print(f"  NIM         : {nim}")
-    print(f"  Nilai Akhir : {nilai_akhir}")
-    print(f"  Nilai Huruf : {huruf}")
-    print(f"  Bobot Mutu  : {bobot_mutu(huruf)}")
-    print(f"  Status      : {'LULUS' if is_lulus(huruf) else 'TIDAK LULUS'}")
-    print("=" * 45)
+    fib = [0, 1]
+    for i in range(2, n):
+        fib.append(fib[-1] + fib[-2])
+    return fib
 
-# --- Program Utama ---
+def pangkat(basis, eksponen):
+    """Menghitung basis pangkat eksponen.
+
+    Parameters:
+        basis (float): Bilangan basis
+        eksponen (int): Bilangan pangkat
+
+    Returns:
+        float: Hasil basis^eksponen
+    """
+    return basis ** eksponen
+
+# Penggunaan library
+print(f"5! = {faktorial(5)}")           # Output: 5! = 120
+print(f"7 prima? {is_prima(7)}")        # Output: 7 prima? True
+print(f"10 prima? {is_prima(10)}")      # Output: 10 prima? False
+print(f"Fibonacci(8) = {fibonacci(8)}") # Output: Fibonacci(8) = [0, 1, 1, 2, 3, 5, 8, 13]
+print(f"2^10 = {pangkat(2, 10)}")       # Output: 2^10 = 1024
+```
+
+---
+
+## 5.8 Studi Kasus
+
+### Studi Kasus 1: Kalkulator IPK Semester
+
+```python
+def input_matakuliah():
+    """Meminta input data satu mata kuliah."""
+    nama = input("Nama Mata Kuliah: ")
+    sks = int(input("Jumlah SKS: "))
+    nilai_huruf = input("Nilai Huruf (A/B/C/D/E): ").upper()
+    return nama, sks, nilai_huruf
+
+def konversi_nilai(huruf):
+    """Mengkonversi nilai huruf ke angka (bobot).
+
+    Skala: A=4, B=3, C=2, D=1, E=0
+    """
+    konversi = {"A": 4.0, "B": 3.0, "C": 2.0, "D": 1.0, "E": 0.0}
+    return konversi.get(huruf, 0.0)
+
+def hitung_ipk(daftar_mk):
+    """Menghitung IPK dari daftar mata kuliah.
+
+    IPK = Σ(SKS × Bobot) / Σ(SKS)
+
+    Parameters:
+        daftar_mk (list): List of tuples (nama, sks, nilai_huruf)
+
+    Returns:
+        tuple: (ipk, total_sks)
+    """
+    total_bobot = 0
+    total_sks = 0
+
+    for nama, sks, huruf in daftar_mk:
+        bobot = konversi_nilai(huruf)
+        total_bobot += sks * bobot
+        total_sks += sks
+
+    if total_sks == 0:
+        return 0.0, 0
+
+    ipk = total_bobot / total_sks
+    return ipk, total_sks
+
+def tampilkan_transkrip(daftar_mk, ipk, total_sks):
+    """Menampilkan transkrip nilai lengkap."""
+    print("\n" + "=" * 55)
+    print("         TRANSKRIP NILAI SEMESTER")
+    print("     Universitas Al Azhar Indonesia")
+    print("=" * 55)
+    print(f"{'No':<4}{'Mata Kuliah':<25}{'SKS':<6}{'Nilai':<8}{'Bobot':<6}")
+    print("-" * 55)
+
+    for i, (nama, sks, huruf) in enumerate(daftar_mk, 1):
+        bobot = konversi_nilai(huruf)
+        print(f"{i:<4}{nama:<25}{sks:<6}{huruf:<8}{bobot:<6.1f}")
+
+    print("-" * 55)
+    print(f"{'Total SKS:':<35}{total_sks}")
+    print(f"{'IPK Semester:':<35}{ipk:.2f}")
+    print("=" * 55)
+
 def main():
-    """Fungsi utama program."""
-    print("SISTEM PENILAIAN MAHASISWA")
-    print("Mata Kuliah: Algoritma dan Pemrograman")
-    print("-" * 40)
+    """Program utama kalkulator IPK."""
+    print("=== KALKULATOR IPK SEMESTER ===\n")
 
-    nama = input("Nama Mahasiswa : ")
-    nim = input("NIM            : ")
+    jumlah = int(input("Berapa mata kuliah? "))
+    daftar_mk = []
 
-    komponen = input_nilai_mahasiswa()
-    nilai_akhir = hitung_nilai_akhir(*komponen)
-    huruf = konversi_huruf(nilai_akhir)
+    for i in range(jumlah):
+        print(f"\n--- Mata Kuliah ke-{i + 1} ---")
+        nama, sks, huruf = input_matakuliah()
+        daftar_mk.append((nama, sks, huruf))
 
-    cetak_hasil(nama, nim, nilai_akhir, huruf)
+    ipk, total_sks = hitung_ipk(daftar_mk)
+    tampilkan_transkrip(daftar_mk, ipk, total_sks)
 
-# Jalankan
+main()
+```
+
+### Studi Kasus 2: Validasi Data dengan Fungsi
+
+```python
+def validasi_nim(nim):
+    """Memvalidasi format NIM mahasiswa.
+
+    Format valid: 10 digit angka, diawali '2024' (untuk angkatan 2024).
+    Contoh: 2024040001
+
+    Parameters:
+        nim (str): NIM yang akan divalidasi
+
+    Returns:
+        tuple: (bool, str) — (valid/tidak, pesan)
+    """
+    if not nim.isdigit():
+        return False, "NIM harus berisi angka saja"
+    if len(nim) != 10:
+        return False, "NIM harus 10 digit"
+    if not nim.startswith("2024"):
+        return False, "NIM harus diawali '2024'"
+    return True, "NIM valid"
+
+def validasi_nilai(nilai_str):
+    """Memvalidasi input nilai (harus angka 0-100).
+
+    Parameters:
+        nilai_str (str): String yang akan divalidasi
+
+    Returns:
+        tuple: (bool, float/None, str) — (valid, nilai, pesan)
+    """
+    try:
+        nilai = float(nilai_str)
+    except ValueError:
+        return False, None, "Input harus berupa angka"
+
+    if nilai < 0 or nilai > 100:
+        return False, None, "Nilai harus antara 0-100"
+
+    return True, nilai, "Nilai valid"
+
+def input_dengan_validasi(prompt, fungsi_validasi):
+    """Input yang diulang sampai valid.
+
+    Parameters:
+        prompt (str): Pesan yang ditampilkan ke pengguna
+        fungsi_validasi (function): Fungsi untuk memvalidasi input
+
+    Returns:
+        str: Input yang sudah valid
+    """
+    while True:
+        data = input(prompt)
+        hasil = fungsi_validasi(data)
+
+        # Cek apakah valid (elemen pertama dari tuple)
+        if hasil[0]:
+            print(f"  ✓ {hasil[-1]}")
+            return data
+        else:
+            print(f"  ✗ {hasil[-1]}. Silakan coba lagi.")
+
+# Penggunaan
+nim = input_dengan_validasi("Masukkan NIM: ", validasi_nim)
+print(f"NIM yang dimasukkan: {nim}")
+```
+
+### Studi Kasus 3: Program Konversi Suhu Modular
+
+```python
+def celsius_ke_fahrenheit(celsius):
+    """Konversi Celsius ke Fahrenheit: F = C × 9/5 + 32"""
+    return celsius * 9 / 5 + 32
+
+def celsius_ke_kelvin(celsius):
+    """Konversi Celsius ke Kelvin: K = C + 273.15"""
+    return celsius + 273.15
+
+def fahrenheit_ke_celsius(fahrenheit):
+    """Konversi Fahrenheit ke Celsius: C = (F - 32) × 5/9"""
+    return (fahrenheit - 32) * 5 / 9
+
+def fahrenheit_ke_kelvin(fahrenheit):
+    """Konversi Fahrenheit ke Kelvin melalui Celsius."""
+    celsius = fahrenheit_ke_celsius(fahrenheit)
+    return celsius_ke_kelvin(celsius)
+
+def kelvin_ke_celsius(kelvin):
+    """Konversi Kelvin ke Celsius: C = K - 273.15"""
+    return kelvin - 273.15
+
+def kelvin_ke_fahrenheit(kelvin):
+    """Konversi Kelvin ke Fahrenheit melalui Celsius."""
+    celsius = kelvin_ke_celsius(kelvin)
+    return celsius_ke_fahrenheit(celsius)
+
+def tampilkan_menu():
+    """Menampilkan menu konversi."""
+    print("\n=== KONVERSI SUHU ===")
+    print("1. Celsius    → Fahrenheit")
+    print("2. Celsius    → Kelvin")
+    print("3. Fahrenheit → Celsius")
+    print("4. Fahrenheit → Kelvin")
+    print("5. Kelvin     → Celsius")
+    print("6. Kelvin     → Fahrenheit")
+    print("0. Keluar")
+
+def proses_konversi(pilihan, nilai):
+    """Melakukan konversi berdasarkan pilihan menu.
+
+    Returns:
+        tuple: (hasil, satuan_asal, satuan_tujuan)
+    """
+    konversi = {
+        "1": (celsius_ke_fahrenheit, "°C", "°F"),
+        "2": (celsius_ke_kelvin, "°C", "K"),
+        "3": (fahrenheit_ke_celsius, "°F", "°C"),
+        "4": (fahrenheit_ke_kelvin, "°F", "K"),
+        "5": (kelvin_ke_celsius, "K", "°C"),
+        "6": (kelvin_ke_fahrenheit, "K", "°F"),
+    }
+
+    if pilihan in konversi:
+        fungsi, satuan_asal, satuan_tujuan = konversi[pilihan]
+        hasil = fungsi(nilai)
+        return hasil, satuan_asal, satuan_tujuan
+    return None, None, None
+
+def main():
+    """Program utama konversi suhu."""
+    print("PROGRAM KONVERSI SUHU")
+    print("Universitas Al Azhar Indonesia\n")
+
+    while True:
+        tampilkan_menu()
+        pilihan = input("\nPilihan Anda: ")
+
+        if pilihan == "0":
+            print("Terima kasih! Sampai jumpa.")
+            break
+
+        if pilihan not in "123456" or len(pilihan) != 1:
+            print("Pilihan tidak valid!")
+            continue
+
+        try:
+            nilai = float(input("Masukkan suhu: "))
+        except ValueError:
+            print("Input harus berupa angka!")
+            continue
+
+        hasil, satuan_asal, satuan_tujuan = proses_konversi(pilihan, nilai)
+        if hasil is not None:
+            print(f"\n  {nilai:.2f} {satuan_asal} = {hasil:.2f} {satuan_tujuan}")
+
 main()
 ```
 
 ---
 
-## AI Corner: AI sebagai Asisten Refactoring
+## 5.9 Kesalahan Umum dan Tips
 
-**Level: Menengah**
+### 5.9.1 Kesalahan Umum
 
-### Cara Meminta AI Membantu Menulis Fungsi
+**1. Lupa memanggil fungsi (hanya menyebutkan namanya):**
 
-```
-Prompt: "Saya memiliki kode Python berikut yang menghitung
-total belanja. Tolong buatkan fungsi-fungsi yang terpisah
-untuk setiap operasi. Kode saat ini:
-[tempel kode Anda]"
-```
+```python
+def sapa():
+    print("Halo!")
 
-### Cara Meminta AI Melakukan Refactoring
+# SALAH — hanya mereferensikan fungsi, bukan memanggilnya
+sapa       # Tidak terjadi apa-apa!
 
-```
-Prompt: "Refactor kode berikut menjadi fungsi-fungsi modular.
-Terapkan prinsip DRY dan top-down design.
-Pastikan setiap fungsi memiliki docstring.
-[tempel kode Anda]"
+# BENAR — memanggil fungsi dengan tanda kurung
+sapa()     # Output: Halo!
 ```
 
-### Memvalidasi Saran AI tentang Dekomposisi
+**2. Menggunakan `print` padahal seharusnya `return`:**
 
-Ketika AI menyarankan pembagian fungsi, tanyakan pada diri sendiri:
-1. Apakah setiap fungsi melakukan **satu tugas** saja?
-2. Apakah nama fungsi **menjelaskan** apa yang dilakukannya?
-3. Apakah fungsi bisa **digunakan ulang** di tempat lain?
-4. Apakah **jumlah parameter** tidak terlalu banyak (ideal ≤ 3)?
+```python
+# SALAH — fungsi ini "menampilkan" tapi tidak bisa digunakan lagi
+def luas_segitiga_salah(alas, tinggi):
+    print(0.5 * alas * tinggi)
 
-> **Ingat:** AI adalah asisten, bukan guru. Selalu verifikasi saran AI dengan pemahaman Anda sendiri tentang prinsip-prinsip yang dipelajari di bab ini.
+hasil = luas_segitiga_salah(10, 5)  # Menampilkan 25.0
+print(hasil * 2)  # ERROR: None * 2 tidak bisa!
+
+# BENAR — fungsi ini mengembalikan nilai yang bisa diproses
+def luas_segitiga(alas, tinggi):
+    return 0.5 * alas * tinggi
+
+hasil = luas_segitiga(10, 5)
+print(hasil * 2)  # Output: 50.0
+```
+
+**3. Memodifikasi mutable default parameter:**
+
+```python
+# BAHAYA! Default parameter mutable dishare antar pemanggilan!
+def tambah_item_salah(item, daftar=[]):
+    daftar.append(item)
+    return daftar
+
+print(tambah_item_salah("apel"))     # Output: ['apel']
+print(tambah_item_salah("jeruk"))    # Output: ['apel', 'jeruk'] — BUG!
+
+# BENAR — gunakan None sebagai default
+def tambah_item(item, daftar=None):
+    if daftar is None:
+        daftar = []
+    daftar.append(item)
+    return daftar
+
+print(tambah_item("apel"))     # Output: ['apel']
+print(tambah_item("jeruk"))    # Output: ['jeruk'] — Benar!
+```
+
+**4. Lupa `return` (fungsi mengembalikan `None`):**
+
+```python
+# SALAH — tidak ada return, hasilnya None
+def hitung_diskon(harga, persen):
+    diskon = harga * persen / 100
+    harga_akhir = harga - diskon
+    # Oops, lupa return!
+
+hasil = hitung_diskon(100000, 20)
+print(hasil)  # Output: None
+
+# BENAR
+def hitung_diskon(harga, persen):
+    diskon = harga * persen / 100
+    harga_akhir = harga - diskon
+    return harga_akhir
+
+hasil = hitung_diskon(100000, 20)
+print(hasil)  # Output: 80000.0
+```
+
+### 5.9.2 Tips dan Best Practices
+
+| Tips | Penjelasan |
+|------|------------|
+| Nama fungsi harus deskriptif | `hitung_luas_lingkaran()` lebih baik dari `hl()` |
+| Satu fungsi, satu tugas | Jangan membuat fungsi yang melakukan terlalu banyak hal |
+| Tulis docstring | Dokumentasikan parameter, return value, dan tujuan fungsi |
+| Hindari variabel global | Gunakan parameter dan return value |
+| Gunakan default parameter bijak | Jangan gunakan mutable object (list, dict) sebagai default |
+| Batasi jumlah parameter | Jika lebih dari 4-5, pertimbangkan menggunakan dictionary |
+| Test fungsi secara terpisah | Pastikan setiap fungsi bekerja dengan benar secara independen |
 
 ---
 
-## Latihan Soal
+## 5.10 Latihan
 
-### Tingkat Dasar
+### Latihan Mandiri
 
-1. **Fungsi Sederhana:** Buatlah fungsi `luas_segitiga(alas, tinggi)` yang menghitung dan mengembalikan luas segitiga. Panggil fungsi tersebut untuk 3 segitiga berbeda.
+**Latihan 5.1 — Fungsi Dasar:**
+Buatlah fungsi-fungsi berikut:
+1. `luas_lingkaran(r)` — menghitung luas lingkaran
+2. `keliling_lingkaran(r)` — menghitung keliling lingkaran
+3. `volume_tabung(r, t)` — menghitung volume tabung (gunakan `luas_lingkaran`)
 
-2. **Fungsi Salam:** Buatlah fungsi `salam_islami(nama, waktu="pagi")` yang menampilkan salam berdasarkan waktu. Default waktu adalah "pagi". Jika waktu "pagi" → "Selamat pagi", "siang" → "Selamat siang", dst.
+**Latihan 5.2 — Validasi dengan Fungsi:**
+Buatlah fungsi `validasi_password(password)` yang mengembalikan `True` jika password memenuhi syarat:
+- Minimal 8 karakter
+- Mengandung minimal 1 huruf besar
+- Mengandung minimal 1 huruf kecil
+- Mengandung minimal 1 angka
 
-3. **Fungsi Konversi:** Buatlah fungsi `rupiah_ke_dollar(rupiah, kurs=15500)` yang mengkonversi Rupiah ke Dollar AS. Parameter kurs memiliki default value.
+**Latihan 5.3 — Dekomposisi:**
+Buatlah program **Kalkulator Zakat Penghasilan** yang terdekomposisi menjadi fungsi-fungsi:
+- `input_penghasilan()` — meminta input gaji bulanan
+- `hitung_zakat_tahunan(gaji_bulanan)` — menghitung zakat jika penghasilan tahunan melebihi nisab (85 gram emas × harga emas saat ini), zakat = 2.5% dari penghasilan
+- `tampilkan_hasil(gaji, zakat)` — menampilkan hasil perhitungan
 
-4. **Identifikasi Scope:** Perhatikan kode berikut. Apa output dari setiap perintah `print()`? Jelaskan mengapa.
-   ```python
-   x = 10
-   def ubah():
-       x = 20
-       print(x)
-   ubah()
-   print(x)
-   ```
+**Latihan 5.4 — Library Fungsi:**
+Buatlah kumpulan fungsi konversi satuan:
+- `km_ke_mil(km)` dan `mil_ke_km(mil)`
+- `kg_ke_pound(kg)` dan `pound_ke_kg(pound)`
+- `celsius_ke_fahrenheit(c)` dan `fahrenheit_ke_celsius(f)`
 
-5. **Multiple Return:** Buatlah fungsi `info_lingkaran(jari_jari)` yang mengembalikan **dua nilai**: luas dan keliling lingkaran. (π = 3.14159)
+### Latihan Kelompok
 
-### Tingkat Menengah
+**Latihan 5.5 — Program Kuis Interaktif:**
 
-1. **Validasi Input:** Buatlah fungsi `input_bilangan_positif(prompt)` yang terus meminta input hingga pengguna memasukkan bilangan positif. Gunakan fungsi ini dalam program yang menghitung rata-rata dari n bilangan.
+Buatlah program kuis dengan fungsi-fungsi berikut:
+- `buat_soal(pertanyaan, jawaban_benar)` — menyimpan soal
+- `tampilkan_soal(nomor, soal)` — menampilkan soal ke layar
+- `cek_jawaban(jawaban_user, jawaban_benar)` — mengecek jawaban
+- `hitung_skor(benar, total)` — menghitung persentase skor
+- `tampilkan_hasil_kuis(nama, skor, total)` — menampilkan hasil akhir
 
-2. **Fungsi Rekap Nilai:** Buatlah program dengan fungsi-fungsi berikut:
-   - `input_nilai(n)` — meminta n nilai dari pengguna
-   - `hitung_rata_rata(daftar)` — menghitung rata-rata
-   - `hitung_tertinggi(daftar)` — mencari nilai tertinggi
-   - `hitung_terendah(daftar)` — mencari nilai terendah
-   - `cetak_rekap(rata, maks, min)` — menampilkan rekap
-
-3. **Refactoring:** Kode berikut menghitung harga di 3 toko berbeda dengan cara yang sama. Refactor menggunakan fungsi!
-   ```python
-   harga1 = 50000
-   pajak1 = harga1 * 0.11
-   total1 = harga1 + pajak1
-   print(f"Toko 1: Rp {total1:,.0f}")
-
-   harga2 = 75000
-   pajak2 = harga2 * 0.11
-   total2 = harga2 + pajak2
-   print(f"Toko 2: Rp {total2:,.0f}")
-
-   harga3 = 120000
-   pajak3 = harga3 * 0.11
-   total3 = harga3 + pajak3
-   print(f"Toko 3: Rp {total3:,.0f}")
-   ```
-
-4. **Top-Down Design:** Gambarkan diagram top-down untuk program "Sistem Pemesanan Tiket Bioskop" dan implementasikan setiap fungsi dalam diagram.
-
-5. **Fungsi Validator:** Buatlah fungsi `validasi_nim(nim)` yang mengembalikan `True` jika NIM valid (format: 4 digit tahun + 3 digit kode prodi + 3 digit nomor urut, total 10 digit), `False` jika tidak valid.
-
-### Tingkat Mahir
-
-1. **Kalkulator Lengkap:** Buatlah program kalkulator ilmiah dengan fungsi-fungsi: tambah, kurang, kali, bagi, pangkat, akar kuadrat, faktorial. Program harus memiliki menu, validasi input, dan bisa diulang.
-
-2. **Sistem Kasir:** Rancang dan implementasikan program kasir warung sederhana menggunakan top-down design. Minimal 6 fungsi: tampilkan_menu, tambah_barang, hapus_barang, hitung_total, cetak_struk, main. Semua harga dalam Rupiah.
-
-3. **Analisis Fungsi:** Diberikan sebuah fungsi Python dari AI. Analisis: (a) apa yang dilakukan fungsi ini, (b) identifikasi minimal 2 bug atau masalah, (c) perbaiki, (d) tambahkan docstring dan type hints.
-   ```python
-   def proses(data, x):
-       r = []
-       for i in data:
-           if i > x:
-               r.append(i)
-       if len(r) == 0:
-           return -1
-       t = 0
-       for j in r:
-           t += j
-       return t / len(r)
-   ```
+Program harus memiliki minimal 5 soal tentang materi Bab 1-4.
 
 ---
 
-## Rangkuman
+## 5.11 Rangkuman
 
-- **Fungsi** adalah blok kode bernama yang melakukan tugas tertentu dan dapat dipanggil berulang kali.
-- Fungsi didefinisikan dengan keyword `def`, bisa menerima **parameter**, dan mengembalikan nilai dengan `return`.
-- **Parameter** bisa berupa: positional, keyword, default, `*args`, dan `**kwargs`.
-- **Scope** menentukan di mana variabel bisa diakses: **Local → Enclosing → Global → Built-in (LEGB)**.
-- Prinsip **DRY** (Don't Repeat Yourself): hindari duplikasi kode, buat fungsi.
-- **Top-down design**: pecah program besar menjadi fungsi-fungsi kecil dari umum ke spesifik.
-- **Docstring** mendokumentasikan fungsi: apa yang dilakukan, parameter, dan return value.
-- **Type hints** membantu keterbacaan: `def f(x: int) -> str:`.
-- Penamaan fungsi: gunakan **snake_case**, awali dengan **kata kerja**, nama harus deskriptif.
-- Fungsi yang baik: **satu tugas**, parameter tidak terlalu banyak, ada dokumentasi.
+| Konsep | Penjelasan |
+|--------|------------|
+| **Fungsi** | Blok kode bernama yang melakukan satu tugas tertentu dan dapat dipanggil berulang kali |
+| **Parameter** | Variabel yang menerima input pada definisi fungsi |
+| **Argumen** | Nilai yang dikirim saat memanggil fungsi |
+| **Return value** | Nilai yang dikembalikan fungsi ke pemanggil |
+| **Scope** | Ruang lingkup di mana variabel dapat diakses (local, enclosing, global, built-in) |
+| **DRY** | Don't Repeat Yourself — hindari duplikasi kode |
+| **Dekomposisi** | Memecah masalah besar menjadi sub-masalah yang lebih kecil |
+| **Docstring** | Dokumentasi yang menjelaskan fungsi, parameter, dan return value |
+| **Abstraksi** | Menyembunyikan detail implementasi, hanya menampilkan antarmuka |
+| **Default parameter** | Parameter yang memiliki nilai bawaan jika tidak diisi |
+| **`*args` / `**kwargs`** | Menerima jumlah argumen tidak tentu |
+
+**Peta Konsep Bab 5:**
+
+```
+                    ┌──────────────┐
+                    │    FUNGSI    │
+                    └──────┬───────┘
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+    ┌─────▼─────┐   ┌─────▼─────┐   ┌──────▼──────┐
+    │ Definisi  │   │  Scope    │   │  Prinsip    │
+    │ & Sintaks │   │           │   │  Desain     │
+    └─────┬─────┘   └─────┬─────┘   └──────┬──────┘
+          │               │                │
+     ┌────┼────┐     ┌────┼────┐      ┌────┼────┐
+     │    │    │     │    │    │      │    │    │
+    def param return L   E   G     DRY SRP Abstraksi
+         │              │    │
+       positional    enclosing global
+       default       (nested)
+       *args/**kwargs
+```
 
 ---
 
 ## Referensi
 
-1. Downey, A. B. (2024). *Think Python* (3rd ed.). O'Reilly Media. Bab tentang Functions.
-2. Guttag, J. V. (2021). *Introduction to Computation and Programming Using Python* (3rd ed.). MIT Press.
-3. Python Software Foundation. (2026). Python 3.x Documentation — Defining Functions. https://docs.python.org/3/tutorial/controlflow.html#defining-functions
-4. van Rossum, G. et al. (2001). "PEP 8 — Style Guide for Python Code."
-5. van Rossum, G. et al. (2014). "PEP 484 — Type Hints."
-6. Martin, R. C. (2008). *Clean Code*. Pearson Education.
+1. Downey, A. (2015). *Think Python: How to Think Like a Computer Scientist*. 2nd Edition. O'Reilly Media. — Chapter 3: Functions
+2. Matthes, E. (2023). *Python Crash Course*. 3rd Edition. No Starch Press. — Chapter 8: Functions
+3. Dokumentasi Python: [Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+4. Martin, R. C. (2008). *Clean Code: A Handbook of Agile Software Craftsmanship*. Prentice Hall. — Chapter 3: Functions
 
 ---
 
-*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
+*Bab selanjutnya: **Bab 6 — String dan Pengolahan Teks** — Anda akan belajar memanipulasi teks menggunakan fungsi-fungsi string bawaan Python, serta mengkombinasikannya dengan fungsi yang Anda buat sendiri.*
