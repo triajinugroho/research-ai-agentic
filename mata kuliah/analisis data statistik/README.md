@@ -36,6 +36,7 @@ Fondasi Kuat + Tools Modern + AI Literacy = Future-Proof Data Analyst
 | [`03-modules/`](./03-modules/) | Modul Mingguan | 16 modul perkuliahan (teori + praktik) |
 | [`04-labs/`](./04-labs/) | Lab Praktikum | 13 lab hands-on dengan Python |
 | [`05-assessments/`](./05-assessments/) | Asesmen | Framework penilaian, rubrik, kisi-kisi, panduan proyek |
+| [`06-buku-ajar/`](./06-buku-ajar/) | Buku Ajar | Buku ajar lengkap (14 bab + pendukung) |
 | [`datasets/`](./datasets/) | Dataset | Panduan & referensi dataset yang digunakan |
 
 ---
@@ -125,10 +126,50 @@ Mata kuliah ini mendukung **5 CPL** (Capaian Pembelajaran Lulusan) Prodi Informa
 
 ---
 
-## Kontribusi & Lisensi
+## Buku Ajar
 
-Materi ini dikembangkan untuk Prodi Informatika Universitas Al Azhar Indonesia. Kontribusi, saran, dan feedback sangat diterima melalui Issues atau Pull Request.
+**"Analisis Data Statistik: Fondasi Data Science dengan Python dan AI"**
+
+Buku ajar pendamping mata kuliah ini terdiri dari 14 bab utama, bagian penutup, dan lampiran pendukung. Tersedia di folder [`06-buku-ajar/`](./06-buku-ajar/).
+
+| Bab | Judul |
+|-----|-------|
+| 1 | Pengantar Statistika di Era AI |
+| 2 | Statistika Deskriptif |
+| 3 | Visualisasi Data |
+| 4 | Probabilitas Dasar |
+| 5 | Distribusi Probabilitas |
+| 6 | Sampling dan Estimasi |
+| 7 | Uji Hipotesis |
+| 8 | Korelasi dan Regresi Linear |
+| 9 | Regresi Berganda |
+| 10 | ANOVA dan Uji Non-Parametrik |
+| 11 | Analisis Data Kategorikal |
+| 12 | Intro Machine Learning Statistik |
+| 13 | AI-Augmented Data Analysis |
+| 14 | Proyek Akhir |
+| — | Penutup & Lampiran |
 
 ---
 
-*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — IF UAI
+## Kontak
+
+**Dosen Pengampu:**
+Tri Aji Nugroho, S.T., M.T.
+
+**Afiliasi:**
+Program Studi Informatika
+Fakultas Sains dan Teknologi
+Universitas Al Azhar Indonesia
+
+---
+
+## Lisensi
+
+(c) 2026 Tri Aji Nugroho — Universitas Al Azhar Indonesia
+
+Materi ini dikembangkan untuk keperluan pendidikan di lingkungan UAI.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
