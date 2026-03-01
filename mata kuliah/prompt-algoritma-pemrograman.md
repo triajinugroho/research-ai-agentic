@@ -21,7 +21,7 @@ Buatkan **paket mata kuliah lengkap end-to-end** untuk mata kuliah **Algoritma d
 ### A. IDENTITAS DOSEN & INSTITUSI
 
 | Komponen | Detail |
-|----------|--------|
+| --- | --- |
 | **Nama Dosen** | Tri Aji Nugroho, S.T., M.T. |
 | **Jabatan** | Dosen Pengampu Mata Kuliah Algoritma dan Pemrograman |
 | **Program Studi** | Informatika (S1) |
@@ -32,6 +32,7 @@ Buatkan **paket mata kuliah lengkap end-to-end** untuk mata kuliah **Algoritma d
 | **Kerjasama Industri** | Google, Red Hat Academy, Alibaba Academy, Data Academy, Solusi 247 |
 
 Seluruh dokumen harus mencantumkan **Tri Aji Nugroho, S.T., M.T.** sebagai penulis/dosen pengampu. Gunakan format konsisten:
+
 - Di RPS/RTM: `Dosen Pengampu: Tri Aji Nugroho, S.T., M.T.`
 - Di Buku Ajar: `Penulis: Tri Aji Nugroho, S.T., M.T.`
 - Di dokumen lain: `Disusun oleh: Tri Aji Nugroho, S.T., M.T.`
@@ -41,7 +42,7 @@ Seluruh dokumen harus mencantumkan **Tri Aji Nugroho, S.T., M.T.** sebagai penul
 ### B. IDENTITAS MATA KULIAH
 
 | Komponen | Detail |
-|----------|--------|
+| --- | --- |
 | **Nama MK** | Algoritma dan Pemrograman |
 | **Kode MK** | IF1XXX |
 | **SKS** | 3 SKS (Teori + Praktikum Terintegrasi) |
@@ -63,6 +64,7 @@ Seluruh dokumen harus mencantumkan **Tri Aji Nugroho, S.T., M.T.** sebagai penul
 #### C.1 Pendekatan OBE (Outcome-Based Education)
 
 Seluruh materi harus dirancang dengan pemetaan lengkap:
+
 - **CPL** (Capaian Pembelajaran Lulusan) → minimal 5-6 CPL yang didukung
 - **CPMK** (Capaian Pembelajaran Mata Kuliah) → 7 CPMK
 - **Sub-CPMK** → detail per minggu, setiap Sub-CPMK harus punya kata kerja Bloom yang terukur
@@ -71,6 +73,7 @@ Seluruh materi harus dirancang dengan pemetaan lengkap:
 #### C.2 Taksonomi Bloom
 
 Setiap tujuan pembelajaran harus menggunakan kata kerja Bloom yang tepat:
+
 - **C1** (Mengingat): mendefinisikan, menyebutkan, mengidentifikasi
 - **C2** (Memahami): menjelaskan, membedakan, menginterpretasikan
 - **C3** (Menerapkan): menerapkan, mengimplementasikan, menggunakan
@@ -81,6 +84,7 @@ Setiap tujuan pembelajaran harus menggunakan kata kerja Bloom yang tepat:
 #### C.3 AI-Augmented Programming
 
 AI bukan tambahan opsional — AI terintegrasi sebagai **coding partner** sepanjang semester:
+
 - Setiap bab buku ajar memiliki **"AI Corner"** yang mengajarkan penggunaan AI untuk topik tersebut
 - Progresi AI Literacy: Dasar (Bab 1-4) → Menengah (Bab 5-7) → Lanjut (Bab 8-11) → Mahir (Bab 12-14)
 - Mahasiswa belajar menulis prompt yang efektif, memvalidasi output AI, dan menggunakan AI secara bertanggung jawab
@@ -90,6 +94,7 @@ AI bukan tambahan opsional — AI terintegrasi sebagai **coding partner** sepanj
 #### C.4 Integrasi Nilai-Nilai Islami UAI
 
 Nilai-nilai Islami harus terintegrasi secara natural (bukan dipaksakan):
+
 - **Amanah** (Trustworthy): kejujuran dalam coding, academic integrity, tidak plagiat
 - **Keadilan** (Justice/al-'Adl): fairness dalam testing, edge cases handling
 - **Ihsan** (Excellence): clean code, best practices, continuous improvement
@@ -99,6 +104,7 @@ Nilai-nilai Islami harus terintegrasi secara natural (bukan dipaksakan):
 #### C.5 Konteks Indonesia
 
 Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
+
 - Data harga barang di pasar tradisional
 - Sistem informasi mahasiswa UAI
 - E-commerce Indonesia (Tokopedia, Shopee)
@@ -113,7 +119,7 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 #### Fase 1: Fondasi — "Think Like a Programmer" (Minggu 1-4)
 
 | Minggu | Topik | Lab | Konsep Kunci |
-|--------|-------|-----|--------------|
+| --- | --- | --- | --- |
 | 1 | Pengantar Algoritma & Computational Thinking di Era AI | Setup Python & Google Colab | Algoritma, flowchart, pseudocode, computational thinking (decomposition, pattern recognition, abstraction, algorithm design), Al-Khwarizmi |
 | 2 | Variabel, Tipe Data, dan Operator | Variabel & Ekspresi Python | int, float, str, bool, operator aritmatika/logika/perbandingan, type conversion, input/output |
 | 3 | Struktur Kontrol: Seleksi (if/elif/else) | Conditional Logic | Percabangan, Boolean logic, nested conditions, decision tables |
@@ -122,7 +128,7 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 #### Fase 2: Modularitas — "Build with Functions" (Minggu 5-8)
 
 | Minggu | Topik | Lab | Konsep Kunci |
-|--------|-------|-----|--------------|
+| --- | --- | --- | --- |
 | 5 | Fungsi dan Modularitas | Functions & Decomposition | def, parameters, return, scope, top-down design, DRY principle |
 | 6 | String dan Pengolahan Teks | String Processing | String methods, slicing, formatting, f-string, text processing |
 | 7 | List, Tuple, dan Operasi Koleksi | Collections & Iteration | List, tuple, list comprehension, slicing, mutation vs immutability |
@@ -131,7 +137,7 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 #### Fase 3: Struktur Data & Algoritma — "Solve Real Problems" (Minggu 9-12)
 
 | Minggu | Topik | Lab | Konsep Kunci |
-|--------|-------|-----|--------------|
+| --- | --- | --- | --- |
 | 9 | Dictionary, Set, dan Pemilihan Struktur Data | Data Structure Selection | dict, set, kapan pakai apa, hashable vs unhashable |
 | 10 | Algoritma Pencarian (Searching) | Linear & Binary Search | Linear search, binary search, perbandingan performa, tracing |
 | 11 | Algoritma Pengurutan (Sorting) | Sorting Algorithms | Bubble sort, selection sort, insertion sort, built-in sort, tracing step-by-step |
@@ -140,7 +146,7 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 #### Fase 4: Frontier — "Code with AI & Build Projects" (Minggu 13-16)
 
 | Minggu | Topik | Lab | Konsep Kunci |
-|--------|-------|-----|--------------|
+| --- | --- | --- | --- |
 | 13 | Kompleksitas Algoritma (Big-O) dan Optimasi | Algorithm Analysis | Big-O notation, time/space complexity, comparing algorithms, plotting growth |
 | 14 | AI-Augmented Programming dan Code Quality | AI as Coding Partner | AI pair programming, prompt engineering untuk kode, code review, clean code, ethical AI |
 | 15 | Presentasi Proyek Akhir | — | Presentasi dan demo proyek end-to-end |
@@ -151,7 +157,7 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 ### E. CPMK (Capaian Pembelajaran Mata Kuliah) — 7 CPMK
 
 | CPMK | Deskripsi | Bloom's | Bab Buku |
-|------|-----------|---------|----------|
+| --- | --- | --- | --- |
 | CPMK-1 | Menjelaskan konsep dasar algoritma, computational thinking, dan peran pemrograman di era AI | C2 | 1 |
 | CPMK-2 | Menerapkan variabel, tipe data, operator, dan ekspresi untuk menyelesaikan masalah komputasi sederhana | C3 | 2 |
 | CPMK-3 | Menerapkan struktur kontrol (seleksi dan perulangan) untuk membangun alur program yang logis | C3 | 3, 4 |
@@ -167,7 +173,7 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 **Judul Buku:** *Algoritma dan Pemrograman: Fondasi Computational Thinking dengan Python dan AI*
 
 | Bagian | Bab | Judul |
-|--------|-----|-------|
+| --- | --- | --- |
 | **Bagian I: Fondasi** | 1 | Pengantar Algoritma dan Computational Thinking |
 | | 2 | Variabel, Tipe Data, dan Operator |
 | | 3 | Struktur Kontrol: Seleksi |
@@ -185,7 +191,8 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 | — | — | Penutup: Refleksi dan Langkah ke Depan |
 | — | — | Lampiran A-F |
 
-**PENTING — KONSISTENSI BAB:**
+#### PENTING — KONSISTENSI BAB
+
 - Bab 13 = AI-Augmented Programming (BUKAN proyek akhir)
 - Bab 14 = Proyek Akhir (INI bab proyek akhir)
 - Semua referensi ke "proyek akhir" di dokumen manapun HARUS merujuk ke **Bab 14**, BUKAN Bab 13
@@ -199,7 +206,7 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buku utama:
 
 | Kriteria | CLRS (Cormen et al.) | Sedgewick & Wayne | Grokking Algorithms | Think Python (Downey) | Learning Python (Lutz) | **Buku Ini** |
-|----------|:----:|:----:|:----:|:----:|:----:|:----:|
+| --- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Bahasa** | English | English | English | English | English | **Indonesia** |
 | **Target** | Graduate/Advanced | CS2-CS3 | Self-learners | CS1/Intro | General | **Informatika S1 Sem 2** |
 | **Bahasa Pemrograman** | Pseudocode | Java | Python | Python | Python | **Python (Google Colab)** |
@@ -213,7 +220,8 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 | **Harga / Akses** | Komersial | Komersial | Komersial | Gratis | Komersial | **Gratis (institusional)** |
 | **Platform** | Textbook cetak | Textbook + website | Textbook cetak | PDF / Online | Textbook cetak | **Google Colab-ready** |
 
-**7 Diferensiator Utama yang harus dijabarkan:**
+#### 7 Diferensiator Utama yang harus dijabarkan
+
 1. Pertama di Indonesia: AI sebagai Coding Partner terintegrasi setiap bab
 2. 100% Konteks Indonesia (contoh, dataset, studi kasus)
 3. Berbasis OBE/KKNI dengan pemetaan CPMK eksplisit
@@ -222,10 +230,10 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 6. AI Literacy progresif 4 tingkat (Dasar → Menengah → Lanjut → Mahir)
 7. Bahasa Indonesia dengan terminologi bilingual (Indonesia + English)
 
-**Bagian "Apa yang Buku Ini Bukan":**
+#### Bagian "Apa yang Buku Ini Bukan"
 
 | Buku ini bukan... | Untuk itu, lihat... |
-|--------------------|---------------------|
+| --- | --- |
 | Buku algoritma tingkat lanjut (graduate) | CLRS, Kleinberg & Tardos |
 | Buku OOP (Object-Oriented Programming) | Head First Design Patterns, Clean Code |
 | Buku struktur data lanjutan | Goodrich, Sedgewick |
@@ -239,7 +247,7 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 #### H.1 Komponen Penilaian
 
 | Komponen | Bobot | Jumlah | Cakupan |
-|----------|-------|--------|---------|
+| --- | --- | --- | --- |
 | Tugas Mingguan | 15% | 6 tugas (masing-masing 2.5%) | T1-T6 |
 | Kuis | 10% | 3 kuis (masing-masing ~3.33%) | K1-K3 |
 | UTS | 20% | 1 (Minggu 8) | Minggu 1-7 |
@@ -251,7 +259,7 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 #### H.2 Rincian Tugas (RTM)
 
 | Tugas | Minggu | Topik | CPMK |
-|-------|--------|-------|------|
+| --- | --- | --- | --- |
 | T1 | 2 | Program Kalkulator Sederhana (variabel, tipe data, operator, I/O) | CPMK-2 |
 | T2 | 4 | Pattern Printing & Loop Challenges (nested loops, logika perulangan) | CPMK-3 |
 | T3 | 5 | Refactoring with Functions (dekomposisi program menjadi fungsi) | CPMK-4 |
@@ -259,7 +267,8 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 | T5 | 10 | Implementasi & Perbandingan Algoritma Pencarian | CPMK-6 |
 | T6 | 11 | Implementasi & Perbandingan Algoritma Pengurutan | CPMK-6 |
 
-**Rubrik 4 Dimensi (untuk setiap tugas):**
+#### Rubrik 4 Dimensi (untuk setiap tugas)
+
 1. **Teknis** (25%): Kebenaran logika, ketepatan output, penanganan edge cases
 2. **Problem Solving** (30%): Pemilihan pendekatan, dekomposisi masalah, efisiensi solusi
 3. **Kode Python** (25%): Kebersihan, dokumentasi, penamaan variabel, PEP 8 compliance
@@ -268,7 +277,7 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 #### H.3 Kuis
 
 | Kuis | Minggu | Cakupan | Format |
-|------|--------|---------|--------|
+| --- | --- | --- | --- |
 | K1 | 4 | Minggu 1-4 (Fondasi) | Closed-book, tracing kode, tulis pseudocode |
 | K2 | 7 | Minggu 5-7 (Modularitas) | Closed-book, tulis fungsi, operasi string/list |
 | K3 | 12 | Minggu 9-12 (Struktur Data & Algoritma) | Closed-book, tracing searching/sorting/rekursi |
@@ -281,7 +290,8 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 - **Timeline**: Minggu 9 (proposal) → Minggu 12 (progress) → Minggu 15 (presentasi)
 - **Deliverables**: Source code Python + Dokumentasi + Presentasi + AI Usage Log
 
-**10 Contoh Topik Proyek (konteks Indonesia):**
+#### 10 Contoh Topik Proyek (konteks Indonesia)
+
 1. Sistem Informasi Perpustakaan Mini
 2. Aplikasi Kasir Toko/Warung Sederhana
 3. Game Tebak Kata Bahasa Indonesia
@@ -293,7 +303,8 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 9. Sistem Voting / E-Polling Sederhana
 10. Mini Quiz App (bank soal + scoring + leaderboard)
 
-**Rubrik Proyek (8 Komponen, 100 poin):**
+#### Rubrik Proyek (8 Komponen, 100 poin)
+
 1. Perumusan Masalah & Desain: 10%
 2. Implementasi Kode & Fungsi: 20%
 3. Penggunaan Struktur Data & Algoritma: 15%
@@ -310,9 +321,11 @@ Buat dokumen `mengapa-buku-ini.md` yang memposisikan buku ini dibandingkan 5 buk
 Buat dokumen `00-strategic-analysis/strategic-analysis.md` yang mencakup:
 
 #### I.1 Executive Summary
+
 Posisikan mata kuliah AlPro di persimpangan strategis: pemrograman adalah skill paling fundamental di era AI, namun cara mengajarkannya harus berubah drastis. Dengan adanya AI coding assistants (GitHub Copilot, Claude, ChatGPT), mahasiswa perlu belajar *berpikir algoritmik* (computational thinking) lebih dari sekadar menghafal sintaks.
 
 #### I.2 Analisis SWOT
+
 - **Strengths**: Akreditasi Baik Sekali, partnership industri (Google, Red Hat), expertise dosen AI/ML, nilai Islami sebagai diferensiasi, track record lulusan, kurikulum IEEE/ACM/APTIKOM
 - **Weaknesses**: Mahasiswa semester 2 masih pemula, 3 SKS terbatas, potensi over-reliance AI, infrastruktur bervariasi
 - **Opportunities**: Software engineering job market boom, 92% mahasiswa sudah pakai AI, GitHub Copilot era, MBKM, open-source education, Indonesia digital economy
@@ -321,7 +334,9 @@ Posisikan mata kuliah AlPro di persimpangan strategis: pemrograman adalah skill 
 Sertakan **SWOT Matrix** dengan strategi kombinasi SO, ST, WO, WT.
 
 #### I.3 Porter's Five Forces
+
 Analisis 5 kekuatan kompetitif khusus untuk pendidikan pemrograman:
+
 1. Threat of New Entrants (bootcamp baru, platform AI-based)
 2. Bargaining Power of Buyers (mahasiswa punya banyak pilihan belajar gratis)
 3. Threat of Substitutes (YouTube, ChatGPT, Copilot bisa "mengajar" coding)
@@ -329,7 +344,9 @@ Analisis 5 kekuatan kompetitif khusus untuk pendidikan pemrograman:
 5. Competitive Rivalry (antar universitas, bootcamp, MOOC)
 
 #### I.4 Tren Frontier AI & Pendidikan Global
+
 Sertakan data dan tren terbaru (2025-2026):
+
 - AI coding assistants: GitHub Copilot, Claude Code, Cursor, Windsurf
 - Computational thinking sebagai core competency (bukan coding semata)
 - UNESCO AI & Education guidelines
@@ -337,7 +354,9 @@ Sertakan data dan tren terbaru (2025-2026):
 - Perubahan landscape pekerjaan developer: dari "menulis kode" ke "mengarahkan AI menulis kode"
 
 #### I.5 100x Value Impact Framework
+
 Jelaskan bagaimana mata kuliah ini memberikan 100x value:
+
 - **Untuk Mahasiswa**: foundational skills × AI multiplier × portfolio × career × transferability
 - **Untuk Dosen**: teaching efficiency × research opportunities × professional development
 - **Untuk Universitas**: differentiation × accreditation × industry alignment × student satisfaction × scalability
@@ -348,7 +367,7 @@ Jelaskan bagaimana mata kuliah ini memberikan 100x value:
 
 Buat **SEMUA** file berikut di repository baru. Setiap file harus lengkap dan substantif.
 
-```
+```text
 algoritma-pemrograman-uai/
 ├── README.md
 ├── 00-strategic-analysis/
@@ -424,6 +443,7 @@ algoritma-pemrograman-uai/
 ### K. SPESIFIKASI KONTEN PER DELIVERABLE
 
 #### K.1 README.md
+
 - Judul, identitas MK, dosen, pendekatan
 - Filosofi desain (diagram: `Fondasi Kuat + Python Modern + AI Literacy = Future-Proof Programmer`)
 - Struktur folder (tabel)
@@ -434,7 +454,9 @@ algoritma-pemrograman-uai/
 - Tagline: *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — IF UAI
 
 #### K.2 RPS (01-rps/rps-algoritma-pemrograman.md)
+
 Harus memiliki SEMUA bagian berikut (mengikuti format SN-Dikti):
+
 - **A. Identitas Mata Kuliah** (tabel lengkap)
 - **B. Deskripsi Mata Kuliah** (paragraf deskriptif, sebutkan ko-requisite dengan Analisis Data Statistik)
 - **C. CPL yang Dibebankan pada Mata Kuliah** (6 CPL dalam tabel)
@@ -449,6 +471,7 @@ Harus memiliki SEMUA bagian berikut (mengikuti format SN-Dikti):
 - Footer: `Diperbarui: Februari 2026`
 
 #### K.3 RTM (02-rtm/rtm-algoritma-pemrograman.md)
+
 - Tabel ringkasan semua tugas, kuis, dan proyek
 - Detail per tugas (T1-T6): deskripsi, tujuan, deliverables, rubrik 4 dimensi (skala 4 poin)
 - Detail per kuis (K1-K3): cakupan, format, durasi
@@ -456,7 +479,9 @@ Harus memiliki SEMUA bagian berikut (mengikuti format SN-Dikti):
 - AI Usage Policy per komponen asesmen
 
 #### K.4 Modul Mingguan (03-modules/week-NN-*.md)
+
 Setiap modul HARUS memiliki struktur:
+
 1. **Header**: Judul, informasi modul (tabel: MK, minggu, topik, CPMK, durasi, metode)
 2. **Tujuan Pembelajaran**: Numbered list dengan kata kerja Bloom
 3. **Materi Pembelajaran**: Konten detail dengan teori, contoh, tabel, kode Python, diagram ASCII
@@ -465,6 +490,7 @@ Setiap modul HARUS memiliki struktur:
 6. **Referensi**: Sumber yang digunakan
 
 **Catatan konten spesifik:**
+
 - Week 1: Wajib bahas Al-Khwarizmi, flowchart notation (oval/parallelogram/rectangle/diamond/arrow), pseudocode conventions, 4 pilar computational thinking
 - Week 3-4: Gunakan decision table dan loop trace table
 - Week 5: Diagram top-down design, visualisasi scope
@@ -474,7 +500,9 @@ Setiap modul HARUS memiliki struktur:
 - Week 14: Workflow AI pair programming, prompt engineering untuk coding
 
 #### K.5 Lab Praktikum (04-labs/lab-NN-*.md)
+
 Setiap lab HARUS memiliki:
+
 1. **Tujuan Praktikum**: Apa yang mahasiswa akan capai
 2. **Persiapan**: Apa yang perlu disiapkan
 3. **Langkah-langkah**: Step-by-step dengan kode Python lengkap dan penjelasan
@@ -483,7 +511,8 @@ Setiap lab HARUS memiliki:
 
 Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 
-**Konten lab spesifik:**
+#### Konten lab spesifik
+
 - Lab 01: Setup Colab + Hello World + input/output dasar
 - Lab 02: Kalkulator sederhana, konversi suhu, hitung diskon
 - Lab 03: Grade calculator, BMI checker, penentuan tarif TransJakarta
@@ -509,6 +538,7 @@ Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 #### K.7 Buku Ajar (06-buku-ajar/)
 
 **Setiap bab (bab-01 s/d bab-14) HARUS memiliki:**
+
 1. Header: `# BAB N: JUDUL` + nama penulis
 2. **Tujuan Pembelajaran**: Tabel (Sub-CPMK, Deskripsi, Bloom's Level)
 3. **Konten utama**: Numbered sections (N.1, N.2, dst.) dengan subsections (N.1.1, N.1.2, dst.)
@@ -525,7 +555,8 @@ Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 
 **Setiap bab harus substantif** — minimal 600-1000+ baris markdown (setara 30-40 halaman cetak).
 
-**Catatan konten bab spesifik:**
+#### Catatan konten bab spesifik
+
 - **Bab 1**: Sejarah algoritma (Al-Khwarizmi sebagai warisan Islam!), 4 pilar computational thinking, flowchart notation lengkap, pseudocode conventions, mengapa Python
 - **Bab 3**: Decision tables, truth tables, operator boolean, short-circuit evaluation
 - **Bab 4**: Loop trace tables, pola-pola umum perulangan, sentinel value, counter vs flag
@@ -537,7 +568,8 @@ Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 - **Bab 13**: AI pair programming workflow lengkap, framework CRIDE untuk prompt engineering, cara memvalidasi kode dari AI, ethical guidelines
 - **Bab 14**: Panduan proyek end-to-end yang lengkap — dari perumusan masalah hingga presentasi
 
-**00-halaman-depan.md**:
+#### 00-halaman-depan.md
+
 - Judul buku, penulis, institusi
 - **"Jakarta, Februari 2026"** (BUKAN 2025!)
 - **"Edisi Pertama, 2026"** (BUKAN 2025!)
@@ -547,9 +579,12 @@ Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 - Peta Capaian Pembelajaran (diagram ASCII)
 - Petunjuk Penggunaan Buku
 
-**mengapa-buku-ini.md**: Lihat Bagian G di atas — positioning dan 7 diferensiator
+#### mengapa-buku-ini.md
 
-**penutup.md**:
+Lihat Bagian G di atas — positioning dan 7 diferensiator
+
+#### penutup.md
+
 - Refleksi per bagian (Bagian I-IV, semua 14 bab disebutkan)
 - Kompetensi yang telah diraih
 - Jalur karir (Software Engineer, Backend Developer, Full-Stack, Mobile Dev, DevOps, Data Engineer)
@@ -558,7 +593,8 @@ Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 - Refleksi Islami (Al-Khwarizmi, ilmu yang bermanfaat, amanah)
 - Tanda tangan: `Jakarta, Februari 2026` + `Tri Aji Nugroho, S.T., M.T.`
 
-**lampiran.md**:
+#### lampiran.md
+
 - A: Tabel ASCII
 - B: Python Syntax Cheat Sheet (formularium)
 - C: Glosarium Istilah (bilingual Indonesia-English)
@@ -567,7 +603,9 @@ Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 - F: Indeks
 
 #### K.8 Datasets (datasets/README.md)
+
 Untuk mata kuliah pemrograman, ini berisi:
+
 - Panduan sumber latihan soal (HackerRank, LeetCode Easy, Advent of Code)
 - Contoh file CSV/TXT untuk latihan file I/O
 - Problem set bertema Indonesia
@@ -618,7 +656,7 @@ Karena volume konten sangat besar, generate dalam batch berikut:
 
 Setelah setiap batch, jalankan **VERIFICATION CHECKLIST** berikut:
 
-```
+```text
 CHECKLIST VERIFIKASI:
 [ ] Semua tanggal mengacu 2026, BUKAN 2025
 [ ] Semua file menyebut "Algoritma dan Pemrograman" sebagai nama MK
@@ -640,7 +678,8 @@ CHECKLIST VERIFIKASI:
 
 ### N. CONTOH POLA STRUKTUR
 
-#### Pola Header Bab Buku Ajar:
+#### Pola Header Bab Buku Ajar
+
 ```markdown
 # BAB 1: PENGANTAR ALGORITMA DAN COMPUTATIONAL THINKING
 
@@ -680,8 +719,8 @@ Algoritma dan Pemrograman — Prodi Informatika, Universitas Al Azhar Indonesia
 
 ## Referensi
 - ...
-```
 
+```markdown
 #### Pola Header Modul Mingguan:
 ```markdown
 # Minggu 1: Pengantar Algoritma dan Computational Thinking di Era AI
@@ -703,7 +742,8 @@ Setelah menyelesaikan modul ini, mahasiswa mampu:
 2. ...
 ```
 
-#### Pola Header Lab:
+#### Pola Header Lab
+
 ```markdown
 # Lab 01: Setup Python dan Google Colab
 
