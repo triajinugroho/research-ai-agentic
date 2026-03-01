@@ -1,6 +1,6 @@
 # Algoritma dan Pemrograman
 
-### MK Teori — INF-101
+## MK Teori — INF-101
 
 ## Fondasi Computational Thinking dengan Python dan AI
 
@@ -69,7 +69,7 @@ Mata kuliah ini dirancang dengan filosofi sebagai berikut:
 | `02-rtm/` | Rencana Tugas Mahasiswa | 1 |
 | `03-modules/` | Modul perkuliahan mingguan | 16 |
 | `04-assessments/` | Framework asesmen, kisi-kisi | 3 |
-| `05-buku-ajar/` | Buku ajar (14 bab + pendukung) | 19 |
+| `05-buku-ajar/` | Buku ajar (14 bab + pendukung) | 18 |
 | `datasets/` | Panduan resource & latihan | 1 |
 
 ---
