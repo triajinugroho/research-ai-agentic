@@ -1,5 +1,7 @@
 # Algoritma dan Pemrograman
 
+### MK Teori — INF-101
+
 ## Fondasi Computational Thinking dengan Python dan AI
 
 **Prodi Informatika — Universitas Al Azhar Indonesia**
@@ -48,11 +50,11 @@ Mata kuliah ini dirancang dengan filosofi sebagai berikut:
 | Atribut | Detail |
 |---------|--------|
 | **Nama MK** | Algoritma dan Pemrograman |
-| **Kode** | Informatika |
-| **SKS** | 3 SKS |
+| **Kode** | INF-101 |
+| **SKS** | 2 SKS (Teori) |
 | **Semester** | Genap 2025/2026 |
 | **Prasyarat** | — |
-| **Ko-requisite** | Analisis Data Statistik |
+| **Ko-requisite** | Praktikum Algoritma dan Pemrograman (INF-102) |
 | **Bahasa Pemrograman** | Python 3.x |
 | **Platform** | Google Colab |
 
@@ -66,9 +68,8 @@ Mata kuliah ini dirancang dengan filosofi sebagai berikut:
 | `01-rps/` | Rencana Pembelajaran Semester | 1 |
 | `02-rtm/` | Rencana Tugas Mahasiswa | 1 |
 | `03-modules/` | Modul perkuliahan mingguan | 16 |
-| `04-labs/` | Panduan praktikum | 13 |
-| `05-assessments/` | Framework asesmen, kisi-kisi, rubrik | 5 |
-| `06-buku-ajar/` | Buku ajar (14 bab + pendukung) | 19 |
+| `04-assessments/` | Framework asesmen, kisi-kisi | 3 |
+| `05-buku-ajar/` | Buku ajar (14 bab + pendukung) | 19 |
 | `datasets/` | Panduan resource & latihan | 1 |
 
 ---
@@ -77,39 +78,39 @@ Mata kuliah ini dirancang dengan filosofi sebagai berikut:
 
 ### Fase 1: Fondasi — "Think Like a Programmer" (Minggu 1-4)
 
-| Minggu | Topik | Lab |
-|--------|-------|-----|
-| 1 | Pengantar Algoritma & Computational Thinking di Era AI | Setup Python & Colab |
-| 2 | Variabel, Tipe Data, dan Operator | Variabel & Ekspresi |
-| 3 | Struktur Kontrol: Seleksi | Conditional Logic |
-| 4 | Struktur Kontrol: Perulangan | Loops & Patterns |
+| Minggu | Topik |
+|--------|-------|
+| 1 | Pengantar Algoritma & Computational Thinking di Era AI |
+| 2 | Variabel, Tipe Data, dan Operator |
+| 3 | Struktur Kontrol: Seleksi |
+| 4 | Struktur Kontrol: Perulangan |
 
 ### Fase 2: Modularitas — "Build with Functions" (Minggu 5-8)
 
-| Minggu | Topik | Lab |
-|--------|-------|-----|
-| 5 | Fungsi dan Modularitas | Functions & Decomposition |
-| 6 | String dan Pengolahan Teks | String Processing |
-| 7 | List, Tuple, dan Operasi Koleksi | Collections & Iteration |
-| 8 | **UTS** | — |
+| Minggu | Topik |
+|--------|-------|
+| 5 | Fungsi dan Modularitas |
+| 6 | String dan Pengolahan Teks |
+| 7 | List, Tuple, dan Operasi Koleksi |
+| 8 | **UTS** |
 
 ### Fase 3: Struktur Data & Algoritma — "Solve Real Problems" (Minggu 9-12)
 
-| Minggu | Topik | Lab |
-|--------|-------|-----|
-| 9 | Dictionary, Set, dan Pemilihan Struktur Data | Data Structure Selection |
-| 10 | Algoritma Pencarian (Searching) | Linear & Binary Search |
-| 11 | Algoritma Pengurutan (Sorting) | Sorting Algorithms |
-| 12 | Rekursi dan Pemecahan Masalah | Recursive Problem Solving |
+| Minggu | Topik |
+|--------|-------|
+| 9 | Dictionary, Set, dan Pemilihan Struktur Data |
+| 10 | Algoritma Pencarian (Searching) |
+| 11 | Algoritma Pengurutan (Sorting) |
+| 12 | Rekursi dan Pemecahan Masalah |
 
 ### Fase 4: Frontier — "Code with AI & Build Projects" (Minggu 13-16)
 
-| Minggu | Topik | Lab |
-|--------|-------|-----|
-| 13 | Kompleksitas Algoritma (Big-O) | Algorithm Analysis |
-| 14 | AI-Augmented Programming | AI as Coding Partner |
-| 15 | Presentasi Proyek Akhir | — |
-| 16 | **UAS** | — |
+| Minggu | Topik |
+|--------|-------|
+| 13 | Kompleksitas Algoritma (Big-O) |
+| 14 | AI-Augmented Programming |
+| 15 | Presentasi Proyek Akhir |
+| 16 | **UAS** |
 
 ---
 
@@ -131,13 +132,17 @@ Mata kuliah ini dirancang dengan filosofi sebagai berikut:
 
 | Komponen | Bobot |
 |----------|-------|
-| Tugas Mingguan (6x) | 15% |
-| Kuis (3x) | 10% |
-| UTS | 20% |
-| Proyek Akhir | 25% |
-| UAS | 25% |
-| Partisipasi & Etika AI | 5% |
+| Kuis (3x) | 20% |
+| UTS | 30% |
+| UAS | 40% |
+| Partisipasi | 10% |
 | **Total** | **100%** |
+
+---
+
+## Hubungan dengan Praktikum (INF-102)
+
+Mata kuliah ini memiliki ko-requisite **Praktikum Algoritma dan Pemrograman (INF-102, 1 SKS)**. Komponen praktikum (tugas pemrograman, laporan, proyek akhir, dan responsi) dinilai secara terpisah. Materi praktikum tersedia di folder `../praktikum-algoritma-pemrograman/`.
 
 ---
 

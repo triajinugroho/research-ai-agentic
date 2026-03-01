@@ -13,7 +13,7 @@ Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar In
 |---|---|
 | **Nama Mata Kuliah** | Algoritma dan Pemrograman |
 | **Kode Mata Kuliah** | INF-101 |
-| **Bobot SKS** | 3 SKS (1 SKS Teori + 2 SKS Praktikum) |
+| **Bobot SKS** | 2 SKS (Teori) |
 | **Semester** | Genap |
 | **Program Studi** | Informatika |
 | **Fakultas** | Sains dan Teknologi |
@@ -22,6 +22,7 @@ Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar In
 | **Tahun Akademik** | 2025/2026 |
 | **Prasyarat** | — (Tidak ada) |
 | **Ko-requisite** | Analisis Data Statistik |
+| **Praktikum** | Praktikum Algoritma dan Pemrograman (INF-102) — 1 SKS |
 | **Bahasa Pemrograman** | Python 3.x |
 | **Platform Utama** | Google Colab |
 | **Metode Perkuliahan** | Blended Learning (Tatap Muka + Daring Asinkron) |
@@ -30,11 +31,11 @@ Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar In
 
 ## B. Deskripsi Mata Kuliah
 
-Mata kuliah **Algoritma dan Pemrograman** (3 SKS) merupakan mata kuliah fondasi di Program Studi Informatika yang dirancang untuk membekali mahasiswa dengan kemampuan berpikir komputasional (*computational thinking*) dan keterampilan pemrograman menggunakan bahasa Python. Mata kuliah ini berjalan secara paralel dengan mata kuliah **Analisis Data Statistik** sebagai ko-requisite, sehingga mahasiswa dapat langsung mengaplikasikan keterampilan pemrograman yang dipelajari untuk mendukung analisis data di mata kuliah tersebut.
+Mata kuliah **Algoritma dan Pemrograman** (2 SKS) merupakan mata kuliah fondasi di Program Studi Informatika yang dirancang untuk membekali mahasiswa dengan kemampuan berpikir komputasional (*computational thinking*) dan keterampilan pemrograman menggunakan bahasa Python. Mata kuliah ini berjalan secara paralel dengan mata kuliah **Analisis Data Statistik** sebagai ko-requisite, sehingga mahasiswa dapat langsung mengaplikasikan keterampilan pemrograman yang dipelajari untuk mendukung analisis data di mata kuliah tersebut.
 
 Perkuliahan mencakup empat fase pembelajaran yang terstruktur: (1) fondasi berpikir seperti pemrogram melalui penguasaan konsep algoritma, variabel, tipe data, operator, dan struktur kontrol; (2) modularitas melalui fungsi, pengolahan string, dan koleksi data; (3) struktur data dan algoritma klasik meliputi pencarian, pengurutan, dan rekursi; serta (4) frontier yang memperkenalkan analisis kompleksitas algoritma dan paradigma *AI-augmented programming*.
 
-Seluruh praktikum dilaksanakan di **Google Colab** sebagai platform wajib, memungkinkan mahasiswa untuk langsung menulis, menjalankan, dan berbagi kode Python tanpa konfigurasi lingkungan lokal. Mata kuliah ini juga mengintegrasikan kecerdasan buatan (AI) sebagai *coding partner* — bukan pengganti berpikir — dengan penekanan pada etika penggunaan AI, transparansi melalui *AI Usage Log*, dan tanggung jawab intelektual mahasiswa terhadap setiap baris kode yang dihasilkan.
+Komponen praktikum (*hands-on coding*) dilaksanakan secara terpisah di mata kuliah **Praktikum Algoritma dan Pemrograman** (INF-102, 1 SKS). Mata kuliah teori ini berfokus pada penguasaan konsep, analisis, dan desain algoritmik melalui ceramah interaktif, demonstrasi *live coding*, dan diskusi berbasis masalah (*problem-based learning*). Referensi utama perkuliahan adalah Buku Ajar yang tersedia di repositori ini.
 
 Pendekatan pembelajaran dirancang berbasis *problem-based learning* (PBL) dan *project-based learning* (PjBL), di mana mahasiswa tidak hanya belajar sintaks bahasa pemrograman, tetapi juga mengembangkan pola pikir algoritmik untuk menyelesaikan permasalahan nyata. Proyek akhir dirancang sebagai kulminasi seluruh capaian pembelajaran, di mana mahasiswa membangun solusi pemrograman end-to-end yang mengintegrasikan struktur data, algoritma, dan AI secara bertanggung jawab.
 
@@ -139,7 +140,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Diskusi kelas; Demo Google Colab; Ice-breaking: "Algorithm in Daily Life" |
 | **Pengalaman Belajar** | Mahasiswa menyusun algoritma aktivitas sehari-hari dalam pseudocode dan flowchart; Mahasiswa membuat akun dan notebook pertama di Google Colab; Mahasiswa menjalankan program `print("Hello, World!")` pertama |
 | **Indikator Penilaian** | Mampu mendefinisikan algoritma dengan tepat; Mampu menyusun pseudocode dan flowchart sederhana; Mampu menjelaskan 4 pilar CT; Mampu menjalankan kode Python pertama di Google Colab |
-| **Bobot** | Tugas 1 (1%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 1; [R4] Bab 1; [R6] Python Tutorial |
 
 #### Minggu 2 — Variabel, Tipe Data, dan Operator
@@ -151,7 +152,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Latihan terbimbing (*guided practice*); Pair programming |
 | **Pengalaman Belajar** | Mahasiswa menulis program kalkulator sederhana; Mahasiswa membuat program konversi suhu (Celsius-Fahrenheit-Kelvin); Mahasiswa membuat program penghitung BMI dengan input pengguna |
 | **Indikator Penilaian** | Mampu mendeklarasikan variabel dengan penamaan yang sesuai PEP 8; Mampu memilih tipe data yang tepat; Mampu menggunakan operator untuk komputasi; Mampu membuat program interaktif dengan input/output |
-| **Bobot** | Tugas 2 (2%); Kuis 1 (2%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 2; [R2] Part II; [R6] Python Tutorial |
 
 #### Minggu 3 — Struktur Kontrol: Seleksi (if/elif/else)
@@ -163,7 +164,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Problem-based learning; Diskusi kelompok kecil |
 | **Pengalaman Belajar** | Mahasiswa membuat program penentuan grade nilai; Mahasiswa membuat program kalkulator diskon bertingkat; Mahasiswa memecahkan masalah "FizzBuzz" dan variasinya |
 | **Indikator Penilaian** | Mampu menulis struktur seleksi yang benar secara sintaks dan logika; Mampu merancang seleksi bertingkat untuk kasus kompleks; Mampu menggunakan operator logika dalam kondisi gabungan |
-| **Bobot** | Tugas 3 (2%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 3; [R2] Part III; [R4] Bab 2 |
 
 #### Minggu 4 — Struktur Kontrol: Perulangan (for/while)
@@ -175,7 +176,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Latihan terbimbing; Think-pair-share |
 | **Pengalaman Belajar** | Mahasiswa membuat program penghitung deret (Fibonacci, prima); Mahasiswa membuat program pencetakan pola bintang (*pattern printing*); Mahasiswa membuat program tebak angka dengan validasi input; Mahasiswa membuat program statistik sederhana (rata-rata, min, max dari input berulang) — integrasi dengan Analisis Data Statistik |
 | **Indikator Penilaian** | Mampu memilih jenis perulangan yang tepat (for vs while); Mampu menggunakan break/continue secara tepat; Mampu mengimplementasikan pola akumulator dan counter; Mampu merancang nested loop untuk masalah dua dimensi |
-| **Bobot** | Tugas 4 (2%); Kuis 2 (2%) |
+| **Bobot** | Kuis 1 (7%) |
 | **Referensi** | [R1] Bab 4; [R2] Part III; [R4] Bab 2 |
 
 ---
@@ -191,7 +192,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Refactoring exercise; Peer code review |
 | **Pengalaman Belajar** | Mahasiswa me-refactor program sebelumnya menggunakan fungsi; Mahasiswa membuat library fungsi matematika sederhana; Mahasiswa melakukan peer code review untuk melatih keterbacaan kode |
 | **Indikator Penilaian** | Mampu mendefinisikan fungsi dengan parameter dan return value yang tepat; Mampu menjelaskan scope variabel; Mampu menerapkan prinsip modularitas dalam program; Mampu menulis docstring yang informatif |
-| **Bobot** | Tugas 5 (2%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 5; [R2] Part IV; [R5] Bab 2 |
 
 #### Minggu 6 — String dan Pengolahan Teks
@@ -203,7 +204,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Mini-project teks; Problem-based learning |
 | **Pengalaman Belajar** | Mahasiswa membuat program validasi email/password sederhana; Mahasiswa membuat program *word counter* dan analisis frekuensi kata; Mahasiswa membuat program *Caesar cipher* (enkripsi/dekripsi sederhana); Integrasi: parsing data CSV sederhana — relevan dengan Analisis Data Statistik |
 | **Indikator Penilaian** | Mampu memanipulasi string menggunakan metode built-in; Mampu menggunakan f-string untuk output terformat; Mampu membangun program pengolahan teks fungsional |
-| **Bobot** | Tugas 6 (2%); Kuis 3 (2%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 6; [R2] Part II; [R6] String Methods |
 
 #### Minggu 7 — List, Tuple, dan Operasi Koleksi
@@ -215,7 +216,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Collaborative coding; Mini-challenge |
 | **Pengalaman Belajar** | Mahasiswa membuat program manajemen daftar belanja (CRUD operations); Mahasiswa membuat program statistik dari list angka (mean, median, modus) — integrasi dengan Analisis Data Statistik; Mahasiswa mengimplementasikan operasi matriks sederhana menggunakan nested list |
 | **Indikator Penilaian** | Mampu membuat dan memanipulasi list dengan berbagai metode; Mampu menggunakan list comprehension; Mampu membedakan penggunaan list dan tuple; Mampu melakukan operasi agregasi pada koleksi |
-| **Bobot** | Tugas 7 (2%) |
+| **Bobot** | Kuis 2 (7%) |
 | **Referensi** | [R1] Bab 7; [R2] Part II; [R4] Bab 3 |
 
 #### Minggu 8 — Ujian Tengah Semester (UTS)
@@ -227,7 +228,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ujian tertulis dan/atau praktikum di Google Colab; Bersifat *closed-book*, **tanpa AI tools** |
 | **Pengalaman Belajar** | Mahasiswa mengerjakan soal teori (pilihan ganda, isian singkat, essay) dan soal praktik (menulis kode Python) secara mandiri |
 | **Indikator Penilaian** | Ketepatan jawaban teori; Kebenaran dan efisiensi kode; Keterbacaan dan struktur program; Penggunaan penamaan variabel dan fungsi yang baik |
-| **Bobot** | **20%** |
+| **Bobot** | UTS (30%) |
 | **Referensi** | [R1]–[R6] (seluruh referensi Minggu 1–7) |
 
 ---
@@ -243,7 +244,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Studi kasus perbandingan; Problem-based learning |
 | **Pengalaman Belajar** | Mahasiswa membuat program buku kontak (phonebook) menggunakan dictionary; Mahasiswa membuat program analisis keunikan data menggunakan set; Mahasiswa menganalisis kasus dan memilih struktur data paling tepat dengan justifikasi; Integrasi: representasi dataset tabular menggunakan list of dictionaries — relevan dengan Analisis Data Statistik |
 | **Indikator Penilaian** | Mampu membuat dan memanipulasi dictionary dan set; Mampu melakukan operasi himpunan pada set; Mampu menganalisis dan memilih struktur data yang tepat dengan argumentasi |
-| **Bobot** | Tugas 8 (2%); Kuis 4 (2%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 8; [R2] Part II; [R4] Bab 4 |
 
 #### Minggu 10 — Algoritma Pencarian (Searching)
@@ -255,7 +256,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Eksperimen performa (*benchmarking*); Visualisasi algoritma |
 | **Pengalaman Belajar** | Mahasiswa mengimplementasikan linear search dan binary search dari nol; Mahasiswa melakukan eksperimen perbandingan waktu eksekusi kedua algoritma pada berbagai ukuran data; Mahasiswa membuat program pencarian data mahasiswa dari dataset; Mahasiswa memvisualisasikan langkah-langkah pencarian |
 | **Indikator Penilaian** | Mampu mengimplementasikan linear search dan binary search; Mampu menjelaskan kapan menggunakan masing-masing algoritma; Mampu membandingkan performa secara empiris |
-| **Bobot** | Tugas 9 (1%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 9; [R3] Bab 2; [R4] Bab 1, 4; [R5] Bab 3 |
 
 #### Minggu 11 — Algoritma Pengurutan (Sorting)
@@ -267,7 +268,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Eksperimen performa; Sorting visualization; Collaborative learning |
 | **Pengalaman Belajar** | Mahasiswa mengimplementasikan empat algoritma pengurutan dari nol; Mahasiswa melakukan *benchmarking* perbandingan waktu eksekusi; Mahasiswa memvisualisasikan langkah demi langkah proses pengurutan; Mahasiswa menganalisis kapan menggunakan algoritma pengurutan tertentu |
 | **Indikator Penilaian** | Mampu mengimplementasikan minimal 3 algoritma pengurutan; Mampu menjelaskan mekanisme masing-masing algoritma; Mampu membandingkan performa dan memilih algoritma yang sesuai |
-| **Bobot** | Tugas 10 (1%); Kuis 5 (2%) |
+| **Bobot** | Partisipasi (1%) |
 | **Referensi** | [R1] Bab 10; [R3] Bab 2, 7, 8; [R4] Bab 4; [R5] Bab 2 |
 
 #### Minggu 12 — Rekursi dan Pemecahan Masalah
@@ -279,7 +280,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Visualisasi call stack; Problem-solving workshop |
 | **Pengalaman Belajar** | Mahasiswa mengimplementasikan solusi rekursif untuk masalah klasik; Mahasiswa menggambar *recursion tree* untuk memahami alur eksekusi; Mahasiswa membandingkan solusi rekursif dan iteratif untuk masalah yang sama; Mahasiswa mengimplementasikan memoization pada Fibonacci |
 | **Indikator Penilaian** | Mampu menjelaskan konsep rekursi dan mengidentifikasi base case serta recursive case; Mampu mengimplementasikan solusi rekursif; Mampu menganalisis kelebihan dan kekurangan rekursi vs iterasi |
-| **Bobot** | Tugas 11 (1%) |
+| **Bobot** | Kuis 3 (6%) |
 | **Referensi** | [R1] Bab 11; [R3] Bab 4; [R4] Bab 4; [R5] Bab 3 |
 
 ---
@@ -295,7 +296,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live coding; Analisis kode (*code analysis*); Benchmarking workshop |
 | **Pengalaman Belajar** | Mahasiswa menganalisis kompleksitas Big-O dari kode yang diberikan; Mahasiswa mengoptimasi kode yang tidak efisien; Mahasiswa melakukan eksperimen *benchmarking* dengan `time` module; Mahasiswa membuat grafik perbandingan pertumbuhan fungsi kompleksitas |
 | **Indikator Penilaian** | Mampu menentukan kompleksitas Big-O dari kode/algoritma; Mampu menjelaskan perbedaan kelas kompleksitas; Mampu mengoptimasi kode berdasarkan analisis kompleksitas |
-| **Bobot** | Tugas 12 (1%); Proposal Proyek Akhir |
+| **Bobot** | Partisipasi (0,5%) |
 | **Referensi** | [R1] Bab 12; [R3] Bab 3; [R4] Bab 1; [R5] Bab 1 |
 
 #### Minggu 14 — AI-Augmented Programming dan Code Quality
@@ -307,7 +308,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ceramah interaktif; Live demo AI tools; Workshop evaluasi kode AI; Diskusi etika; Peer review |
 | **Pengalaman Belajar** | Mahasiswa berlatih *prompt engineering* dengan AI untuk menyelesaikan masalah pemrograman; Mahasiswa mengevaluasi dan memperbaiki kode yang dihasilkan AI (diberikan kode AI yang mengandung bug/inefisiensi); Mahasiswa menulis *unit test* sederhana untuk memvalidasi kode; Mahasiswa mengisi *AI Usage Log* template dan mendiskusikan etika penggunaan AI |
 | **Indikator Penilaian** | Mampu menulis prompt yang efektif untuk AI coding tools; Mampu mengevaluasi dan memperbaiki kode output AI; Mampu menerapkan prinsip clean code dan menulis test; Mampu mengisi AI Usage Log dengan jujur |
-| **Bobot** | Tugas 13 (1%) |
+| **Bobot** | Partisipasi (0,5%) |
 | **Referensi** | [R1] Bab 13, 14; [R8] UNESCO AI Guidelines; [R9] ACM/IEEE CS2023 |
 
 #### Minggu 15 — Presentasi Proyek Akhir
@@ -319,7 +320,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Presentasi kelompok/individu; Live demo; Tanya jawab; Peer assessment |
 | **Pengalaman Belajar** | Mahasiswa mempresentasikan proyek akhir secara sistematis; Mahasiswa mendemonstrasikan program yang berjalan; Mahasiswa menjawab pertanyaan dosen dan rekan; Mahasiswa memberikan *peer assessment* untuk presentasi kelompok lain |
 | **Indikator Penilaian** | Kelengkapan dan kebenaran program; Kualitas desain algoritma dan struktur data; Kualitas kode (clean code, dokumentasi, testing); Kualitas presentasi dan kemampuan komunikasi; Kejujuran dan kelengkapan AI Usage Log |
-| **Bobot** | **Proyek Akhir (25%)** |
+| **Bobot** | — (Presentasi proyek di Praktikum INF-102) |
 | **Referensi** | Seluruh referensi [R1]–[R10] |
 
 #### Minggu 16 — Ujian Akhir Semester (UAS)
@@ -331,7 +332,7 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 | **Metode/Strategi** | Ujian tertulis dan/atau praktikum di Google Colab; Bersifat *closed-book*, **tanpa AI tools** |
 | **Pengalaman Belajar** | Mahasiswa mengerjakan soal teori dan praktik secara mandiri; Soal mencakup analisis algoritma, implementasi kode, dan evaluasi efisiensi |
 | **Indikator Penilaian** | Ketepatan jawaban teori; Kebenaran, efisiensi, dan keterbacaan kode; Kemampuan menganalisis kompleksitas algoritma; Kemampuan memilih struktur data dan algoritma yang tepat |
-| **Bobot** | **25%** |
+| **Bobot** | UAS (40%) |
 | **Referensi** | Seluruh referensi [R1]–[R10] |
 
 ---
@@ -340,15 +341,15 @@ Sub-CPMK dijabarkan per minggu perkuliahan dengan kata kerja operasional yang te
 
 ### G.1 Bobot Penilaian
 
-| No | Komponen Penilaian | Bobot | Keterangan |
-|---|---|---|---|
-| 1 | **Tugas** | **15%** | 13 tugas (bobot bervariasi 1–2% per tugas), dikerjakan di Google Colab, AI boleh digunakan dengan AI Usage Log |
-| 2 | **Kuis** | **10%** | 5 kuis (masing-masing 2%), dilaksanakan di kelas, tanpa AI tools |
-| 3 | **Ujian Tengah Semester (UTS)** | **20%** | Teori + praktik, closed-book, tanpa AI tools |
-| 4 | **Proyek Akhir** | **25%** | Kelompok/individu, presentasi Minggu 15, AI boleh dengan AI Usage Log |
-| 5 | **Ujian Akhir Semester (UAS)** | **25%** | Teori + praktik, closed-book, tanpa AI tools, komprehensif |
-| 6 | **Partisipasi** | **5%** | Kehadiran, keaktifan diskusi, peer review, kontribusi kelas |
-| | **TOTAL** | **100%** | |
+| No | Komponen | Bobot | Frekuensi | Sifat |
+|---|---|---|---|---|
+| 1 | Kuis (K1–K3) | 20% | 3 kali | Individu, in-class |
+| 2 | Ujian Tengah Semester (UTS) | 30% | 1 kali | Individu, closed-book |
+| 3 | Ujian Akhir Semester (UAS) | 40% | 1 kali | Individu, closed-book |
+| 4 | Partisipasi | 10% | Sepanjang semester | Individu |
+| | **Total** | **100%** | | |
+
+> **Catatan:** Komponen praktikum (tugas pemrograman T1–T6, laporan praktikum, dan proyek akhir) dinilai secara terpisah di mata kuliah **Praktikum Algoritma dan Pemrograman (INF-102)**.
 
 ### G.2 Matriks CPMK dan Komponen Penilaian
 
@@ -475,6 +476,20 @@ Konversi nilai mengikuti pedoman akademik Universitas Al Azhar Indonesia.
 - Semua tugas dikumpulkan dalam format **notebook (.ipynb)** melalui platform yang ditentukan (Google Classroom / LMS).
 - Mahasiswa dianjurkan menggunakan **Google Drive** untuk backup dan organisasi file.
 - Bahasa pemrograman yang digunakan adalah **Python 3.x** (versi terbaru yang tersedia di Google Colab).
+
+### J.6 Hubungan dengan Praktikum
+
+Mata kuliah Algoritma dan Pemrograman (INF-101) dan Praktikum Algoritma dan Pemrograman (INF-102) berjalan secara **paralel** dalam semester yang sama. Mahasiswa **wajib** mengambil keduanya bersamaan.
+
+| Komponen | INF-101 (Teori) | INF-102 (Praktikum) |
+|---|---|---|
+| **SKS** | 2 SKS | 1 SKS |
+| **Fokus** | Konsep, analisis, desain algoritmik | Implementasi, coding, debugging |
+| **Penilaian** | Kuis, UTS, UAS, Partisipasi | Laporan, Tugas, Proyek, Responsi |
+| **Platform** | Kelas + demo | Google Colab (hands-on) |
+| **AI Policy** | Tidak diperbolehkan saat kuis/UTS/UAS | Diperbolehkan untuk tugas (dengan AI Usage Log) |
+
+Materi teori diajarkan terlebih dahulu dalam perkuliahan, kemudian dipraktikkan dan diperdalam dalam sesi praktikum.
 
 ---
 
