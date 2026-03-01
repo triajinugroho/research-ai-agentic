@@ -1,31 +1,46 @@
-Setup & Troubleshooting for this workspace
+# Setup & Troubleshooting for this Workspace
 
-1) PATH warnings (Windows)
-- The installer warned that scripts are installed in:
-  C:\Users\triaj\AppData\Roaming\Python\Python314\Scripts
-- To add this to your PATH (PowerShell):
+1. PATH warnings (Windows)
 
-  setx PATH "$env:Path;C:\Users\triaj\AppData\Roaming\Python\Python314\Scripts"
+   - The installer warned that scripts are installed in:
+     `C:\Users\triaj\AppData\Roaming\Python\Python314\Scripts`
+   - To add this to your PATH (PowerShell):
 
-  Then restart terminal/VS Code.
+     ```powershell
+     setx PATH "$env:Path;C:\Users\triaj\AppData\Roaming\Python\Python314\Scripts"
+     ```
 
-2) Safer alternative: virtual environment
-- Create venv and activate:
+     Then restart terminal/VS Code.
 
-  python -m venv .venv
-  .\.venv\Scripts\Activate.ps1   # PowerShell
+2. Safer alternative: virtual environment
 
-- Then install packages locally without --break-system-packages:
+   - Create venv and activate:
 
-  pip install -r requirements.txt
+     ```powershell
+     python -m venv .venv
+     .\.venv\Scripts\Activate.ps1   # PowerShell
+     ```
 
-3) If you need to reinstall kernel for VS Code/Jupyter
-- After activating venv, run:
+   - Then install packages locally without `--break-system-packages`:
 
-  python -m ipykernel install --user --name research-ai-agentic --display-name "Python (research-ai-agentic)"
+     ```powershell
+     pip install -r requirements.txt
+     ```
 
-4) Notes about previous installs
-- I used a system-managed Python and applied `--break-system-packages` to install packages for the user account. That can be avoided by using a venv/conda.
+3. Reinstall kernel for VS Code/Jupyter
 
-5) Save/Export Notebook
-- The notebook `Untitled-1.ipynb` is in the workspace. Use VS Code's Save As to rename or commit to git.
+   - After activating venv, run:
+
+     ```powershell
+     python -m ipykernel install --user --name research-ai-agentic --display-name "Python (research-ai-agentic)"
+     ```
+
+4. Notes about previous installs
+
+   - I used a system-managed Python and applied `--break-system-packages` to install packages for the user account.
+   - This can be avoided by using a venv/conda.
+
+5. Save/Export Notebook
+
+   - The notebook `Untitled-1.ipynb` is in the workspace.
+   - Use VS Code's Save As to rename or commit to git.
