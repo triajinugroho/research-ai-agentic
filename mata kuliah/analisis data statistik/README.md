@@ -14,7 +14,7 @@ Repository ini berisi **materi kuliah lengkap** untuk mata kuliah Analisis Data 
 
 ### Filosofi Desain
 
-```
+```text
 Fondasi Kuat + Tools Modern + AI Literacy = Future-Proof Data Analyst
 ```
 
@@ -29,7 +29,7 @@ Fondasi Kuat + Tools Modern + AI Literacy = Future-Proof Data Analyst
 ## Struktur Materi
 
 | Folder | Isi | Deskripsi |
-|--------|-----|-----------|
+| ------ | --- | --------- |
 | [`00-strategic-analysis/`](./00-strategic-analysis/) | Analisis Strategis | SWOT, Porter's 5 Forces, tren AI & pendidikan global |
 | [`01-rps/`](./01-rps/) | RPS | Rencana Pembelajaran Semester lengkap (OBE-compliant) |
 | [`02-rtm/`](./02-rtm/) | RTM | Rencana Tugas Mahasiswa + rubrik penilaian |
@@ -43,32 +43,36 @@ Fondasi Kuat + Tools Modern + AI Literacy = Future-Proof Data Analyst
 ## Kurikulum 16 Minggu
 
 ### Fase 1: Fondasi — "Understand Data" (Minggu 1-4)
+
 | Minggu | Topik | Lab |
-|--------|-------|----|
+| ------ | ------- | ---- |
 | 1 | Pengantar Statistika di Era AI | Setup Python & Colab |
 | 2 | Statistika Deskriptif & Eksplorasi Data | Deskriptif dengan pandas |
 | 3 | Visualisasi Data & Storytelling | matplotlib & seaborn |
 | 4 | Probabilitas Dasar & Bayes | Simulasi probabilitas |
 
 ### Fase 2: Inferensi — "Infer from Data" (Minggu 5-8)
+
 | Minggu | Topik | Lab |
-|--------|-------|----|
+| ------ | ------- | ---- |
 | 5 | Distribusi Probabilitas & CLT | scipy.stats |
 | 6 | Sampling & Estimasi | Bootstrap methods |
 | 7 | Uji Hipotesis | Hypothesis testing di Python |
 | 8 | **UTS** | — |
 
 ### Fase 3: Pemodelan — "Model with Data" (Minggu 9-12)
+
 | Minggu | Topik | Lab |
-|--------|-------|----|
+| ------ | ------- | ---- |
 | 9 | Korelasi & Regresi Linear | sklearn regression |
 | 10 | Regresi Berganda & Evaluasi Model | Model diagnostics |
 | 11 | ANOVA & Uji Non-Parametrik | ANOVA di Python |
 | 12 | Analisis Data Kategorikal | Chi-square & logistic |
 
 ### Fase 4: Frontier — "Innovate with Data + AI" (Minggu 13-16)
+
 | Minggu | Topik | Lab |
-|--------|-------|----|
+| ------ | ------- | ---- |
 | 13 | Intro Machine Learning Statistik | Classification & k-NN |
 | 14 | AI-Augmented Data Analysis | AI sebagai co-analyst |
 | 15 | Presentasi Proyek Akhir | — |
@@ -79,7 +83,7 @@ Fondasi Kuat + Tools Modern + AI Literacy = Future-Proof Data Analyst
 ## Tools & Teknologi
 
 | Tool | Fungsi |
-|------|--------|
+| ------ | ------ |
 | **Python 3.x** | Bahasa pemrograman utama |
 | **Google Colab** | Environment coding (gratis, cloud-based) |
 | **pandas & numpy** | Manipulasi dan komputasi data |
@@ -97,7 +101,7 @@ Fondasi Kuat + Tools Modern + AI Literacy = Future-Proof Data Analyst
 Mata kuliah ini mendukung **5 CPL** (Capaian Pembelajaran Lulusan) Prodi Informatika UAI dan dijabarkan menjadi **7 CPMK** (Capaian Pembelajaran Mata Kuliah):
 
 | CPMK | Deskripsi | Bloom's |
-|------|-----------|---------|
+| ------ | ----------- | --------- |
 | CPMK-1 | Menjelaskan peran statistika dalam data science dan AI | C2 |
 | CPMK-2 | Menerapkan statistika deskriptif dan visualisasi data | C3 |
 | CPMK-3 | Menerapkan probabilitas dan distribusi untuk pemodelan | C3 |
@@ -111,7 +115,7 @@ Mata kuliah ini mendukung **5 CPL** (Capaian Pembelajaran Lulusan) Prodi Informa
 ## Penilaian
 
 | Komponen | Bobot |
-|----------|-------|
+| ---------- | ------- |
 | Tugas Mingguan (6x) | 15% |
 | Kuis (3x) | 10% |
 | UTS | 20% |
