@@ -8,7 +8,7 @@
 
 ## 1. Deskripsi Proyek
 
-Proyek akhir merupakan kulminasi dari seluruh pembelajaran selama semester. Kelompok mahasiswa (2-3 orang) membangun **end-to-end ML pipeline** pada dataset riil Indonesia, menggunakan teknik machine learning yang telah dipelajari, dengan **AI sebagai partner yang didokumentasikan**.
+Proyek akhir merupakan kulminasi dari seluruh pembelajaran selama semester. Kelompok mahasiswa (2-3 orang) membangun **end-to-end ML pipeline** pada dataset riil Indonesia, menggunakan teknik machine learning yang telah dipelajari, dengan **AI sebagai coding partner yang didokumentasikan**.
 
 Proyek ini menguji kemampuan mahasiswa untuk:
 - Merumuskan problem statement dengan business value yang jelas
@@ -29,68 +29,51 @@ Proyek ini menguji kemampuan mahasiswa untuk:
 
 | Kriteria | Persyaratan |
 |----------|-------------|
-| **Sumber** | Dataset publik Indonesia (BPS, Open Data, Kaggle Indonesia, dll.) |
+| **Sumber** | Dataset publik Indonesia (BPS, Open Data Jakarta, Kaggle Indonesia, dll.) |
 | **Ukuran minimum** | 500 baris (rows) |
-| **Variabel** | Minimal 5 fitur (kolom) |
+| **Fitur minimum** | 5 fitur (kolom) |
 | **Konteks** | Harus relevan dengan Indonesia atau konteks lokal |
 
-### 2.2 Komponen Wajib
+### 2.2 Jenis Proyek
 
-Setiap proyek harus mencakup komponen berikut:
+Kelompok dapat memilih salah satu jenis proyek berikut:
 
-1. **Problem Statement dengan Business Value**
-   - Pertanyaan penelitian yang jelas dan spesifik
-   - Mengapa masalah ini penting? Siapa yang diuntungkan?
-   - Bagaimana ML bisa membantu menyelesaikan masalah ini?
+| Jenis | Deskripsi | Algoritma Minimal |
+|-------|-----------|-------------------|
+| **Klasifikasi** | Prediksi kategori/label dari data tabular | 3 model klasifikasi (misal: Logistic Regression, Random Forest, SVM) |
+| **Regresi** | Prediksi nilai numerik kontinu | 3 model regresi (misal: Linear Regression, Random Forest, Gradient Boosting) |
+| **Clustering** | Segmentasi data tanpa label + analisis profil cluster | 2 metode clustering + 1 supervised sebagai validasi |
+| **NLP** | Klasifikasi teks atau analisis sentimen bahasa Indonesia | Pipeline TF-IDF + 3 classifier |
+| **Computer Vision** | Klasifikasi gambar menggunakan CNN | CNN from scratch + transfer learning + 1 model lain |
 
-2. **Eksplorasi Data (EDA)**
-   - Statistik deskriptif lengkap
-   - Minimal 5 visualisasi bermakna
-   - Identifikasi dan penanganan missing values
-   - Identifikasi dan penanganan outliers
-   - Analisis distribusi dan korelasi antar fitur
+### 2.3 Komponen Wajib
 
-3. **Feature Engineering**
-   - Encoding variabel kategorikal
-   - Scaling/normalisasi fitur numerik
-   - Feature selection atau creation jika relevan
-   - Train-test split (atau cross-validation)
+Setiap proyek **harus** mencakup:
 
-4. **Modeling: Minimal 3 Algoritma Berbeda**
-   - Minimal 3 model ML yang berbeda harus dibandingkan
-   - Justifikasi pemilihan setiap algoritma
-   - Hyperparameter tuning pada model terbaik
-   - Contoh kombinasi: KNN + Random Forest + SVM, atau Decision Tree + Gradient Boosting + Neural Network
-
-5. **Evaluasi dan Seleksi Model**
-   - Metrik evaluasi yang tepat (accuracy, precision, recall, F1, AUC, dll.)
-   - Perbandingan performa antar model dalam tabel/chart
-   - Analisis confusion matrix untuk model terbaik
-   - Cross-validation untuk validasi yang robust
-
-6. **Kesimpulan dan Rekomendasi**
-   - Ringkasan temuan utama
-   - Rekomendasi model terbaik dan alasannya
-   - Limitasi analisis
-   - Saran untuk pengembangan selanjutnya
+1. **Problem Statement dengan Business Value** — Pertanyaan penelitian yang jelas, mengapa penting, siapa yang diuntungkan
+2. **Exploratory Data Analysis (EDA)** — Statistik deskriptif, minimal 5 visualisasi bermakna, missing values, outliers
+3. **Feature Engineering** — Encoding, scaling, feature selection/creation, train-test split
+4. **Modeling: Minimal 3 Algoritma Berbeda** — Justifikasi pemilihan, hyperparameter tuning pada model terbaik
+5. **Evaluasi dan Seleksi Model** — Metrik yang tepat, perbandingan performa, confusion matrix, cross-validation
+6. **Kesimpulan dan Rekomendasi** — Ringkasan temuan, limitasi, saran pengembangan
 
 ---
 
-## 3. Timeline & Milestones
+## 3. Timeline Proyek
 
-| Minggu | Milestone | Deliverable | Bobot |
-|--------|-----------|-------------|-------|
-| 9 | **Proposal Submission** | Proposal (1-2 halaman) via LMS | 10% |
-| 10 | Pengumpulan & eksplorasi awal data | — | — |
-| 11 | **Progress Report 1:** EDA + Baseline Model | Notebook progress (EDA selesai, baseline model berjalan) | Checkpoint |
-| 12 | Eksperimen model & hyperparameter tuning | — | — |
-| 13 | **Progress Report 2:** Model Optimization | Notebook progress (3+ model dibandingkan, tuning dilakukan) | Checkpoint |
-| 14 | Finalisasi notebook, laporan, dan presentasi | — | — |
-| 15 | **Final Submission:** Presentasi + Semua Deliverables | Notebook + Laporan + Slide + AI Log | 90% |
+| Minggu | Milestone | Deliverable |
+|--------|-----------|-------------|
+| 9 | Kickoff: pengumuman, pembentukan kelompok, brainstorm topik | — |
+| 10 | Proposal disetujui | Proposal (1-2 halaman) via LMS |
+| 11 | **Progress Report 1:** EDA + Baseline Model | Notebook progress: EDA selesai, baseline berjalan |
+| 12 | Eksperimen model & hyperparameter tuning | — |
+| 13 | **Progress Report 2:** Model Optimization | Notebook progress: 3+ model dibandingkan |
+| 14 | Finalisasi + persiapan presentasi | — |
+| 15 | **Presentasi + Peer Review** | Semua deliverables dikumpulkan |
 
 ### Detail Milestone
 
-#### Minggu 9: Proposal Submission
+#### Minggu 10: Proposal Submission
 
 **Format:** 1-2 halaman PDF
 
@@ -155,7 +138,7 @@ Setiap proyek harus mencakup komponen berikut:
 **Kriteria kode:**
 - Kode berjalan tanpa error dari awal sampai akhir (Restart & Run All)
 - Well-commented (setiap blok kode ada penjelasan dalam Bahasa Indonesia)
-- Menggunakan library yang dipelajari: pandas, numpy, matplotlib, seaborn, scikit-learn
+- Menggunakan library yang dipelajari: pandas, numpy, matplotlib, seaborn, scikit-learn, TensorFlow/Keras
 - Markdown cells menjelaskan setiap langkah dan keputusan
 
 ### 4.2 Laporan Tertulis (20% dari nilai proyek)
@@ -184,7 +167,7 @@ Setiap proyek harus mencakup komponen berikut:
 | 2 | Masalah | Problem statement & business value |
 | 3 | Data | Sumber, ukuran, variabel utama |
 | 4 | EDA | Visualisasi kunci dari eksplorasi data |
-| 5 | Metodologi | Algoritma yang digunakan (diagram/flowchart) |
+| 5 | Metodologi | Algoritma yang digunakan (diagram/flowchart pipeline) |
 | 6-8 | Hasil | Perbandingan model, confusion matrix, visualisasi performa |
 | 9 | Diskusi | Interpretasi, limitasi, ethical considerations |
 | 10 | Kesimpulan | Jawaban problem statement, rekomendasi |
@@ -196,7 +179,7 @@ Setiap proyek harus mencakup komponen berikut:
 - Setiap anggota kelompok harus mempresentasikan bagiannya
 - Latihan sebelumnya — 15 menit cepat berlalu
 - Fokus pada insight dan business value, bukan pada kode
-- Siapkan jawaban untuk pertanyaan umum (mengapa memilih model ini, dll.)
+- Siapkan jawaban untuk pertanyaan umum (mengapa memilih model ini, bagaimana menangani overfitting, dll.)
 
 ### 4.4 AI Usage Log (10% dari nilai proyek)
 
@@ -230,88 +213,37 @@ Setiap proyek harus mencakup komponen berikut:
 4. Apakah hasil proyek akan berbeda tanpa AI? Mengapa?
 ```
 
----
+### 4.5 Proposal & Progress Reports (10% dari nilai proyek — bagian dari total)
 
-## 5. Rubrik Penilaian Proyek Akhir
-
-### 5.1 Ringkasan Bobot
-
-| Komponen | Bobot dari Proyek | Bobot dari Nilai Akhir |
-|----------|-------------------|------------------------|
-| Proposal | 10% | 2.5% |
-| EDA & Feature Engineering | 20% | 5% |
-| Modeling & Evaluation | 25% | 6.25% |
-| Analisis & Interpretasi | 15% | 3.75% |
-| Presentasi | 20% | 5% |
-| Dokumentasi & AI Log | 10% | 2.5% |
-| **Total** | **100%** | **25%** |
-
-### 5.2 Rubrik Detail: Proposal (10%)
-
-| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
-|----------|-----------------|----------|-----------|------------|
-| **Problem statement** (5%) | Jelas, spesifik, business value teridentifikasi | Cukup jelas, business value ada tapi kurang spesifik | Terlalu umum | Tidak jelas |
-| **Rencana metodologi** (5%) | Dataset jelas, metode direncanakan dengan justifikasi | Dataset ada, metode disebutkan | Dataset belum pasti, metode tidak jelas | Tidak ada rencana |
-
-### 5.3 Rubrik Detail: EDA & Feature Engineering (20%)
-
-| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
-|----------|-----------------|----------|-----------|------------|
-| **EDA** (10%) | EDA komprehensif: deskriptif + 5+ visualisasi bermakna + insight mendalam + outlier handling | EDA solid dengan beberapa visualisasi dan insight | EDA dasar, visualisasi minimal | EDA tidak ada atau sangat minim |
-| **Feature Engineering** (10%) | Encoding, scaling, feature selection/creation dilakukan dengan justifikasi | Preprocessing dasar dilakukan (encoding, scaling) | Preprocessing minimal, tanpa justifikasi | Tidak ada preprocessing |
-
-### 5.4 Rubrik Detail: Modeling & Evaluation (25%)
-
-| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
-|----------|-----------------|----------|-----------|------------|
-| **Model comparison** (15%) | 3+ model dibandingkan, hyperparameter tuning dilakukan, justifikasi kuat | 3 model dibandingkan, beberapa tuning | 2 model, tanpa tuning | 1 model atau model salah |
-| **Evaluasi** (10%) | Metrik tepat, cross-validation, confusion matrix, perbandingan tabel + chart | Metrik tepat, beberapa evaluasi | Metrik dasar (accuracy saja) | Tidak ada evaluasi |
-
-### 5.5 Rubrik Detail: Analisis & Interpretasi (15%)
-
-| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
-|----------|-----------------|----------|-----------|------------|
-| **Interpretasi** (10%) | Interpretasi mendalam, kontekstual (Indonesia), limitasi didiskusikan, ethical considerations | Interpretasi benar, beberapa konteks | Interpretasi superfisial | Tidak ada atau salah |
-| **Kesimpulan** (5%) | Kesimpulan menjawab problem statement, rekomendasi actionable | Kesimpulan ada, rekomendasi umum | Kesimpulan dangkal | Tidak ada kesimpulan |
-
-### 5.6 Rubrik Detail: Presentasi (20%)
-
-| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
-|----------|-----------------|----------|-----------|------------|
-| **Delivery** (7%) | Percaya diri, semua anggota presentasi, engaging | Cukup baik, sebagian besar lancar | Kurang percaya diri, monoton | Membaca slide, tidak jelas |
-| **Visual & slide** (6%) | Slide clean, visualisasi jelas, tidak terlalu banyak teks | Slide cukup baik | Slide terlalu penuh teks | Slide buruk |
-| **Q&A handling** (7%) | Menjawab dengan tepat dan percaya diri, menunjukkan pemahaman mendalam | Menjawab dengan benar | Menjawab sebagian | Tidak bisa menjawab |
-
-### 5.7 Rubrik Detail: Dokumentasi & AI Log (10%)
-
-| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
-|----------|-----------------|----------|-----------|------------|
-| **Kelengkapan dokumentasi** (5%) | Semua interaksi AI terdokumentasi dengan detail, kode well-commented | Sebagian besar terdokumentasi | Dokumentasi minim | Tidak ada dokumentasi |
-| **Refleksi kritis** (5%) | Refleksi mendalam tentang kapan AI membantu/tidak, lessons learned | Refleksi ada tapi kurang mendalam | Refleksi sangat singkat | Tidak ada refleksi |
+| Deliverable | Bobot | Deadline |
+|-------------|-------|----------|
+| Proposal | 4% | Minggu 10 |
+| Progress Report 1 | 3% | Minggu 11 |
+| Progress Report 2 | 3% | Minggu 13 |
 
 ---
 
-## 6. Contoh Topik Proyek
+## 5. Contoh Topik Proyek
 
 ### Topik dengan Dataset Publik Indonesia
 
-| No | Topik | Dataset | Algoritma yang Mungkin |
-|----|-------|---------|------------------------|
-| 1 | Prediksi harga rumah di Jakarta berdasarkan fitur properti | Open Data Jakarta / scraping | Linear Regression, Random Forest, Gradient Boosting |
-| 2 | Klasifikasi sentimen review aplikasi e-commerce Indonesia | Google Play Store scraping | Naive Bayes, SVM, Logistic Regression (TF-IDF) |
-| 3 | Prediksi tingkat kemiskinan per kabupaten/kota | BPS — Kemiskinan | Random Forest, SVM, KNN |
-| 4 | Segmentasi pelanggan berdasarkan pola belanja | Dataset e-commerce Indonesia | K-Means, Hierarchical Clustering, DBSCAN |
-| 5 | Prediksi kelulusan tepat waktu mahasiswa | Data internal (anonim) | Decision Tree, Random Forest, Logistic Regression |
-| 6 | Klasifikasi jenis penyakit berdasarkan gejala | Dataset kesehatan publik | KNN, SVM, Neural Network |
-| 7 | Prediksi curah hujan berdasarkan data historis BMKG | BMKG open data | Random Forest, Gradient Boosting, Linear Regression |
-| 8 | Deteksi berita hoax Bahasa Indonesia | Dataset hoax Indonesia | Naive Bayes, SVM, Random Forest (TF-IDF) |
-| 9 | Prediksi kualitas udara DKI Jakarta | Open Data Jakarta | Random Forest, SVM, Neural Network |
-| 10 | Clustering provinsi Indonesia berdasarkan indikator pembangunan | BPS — IPM, Pendidikan, Kesehatan | K-Means, PCA + Clustering, Hierarchical |
+| No | Topik | Dataset | Jenis Proyek | Algoritma yang Mungkin |
+|----|-------|---------|--------------|------------------------|
+| 1 | Prediksi harga rumah di Jakarta berdasarkan fitur properti | Open Data Jakarta / scraping | Regresi | Linear Regression, Random Forest, Gradient Boosting |
+| 2 | Analisis sentimen review aplikasi e-commerce Indonesia | Google Play Store scraping | NLP | Naive Bayes, SVM, Logistic Regression (TF-IDF) |
+| 3 | Klasifikasi jenis batik Indonesia dari gambar | Dataset batik (Kaggle/custom) | Computer Vision | CNN from scratch, Transfer Learning (VGG16), SVM (HOG features) |
+| 4 | Prediksi tingkat kemiskinan per kabupaten/kota | BPS — Kemiskinan | Klasifikasi | Random Forest, SVM, KNN |
+| 5 | Segmentasi pelanggan e-commerce berdasarkan pola belanja | Dataset e-commerce Indonesia | Clustering | K-Means, Hierarchical, DBSCAN + profiling |
+| 6 | Prediksi kualitas udara DKI Jakarta | Open Data Jakarta / BMKG | Regresi/Klasifikasi | Random Forest, Gradient Boosting, Neural Network |
+| 7 | Deteksi berita hoax Bahasa Indonesia | Dataset hoax Indonesia | NLP | Naive Bayes, SVM, Random Forest (TF-IDF) |
+| 8 | Prediksi kelulusan tepat waktu mahasiswa | Data internal (anonim) | Klasifikasi | Decision Tree, Random Forest, Logistic Regression |
+| 9 | Klasifikasi citra produk UMKM Indonesia | Dataset custom | Computer Vision | CNN, Transfer Learning, KNN (feature extraction) |
+| 10 | Clustering provinsi Indonesia berdasarkan indikator pembangunan | BPS — IPM, Pendidikan, Kesehatan | Clustering | K-Means + PCA, Hierarchical, DBSCAN |
 
 ### Panduan Memilih Topik
 
 - **Relevansi:** Pilih topik yang menarik bagi kelompok dan relevan dengan Indonesia
-- **Ketersediaan data:** Pastikan dataset accessible dan memiliki minimal 500 baris
+- **Ketersediaan data:** Pastikan dataset accessible dan memiliki minimal 500 baris, 5 fitur
 - **Feasibility:** Pastikan bisa diselesaikan dalam 7 minggu dengan tools yang dipelajari
 - **Kedalaman:** Harus bisa menerapkan dan membandingkan minimal 3 model ML
 - **Originalitas:** Hindari duplikasi topik antar kelompok
@@ -319,20 +251,96 @@ Setiap proyek harus mencakup komponen berikut:
 
 ---
 
-## 7. Kebijakan AI (AI Policy)
+## 6. Rubrik Penilaian Proyek Akhir
+
+### 6.1 Jupyter Notebook (40%)
+
+| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
+|----------|-----------------|----------|-----------|------------|
+| **EDA** (10%) | EDA komprehensif: deskriptif + 5+ visualisasi bermakna + insight mendalam + outlier handling | EDA solid dengan beberapa visualisasi dan insight | EDA dasar, visualisasi minimal | EDA tidak ada atau sangat minim |
+| **Feature Engineering** (10%) | Encoding, scaling, feature selection/creation dilakukan dengan justifikasi kuat | Preprocessing dasar dilakukan (encoding, scaling) | Preprocessing minimal, tanpa justifikasi | Tidak ada preprocessing |
+| **Model Comparison** (10%) | 3+ model dibandingkan, hyperparameter tuning dilakukan, justifikasi kuat untuk setiap keputusan | 3 model dibandingkan, beberapa tuning | 2 model, tanpa tuning | 1 model atau model salah |
+| **Kualitas Kode** (10%) | Kode clean, efficient, well-documented, reproducible. Comments informatif dalam Bahasa Indonesia | Kode berjalan, beberapa comment. Sebagian besar readable | Kode berjalan tapi berantakan, minim comment | Kode error, tidak lengkap |
+
+### 6.2 Laporan Tertulis (20%)
+
+| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
+|----------|-----------------|----------|-----------|------------|
+| **Struktur & writing** (7%) | Terstruktur rapi, bahasa akademik, flow logis | Cukup terstruktur, bahasa baik | Kurang terstruktur | Tidak terstruktur |
+| **Metodologi** (6%) | Metode dijelaskan dan dijustifikasi dengan baik, termasuk alasan pemilihan | Metode dijelaskan | Metode disebutkan tanpa justifikasi | Metode tidak jelas |
+| **Temuan & insight** (7%) | Temuan bermakna, didukung data, implikasi praktis jelas, limitasi didiskusikan | Temuan ada, didukung data | Temuan superfisial | Tidak ada temuan jelas |
+
+### 6.3 Presentasi (20%)
+
+| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
+|----------|-----------------|----------|-----------|------------|
+| **Delivery** (7%) | Percaya diri, semua anggota presentasi, engaging | Cukup baik, sebagian besar lancar | Kurang percaya diri, monoton | Membaca slide, tidak jelas |
+| **Visual & slide** (6%) | Slide clean, visualisasi jelas, tidak terlalu banyak teks | Slide cukup baik | Slide terlalu penuh teks | Slide buruk |
+| **Q&A handling** (7%) | Menjawab dengan tepat dan percaya diri, menunjukkan pemahaman mendalam terhadap pipeline ML | Menjawab dengan benar | Menjawab sebagian | Tidak bisa menjawab |
+
+### 6.4 AI Usage Log (10%)
+
+| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
+|----------|-----------------|----------|-----------|------------|
+| **Kelengkapan dokumentasi** (5%) | Semua interaksi AI terdokumentasi dengan detail (prompt, output, keputusan) | Sebagian besar terdokumentasi | Dokumentasi minim | Tidak ada dokumentasi |
+| **Refleksi kritis** (5%) | Refleksi mendalam tentang kapan AI membantu/tidak, lessons learned, evaluasi kritis output AI | Refleksi ada tapi kurang mendalam | Refleksi sangat singkat | Tidak ada refleksi |
+
+### 6.5 Proposal & Progress (10%)
+
+| Kriteria | Sangat Baik (4) | Baik (3) | Cukup (2) | Kurang (1) |
+|----------|-----------------|----------|-----------|------------|
+| **Proposal** (4%) | Jelas, spesifik, business value teridentifikasi, rencana metodologi solid | Cukup jelas, rencana ada | Terlalu umum | Tidak jelas atau tidak dikumpulkan |
+| **Progress Reports** (6%) | Tepat waktu, menunjukkan kemajuan signifikan pada setiap checkpoint | Tepat waktu, kemajuan cukup | Terlambat atau kemajuan minimal | Tidak dikumpulkan |
+
+---
+
+## 7. Panduan Peer Review
+
+Setiap mahasiswa akan me-review **2 kelompok lain** menggunakan form berikut:
+
+### Form Peer Review
+
+```
+Kelompok yang di-review: _______________
+Reviewer: _______________
+
+Beri skor 1-4 untuk setiap kriteria:
+
+1. Kejelasan problem statement & business value:  [ ] 1  [ ] 2  [ ] 3  [ ] 4
+2. Kualitas EDA dan visualisasi:                  [ ] 1  [ ] 2  [ ] 3  [ ] 4
+3. Kesesuaian pemilihan model ML:                 [ ] 1  [ ] 2  [ ] 3  [ ] 4
+4. Kedalaman evaluasi dan interpretasi:            [ ] 1  [ ] 2  [ ] 3  [ ] 4
+5. Kualitas presentasi dan demo:                   [ ] 1  [ ] 2  [ ] 3  [ ] 4
+6. Dokumentasi penggunaan AI:                      [ ] 1  [ ] 2  [ ] 3  [ ] 4
+
+Komentar konstruktif (wajib, minimal 3 kalimat):
+_____________________________________________
+
+Hal terbaik dari proyek ini:
+_____________________________________________
+
+Saran perbaikan:
+_____________________________________________
+```
+
+**Nilai peer review berkontribusi 5% dari nilai presentasi** (bagian dari 20% presentasi).
+
+---
+
+## 8. Kebijakan AI (AI Policy)
 
 ### Prinsip
 
-AI (ChatGPT, Claude, Copilot) diizinkan sebagai **partner**, bukan pengganti. Penggunaan harus transparan dan terdokumentasi.
+AI (ChatGPT, Claude, Copilot) diizinkan sebagai **coding partner**, bukan pengganti. Penggunaan harus transparan dan terdokumentasi. Prinsip **amanah** (kejujuran) menjadi landasan: mahasiswa harus memahami setiap baris kode dan keputusan model.
 
 ### Boleh
 
-- Menggunakan AI untuk debugging kode
-- Meminta AI menjelaskan konsep algoritma
+- Menggunakan AI untuk debugging kode ML
+- Meminta AI menjelaskan konsep algoritma yang sulit
 - Menggunakan AI untuk brainstorm pendekatan modeling
 - Copy-paste kode dari AI **jika dipahami dan didokumentasikan**
 - Menggunakan AI untuk memahami error message
-- Meminta AI review interpretasi hasil
+- Meminta AI review interpretasi hasil model
 
 ### Tidak Boleh
 
@@ -349,7 +357,7 @@ AI (ChatGPT, Claude, Copilot) diizinkan sebagai **partner**, bukan pengganti. Pe
 
 ---
 
-## 8. Panduan Submission
+## 9. Panduan Submission
 
 ### Apa yang Dikumpulkan (Minggu 15, sebelum presentasi)
 
@@ -367,7 +375,7 @@ AI (ChatGPT, Claude, Copilot) diizinkan sebagai **partner**, bukan pengganti. Pe
 ### Checklist Sebelum Submit
 
 - [ ] Notebook berjalan dari awal sampai akhir tanpa error (Restart & Run All)
-- [ ] Dataset memiliki minimal 500 baris
+- [ ] Dataset memiliki minimal 500 baris dan 5 fitur
 - [ ] Minimal 3 model ML dibandingkan
 - [ ] Hyperparameter tuning dilakukan pada model terbaik
 - [ ] Semua visualisasi terlihat di notebook
@@ -379,43 +387,10 @@ AI (ChatGPT, Claude, Copilot) diizinkan sebagai **partner**, bukan pengganti. Pe
 
 ---
 
-## 9. Panduan Peer Review
-
-Setiap mahasiswa akan me-review **2 kelompok lain** menggunakan form berikut:
-
-### Form Peer Review
-
-```
-Kelompok yang di-review: _______________
-Reviewer: _______________
-
-Beri skor 1-4 untuk setiap kriteria:
-
-1. Kejelasan problem statement & business value:  [ ] 1  [ ] 2  [ ] 3  [ ] 4
-2. Kualitas EDA dan visualisasi:                  [ ] 1  [ ] 2  [ ] 3  [ ] 4
-3. Kesesuaian pemilihan model:                     [ ] 1  [ ] 2  [ ] 3  [ ] 4
-4. Kedalaman evaluasi dan interpretasi:            [ ] 1  [ ] 2  [ ] 3  [ ] 4
-5. Kualitas presentasi:                            [ ] 1  [ ] 2  [ ] 3  [ ] 4
-6. Dokumentasi penggunaan AI:                      [ ] 1  [ ] 2  [ ] 3  [ ] 4
-
-Komentar konstruktif (wajib, minimal 3 kalimat):
-_____________________________________________
-
-Hal terbaik dari proyek ini:
-_____________________________________________
-
-Saran perbaikan:
-_____________________________________________
-```
-
-**Nilai peer review berkontribusi 5% dari nilai presentasi** (bagian dari 20% presentasi).
-
----
-
 ## 10. FAQ
 
 **Q: Bolehkah menggunakan dataset dari Kaggle?**
-A: Boleh, asalkan ada relevansi dengan Indonesia atau mahasiswa bisa menjelaskan konteksnya dengan jelas. Prioritaskan dataset Indonesia.
+A: Boleh, asalkan ada relevansi dengan Indonesia atau mahasiswa bisa menjelaskan konteksnya. Prioritaskan dataset Indonesia.
 
 **Q: Apakah harus 3 model supervised saja?**
 A: Tidak harus. Bisa kombinasi supervised dan unsupervised (misal: clustering untuk segmentasi + klasifikasi untuk prediksi), asalkan minimal 3 model dibandingkan.
