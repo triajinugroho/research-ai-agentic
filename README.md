@@ -1,54 +1,71 @@
 # Materi Kuliah — Prodi Informatika UAI
 
-**Semester Genap 2025/2026**
 **Dosen Pengampu:** Tri Aji Nugroho, S.T., M.T.
 **Institusi:** Universitas Al Azhar Indonesia
 
 ---
 
-Repository ini berisi **materi kuliah lengkap** untuk tiga mata kuliah di Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar Indonesia. Seluruh materi dirancang dengan pendekatan **Outcome-Based Education (OBE)** sesuai SN-Dikti/KKNI, dengan integrasi **AI-Augmented Learning** sebagai pendekatan modern dalam proses belajar-mengajar.
+Repository ini berisi **materi kuliah lengkap** untuk empat mata kuliah di Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar Indonesia. Seluruh materi dirancang dengan pendekatan **Outcome-Based Education (OBE)** sesuai SN-Dikti/KKNI, dengan integrasi **AI-Augmented Learning** sebagai pendekatan modern dalam proses belajar-mengajar.
 
 ## Mata Kuliah
 
+### Semester Genap 2025/2026 (Tingkat 1)
+
 | Kode | Mata Kuliah | SKS | Tipe | Deskripsi |
 |------|-------------|-----|------|-----------|
-| INF-101 | [Algoritma dan Pemrograman](mata%20kuliah/algoritma-pemrograman/) | 2 | Teori | Fondasi computational thinking dengan Python dan AI |
-| INF-102 | [Praktikum Algoritma dan Pemrograman](mata%20kuliah/praktikum-algoritma-pemrograman/) | 1 | Praktikum | Hands-on programming lab (ko-requisite INF-101) |
-| — | [Analisis Data Statistik](mata%20kuliah/analisis%20data%20statistik/) | 2 | Teori + Lab | Statistika dan analisis data dengan Python |
+| INF-101 | [Algoritma dan Pemrograman](mata-kuliah/algoritma-pemrograman/) | 2 | Teori | Fondasi computational thinking dengan Python dan AI |
+| INF-102 | [Praktikum Algoritma dan Pemrograman](mata-kuliah/praktikum-algoritma-pemrograman/) | 1 | Praktikum | Hands-on programming lab (ko-requisite INF-101) |
+| — | [Analisis Data Statistik](mata-kuliah/analisis-data-statistik/) | 2 | Teori + Lab | Statistika dan analisis data dengan Python |
+
+### Semester Ganjil 2026/2027 (Tingkat 3)
+
+| Kode | Mata Kuliah | SKS | Tipe | Deskripsi |
+|------|-------------|-----|------|-----------|
+| IF3XXX | [Kecerdasan Buatan dan Machine Learning](mata-kuliah/kecerdasan-buatan-machine-learning/) | 4 | Teori + Lab | Fondasi AI/ML, supervised/unsupervised learning, deep learning, NLP, CV |
 
 ## Struktur Repository
 
 ```
-mata kuliah/
-├── algoritma-pemrograman/           # INF-101 — 41 file
-│   ├── 00-strategic-analysis/       # Analisis SWOT & tren
-│   ├── 01-rps/                      # Rencana Pembelajaran Semester
-│   ├── 02-rtm/                      # Rencana Tugas Mahasiswa
-│   ├── 03-modules/                  # 16 modul mingguan
-│   ├── 04-assessments/              # Framework asesmen & kisi-kisi
-│   ├── 05-buku-ajar/                # Buku ajar (14 bab + pendukung)
-│   └── datasets/                    # Panduan resource & latihan
+mata-kuliah/
+├── algoritma-pemrograman/                # INF-101 — 41 file
+│   ├── 00-strategic-analysis/            # Analisis SWOT & tren
+│   ├── 01-rps/                           # Rencana Pembelajaran Semester
+│   ├── 02-rtm/                           # Rencana Tugas Mahasiswa
+│   ├── 03-modules/                       # 16 modul mingguan
+│   ├── 04-assessments/                   # Framework asesmen & kisi-kisi
+│   ├── 05-buku-ajar/                     # Buku ajar (14 bab + pendukung)
+│   └── datasets/                         # Panduan resource & latihan
 │
-├── praktikum-algoritma-pemrograman/ # INF-102 — 21 file
-│   ├── 00-pedoman-praktikum/        # Pedoman & tata tertib
-│   ├── 01-rps/                      # RPS Praktikum
-│   ├── 02-rtm/                      # RTM Praktikum
-│   ├── 03-modul-praktikum/          # 13 modul praktikum
-│   ├── 04-assessments/              # Rubrik & panduan proyek
-│   └── datasets/                    # Referensi dataset
+├── praktikum-algoritma-pemrograman/      # INF-102 — 21 file
+│   ├── 00-pedoman-praktikum/             # Pedoman & tata tertib
+│   ├── 01-rps/                           # RPS Praktikum
+│   ├── 02-rtm/                           # RTM Praktikum
+│   ├── 03-modul-praktikum/              # 13 modul praktikum
+│   ├── 04-assessments/                   # Rubrik & panduan proyek
+│   └── datasets/                         # Referensi dataset
 │
-└── analisis data statistik/         # Statistik — 56 file
-    ├── 00-strategic-analysis/       # Analisis strategis
-    ├── 01-rps/                      # RPS
-    ├── 02-rtm/                      # RTM
-    ├── 03-modules/                  # 16 modul mingguan
-    ├── 04-labs/                     # 13 lab hands-on Python
-    ├── 05-assessments/              # Framework, rubrik, kisi-kisi
-    ├── 06-buku-ajar/                # Buku ajar (14 bab + pendukung)
-    └── datasets/                    # Panduan dataset
+├── analisis-data-statistik/              # Statistik — 56 file
+│   ├── 00-strategic-analysis/            # Analisis strategis
+│   ├── 01-rps/                           # RPS
+│   ├── 02-rtm/                           # RTM
+│   ├── 03-modules/                       # 16 modul mingguan
+│   ├── 04-labs/                          # 13 lab hands-on Python
+│   ├── 05-assessments/                   # Framework, rubrik, kisi-kisi
+│   ├── 06-buku-ajar/                     # Buku ajar (14 bab + pendukung)
+│   └── datasets/                         # Panduan dataset
+│
+└── kecerdasan-buatan-machine-learning/   # IF3XXX — 57 file
+    ├── 00-strategic-analysis/            # Analisis SWOT & tren AI/ML
+    ├── 01-rps/                           # RPS
+    ├── 02-rtm/                           # RTM
+    ├── 03-modules/                       # 16 modul mingguan
+    ├── 04-labs/                          # 13 lab hands-on (scikit-learn, TensorFlow/Keras)
+    ├── 05-assessments/                   # Framework, rubrik, kisi-kisi, proyek
+    ├── 06-buku-ajar/                     # Buku ajar (14 bab + pendukung)
+    └── datasets/                         # Panduan dataset ML
 ```
 
-**Total: 122 dokumen Markdown** — mencakup RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
+**Total: 179 dokumen Markdown** — mencakup RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
 
 ## Pendekatan Pembelajaran
 
@@ -64,7 +81,9 @@ mata kuliah/
 | Python 3.x | Bahasa pemrograman utama |
 | Google Colab | Cloud IDE untuk semua praktikum |
 | pandas, numpy, matplotlib, seaborn | Manipulasi data & visualisasi |
-| scipy, scikit-learn | Statistik & machine learning dasar |
+| scipy, scikit-learn | Statistik & machine learning |
+| TensorFlow/Keras | Deep learning framework |
+| NLTK, OpenCV | NLP & Computer Vision |
 | ChatGPT / Claude / Copilot | AI sebagai mitra belajar (wajib AI Usage Log) |
 
 ## Lisensi
