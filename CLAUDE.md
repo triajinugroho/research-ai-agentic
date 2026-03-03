@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-This is an **educational materials repository** for three coordinated university courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. It contains **123 Markdown documents** — lecture modules, lab guides, textbooks, assessments, and strategic analyses — for **Semester Genap 2025/2026**.
+This is an **educational materials repository** for four coordinated university courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. It contains **179+ Markdown documents** — lecture modules, lab guides, textbooks, assessments, and strategic analyses — for **Semester Genap 2025/2026** and **Semester Ganjil 2026/2027**.
 
 **Instructor:** Tri Aji Nugroho, S.T., M.T.
 
@@ -42,25 +42,37 @@ research-ai-agentic/
     │   ├── 04-assessments/                      # Rubrics, project guidelines
     │   └── datasets/                            # Dataset references
     │
-    └── analisis-data-statistik/                 # Statistical Data Analysis (2 SKS)
+    ├── analisis-data-statistik/                 # Statistical Data Analysis (2 SKS)
+    │   ├── README.md
+    │   ├── 00-strategic-analysis/               # Strategic analysis
+    │   ├── 01-rps/                              # Semester learning plan
+    │   ├── 02-rtm/                              # Student task plan
+    │   ├── 03-modules/                          # 16 weekly lecture modules
+    │   ├── 04-labs/                             # 13 hands-on Python labs
+    │   ├── 05-assessments/                      # Framework, rubrics, exam specs
+    │   ├── 06-buku-ajar/                        # Textbook (14 chapters + appendices)
+    │   └── datasets/                            # Dataset guide
+    │
+    └── kecerdasan-buatan-machine-learning/      # IF3XXX: AI & ML (4 SKS)
         ├── README.md
-        ├── 00-strategic-analysis/               # Strategic analysis
-        ├── 01-rps/                              # Semester learning plan
-        ├── 02-rtm/                              # Student task plan
+        ├── 00-strategic-analysis/               # SWOT, Porter's 5 Forces, AI trends
+        ├── 01-rps/                              # Semester Learning Plan (RPS)
+        ├── 02-rtm/                              # Student Task Plan (RTM)
         ├── 03-modules/                          # 16 weekly lecture modules
-        ├── 04-labs/                             # 13 hands-on Python labs
-        ├── 05-assessments/                      # Framework, rubrics, exam specs
+        ├── 04-labs/                             # 13 hands-on ML labs
+        ├── 05-assessments/                      # Framework, rubrics, exam specs, project
         ├── 06-buku-ajar/                        # Textbook (14 chapters + appendices)
-        └── datasets/                            # Dataset guide
+        └── datasets/                            # ML dataset guide
 ```
 
-### Three Courses
+### Four Courses
 
-| Code    | Course                                | Credits | Type        |
-|---------|---------------------------------------|---------|-------------|
-| INF-101 | Algoritma dan Pemrograman             | 2 SKS   | Theory      |
-| INF-102 | Praktikum Algoritma dan Pemrograman   | 1 SKS   | Lab (co-req INF-101) |
-| —       | Analisis Data Statistik               | 2 SKS   | Theory + Lab |
+| Code    | Course                                | Credits | Type        | Semester |
+|---------|---------------------------------------|---------|-------------|----------|
+| INF-101 | Algoritma dan Pemrograman             | 2 SKS   | Theory      | Genap 2025/2026 |
+| INF-102 | Praktikum Algoritma dan Pemrograman   | 1 SKS   | Lab (co-req INF-101) | Genap 2025/2026 |
+| —       | Analisis Data Statistik               | 2 SKS   | Theory + Lab | Genap 2025/2026 |
+| IF3XXX  | Kecerdasan Buatan dan Machine Learning | 4 SKS  | Theory + Lab | Ganjil 2026/2027 |
 
 ---
 
@@ -191,6 +203,7 @@ These rules **must** be followed across all documents:
    - INF-101: Kuis 20% + UTS 30% + UAS 40% + Partisipasi 10%
    - INF-102: Laporan 25% + Tugas 25% + Proyek 35% + Responsi 10% + Partisipasi 5%
    - Statistik: Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
+   - AI/ML: Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
 
 6. **CPMK traceability:** Every Sub-CPMK in RPS must trace to a CPMK. Every textbook chapter must reference its Sub-CPMK. Every assessment must indicate which CPMK it measures.
 
@@ -213,7 +226,10 @@ These rules **must** be followed across all documents:
 | Google Colab                 | Cloud IDE for all labs            |
 | pandas, numpy                | Data manipulation                 |
 | matplotlib, seaborn          | Data visualization                |
-| scipy.stats, scikit-learn    | Statistics & basic ML             |
+| scipy.stats, scikit-learn    | Statistics & machine learning     |
+| TensorFlow/Keras             | Deep learning framework           |
+| NLTK                         | NLP preprocessing                 |
+| OpenCV                       | Computer vision                   |
 | ChatGPT / Claude / Copilot  | AI as learning partner            |
 
 ---
@@ -284,3 +300,5 @@ The file `mata kuliah/prompt-algoritma-pemrograman.md` contains the comprehensiv
 | `mata kuliah/algoritma-pemrograman/05-buku-ajar/00-halaman-depan.md` | Textbook front matter and table of contents |
 | `mata kuliah/praktikum-algoritma-pemrograman/00-pedoman-praktikum/*.md` | Lab rules and guidelines |
 | `mata kuliah/analisis-data-statistik/01-rps/rps-statistika-analisis-data.md` | Statistics course semester plan |
+| `mata kuliah/kecerdasan-buatan-machine-learning/01-rps/rps-kecerdasan-buatan-machine-learning.md` | AI/ML course semester plan |
+| `mata kuliah/kecerdasan-buatan-machine-learning/06-buku-ajar/00-halaman-depan.md` | AI/ML textbook front matter |
