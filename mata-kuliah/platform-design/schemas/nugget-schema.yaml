@@ -1,0 +1,206 @@
+# NusaBelajar Nugget Schema
+# Setiap micro-lesson nugget harus memiliki frontmatter yang sesuai schema ini.
+# Version: 1.0
+
+type: object
+required:
+  - id
+  - title
+  - course
+  - week
+  - sequence
+  - type
+  - topic_slug
+  - cpmk
+  - sub_cpmk
+  - bloom_level
+  - difficulty
+  - estimated_minutes
+  - prerequisites
+  - modality
+  - key_concepts
+  - tags
+
+properties:
+
+  # === Identitas ===
+  id:
+    type: string
+    pattern: "^nugget-(alp|pap|ads|aiml)-\\d{2}-\\d{2}$"
+    description: "ID unik nugget. Format: nugget-{course}-{week}-{seq}"
+    example: "nugget-alp-01-01"
+
+  title:
+    type: string
+    minLength: 5
+    maxLength: 120
+    description: "Judul nugget dalam bahasa Indonesia"
+    example: "Apa Itu Algoritma?"
+
+  course:
+    type: string
+    enum: ["alp", "pap", "ads", "aiml"]
+    description: |
+      Kode mata kuliah:
+      - alp: Algoritma dan Pemrograman (INF-101)
+      - pap: Praktikum Algoritma dan Pemrograman (INF-102)
+      - ads: Analisis Data Statistik
+      - aiml: Kecerdasan Buatan dan Machine Learning (IF3XXX)
+
+  week:
+    type: integer
+    minimum: 1
+    maximum: 16
+    description: "Minggu perkuliahan (1-16)"
+
+  sequence:
+    type: integer
+    minimum: 1
+    maximum: 20
+    description: "Urutan nugget dalam minggu tersebut"
+
+  type:
+    type: string
+    enum: ["concept", "example", "codealong", "practice", "quiz", "reflection"]
+    description: |
+      Tipe nugget:
+      - concept: Penjelasan teori/konsep dengan dual coding
+      - example: Contoh konkret dengan walkthrough
+      - codealong: Live coding interaktif step-by-step
+      - practice: Latihan mandiri dengan hint system
+      - quiz: Micro-assessment (2-3 soal)
+      - reflection: Elaborative interrogation + self-assessment
+
+  topic_slug:
+    type: string
+    pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+    description: "Slug topik dalam kebab-case"
+    example: "apa-itu-algoritma"
+
+  # === Pedagogical Metadata ===
+  cpmk:
+    type: array
+    items:
+      type: string
+      pattern: "^CPMK-\\d+$"
+    minItems: 1
+    description: "CPMK yang didukung oleh nugget ini"
+    example: ["CPMK-1"]
+
+  sub_cpmk:
+    type: array
+    items:
+      type: string
+      pattern: "^CPMK-\\d+\\.\\d+$"
+    minItems: 1
+    description: "Sub-CPMK spesifik yang diukur"
+    example: ["CPMK-1.1"]
+
+  bloom_level:
+    type: string
+    enum: ["C1", "C2", "C3", "C4", "C5", "C6"]
+    description: |
+      Level Bloom's Taxonomy:
+      - C1: Remember (mendefinisikan, menyebutkan)
+      - C2: Understand (menjelaskan, membedakan)
+      - C3: Apply (menerapkan, mengimplementasikan)
+      - C4: Analyze (menganalisis, membandingkan)
+      - C5: Evaluate (menilai, menguji)
+      - C6: Create (merancang, membangun)
+
+  difficulty:
+    type: integer
+    minimum: 1
+    maximum: 5
+    description: |
+      Tingkat kesulitan:
+      1: Pemula (introductory)
+      2: Dasar (basic application)
+      3: Menengah (analysis required)
+      4: Lanjut (evaluation/synthesis)
+      5: Mahir (creative problem solving)
+
+  estimated_minutes:
+    type: integer
+    minimum: 3
+    maximum: 15
+    description: "Estimasi durasi dalam menit (target: 5-10)"
+
+  # === Prerequisites & Connections ===
+  prerequisites:
+    type: array
+    items:
+      type: string
+      pattern: "^nugget-(alp|pap|ads|aiml)-\\d{2}-\\d{2}$"
+    description: "Nugget IDs yang HARUS selesai sebelum nugget ini"
+    example: []
+
+  related:
+    type: array
+    items:
+      type: string
+    description: "Nugget IDs yang terkait (opsional, untuk rekomendasi)"
+    example: ["nugget-alp-01-02", "nugget-alp-01-03"]
+
+  cross_course:
+    type: array
+    items:
+      type: string
+    description: "Nugget IDs dari mata kuliah lain yang terhubung"
+    example: ["nugget-ads-01-03"]
+
+  # === Content Metadata ===
+  modality:
+    type: array
+    items:
+      type: string
+      enum: ["text", "diagram", "code", "animation", "audio", "table"]
+    minItems: 1
+    description: "Modalitas konten yang ada dalam nugget"
+
+  has_interactive_code:
+    type: boolean
+    default: false
+    description: "Apakah nugget memiliki blok kode yang bisa dijalankan"
+
+  has_quiz:
+    type: boolean
+    default: false
+    description: "Apakah nugget memiliki soal embedded"
+
+  quiz_count:
+    type: integer
+    minimum: 0
+    maximum: 5
+    default: 0
+    description: "Jumlah soal dalam nugget"
+
+  # === Spaced Repetition ===
+  review_priority:
+    type: string
+    enum: ["high", "medium", "low"]
+    description: |
+      Prioritas untuk masuk review queue:
+      - high: konsep fundamental yang sering digunakan
+      - medium: konsep penting tapi jarang di-review
+      - low: detail yang bisa dicari ulang saat dibutuhkan
+
+  key_concepts:
+    type: array
+    items:
+      type: string
+    minItems: 1
+    maxItems: 5
+    description: "Konsep kunci untuk dijadikan flashcard review"
+    example:
+      - "Definisi algoritma"
+      - "5 karakteristik algoritma"
+
+  # === Tags ===
+  tags:
+    type: array
+    items:
+      type: string
+    minItems: 1
+    description: "Tags untuk pencarian dan filtering"
+    example: ["algoritma", "pengantar", "computational-thinking"]

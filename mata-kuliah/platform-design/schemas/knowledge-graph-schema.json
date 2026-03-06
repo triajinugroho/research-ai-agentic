@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NusaBelajar Knowledge Graph Schema",
+  "description": "Schema untuk knowledge graph yang menghubungkan konsep across 4 mata kuliah. Terdiri dari nodes (konsep) dan edges (relasi).",
+  "version": "1.0",
+  "type": "object",
+  "required": ["nodes", "edges"],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "description": "Semua node konsep dalam knowledge graph",
+      "items": {
+        "type": "object",
+        "required": ["node_id", "label", "node_type", "course", "cpmk", "bloom_level"],
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "pattern": "^(concept|skill|tool)-[a-z0-9-]+$",
+            "description": "ID unik node",
+            "examples": ["concept-algoritma", "skill-for-loop", "tool-python"]
+          },
+          "label": {
+            "type": "string",
+            "description": "Nama tampilan node (Indonesian)"
+          },
+          "label_en": {
+            "type": "string",
+            "description": "Nama tampilan node (English)"
+          },
+          "node_type": {
+            "type": "string",
+            "enum": ["concept", "skill", "tool"],
+            "description": "Tipe node: concept (teori), skill (praktik), tool (teknologi)"
+          },
+          "course": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["alp", "pap", "ads", "aiml"]
+            },
+            "description": "Mata kuliah tempat konsep ini diajarkan (bisa lebih dari 1)"
+          },
+          "cpmk": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "CPMK yang terkait"
+          },
+          "bloom_level": {
+            "type": "string",
+            "enum": ["C1", "C2", "C3", "C4", "C5", "C6"],
+            "description": "Level Bloom minimum untuk menguasai konsep ini"
+          },
+          "nugget_ids": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Nugget IDs yang mengajarkan konsep ini"
+          },
+          "description": {
+            "type": "string",
+            "description": "Deskripsi singkat konsep"
+          },
+          "importance": {
+            "type": "string",
+            "enum": ["core", "important", "supplementary"],
+            "description": "Tingkat kepentingan: core (wajib), important (penting), supplementary (pengayaan)"
+          }
+        }
+      }
+    },
+
+    "edges": {
+      "type": "array",
+      "description": "Semua relasi antar node",
+      "items": {
+        "type": "object",
+        "required": ["source", "target", "edge_type"],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "node_id sumber"
+          },
+          "target": {
+            "type": "string",
+            "description": "node_id tujuan"
+          },
+          "edge_type": {
+            "type": "string",
+            "enum": ["prerequisite", "builds_on", "related", "applies_in", "contrasts", "part_of"],
+            "description": "Tipe relasi: prerequisite (harus dulu), builds_on (memperdalam), related (terkait), applies_in (dipakai di), contrasts (sering dibandingkan), part_of (bagian dari)"
+          },
+          "strength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 1.0,
+            "description": "Kekuatan relasi (1.0 = sangat kuat, 0.5 = moderate)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Penjelasan relasi"
+          }
+        }
+      }
+    }
+  },
+
+  "examples": [
+    {
+      "nodes": [
+        {
+          "node_id": "concept-algoritma",
+          "label": "Algoritma",
+          "label_en": "Algorithm",
+          "node_type": "concept",
+          "course": ["alp"],
+          "cpmk": ["CPMK-1"],
+          "bloom_level": "C1",
+          "nugget_ids": ["nugget-alp-01-01"],
+          "description": "Urutan langkah logis dan sistematis untuk menyelesaikan masalah",
+          "importance": "core"
+        },
+        {
+          "node_id": "concept-computational-thinking",
+          "label": "Computational Thinking",
+          "label_en": "Computational Thinking",
+          "node_type": "concept",
+          "course": ["alp"],
+          "cpmk": ["CPMK-1"],
+          "bloom_level": "C2",
+          "nugget_ids": ["nugget-alp-01-03"],
+          "description": "Pendekatan pemecahan masalah: dekomposisi, pola, abstraksi, algoritma",
+          "importance": "core"
+        },
+        {
+          "node_id": "concept-variabel",
+          "label": "Variabel dan Tipe Data",
+          "label_en": "Variables and Data Types",
+          "node_type": "concept",
+          "course": ["alp", "ads"],
+          "cpmk": ["CPMK-2"],
+          "bloom_level": "C3",
+          "nugget_ids": ["nugget-alp-02-01", "nugget-alp-02-02"],
+          "description": "Konsep variabel, tipe data (int, float, str, bool), dan type casting",
+          "importance": "core"
+        },
+        {
+          "node_id": "concept-regresi-linear",
+          "label": "Regresi Linear",
+          "label_en": "Linear Regression",
+          "node_type": "concept",
+          "course": ["ads", "aiml"],
+          "cpmk": ["CPMK-3"],
+          "bloom_level": "C4",
+          "nugget_ids": ["nugget-ads-09-01", "nugget-aiml-05-01"],
+          "description": "Model statistik untuk memprediksi variabel kontinu",
+          "importance": "core"
+        }
+      ],
+      "edges": [
+        {
+          "source": "concept-algoritma",
+          "target": "concept-computational-thinking",
+          "edge_type": "related",
+          "strength": 0.9,
+          "description": "Algoritma adalah salah satu pilar CT"
+        },
+        {
+          "source": "concept-algoritma",
+          "target": "concept-variabel",
+          "edge_type": "prerequisite",
+          "strength": 1.0,
+          "description": "Harus paham konsep algoritma sebelum belajar implementasi dengan variabel"
+        },
+        {
+          "source": "concept-variabel",
+          "target": "concept-regresi-linear",
+          "edge_type": "applies_in",
+          "strength": 0.7,
+          "description": "Pemahaman variabel diterapkan dalam membangun model regresi"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NusaBelajar Gamification Schema",
+  "description": "Konfigurasi sistem gamifikasi: XP rules, levels, badges, streaks, dan challenges.",
+  "version": "1.0",
+  "type": "object",
+  "required": ["xp_rules", "levels", "badges", "streak_config"],
+  "properties": {
+
+    "xp_rules": {
+      "type": "array",
+      "description": "Aturan pemberian XP per aktivitas",
+      "items": {
+        "type": "object",
+        "required": ["activity", "xp", "bloom_range"],
+        "properties": {
+          "activity": {
+            "type": "string",
+            "description": "Jenis aktivitas"
+          },
+          "xp": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "bloom_range": {
+            "type": "string",
+            "description": "Level Bloom yang terlibat"
+          },
+          "conditions": {
+            "type": "string",
+            "description": "Kondisi khusus untuk mendapat XP ini"
+          }
+        }
+      },
+      "examples": [
+        [
+          { "activity": "nugget_concept_complete", "xp": 10, "bloom_range": "C1-C2" },
+          { "activity": "nugget_example_complete", "xp": 15, "bloom_range": "C2" },
+          { "activity": "nugget_codealong_complete", "xp": 20, "bloom_range": "C3" },
+          { "activity": "nugget_practice_correct_first_try", "xp": 30, "bloom_range": "C3-C4" },
+          { "activity": "nugget_practice_correct_with_hints", "xp": 15, "bloom_range": "C3-C4" },
+          { "activity": "quiz_perfect_score", "xp": 40, "bloom_range": "C3-C4" },
+          { "activity": "reflection_submitted", "xp": 25, "bloom_range": "C4-C5" },
+          { "activity": "challenge_solved", "xp": 50, "bloom_range": "C5-C6" },
+          { "activity": "review_card_correct", "xp": 10, "bloom_range": "retention" },
+          { "activity": "peer_answer_upvoted", "xp": 30, "bloom_range": "C5-C6" },
+          { "activity": "weekly_streak_bonus", "xp": 50, "bloom_range": "consistency" },
+          { "activity": "daily_goal_complete", "xp": 20, "bloom_range": "consistency" }
+        ]
+      ]
+    },
+
+    "levels": {
+      "type": "array",
+      "description": "Definisi level system",
+      "items": {
+        "type": "object",
+        "required": ["level", "name", "name_en", "xp_required"],
+        "properties": {
+          "level": { "type": "integer" },
+          "name": { "type": "string", "description": "Nama level (Indonesian)" },
+          "name_en": { "type": "string" },
+          "xp_required": { "type": "integer" },
+          "perks": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Fitur yang di-unlock di level ini"
+          }
+        }
+      },
+      "examples": [
+        [
+          { "level": 1, "name": "Pemula", "name_en": "Novice", "xp_required": 0, "perks": ["Akses nugget dasar"] },
+          { "level": 5, "name": "Penjelajah", "name_en": "Explorer", "xp_required": 2000, "perks": ["Daily Mix mode", "Custom avatar"] },
+          { "level": 10, "name": "Praktisi", "name_en": "Practitioner", "xp_required": 5000, "perks": ["AI Tutor extended", "Challenge mode"] },
+          { "level": 15, "name": "Analis", "name_en": "Analyst", "xp_required": 10000, "perks": ["Advanced analytics", "Code review tools"] },
+          { "level": 20, "name": "Ahli", "name_en": "Expert", "xp_required": 20000, "perks": ["Peer mentoring", "Custom study paths"] },
+          { "level": 25, "name": "Master", "name_en": "Master", "xp_required": 35000, "perks": ["Content creation tools", "Beta features"] },
+          { "level": 30, "name": "Guru", "name_en": "Teacher", "xp_required": 50000, "perks": ["Instructor dashboard access", "Community moderator"] }
+        ]
+      ]
+    },
+
+    "badges": {
+      "type": "array",
+      "description": "Definisi badge system",
+      "items": {
+        "type": "object",
+        "required": ["badge_id", "name", "category", "criteria"],
+        "properties": {
+          "badge_id": { "type": "string" },
+          "name": { "type": "string", "description": "Nama badge" },
+          "description": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["mastery", "consistency", "depth", "breadth", "social", "challenge", "review"],
+            "description": "Kategori badge"
+          },
+          "icon": { "type": "string", "description": "Icon identifier" },
+          "criteria": {
+            "type": "object",
+            "description": "Kriteria untuk mendapatkan badge",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["cpmk_mastery", "streak_days", "nuggets_completed", "courses_active", "peer_helps", "challenges_solved", "retention_rate", "custom"]
+              },
+              "target_value": { "type": "number" },
+              "target_cpmk": { "type": "array", "items": { "type": "string" } },
+              "target_course": { "type": "string" }
+            }
+          },
+          "rarity": {
+            "type": "string",
+            "enum": ["common", "uncommon", "rare", "epic", "legendary"]
+          }
+        }
+      },
+      "examples": [
+        [
+          {
+            "badge_id": "badge-al-khwarizmi",
+            "name": "Al-Khwarizmi",
+            "description": "Kuasai semua CPMK-1 (Algoritma Dasar)",
+            "category": "mastery",
+            "icon": "algorithm-star",
+            "criteria": { "type": "cpmk_mastery", "target_cpmk": ["CPMK-1.1", "CPMK-1.2", "CPMK-1.3"], "target_value": 0.85 },
+            "rarity": "uncommon"
+          },
+          {
+            "badge_id": "badge-istiqomah-7",
+            "name": "Istiqomah 7",
+            "description": "7 hari berturut-turut belajar",
+            "category": "consistency",
+            "icon": "flame-7",
+            "criteria": { "type": "streak_days", "target_value": 7 },
+            "rarity": "common"
+          },
+          {
+            "badge_id": "badge-istiqomah-30",
+            "name": "Istiqomah 30",
+            "description": "30 hari berturut-turut belajar — mashaa Allah!",
+            "category": "consistency",
+            "icon": "flame-30",
+            "criteria": { "type": "streak_days", "target_value": 30 },
+            "rarity": "rare"
+          },
+          {
+            "badge_id": "badge-renaissance",
+            "name": "Renaissance",
+            "description": "Selesaikan nugget dari semua 4 mata kuliah",
+            "category": "breadth",
+            "icon": "four-pillars",
+            "criteria": { "type": "courses_active", "target_value": 4 },
+            "rarity": "rare"
+          },
+          {
+            "badge_id": "badge-penolong",
+            "name": "Penolong",
+            "description": "Bantu 10 peers di forum diskusi",
+            "category": "social",
+            "icon": "helping-hand",
+            "criteria": { "type": "peer_helps", "target_value": 10 },
+            "rarity": "uncommon"
+          },
+          {
+            "badge_id": "badge-memory-master",
+            "name": "Memory Master",
+            "description": "Retention rate >=90% selama 30 hari",
+            "category": "review",
+            "icon": "brain-spark",
+            "criteria": { "type": "retention_rate", "target_value": 0.9 },
+            "rarity": "epic"
+          }
+        ]
+      ]
+    },
+
+    "streak_config": {
+      "type": "object",
+      "description": "Konfigurasi streak system (Istiqomah)",
+      "properties": {
+        "daily_goal": {
+          "type": "object",
+          "properties": {
+            "min_nuggets": { "type": "integer", "default": 1, "description": "Minimal nugget selesai untuk dianggap 'hari aktif'" },
+            "or_review_cards": { "type": "integer", "default": 5, "description": "Atau minimal review cards selesai" }
+          }
+        },
+        "freeze_per_week": {
+          "type": "integer",
+          "default": 1,
+          "description": "Jumlah streak freeze yang tersedia per minggu"
+        },
+        "milestones": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "default": [7, 14, 30, 60, 100, 365],
+          "description": "Milestone hari yang mendapat badge/reward"
+        },
+        "recovery_message": {
+          "type": "string",
+          "default": "Sebaik-baik amalan adalah yang dilakukan secara konsisten, meskipun sedikit. (HR. Bukhari)",
+          "description": "Pesan motivasi saat streak putus"
+        }
+      }
+    },
+
+    "weekly_challenges": {
+      "type": "array",
+      "description": "Template tantangan mingguan",
+      "items": {
+        "type": "object",
+        "properties": {
+          "challenge_type": {
+            "type": "string",
+            "enum": ["coding", "analysis", "collaborative", "creative"],
+            "description": "Tipe tantangan"
+          },
+          "description_template": {
+            "type": "string",
+            "description": "Template deskripsi tantangan (dengan placeholder)"
+          },
+          "xp_reward": { "type": "integer" },
+          "difficulty": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "team_size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6,
+            "description": "1 = individual, >1 = team challenge"
+          }
+        }
+      },
+      "examples": [
+        [
+          {
+            "challenge_type": "coding",
+            "description_template": "Buat program Python untuk {problem_context} menggunakan konsep {concept}",
+            "xp_reward": 100,
+            "difficulty": 3,
+            "team_size": 1
+          },
+          {
+            "challenge_type": "collaborative",
+            "description_template": "Bersama halaqah-mu, analisis dataset {dataset} dan presentasikan temuan dalam 5 slide",
+            "xp_reward": 200,
+            "difficulty": 4,
+            "team_size": 4
+          }
+        ]
+      ]
+    }
+  }
+}
