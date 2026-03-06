@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NusaBelajar Learner Profile",
+  "description": "Schema profil lengkap learner termasuk knowledge state, learning behavior, engagement, dan review state.",
+  "version": "1.0",
+  "type": "object",
+  "required": ["learner_id", "identity", "knowledge_state", "learning_behavior", "engagement", "review_state"],
+  "properties": {
+    "learner_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID unik learner"
+    },
+
+    "identity": {
+      "type": "object",
+      "required": ["display_name", "email", "registered_at"],
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "description": "Nama tampilan"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "institution": {
+          "type": "string",
+          "description": "Nama universitas/institusi (opsional untuk public learner)",
+          "example": "Universitas Al Azhar Indonesia"
+        },
+        "semester": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 14,
+          "description": "Semester aktif (opsional)"
+        },
+        "enrolled_courses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["alp", "pap", "ads", "aiml"]
+          },
+          "description": "Mata kuliah yang diikuti"
+        },
+        "learning_mode": {
+          "type": "string",
+          "enum": ["guided", "adaptive", "explorer"],
+          "default": "guided",
+          "description": "Mode pembelajaran yang dipilih"
+        },
+        "registered_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+
+    "knowledge_state": {
+      "type": "object",
+      "description": "State pengetahuan learner per konsep dan CPMK",
+      "properties": {
+        "cpmk_mastery": {
+          "type": "object",
+          "description": "Mastery level per Sub-CPMK (0.0 - 1.0), dihitung via BKT",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "p_learned": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "P(L) dari Bayesian Knowledge Tracing"
+              },
+              "bloom_reached": {
+                "type": "string",
+                "enum": ["C1", "C2", "C3", "C4", "C5", "C6"],
+                "description": "Level Bloom tertinggi yang tercapai"
+              },
+              "attempts": {
+                "type": "integer",
+                "description": "Jumlah assessment attempts"
+              },
+              "last_assessed": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "example": {
+            "CPMK-1.1": {
+              "p_learned": 0.92,
+              "bloom_reached": "C2",
+              "attempts": 5,
+              "last_assessed": "2026-03-15T10:30:00Z"
+            },
+            "CPMK-2.1": {
+              "p_learned": 0.45,
+              "bloom_reached": "C3",
+              "attempts": 3,
+              "last_assessed": "2026-03-14T14:00:00Z"
+            }
+          }
+        },
+        "concept_strength": {
+          "type": "object",
+          "description": "Kekuatan retensi per key_concept dari spaced repetition (0-100)",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "strength": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "interval_days": {
+                "type": "number",
+                "description": "Interval review saat ini (hari)"
+              },
+              "ease_factor": {
+                "type": "number",
+                "minimum": 1.3,
+                "default": 2.5,
+                "description": "SM-2 ease factor"
+              },
+              "next_review": {
+                "type": "string",
+                "format": "date"
+              },
+              "review_count": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "nuggets_completed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nugget_id": { "type": "string" },
+              "completed_at": { "type": "string", "format": "date-time" },
+              "score": { "type": "number", "minimum": 0, "maximum": 1 },
+              "time_spent_seconds": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+
+    "learning_behavior": {
+      "type": "object",
+      "properties": {
+        "preferred_modality": {
+          "type": "string",
+          "enum": ["text", "visual", "code", "mixed"],
+          "description": "Modalitas yang paling sering dipilih / paling efektif"
+        },
+        "average_session_minutes": {
+          "type": "number",
+          "description": "Rata-rata durasi sesi belajar"
+        },
+        "peak_hours": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0, "maximum": 23 },
+          "description": "Jam-jam paling aktif belajar (0-23)"
+        },
+        "completion_rate_by_type": {
+          "type": "object",
+          "description": "Completion rate per tipe nugget",
+          "properties": {
+            "concept": { "type": "number" },
+            "example": { "type": "number" },
+            "codealong": { "type": "number" },
+            "practice": { "type": "number" },
+            "quiz": { "type": "number" },
+            "reflection": { "type": "number" }
+          }
+        },
+        "learning_velocity": {
+          "type": "number",
+          "description": "Nuggets per hari rata-rata (rolling 7-day)"
+        },
+        "hint_usage_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Seberapa sering menggunakan hint (0=tidak pernah, 1=selalu)"
+        },
+        "ai_tutor_interactions": {
+          "type": "integer",
+          "description": "Total interaksi dengan AI Tutor"
+        }
+      }
+    },
+
+    "engagement": {
+      "type": "object",
+      "properties": {
+        "xp_total": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total XP yang terkumpul"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "current_streak": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Streak hari berturut-turut saat ini"
+        },
+        "longest_streak": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Streak terpanjang yang pernah dicapai"
+        },
+        "streak_freezes_remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Jumlah streak freeze yang tersisa minggu ini"
+        },
+        "badges_earned": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "badge_id": { "type": "string" },
+              "earned_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "halaqah_id": {
+          "type": "string",
+          "description": "ID study circle yang diikuti (nullable)"
+        },
+        "peer_teaching_count": {
+          "type": "integer",
+          "description": "Jumlah jawaban di forum yang di-upvote"
+        }
+      }
+    },
+
+    "review_state": {
+      "type": "object",
+      "description": "State spaced repetition queue",
+      "properties": {
+        "cards_due_today": {
+          "type": "integer",
+          "description": "Jumlah review card yang jatuh tempo hari ini"
+        },
+        "cards_overdue": {
+          "type": "integer",
+          "description": "Jumlah card yang melewati jadwal review"
+        },
+        "total_cards": {
+          "type": "integer",
+          "description": "Total card dalam review deck"
+        },
+        "average_retention": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Rata-rata retention rate saat review"
+        },
+        "last_review_session": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp terakhir profil diupdate"
+    }
+  }
+}

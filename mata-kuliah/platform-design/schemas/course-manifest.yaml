@@ -1,0 +1,215 @@
+# NusaBelajar Course Manifest
+# Konfigurasi mapping nuggets -> weeks -> CPMK per mata kuliah
+# Version: 1.0
+
+# === Schema Definition ===
+# Setiap mata kuliah memiliki 1 file manifest yang mendefinisikan:
+# - Identitas mata kuliah
+# - CPMK dan Sub-CPMK
+# - Mapping minggu ke nuggets
+# - Assessment weights
+
+schema:
+  type: object
+  required:
+    - course_id
+    - course_name
+    - credits
+    - semester
+    - cpmk
+    - weeks
+    - assessment_weights
+
+  properties:
+    course_id:
+      type: string
+      enum: ["alp", "pap", "ads", "aiml"]
+      description: "Kode mata kuliah"
+
+    course_name:
+      type: string
+      description: "Nama lengkap mata kuliah"
+
+    course_code:
+      type: string
+      description: "Kode resmi (e.g., INF-101)"
+
+    credits:
+      type: integer
+      description: "Jumlah SKS"
+
+    semester:
+      type: string
+      description: "Semester penyelenggaraan"
+
+    prerequisites:
+      type: array
+      items:
+        type: string
+      description: "Prasyarat mata kuliah (course_id)"
+
+    instructor:
+      type: string
+      description: "Dosen pengampu"
+
+    cpmk:
+      type: array
+      items:
+        type: object
+        properties:
+          code:
+            type: string
+          description:
+            type: string
+          bloom_level:
+            type: string
+          sub_cpmk:
+            type: array
+            items:
+              type: object
+              properties:
+                code:
+                  type: string
+                description:
+                  type: string
+                bloom_level:
+                  type: string
+                week:
+                  type: integer
+
+    weeks:
+      type: array
+      items:
+        type: object
+        properties:
+          week:
+            type: integer
+          title:
+            type: string
+          phase:
+            type: string
+          sub_cpmk:
+            type: array
+            items:
+              type: string
+          nuggets:
+            type: array
+            items:
+              type: string
+            description: "Ordered list of nugget IDs for this week"
+          is_exam:
+            type: boolean
+            default: false
+
+    assessment_weights:
+      type: object
+      description: "Bobot penilaian (harus total 100%)"
+
+
+# === Example: Algoritma dan Pemrograman ===
+
+example:
+  course_id: "alp"
+  course_name: "Algoritma dan Pemrograman"
+  course_code: "INF-101"
+  credits: 2
+  semester: "Genap 2025/2026"
+  prerequisites: []
+  instructor: "Tri Aji Nugroho, S.T., M.T."
+
+  cpmk:
+    - code: "CPMK-1"
+      description: "Menjelaskan konsep dasar algoritma, computational thinking, dan peran pemrograman di era AI"
+      bloom_level: "C2"
+      sub_cpmk:
+        - code: "CPMK-1.1"
+          description: "Mendefinisikan konsep algoritma, sejarah, dan relevansinya"
+          bloom_level: "C1"
+          week: 1
+        - code: "CPMK-1.2"
+          description: "Menjelaskan empat pilar computational thinking"
+          bloom_level: "C2"
+          week: 1
+        - code: "CPMK-1.3"
+          description: "Menjelaskan peran Python dan AI dalam pemrograman modern"
+          bloom_level: "C2"
+          week: 1
+
+    - code: "CPMK-2"
+      description: "Menerapkan variabel, tipe data, operator, dan ekspresi"
+      bloom_level: "C3"
+      sub_cpmk:
+        - code: "CPMK-2.1"
+          description: "Mengidentifikasi dan menggunakan variabel, konstanta, naming convention"
+          bloom_level: "C3"
+          week: 2
+        - code: "CPMK-2.2"
+          description: "Membedakan tipe data dasar dan melakukan type casting"
+          bloom_level: "C2"
+          week: 2
+        - code: "CPMK-2.3"
+          description: "Menerapkan operator aritmatika, perbandingan, logika"
+          bloom_level: "C3"
+          week: 2
+        - code: "CPMK-2.4"
+          description: "Menerapkan fungsi input/output"
+          bloom_level: "C3"
+          week: 2
+
+    # ... CPMK-3 through CPMK-7 mengikuti pola yang sama
+
+  weeks:
+    - week: 1
+      title: "Pengantar Algoritma & Computational Thinking di Era AI"
+      phase: "Fase 1: Fondasi"
+      sub_cpmk: ["CPMK-1.1", "CPMK-1.2", "CPMK-1.3"]
+      nuggets:
+        - "nugget-alp-01-01"  # concept: Apa Itu Algoritma
+        - "nugget-alp-01-02"  # example: Algoritma dalam Kehidupan Sehari-hari
+        - "nugget-alp-01-03"  # concept: Computational Thinking
+        - "nugget-alp-01-04"  # practice: Dekomposisi Masalah
+        - "nugget-alp-01-05"  # concept: Representasi Algoritma
+        - "nugget-alp-01-06"  # codealong: Pseudocode dan Flowchart
+        - "nugget-alp-01-07"  # concept: Pengenalan Python & AI
+        - "nugget-alp-01-08"  # codealong: Hello World di Google Colab
+        - "nugget-alp-01-09"  # practice: Membuat Flowchart Dasar
+        - "nugget-alp-01-10"  # quiz: Review Minggu 1
+      is_exam: false
+
+    - week: 2
+      title: "Variabel, Tipe Data, dan Operator"
+      phase: "Fase 1: Fondasi"
+      sub_cpmk: ["CPMK-2.1", "CPMK-2.2", "CPMK-2.3", "CPMK-2.4"]
+      nuggets:
+        - "nugget-alp-02-01"  # concept: Variabel dan Naming Convention
+        - "nugget-alp-02-02"  # concept: Tipe Data Dasar Python
+        - "nugget-alp-02-03"  # codealong: Variabel dan Type Casting
+        - "nugget-alp-02-04"  # concept: Operator Aritmatika dan Perbandingan
+        - "nugget-alp-02-05"  # example: Kalkulator Harga Warung
+        - "nugget-alp-02-06"  # codealong: Operator Logika dan Assignment
+        - "nugget-alp-02-07"  # concept: Input/Output
+        - "nugget-alp-02-08"  # practice: Program Input Biodata
+        - "nugget-alp-02-09"  # practice: Konversi Suhu
+        - "nugget-alp-02-10"  # quiz: Review Minggu 2
+      is_exam: false
+
+    - week: 8
+      title: "Ujian Tengah Semester (UTS)"
+      phase: "Evaluasi Tengah"
+      sub_cpmk: ["CPMK-8.1"]
+      nuggets: []
+      is_exam: true
+
+    - week: 16
+      title: "Ujian Akhir Semester (UAS)"
+      phase: "Evaluasi Akhir"
+      sub_cpmk: ["CPMK-16.1"]
+      nuggets: []
+      is_exam: true
+
+  assessment_weights:
+    kuis: 20
+    uts: 30
+    uas: 40
+    partisipasi: 10
+    total: 100  # HARUS 100

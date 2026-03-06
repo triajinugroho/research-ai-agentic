@@ -1,0 +1,205 @@
+# Week 01 Decomposition Map
+# Menunjukkan bagaimana modul 150-menit "Minggu 1: Pengantar Algoritma & Computational Thinking"
+# didekomposisi menjadi 10 nugget micro-learning (5-10 menit masing-masing)
+#
+# Source: mata-kuliah/algoritma-pemrograman/03-modules/week-01-pengantar-algoritma-computational-thinking.md
+# Total durasi asli: 150 menit (pre-class 15 + in-class 120 + post-class 15)
+# Total durasi nugget: ~70 menit (tersebar dalam beberapa hari, bukan 1 sesi)
+
+course: "alp"
+week: 1
+source_module: "week-01-pengantar-algoritma-computational-thinking.md"
+source_textbook: "bab-01-pengantar-algoritma-computational-thinking.md"
+title: "Pengantar Algoritma & Computational Thinking di Era AI"
+phase: "Fase 1: Fondasi — Think Like a Programmer"
+
+sub_cpmk_covered:
+  - "CPMK-1.1"  # Mendefinisikan konsep algoritma, sejarah, relevansi
+  - "CPMK-1.2"  # Menjelaskan 4 pilar computational thinking
+  - "CPMK-1.3"  # Menjelaskan peran Python dan AI
+
+# Pola dekomposisi mengikuti prinsip:
+# 1. Satu nugget = satu konsep/skill (atomic)
+# 2. Urutan: Concept → Example → Practice → Quiz (per cluster konsep)
+# 3. Setiap konsep utama minimal punya pasangan: teori + latihan
+# 4. Minggu ditutup dengan quiz review
+
+nuggets:
+  # --- Cluster 1: Apa Itu Algoritma (CPMK-1.1) ---
+  - id: "nugget-alp-01-01"
+    title: "Apa Itu Algoritma?"
+    type: "concept"
+    bloom: "C1"
+    difficulty: 1
+    minutes: 6
+    source_sections:
+      - "1. Definisi Algoritma dan Sejarah Al-Khwarizmi (CPMK-1.1)"
+    covers:
+      - Definisi algoritma
+      - Sejarah Al-Khwarizmi
+      - 5 karakteristik algoritma (Knuth)
+    prereqs: []
+
+  - id: "nugget-alp-01-02"
+    title: "Algoritma dalam Kehidupan Sehari-hari"
+    type: "example"
+    bloom: "C2"
+    difficulty: 1
+    minutes: 7
+    source_sections:
+      - "Contoh algoritma sederhana — Membuat Kopi"
+      - Additional Indonesian context examples (ATM BCA, TransJakarta, GoFood)
+    covers:
+      - Contoh algoritma baik vs buruk
+      - Konteks Indonesia dalam algoritma
+      - Percabangan (decision) dalam algoritma
+    prereqs: ["nugget-alp-01-01"]
+
+  # --- Cluster 2: Computational Thinking (CPMK-1.2) ---
+  - id: "nugget-alp-01-03"
+    title: "Empat Pilar Computational Thinking"
+    type: "concept"
+    bloom: "C2"
+    difficulty: 1
+    minutes: 7
+    source_sections:
+      - "2. Empat Pilar Computational Thinking (CPMK-1.2)"
+    covers:
+      - Dekomposisi
+      - Pengenalan Pola
+      - Abstraksi
+      - Desain Algoritma
+    prereqs: ["nugget-alp-01-01"]
+
+  - id: "nugget-alp-01-04"
+    title: "Latihan: Dekomposisi Masalah"
+    type: "practice"
+    bloom: "C3"
+    difficulty: 2
+    minutes: 8
+    source_sections:
+      - "Diskusi kelompok: Menerapkan CT pada masalah"
+    covers:
+      - Menerapkan dekomposisi pada masalah nyata
+      - Menerapkan pengenalan pola
+      - Menerapkan abstraksi
+    prereqs: ["nugget-alp-01-03"]
+
+  # --- Cluster 3: Representasi Algoritma (CPMK-1.3) ---
+  - id: "nugget-alp-01-05"
+    title: "Representasi Algoritma: Bahasa Natural, Pseudocode, Flowchart"
+    type: "concept"
+    bloom: "C2"
+    difficulty: 1
+    minutes: 7
+    source_sections:
+      - "3. Representasi Algoritma (CPMK-1.3)"
+      - "a. Bahasa Natural"
+      - "b. Pseudocode"
+      - "c. Flowchart (Diagram Alir)"
+    covers:
+      - Tiga cara merepresentasikan algoritma
+      - Simbol-simbol flowchart
+      - Kelebihan & kekurangan masing-masing
+    prereqs: ["nugget-alp-01-01"]
+
+  - id: "nugget-alp-01-06"
+    title: "Code-Along: Menulis Pseudocode dan Flowchart"
+    type: "codealong"
+    bloom: "C3"
+    difficulty: 2
+    minutes: 8
+    source_sections:
+      - "Ceramah dan latihan: Representasi algoritma"
+      - "Hands-on: Membuat flowchart untuk bilangan ganjil/genap"
+    covers:
+      - Konversi masalah → pseudocode
+      - Konversi pseudocode → flowchart
+      - Praktik: flowchart bilangan ganjil/genap
+    prereqs: ["nugget-alp-01-05"]
+
+  # --- Cluster 4: Python & Google Colab (CPMK-1.3) ---
+  - id: "nugget-alp-01-07"
+    title: "Pengenalan Python dan Pemrograman di Era AI"
+    type: "concept"
+    bloom: "C1"
+    difficulty: 1
+    minutes: 5
+    source_sections:
+      - "4. Pengenalan Python dan Pemrograman di Era AI (CPMK-1.4)"
+    covers:
+      - Mengapa Python?
+      - Python dalam AI dan Data Science
+      - Google Colab sebagai platform
+    prereqs: []
+
+  - id: "nugget-alp-01-08"
+    title: "Code-Along: Hello World di Google Colab"
+    type: "codealong"
+    bloom: "C3"
+    difficulty: 1
+    minutes: 7
+    source_sections:
+      - "Hands-on: Menulis program Python pertama di Google Colab"
+      - "Program Hello World"
+    covers:
+      - Setup Google Colab
+      - Menulis dan menjalankan print()
+      - Eksplorasi cell notebook
+    prereqs: ["nugget-alp-01-07"]
+
+  # --- Cluster 5: Latihan & Review ---
+  - id: "nugget-alp-01-09"
+    title: "Latihan: Membuat Flowchart Dasar"
+    type: "practice"
+    bloom: "C3"
+    difficulty: 2
+    minutes: 10
+    source_sections:
+      - "Post-class: Berlatih menulis pseudocode dan flowchart"
+      - Extended: ongkos ojol, tahun kabisat
+    covers:
+      - Flowchart bilangan ganjil/genap
+      - Pseudocode ongkos ojol (konteks Indonesia)
+      - Terjemahan flowchart → Python
+    prereqs: ["nugget-alp-01-06", "nugget-alp-01-08"]
+
+  - id: "nugget-alp-01-10"
+    title: "Quiz Review Minggu 1"
+    type: "quiz"
+    bloom: "C1-C3"
+    difficulty: 2
+    minutes: 5
+    source_sections:
+      - Generated from all Week 1 content
+    covers:
+      - Review definisi algoritma
+      - Review computational thinking
+      - Review representasi algoritma
+      - Review Python basics
+    prereqs:
+      - "nugget-alp-01-01"
+      - "nugget-alp-01-03"
+      - "nugget-alp-01-05"
+      - "nugget-alp-01-07"
+    assessment_items:
+      - "item-alp-01-01-001"   # Al-Khwarizmi (MC, C1)
+      - "item-alp-01-03-001"   # CT ordering (drag-and-drop, C2)
+      - "item-alp-01-05-001"   # Simbol flowchart (MC, C2)
+
+# === Recommended Learning Schedule ===
+# Jika mode Guided Path (mengikuti kuliah):
+#   Hari 1 (sebelum kuliah): nugget 01-04 (~28 min) — pre-class preparation
+#   Hari 2 (hari kuliah):    nugget 05-08 (~27 min) — reinforcement
+#   Hari 3 (setelah kuliah): nugget 09-10 (~15 min) — practice & review
+#
+# Jika mode Adaptive Path:
+#   AI menentukan urutan berdasarkan pre-test results
+#   Bisa skip nugget yang sudah dikuasai
+#
+# Jika mode Explorer:
+#   Akses nugget manapun, tapi prerequisite ditandai
+
+total_nuggets: 10
+total_minutes: 70
+average_per_nugget: 7

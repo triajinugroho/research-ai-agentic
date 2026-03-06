@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NusaBelajar Assessment Item Schema",
+  "description": "Schema untuk soal/quiz micro-assessment. Mendukung multiple choice, fill-in-code, short-code, debug, drag-and-drop, dan explain.",
+  "version": "1.0",
+  "type": "object",
+  "required": ["item_id", "nugget_id", "course", "sub_cpmk", "bloom_level", "difficulty", "format", "question", "correct_answer"],
+  "properties": {
+    "item_id": {
+      "type": "string",
+      "pattern": "^item-[a-z0-9-]+-\\d{3}$",
+      "description": "ID unik soal",
+      "example": "item-alp-01-01-001"
+    },
+    "nugget_id": {
+      "type": "string",
+      "description": "Nugget yang terkait dengan soal ini"
+    },
+    "course": {
+      "type": "string",
+      "enum": ["alp", "pap", "ads", "aiml"]
+    },
+    "sub_cpmk": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Sub-CPMK yang diukur oleh soal ini"
+    },
+    "bloom_level": {
+      "type": "string",
+      "enum": ["C1", "C2", "C3", "C4", "C5", "C6"]
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "1=Dasar, 2=Menengah-bawah, 3=Menengah, 4=Lanjut, 5=Mahir"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["multiple_choice", "fill_in_code", "short_code", "debug", "drag_and_drop", "explain"],
+      "description": "Format soal"
+    },
+    "question": {
+      "type": "string",
+      "description": "Teks pertanyaan (mendukung markdown)"
+    },
+    "code_context": {
+      "type": "string",
+      "description": "Kode konteks jika soal melibatkan kode (opsional)"
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "enum": ["A", "B", "C", "D", "E"] },
+          "text": { "type": "string" }
+        }
+      },
+      "description": "Pilihan jawaban (untuk multiple_choice dan drag_and_drop)"
+    },
+    "correct_answer": {
+      "type": ["string", "array"],
+      "description": "Jawaban benar. String untuk MC/fill_in/explain, array untuk drag_and_drop ordering"
+    },
+    "test_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "input": { "type": "string" },
+          "expected_output": { "type": "string" },
+          "is_hidden": { "type": "boolean", "default": false }
+        }
+      },
+      "description": "Test cases untuk short_code dan debug format"
+    },
+    "explanation": {
+      "type": "string",
+      "description": "Penjelasan jawaban benar (ditampilkan setelah menjawab)"
+    },
+    "hints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 3,
+      "description": "Hint bertingkat (hint 1 = petunjuk arah, hint 2 = setengah solusi, hint 3 = hampir jawaban)"
+    },
+    "common_mistakes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mistake": { "type": "string" },
+          "feedback": { "type": "string" }
+        }
+      },
+      "description": "Kesalahan umum dan feedback spesifik"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "auto_gradeable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Apakah bisa dinilai otomatis"
+    },
+    "estimated_seconds": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 300,
+      "description": "Estimasi waktu pengerjaan dalam detik"
+    }
+  },
+
+  "examples": [
+    {
+      "item_id": "item-alp-01-01-001",
+      "nugget_id": "nugget-alp-01-01",
+      "course": "alp",
+      "sub_cpmk": ["CPMK-1.1"],
+      "bloom_level": "C1",
+      "difficulty": 1,
+      "format": "multiple_choice",
+      "question": "Istilah 'algoritma' berasal dari nama tokoh matematikawan Muslim. Siapakah beliau?",
+      "options": [
+        { "id": "A", "text": "Ibnu Sina" },
+        { "id": "B", "text": "Al-Khwarizmi" },
+        { "id": "C", "text": "Al-Biruni" },
+        { "id": "D", "text": "Ibnu Khaldun" }
+      ],
+      "correct_answer": "B",
+      "explanation": "Abu Abdullah Muhammad ibn Musa Al-Khwarizmi (780-850 M) adalah matematikawan Persia yang menulis kitab Al-Kitab al-Mukhtasar fi Hisab al-Jabr wal-Muqabala. Nama beliau di-Latinkan menjadi 'Algoritmi', yang kemudian menjadi asal kata 'algoritma'.",
+      "hints": [
+        "Beliau juga dikenal sebagai 'Bapak Aljabar'",
+        "Namanya mirip dengan kata 'algoritma' itu sendiri"
+      ],
+      "tags": ["algoritma", "sejarah", "al-khwarizmi"],
+      "auto_gradeable": true,
+      "estimated_seconds": 30
+    },
+    {
+      "item_id": "item-alp-01-03-001",
+      "nugget_id": "nugget-alp-01-03",
+      "course": "alp",
+      "sub_cpmk": ["CPMK-1.2"],
+      "bloom_level": "C2",
+      "difficulty": 2,
+      "format": "drag_and_drop",
+      "question": "Urutkan langkah-langkah Computational Thinking berikut sesuai urutan yang logis untuk menyelesaikan masalah 'Merencanakan perjalanan Jakarta-Yogyakarta':",
+      "options": [
+        { "id": "A", "text": "Abstraksi: fokus pada faktor utama (budget, waktu, transportasi)" },
+        { "id": "B", "text": "Dekomposisi: pecah menjadi sub-masalah (transportasi, akomodasi, itinerary)" },
+        { "id": "C", "text": "Desain Algoritma: susun langkah-langkah perjalanan dari awal sampai akhir" },
+        { "id": "D", "text": "Pengenalan Pola: bandingkan dengan pengalaman perjalanan sebelumnya" }
+      ],
+      "correct_answer": ["B", "D", "A", "C"],
+      "explanation": "CT dimulai dari Dekomposisi (pecah masalah), lalu Pengenalan Pola (cari kesamaan), Abstraksi (fokus hal penting), dan terakhir Desain Algoritma (susun solusi).",
+      "tags": ["computational-thinking", "dekomposisi", "pola", "abstraksi"],
+      "auto_gradeable": true,
+      "estimated_seconds": 60
+    },
+    {
+      "item_id": "item-alp-02-03-001",
+      "nugget_id": "nugget-alp-02-03",
+      "course": "alp",
+      "sub_cpmk": ["CPMK-2.3"],
+      "bloom_level": "C3",
+      "difficulty": 2,
+      "format": "fill_in_code",
+      "question": "Lengkapi kode berikut agar menghitung total harga belanja di warung dengan diskon 10%:",
+      "code_context": "harga_beras = 15000\nharga_minyak = 28000\ntotal = harga_beras + harga_minyak\ndiskon = total * ___\nharga_akhir = total - diskon\nprint(f\"Total bayar: Rp{harga_akhir}\")",
+      "correct_answer": "0.1",
+      "explanation": "Diskon 10% dihitung dengan mengalikan total dengan 0.1 (atau 10/100). Operator * digunakan untuk perkalian.",
+      "hints": [
+        "10% dalam desimal adalah...",
+        "Ingat: persen dibagi 100"
+      ],
+      "common_mistakes": [
+        { "mistake": "10", "feedback": "10 berarti 1000%, bukan 10%. Konversi persen ke desimal: bagi dengan 100." },
+        { "mistake": "0.01", "feedback": "0.01 adalah 1%. Untuk 10%, gunakan 0.1." }
+      ],
+      "tags": ["operator", "aritmatika", "variabel"],
+      "auto_gradeable": true,
+      "estimated_seconds": 45
+    }
+  ]
+}
