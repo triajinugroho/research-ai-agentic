@@ -40,7 +40,7 @@ Probabilitas adalah bahasa matematis untuk mendeskripsikan **ketidakpastian**. D
 
 **Eksperimen (Percobaan)** adalah proses yang menghasilkan hasil yang tidak pasti. **Ruang sampel** (sample space, **S**) adalah himpunan semua kemungkinan hasil dari suatu eksperimen. **Kejadian** (event, **A**) adalah himpunan bagian (subset) dari ruang sampel.
 
-| Eksperimen | Ruang Sampel (S) | |S| | Contoh Kejadian |
+| Eksperimen | Ruang Sampel (S) | S | Contoh Kejadian |
 |-----------|------------------|-----|-----------------|
 | Lempar koin 1x | {H, T} | 2 | A = {H} "muncul Head" |
 | Lempar dadu 1x | {1, 2, 3, 4, 5, 6} | 6 | B = {2, 4, 6} "angka genap" |
