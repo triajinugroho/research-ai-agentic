@@ -53,6 +53,26 @@ research-ai-agentic/
     │   ├── 06-buku-ajar/                        # Textbook (14 chapters + appendices)
     │   └── datasets/                            # Dataset guide
     │
+    ├── rekayasa-perangkat-lunak/                # IF2205: Software Engineering (Theory, 3 SKS)
+    │   ├── README.md
+    │   ├── 00-strategic-analysis/               # SWOT, Porter's 5 Forces, SE trends
+    │   ├── 01-rps/                              # Semester Learning Plan (RPS)
+    │   ├── 02-rtm/                              # Student Task Plan (RTM)
+    │   ├── 03-modules/                          # 16 weekly lecture modules
+    │   ├── 04-labs/                             # 13 theory lab exercises
+    │   ├── 05-assessments/                      # Framework, rubrics, exam specs, project
+    │   ├── 06-buku-ajar/                        # Textbook (14 chapters + appendices)
+    │   └── datasets/                            # Resource guide
+    │
+    ├── praktikum-rekayasa-perangkat-lunak/      # IF2206: SE Lab (1 SKS)
+    │   ├── README.md
+    │   ├── 00-pedoman-praktikum/                # Lab guidelines & rules
+    │   ├── 01-rps/                              # Lab semester plan
+    │   ├── 02-rtm/                              # Lab task plan
+    │   ├── 03-modul-praktikum/                  # 13 lab modules (weeks 1-7, 9-14)
+    │   ├── 04-assessments/                      # Rubrics, project guidelines
+    │   └── datasets/                            # Resource guide
+    │
     └── kecerdasan-buatan-machine-learning/      # IF3XXX: AI & ML (4 SKS)
         ├── README.md
         ├── 00-strategic-analysis/               # SWOT, Porter's 5 Forces, AI trends
@@ -65,13 +85,15 @@ research-ai-agentic/
         └── datasets/                            # ML dataset guide
 ```
 
-### Four Courses
+### Six Courses
 
 | Code    | Course                                | Credits | Type        | Semester |
 |---------|---------------------------------------|---------|-------------|----------|
 | INF-101 | Algoritma dan Pemrograman             | 2 SKS   | Theory      | Genap 2025/2026 |
 | INF-102 | Praktikum Algoritma dan Pemrograman   | 1 SKS   | Lab (co-req INF-101) | Genap 2025/2026 |
 | —       | Analisis Data Statistik               | 2 SKS   | Theory + Lab | Genap 2025/2026 |
+| IF2205  | Rekayasa Perangkat Lunak              | 3 SKS   | Theory      | Genap 2025/2026 |
+| IF2206  | Praktikum Rekayasa Perangkat Lunak    | 1 SKS   | Lab (co-req IF2205) | Genap 2025/2026 |
 | IF3XXX  | Kecerdasan Buatan dan Machine Learning | 4 SKS  | Theory + Lab | Ganjil 2026/2027 |
 
 ---
@@ -204,6 +226,8 @@ These rules **must** be followed across all documents:
    - INF-102: Laporan 25% + Tugas 25% + Proyek 35% + Responsi 10% + Partisipasi 5%
    - Statistik: Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
    - AI/ML: Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
+   - RPL (IF2205): Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
+   - Praktikum RPL (IF2206): Laporan 25% + Tugas 25% + Proyek 35% + Responsi 10% + Partisipasi 5%
 
 6. **CPMK traceability:** Every Sub-CPMK in RPS must trace to a CPMK. Every textbook chapter must reference its Sub-CPMK. Every assessment must indicate which CPMK it measures.
 
