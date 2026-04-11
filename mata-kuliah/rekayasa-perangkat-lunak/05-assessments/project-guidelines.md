@@ -35,10 +35,11 @@ Tim boleh mengajukan proyek lain dengan persetujuan dosen (deadline Minggu 5).
 
 | Sprint | Minggu | Fokus | Deliverable |
 |--------|--------|-------|-------------|
-| **Sprint 1** | 5-7 | Requirements + Design | SRS, User Stories, UML, ERD, API Design, Repo Setup |
-| **Sprint 2** | 9-10 | Core Development | Backend API, Frontend, Database, Auth |
-| **Sprint 3** | 11-12 | Testing + CI/CD | Unit tests, Integration tests, CI pipeline, Docker |
-| **Sprint 4** | 13-14 | Polish + Deploy | Deployment, bug fixes, documentation, presentation |
+| **Sprint 0** | 5-6 | Planning: Team formation, SRS, User Stories, Architecture, Repo setup | SRS, User Stories, UML, ERD, API Design, Repo Setup |
+| **Sprint 1** | 7 + 9 | MVP: Backend API, Frontend pages, Database, Basic tests | Backend API, Frontend, Database, Auth. Minggu 8 = UTS (tidak ada aktivitas sprint) |
+| **Sprint 2** | 10-11 | Features: Advanced features, Integration tests, CI pipeline | Additional features, Integration tests, CI pipeline |
+| **Sprint 3** | 12-13 | Quality: E2E tests, Docker, Deployment, AI-assisted review | E2E tests, Docker, Deployment, AI-assisted review |
+| **Sprint 4** | 14 | Polish: Bug fixes, Documentation, Presentation prep | Bug fixes, documentation, presentation slides, AI Usage Log |
 | **Demo** | 15 | Presentasi | Live demo, slides, refleksi |
 
 ## Deliverables per Sprint
@@ -79,11 +80,11 @@ Tim boleh mengajukan proyek lain dengan persetujuan dosen (deadline Minggu 5).
 | Requirements & Design | 15% | SRS lengkap, user stories INVEST, UML benar, ERD normalized |
 | Implementation | 25% | Fitur berjalan, clean code, modular, error handling |
 | Testing | 15% | Coverage ≥ 70%, test quality, TDD evidence |
-| DevOps | 10% | CI/CD working, Docker, successful deployment |
-| Presentation & Demo | 10% | Live demo lancar, slides profesional, Q&A |
-| Teamwork | 10% | Git log adil, Scrum artifacts, fair contribution |
+| DevOps & Deployment | 10% | CI/CD working, Docker, successful deployment |
+| Teamwork & Scrum | 10% | Git log adil, Scrum artifacts, fair contribution |
 | Documentation | 10% | README, API docs, user guide lengkap |
-| AI Integration | 5% | AI Usage Log lengkap, responsible usage |
+| Presentation & Demo | 10% | Live demo lancar, slides profesional, Q&A |
+| AI Integration & Usage Log | 5% | AI Usage Log lengkap, responsible usage |
 
 ## Persyaratan GitHub Repository
 

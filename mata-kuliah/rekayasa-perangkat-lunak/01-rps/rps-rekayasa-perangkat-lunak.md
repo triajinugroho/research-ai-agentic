@@ -135,12 +135,12 @@ Dirancang menggunakan pendekatan **Outcome-Based Education (OBE)** sesuai standa
 
 | Huruf | Rentang | Bobot |
 |-------|---------|-------|
-| A | 85-100 | 4.00 |
-| B+ | 77-84 | 3.50 |
-| B | 70-76 | 3.00 |
-| C+ | 63-69 | 2.50 |
-| C | 55-62 | 2.00 |
-| D | 45-54 | 1.00 |
+| A | 81-100 | 4.00 |
+| B+ | 75-80 | 3.50 |
+| B | 69-74 | 3.00 |
+| C+ | 63-68 | 2.50 |
+| C | 56-62 | 2.00 |
+| D | 45-55 | 1.00 |
 | E | 0-44 | 0.00 |
 
 ### Matrix CPMK × Asesmen
@@ -181,7 +181,7 @@ Dirancang menggunakan pendekatan **Outcome-Based Education (OBE)** sesuai standa
 | **Metodologi** | Agile/Scrum (4 Sprint) |
 | **Tech Stack** | Flask (backend), HTML/CSS/JS (frontend), SQLite, Docker, GitHub Actions |
 | **Platform** | GitHub Codespaces → Deploy ke Vercel/Railway |
-| **Timeline** | Sprint 0 (W5-6) → Sprint 1 (W7-9) → Sprint 2 (W10-11) → Sprint 3 (W12-13) → Sprint 4 (W14) → Demo (W15) |
+| **Timeline** | Sprint 0 (W5-6) → Sprint 1 (W7+9) → Sprint 2 (W10-11) → Sprint 3 (W12-13) → Sprint 4 (W14) → Demo (W15). Minggu 8 = UTS (tidak ada aktivitas sprint) |
 | **Deliverables** | GitHub repo, SRS, UML diagrams, working app, test suite, CI/CD pipeline, demo, AI Usage Log, retrospective |
 | **Konteks** | Wajib menggunakan konteks Indonesia (UMKM, layanan publik, pendidikan, dll.) |
 

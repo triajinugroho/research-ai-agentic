@@ -1,7 +1,18 @@
 # Roadmap Enhancement — Rekayasa Perangkat Lunak (IF2205 + IF2206)
 
-**Status:** v1.0 Complete (79 file) — Enhancement ke v2.0 direncanakan
-**Terakhir diperbarui:** 10 April 2026
+**Status:** ✅ v2.0 Complete — Enhancement selesai 12 April 2026
+**Terakhir diperbarui:** 12 April 2026
+
+### Hasil Enhancement v2.0
+
+| Kategori | v1.0 | v2.0 | Growth |
+|----------|------|------|--------|
+| Buku Ajar (14 bab) | 3.652 baris | 20.005 baris | 5.5x |
+| Modul Mingguan (16 minggu) | 3.140 baris | 12.034 baris | 3.8x |
+| Lab Teori (13 lab) | 1.364 baris | 8.282 baris | 6.1x |
+| **TOTAL** | **8.156 baris** | **40.321 baris** | **4.9x** |
+
+Target awal ~26.750 baris — hasil aktual **40.321 baris** (150% dari target).
 
 ---
 

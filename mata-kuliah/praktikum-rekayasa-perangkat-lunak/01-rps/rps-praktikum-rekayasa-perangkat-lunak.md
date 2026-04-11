@@ -22,24 +22,24 @@ Praktikum Rekayasa Perangkat Lunak merupakan mata kuliah pendamping (ko-requisit
 
 | Kode | Capaian Pembelajaran Lulusan |
 |------|------------------------------|
-| CPL-1 | Mampu menerapkan prinsip-prinsip matematika, sains, dan rekayasa dalam pemecahan masalah informatika |
-| CPL-2 | Mampu merancang dan mengimplementasikan solusi perangkat lunak yang memenuhi kebutuhan pengguna |
-| CPL-3 | Mampu bekerja secara efektif dalam tim dengan menerapkan komunikasi profesional |
-| CPL-4 | Mampu menggunakan metode, teknik, dan alat bantu rekayasa perangkat lunak modern |
-| CPL-5 | Mampu menerapkan prinsip etika, nilai-nilai Islam, dan tanggung jawab profesional dalam pengembangan perangkat lunak |
-| CPL-6 | Mampu belajar secara mandiri dan adaptif terhadap perkembangan teknologi termasuk pemanfaatan AI |
+| CPL-KK1 | Mampu menerapkan prinsip-prinsip matematika, sains, dan rekayasa dalam pemecahan masalah informatika |
+| CPL-KK4 | Mampu merancang dan mengimplementasikan solusi perangkat lunak yang memenuhi kebutuhan pengguna |
+| CPL-P3 | Mampu bekerja secara efektif dalam tim dengan menerapkan komunikasi profesional |
+| CPL-KU2 | Mampu menggunakan metode, teknik, dan alat bantu rekayasa perangkat lunak modern |
+| CPL-S2 | Mampu menerapkan prinsip etika, nilai-nilai Islam, dan tanggung jawab profesional dalam pengembangan perangkat lunak |
+| CPL-P2 | Mampu belajar secara mandiri dan adaptif terhadap perkembangan teknologi termasuk pemanfaatan AI |
 
 ## D. Capaian Pembelajaran Mata Kuliah (CPMK)
 
 | Kode | CPMK | CPL |
 |------|------|-----|
-| CPMK-1 | Mampu menyiapkan lingkungan pengembangan dan menggunakan alat bantu pengembangan modern (C3) | CPL-4 |
-| CPMK-2 | Mampu mengelola kode sumber menggunakan sistem version control Git (C3) | CPL-4 |
-| CPMK-3 | Mampu menerjemahkan dokumen kebutuhan menjadi spesifikasi teknis dan user story (C4) | CPL-2 |
-| CPMK-4 | Mampu mengimplementasikan aplikasi web full-stack dengan arsitektur berlapis (C3) | CPL-1, CPL-2 |
-| CPMK-5 | Mampu merancang dan mengeksekusi pengujian perangkat lunak secara otomatis (C4) | CPL-2, CPL-4 |
-| CPMK-6 | Mampu melakukan deployment dan menerapkan praktik CI/CD (C3) | CPL-4 |
-| CPMK-7 | Mampu bekerja dalam tim Agile/Scrum dan memanfaatkan AI sebagai mitra pengembangan secara etis (C5) | CPL-3, CPL-5, CPL-6 |
+| CPMK-1 | Mampu menyiapkan lingkungan pengembangan dan menggunakan alat bantu pengembangan modern (C3) | CPL-KU2 |
+| CPMK-2 | Mampu mengelola kode sumber menggunakan sistem version control Git (C3) | CPL-KU2 |
+| CPMK-3 | Mampu menerjemahkan dokumen kebutuhan menjadi spesifikasi teknis dan user story (C4) | CPL-KK4 |
+| CPMK-4 | Mampu mengimplementasikan aplikasi web full-stack dengan arsitektur berlapis (C3) | CPL-KK1, CPL-KK4 |
+| CPMK-5 | Mampu merancang dan mengeksekusi pengujian perangkat lunak secara otomatis (C4) | CPL-KK4, CPL-KU2 |
+| CPMK-6 | Mampu melakukan deployment dan menerapkan praktik CI/CD (C3) | CPL-KU2 |
+| CPMK-7 | Mampu bekerja dalam tim Agile/Scrum dan memanfaatkan AI sebagai mitra pengembangan secara etis (C5) | CPL-P3, CPL-S2, CPL-P2 |
 
 ## E. Rencana Pembelajaran 16 Minggu
 
@@ -77,15 +77,13 @@ Praktikum Rekayasa Perangkat Lunak merupakan mata kuliah pendamping (ko-requisit
 
 | Huruf | Rentang Nilai | Bobot |
 |-------|--------------|-------|
-| A | 80–100 | 4.00 |
-| A- | 75–79 | 3.75 |
-| B+ | 70–74 | 3.50 |
-| B | 65–69 | 3.00 |
-| B- | 60–64 | 2.75 |
-| C+ | 55–59 | 2.50 |
-| C | 50–54 | 2.00 |
-| D | 40–49 | 1.00 |
-| E | < 40 | 0.00 |
+| A | 81–100 | 4.00 |
+| B+ | 75–80 | 3.50 |
+| B | 69–74 | 3.00 |
+| C+ | 63–68 | 2.50 |
+| C | 56–62 | 2.00 |
+| D | 45–55 | 1.00 |
+| E | 0–44 | 0.00 |
 
 ## H. Referensi
 

@@ -62,7 +62,7 @@
 | Kelengkapan SRS | 30% | Semua section IEEE 830 lengkap, ≥15 FR, ≥5 NFR | Sebagian besar lengkap, ≥10 FR | Beberapa section hilang, ≥5 FR | Struktur SRS tidak diikuti |
 | Kualitas Requirements | 30% | SMART, tidak ambigu, testable | Sebagian besar SMART | Beberapa ambigu | Mayoritas ambigu |
 | Analisis Stakeholder | 20% | Stakeholder teridentifikasi lengkap dengan power-interest matrix | Stakeholder teridentifikasi | Sebagian stakeholder | Tidak ada analisis |
-| AI Usage Log | 20% | Lengkap: prompt, output, modifikasi, refleksi | Mencatat prompt dan output | Catatan minimal | Tidak ada log |
+| AI Usage Log | 20% | Lengkap 7 kolom: No, Tanggal, Tool AI, Prompt, Output AI, Modifikasi, Refleksi | Mencatat prompt, output, dan modifikasi | Catatan minimal | Tidak ada log |
 
 ### T2: User Story Mapping & Acceptance Criteria (Minggu 4)
 
@@ -188,25 +188,25 @@
 
 | Sprint | Minggu | Fokus | Deliverable |
 |--------|--------|-------|-------------|
-| Sprint 0 | 5-6 | Planning | Team formation, project selection, GitHub setup, SRS, architecture design |
-| Sprint 1 | 7-9 | MVP | Backend API, frontend pages, database, basic tests |
-| Sprint 2 | 10-11 | Features | Additional features, integration tests, CI pipeline |
-| Sprint 3 | 12-13 | Quality | E2E tests, Docker, deployment, AI-assisted review |
-| Sprint 4 | 14 | Polish | Bug fixes, documentation, demo video, AI Usage Log |
+| Sprint 0 | 5-6 | Planning: Team formation, SRS, User Stories, Architecture, Repo setup | Team formation, project selection, GitHub setup, SRS, architecture design |
+| Sprint 1 | 7 + 9 | MVP: Backend API, Frontend pages, Database, Basic tests | Backend API, frontend pages, database, basic tests. Minggu 8 = UTS (tidak ada aktivitas sprint) |
+| Sprint 2 | 10-11 | Features: Advanced features, Integration tests, CI pipeline | Additional features, integration tests, CI pipeline |
+| Sprint 3 | 12-13 | Quality: E2E tests, Docker, Deployment, AI-assisted review | E2E tests, Docker, deployment, AI-assisted review |
+| Sprint 4 | 14 | Polish: Bug fixes, Documentation, Presentation prep | Bug fixes, documentation, demo video, AI Usage Log |
 | Demo | 15 | Presentasi | Live demo + Q&A + peer review |
 
 ### Rubrik Proyek (100 poin)
 
 | Komponen | Bobot | Deskripsi |
 |----------|-------|-----------|
-| Problem Formulation & Design | 10% | SRS, user stories, architecture design |
-| Code Implementation | 20% | Working app, clean code, proper structure |
-| Architecture & Design | 15% | MVC, design patterns, database design |
-| Testing | 10% | Unit + integration tests, coverage ≥ 60% |
-| CI/CD & Deployment | 10% | GitHub Actions pipeline, Docker, deployed |
+| Requirements & Design | 15% | SRS, user stories, architecture design |
+| Implementation | 25% | Working app, clean code, proper structure |
+| Testing | 15% | Unit + integration tests, coverage ≥ 70% |
+| DevOps & Deployment | 10% | GitHub Actions pipeline, Docker, deployed |
+| Teamwork & Scrum | 10% | Git log adil, Scrum artifacts, fair contribution |
 | Documentation | 10% | README, API docs, user guide |
-| AI Usage Documentation | 15% | AI Usage Log, refleksi, transparency |
 | Presentation & Demo | 10% | Live demo, Q&A handling, team contribution |
+| AI Integration & Usage Log | 5% | AI Usage Log, refleksi, responsible usage |
 
 ---
 

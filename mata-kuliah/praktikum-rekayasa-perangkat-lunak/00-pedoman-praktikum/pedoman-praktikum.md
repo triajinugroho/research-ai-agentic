@@ -40,14 +40,18 @@ Praktikum Rekayasa Perangkat Lunak (IF2206) merupakan komponen laboratorium dari
 
 ### 3.1 Kehadiran
 - Kehadiran minimal **75%** dari seluruh sesi praktikum (12 dari 16 pertemuan)
-- Mahasiswa yang kehadirannya kurang dari 75% **tidak diperkenankan mengikuti Responsi Akhir Semester (RAS)** dan mendapat nilai **E**
+- Mahasiswa yang kehadirannya kurang dari 75% **tidak dapat mengikuti RAS** dan mendapat nilai **maksimal D**
 - Ketidakhadiran tanpa keterangan (alpa) mendapat nilai **0 (nol)** untuk laporan praktikum sesi tersebut
 - Ketidakhadiran dengan keterangan (izin/sakit) wajib menyertakan bukti (surat izin/surat dokter) paling lambat 3 hari setelah ketidakhadiran
 
 ### 3.2 Keterlambatan
 - Toleransi keterlambatan: **15 menit** dari jadwal mulai praktikum
 - Mahasiswa yang terlambat lebih dari 15 menit **tidak diperkenankan mengikuti** sesi praktikum hari tersebut (dianggap alpa)
-- Keterlambatan pengumpulan laporan/tugas dikenai pengurangan **10% per hari** dari nilai maksimal
+- Keterlambatan pengumpulan laporan/tugas dikenai penalti bertingkat:
+  - ≤ 1 hari: Pengurangan 10%
+  - 2–3 hari: Pengurangan 25%
+  - 4–7 hari: Pengurangan 50%
+  - \> 7 hari: Tidak diterima (nilai 0)
 
 ### 3.3 Perangkat dan Persiapan
 - Mahasiswa **wajib** membawa laptop pribadi yang terhubung ke internet
@@ -75,23 +79,23 @@ Praktikum Rekayasa Perangkat Lunak (IF2206) merupakan komponen laboratorium dari
 | Minggu | Modul | Topik | Komponen Penilaian |
 |--------|-------|-------|--------------------|
 | 1 | Lab 01 | Setup Dev Environment & GitHub Codespaces | L1 |
-| 2 | Lab 02 | Git Branching & Pull Request Workflow | L2, T1 |
-| 3 | Lab 03 | Requirements Documentation (SRS) | L3 |
-| 4 | Lab 04 | User Story & Sprint Planning | L4, T2 |
-| 5 | Lab 05 | Frontend Development (HTML/CSS/JS) | L5, T3 |
+| 2 | Lab 02 | Git Branching & Pull Request Workflow | L2 |
+| 3 | Lab 03 | Requirements Documentation (SRS) | L3, TP1 |
+| 4 | Lab 04 | User Story & Sprint Planning | L4, TP2 |
+| 5 | Lab 05 | Frontend Development (HTML/CSS/JS) | L5 |
 | 6 | Lab 06 | Backend Development (Python Flask API) | L6 |
-| 7 | Lab 07 | Database Integration & ORM | L7, T4 |
-| 8 | — | **Responsi Tengah Semester (RTS)** | RTS |
-| 9 | Lab 09 | Unit Testing (pytest & Jest) | L9 |
-| 10 | Lab 10 | Integration Testing & API Testing | L10, T5 |
-| 11 | Lab 11 | CI/CD dengan GitHub Actions | L11, T6 |
-| 12 | Lab 12 | Docker Containerization & Deployment | L12 |
-| 13 | Lab 13 | AI Pair Programming & Code Review | L13 |
-| 14 | Lab 14 | Sprint Review & Retrospective | L14 |
+| 7 | Lab 07 | Database Integration & ORM | L7 |
+| 8 | — | **Responsi Tengah Semester (RTS)** | RTS, TP3 |
+| 9 | Lab 09 | Unit Testing (pytest & Jest) | L8 |
+| 10 | Lab 10 | Integration Testing & API Testing | L9, TP4 |
+| 11 | Lab 11 | CI/CD dengan GitHub Actions | L10 |
+| 12 | Lab 12 | Docker Containerization & Deployment | L11, TP5 |
+| 13 | Lab 13 | AI Pair Programming & Code Review | L12 |
+| 14 | Lab 14 | Sprint Review & Retrospective | L13, TP6 |
 | 15 | — | **Presentasi & Demo Proyek Akhir** | PA |
 | 16 | — | **Responsi Akhir Semester (RAS)** | RAS |
 
-**Keterangan:** L = Laporan, T = Tugas, RTS/RAS = Responsi, PA = Proyek Akhir
+**Keterangan:** L = Laporan, TP = Tugas Pemrograman, RTS/RAS = Responsi, PA = Proyek Akhir
 
 ---
 
@@ -131,15 +135,13 @@ Keaktifan selama sesi praktikum: bertanya, menjawab, membantu teman, menunjukkan
 
 | Rentang Nilai | Huruf | Bobot |
 |---------------|-------|-------|
-| 85 – 100 | A | 4,00 |
-| 80 – 84 | A- | 3,75 |
-| 75 – 79 | B+ | 3,50 |
-| 70 – 74 | B | 3,00 |
-| 65 – 69 | B- | 2,75 |
-| 60 – 64 | C+ | 2,50 |
-| 55 – 59 | C | 2,00 |
-| 40 – 54 | D | 1,00 |
-| 0 – 39 | E | 0,00 |
+| 81 – 100 | A | 4,00 |
+| 75 – 80 | B+ | 3,50 |
+| 69 – 74 | B | 3,00 |
+| 63 – 68 | C+ | 2,50 |
+| 56 – 62 | C | 2,00 |
+| 45 – 55 | D | 1,00 |
+| 0 – 44 | E | 0,00 |
 
 ---
 
@@ -239,8 +241,8 @@ Proyek akhir adalah tugas kulminasi yang mengintegrasikan seluruh konsep yang di
 
 | Minggu | Milestone | Deliverable |
 |--------|-----------|-------------|
-| 10 | Proposal | 1 halaman: judul, latar belakang, fitur utama, arsitektur sistem, pembagian tugas tim |
-| 12 | Progress Report | 50% implementasi + demo fitur utama berjalan |
+| 4–5 | Proposal & Setup | 1 halaman: judul, latar belakang, fitur utama, arsitektur sistem, pembagian tugas tim |
+| 11 | Progress Report | 50% implementasi + demo fitur utama berjalan (setelah Sprint 2) |
 | 15 | Final Submission + Presentasi | GitHub repository lengkap + slide presentasi + live demo |
 
 ### 8.4 Komponen Penilaian Proyek
@@ -248,10 +250,12 @@ Proyek akhir adalah tugas kulminasi yang mengintegrasikan seluruh konsep yang di
 | Dimensi | Bobot | Deskripsi |
 |---------|-------|-----------|
 | Teknis & Fungsionalitas | 30% | Aplikasi berjalan benar, fitur lengkap, frontend dan backend terintegrasi |
-| Arsitektur & Desain | 25% | Pemilihan arsitektur tepat, desain modular, separation of concerns |
-| Kualitas Kode & Testing | 20% | Clean code, modular, PEP 8, test coverage memadai |
-| Presentasi & Dokumentasi | 15% | Presentasi jelas, dokumentasi lengkap, README profesional |
-| Kreativitas & Inovasi | 10% | Ide orisinal, fitur tambahan, UI/UX diperhatikan |
+| Arsitektur & Kualitas Kode | 20% | Pemilihan arsitektur tepat, desain modular, clean code, PEP 8 |
+| Testing & Coverage | 15% | Test suite lengkap, coverage memadai, unit + integration test |
+| CI/CD & Deployment | 15% | Pipeline CI/CD berjalan, Docker, deployment berhasil |
+| Presentasi & Dokumentasi | 10% | Presentasi jelas, dokumentasi lengkap, README profesional |
+| Teamwork & Scrum Artifacts | 5% | Kontribusi merata, sprint backlog, retrospective |
+| AI Usage Log | 5% | Dokumentasi penggunaan AI lengkap dan reflektif |
 
 Detail lengkap: lihat `04-assessments/project-guidelines.md`
 

@@ -40,17 +40,15 @@ Asesmen dirancang berdasarkan **Outcome-Based Education (OBE)** — setiap kompo
 
 ## Skala Penilaian
 
-| Nilai | Rentang | Deskripsi |
-|-------|---------|-----------|
-| A | ≥ 85 | Sangat Baik |
-| A- | 80 – 84 | Baik Sekali |
-| B+ | 75 – 79 | Baik |
-| B | 70 – 74 | Cukup Baik |
-| B- | 65 – 69 | Cukup |
-| C+ | 60 – 64 | Kurang Baik |
-| C | 55 – 59 | Kurang |
-| D | 45 – 54 | Sangat Kurang |
-| E | < 45 | Tidak Lulus |
+| Huruf | Rentang | Bobot |
+|-------|---------|-------|
+| A | 81-100 | 4.00 |
+| B+ | 75-80 | 3.50 |
+| B | 69-74 | 3.00 |
+| C+ | 63-68 | 2.50 |
+| C | 56-62 | 2.00 |
+| D | 45-55 | 1.00 |
+| E | 0-44 | 0.00 |
 
 ## Kebijakan Integritas Akademik
 
@@ -71,10 +69,14 @@ Asesmen dirancang berdasarkan **Outcome-Based Education (OBE)** — setiap kompo
 
 ## Kebijakan Keterlambatan
 
-- Terlambat 1 hari: pengurangan 10%
-- Terlambat 2-3 hari: pengurangan 25%
-- Terlambat > 3 hari: tidak diterima (nilai 0)
-- Pengecualian: kondisi darurat dengan bukti (surat sakit, dll.)
+| Keterlambatan | Penalti |
+|---------------|---------|
+| ≤ 1 hari | Pengurangan 10% |
+| 2-3 hari | Pengurangan 25% |
+| 4-7 hari | Pengurangan 50% |
+| > 7 hari | Tidak diterima (nilai 0) |
+
+Pengecualian: kondisi darurat dengan bukti (surat sakit, dll.)
 
 ---
 

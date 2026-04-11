@@ -31,14 +31,18 @@
 | TP5 | Testing Suite (unit + integration) | CPMK-5 | Minggu 12 |
 | TP6 | Dockerfile & docker-compose | CPMK-6 | Minggu 14 |
 
-### Proyek Tim (Sprint 1–4)
+### Proyek Tim (Sprint 0–4 + Demo)
 
-| Sprint | Minggu | Fokus | Deliverable |
-|--------|--------|-------|-------------|
-| Sprint 1 | 5–7 | Frontend + Backend dasar | Prototipe UI + API endpoint |
-| Sprint 2 | 9–10 | Backend + Database | Fitur CRUD lengkap |
-| Sprint 3 | 11–12 | Testing + CI/CD | Test suite + pipeline |
-| Sprint 4 | 13–14 | Deployment + Polish | Aplikasi terdeploy + dokumentasi |
+| Sprint | Minggu | Fokus Praktikum | Deliverable |
+|--------|--------|----------------|-------------|
+| Sprint 0 | 5–6 | Frontend (Lab 05) + Backend (Lab 06) | Prototipe UI + API endpoint |
+| Sprint 1 | 7 + 9 | Database (Lab 07) + Unit Testing (Lab 09) | Fitur CRUD + test dasar |
+| Sprint 2 | 10–11 | Integration Testing (Lab 10) + CI/CD (Lab 11) | Test suite + pipeline |
+| Sprint 3 | 12–13 | Docker (Lab 12) + AI Pair Programming (Lab 13) | Aplikasi terdeploy + AI log |
+| Sprint 4 | 14 | Sprint Review & Retrospective (Lab 14) | Dokumentasi akhir + retrospective |
+| Demo | 15 | Presentasi & Demo Proyek Akhir | Live demo + presentasi |
+
+**Catatan:** Minggu 8 = RTS (tidak ada aktivitas sprint)
 
 ### Responsi
 
@@ -92,7 +96,7 @@ Minggu:  1    2    3    4    5    6    7    8    9   10   11   12   13   14   15
          |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
 Laporan: L1   L2   L3   L4   L5   L6   L7   --  L8   L9  L10  L11  L12  L13  --   --
 Tugas:   --   --  TP1  TP2   --   --   --  TP3  --  TP4   --  TP5   --  TP6  --   --
-Sprint:  --   --   --   --  ===Sprint 1===  --  ==Sprint 2==  ==Sprint 3==  S4   --
+Sprint:  --   --   --   --  ==Sprint 0==  S1   --   S1  ==Sprint 2==  ==Sprint 3==  S4  Demo --
 Responsi:--   --   --   --   --   --   --  RTS  --   --   --   --   --   --   --  RAS
 ```
 
@@ -107,11 +111,14 @@ Responsi:--   --   --   --   --   --   --  RTS  --   --   --   --   --   --   --
 
 ### Ketentuan AI Usage Log
 
-Setiap penggunaan AI harus didokumentasikan dengan format:
+Setiap penggunaan AI harus didokumentasikan dengan format 7 elemen berikut:
 1. **Tool yang digunakan** (ChatGPT / Claude / Copilot / lainnya)
-2. **Prompt yang diberikan** (ringkasan)
-3. **Output yang digunakan** (bagian mana yang dipakai)
-4. **Modifikasi yang dilakukan** (perubahan dari output AI)
+2. **Tanggal penggunaan**
+3. **Prompt yang diberikan** (ringkasan)
+4. **Output AI yang digunakan** (bagian mana yang dipakai)
+5. **Modifikasi yang dilakukan** (perubahan dari output AI)
+6. **Refleksi & evaluasi** (penilaian kualitas output AI)
+7. **Keputusan** (diterima / dimodifikasi / ditolak)
 
 ---
 
