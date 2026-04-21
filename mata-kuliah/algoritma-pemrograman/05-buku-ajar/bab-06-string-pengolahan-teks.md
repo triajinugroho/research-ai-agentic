@@ -473,7 +473,7 @@ else:
 teks = "Bismillahirrahmanirrahim, dengan nama Allah yang Maha Pengasih lagi Maha Penyayang"
 
 # find(sub) — cari posisi pertama substring, return -1 jika tidak ada
-print(teks.find("Allah"))     # Output: 36
+print(teks.find("Allah"))     # Output: 38
 print(teks.find("allah"))     # Output: -1 (case-sensitive)
 print(teks.find("xyz"))       # Output: -1
 
