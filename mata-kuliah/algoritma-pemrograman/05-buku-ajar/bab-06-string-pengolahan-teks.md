@@ -273,7 +273,7 @@ Contoh: teks[2:7]
 
     I   N   F   O   R   M   A   T   I   K   A
     0   1   2   3   4   5   6   7   8   9   10
-                ^───────────────^
+            ^───────────────^
               start=2         stop=7 (tidak termasuk)
 
     Hasil: "FORMA" (indeks 2, 3, 4, 5, 6)
