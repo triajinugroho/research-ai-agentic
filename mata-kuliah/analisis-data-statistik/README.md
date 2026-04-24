@@ -35,7 +35,7 @@ Fondasi Kuat + Tools Modern + AI Literacy = Future-Proof Data Analyst
 | [`02-rtm/`](./02-rtm/) | RTM | Rencana Tugas Mahasiswa + rubrik penilaian |
 | [`03-modules/`](./03-modules/) | Modul Mingguan | 16 modul perkuliahan (teori + praktik) |
 | [`04-labs/`](./04-labs/) | Lab Praktikum | 13 lab hands-on dengan Python |
-| [`05-assessments/`](./05-assessments/) | Asesmen | Framework penilaian, rubrik, kisi-kisi, panduan proyek |
+| [`05-assessments/`](./05-assessments/) | Asesmen | Framework penilaian, rubrik, kisi-kisi, panduan proyek, naskah UTS & kunci |
 | [`06-buku-ajar/`](./06-buku-ajar/) | Buku Ajar | Buku ajar lengkap (14 bab + pendukung) |
 | [`datasets/`](./datasets/) | Dataset | Panduan & referensi dataset yang digunakan |
 

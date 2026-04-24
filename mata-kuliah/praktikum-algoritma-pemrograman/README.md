@@ -40,7 +40,7 @@ Praktikum ini merupakan komponen hands-on dari MK Algoritma dan Pemrograman. Mah
 | `01-rps/` | Rencana Pembelajaran Semester Praktikum | 1 |
 | `02-rtm/` | Rencana Tugas Mahasiswa Praktikum | 1 |
 | `03-modul-praktikum/` | Modul praktikum mingguan | 13 |
-| `04-assessments/` | Framework asesmen, rubrik tugas, panduan proyek | 4 |
+| `04-assessments/` | Framework asesmen, rubrik tugas, panduan proyek, naskah UTS & kunci | 6 |
 | `datasets/` | Referensi dataset | 1 |
 
 ---
