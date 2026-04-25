@@ -29,30 +29,30 @@ Repository ini berisi **materi kuliah lengkap** untuk enam mata kuliah di Progra
 
 ```
 mata-kuliah/
-├── algoritma-pemrograman/                # INF-101 — 41 file
+├── algoritma-pemrograman/                # INF-101 — 43 file
 │   ├── 00-strategic-analysis/            # Analisis SWOT & tren
 │   ├── 01-rps/                           # Rencana Pembelajaran Semester
 │   ├── 02-rtm/                           # Rencana Tugas Mahasiswa
 │   ├── 03-modules/                       # 16 modul mingguan
-│   ├── 04-assessments/                   # Framework asesmen & kisi-kisi
+│   ├── 04-assessments/                   # Framework asesmen, kisi-kisi, naskah UTS & kunci
 │   ├── 05-buku-ajar/                     # Buku ajar (14 bab + pendukung)
 │   └── datasets/                         # Panduan resource & latihan
 │
-├── praktikum-algoritma-pemrograman/      # INF-102 — 21 file
+├── praktikum-algoritma-pemrograman/      # INF-102 — 23 file
 │   ├── 00-pedoman-praktikum/             # Pedoman & tata tertib
 │   ├── 01-rps/                           # RPS Praktikum
 │   ├── 02-rtm/                           # RTM Praktikum
 │   ├── 03-modul-praktikum/              # 13 modul praktikum
-│   ├── 04-assessments/                   # Rubrik & panduan proyek
+│   ├── 04-assessments/                   # Rubrik, panduan proyek, naskah UTS & kunci
 │   └── datasets/                         # Referensi dataset
 │
-├── analisis-data-statistik/              # Statistik — 56 file
+├── analisis-data-statistik/              # Statistik — 58 file
 │   ├── 00-strategic-analysis/            # Analisis strategis
 │   ├── 01-rps/                           # RPS
 │   ├── 02-rtm/                           # RTM
 │   ├── 03-modules/                       # 16 modul mingguan
 │   ├── 04-labs/                          # 13 lab hands-on Python
-│   ├── 05-assessments/                   # Framework, rubrik, kisi-kisi
+│   ├── 05-assessments/                   # Framework, rubrik, kisi-kisi, naskah UTS & kunci
 │   ├── 06-buku-ajar/                     # Buku ajar (14 bab + pendukung)
 │   └── datasets/                         # Panduan dataset
 │
@@ -85,7 +85,7 @@ mata-kuliah/
     └── datasets/                         # Panduan dataset ML
 ```
 
-**Total: 258 dokumen Markdown** — mencakup RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
+**Total: 264 dokumen Markdown** — mencakup RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
 
 ## Pendekatan Pembelajaran
 
