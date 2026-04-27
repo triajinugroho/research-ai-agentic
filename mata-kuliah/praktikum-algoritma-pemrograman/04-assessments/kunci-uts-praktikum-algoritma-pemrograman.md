@@ -102,9 +102,10 @@ Sistem Donasi — Mulai.
 ```python
 nama_donatur = input("Nama donatur: ")
 
-jumlah_input = input("Jumlah donasi (Rp): ")
-if jumlah_input.replace('.', '', 1).isdigit():
-    jumlah_donasi = float(jumlah_input)
+# Validasi input numerik menggunakan variabel string sementara
+jumlah_str = input("Jumlah donasi (Rp): ")
+if jumlah_str.replace('.', '', 1).isdigit():
+    jumlah_donasi = float(jumlah_str)
 else:
     print("Input jumlah tidak valid — setel ke 0.")
     jumlah_donasi = 0.0
@@ -327,6 +328,9 @@ Output akhir: `Data donatur terkumpul: 5 entri.`
 - Simpan sebagai list of list (bukan dict) tetapi 4 field semua tersimpan → kurangi 2 poin.
 - Tidak ada peringatan < 5 → kurangi 4 poin.
 - Pakai `for` dengan batas tetap (bukan `while` sentinel) → kurangi 5 poin (inti pola sentinel tidak terpenuhi).
+- Membuat loop tidak bisa keluar sebelum 5 entri (sentinel diabaikan sampai n≥5) → kurangi 3 poin; soal menetapkan peringatan bukan pembatas.
+
+> *Catatan verifikasi:* Soal sudah diperjelas bahwa sentinel `"selesai"` selalu langsung menghentikan loop. Jika mahasiswa salah implementasi (loop menolak exit sebelum 5 entri), kurangi poin aspek sentinel sesuai di atas — namun jangan kurangi ganda jika mereka tidak menampilkan peringatan (pilih satu potongan yang lebih besar).
 
 ---
 
@@ -571,10 +575,13 @@ Daftar (urut terbesar → terkecil):
 
 **Aturan Partial Credit:**
 - Tidak membungkus alur ke dalam fungsi `jalankan_sistem` (masih prosedural di global) → kurangi 4 poin.
+- `daftar_donasi` dideklarasikan sebagai variabel global (bukan lokal di dalam fungsi) → kurangi 2 poin; masalah scope ini dieksplisitkan dalam soal.
 - Docstring ada tetapi hanya 1 baris tanpa penjelasan input/output → kurangi 1 poin.
 - Pakai `sorted(..., key=itemgetter("jumlah"), reverse=True)` tanpa lambda → kurangi 3 poin (spec meminta lambda).
 - Laporan tidak urut dari terbesar → kurangi 2 poin.
 - `jalankan_sistem()` didefinisikan tapi tidak dipanggil → kurangi 2 poin.
+
+> *Catatan verifikasi:* Soal sekarang menyertakan skeleton `jalankan_sistem()` dengan komentar panduan posisi tiap bagian. Mahasiswa yang mengikuti skeleton seharusnya tidak mengalami kebingungan scope. Jika ada mahasiswa yang tetap meletakkan variabel di global meski sudah ada scaffold, itu menunjukkan kurangnya pemahaman scope — potong poin sesuai di atas.
 
 ---
 

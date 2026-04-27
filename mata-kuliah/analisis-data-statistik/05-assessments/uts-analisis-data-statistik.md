@@ -147,15 +147,15 @@ E. Jumlah data terlalu banyak.
 ---
 
 > **Sub-CPMK 4.1** — Menghitung probabilitas dasar, conditional probability, dan menerapkan Bayes' theorem
-> *Level Bloom:* C3 · *Konteks:* Islami (pembagian warisan sederhana)
+> *Level Bloom:* C3 · *Konteks:* Islami (kehadiran shalat berjamaah)
 
-**8.** Seorang ayah wafat meninggalkan harta Rp 120.000.000 dan dua ahli waris: seorang istri dan seorang anak laki-laki tunggal. Menurut ketentuan syariah, istri berhak 1/8 dari harta dan anak laki-laki mendapat sisanya (sebagai *ashabah*). Jika seluruh harta dianggap peluang total = 1, berapa **proporsi** harta yang diterima anak laki-laki?
+**8.** Survei di sebuah masjid menunjukkan: peluang seorang jamaah menghadiri Shalat Subuh berjamaah = 0,45; peluang menghadiri Shalat Isya = 0,60; dan peluang menghadiri **keduanya** = 0,25. Berapa peluang seorang jamaah terpilih secara acak menghadiri Shalat Subuh **atau** Shalat Isya (minimal salah satu)?
 
-A. 1/8
-B. 1/4
-C. 1/2
-D. 7/8
-E. 1 (seluruhnya)
+A. 0,25
+B. 0,70
+C. 0,80
+D. 1,05
+E. 0,45
 
 ---
 
@@ -282,18 +282,18 @@ b) Rancang **perbaikan konkret** yang harus dilakukan sebelum grafik layak ditay
 
 ---
 
-> **Sub-CPMK 7.1** — Melaksanakan uji hipotesis (z-test, t-test) dan menginterpretasi p-value
-> *Level Bloom:* C4 · *Konteks:* JTBD (klaim asupan kalori pribadi)
+> **Sub-CPMK 1.3 & 7.1** — Menjelaskan prinsip etika data dan responsible AI; Melaksanakan uji hipotesis dan menginterpretasi p-value
+> *Level Bloom:* C4 · *Konteks:* Indonesia (metodologi penelitian pendidikan)
 
-**E3. (10 poin)** Anda membuat klaim pribadi: *"Rata-rata asupan kalori harian saya = 2000 kkal"*. Teman Anda menduga Anda sebenarnya mengonsumsi **lebih dari** 2000 kkal per hari. Anda mencatat asupan selama **10 hari**: rata-rata sampel x̄ = **2.150 kkal**, standar deviasi sampel s = **200 kkal**. Asumsikan data approximately normal. Gunakan α = 0,05.
+**E3. (10 poin)** Sebuah artikel di media populer melaporkan:
 
-a) Tuliskan **hipotesis** H₀ dan H₁ dalam notasi simbolik. Jelaskan apakah uji bersifat satu-sisi atau dua-sisi, dan beri alasannya. (2 poin)
+> *"Penelitian membuktikan bahwa metode belajar online meningkatkan nilai mahasiswa sebesar 15%! Sampel 30 mahasiswa yang **secara sukarela** bergabung program menunjukkan peningkatan rata-rata dari 70 menjadi 80,5. Uji statistik menunjukkan p-value = 0,03 (p < 0,05), membuktikan metode ini ampuh untuk seluruh perguruan tinggi Indonesia!"*
 
-b) Justifikasi pemilihan **α = 0,05** (1 kalimat) dan pilih **statistik uji yang tepat** (z atau t) beserta **rumusnya**. (3 poin)
+a) Identifikasi **dua kelemahan metodologis** pada desain penelitian tersebut yang membuat klaim tidak dapat digeneralisasi secara valid. Jelaskan masing-masing dalam 1-2 kalimat. (4 poin)
 
-c) Tentukan **daerah kritis** menggunakan tabel yang sesuai (df = 9), lalu hitung **nilai statistik uji** dengan menunjukkan substitusi angka. (3 poin)
+b) Apakah p-value = 0,03 **membuktikan** bahwa metode belajar online lebih baik? Jelaskan perbedaan antara "signifikan secara statistik" (*statistical significance*) dan "signifikan secara praktis" (*practical significance / effect size*), dan gunakan konteks kasus ini sebagai ilustrasi konkret. (4 poin)
 
-d) Nyatakan **keputusan** (tolak/gagal tolak H₀) dan tulis **interpretasi praktis** dalam 1-2 kalimat yang dimengerti teman non-statistik Anda. (2 poin)
+c) Usulkan **satu perbaikan metodologi yang paling penting** untuk memperkuat validitas klaim tersebut. Jelaskan mengapa perbaikan itu diperlukan. (2 poin)
 
 ---
 

@@ -142,12 +142,16 @@ Data *time-series* harian sepanjang setahun paling tepat ditampilkan dengan **li
 
 **Sub-CPMK:** 4.1 — Menghitung probabilitas dasar, conditional probability, dan menerapkan Bayes' theorem
 **Level Bloom:** C3
-**Konteks:** Islami (pembagian warisan)
+**Konteks:** Islami (kehadiran shalat berjamaah)
 
-**Jawaban:** D
+**Jawaban:** C
 
 **Pembahasan:**
-Istri = 1/8, anak laki-laki = sisa = 1 − 1/8 = **7/8**. Proporsi ini berlaku pula sebagai "peluang" alokasi harta jika ditarik satu Rupiah acak. Opsi A adalah bagian istri (distraktor umum); B/C bilangan hafalan umum namun bukan sisa 1/8; E salah karena istri tetap dapat bagian.
+Gunakan **aturan penjumlahan** (Addition Rule): P(A ∪ B) = P(A) + P(B) − P(A ∩ B).
+- P(Subuh) = 0,45; P(Isya) = 0,60; P(Subuh ∩ Isya) = 0,25
+- P(Subuh ∪ Isya) = 0,45 + 0,60 − 0,25 = **0,80**
+
+Opsi D (1,05) adalah jebakan yang tidak mengurangi irisan — kesalahan klasik menjumlahkan kedua peluang mentah. A (0,25) hanya irisan. B (0,70) salah mengurangi setengah irisan (0,45+0,60−0,35). E (0,45) hanya peluang Subuh saja.
 
 **Rubrik:** Benar = 2 poin | Salah/Kosong = 0 poin
 
@@ -342,50 +346,47 @@ Pengurus **tidak boleh** menyerahkan data tersebut secara mentah karena data dik
 
 ### Esai No. E3
 
-**Sub-CPMK:** 7.1 — Melaksanakan uji hipotesis (z-test, t-test) dan menginterpretasi p-value
+**Sub-CPMK:** 1.3 & 7.1 — Menjelaskan prinsip etika data dan responsible AI; Melaksanakan uji hipotesis dan menginterpretasi p-value
 **Level Bloom:** C4
-**Konteks:** JTBD (klaim kalori pribadi)
+**Konteks:** Indonesia (metodologi penelitian pendidikan)
 
 **Jawaban Ideal:**
 
-**(a) Hipotesis (uji satu-sisi, sisi kanan):**
-- H₀: μ = 2000 kkal (klaim Anda benar)
-- H₁: μ > 2000 kkal (dugaan teman: asupan sebenarnya lebih besar)
+**(a) Dua kelemahan metodologis:**
 
-Uji **satu-sisi (kanan)** karena dugaan teman menunjuk arah spesifik "lebih dari", bukan sekadar "berbeda".
+1. **Sampling bias / self-selection bias** — peserta dipilih secara sukarela, bukan secara acak (*random sampling*). Kelompok sukarela cenderung lebih termotivasi dari awal, sehingga peningkatan nilai mungkin bukan karena metode belajar online, melainkan karena karakteristik bawaan sampel. Klaim tidak dapat digeneralisasi ke seluruh mahasiswa.
 
-**(b) α = 0,05** adalah taraf konvensional (risiko kesalahan tipe I 5%) — cukup ketat untuk klaim pribadi dan sejalan dengan konvensi akademik/praktis.
+2. **Tidak ada kelompok kontrol** — semua 30 mahasiswa menggunakan metode baru. Tanpa kelompok kontrol yang tetap memakai metode konvensional, tidak bisa disimpulkan bahwa peningkatan 15% disebabkan metode online (bisa saja terjadi karena maturasi, latihan soal ekstra, atau efek Hawthorne).
 
-**Statistik uji: t-test 1-sampel** dipilih karena: (i) standar deviasi populasi σ tidak diketahui (yang diketahui hanya s sampel), (ii) n = 10 kecil sehingga distribusi sampel mengikuti t dengan df = n − 1 = 9.
+*(Jawaban alternatif yang dapat diterima: ukuran sampel kecil (n=30 untuk generalisasi ke "seluruh perguruan tinggi Indonesia"); tidak ada pengukuran pre-test yang terkontrol; confounding variables seperti dosen, materi, atau kesulitan soal.)*
 
-Rumus:
-```
-t = (x̄ − μ₀) / (s / √n)
-```
+**(b) Statistical significance vs. practical significance:**
 
-**(c) Daerah kritis & perhitungan:**
-- df = 9, α = 0,05 satu-sisi → **t_kritis = 1,833** (tabel t). Daerah kritis: t > 1,833.
-- Substitusi: t = (2150 − 2000) / (200 / √10) = 150 / (200 / 3,162) = 150 / 63,246 ≈ **2,372**.
+P-value = 0,03 **tidak membuktikan** metode lebih baik — hanya menunjukkan bahwa perbedaan yang diamati (dari 70 ke 80,5) kecil kemungkinannya terjadi secara kebetulan jika H₀ benar. Perbedaan signifikan secara statistik **belum tentu** signifikan secara praktis.
 
-**(d) Keputusan & interpretasi praktis:**
-t_hitung (2,372) > t_kritis (1,833) → **Tolak H₀** pada α = 0,05.
+- **Statistical significance** hanya mengukur apakah perbedaan cukup konsisten untuk dideteksi dengan ukuran sampel yang ada. Dengan n besar, perbedaan sepele pun bisa menghasilkan p-value kecil.
+- **Practical significance (effect size)** mengukur **seberapa besar** peningkatannya berarti. Kenaikan 10,5 poin dari rata-rata 70 (~15%) terdengar besar, tetapi tanpa data kelompok kontrol kita tidak tahu apakah kelompok konvensional naik 5 atau 12 poin — sehingga *effect* metode online belum jelas.
+- Dalam kasus ini, klaim "membuktikan metode ini ampuh untuk seluruh perguruan tinggi Indonesia" adalah *overgeneralization* yang tidak didukung oleh desain studi.
 
-Interpretasi: "Berdasarkan 10 hari pencatatan, ada bukti statistik yang cukup (pada tingkat keyakinan 95%) bahwa asupan kalori harian saya sebenarnya **lebih dari 2000 kkal**. Dugaan teman saya didukung data."
+**(c) Perbaikan metodologi utama:**
+
+**Tambahkan kelompok kontrol secara acak (Randomized Controlled Trial / RCT):** bagi 60+ mahasiswa secara acak menjadi dua kelompok — satu memakai metode online, satu tetap konvensional. Ukur pre-test dan post-test di kedua kelompok. Ini adalah perbaikan paling kritis karena mengisolasi efek metode dari faktor perancu lainnya dan memungkinkan inferensi kausal yang valid.
 
 **Rubrik Penskoran (Total 10 poin):**
 
-| Kriteria                                                              | Poin |
-|-----------------------------------------------------------------------|------|
-| (a) H₀, H₁ ditulis benar + uji satu-sisi dengan alasan                | 2    |
-| (b) Justifikasi α + pilihan t-test + rumus benar                      | 3    |
-| (c) Daerah kritis df=9 t=1,833 + substitusi benar → t ≈ 2,37          | 3    |
-| (d) Keputusan tolak H₀ + interpretasi praktis 1-2 kalimat yang tepat  | 2    |
+| Kriteria                                                                                         | Poin |
+|--------------------------------------------------------------------------------------------------|------|
+| (a) Kelemahan 1 teridentifikasi + dijelaskan "mengapa tidak valid digeneralisasi" (2 pt × 1)     | 2    |
+| (a) Kelemahan 2 teridentifikasi + dijelaskan "mengapa tidak valid digeneralisasi" (2 pt × 1)     | 2    |
+| (b) Membedakan statistical vs practical significance dengan benar + ilustrasi dari kasus         | 4    |
+| (c) Satu perbaikan konkret + alasan mengapa diperlukan                                           | 2    |
 
 **Aturan Partial Credit:**
-- Salah arah uji (dua-sisi) tetapi logika konsisten → -1 pada (a) + penyesuaian daerah kritis di (c).
-- Rumus benar tapi salah hitung 1 langkah → -1 pada (c).
-- Keputusan benar tanpa interpretasi bahasa praktis → -1 pada (d).
-- Memakai z-test dengan n=10 tanpa σ populasi → -2 (pilihan statistik salah).
+- Kelemahan disebutkan tanpa penjelasan kausalitas ("mengapa membuat klaim tidak valid") → setengah poin per kelemahan.
+- (b) menjelaskan p-value saja tanpa menyentuh practical significance / effect size → maksimum 2/4.
+- (b) menjelaskan effect size tetapi tidak terhubung ke kasus ini → maksimum 3/4.
+- (c) perbaikan generik tanpa alasan spesifik (mis. "harus pakai sampel lebih besar") → 1/2.
+- Menyebut contoh efek Hawthorne, confounding variable, atau external validity dengan tepat → dapat nilai penuh (a) walaupun kelemahan yang disebutkan berbeda.
 
 ---
 
@@ -585,36 +586,42 @@ Interpretasi praktis untuk manajemen TransJakarta: *"Berdasarkan sampel 16 perja
 
 ### Tabel A — Pemetaan Sub-CPMK → Nomor Soal → Poin
 
-| Sub-CPMK | Deskripsi (ringkas)                                  | Nomor Soal          | Total Poin |
-|----------|------------------------------------------------------|---------------------|-----------:|
-| 1.1      | Peran statistika di era DS/AI                        | PG #1               | 2          |
-| 1.3      | Etika data & responsible AI                          | PG #2, E1           | 12         |
-| 2.1      | Ukuran pemusatan & penyebaran                        | PG #3, PG #4, H1    | 17         |
-| 2.2      | pandas/numpy untuk eksplorasi                        | PG #5               | 2          |
-| 3.1      | Visualisasi data (matplotlib/seaborn)                | PG #6               | 2          |
-| 3.2      | Storytelling with data                               | PG #7, E2           | 12         |
-| 4.1      | Probabilitas dasar, conditional, Bayes               | PG #8, PG #9        | 4          |
-| 4.2      | Simulasi probabilitas dengan Python                  | PG #10              | 2          |
-| 5.1      | Distribusi probabilitas (Normal/Binomial/Poisson)    | PG #11, H2 (1/2)    | 8,5        |
-| 5.2      | Central Limit Theorem                                | PG #12, H2 (1/2)    | 8,5        |
-| 6.1      | Sampling & confidence interval                       | PG #13              | 2          |
-| 7.1      | Uji hipotesis (z/t-test) & p-value                   | PG #14, E3, H3      | 26         |
-| 7.2      | Error Tipe I/II & effect size                        | PG #15              | 2          |
-| **Total**|                                                      |                     | **100**    |
+| Sub-CPMK | Deskripsi (ringkas)                                  | Nomor Soal              | Total Poin |
+|----------|------------------------------------------------------|-------------------------|-----------:|
+| 1.1      | Peran statistika di era DS/AI                        | PG #1                   | 2          |
+| 1.3      | Etika data & responsible AI                          | PG #2, E1, E3           | 22         |
+| 2.1      | Ukuran pemusatan & penyebaran                        | PG #3, PG #4, H1        | 17         |
+| 2.2      | pandas/numpy untuk eksplorasi                        | PG #5                   | 2          |
+| 3.1      | Visualisasi data (matplotlib/seaborn)                | PG #6                   | 2          |
+| 3.2      | Storytelling with data                               | PG #7, E2               | 12         |
+| 4.1      | Probabilitas dasar, conditional, Bayes               | PG #8 *(P(A∪B))*, PG #9 | 4          |
+| 4.2      | Simulasi probabilitas dengan Python                  | PG #10                  | 2          |
+| 5.1      | Distribusi probabilitas (Normal/Binomial/Poisson)    | PG #11, H2 (1/2)        | 8,5        |
+| 5.2      | Central Limit Theorem                                | PG #12, H2 (1/2)        | 8,5        |
+| 6.1      | Sampling & confidence interval                       | PG #13                  | 2          |
+| 7.1      | Uji hipotesis (z/t-test) & p-value                   | PG #14, E3 (parsial), H3| 18         |
+| 7.2      | Error Tipe I/II & effect size                        | PG #15                  | 2          |
+| **Total**|                                                      |                         | **100**    |
 
-*Catatan:* H2 (13 pt) memetakan 5.1 + 5.2 (masing-masing 6,5 pt untuk perhitungan distribusi Normal dan bagian CLT).
+*Catatan:*
+- H2 (13 pt) memetakan 5.1 + 5.2 (masing-masing 6,5 pt untuk perhitungan distribusi Normal dan bagian CLT).
+- E3 (10 pt) setelah revisi memetakan terutama ke 1.3 (etika/metodologi penelitian — 8 pt) dengan 7.1 sebagai topik sekunder dalam bagian (b) interpretasi p-value (2 pt). Ini menghilangkan overlap antara E3 dan H3 yang sebelumnya keduanya meminta prosedur t-test penuh.
+- PG #8 diganti dari soal proporsi warisan (aritmatika murni) ke soal P(A∪B) agar benar-benar menguji sub-CPMK 4.1 (probabilitas dasar).
 
 ### Tabel B — Distribusi Level Bloom
 
-| Level | Jumlah Soal | Rincian Poin                                     | Total Poin | % Poin |
-|-------|-------------|--------------------------------------------------|-----------:|-------:|
-| C2    | 4           | PG #1 + PG #2 + PG #5 + PG #11 = 4×2             | 8          | 8%     |
-| C3    | 9           | PG #3, #4, #6, #8, #10, #13, #14 (7×2) + H1 + H2 = 14 + 26 | 40         | 40%    |
-| C4    | 7           | PG #7, #9, #12, #15 (4×2) + E1 + E3 + H3 = 8+10+10+14      | 42         | 42%    |
-| C5    | 1           | E2 = 10                                          | 10         | 10%    |
-| **Total** | **21**  |                                                  | **100**    | 100%   |
+| Level | Jumlah Soal | Rincian Poin                                                    | Total Poin | % Poin |
+|-------|-------------|------------------------------------------------------------------|-----------:|-------:|
+| C2    | 4           | PG #1 + PG #2 + PG #5 + PG #11 = 4×2                            | 8          | 8%     |
+| C3    | 9           | PG #3, #4, #6, #8, #10, #13, #14 (7×2) + H1 + H2 = 14 + 26     | 40         | 40%    |
+| C4    | 7           | PG #7, #9, #12, #15 (4×2) + E1 + E3 *(baru)* + H3 = 8+10+10+14 | 42         | 42%    |
+| C5    | 1           | E2 = 10                                                          | 10         | 10%    |
+| **Total** | **21**  |                                                                  | **100**    | 100%   |
 
-*Catatan:* Distribusi memenuhi target aplikasi-berat: C2 = 8% (≤ 20%), C3+C4 = 82% (dominasi aplikasi), C4+C5 = 52% (analisis–evaluasi). Toleransi ±1 soal per level terpenuhi.
+*Catatan:*
+- Distribusi Bloom tidak berubah setelah revisi: E3 tetap C4 (analisis metodologi adalah level analisis yang genuine), hanya topiknya bergeser dari prosedural t-test ke kritik penelitian.
+- Eliminasi overlap E3-H3: sebelum revisi keduanya menguji prosedur t-test (C4 komputasional). Setelah revisi, E3 menguji C4 analitis (metodologi) dan H3 menguji C4 komputasional — distribusi lebih kaya dan tidak redundan.
+- PG #8 tetap C3 — hanya konteks dan formula berubah (dari aritmatika pembagian ke P(A∪B)).
 
 ### Tabel C — Distribusi Konteks
 

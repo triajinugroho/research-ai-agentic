@@ -238,10 +238,19 @@ Evaluasi berurutan: `78 >= 85` salah, `78 >= 80` salah, `78 >= 75` **benar** →
 **Level Bloom:** C4
 **Konteks:** Umum
 
-**Jawaban:** C
+**Jawaban:** A
 
 **Pembahasan:**
-`n` dimulai dari 10 dan bertambah 1 tiap iterasi (`n = n + 1`), sehingga kondisi `n > 0` selalu bernilai benar — **infinite loop**. Distraktor A keliru karena asumsi `n` menurun, padahal kode menambahkan. D salah karena Python 3 tidak memiliki batas maksimum integer (int Python arbitrary precision). E salah: `n` dimodifikasi, hanya arahnya salah.
+Trace eksekusi: kondisi berhenti `len(hasil) < 4` — loop berjalan sampai list berisi 4 elemen. Hanya bilangan ganjil (`n % 2 != 0`) yang di-append, dengan nilai `n * 2`:
+- `n=1` (ganjil): append `1*2=2` → `hasil=[2]`
+- `n=2` (genap): skip
+- `n=3` (ganjil): append `3*2=6` → `hasil=[2,6]`
+- `n=4` (genap): skip
+- `n=5` (ganjil): append `5*2=10` → `hasil=[2,6,10]`
+- `n=6` (genap): skip
+- `n=7` (ganjil): append `7*2=14` → `hasil=[2,6,10,14]` → `len=4`, loop berhenti
+
+Hasil: **`[2, 6, 10, 14]`**. Distraktor B (`[1,3,5,7]`) lupa dikali 2. C (`[2,4,6,8]`) keliru menganggap semua bilangan masuk. D (`[2,6,10,12]`) salah hitung elemen terakhir. E salah karena kondisi `len < 4` pasti terpenuhi setelah 4 elemen ter-append.
 
 **Rubrik:** Benar = 2 poin | Salah/Kosong = 0 poin
 
@@ -440,55 +449,49 @@ else:
 **Level Bloom:** C4
 **Konteks:** Indonesia (data jumlah penduduk per provinsi)
 
-**Jawaban Ideal (output baris per baris):**
+**Jawaban Ideal (fokus iterasi ke-2 dan ke-4 + output akhir):**
 
 State awal: `total=0`, `terbanyak=10_600_000`, `nama_terbanyak="DKI Jakarta"`.
 
-- **Iterasi i=0** (DKI Jakarta, 10.600.000):
-  - `total = 0 + 10_600_000 = 10_600_000`
-  - `10_600_000 > 10_600_000`? Tidak → `terbanyak` & `nama_terbanyak` tidak berubah.
-  - Output: `Iterasi 0: total sementara = 10600000, sementara terbanyak = DKI Jakarta`
-- **Iterasi i=1** (Jawa Barat, 48.200.000):
-  - `total = 10_600_000 + 48_200_000 = 58_800_000`
-  - `48_200_000 > 10_600_000`? Ya → `terbanyak = 48_200_000`, `nama_terbanyak = "Jawa Barat"`.
-  - Output: `Iterasi 1: total sementara = 58800000, sementara terbanyak = Jawa Barat`
-- **Iterasi i=2** (Jawa Tengah, 36.500.000):
-  - `total = 58_800_000 + 36_500_000 = 95_300_000`
-  - `36_500_000 > 48_200_000`? Tidak → tidak berubah.
-  - Output: `Iterasi 2: total sementara = 95300000, sementara terbanyak = Jawa Barat`
-- **Iterasi i=3** (DI Yogyakarta, 3.700.000):
-  - `total = 95_300_000 + 3_700_000 = 99_000_000`
-  - `3_700_000 > 48_200_000`? Tidak → tidak berubah.
-  - Output: `Iterasi 3: total sementara = 99000000, sementara terbanyak = Jawa Barat`
-- **Iterasi i=4** (Banten, 11.900.000):
-  - `total = 99_000_000 + 11_900_000 = 110_900_000`
-  - `11_900_000 > 48_200_000`? Tidak → tidak berubah.
-  - Output: `Iterasi 4: total sementara = 110900000, sementara terbanyak = Jawa Barat`
+> *Catatan untuk dosen: jawaban ini menyertakan state i=0 dan i=2 sebagai referensi internal. Mahasiswa hanya diminta trace i=1 dan i=3.*
 
-Setelah loop: `rata_rata = 110_900_000 / 5 = 22_180_000.0`.
+**Iterasi ke-2 (i = 1) — Jawa Barat, 48.200.000:**
+- `total = 10_600_000 + 48_200_000 = 58_800_000`
+  *(Catatan: total setelah i=0 sudah 10.600.000)*
+- `48_200_000 > 10_600_000`? **Ya** → `nama_terbanyak = "Jawa Barat"`
+- Output baris: `Iterasi 1: total sementara = 58800000, sementara terbanyak = Jawa Barat`
 
-**Output final (3 baris terakhir):**
+**Iterasi ke-4 (i = 3) — DI Yogyakarta, 3.700.000:**
+- `total = 95_300_000 + 3_700_000 = 99_000_000`
+  *(Catatan: total setelah i=2 sudah 95.300.000)*
+- `3_700_000 > 48_200_000`? **Tidak** → `nama_terbanyak` tetap `"Jawa Barat"`
+- Output baris: `Iterasi 3: total sementara = 99000000, sementara terbanyak = Jawa Barat`
+
+**Tiga baris output terakhir:**
 ```
 Total penduduk = 110900000
 Rata-rata = 22180000.0
 Provinsi terbanyak = Jawa Barat (48200000 jiwa)
 ```
 
+*(Nilai final: `total = 110_900_000`, `rata_rata = 110_900_000 / 5 = 22_180_000.0`)*
+
 **Rubrik Penskoran (Total 12 poin):**
 
 | Kriteria | Poin |
 |---|---|
-| 5 baris output iterasi dengan nilai `total` akumulatif benar | 5 |
-| Identifikasi `nama_terbanyak` yang tepat di tiap iterasi | 3 |
-| Tiga baris output final (total, rata-rata, provinsi terbanyak) benar | 3 |
-| Urutan dan format output sesuai (nilai bulat, urut iterasi 0→4) | 1 |
+| Iterasi i=1: nilai `total` (58.800.000) dan `nama_terbanyak` ("Jawa Barat") benar | 3 |
+| Iterasi i=1: baris output `print(...)` benar (format & nilai) | 2 |
+| Iterasi i=3: nilai `total` (99.000.000) dan `nama_terbanyak` (tetap "Jawa Barat") benar | 3 |
+| Iterasi i=3: baris output `print(...)` benar (format & nilai) | 2 |
+| Tiga baris output akhir (110.900.000 / 22.180.000.0 / Jawa Barat 48.200.000) benar | 2 |
 
 **Aturan Partial Credit:**
-- Total akumulatif salah di satu iterasi tetapi iterasi berikutnya konsisten dengan kesalahan tersebut → hanya -1 poin.
-- Lupa bahwa iterasi dimulai dari `i=0` (menulis `Iterasi 1..5`) → -1 poin.
-- Nilai `rata_rata` dihitung tapi pembagi salah (mis. bagi 4) → -1 poin.
-- Lupa bahwa `>` bukan `>=` sehingga saat nilai sama `terbanyak` berubah → -2 poin.
-- Hanya menuliskan output akhir tanpa trace iterasi → maksimum 4/12 poin.
+- Nilai `total` di i=1 salah tetapi konsisten (misal lupa akumulasi dari i=0) → -1 poin; selanjutnya dievaluasi relatif terhadap angka yang mereka pakai.
+- `nama_terbanyak` di i=3 berubah menjadi "DI Yogyakarta" (salah baca operator `>`) → -2 poin.
+- Format output berbeda tipis (misal pakai koma desimal) → toleransi; kurangi 1 jika format sangat menyimpang.
+- Rata-rata akhir dibagi 4 bukan 5 → -1 poin.
+- Tidak menunjukkan nilai state, langsung menulis baris output saja → terima poin output baris; kurangi poin state.
 
 ---
 
@@ -576,36 +579,10 @@ Dengan fungsi, tiap perhitungan dapat diuji dan dipanggil kembali tanpa duplikas
 
 **Jawaban Ideal:**
 
-**a) Pseudocode (minimal 10 langkah):**
-
-```
-1.  Inisialisasi antrean_prioritas = [] dan antrean_reguler = []
-2.  Cetak menu: "daftar / panggil / selesai"
-3.  WHILE perintah != "selesai":
-4.      BACA perintah dari petugas
-5.      IF perintah == "daftar":
-6.          BACA nama pasien
-7.          BACA kategori (lansia / hamil / anak / umum)
-8.          JIKA kategori IN {lansia, hamil, anak}: tambahkan ke antrean_prioritas
-9.          SELAIN ITU: tambahkan ke antrean_reguler
-10.     ELSE IF perintah == "panggil":
-11.         JIKA antrean_prioritas tidak kosong: panggil elemen pertama dari antrean_prioritas
-12.         ELSE JIKA antrean_reguler tidak kosong: panggil elemen pertama dari antrean_reguler
-13.         ELSE: cetak "Antrean kosong"
-14.     ELSE IF perintah == "selesai": hentikan loop
-15.     ELSE: cetak "Perintah tidak dikenal"
-16. Cetak ringkasan sisa antrean sebelum program berakhir
-```
-
-**b) Implementasi Python:**
+**a) Implementasi dua fungsi Python:**
 
 ```python
-# Sistem antrean puskesmas sederhana
-antrean_prioritas = []
-antrean_reguler = []
-
-def daftar_pasien(nama: str, kategori: str) -> str:
-    """Menambahkan pasien ke antrean sesuai kategori. Mengembalikan pesan status."""
+def daftar_pasien(nama, kategori, antrean_prioritas, antrean_reguler):
     kategori = kategori.lower().strip()
     if kategori in ("lansia", "hamil", "anak"):
         antrean_prioritas.append(nama)
@@ -614,56 +591,63 @@ def daftar_pasien(nama: str, kategori: str) -> str:
         antrean_reguler.append(nama)
         return f"{nama} masuk ANTREAN REGULER."
     else:
-        return "Kategori tidak dikenal — pendaftaran dibatalkan."
+        return "Kategori tidak dikenal."
 
-def panggil_berikutnya() -> str:
-    """Memanggil pasien berikutnya, prioritas dulu. Mengembalikan pesan panggilan."""
+def panggil_berikutnya(antrean_prioritas, antrean_reguler):
     if len(antrean_prioritas) > 0:
-        pasien = antrean_prioritas.pop(0)
-        return f"Panggil (PRIORITAS): {pasien}"
+        nama = antrean_prioritas.pop(0)
+        return f"Panggil (PRIORITAS): {nama}"
     elif len(antrean_reguler) > 0:
-        pasien = antrean_reguler.pop(0)
-        return f"Panggil (REGULER): {pasien}"
+        nama = antrean_reguler.pop(0)
+        return f"Panggil (REGULER): {nama}"
     else:
         return "Antrean kosong."
-
-# Loop utama petugas
-print("Sistem Antrean Puskesmas — perintah: daftar / panggil / selesai")
-while True:
-    perintah = input("Perintah: ").lower().strip()
-    if perintah == "daftar":
-        nama = input("Nama pasien: ")
-        kategori = input("Kategori (lansia/hamil/anak/umum): ")
-        print(daftar_pasien(nama, kategori))
-    elif perintah == "panggil":
-        print(panggil_berikutnya())
-    elif perintah == "selesai":
-        print("Sistem berhenti. Sisa prioritas:", antrean_prioritas,
-              "| Sisa reguler:", antrean_reguler)
-        break
-    else:
-        print("Perintah tidak dikenal.")
 ```
+
+**b) Kode pengujian dan output yang diharapkan:**
+
+```python
+# Inisialisasi dua antrean kosong
+ap = []   # antrean prioritas
+ar = []   # antrean reguler
+
+# Daftarkan tiga pasien
+print(daftar_pasien("Ibu Tuti", "lansia", ap, ar))
+print(daftar_pasien("Pak Budi", "umum", ap, ar))
+print(daftar_pasien("Bayi Zaid", "anak", ap, ar))
+
+# Panggil dua kali
+print(panggil_berikutnya(ap, ar))
+print(panggil_berikutnya(ap, ar))
+```
+
+**Output yang diharapkan:**
+```
+Ibu Tuti (lansia) masuk ANTREAN PRIORITAS.
+Pak Budi masuk ANTREAN REGULER.
+Bayi Zaid (anak) masuk ANTREAN PRIORITAS.
+Panggil (PRIORITAS): Ibu Tuti
+Panggil (PRIORITAS): Bayi Zaid
+```
+
+*(Pemanggilan pertama: Ibu Tuti bukan Pak Budi — membuktikan prioritas berfungsi. Pemanggilan kedua: Bayi Zaid karena antrean prioritas masih berisi satu elemen.)*
 
 **Rubrik Penskoran (Total 12 poin):**
 
 | Kriteria | Poin |
 |---|---|
-| (a) Pseudocode minimal 10 langkah, logika lengkap (daftar, panggil, stop) | 4 |
-| (b.i) Variabel/struktur data tepat (dua list terpisah atau setara) | 1 |
-| (b.ii) Struktur seleksi `if/elif/else` untuk klasifikasi prioritas | 2 |
-| (b.iii) Perulangan `while` menerima perintah berulang dengan kondisi berhenti | 2 |
-| (b.iv) Minimal dua fungsi dengan parameter & return yang valid | 2 |
-| Kode Python konsisten dengan pseudocode & dapat dijalankan | 1 |
+| (a) `daftar_pasien`: logika seleksi kategori 3 cabang (prioritas / umum / tidak dikenal) benar | 3 |
+| (a) `daftar_pasien`: list yang tepat di-append, pesan return sesuai spesifikasi | 2 |
+| (a) `panggil_berikutnya`: logika prioritas (cek prioritas dulu, lalu reguler, lalu kosong) benar | 3 |
+| (b) Kode pengujian: inisialisasi antrean kosong + pemanggilan urut yang benar | 2 |
+| (b) Output: pemanggilan pertama memanggil "Ibu Tuti" (prioritas, bukan Pak Budi) | 2 |
 
 **Aturan Partial Credit:**
-- Pseudocode < 10 langkah → -1 poin per 2 langkah yang kurang, maksimum -3.
-- Hanya satu fungsi (bukan dua) → -1 poin; nol fungsi (semua di *main scope*) → -2 poin.
-- Antrean prioritas & reguler digabung dalam satu list tanpa mekanisme prioritas → -2 poin (b.i/b.ii).
-- Tidak ada kondisi berhenti `while` (infinite loop) → -1 poin di (b.iii).
-- Kode hanya mengimplementasi `daftar` tanpa `panggil` (atau sebaliknya) → -2 poin.
-- `SyntaxError` serius yang menghalangi eksekusi → maksimum 8/12.
-- Hanya menulis pseudocode tanpa kode Python → maksimum 6/12 (penilaian penuh hanya pada bagian a).
+- `daftar_pasien` tidak menerima antrean sebagai parameter (memakai variabel global) → kurangi 2 poin.
+- `panggil_berikutnya` mengambil dari reguler dulu (urutan prioritas terbalik) → kurangi 3 poin.
+- Lupa `pop(0)` sehingga pasien tidak keluar dari antrean (dipanggil terus menerus) → kurangi 2 poin.
+- Pengujian tidak dilakukan / hanya print string tanpa memanggil fungsi → kurangi 4 poin.
+- `SyntaxError` serius → maksimum 8/12 dengan partial credit berbasis pembacaan kode.
 
 ---
 
@@ -708,10 +692,10 @@ while True:
 **Rincian per soal:**
 - **C2 (4 soal, 8 poin):** PG #1, PG #3, PG #4, PG #17 (4 × 2 pt = 8 pt).
 - **C3 (12 soal, 44 poin):** PG #2, PG #5, PG #6, PG #7, PG #9, PG #10, PG #12, PG #13, PG #16, PG #19 (10 × 2 pt = 20 pt) + E1 (12 pt) + E2 (12 pt) = 44 pt.
-- **C4 (7 soal, 24 poin):** PG #8, PG #11, PG #14, PG #15, PG #18, PG #20 (6 × 2 pt = 12 pt) + E3 (12 pt) = 24 pt.
+- **C4 (7 soal, 24 poin):** PG #8, PG #11, PG #14 *(versi baru — while + list trace)*, PG #15, PG #18, PG #20 (6 × 2 pt = 12 pt) + E3 (12 pt) = 24 pt.
 - **C5 (2 soal, 24 poin):** E4 (12 pt) + E5 (12 pt) = 24 pt.
 
-*Catatan: Distribusi soal mengikuti blueprint spec §5.1 — target C2=4, C3≈11, C4≈8, C5=2 dengan toleransi ±1 soal per level. Persen poin berbeda dari persen jumlah soal karena Esai (@12 pt) lebih berat dari PG (@2 pt).*
+*Catatan: Distribusi tidak berubah setelah revisi. PG #14 tetap C4 — diganti dengan soal trace while + list yang lebih murni menguji C4 (analisis multi-kondisi) dibandingkan soal infinite loop sebelumnya yang dapat dijawab secara C2. E3 dikurangi scope trace (hanya 2 iterasi + output akhir) sehingga poin rubrik lebih proporsional. E5 menggunakan skeleton fungsi menggantikan pseudocode + implementasi penuh, sehingga waktu pengerjaan lebih adil tanpa mengurangi level kognitif.*
 
 ### Tabel C — Distribusi Konteks
 

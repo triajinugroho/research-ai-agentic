@@ -323,19 +323,22 @@ E. 20 kali
 **14.** Perhatikan potongan kode berikut:
 
 ```python
-n = 10
-while n > 0:
-    print(n)
-    n = n + 1
+hasil = []
+n = 1
+while len(hasil) < 4:
+    if n % 2 != 0:
+        hasil.append(n * 2)
+    n += 1
+print(hasil)
 ```
 
-Pernyataan yang **paling tepat** tentang perulangan di atas adalah ...
+Output yang dihasilkan adalah ...
 
-A. Mencetak `10 9 8 7 6 5 4 3 2 1` lalu berhenti
-B. Tidak pernah masuk ke badan perulangan karena kondisi awal salah
-C. Akan berjalan selamanya (infinite loop) karena `n` terus bertambah sehingga `n > 0` selalu benar
-D. Berhenti ketika `n` mencapai batas maksimum integer Python
-E. Mencetak angka 10 saja lalu berhenti karena `n` tidak dimodifikasi
+A. `[2, 6, 10, 14]`
+B. `[1, 3, 5, 7]`
+C. `[2, 4, 6, 8]`
+D. `[2, 6, 10, 12]`
+E. Infinite loop karena kondisi `len(hasil) < 4` tidak pernah tercapai
 
 ---
 
@@ -567,7 +570,12 @@ print(f"Rata-rata = {rata_rata}")
 print(f"Provinsi terbanyak = {nama_terbanyak} ({terbanyak} jiwa)")
 ```
 
-**Tugas Anda:** Trace (telusuri) eksekusi program di atas dan tuliskan **seluruh output baris per baris** sesuai urutan kemunculannya. Tuliskan nilai `total`, `terbanyak`, dan `nama_terbanyak` tepat setelah tiap iterasi selesai.
+**Tugas Anda:** Trace (telusuri) eksekusi program di atas untuk **iterasi ke-2 (i = 1) dan iterasi ke-4 (i = 3) saja**. Untuk masing-masing iterasi tersebut, tuliskan:
+- Nilai `total` setelah akumulasi selesai
+- Nilai `nama_terbanyak` setelah perbandingan selesai
+- Baris output `print(...)` yang muncul saat iterasi tersebut
+
+Setelah loop selesai, tuliskan **tiga baris output terakhir** program (baris `Total penduduk`, `Rata-rata`, dan `Provinsi terbanyak`) beserta nilai pastinya.
 
 ---
 
@@ -619,18 +627,43 @@ Tuliskan kode hasil refactor **secara utuh** (termasuk pemanggilan fungsi di blo
 > **Sub-CPMK 2.x s/d 5.x (integratif)** — Integrasi variabel, seleksi, perulangan, dan fungsi pada kasus realistis
 > *Level Bloom:* C5 · *Konteks:* Indonesia (sistem antrean puskesmas)
 
-**E5. (12 poin)** Anda diminta merancang *sistem antrean puskesmas* sederhana dengan aturan berikut:
+**E5. (12 poin)** Diberikan spesifikasi algoritma sistem antrean puskesmas berikut:
 
-- Pasien mendaftar dengan memasukkan **nama** dan **kategori prioritas** (`"lansia"`, `"hamil"`, `"anak"`, atau `"umum"`).
-- Pasien berkategori `"lansia"`, `"hamil"`, atau `"anak"` masuk ke **antrean prioritas**; pasien `"umum"` masuk ke **antrean reguler**.
-- Sistem dapat **memanggil pasien berikutnya** — selalu prioritaskan antrean prioritas sampai kosong, baru panggil reguler.
-- Sistem menerima perintah berulang dari petugas: `daftar`, `panggil`, atau `selesai` (menghentikan sistem).
+```
+PROSEDUR daftar_pasien(nama, kategori, antrean_prioritas, antrean_reguler):
+    JIKA kategori DALAM {lansia, hamil, anak}:
+        tambahkan nama ke antrean_prioritas
+        kembalikan "{nama} ({kategori}) masuk ANTREAN PRIORITAS."
+    JIKA kategori = "umum":
+        tambahkan nama ke antrean_reguler
+        kembalikan "{nama} masuk ANTREAN REGULER."
+    JIKA TIDAK:
+        kembalikan "Kategori tidak dikenal."
+
+PROSEDUR panggil_berikutnya(antrean_prioritas, antrean_reguler):
+    JIKA antrean_prioritas tidak kosong:
+        ambil & hapus elemen pertama; kembalikan "Panggil (PRIORITAS): {nama}"
+    JIKA TIDAK, jika antrean_reguler tidak kosong:
+        ambil & hapus elemen pertama; kembalikan "Panggil (REGULER): {nama}"
+    JIKA TIDAK:
+        kembalikan "Antrean kosong."
+```
 
 **Tugas Anda:**
 
-a) Tuliskan **pseudocode** algoritma utamanya (bahasa Indonesia semi-formal, minimal 10 langkah). **(4 poin)**
+a) Implementasikan kedua prosedur di atas sebagai fungsi Python menggunakan skeleton berikut. Lengkapi isi masing-masing fungsi sesuai spesifikasi — parameter dan return value harus persis seperti skeleton. **(8 poin)**
 
-b) Tuliskan implementasi **Python** yang memenuhi spesifikasi, mencakup minimal: (i) deklarasi variabel/struktur data yang tepat, (ii) struktur seleksi (`if/elif/else`) untuk klasifikasi prioritas, (iii) perulangan (`while`) untuk menerima perintah petugas, dan (iv) minimal **dua fungsi** dengan parameter & return (misal `daftar_pasien()` dan `panggil_berikutnya()`). **(8 poin)**
+```python
+def daftar_pasien(nama, kategori, antrean_prioritas, antrean_reguler):
+    # implementasi di sini
+    pass
+
+def panggil_berikutnya(antrean_prioritas, antrean_reguler):
+    # implementasi di sini
+    pass
+```
+
+b) Tulis kode pengujian berikut: daftarkan `"Ibu Tuti"` (lansia), `"Pak Budi"` (umum), dan `"Bayi Zaid"` (anak) ke dua antrean kosong, lalu panggil pasien **dua kali** berturut-turut menggunakan `print()`. Tunjukkan output yang diharapkan dari kedua pemanggilan tersebut. **(4 poin)**
 
 ---
 

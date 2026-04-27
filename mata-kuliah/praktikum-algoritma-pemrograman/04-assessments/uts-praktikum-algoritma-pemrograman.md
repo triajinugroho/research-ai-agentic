@@ -89,7 +89,18 @@ Buat variabel berikut dengan penamaan sesuai konvensi PEP 8 (`snake_case`):
 Ketentuan tambahan:
 
 1. Cetak keempat variabel beserta tipe masing-masing menggunakan `type()` untuk verifikasi.
-2. Tangani kasus input non-numerik pada `jumlah_donasi` dengan **validasi sederhana** (tidak perlu `try/except` lengkap). Contoh validasi: cek `input.replace('.', '', 1).isdigit()` sebelum konversi. Jika tidak valid, cetak pesan `"Input jumlah tidak valid — setel ke 0."` dan set `jumlah_donasi = 0.0`.
+2. Tangani kasus input non-numerik pada `jumlah_donasi` dengan **validasi sederhana** (tidak perlu `try/except` lengkap). Gunakan pola berikut sebagai panduan:
+
+   ```python
+   jumlah_str = input("Jumlah donasi (Rp): ")
+   if jumlah_str.replace('.', '', 1).isdigit():
+       jumlah_donasi = float(jumlah_str)
+   else:
+       print("Input jumlah tidak valid — setel ke 0.")
+       jumlah_donasi = 0.0
+   ```
+
+   Perhatikan: `jumlah_str` adalah **variabel string** hasil `input()` — bukan fungsi `input` itu sendiri. Adaptasi pola ini ke dalam program Anda.
 
 ---
 
@@ -147,6 +158,8 @@ Modifikasi program agar dapat menerima **minimal 5 donatur**. Ikuti langkah beri
 
 5. Setelah loop berhenti, **jika jumlah data kurang dari 5**, cetak peringatan: `"Peringatan: data donatur kurang dari 5."`. Jika sudah ≥ 5, cetak: `"Data donatur terkumpul: <n> entri."`.
 
+   > **Catatan:** Sentinel `"selesai"` **selalu** menghentikan loop secara langsung, bahkan jika data belum mencapai 5. Minimal 5 donatur bersifat himbauan — cukup ditampilkan sebagai peringatan setelah loop berhenti, bukan sebagai pembatas yang mencegah keluar.
+
 ---
 
 > **Sub-CPMK 4.3, 5.1, 5.2** — Mengimplementasikan pola akumulator, counter, dan flag dalam program berbasis perulangan; Mengimplementasikan fungsi dengan parameter dan return value untuk memecah program menjadi modul; Melakukan refactoring kode prosedural menjadi kode modular berbasis fungsi
@@ -185,7 +198,30 @@ Ketentuan:
 
 ### Bagian (g) — Refactor ke Program Utama (15 poin)
 
-1. Bungkus seluruh alur interaktif (bagian b-f) ke dalam **fungsi utama** bernama `jalankan_sistem()`. Fungsi ini tidak menerima argumen dan tidak mengembalikan nilai (hanya side effect `print` dan interaksi input).
+1. Bungkus seluruh alur interaktif (bagian b-f) ke dalam **fungsi utama** bernama `jalankan_sistem()`. Fungsi ini tidak menerima argumen dan tidak mengembalikan nilai (hanya side effect `print` dan interaksi input). Gunakan skeleton berikut sebagai kerangka:
+
+   ```python
+   def jalankan_sistem():
+       """
+       Sistem pencatat donasi masjid.
+       Input  : interaktif via input()
+       Output : laporan akhir via print()
+       """
+       daftar_donasi = []   # <-- deklarasikan di sini sebagai variabel LOKAL
+
+       # --- Pindahkan logika input dan loop dari bagian (b) dan (e) ke sini ---
+
+       # --- Panggil fungsi dari bagian (f) di sini ---
+       total = hitung_total(daftar_donasi)
+       terbesar = cari_donatur_terbesar(daftar_donasi)
+
+       # --- Tambahkan sorting dengan lambda dan laporan akhir di sini ---
+
+   jalankan_sistem()   # <-- entry point, letakkan di cell terakhir
+   ```
+
+   Pastikan semua variabel (termasuk `daftar_donasi`) dideklarasikan **di dalam** `jalankan_sistem()`, bukan di scope global.
+
 2. Tambahkan **docstring** di `jalankan_sistem` yang menjelaskan: tujuan fungsi, input yang diminta, dan output yang dihasilkan.
 3. Gunakan **minimal satu fungsi lambda** untuk keperluan sorting atau filtering daftar donasi, contoh:
 
