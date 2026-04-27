@@ -54,9 +54,13 @@ jenis: UTS
 **1.** Manakah dari pernyataan berikut yang **bukan** merupakan sifat wajib sebuah algoritma?
 
 A. Finiteness — jumlah langkah terbatas dan berakhir setelah sejumlah langkah tertentu
+
 B. Definiteness — setiap langkah dirumuskan jelas dan tidak ambigu
+
 C. Input — menerima nol atau lebih nilai masukan
+
 D. Output — menghasilkan satu atau lebih keluaran
+
 E. Randomness — setiap langkah harus menggunakan nilai acak untuk menjamin keberhasilan
 
 ---
@@ -67,9 +71,13 @@ E. Randomness — setiap langkah harus menggunakan nilai acak untuk menjamin keb
 **2.** Seorang mahasiswa ingin mengelola waktu belajarnya dengan lebih baik. Ia membagi aktivitas harian menjadi bagian-bagian kecil seperti "membaca materi", "mengerjakan latihan", dan "review catatan", lalu menjadwalkannya satu per satu. Pilar *computational thinking* yang paling tepat menggambarkan langkah tersebut adalah ...
 
 A. Abstraksi — menyembunyikan detail yang tidak perlu
+
 B. Dekomposisi — memecah masalah besar menjadi sub-masalah yang lebih kecil
+
 C. Pengenalan pola — menemukan kemiripan pada beberapa masalah
+
 D. Desain algoritma — menyusun urutan langkah penyelesaian
+
 E. Evaluasi — menilai hasil akhir dari sebuah proses
 
 ---
@@ -80,9 +88,13 @@ E. Evaluasi — menilai hasil akhir dari sebuah proses
 **3.** Berikut ini adalah alasan Python banyak dipakai sebagai bahasa utama di ekosistem AI dan data science modern, **kecuali** ...
 
 A. Sintaks yang mudah dibaca mirip bahasa Inggris alami
+
 B. Ekosistem pustaka ilmiah yang matang (NumPy, pandas, scikit-learn)
+
 C. Dukungan kuat komunitas open source dan integrasi Jupyter/Colab
+
 D. Performa eksekusi paling cepat di antara seluruh bahasa pemrograman
+
 E. Interoperabilitas dengan framework AI seperti TensorFlow dan PyTorch
 
 ---
@@ -93,9 +105,13 @@ E. Interoperabilitas dengan framework AI seperti TensorFlow dan PyTorch
 **4.** Manakah nama variabel berikut yang **paling sesuai** konvensi penamaan PEP 8 untuk variabel biasa di Python?
 
 A. `TotalHarga`
+
 B. `total-harga`
+
 C. `total_harga`
+
 D. `2total_harga`
+
 E. `totalHarga@`
 
 ---
@@ -114,9 +130,13 @@ z = int(x) + y
 Tipe data dan nilai dari `z` setelah eksekusi adalah ...
 
 A. `str` dengan nilai `"103"`
+
 B. `int` dengan nilai `13`
+
 C. `float` dengan nilai `13.0`
+
 D. `str` dengan nilai `"13"`
+
 E. Terjadi `TypeError` karena tipe tidak kompatibel
 
 ---
@@ -136,9 +156,13 @@ print(type(a), type(b), type(c))
 Output yang tepat adalah ...
 
 A. `<class 'int'> <class 'int'> <class 'str'>`
+
 B. `<class 'float'> <class 'bool'> <class 'str'>`
+
 C. `<class 'float'> <class 'int'> <class 'str'>`
+
 D. `<class 'str'> <class 'bool'> <class 'str'>`
+
 E. `<class 'float'> <class 'bool'> <class 'float'>`
 
 ---
@@ -155,9 +179,13 @@ hasil = 2 + 3 * 4 ** 2 // 5 - 1
 Nilai `hasil` setelah dievaluasi adalah ...
 
 A. 9
+
 B. 10
+
 C. 11
+
 D. 30
+
 E. 31
 
 ---
@@ -180,9 +208,13 @@ z = True or cek()
 Berapa kali kata "dipanggil" akan tercetak ke layar?
 
 A. 0 kali
+
 B. 1 kali
+
 C. 2 kali
+
 D. 3 kali
+
 E. Tidak bisa ditentukan tanpa menjalankan program
 
 ---
@@ -202,9 +234,13 @@ print("Total:", total)
 Manakah koreksi yang **paling tepat** agar perhitungan total berjalan benar?
 
 A. Ganti `input()` dengan `print()` pada baris 1 dan 2
+
 B. Gunakan `total = int(harga) * int(jumlah)` agar tipe data menjadi numerik
+
 C. Ganti `print("Total:", total)` menjadi `print("Total:" + total)`
+
 D. Tidak perlu diubah, Python otomatis mengenali tipe numerik dari `input()`
+
 E. Tambahkan `total = str(total)` sebelum `print`
 
 ---
@@ -228,9 +264,13 @@ else:
 Output yang tepat dari program di atas adalah ...
 
 A. `Belum wajib zakat`
+
 B. `Wajib zakat: 2125000.0`
+
 C. `Wajib zakat: 2250000.0`
+
 D. `Wajib zakat: 2500000.0`
+
 E. `Wajib zakat: 22500.0`
 
 ---
@@ -265,9 +305,13 @@ print(grade)
 Huruf mutu yang dicetak untuk `nilai = 78` adalah ...
 
 A. `A-`
+
 B. `B+`
+
 C. `B`
+
 D. `B-`
+
 E. `C`
 
 ---
@@ -292,9 +336,13 @@ print(kategori)
 Output program di atas adalah ...
 
 A. `Hari kerja`
+
 B. `Akhir pekan`
+
 C. `Tidak dikenal`
+
 D. `Senin`
+
 E. Terjadi `SyntaxError`
 
 ---
@@ -310,9 +358,13 @@ for i in range(2, 20, 3):
 ```
 
 A. 5 kali
+
 B. 6 kali
+
 C. 7 kali
+
 D. 18 kali
+
 E. 20 kali
 
 ---
@@ -335,9 +387,13 @@ print(hasil)
 Output yang dihasilkan adalah ...
 
 A. `[2, 6, 10, 14]`
+
 B. `[1, 3, 5, 7]`
+
 C. `[2, 4, 6, 8]`
+
 D. `[2, 6, 10, 12]`
+
 E. Infinite loop karena kondisi `len(hasil) < 4` tidak pernah tercapai
 
 ---
@@ -362,9 +418,13 @@ print(total)
 Nilai `total` yang dicetak adalah ...
 
 A. 0
+
 B. 10
+
 C. 12
+
 D. 16
+
 E. 18
 
 ---
@@ -425,9 +485,13 @@ hasil = luas_persegi_panjang(5, 3)
 Pernyataan yang **paling tepat** adalah ...
 
 A. `panjang` dan `lebar` disebut *argument*, sedangkan `5` dan `3` disebut *parameter*
+
 B. `panjang` dan `lebar` disebut *parameter*, sedangkan `5` dan `3` disebut *argument*; fungsi mengembalikan nilai `15`
+
 C. Fungsi tidak mengembalikan apa pun karena tidak ada `print` di dalamnya
+
 D. Fungsi akan error karena parameter belum didefinisikan secara eksplisit tipenya
+
 E. `hasil` akan bernilai `None` karena `return` hanya berlaku di dalam loop
 
 ---
@@ -451,9 +515,13 @@ print("luar:", x)
 Output yang tepat adalah ...
 
 A. `dalam: 5` lalu `luar: 5`
+
 B. `dalam: 10` lalu `luar: 10`
+
 C. `dalam: 5` lalu `luar: 10`
+
 D. `dalam: 10` lalu `luar: 5`
+
 E. Terjadi `NameError` karena `x` di dalam fungsi tidak dideklarasi global
 
 ---
@@ -471,9 +539,13 @@ print(total(1, 2, 3, 4))
 Output yang tepat adalah ...
 
 A. `1`
+
 B. `4`
+
 C. `10`
+
 D. `(1, 2, 3, 4)`
+
 E. Terjadi `TypeError` karena lambda tidak boleh memakai `*args`
 
 ---
@@ -500,9 +572,13 @@ luas3 = 3.14 * r3 * r3
 Pelanggaran prinsip modularitas/*DRY* yang paling tepat pada kode di atas adalah ...
 
 A. Tidak ada pelanggaran, kode sudah modular karena tiap perhitungan ditulis eksplisit
+
 B. Rumus luas lingkaran `3.14 * r * r` diulang tiga kali dan nilai `3.14` tersebar sebagai *magic number* — seharusnya dibungkus dalam satu fungsi `luas_lingkaran(r)` yang dipanggil ulang
+
 C. Variabel `r1`, `r2`, `r3` seharusnya digabung menjadi satu string panjang
+
 D. Kode harus diubah menjadi satu baris panjang untuk efisiensi memori
+
 E. Perhitungan lingkaran tidak boleh memakai konstanta `3.14`, harus memakai bilangan bulat saja
 
 ---

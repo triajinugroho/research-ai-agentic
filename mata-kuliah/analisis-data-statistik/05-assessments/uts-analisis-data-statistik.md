@@ -61,9 +61,13 @@ jenis: UTS
 **1.** Manakah pernyataan berikut yang **paling tepat** menggambarkan peran statistika dalam era *data science* dan AI?
 
 A. Statistika hanya dipakai untuk menghitung rata-rata pada laporan keuangan.
+
 B. Statistika adalah fondasi inferensi dari data ke pengetahuan — mulai dari eksplorasi, estimasi, hingga pengambilan keputusan di bawah ketidakpastian.
+
 C. Statistika sepenuhnya digantikan oleh *deep learning* karena *machine learning* tidak memerlukan asumsi distribusi.
+
 D. Statistika hanya relevan bila ukuran data kurang dari 30 observasi.
+
 E. Statistika hanya berperan pada tahap visualisasi data.
 
 ---
@@ -74,9 +78,13 @@ E. Statistika hanya berperan pada tahap visualisasi data.
 **2.** Seorang peneliti menggunakan data profil jamaah sebuah masjid (nama, NIK, nomor HP) yang diperoleh dari panitia zakat tanpa meminta persetujuan jamaah, kemudian menjual data tersebut ke sebuah *startup* pemasaran. Prinsip etika data dan *responsible AI* manakah yang **paling jelas** dilanggar?
 
 A. *Informed consent* (persetujuan sadar) dan *purpose limitation* (pembatasan tujuan pemakaian data).
+
 B. *Reproducibility* (keterulangan hasil analisis).
+
 C. *Scalability* (kemampuan sistem menangani beban besar).
+
 D. *Latency* (waktu respons sistem).
+
 E. *Interpretability* saja, tanpa pelanggaran privasi.
 
 ---
@@ -87,9 +95,13 @@ E. *Interpretability* saja, tanpa pelanggaran privasi.
 **3.** Data Upah Minimum Provinsi (UMP) 34 provinsi Indonesia memiliki sebaran yang sangat *right-skewed* — DKI Jakarta jauh di atas mayoritas provinsi lain. Ukuran pemusatan (central tendency) yang **paling representatif** untuk menggambarkan UMP "tipikal" provinsi di Indonesia adalah...
 
 A. Mean (rata-rata aritmatika).
+
 B. Median.
+
 C. Modus.
+
 D. Range.
+
 E. Varians.
 
 ---
@@ -100,9 +112,13 @@ E. Varians.
 **4.** Selama satu semester, Anda mencatat 8 nilai kuis mingguan pribadi Anda. Rata-rata = 82 dengan standar deviasi 3. Teman Anda mencatat dengan rata-rata sama (82) tetapi standar deviasi 12. Interpretasi yang **paling tepat**:
 
 A. Nilai Anda dan teman memiliki sebaran yang sama karena rata-ratanya sama.
+
 B. Teman Anda lebih konsisten karena variansnya lebih besar.
+
 C. Nilai Anda lebih konsisten (lebih homogen) dibanding teman Anda; nilai teman Anda lebih fluktuatif dari minggu ke minggu.
+
 D. Standar deviasi tidak dapat dipakai untuk membandingkan konsistensi.
+
 E. Mean dan SD adalah ukuran yang saling bertentangan, tidak bisa dipakai bersamaan.
 
 ---
@@ -113,9 +129,13 @@ E. Mean dan SD adalah ukuran yang saling bertentangan, tidak bisa dipakai bersam
 **5.** Diberikan DataFrame `df` berkolom `harga`, fungsi pandas/numpy mana yang paling tepat dipanggil untuk mendapatkan **ringkasan statistik deskriptif** (count, mean, std, min, quartiles, max) dalam satu perintah?
 
 A. `df['harga'].count()`
+
 B. `df['harga'].describe()`
+
 C. `np.histogram(df['harga'])`
+
 D. `df.groupby('harga').size()`
+
 E. `df['harga'].unique()`
 
 ---
@@ -126,9 +146,13 @@ E. `df['harga'].unique()`
 **6.** Anda memiliki data penutupan harian IHSG (Indeks Harga Saham Gabungan) sepanjang tahun 2024 (± 240 titik tanggal). Jenis grafik (*chart*) yang **paling tepat** untuk menampilkan tren pergerakan indeks dari waktu ke waktu adalah...
 
 A. Pie chart.
+
 B. Bar chart horizontal.
+
 C. Line chart (time-series).
+
 D. Box plot tunggal.
+
 E. Scatter plot tanpa sumbu waktu.
 
 ---
@@ -139,9 +163,13 @@ E. Scatter plot tanpa sumbu waktu.
 **7.** Sebuah presentasi menampilkan bar chart "Pertumbuhan Pendapatan 2023 vs 2024" dengan sumbu Y dimulai dari 98 (bukan 0), menggunakan warna merah menyala untuk 2024 dan abu-abu untuk 2023, tanpa label satuan. Kenaikan sebenarnya hanya 2%, tetapi visual terlihat seperti lompatan 50%. Pelanggaran prinsip *storytelling with data* yang **paling utama** di sini adalah...
 
 A. Penggunaan bar chart (seharusnya pakai pie chart).
+
 B. *Truncated y-axis* yang mendistorsi persepsi besaran perbedaan.
+
 C. Penggunaan dua warna yang berbeda.
+
 D. Menampilkan dua tahun sekaligus.
+
 E. Jumlah data terlalu banyak.
 
 ---
@@ -152,9 +180,13 @@ E. Jumlah data terlalu banyak.
 **8.** Survei di sebuah masjid menunjukkan: peluang seorang jamaah menghadiri Shalat Subuh berjamaah = 0,45; peluang menghadiri Shalat Isya = 0,60; dan peluang menghadiri **keduanya** = 0,25. Berapa peluang seorang jamaah terpilih secara acak menghadiri Shalat Subuh **atau** Shalat Isya (minimal salah satu)?
 
 A. 0,25
+
 B. 0,70
+
 C. 0,80
+
 D. 1,05
+
 E. 0,45
 
 ---
@@ -165,9 +197,13 @@ E. 0,45
 **9.** Prevalensi TB di suatu kota di Indonesia = 1%. Sebuah alat skrining memiliki sensitivitas 90% (*P(positif|sakit) = 0,90*) dan spesifisitas 95% (*P(negatif|sehat) = 0,95*). Jika seseorang hasilnya **positif**, berapa probabilitas (posterior) ia benar-benar sakit TB? *(pakai Bayes)*
 
 A. 0,90
+
 B. 0,50
+
 C. 0,154 (≈ 15,4%)
+
 D. 0,95
+
 E. 0,01
 
 ---
@@ -178,9 +214,13 @@ E. 0,01
 **10.** Anda mensimulasikan 10.000 lemparan dadu adil dengan Python (`np.random.randint(1, 7, 10000)`), lalu menghitung proporsi munculnya angka 6. Hasil simulasi = 0,1672. Interpretasi yang **paling tepat**:
 
 A. Simulasi salah karena nilai teoretis harus tepat 1/6 = 0,1667.
+
 B. Hasil simulasi konsisten dengan probabilitas teoretis 1/6 ≈ 0,1667; selisih kecil adalah variasi acak yang wajar dan mengecil bila jumlah simulasi diperbesar.
+
 C. Probabilitas riil angka 6 adalah 0,1672, bukan 1/6.
+
 D. Dadu pasti tidak adil.
+
 E. Hasil simulasi tidak ada hubungannya dengan nilai teoretis.
 
 ---
@@ -191,9 +231,13 @@ E. Hasil simulasi tidak ada hubungannya dengan nilai teoretis.
 **11.** Manakah pernyataan berikut yang **benar** tentang distribusi probabilitas?
 
 A. Distribusi Binomial adalah distribusi kontinu dengan parameter μ dan σ.
+
 B. Distribusi Poisson dicirikan oleh satu parameter λ (rata-rata kejadian per satuan waktu/ruang) dan umum dipakai untuk kejadian jarang.
+
 C. Distribusi Normal hanya valid bila n ≤ 30.
+
 D. Distribusi Binomial cocok untuk mencatat waktu kedatangan pelanggan yang kontinu.
+
 E. Distribusi Normal tidak memiliki parameter.
 
 ---
@@ -204,9 +248,13 @@ E. Distribusi Normal tidak memiliki parameter.
 **12.** Pernyataan yang **paling tepat** tentang *Central Limit Theorem* (CLT) adalah...
 
 A. Distribusi populasi selalu normal, apa pun bentuk datanya.
+
 B. Untuk ukuran sampel n yang cukup besar (umumnya n ≥ 30), distribusi rata-rata sampel (x̄) mendekati normal dengan mean μ dan standar deviasi σ/√n, meskipun distribusi populasinya tidak normal.
+
 C. CLT hanya berlaku bila data populasi sudah normal.
+
 D. CLT menyatakan bahwa varians sampel selalu sama dengan varians populasi.
+
 E. CLT hanya dipakai untuk data diskret.
 
 ---
@@ -217,9 +265,13 @@ E. CLT hanya dipakai untuk data diskret.
 **13.** Dari catatan 30 hari pengeluaran makan harian Anda diperoleh 95% *confidence interval* untuk rata-rata pengeluaran: **(Rp 42.000; Rp 58.000)**. Interpretasi yang **paling tepat**:
 
 A. Ada peluang 95% bahwa rata-rata pengeluaran populasi (seluruh hari di masa depan) berada di antara Rp 42.000 dan Rp 58.000.
+
 B. Bila prosedur sampling & perhitungan CI ini diulang berkali-kali dengan sampel berbeda, sekitar 95% interval yang terbentuk akan memuat rata-rata populasi sebenarnya.
+
 C. 95% dari hari individual akan memiliki pengeluaran antara Rp 42.000 dan Rp 58.000.
+
 D. Rata-rata sampel pasti berada di luar interval tersebut.
+
 E. Interval ini tidak memuat informasi tentang populasi.
 
 ---
@@ -230,9 +282,13 @@ E. Interval ini tidak memuat informasi tentang populasi.
 **14.** Pada sebuah uji hipotesis dengan α = 0,05 diperoleh *p-value* = 0,018. Keputusan yang **tepat** adalah...
 
 A. Terima H₀ karena *p-value* > 0.
+
 B. Tolak H₀ karena *p-value* (0,018) < α (0,05); ada bukti statistik untuk mendukung H₁.
+
 C. Tolak H₀ karena *p-value* > α.
+
 D. Tidak cukup informasi, perlu hitung ulang rata-rata.
+
 E. *p-value* tidak relevan terhadap keputusan hipotesis.
 
 ---
@@ -243,9 +299,13 @@ E. *p-value* tidak relevan terhadap keputusan hipotesis.
 **15.** Manakah pasangan definisi *error* Tipe I dan Tipe II berikut yang **benar**?
 
 A. Tipe I = menolak H₀ padahal H₀ benar; Tipe II = gagal menolak H₀ padahal H₀ salah.
+
 B. Tipe I = menerima H₀ padahal H₀ salah; Tipe II = menolak H₀ padahal H₀ benar.
+
 C. Tipe I dan Tipe II adalah hal yang sama.
+
 D. Tipe I = α sama dengan *p-value*; Tipe II = β sama dengan 1 - α.
+
 E. Tipe I hanya terjadi pada uji dua-sisi, Tipe II hanya pada uji satu-sisi.
 
 ---
