@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regresi Berganda & Evaluasi Model — Modul Interaktif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1a73e8; --blue-dark:#1557b0; --red:#ea4335; --yellow:#f9ab00; --green:#1e8e3e;
+  --g-blue:#4285f4; --g-red:#ea4335; --g-yellow:#fbbc04; --g-green:#34a853;
+  --ink:#202124; --ink-2:#3c4043; --muted:#5f6368; --line:#dadce0; --line-soft:#e8eaed;
+  --bg:#f8f9fa; --surface:#ffffff; --surface-2:#f1f3f4;
+  --blue-tint:#e8f0fe; --red-tint:#fce8e6; --yellow-tint:#fef7e0; --green-tint:#e6f4ea;
+  --purple:#9334e6; --purple-tint:#f3e8fd; --teal:#129eaf; --teal-tint:#e4f7f9;
+  --shadow-1:0 1px 2px 0 rgba(60,64,67,.30),0 1px 3px 1px rgba(60,64,67,.15);
+  --shadow-2:0 1px 3px 0 rgba(60,64,67,.30),0 4px 8px 3px rgba(60,64,67,.15);
+  --radius:12px; --radius-lg:18px;
+  --sidebar-w:304px; --appbar-h:64px;
+  --font:'Roboto','Helvetica Neue',Arial,sans-serif;
+  --mono:'Roboto Mono','SF Mono',Consolas,'Courier New',monospace;
+  --slab:'Roboto Slab','Roboto',serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:var(--font); font-size:17px; line-height:1.75;
+  color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased;
+}
+/* ---------- App bar ---------- */
+.appbar{
+  position:fixed; top:0; left:0; right:0; height:var(--appbar-h);
+  background:var(--surface); box-shadow:var(--shadow-1);
+  display:flex; align-items:center; gap:14px; padding:0 20px; z-index:50;
+}
+.hamb{
+  display:none; border:none; background:transparent; cursor:pointer;
+  width:44px; height:44px; border-radius:50%; font-size:22px; color:var(--ink-2);
+}
+.hamb:hover{background:var(--surface-2);}
+.brand{display:flex; align-items:center; gap:12px; min-width:0;}
+.logo{display:grid; grid-template-columns:14px 14px; grid-gap:4px;}
+.logo span{width:14px; height:14px; border-radius:4px;}
+.logo span:nth-child(1){background:var(--g-blue);}
+.logo span:nth-child(2){background:var(--g-red);}
+.logo span:nth-child(3){background:var(--g-yellow);}
+.logo span:nth-child(4){background:var(--g-green);}
+.brand .ttl{font-size:19px; font-weight:500; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.brand .sub{font-size:13px; color:var(--muted); margin-top:-3px;}
+.appbar .spacer{flex:1;}
+.prog-mini{display:flex; align-items:center; gap:12px;}
+.prog-mini .txt{font-size:13px; color:var(--muted); white-space:nowrap;}
+.prog-track{width:160px; height:6px; background:var(--line-soft); border-radius:99px; overflow:hidden;}
+.prog-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--g-blue),var(--g-green)); border-radius:99px; transition:width .4s ease;}
+@media(max-width:560px){.prog-track{width:90px;} .prog-mini .txt{display:none;}}
+
+/* ---------- Sidebar ---------- */
+.sidebar{
+  position:fixed; top:var(--appbar-h); left:0; bottom:0; width:var(--sidebar-w);
+  background:var(--surface); border-right:1px solid var(--line-soft);
+  overflow-y:auto; padding:16px 12px 40px; z-index:40;
+}
+.side-label{font-size:12px; font-weight:500; letter-spacing:.8px; text-transform:uppercase; color:var(--muted); padding:8px 16px 6px;}
+.nav-item{
+  display:flex; align-items:center; gap:14px; width:100%; text-align:left;
+  border:none; background:transparent; cursor:pointer; font-family:var(--font);
+  padding:11px 16px; border-radius:0 99px 99px 0; color:var(--ink-2);
+  font-size:15px; margin-bottom:2px; transition:background .15s;
+}
+.nav-item:hover{background:var(--surface-2);}
+.nav-item.active{background:var(--blue-tint); color:var(--blue); font-weight:500;}
+.nav-item .ic{font-size:20px; width:24px; text-align:center; flex:none;}
+.nav-item .lbl{flex:1; line-height:1.3;}
+.nav-item .dot{width:9px; height:9px; border-radius:50%; background:var(--g-green); flex:none; opacity:0; transition:opacity .2s;}
+.nav-item.done .dot{opacity:1;}
+.scrim{display:none; position:fixed; inset:0; background:rgba(32,33,36,.5); z-index:39;}
+
+/* ---------- Content ---------- */
+.content{margin-left:var(--sidebar-w); margin-top:var(--appbar-h); padding:36px 40px 120px;}
+.page{max-width:900px; margin:0 auto; display:none;}
+.page.active{display:block; animation:fadeUp .45s cubic-bezier(.2,.7,.3,1);}
+@keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
+.kicker{display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:500; letter-spacing:.4px; color:var(--blue); background:var(--blue-tint); padding:6px 14px; border-radius:99px; margin-bottom:14px;}
+h1.page-title{font-size:34px; line-height:1.2; font-weight:400; margin:0 0 6px; color:var(--ink); letter-spacing:-.5px;}
+.lead{font-size:18px; color:var(--muted); margin:0 0 26px; line-height:1.6;}
+h2{font-size:25px; font-weight:500; margin:38px 0 14px; color:var(--ink); letter-spacing:-.2px;}
+h3{font-size:20px; font-weight:500; margin:26px 0 10px; color:var(--ink-2);}
+p{margin:.7em 0; color:var(--ink-2);}
+b,strong{color:var(--ink); font-weight:700;}
+.muted{color:var(--muted);}
+a{color:var(--blue); text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ---------- Card ---------- */
+.card{background:var(--surface); border:1px solid var(--line-soft); border-radius:var(--radius); box-shadow:var(--shadow-1); padding:26px 28px; margin:0 0 22px;}
+.card.tight{padding:20px 22px;}
+.eyebrow{font-size:13px; font-weight:500; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); margin:0 0 4px;}
+
+/* ---------- Callouts ---------- */
+.callout{display:flex; gap:16px; border-radius:var(--radius); padding:18px 20px; margin:20px 0; border-left:5px solid var(--blue); background:var(--blue-tint);}
+.callout .cico{font-size:24px; line-height:1.2; flex:none; width:30px; text-align:center;}
+.callout .cbody{flex:1; min-width:0;}
+.callout .ctitle{font-weight:700; font-size:16px; margin:0 0 4px; letter-spacing:.2px;}
+.callout p{margin:.4em 0; font-size:16.5px;}
+.callout p:first-child{margin-top:0;} .callout p:last-child{margin-bottom:0;}
+.c-analogi{border-color:var(--g-blue); background:var(--blue-tint);} .c-analogi .ctitle{color:var(--blue-dark);}
+.c-meta{border-color:var(--purple); background:var(--purple-tint);} .c-meta .ctitle{color:#7627bb;}
+.c-filosofi{border-color:var(--teal); background:var(--teal-tint);} .c-filosofi .ctitle{color:#0b6b77;}
+.c-warning{border-color:var(--yellow); background:var(--yellow-tint);} .c-warning .ctitle{color:#a86a00;}
+.c-inti{border-color:var(--green); background:var(--green-tint);} .c-inti .ctitle{color:#11652a;}
+.c-tip{border-color:var(--red); background:var(--red-tint);} .c-tip .ctitle{color:#b5271a;}
+
+/* ---------- Code ---------- */
+.codewrap{margin:18px 0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-1); border:1px solid #2a2b2f;}
+.codehead{background:#16171a; color:#9aa0a6; font-family:var(--mono); font-size:12.5px; padding:8px 16px; display:flex; align-items:center; gap:8px; letter-spacing:.5px;}
+.codehead .dotr{display:flex; gap:6px; margin-right:6px;}
+.codehead .dotr i{width:11px; height:11px; border-radius:50%; display:inline-block;}
+.codehead .dotr i:nth-child(1){background:#ff5f56;} .codehead .dotr i:nth-child(2){background:#ffbd2e;} .codehead .dotr i:nth-child(3){background:#27c93f;}
+pre.code{margin:0; background:#202124; color:#e8eaed; font-family:var(--mono); font-size:14.5px; line-height:1.7; padding:18px 18px; overflow-x:auto;}
+pre.code .kw{color:#c58af9;} pre.code .fn{color:#8ab4f8;} pre.code .st{color:#81c995;} pre.code .nm{color:#fdd663;} pre.code .cm{color:#80868b; font-style:italic;} pre.code .op{color:#f28b82;}
+
+/* ---------- Tables ---------- */
+.tablewrap{overflow-x:auto; margin:18px 0; border-radius:var(--radius); border:1px solid var(--line-soft);}
+table{border-collapse:collapse; width:100%; font-size:16px; background:var(--surface);}
+th,td{padding:13px 16px; text-align:left; border-bottom:1px solid var(--line-soft);}
+th{background:var(--surface-2); font-weight:500; color:var(--ink); font-size:14px; letter-spacing:.3px;}
+tr:last-child td{border-bottom:none;}
+td.center,th.center{text-align:center;}
+.pill{display:inline-block; padding:3px 11px; border-radius:99px; font-size:13px; font-weight:500;}
+.pill.ok{background:var(--green-tint); color:#11652a;} .pill.warn{background:var(--yellow-tint); color:#a86a00;} .pill.bad{background:var(--red-tint); color:#b5271a;} .pill.neu{background:var(--blue-tint); color:var(--blue-dark);}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer; font-family:var(--font); font-size:15px; font-weight:500; padding:11px 24px; border-radius:99px; background:var(--blue); color:#fff; box-shadow:var(--shadow-1); transition:box-shadow .2s, background .2s, transform .05s;}
+.btn:hover{background:var(--blue-dark); box-shadow:var(--shadow-2);}
+.btn:active{transform:translateY(1px);}
+.btn:disabled{background:var(--line); color:var(--muted); cursor:not-allowed; box-shadow:none;}
+.btn-outline{background:#fff; color:var(--blue); border:1px solid var(--line); box-shadow:none;}
+.btn-outline:hover{background:var(--blue-tint); border-color:var(--blue); box-shadow:none;}
+.btn-ghost{background:transparent; color:var(--blue); box-shadow:none;}
+.btn-ghost:hover{background:var(--blue-tint); box-shadow:none;}
+.btn-sm{padding:8px 18px; font-size:14px;}
+
+/* ---------- Sim panels & controls ---------- */
+.sim{background:var(--surface-2); border:1px solid var(--line-soft); border-radius:var(--radius); padding:22px; margin:20px 0;}
+.sim h4{margin:0 0 14px; font-size:16px; font-weight:500; color:var(--ink); display:flex; align-items:center; gap:8px;}
+.ctrl{display:grid; grid-template-columns:170px 1fr 96px; align-items:center; gap:14px; margin:14px 0;}
+.ctrl label{font-size:15px; color:var(--ink-2); font-weight:500;}
+.ctrl .rd{font-family:var(--mono); font-size:15px; background:#fff; border:1px solid var(--line); border-radius:8px; padding:6px 10px; text-align:right; color:var(--blue-dark); font-weight:500;}
+@media(max-width:620px){.ctrl{grid-template-columns:1fr 80px; grid-template-areas:"l l" "s r";} .ctrl label{grid-area:l;} .ctrl input[type=range]{grid-area:s;} .ctrl .rd{grid-area:r;}}
+input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:99px; background:var(--line); outline:none; cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--blue); border:3px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,.3); cursor:pointer;}
+input[type=range]::-moz-range-thumb{width:18px; height:18px; border-radius:50%; background:var(--blue); border:3px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,.3); cursor:pointer;}
+input[type=range]:disabled{opacity:.45;}
+input[type=range]:disabled::-webkit-slider-thumb{background:var(--muted);}
+
+/* Equation display */
+.eqbox{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; font-family:var(--mono); font-size:16px; line-height:2; overflow-x:auto; margin:14px 0;}
+.eqbox .term{display:inline-block; padding:2px 6px; border-radius:6px; margin:2px 1px; transition:background .2s;}
+.eqbox .t0{background:var(--surface-2); color:var(--muted);}
+.eqbox .t1{background:var(--blue-tint); color:var(--blue-dark);}
+.eqbox .t2{background:var(--green-tint); color:#11652a;}
+.eqbox .t3{background:var(--red-tint); color:#b5271a;}
+.eqbox .t4{background:var(--purple-tint); color:#7627bb;}
+.eqbox .t5{background:var(--yellow-tint); color:#a86a00;}
+.eqbox .hl{outline:2px solid currentColor; outline-offset:1px;}
+
+/* Big result readout */
+.bigres{display:flex; flex-wrap:wrap; gap:16px; margin:16px 0;}
+.stat{flex:1; min-width:150px; background:#fff; border:1px solid var(--line-soft); border-radius:var(--radius); padding:16px 18px; text-align:center;}
+.stat .lab{font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px;}
+.stat .val{font-size:28px; font-weight:500; font-family:var(--mono); margin-top:4px; color:var(--ink);}
+.stat .val.blue{color:var(--blue);} .stat .val.green{color:var(--green);} .stat .val.red{color:var(--red);} .stat .val.yellow{color:var(--yellow);}
+.stat .sub{font-size:12.5px; color:var(--muted); margin-top:2px;}
+
+/* Canvas plots */
+.plotgrid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0;}
+@media(max-width:680px){.plotgrid{grid-template-columns:1fr;}}
+.plotcard{background:#fff; border:1px solid var(--line-soft); border-radius:var(--radius); padding:12px 12px 6px;}
+.plotcard .pt{font-size:14px; font-weight:500; color:var(--ink-2); padding:2px 6px 8px; text-align:center;}
+.plotcard canvas{width:100%; display:block;}
+.canvas-host{background:#fff; border:1px solid var(--line-soft); border-radius:var(--radius); padding:12px;}
+.canvas-host canvas{width:100%; display:block;}
+
+/* contribution bars */
+.contrib{margin:8px 0;}
+.contrib .row{display:flex; align-items:center; gap:10px; margin:7px 0; font-size:14.5px;}
+.contrib .row .nm{width:130px; color:var(--ink-2); flex:none;}
+.contrib .row .bar{flex:1; height:22px; background:var(--surface-2); border-radius:6px; position:relative; overflow:hidden;}
+.contrib .row .bar i{position:absolute; top:0; bottom:0; left:50%; border-radius:4px; transition:width .25s, left .25s;}
+.contrib .row .vv{width:92px; text-align:right; font-family:var(--mono); flex:none; color:var(--ink);}
+
+/* segmented toggle */
+.seg{display:inline-flex; background:var(--surface-2); border-radius:99px; padding:4px; gap:4px; margin:6px 0 14px; flex-wrap:wrap;}
+.seg button{border:none; background:transparent; cursor:pointer; font-family:var(--font); font-size:14.5px; font-weight:500; padding:8px 18px; border-radius:99px; color:var(--ink-2);}
+.seg button.on{background:#fff; color:var(--blue); box-shadow:var(--shadow-1);}
+
+/* steps */
+.steps{counter-reset:st; margin:18px 0;}
+.step{display:flex; gap:16px; padding:14px 0; border-bottom:1px dashed var(--line);}
+.step:last-child{border-bottom:none;}
+.step .nb{counter-increment:st; flex:none; width:34px; height:34px; border-radius:50%; background:var(--blue); color:#fff; display:grid; place-items:center; font-weight:500; font-size:16px;}
+.step .nb::before{content:counter(st);}
+.step .sc{flex:1;}
+.step .sc h4{margin:4px 0 4px; font-size:17px; font-weight:500; color:var(--ink);}
+.step .sc p{margin:.3em 0; font-size:16px;}
+
+/* reveal list (step by step click) */
+.reveal-item{opacity:0; max-height:0; overflow:hidden; transition:opacity .4s, max-height .5s; }
+.reveal-item.show{opacity:1; max-height:1200px;}
+
+/* badges row */
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0;}
+.tag{font-size:13px; padding:5px 12px; border-radius:99px; background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line-soft);}
+
+/* objective grid */
+.objgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0;}
+@media(max-width:680px){.objgrid{grid-template-columns:1fr;}}
+.obj{display:flex; gap:14px; background:#fff; border:1px solid var(--line-soft); border-radius:var(--radius); padding:16px;}
+.obj .on{flex:none; width:36px; height:36px; border-radius:10px; background:var(--blue-tint); color:var(--blue); display:grid; place-items:center; font-weight:700; font-size:16px;}
+.obj .ot{font-size:15.5px; line-height:1.5; color:var(--ink-2);}
+.obj .ot b{display:block; color:var(--ink); margin-bottom:2px;}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#1a73e8 0%,#1557b0 55%,#129eaf 120%); border-radius:var(--radius-lg); padding:40px 36px; color:#fff; box-shadow:var(--shadow-2); position:relative; overflow:hidden; margin-bottom:26px;}
+.hero::after{content:""; position:absolute; right:-60px; top:-60px; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,.08);}
+.hero::before{content:""; position:absolute; right:60px; bottom:-90px; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,.06);}
+.hero .hk{font-size:13px; letter-spacing:1px; text-transform:uppercase; opacity:.9; font-weight:500;}
+.hero h1{font-size:38px; line-height:1.15; font-weight:400; margin:10px 0 8px; letter-spacing:-.6px; position:relative;}
+.hero p{color:rgba(255,255,255,.92); font-size:18px; max-width:640px; margin:0; position:relative;}
+.hero .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; position:relative;}
+.hero .meta span{background:rgba(255,255,255,.15); padding:7px 14px; border-radius:99px; font-size:13.5px; backdrop-filter:blur(4px);}
+
+/* bottom nav */
+.botnav{max-width:900px; margin:30px auto 0; display:flex; justify-content:space-between; gap:14px; padding-top:24px; border-top:1px solid var(--line-soft);}
+
+/* ---------- Quiz ---------- */
+.quiz-shell{}
+.quiz-top{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:8px;}
+.qlevel{display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:500; padding:6px 14px; border-radius:99px;}
+.lvl1{background:var(--green-tint); color:#11652a;} .lvl2{background:var(--blue-tint); color:var(--blue-dark);} .lvl3{background:var(--yellow-tint); color:#a86a00;} .lvl4{background:var(--red-tint); color:#b5271a;}
+.qcount{font-size:14px; color:var(--muted); font-family:var(--mono);}
+.qprog{height:8px; background:var(--line-soft); border-radius:99px; overflow:hidden; margin:10px 0 22px;}
+.qprog i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--g-blue),var(--g-green)); border-radius:99px; transition:width .35s;}
+.qcpmk{font-size:12.5px; color:var(--muted); margin-bottom:6px; letter-spacing:.3px;}
+.qtext{font-size:21px; line-height:1.5; font-weight:500; color:var(--ink); margin:4px 0 20px;}
+.qtext code{font-family:var(--mono); background:var(--surface-2); padding:2px 7px; border-radius:6px; font-size:.9em; color:var(--blue-dark);}
+.opts{display:flex; flex-direction:column; gap:12px;}
+.opt{display:flex; align-items:flex-start; gap:14px; text-align:left; width:100%; border:1.5px solid var(--line); background:#fff; border-radius:var(--radius); padding:15px 18px; cursor:pointer; font-family:var(--font); font-size:16.5px; color:var(--ink-2); line-height:1.5; transition:border-color .15s, background .15s, box-shadow .15s;}
+.opt:hover:not(:disabled){border-color:var(--blue); background:var(--blue-tint);}
+.opt .k{flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line); display:grid; place-items:center; font-weight:500; font-size:15px; color:var(--muted); background:#fff;}
+.opt .ktxt{flex:1; padding-top:3px;}
+.opt:disabled{cursor:default;}
+.opt.correct{border-color:var(--green); background:var(--green-tint);}
+.opt.correct .k{background:var(--green); border-color:var(--green); color:#fff;}
+.opt.wrong{border-color:var(--red); background:var(--red-tint);}
+.opt.wrong .k{background:var(--red); border-color:var(--red); color:#fff;}
+.opt.dim{opacity:.6;}
+.qexp{margin-top:18px; border-radius:var(--radius); padding:16px 18px; background:var(--blue-tint); border-left:5px solid var(--blue); font-size:16px; display:none;}
+.qexp.show{display:block; animation:fadeUp .3s ease;}
+.qexp.good{background:var(--green-tint); border-color:var(--green);}
+.qexp.bad{background:var(--red-tint); border-color:var(--red);}
+.qexp .et{font-weight:700; margin-bottom:4px;}
+.qnav{display:flex; justify-content:space-between; gap:12px; margin-top:24px;}
+.scoreboard{display:flex; gap:14px; flex-wrap:wrap; margin:16px 0 6px;}
+.donut-wrap{display:flex; align-items:center; gap:26px; flex-wrap:wrap; justify-content:center; margin:10px 0 24px;}
+.lvlbreak{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0;}
+@media(max-width:560px){.lvlbreak{grid-template-columns:1fr;}}
+.lvlcell{background:#fff; border:1px solid var(--line-soft); border-radius:var(--radius); padding:14px 16px;}
+.lvlcell .lh{display:flex; justify-content:space-between; font-size:14px; margin-bottom:8px;}
+.lvlcell .lb{height:8px; background:var(--surface-2); border-radius:99px; overflow:hidden;}
+.lvlcell .lb i{display:block; height:100%; border-radius:99px;}
+
+/* misc */
+.divider{height:1px; background:var(--line-soft); margin:30px 0;}
+.center{text-align:center;}
+.kbd{font-family:var(--mono); background:var(--surface-2); border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; padding:1px 7px; font-size:.85em;}
+.fade-note{font-size:14px; color:var(--muted); font-style:italic;}
+ul.clean{margin:.6em 0; padding-left:22px;} ul.clean li{margin:.4em 0; color:var(--ink-2);}
+.checklist{list-style:none; padding:0; margin:14px 0;}
+.checklist li{padding:8px 0 8px 34px; position:relative; color:var(--ink-2); border-bottom:1px solid var(--line-soft);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"✓"; position:absolute; left:0; top:8px; width:22px; height:22px; background:var(--green-tint); color:var(--green); border-radius:50%; display:grid; place-items:center; font-size:13px; font-weight:700;}
+
+@media(max-width:960px){
+  .sidebar{transform:translateX(-100%); transition:transform .28s cubic-bezier(.2,.7,.3,1); box-shadow:var(--shadow-2);}
+  body.nav-open .sidebar{transform:none;}
+  body.nav-open .scrim{display:block;}
+  .content{margin-left:0;}
+  .hamb{display:grid; place-items:center;}
+}
+@media(max-width:560px){
+  body{font-size:16px;}
+  .content{padding:24px 18px 110px;}
+  h1.page-title{font-size:27px;} .hero h1{font-size:29px;} .hero{padding:28px 22px;}
+  .card{padding:20px 18px;} .qtext{font-size:19px;}
+  h2{font-size:22px;}
+}
+</style>
+</head>
+<body>
+<div class="appbar">
+  <button class="hamb" id="hamb" aria-label="Menu">&#9776;</button>
+  <div class="brand">
+    <div class="logo"><span></span><span></span><span></span><span></span></div>
+    <div>
+      <div class="ttl">Regresi Berganda &amp; Evaluasi Model</div>
+      <div class="sub">Analisis Data Statistik &middot; Minggu 10</div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="prog-mini">
+    <div class="txt" id="progTxt">Bagian 1 / 11</div>
+    <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+  </div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="side-label">Peta Materi</div>
+  <div id="navList"></div>
+  <div class="side-label" style="margin-top:18px;">Capaian</div>
+  <div style="padding:8px 16px; font-size:13px; color:var(--muted); line-height:1.6;">
+    <b style="color:var(--ink-2);">CPMK-5</b> — Menganalisis hubungan antar variabel &amp; mengevaluasi kualitas model. <br>Bloom: <b style="color:var(--ink-2);">C4–C5</b>.
+  </div>
+</nav>
+<div class="scrim" id="scrim"></div>
+
+<main class="content" id="content">
+
+<!-- ===================== SECTION 0: BERANDA ===================== -->
+<section class="page" id="sec-0" data-title="Beranda">
+  <div class="hero">
+    <div class="hk">Modul Interaktif &middot; Prodi Informatika UAI</div>
+    <h1>Regresi Berganda &amp; Evaluasi Model</h1>
+    <p>Dari satu sebab menuju banyak sebab. Kita belajar membangun model yang melihat dunia dengan banyak "lensa" sekaligus — lalu belajar bersikap kritis menilai apakah model itu benar-benar bisa dipercaya.</p>
+    <div class="meta">
+      <span>📘 Analisis Data Statistik</span>
+      <span>🗓️ Genap 2025/2026</span>
+      <span>🎯 CPMK-5 &middot; Sub-CPMK 10.1 &amp; 10.2</span>
+      <span>🧠 Bloom C4–C5</span>
+      <span>⏱️ 100 menit</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="eyebrow">Setelah modul ini, kamu akan mampu…</p>
+    <div class="objgrid">
+      <div class="obj"><div class="on">1</div><div class="ot"><b>Membangun</b> model regresi linear berganda dengan banyak prediktor sekaligus.</div></div>
+      <div class="obj"><div class="on">2</div><div class="ot"><b>Menafsirkan</b> koefisien dengan benar — termasuk makna "ceteris paribus".</div></div>
+      <div class="obj"><div class="on">3</div><div class="ot"><b>Membedakan</b> R² dan Adjusted R², dan tahu kapan masing-masing dipakai.</div></div>
+      <div class="obj"><div class="on">4</div><div class="ot"><b>Memeriksa</b> asumsi lewat diagnostik residual (4 plot kunci).</div></div>
+      <div class="obj"><div class="on">5</div><div class="ot"><b>Mendeteksi</b> multikolinearitas memakai VIF.</div></div>
+      <div class="obj"><div class="on">6</div><div class="ot"><b>Menerapkan</b> semuanya di Python (sklearn &amp; statsmodels).</div></div>
+    </div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧭</div>
+    <div class="cbody">
+      <div class="ctitle">Cara menjelajah modul ini</div>
+      <p>Materi disusun <b>satu per satu, bertahap</b>. Pakai tombol <span class="kbd">Selanjutnya →</span> di bawah, atau lompat lewat <b>Peta Materi</b> di kiri. Setiap bagian punya <b>simulasi yang bisa kamu geser sendiri</b> — angkanya benar-benar dihitung di browser, bukan tempelan. Tutup dengan <b>kuis 40 soal</b> yang naik tingkat kesulitannya.</p>
+    </div>
+  </div>
+
+  <div class="center" style="margin:30px 0 6px;">
+    <button class="btn" onclick="go(1)">Mulai belajar &nbsp;→</button>
+  </div>
+</section>
+
+<!-- ===================== SECTION 1: KENAPA BANYAK PREDIKTOR ===================== -->
+<section class="page" id="sec-1" data-title="Kenapa Banyak Prediktor">
+  <span class="kicker">Sub-CPMK 10.1 &middot; Pengantar</span>
+  <h1 class="page-title">Kenapa satu prediktor tidak cukup?</h1>
+  <p class="lead">Minggu lalu kita memprediksi sesuatu dari <b>satu</b> variabel. Tapi dunia nyata jarang sesederhana itu.</p>
+
+  <div class="card">
+    <p>Bayangkan kamu menebak <b>harga sebuah rumah</b> hanya dari <b>luas bangunannya</b>. Lumayan — rumah besar memang cenderung mahal. Tapi kamu mengabaikan banyak hal: lokasinya di mana? berapa kamarnya? berapa tua bangunannya?</p>
+    <p>Regresi linear <b>sederhana</b> (satu prediktor) memaksa semua faktor lain itu masuk ke dalam "kotak kesalahan" (error). Regresi <b>berganda</b> membiarkan kita memasukkan banyak faktor sekaligus, sehingga modelnya lebih jujur terhadap kenyataan.</p>
+  </div>
+
+  <div class="callout c-analogi">
+    <div class="cico">🔭</div>
+    <div class="cbody">
+      <div class="ctitle">Analogi: satu lensa vs banyak lensa</div>
+      <p>Menebak harga dari satu variabel itu seperti memotret pemandangan dengan satu lensa fix — kamu dapat <i>sebagian</i> gambar. Regresi berganda seperti punya beberapa lensa: wide untuk lokasi, makro untuk detail kamar, tele untuk usia bangunan. Hasilnya, gambaran yang jauh lebih utuh.</p>
+    </div>
+  </div>
+
+  <div class="callout c-filosofi">
+    <div class="cico">🌌</div>
+    <div class="cbody">
+      <div class="ctitle">Filosofi: dunia itu multikausal</div>
+      <p>Hampir tidak ada akibat yang lahir dari satu sebab tunggal. Tinggi badan, harga saham, kelulusan mahasiswa — semuanya hasil tarik-menarik banyak faktor. Regresi berganda adalah cara matematika mengakui kerendahan hati ini: "aku tidak tahu segalanya, tapi mari kuhitung beberapa sebab sekaligus, sejujur mungkin."</p>
+    </div>
+  </div>
+
+  <h2>Lihat sendiri: satu faktor vs empat faktor</h2>
+  <p>Di bawah ini data simulasi 100 rumah di Jakarta. Plot kiri menebak harga <b>hanya dari luas</b>. Perhatikan titik-titik masih berpencar jauh dari garis — banyak yang belum terjelaskan.</p>
+
+  <div class="canvas-host">
+    <div class="plotcard" style="border:none; padding:0;">
+      <div class="pt">Harga vs Luas Bangunan — model 1 prediktor</div>
+      <canvas id="cv-motivate" height="320"></canvas>
+    </div>
+  </div>
+
+  <div class="bigres">
+    <div class="stat"><div class="lab">R² · hanya "luas"</div><div class="val yellow" id="r2-one">–</div><div class="sub">seberapa banyak harga terjelaskan</div></div>
+    <div class="stat"><div class="lab">R² · 4 prediktor</div><div class="val green" id="r2-four">–</div><div class="sub">luas + kamar + jarak + usia</div></div>
+    <div class="stat"><div class="lab">Peningkatan</div><div class="val blue" id="r2-gain">–</div><div class="sub">tambahan yang dijelaskan</div></div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Berpikir meta: bukan "menambah variabel = selalu lebih baik"</div>
+      <p>Naiknya R² di atas memang menggoda. Tapi tahan dulu — nanti di bagian R² vs Adjusted R² kamu akan lihat bahwa <b>menambah variabel hampir selalu menaikkan R², bahkan variabel sampah sekalipun</b>. Pertanyaan dewasanya bukan "bisakah aku menambah variabel?", melainkan <b>"apakah variabel ini benar-benar memberi informasi baru?"</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 2: MODEL ===================== -->
+<section class="page" id="sec-2" data-title="Model Regresi Berganda">
+  <span class="kicker">Sub-CPMK 10.1 &middot; Membangun model</span>
+  <h1 class="page-title">Persamaan model regresi berganda</h1>
+  <p class="lead">Strukturnya mengejutkan sederhana: kita hanya menjumlahkan kontribusi tiap faktor.</p>
+
+  <div class="card">
+    <div class="eqbox" style="font-size:18px; text-align:center;">
+      ŷ = b₀ + b₁x₁ + b₂x₂ + … + b<sub>p</sub>x<sub>p</sub>
+    </div>
+    <table style="margin-top:8px;">
+      <tbody>
+        <tr><td><b>ŷ</b></td><td>nilai prediksi (yang ingin kita tebak)</td></tr>
+        <tr><td><b>b₀</b></td><td>intercept — titik mula saat semua x = 0</td></tr>
+        <tr><td><b>b₁ … b<sub>p</sub></b></td><td>koefisien — "seberapa kuat" tiap faktor menarik hasil</td></tr>
+        <tr><td><b>x₁ … x<sub>p</sub></b></td><td>variabel prediktor (faktor-faktor penjelas)</td></tr>
+        <tr><td><b>p</b></td><td>banyaknya prediktor</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout c-analogi">
+    <div class="cico">🍲</div>
+    <div class="cbody">
+      <div class="ctitle">Analogi: model = resep masakan</div>
+      <p>Bayangkan ŷ adalah rasa akhir sebuah masakan. b₀ adalah rasa dasar kaldu. Tiap prediktor (garam, gula, cabai) menyumbang rasa, dan <b>koefisien b adalah "seberapa banyak satu sendok bumbu itu mengubah rasa"</b>. Cabai punya koefisien besar (sedikit saja terasa); air punya koefisien kecil. Model = takaran resep, dan kita menjumlahkan semua sumbangan menjadi rasa akhir.</p>
+    </div>
+  </div>
+
+  <h2>Contoh konkret: harga rumah</h2>
+  <p>Untuk pasar properti Jakarta, model contohnya:</p>
+  <div class="eqbox" style="text-align:center;">
+    Harga = b₀ + b₁(Luas) + b₂(Kamar) + b₃(Jarak) + b₄(Usia)
+  </div>
+
+  <div class="sim">
+    <h4>🧪 Simulasi: rakit prediksimu sendiri</h4>
+    <p class="muted" style="margin-top:0;">Geser tiap faktor. Persamaan dan harga prediksi diperbarui langsung. Pakai model contoh: <span class="kbd">Harga = 200 + 8,5·Luas + 50·Kamar − 15·Jarak − 5·Usia</span> (dalam juta Rp).</p>
+
+    <div class="ctrl"><label>Luas bangunan (m²)</label><input type="range" id="s2-luas" min="36" max="200" value="90" step="1"><div class="rd" id="s2-luas-v">90</div></div>
+    <div class="ctrl"><label>Jumlah kamar</label><input type="range" id="s2-kamar" min="1" max="6" value="3" step="1"><div class="rd" id="s2-kamar-v">3</div></div>
+    <div class="ctrl"><label>Jarak ke pusat (km)</label><input type="range" id="s2-jarak" min="1" max="40" value="12" step="1"><div class="rd" id="s2-jarak-v">12</div></div>
+    <div class="ctrl"><label>Usia bangunan (th)</label><input type="range" id="s2-usia" min="0" max="30" value="5" step="1"><div class="rd" id="s2-usia-v">5</div></div>
+
+    <div class="eqbox" id="s2-eq" style="margin-top:18px;"></div>
+
+    <div class="contrib" id="s2-contrib"></div>
+
+    <div class="bigres" style="margin-top:14px;">
+      <div class="stat" style="flex:2;"><div class="lab">Harga prediksi</div><div class="val blue" id="s2-price">–</div><div class="sub">juta Rupiah</div></div>
+    </div>
+  </div>
+
+  <div class="callout c-filosofi">
+    <div class="cico">🗺️</div>
+    <div class="cbody">
+      <div class="ctitle">Filosofi: "semua model salah, sebagian berguna"</div>
+      <p>Kalimat statistikawan George Box ini penting. Model di atas <b>pasti</b> meleset dari kenyataan — ada faktor yang tidak kita masukkan (akses tol, sertifikat, reputasi developer). Tujuan kita bukan kebenaran sempurna, melainkan <b>peta yang cukup berguna untuk mengambil keputusan</b>. Peta bukan wilayah; model bukan kenyataan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 3: INTERPRETASI KOEFISIEN ===================== -->
+<section class="page" id="sec-3" data-title="Interpretasi Koefisien">
+  <span class="kicker">Sub-CPMK 10.1 &middot; Makna koefisien</span>
+  <h1 class="page-title">Menafsirkan koefisien: "ceteris paribus"</h1>
+  <p class="lead">Di regresi berganda, makna sebuah koefisien sedikit berubah. Kunci tafsirnya adalah satu frasa Latin.</p>
+
+  <div class="card">
+    <p>Template tafsir yang harus melekat di kepala:</p>
+    <div class="callout c-inti" style="margin:8px 0;">
+      <div class="cico">📌</div>
+      <div class="cbody"><p style="font-size:17px;">"Jika x₁ naik <b>1 unit</b>, dengan asumsi <b>semua variabel lain tetap (ceteris paribus)</b>, maka ŷ diperkirakan berubah sebesar <b>b₁</b> unit."</p></div>
+    </div>
+    <p>Dari model contoh <span class="kbd">Harga = 200 + 8,5·Luas + 50·Kamar − 15·Jarak − 5·Usia</span>:</p>
+    <ul class="clean">
+      <li><b>b₁ = +8,5</b> → tiap tambahan 1 m² luas, harga naik ±8,5 juta — <i>asalkan kamar, jarak, usia tetap</i>.</li>
+      <li><b>b₃ = −15</b> → tiap tambah 1 km menjauh dari pusat, harga <b>turun</b> ±15 juta, <i>ceteris paribus</i>.</li>
+    </ul>
+  </div>
+
+  <div class="callout c-analogi">
+    <div class="cico">⚖️</div>
+    <div class="cbody">
+      <div class="ctitle">Analogi: "kalau yang lain saya tahan dulu…"</div>
+      <p>Bayangkan kamu eksperimen memasak dan ingin tahu efek <b>garam</b> saja. Kamu menambah garam sambil <b>menahan</b> semua bumbu lain tetap. Koefisien adalah jawaban atas: "<i>kalau cuma garam yang saya ubah, seberapa rasa berubah?</i>" Itulah arti "memegang variabel lain konstan".</p>
+    </div>
+  </div>
+
+  <div class="sim">
+    <h4>🔬 Lab Ceteris Paribus</h4>
+    <p class="muted" style="margin-top:0;">Hanya <b>satu</b> faktor yang aktif; tiga lainnya <b>dikunci</b>. Geser yang aktif dan amati: hanya bagian itu yang berubah. Itulah "ceteris paribus" yang hidup.</p>
+    <div class="seg" id="cp-seg">
+      <button class="on" data-cp="luas">Ubah: Luas</button>
+      <button data-cp="kamar">Ubah: Kamar</button>
+      <button data-cp="jarak">Ubah: Jarak</button>
+      <button data-cp="usia">Ubah: Usia</button>
+    </div>
+
+    <div class="ctrl"><label>Luas (m²)</label><input type="range" id="cp-luas" min="36" max="200" value="90" step="1"><div class="rd" id="cp-luas-v">90</div></div>
+    <div class="ctrl"><label>Kamar</label><input type="range" id="cp-kamar" min="1" max="6" value="3" step="1"><div class="rd" id="cp-kamar-v">3</div></div>
+    <div class="ctrl"><label>Jarak (km)</label><input type="range" id="cp-jarak" min="1" max="40" value="12" step="1"><div class="rd" id="cp-jarak-v">12</div></div>
+    <div class="ctrl"><label>Usia (th)</label><input type="range" id="cp-usia" min="0" max="30" value="5" step="1"><div class="rd" id="cp-usia-v">5</div></div>
+
+    <div class="bigres" style="margin-top:14px;">
+      <div class="stat"><div class="lab">Harga prediksi</div><div class="val blue" id="cp-price">–</div><div class="sub">juta Rp</div></div>
+      <div class="stat"><div class="lab">Perubahan dari geseran</div><div class="val green" id="cp-delta">–</div><div class="sub" id="cp-delta-sub">&nbsp;</div></div>
+    </div>
+    <p id="cp-explain" style="background:var(--blue-tint); border-radius:12px; padding:12px 16px; margin-top:10px; font-size:15.5px;"></p>
+  </div>
+
+  <div class="callout c-warning">
+    <div class="cico">⚠️</div>
+    <div class="cbody">
+      <div class="ctitle">Peringatan: tafsir statistik ≠ kenyataan yang bisa diutak-atik</div>
+      <p>"Ceteris paribus" itu tafsir <b>matematis</b>. Di dunia nyata, sulit menambah luas tanpa menambah kamar — keduanya biasanya bergerak bersama. Jadi "menambah 1 m² sambil menahan kamar tetap" mungkin tak realistis secara fisik. Koefisien menjawab pertanyaan <i>seandainya</i>, bukan resep aksi.</p>
+    </div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Berpikir meta: korelasi statistik vs sebab-akibat</div>
+      <p>Koefisien +8,5 <b>tidak otomatis berarti</b> "menambah luas <i>menyebabkan</i> harga naik 8,5 juta". Ia hanya merangkum pola dalam data. Kausalitas butuh argumen di luar angka: teori, eksperimen, atau pengetahuan domain. Statistikawan dewasa selalu menjaga jarak antara "berhubungan" dan "menyebabkan".</p>
+    </div>
+  </div>
+
+  <div class="codewrap">
+    <div class="codehead"><span class="dotr"><i></i><i></i><i></i></span>python — interpretasi otomatis</div>
+<pre class="code"><span class="cm"># Setelah model.fit(X, y) ...</span>
+<span class="kw">for</span> nama, koef <span class="kw">in</span> <span class="fn">zip</span>(X.columns, model.coef_):
+    arah = <span class="st">"naik"</span> <span class="kw">if</span> koef <span class="op">&gt;</span> <span class="nm">0</span> <span class="kw">else</span> <span class="st">"turun"</span>
+    <span class="fn">print</span>(<span class="st">f"Tiap +1 {nama}: harga {arah} ~{abs(koef):.1f} juta (ceteris paribus)"</span>)</pre>
+  </div>
+</section>
+
+<!-- ===================== SECTION 4: R2 vs ADJUSTED R2 ===================== -->
+<section class="page" id="sec-4" data-title="R² vs Adjusted R²">
+  <span class="kicker">Sub-CPMK 10.2 &middot; Evaluasi model</span>
+  <h1 class="page-title">R² vs Adjusted R²</h1>
+  <p class="lead">Dua angka mirip, satu jebakan halus. Memahami bedanya membedakan analis pemula dari yang dewasa.</p>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Masalah tersembunyi pada R²</h3>
+    <p>R² mengukur <b>berapa persen variasi Y yang berhasil dijelaskan model</b>. Masalahnya: <b>R² hampir selalu naik (atau minimal tetap) setiap kali kita menambah prediktor</b> — bahkan jika prediktor itu sampah murni. Sebab model selalu bisa "memeras" sedikit informasi dari variabel apa pun, sekadar dari kebetulan (noise).</p>
+    <p>Karena itu, "R² naik" <b>bukan</b> bukti modelmu makin baik.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Adjusted R²: R² yang tahu diri</h3>
+    <p>Adjusted R² menambahkan <b>denda</b> untuk tiap prediktor tambahan. Kalau prediktor baru tidak cukup berguna untuk membayar dendanya, Adjusted R² akan <b>turun</b>.</p>
+    <div class="eqbox" style="text-align:center;">Adjusted R² = 1 − [ (1 − R²)(n − 1) / (n − p − 1) ]</div>
+    <p class="muted">dengan <b>n</b> = jumlah observasi, <b>p</b> = jumlah prediktor.</p>
+  </div>
+
+  <div class="callout c-analogi">
+    <div class="cico">👥</div>
+    <div class="cbody">
+      <div class="ctitle">Analogi: menambah anggota tim yang cuma tidur</div>
+      <p>R² seperti menghitung <b>jumlah kepala</b> dalam tim: tambah orang, jumlah naik — selalu. Adjusted R² seperti menghitung <b>output nyata per gaji yang dibayar</b>: kalau anggota baru cuma duduk dan tidur, output per gaji justru <b>turun</b>. Kamu mau menilai tim dari jumlah kepala, atau dari hasil sebenarnya?</p>
+    </div>
+  </div>
+
+  <h2>Buktikan sendiri: tambahkan variabel sampah</h2>
+  <p>Model dasar punya 4 prediktor asli. Tekan tombol untuk menambah <b>variabel acak murni (noise)</b> — variabel yang sama sekali tidak berhubungan dengan harga. Amati kedua angka. (Semua dihitung sungguhan dari data simulasi 100 rumah.)</p>
+
+  <div class="sim">
+    <div class="bigres">
+      <div class="stat"><div class="lab">R²</div><div class="val blue" id="d-r2">–</div><div class="sub">selalu naik / tetap ▲</div></div>
+      <div class="stat"><div class="lab">Adjusted R²</div><div class="val green" id="d-ar2">–</div><div class="sub">bisa turun ▼</div></div>
+      <div class="stat"><div class="lab">Jumlah prediktor (p)</div><div class="val" id="d-p">4</div><div class="sub" id="d-plist">asli: luas, kamar, jarak, usia</div></div>
+    </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin:8px 0 4px;">
+      <button class="btn btn-sm" id="d-add">＋ Tambah variabel acak (noise)</button>
+      <button class="btn btn-sm btn-outline" id="d-reset">↺ Reset ke 4 prediktor</button>
+    </div>
+    <div class="canvas-host" style="margin-top:14px;">
+      <div class="pt" style="font-size:14px; font-weight:500; color:var(--ink-2); text-align:center; padding-bottom:6px;">R² vs Adjusted R² seiring bertambahnya prediktor sampah</div>
+      <canvas id="cv-r2line" height="300"></canvas>
+    </div>
+    <p id="d-note" class="muted" style="margin-top:6px;"></p>
+  </div>
+
+  <div class="callout c-inti">
+    <div class="cico">✅</div>
+    <div class="cbody">
+      <div class="ctitle">Aturan praktis</div>
+      <p>Kalau Adjusted R² <b>turun</b> setelah kamu menambah sebuah prediktor → prediktor itu kemungkinan besar <b>tidak berguna</b>. Untuk membandingkan model dengan <b>jumlah prediktor berbeda</b>, gunakan <b>Adjusted R²</b>, bukan R².</p>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Aspek</th><th>R²</th><th>Adjusted R²</th></tr></thead>
+      <tbody>
+        <tr><td>Saat prediktor bertambah</td><td>Selalu naik / tetap</td><td>Bisa turun jika tak berguna</td></tr>
+        <tr><td>Paling cocok untuk</td><td>1 prediktor (sederhana)</td><td>&gt;1 prediktor (berganda)</td></tr>
+        <tr><td>Rentang nilai</td><td>0 – 1</td><td>Bisa &lt; 0 (model sangat buruk)</td></tr>
+        <tr><td>Kapan dipakai</td><td>Membandingkan model berjumlah prediktor sama</td><td>Membandingkan model berjumlah prediktor beda</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout c-filosofi">
+    <div class="cico">🪒</div>
+    <div class="cbody">
+      <div class="ctitle">Filosofi: Pisau Cukur Occam &amp; nilai parsimoni</div>
+      <p>"Jangan memperbanyak entitas tanpa perlu." Model yang lebih sederhana namun sama baiknya <b>lebih disukai</b> — lebih mudah dipahami, lebih tahan banting di data baru, lebih jujur. Adjusted R² adalah Occam dalam wujud rumus: ia memaksa setiap variabel "membayar tiket masuk".</p>
+    </div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Berpikir meta: ini cikal bakal "overfitting"</div>
+      <p>Model yang menghafal noise terlihat hebat di data latih (R² tinggi) tapi gagal total di data baru. Inilah <b>overfitting</b>. Adjusted R² adalah peringatan dini paling sederhana. Di mata kuliah Machine Learning, idenya diperluas jadi validasi-silang, regularisasi (LASSO/Ridge), dan kriteria AIC/BIC.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 5: DIAGNOSTIK RESIDUAL ===================== -->
+<section class="page" id="sec-5" data-title="Diagnostik Residual">
+  <span class="kicker">Sub-CPMK 10.2 &middot; Cek asumsi</span>
+  <h1 class="page-title">Diagnostik residual</h1>
+  <p class="lead">Sebelum percaya pada model, periksa "sisa" yang tak terjelaskannya. Di situ kebenaran bersembunyi.</p>
+
+  <div class="card">
+    <p><b>Residual</b> = selisih antara nilai aktual dan prediksi (e = y − ŷ). Agar kesimpulan regresi sah, beberapa <b>asumsi</b> harus terpenuhi — dan kita memeriksanya lewat pola residual.</p>
+  </div>
+
+  <div class="callout c-analogi">
+    <div class="cico">🔍</div>
+    <div class="cbody">
+      <div class="ctitle">Analogi: detektif memeriksa remah-remah</div>
+      <p>Model sudah "memakan" semua pola yang ia kenali; residual adalah <b>remah yang tersisa di piring</b>. Kalau remah tersebar acak tak berpola → model sudah menangkap hampir semua yang bisa ditangkap. Tapi kalau remah membentuk pola (melengkung, mengipas) → ada <b>petunjuk</b> bahwa model melewatkan sesuatu. Detektif yang baik memeriksa sisa, bukan cuma hidangan utama.</p>
+    </div>
+  </div>
+
+  <h2>Empat asumsi & cara mengeceknya</h2>
+  <div class="steps">
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Linearitas</h4><p>Hubungan X–Y memang lurus. <b>Cek:</b> plot Residual vs Fitted — titik harus acak, tak melengkung. <b>Jika langgar:</b> transformasi variabel / model non-linear.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Normalitas residual</h4><p>Residual menyebar normal. <b>Cek:</b> Q-Q plot (titik dekat garis diagonal) atau uji Shapiro-Wilk. <b>Jika langgar:</b> untuk n &gt; 30 regresi cukup tahan; sampel kecil → transformasi.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Homoskedastisitas</h4><p>Variasi residual <b>konstan</b> di semua tingkat prediksi. <b>Cek:</b> sebaran tak boleh membentuk corong. Lawannya: <i>heteroskedastisitas</i>. <b>Jika langgar:</b> robust standard error / transformasi log Y.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Independensi</h4><p>Residual saling bebas. Sering dilanggar pada data deret waktu. <b>Cek:</b> uji Durbin-Watson.</p></div></div>
+  </div>
+
+  <h2>Bandingkan: model sehat vs bermasalah</h2>
+  <p>Ganti kondisi di bawah dan amati bagaimana keempat plot ikut berubah. Belajar "membaca" plot ini adalah keterampilan inti.</p>
+  <div class="seg" id="diag-seg">
+    <button class="on" data-diag="sehat">😊 Model sehat</button>
+    <button data-diag="hetero">📣 Heteroskedastik</button>
+    <button data-diag="nonnormal">↗️ Residual miring</button>
+  </div>
+
+  <div class="plotgrid">
+    <div class="plotcard"><div class="pt">1. Residual vs Fitted <span class="muted">(linearitas &amp; homoskedastisitas)</span></div><canvas id="cv-res-fit" height="260"></canvas></div>
+    <div class="plotcard"><div class="pt">2. Q-Q Plot <span class="muted">(normalitas)</span></div><canvas id="cv-qq" height="260"></canvas></div>
+    <div class="plotcard"><div class="pt">3. Histogram Residual <span class="muted">(normalitas)</span></div><canvas id="cv-hist" height="260"></canvas></div>
+    <div class="plotcard"><div class="pt">4. Scale-Location <span class="muted">(homoskedastisitas)</span></div><canvas id="cv-scale" height="260"></canvas></div>
+  </div>
+  <div class="qexp show" id="diag-verdict" style="background:var(--surface-2); border-color:var(--muted);"></div>
+
+  <div class="callout c-filosofi">
+    <div class="cico">🌌</div>
+    <div class="cbody">
+      <div class="ctitle">Filosofi: memeriksa apa yang TIDAK kita ketahui</div>
+      <p>Kebanyakan orang memuji model dari apa yang berhasil dijelaskannya. Statistikawan dewasa justru menatap <b>apa yang tersisa</b> — residual. Ini bentuk kerendahan hati intelektual: bukan "lihat betapa pintarku", melainkan "di mana aku masih buta?" Kualitas seorang analis terlihat dari ketekunannya memeriksa kesalahannya sendiri.</p>
+    </div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Berpikir meta: membaca plot itu seni, bukan tombol "lulus/gagal"</div>
+      <p>Uji formal (Shapiro-Wilk, Durbin-Watson) memberi satu angka p-value, tapi pada sampel besar uji jadi terlalu sensitif (pelanggaran sepele pun "signifikan"). Plot mengembalikan penilaian ke matamu dan akal sehatmu. Gabungkan keduanya; jangan menyembah satu angka.</p>
+    </div>
+  </div>
+
+  <div class="codewrap">
+    <div class="codehead"><span class="dotr"><i></i><i></i><i></i></span>python — 4 plot diagnostik &amp; uji normalitas</div>
+<pre class="code"><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">from</span> scipy <span class="kw">import</span> stats
+
+y_pred   = model_sm.predict(X_sm)
+residuals = model_sm.resid
+
+fig, ax = plt.subplots(<span class="nm">2</span>, <span class="nm">2</span>, figsize=(<span class="nm">12</span>, <span class="nm">10</span>))
+ax[<span class="nm">0</span>,<span class="nm">0</span>].scatter(y_pred, residuals)          <span class="cm"># 1. Residual vs Fitted</span>
+stats.probplot(residuals, plot=ax[<span class="nm">0</span>,<span class="nm">1</span>])     <span class="cm"># 2. Q-Q plot</span>
+ax[<span class="nm">1</span>,<span class="nm">0</span>].hist(residuals, bins=<span class="nm">20</span>)             <span class="cm"># 3. Histogram</span>
+ax[<span class="nm">1</span>,<span class="nm">1</span>].scatter(y_pred, (residuals.abs())**<span class="nm">0.5</span>)  <span class="cm"># 4. Scale-Location</span>
+
+W, p = stats.shapiro(residuals)
+<span class="fn">print</span>(<span class="st">f"Shapiro-Wilk p = {p:.4f} → "</span>,
+      <span class="st">"normal"</span> <span class="kw">if</span> p <span class="op">&gt;</span> <span class="nm">0.05</span> <span class="kw">else</span> <span class="st">"TIDAK normal"</span>)</pre>
+  </div>
+</section>
+
+<!-- ===================== SECTION 6: MULTICOLLINEARITY / VIF ===================== -->
+<section class="page" id="sec-6" data-title="Multikolinearitas (VIF)">
+  <span class="kicker">Sub-CPMK 10.2 &middot; Masalah antar-prediktor</span>
+  <h1 class="page-title">Multikolinearitas &amp; VIF</h1>
+  <p class="lead">Apa yang terjadi kalau dua prediktormu pada dasarnya menceritakan hal yang sama?</p>
+
+  <div class="card">
+    <p><b>Multikolinearitas</b> muncul ketika dua/lebih prediktor <b>sangat berkorelasi</b> satu sama lain. Akibatnya:</p>
+    <ul class="clean">
+      <li>Koefisien jadi <b>tidak stabil</b> — berubah drastis kalau data sedikit bergeser.</li>
+      <li><b>Standard error membengkak</b> — tafsir tiap variabel jadi tak pasti.</li>
+      <li>Sulit memilah <b>kontribusi individu</b> tiap prediktor.</li>
+    </ul>
+    <p>Contoh klasik: memasukkan "luas bangunan" <b>dan</b> "luas tanah" sekaligus — keduanya biasanya bergerak bersama.</p>
+  </div>
+
+  <div class="callout c-analogi">
+    <div class="cico">🗣️</div>
+    <div class="cbody">
+      <div class="ctitle">Analogi: dua saksi yang kesaksiannya identik</div>
+      <p>Bayangkan dua saksi di pengadilan selalu mengatakan hal yang persis sama, kata per kata. Mereka tak menambah informasi baru — dan hakim jadi <b>bingung menilai siapa yang sebenarnya kredibel</b>. Itulah multikolinearitas: dua prediktor yang "berkata sama", membuat model tak bisa memisahkan jasa masing-masing.</p>
+    </div>
+  </div>
+
+  <h2>Variance Inflation Factor (VIF)</h2>
+  <p>VIF mengukur seberapa besar variasi sebuah koefisien "menggelembung" akibat korelasi dengan prediktor lain.</p>
+  <div class="eqbox" style="text-align:center;">VIF(j) = 1 / (1 − R<sub>j</sub>²)</div>
+  <p class="muted">R<sub>j</sub>² = R² ketika xⱼ diregresikan terhadap semua prediktor lain. Makin xⱼ bisa "ditebak" dari yang lain, makin tinggi VIF.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>VIF</th><th>Tafsir</th><th>Tindakan</th></tr></thead>
+      <tbody>
+        <tr><td class="center"><b>≈ 1</b></td><td>Tidak ada multikolinearitas</td><td><span class="pill ok">Aman</span></td></tr>
+        <tr><td class="center"><b>1 – 5</b></td><td>Ringan</td><td><span class="pill ok">Masih diterima</span></td></tr>
+        <tr><td class="center"><b>5 – 10</b></td><td>Moderat</td><td><span class="pill warn">Perlu perhatian</span></td></tr>
+        <tr><td class="center"><b>&gt; 10</b></td><td>Serius</td><td><span class="pill bad">Hapus / gabungkan</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sim">
+    <h4>🔗 Simulasi: tarik kemiripan dua prediktor</h4>
+    <p class="muted" style="margin-top:0;">Kita tambahkan prediktor baru "luas tanah" yang dibuat dari luas bangunan. Geser slider untuk mengubah seberapa mirip keduanya. Amati VIF dan kestabilan koefisien.</p>
+    <div class="ctrl"><label>Kemiripan luas tanah ↔ luas bangunan</label><input type="range" id="vif-k" min="0" max="100" value="20" step="1"><div class="rd" id="vif-k-v">20%</div></div>
+    <div class="bigres" style="margin:6px 0 0;">
+      <div class="stat"><div class="lab">Korelasi r(tanah, bangunan)</div><div class="val blue" id="vif-corr">–</div></div>
+      <div class="stat"><div class="lab">Koefisien "luas bangunan"</div><div class="val red" id="vif-coef">–</div><div class="sub">amati: ikut goyang ↔</div></div>
+    </div>
+    <div class="canvas-host" style="margin-top:14px;">
+      <div class="pt" style="font-size:14px; font-weight:500; color:var(--ink-2); text-align:center; padding-bottom:6px;">VIF tiap prediktor (hijau aman · kuning waspada · merah serius)</div>
+      <canvas id="cv-vif" height="300"></canvas>
+    </div>
+    <p id="vif-note" class="muted" style="margin-top:6px;"></p>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Berpikir meta: VIF tinggi ≠ "model jelek"</div>
+      <p>Multikolinearitas <b>tidak</b> merusak kemampuan model <i>memprediksi</i> Y secara keseluruhan — R² bisa tetap tinggi. Yang ia rusak adalah kemampuanmu <b>menafsir koefisien individu</b>. Jadi kalau tujuanmu cuma prediksi, VIF tinggi mungkin bisa ditolerir. Kalau tujuanmu <i>memahami pengaruh tiap faktor</i>, VIF tinggi adalah alarm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 7: FEATURE SELECTION ===================== -->
+<section class="page" id="sec-7" data-title="Feature Selection">
+  <span class="kicker">Sub-CPMK 10.2 &middot; Memilih prediktor</span>
+  <h1 class="page-title">Feature Selection (konsep dasar)</h1>
+  <p class="lead">Punya banyak kandidat prediktor — bagaimana memilih kombinasi terbaik?</p>
+
+  <div class="objgrid">
+    <div class="card tight"><h3 style="margin-top:4px;">Forward Selection ▶</h3><p>Mulai dari <b>kosong</b> (hanya intercept), lalu:</p><ol class="clean"><li>Tambahkan satu prediktor yang paling meningkatkan model.</li><li>Ulangi.</li><li>Berhenti saat tak ada lagi yang signifikan menambah.</li></ol></div>
+    <div class="card tight"><h3 style="margin-top:4px;">Backward Elimination ◀</h3><p>Mulai dari <b>semua</b> prediktor, lalu:</p><ol class="clean"><li>Buang yang paling tidak signifikan (p-value tertinggi).</li><li>Fit ulang.</li><li>Berhenti saat semua yang tersisa signifikan.</li></ol></div>
+  </div>
+
+  <div class="callout c-analogi">
+    <div class="cico">🧳</div>
+    <div class="cbody">
+      <div class="ctitle">Analogi: mengemas koper</div>
+      <p><b>Forward</b> = berangkat dengan koper kosong, masukkan barang paling penting satu per satu sampai cukup. <b>Backward</b> = jejalkan semua barang, lalu keluarkan yang ternyata tak terpakai sampai koper rapi. Dua jalan, tujuan sama: bawa yang penting saja.</p>
+    </div>
+  </div>
+
+  <h2>Saksikan: Backward Elimination langkah demi langkah</h2>
+  <p>Kita mulai dari model dengan beberapa prediktor (termasuk satu variabel sampah). Tekan tombol untuk membuang prediktor ber-p-value tertinggi, satu per satu.</p>
+  <div class="sim">
+    <div id="fs-steps"></div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
+      <button class="btn btn-sm" id="fs-next">Langkah berikutnya →</button>
+      <button class="btn btn-sm btn-outline" id="fs-reset">↺ Ulang dari awal</button>
+    </div>
+  </div>
+
+  <div class="callout c-warning">
+    <div class="cico">⚠️</div>
+    <div class="cbody">
+      <div class="ctitle">Catatan</div>
+      <p>Di mata kuliah ini kita hanya membahas <b>konsep dasar</b>. Teknik lanjut (stepwise, LASSO, dll.) dipelajari di Machine Learning.</p>
+    </div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Berpikir meta: jangan jadi budak p-value</div>
+      <p>Membuang variabel <b>hanya</b> karena p-value &gt; 0,05 itu berbahaya. Variabel bisa "tak signifikan" karena multikolinearitas, ukuran sampel kecil, atau bentuk hubungan yang non-linear. Keputusan akhir harus mempertimbangkan <b>teori &amp; pengetahuan domain</b>, bukan sekadar mesin pemotong otomatis. Statistik adalah alat berpikir, bukan pengganti berpikir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 8: STUDI KASUS ===================== -->
+<section class="page" id="sec-8" data-title="Studi Kasus: Rumah Jakarta">
+  <span class="kicker">Penerapan &middot; Sub-CPMK 10.1–10.2</span>
+  <h1 class="page-title">Studi kasus: prediksi harga rumah di Jakarta</h1>
+  <p class="lead">Semua yang sudah dipelajari kita rangkai jadi satu alur analisis utuh.</p>
+
+  <div class="card">
+    <p>Pasar properti Jakarta sangat dinamis: lokasi, ukuran, usia bangunan, akses transportasi — semua memengaruhi harga. Kita bangun model regresi berganda dari 100 data rumah dan pakai untuk memprediksi.</p>
+  </div>
+
+  <h2>Alur analisis lengkap</h2>
+  <div class="steps">
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Eksplorasi data (EDA)</h4><p>Lihat ringkasan &amp; korelasi tiap fitur dengan harga. Luas dan jarak biasanya paling kuat.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Bangun model OLS</h4><p>Regresikan harga terhadap 4 prediktor; baca koefisien, p-value, R²/Adj R², F-statistik.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Cek multikolinearitas</h4><p>Hitung VIF tiap prediktor — pastikan tak ada yang &gt; 10.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Diagnostik residual</h4><p>Periksa linearitas, normalitas (Shapiro-Wilk), homoskedastisitas.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Prediksi</h4><p>Masukkan spesifikasi rumah baru, dapatkan estimasi harga.</p></div></div>
+    <div class="step"><div class="nb"></div><div class="sc"><h4>Interval prediksi</h4><p>Bukan satu angka, tapi rentang 95% — kejujuran tentang ketidakpastian.</p></div></div>
+  </div>
+
+  <h2>Model terlatih (dari 100 data)</h2>
+  <p class="muted">Inilah koefisien hasil <b>estimasi</b> (sedikit berbeda dari model contoh karena ada noise di data — itulah kenyataan).</p>
+  <div class="tablewrap"><table id="cs-coefs"><thead><tr><th>Prediktor</th><th class="center">Koefisien (b)</th><th>Tafsir singkat</th></tr></thead><tbody></tbody></table></div>
+  <div class="bigres">
+    <div class="stat"><div class="lab">R²</div><div class="val blue" id="cs-r2">–</div></div>
+    <div class="stat"><div class="lab">Adjusted R²</div><div class="val green" id="cs-ar2">–</div></div>
+    <div class="stat"><div class="lab">RMSE</div><div class="val" id="cs-rmse">–</div><div class="sub">juta Rp</div></div>
+  </div>
+
+  <div class="sim">
+    <h4>🏘️ Prediktor harga rumah — coba sendiri</h4>
+    <p class="muted" style="margin-top:0;">Geser spesifikasi rumah; model memberi <b>harga prediksi</b> beserta <b>interval 95%</b>.</p>
+    <div class="ctrl"><label>Luas (m²)</label><input type="range" id="cs-luas" min="36" max="200" value="80" step="1"><div class="rd" id="cs-luas-v">80</div></div>
+    <div class="ctrl"><label>Kamar</label><input type="range" id="cs-kamar" min="1" max="6" value="3" step="1"><div class="rd" id="cs-kamar-v">3</div></div>
+    <div class="ctrl"><label>Jarak ke pusat (km)</label><input type="range" id="cs-jarak" min="1" max="40" value="15" step="1"><div class="rd" id="cs-jarak-v">15</div></div>
+    <div class="ctrl"><label>Usia (th)</label><input type="range" id="cs-usia" min="0" max="30" value="5" step="1"><div class="rd" id="cs-usia-v">5</div></div>
+
+    <div class="bigres" style="margin-top:12px;">
+      <div class="stat" style="flex:2;"><div class="lab">Harga prediksi (titik)</div><div class="val blue" id="cs-price">–</div><div class="sub">juta Rp</div></div>
+      <div class="stat" style="flex:2;"><div class="lab">Interval prediksi 95%</div><div class="val" id="cs-ci" style="font-size:20px;">–</div><div class="sub">juta Rp</div></div>
+    </div>
+    <div class="canvas-host" style="margin-top:8px;"><canvas id="cv-ci" height="120"></canvas></div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Berpikir meta: titik vs rentang</div>
+      <p>Mengatakan "harga rumah ini 850 juta" terdengar percaya diri, tapi <b>menyesatkan</b>. Yang jujur: "850 juta, dengan rentang masuk akal 650–1.050 juta". Interval prediksi memaksa kita mengakui bahwa <b>noise itu nyata</b>. Angka tunggal menyembunyikan ketidaktahuan; rentang mengakuinya.</p>
+    </div>
+  </div>
+
+  <h2>Diskusi</h2>
+  <ul class="clean">
+    <li><b>Variabel paling berpengaruh?</b> Lihat magnitudo koefisien &amp; p-value — luas dan jarak biasanya terkuat.</li>
+    <li><b>Cukup baik?</b> Adj R² &gt; 0,7 sudah lumayan untuk perkiraan kasar; untuk keputusan investasi perlu model lebih kaya.</li>
+    <li><b>Limitasi:</b> ini data simulasi. Data riil punya lebih banyak variasi &amp; faktor tak tercakup (akses tol, sertifikat, developer).</li>
+    <li><b>Peluang perbaikan:</b> tambah zona (Selatan/Utara/…), akses transportasi publik, status sertifikat.</li>
+  </ul>
+
+  <div class="codewrap">
+    <div class="codehead"><span class="dotr"><i></i><i></i><i></i></span>python — ringkasan alur studi kasus</div>
+<pre class="code"><span class="kw">import</span> statsmodels.api <span class="kw">as</span> sm
+<span class="kw">from</span> statsmodels.stats.outliers_influence <span class="kw">import</span> variance_inflation_factor
+
+X = sm.add_constant(rumah[[<span class="st">'luas_m2'</span>,<span class="st">'jumlah_kamar'</span>,<span class="st">'jarak_pusat_km'</span>,<span class="st">'usia_tahun'</span>]])
+model = sm.OLS(rumah[<span class="st">'harga_juta'</span>], X).fit()
+<span class="fn">print</span>(model.summary())                 <span class="cm"># koef, p-value, R², Adj R², F</span>
+
+<span class="cm"># VIF tiap prediktor</span>
+<span class="kw">for</span> i, c <span class="kw">in</span> <span class="fn">enumerate</span>(X.columns[<span class="nm">1</span>:], <span class="nm">1</span>):
+    <span class="fn">print</span>(c, variance_inflation_factor(X.values, i))
+
+<span class="cm"># Prediksi + interval 95%</span>
+baru = [[<span class="nm">1</span>, <span class="nm">80</span>, <span class="nm">3</span>, <span class="nm">15</span>, <span class="nm">5</span>]]
+pred = model.get_prediction(baru).summary_frame(alpha=<span class="nm">0.05</span>)
+<span class="fn">print</span>(pred[[<span class="st">'mean'</span>,<span class="st">'obs_ci_lower'</span>,<span class="st">'obs_ci_upper'</span>]])</pre>
+  </div>
+</section>
+
+<!-- ===================== SECTION 9: AI CORNER ===================== -->
+<section class="page" id="sec-9" data-title="AI Corner">
+  <span class="kicker">AI Corner</span>
+  <h1 class="page-title">AI untuk diagnostik &amp; evaluasi model</h1>
+  <p class="lead">AI bisa jadi asisten hebat — asal kamu tetap jadi pengambil keputusan yang kritis.</p>
+
+  <div class="callout c-inti">
+    <div class="cico">💬</div>
+    <div class="cbody">
+      <div class="ctitle">Contoh prompt yang efektif</div>
+      <p>"Saya membangun model regresi berganda untuk prediksi harga rumah. Ini output statsmodels summary saya: <span class="muted">[tempel output]</span>. Tolong bantu: (1) adakah variabel tidak signifikan, (2) apakah model signifikan secara keseluruhan, (3) apa rekomendasi perbaikan?"</p>
+    </div>
+  </div>
+
+  <div class="objgrid">
+    <div class="card tight">
+      <h3 style="margin-top:4px; color:var(--green);">✅ Kapan AI membantu</h3>
+      <ul class="clean">
+        <li>Membaca &amp; menjelaskan output statsmodels yang ramai.</li>
+        <li>Menyarankan transformasi variabel untuk mengatasi pelanggaran asumsi.</li>
+        <li>Mengecek apakah tafsir koefismu sudah benar.</li>
+        <li>Menjelaskan VIF / multikolinearitas dengan analogi sederhana.</li>
+      </ul>
+    </div>
+    <div class="card tight">
+      <h3 style="margin-top:4px; color:var(--red);">⚠️ Kapan harus kritis</h3>
+      <ul class="clean">
+        <li>AI bisa menyuruh buang variabel hanya dari p-value, abai teori/domain.</li>
+        <li>AI tak selalu sadar datamu simulasi vs riil.</li>
+        <li>AI bisa lupa beda <i>practical</i> vs <i>statistical significance</i>.</li>
+        <li>Keputusan feature selection harus berbasis pemahaman, bukan statistik semata.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout c-meta">
+    <div class="cico">🧠</div>
+    <div class="cbody">
+      <div class="ctitle">Latihan AI-augmented</div>
+      <p>Coba prompt ini, lalu <b>evaluasi jawabannya secara kritis</b>:</p>
+      <p>1. "Jelaskan beda R² dan Adjusted R² lewat analogi kehidupan sehari-hari."<br>2. "Q-Q plot saya menyimpang di kedua ujung. Apa artinya dan apa yang harus saya lakukan?"</p>
+    </div>
+  </div>
+
+  <div class="callout c-filosofi">
+    <div class="cico">🤝</div>
+    <div class="cbody">
+      <div class="ctitle">Filosofi: AI memperluas, bukan menggantikan, penilaianmu</div>
+      <p>AI mempercepat pemahaman, tapi <b>tanggung jawab atas kesimpulan tetap milikmu</b>. Statistik yang baik adalah dialog antara data, alat, dan akal sehat manusia yang memahami konteks. Jadikan AI sebagai lawan diskusi yang cerdas — lalu kamu yang memutuskan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 10: KUIS ===================== -->
+<section class="page" id="sec-10" data-title="Kuis 40 Soal">
+  <span class="kicker">Evaluasi &middot; CPMK-5 (C4–C5)</span>
+  <h1 class="page-title">Kuis: 40 soal bertahap</h1>
+
+  <!-- Intro -->
+  <div id="quiz-intro">
+    <div class="card">
+      <p class="lead" style="margin-bottom:14px;">Uji pemahamanmu. Soal disusun <b>naik tingkat</b>: dari mengingat &amp; memahami, ke menerapkan &amp; menganalisis, hingga mengevaluasi sesuai capaian C4–C5.</p>
+      <div class="lvlbreak">
+        <div class="lvlcell"><div class="lh"><span><span class="qlevel lvl1">Tingkat 1 · Dasar</span></span><span class="muted">Soal 1–10</span></div><p class="muted" style="margin:0; font-size:14.5px;">Mengingat &amp; memahami definisi, rumus, istilah.</p></div>
+        <div class="lvlcell"><div class="lh"><span><span class="qlevel lvl2">Tingkat 2 · Menerapkan</span></span><span class="muted">Soal 11–22</span></div><p class="muted" style="margin:0; font-size:14.5px;">Menafsir koefisien, membaca VIF, memilih metrik.</p></div>
+        <div class="lvlcell"><div class="lh"><span><span class="qlevel lvl3">Tingkat 3 · Menganalisis</span></span><span class="muted">Soal 23–32</span></div><p class="muted" style="margin:0; font-size:14.5px;">Mendiagnosis masalah model dari gejala.</p></div>
+        <div class="lvlcell"><div class="lh"><span><span class="qlevel lvl4">Tingkat 4 · Mengevaluasi</span></span><span class="muted">Soal 33–40</span></div><p class="muted" style="margin:0; font-size:14.5px;">Menilai model, memutuskan, berpikir kritis.</p></div>
+      </div>
+      <ul class="checklist">
+        <li>Pilih satu jawaban — penjelasan langsung muncul tiap soal.</li>
+        <li>Skor &amp; rincian per tingkat ditampilkan di akhir.</li>
+        <li>Bisa diulang kapan saja.</li>
+      </ul>
+      <div class="center" style="margin-top:18px;">
+        <button class="btn" id="quiz-start">Mulai kuis &nbsp;→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Runner -->
+  <div id="quiz-runner" style="display:none;">
+    <div class="card">
+      <div class="quiz-top">
+        <span class="qlevel" id="q-level">Tingkat 1 · Dasar</span>
+        <span class="qcount"><span id="q-num">1</span> / 40 &nbsp;·&nbsp; Skor: <b id="q-score">0</b></span>
+      </div>
+      <div class="qprog"><i id="q-prog"></i></div>
+      <div class="qcpmk" id="q-cpmk"></div>
+      <div class="qtext" id="q-text"></div>
+      <div class="opts" id="q-opts"></div>
+      <div class="qexp" id="q-exp"></div>
+      <div class="qnav">
+        <button class="btn btn-outline btn-sm" id="q-prev">← Sebelumnya</button>
+        <button class="btn btn-sm" id="q-next" disabled>Lanjut →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div id="quiz-result" style="display:none;">
+    <div class="card center">
+      <div class="donut-wrap">
+        <canvas id="cv-donut" width="180" height="180" style="width:180px;height:180px;"></canvas>
+        <div style="text-align:left;">
+          <div style="font-size:15px; color:var(--muted);">Skor akhir</div>
+          <div style="font-size:46px; font-weight:500; line-height:1;"><span id="r-correct">0</span><span style="font-size:24px; color:var(--muted);"> / 40</span></div>
+          <div id="r-pct" style="font-size:20px; color:var(--blue); font-weight:500; margin-top:4px;"></div>
+        </div>
+      </div>
+      <div id="r-msg" style="font-size:18px; margin:6px 0 4px;"></div>
+      <div class="lvlbreak" id="r-breakdown"></div>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
+        <button class="btn" id="r-retry">↺ Ulangi kuis</button>
+        <button class="btn btn-outline" id="r-review">Tinjau jawaban</button>
+        <button class="btn btn-ghost" onclick="go(0)">↑ Kembali ke awal</button>
+      </div>
+    </div>
+    <div id="r-review-list" style="display:none; margin-top:8px;"></div>
+  </div>
+</section>
+
+<div class="botnav">
+  <button class="btn btn-outline" id="btnPrev">← Sebelumnya</button>
+  <button class="btn" id="btnNext">Selanjutnya →</button>
+</div>
+</main>
+
+<script>
+/* ============================================================
+   UTIL
+============================================================ */
+const $ = id => document.getElementById(id);
+const PAL = {blue:'#1a73e8', blueL:'#8ab4f8', green:'#1e8e3e', greenL:'#81c995', red:'#ea4335', redL:'#f28b82', yellow:'#f9ab00', purple:'#9334e6', grid:'#e8eaed', axis:'#bdc1c6', txt:'#5f6368', ink:'#202124'};
+function fmt(x,d=2){ if(!isFinite(x)) return '–'; return Number(x).toLocaleString('id-ID',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+function fmt0(x){ if(!isFinite(x)) return '–'; return Math.round(x).toLocaleString('id-ID'); }
+function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+function mean(a){ return a.reduce((s,v)=>s+v,0)/a.length; }
+
+/* ---------- seeded RNG (mulberry32) ---------- */
+function mulberry32(seed){ let a=seed>>>0; return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function makeNormal(rng){ let spare=null; return function(){ if(spare!==null){ const s=spare; spare=null; return s; } let u,v,s; do{ u=rng()*2-1; v=rng()*2-1; s=u*u+v*v; }while(s===0||s>=1); const m=Math.sqrt(-2*Math.log(s)/s); spare=v*m; return u*m; }; }
+
+/* ---------- normal CDF / inverse ---------- */
+function erf(x){ const t=1/(1+0.3275911*Math.abs(x)); const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x); return x>=0?y:-y; }
+function normCdf(x){ return 0.5*(1+erf(x/Math.SQRT2)); }
+function normInv(p){ // Acklam
+  if(p<=0) return -6; if(p>=1) return 6;
+  const a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00];
+  const b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,6.680131188771972e+01,-1.328068155288572e+01];
+  const c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,-2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00];
+  const d=[7.784695709041462e-03,3.224671290700398e-01,2.445134137142996e+00,3.754408661907416e+00];
+  const pl=0.02425, ph=1-pl; let q,r;
+  if(p<pl){ q=Math.sqrt(-2*Math.log(p)); return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); }
+  if(p<=ph){ q=p-0.5; r=q*q; return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1); }
+  q=Math.sqrt(-2*Math.log(1-p)); return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+}
+
+/* ---------- linear algebra ---------- */
+function transpose(M){ const r=M.length,c=M[0].length,T=[]; for(let j=0;j<c;j++){ T[j]=[]; for(let i=0;i<r;i++) T[j][i]=M[i][j]; } return T; }
+function matmul(A,B){ const r=A.length,n=A[0].length,c=B[0].length,C=[]; for(let i=0;i<r;i++){ C[i]=new Array(c).fill(0); for(let k=0;k<n;k++){ const a=A[i][k]; for(let j=0;j<c;j++) C[i][j]+=a*B[k][j]; } } return C; }
+function matvec(A,v){ return A.map(row=> row.reduce((s,a,j)=> s+a*v[j],0)); }
+function dot(a,b){ let s=0; for(let i=0;i<a.length;i++) s+=a[i]*b[i]; return s; }
+function inverse(M){ const n=M.length; const A=M.map((r,i)=> r.concat(Array.from({length:n},(_,j)=> i===j?1:0)));
+  for(let i=0;i<n;i++){ let piv=i; for(let r=i+1;r<n;r++) if(Math.abs(A[r][i])>Math.abs(A[piv][i])) piv=r; if(Math.abs(A[piv][i])<1e-12){ A[i][i]+=1e-9; piv=i; } [A[i],A[piv]]=[A[piv],A[i]]; const d=A[i][i]; for(let j=0;j<2*n;j++) A[i][j]/=d; for(let r=0;r<n;r++){ if(r===i) continue; const f=A[r][i]; for(let j=0;j<2*n;j++) A[r][j]-=f*A[i][j]; } }
+  return A.map(r=> r.slice(n)); }
+
+/* ---------- OLS ---------- */
+function ols(cols,y){
+  const n=y.length; const X=[];
+  for(let i=0;i<n;i++){ const row=[1]; for(const c of cols) row.push(c[i]); X.push(row); }
+  const k=X[0].length; const Xt=transpose(X); const XtX=matmul(Xt,X); const XtXinv=inverse(XtX);
+  const beta=matvec(XtXinv, matvec(Xt,y));
+  const fitted=X.map(r=> dot(r,beta)); const resid=y.map((v,i)=> v-fitted[i]);
+  const yb=mean(y); const ssTot=y.reduce((s,v)=> s+(v-yb)*(v-yb),0); const ssRes=resid.reduce((s,v)=> s+v*v,0);
+  const p=k-1; const r2=1-ssRes/ssTot; const adjR2=1-(1-r2)*(n-1)/(n-p-1); const rmse=Math.sqrt(ssRes/n);
+  const dfRes=Math.max(1,n-p-1); const sigma2=ssRes/dfRes;
+  const se=beta.map((_,j)=> Math.sqrt(Math.max(0,sigma2*XtXinv[j][j])));
+  const tval=beta.map((b,j)=> se[j]>0? b/se[j]:0);
+  const pval=tval.map(t=> 2*(1-normCdf(Math.abs(t))));
+  return {beta,fitted,resid,r2,adjR2,rmse,n,p,k,XtXinv,sigma2,se,tval,pval,X};
+}
+function r2of(cols,y){ return ols(cols,y).r2; }
+function vifFor(cols, idx){ const target=cols[idx]; const others=cols.filter((_,i)=> i!==idx); if(others.length===0) return 1; const r2=r2of(others,target); return 1/Math.max(1e-6,(1-r2)); }
+
+/* ============================================================
+   DATA — simulasi 100 rumah Jakarta (seed 2025)
+============================================================ */
+const D = (function(){
+  const rng=mulberry32(2025); const rn=makeNormal(rng); const n=100;
+  const luas=[],kamar=[],jarak=[],usia=[],harga=[];
+  const choices=[2,3,4,5], cum=[0.2,0.6,0.9,1.0];
+  for(let i=0;i<n;i++){
+    const L=36+rng()*(200-36);
+    const u=rng(); let K=5; for(let c=0;c<4;c++){ if(u<=cum[c]){ K=choices[c]; break; } }
+    const J=3+rng()*(40-3); const A=rng()*30;
+    const H=200 + 8.5*L + 50*K - 15*J - 5*A + rn()*100;
+    luas.push(L); kamar.push(K); jarak.push(J); usia.push(A); harga.push(H);
+  }
+  return {n,luas,kamar,jarak,usia,harga, cols:[luas,kamar,jarak,usia]};
+})();
+// pre-fit the full model once
+const FULL = ols(D.cols, D.harga);
+
+/* ============================================================
+   CANVAS PLOTTING
+============================================================ */
+function fitCanvas(cv){
+  const dpr=window.devicePixelRatio||1;
+  const Hl=parseInt(cv.getAttribute('height'))||260;
+  let Wl=cv.clientWidth; if(!Wl||Wl<40){ Wl=(cv.parentElement&&cv.parentElement.clientWidth)||600; }
+  cv.style.height=Hl+'px';
+  cv.width=Math.round(Wl*dpr); cv.height=Math.round(Hl*dpr);
+  const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,Wl,Hl);
+  return {ctx,W:Wl,H:Hl};
+}
+function niceTicks(min,max,n=5){ if(min===max){ min-=1; max+=1; } const span=max-min; const step0=span/n; const mag=Math.pow(10,Math.floor(Math.log10(step0))); const norm=step0/mag; let step; if(norm<1.5)step=1;else if(norm<3)step=2;else if(norm<7)step=5;else step=10; step*=mag; const lo=Math.floor(min/step)*step, hi=Math.ceil(max/step)*step; const t=[]; for(let v=lo;v<=hi+step*0.5;v+=step) t.push(Math.abs(v)<step*1e-9?0:v); return {ticks:t,lo,hi}; }
+function frame(ctx,W,H,xr,yr,xLabel,yLabel){
+  const L=52,R=16,T=14,B=40; const pw=W-L-R, ph=H-T-B;
+  const xt=niceTicks(xr[0],xr[1]), yt=niceTicks(yr[0],yr[1]);
+  const x0=xt.lo,x1=xt.hi,y0=yt.lo,y1=yt.hi;
+  const sx=v=> L+(v-x0)/(x1-x0)*pw; const sy=v=> T+ph-(v-y0)/(y1-y0)*ph;
+  ctx.lineWidth=1; ctx.font='12px Roboto, sans-serif'; ctx.textBaseline='middle';
+  // gridlines
+  ctx.strokeStyle=PAL.grid;
+  yt.ticks.forEach(v=>{ const y=sy(v); ctx.beginPath(); ctx.moveTo(L,y); ctx.lineTo(L+pw,y); ctx.stroke(); ctx.fillStyle=PAL.txt; ctx.textAlign='right'; ctx.fillText(fmtTick(v),L-8,y); });
+  xt.ticks.forEach(v=>{ const x=sx(v); ctx.beginPath(); ctx.moveTo(x,T); ctx.lineTo(x,T+ph); ctx.stroke(); ctx.fillStyle=PAL.txt; ctx.textAlign='center'; ctx.textBaseline='top'; ctx.fillText(fmtTick(v),x,T+ph+8); ctx.textBaseline='middle'; });
+  // axis labels
+  ctx.fillStyle=PAL.txt; ctx.font='12.5px Roboto, sans-serif';
+  ctx.textAlign='center'; ctx.fillText(xLabel, L+pw/2, H-8);
+  ctx.save(); ctx.translate(13, T+ph/2); ctx.rotate(-Math.PI/2); ctx.fillText(yLabel,0,0); ctx.restore();
+  return {sx,sy,L,R,T,B,pw,ph,x0,x1,y0,y1};
+}
+function fmtTick(v){ const a=Math.abs(v); if(a>=1000) return (v/1000).toLocaleString('id-ID',{maximumFractionDigits:1})+'k'; if(a!==0&&a<1) return v.toLocaleString('id-ID',{maximumFractionDigits:2}); return v.toLocaleString('id-ID',{maximumFractionDigits:1}); }
+function pad(min,max,f=0.06){ const s=(max-min)||1; return [min-s*f, max+s*f]; }
+
+function drawScatter(cv, xs, ys, opts={}){
+  const {ctx,W,H}=fitCanvas(cv); const xr=opts.xr||pad(Math.min(...xs),Math.max(...xs)); const yr=opts.yr||pad(Math.min(...ys),Math.max(...ys));
+  const f=frame(ctx,W,H,xr,yr,opts.xLabel||'',opts.yLabel||'');
+  if(opts.hline!==undefined){ ctx.strokeStyle=PAL.red; ctx.setLineDash([6,5]); ctx.lineWidth=1.5; const y=f.sy(opts.hline); ctx.beginPath(); ctx.moveTo(f.L,y); ctx.lineTo(f.L+f.pw,y); ctx.stroke(); ctx.setLineDash([]); }
+  if(opts.line){ ctx.strokeStyle=opts.line.color||PAL.red; ctx.lineWidth=2.5; ctx.beginPath(); opts.line.pts.forEach((p,i)=>{ const X=f.sx(p[0]),Y=f.sy(p[1]); i?ctx.lineTo(X,Y):ctx.moveTo(X,Y); }); ctx.stroke(); }
+  ctx.fillStyle=opts.color||PAL.blue; ctx.strokeStyle='#fff'; ctx.lineWidth=1;
+  for(let i=0;i<xs.length;i++){ const X=f.sx(xs[i]),Y=f.sy(ys[i]); ctx.beginPath(); ctx.arc(X,Y,opts.r||3.4,0,7); ctx.globalAlpha=opts.alpha||0.72; ctx.fill(); ctx.globalAlpha=1; ctx.stroke(); }
+  return f;
+}
+function drawLines(cv, xs, series, opts={}){
+  const {ctx,W,H}=fitCanvas(cv); let ymin=Infinity,ymax=-Infinity; series.forEach(s=> s.ys.forEach(v=>{ if(v<ymin)ymin=v; if(v>ymax)ymax=v; }));
+  const yr=opts.yr||pad(ymin,ymax,0.12); const xr=opts.xr||pad(Math.min(...xs),Math.max(...xs),0.04);
+  const f=frame(ctx,W,H,xr,yr,opts.xLabel||'',opts.yLabel||'');
+  series.forEach(s=>{ ctx.strokeStyle=s.color; ctx.lineWidth=2.6; ctx.beginPath(); xs.forEach((x,i)=>{ const X=f.sx(x),Y=f.sy(s.ys[i]); i?ctx.lineTo(X,Y):ctx.moveTo(X,Y); }); ctx.stroke();
+    ctx.fillStyle=s.color; xs.forEach((x,i)=>{ ctx.beginPath(); ctx.arc(f.sx(x),f.sy(s.ys[i]),3.6,0,7); ctx.fill(); }); });
+  // legend
+  if(opts.legend!==false){ let lx=f.L+10, ly=f.T+6; ctx.font='12.5px Roboto'; ctx.textAlign='left'; ctx.textBaseline='middle'; series.forEach(s=>{ ctx.fillStyle=s.color; ctx.fillRect(lx,ly-5,14,10); ctx.fillStyle=PAL.ink; ctx.fillText(s.label,lx+20,ly); ly+=20; }); }
+  return f;
+}
+function drawBars(cv, labels, vals, opts={}){
+  const {ctx,W,H}=fitCanvas(cv); const ymax=opts.ymax||Math.max(...vals,1)*1.12; const yr=[0,ymax];
+  const L=52,R=16,T=14,B=46; const pw=W-L-R, ph=H-T-B;
+  const yt=niceTicks(0,ymax); const sy=v=> T+ph-(v-0)/(yt.hi)*ph;
+  ctx.strokeStyle=PAL.grid; ctx.lineWidth=1; ctx.font='12px Roboto'; ctx.textBaseline='middle';
+  yt.ticks.forEach(v=>{ const y=sy(v); ctx.beginPath(); ctx.moveTo(L,y); ctx.lineTo(L+pw,y); ctx.stroke(); ctx.fillStyle=PAL.txt; ctx.textAlign='right'; ctx.fillText(fmtTick(v),L-8,y); });
+  // threshold lines
+  (opts.thresholds||[]).forEach(t=>{ const y=sy(t.v); ctx.strokeStyle=t.color; ctx.setLineDash([5,5]); ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(L,y); ctx.lineTo(L+pw,y); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle=t.color; ctx.textAlign='left'; ctx.font='11px Roboto'; ctx.fillText(t.label, L+pw-86, y-8); ctx.font='12px Roboto'; });
+  const n=labels.length; const gap=pw/n; const bw=Math.min(64, gap*0.6);
+  for(let i=0;i<n;i++){ const cx=L+gap*(i+0.5); const h=Math.min(ph, vals[i]/yt.hi*ph); const col=opts.colors? opts.colors[i]:PAL.blue;
+    ctx.fillStyle=col; roundRect(ctx, cx-bw/2, T+ph-h, bw, h, 5); ctx.fill();
+    ctx.fillStyle=PAL.ink; ctx.font='12.5px Roboto'; ctx.textAlign='center'; ctx.textBaseline='bottom'; ctx.fillText(opts.fmt? opts.fmt(vals[i]):fmt(vals[i],1), cx, T+ph-h-5);
+    ctx.fillStyle=PAL.txt; ctx.textBaseline='top'; ctx.font='12px Roboto'; wrapLabel(ctx, labels[i], cx, T+ph+8, gap-6); }
+}
+function roundRect(ctx,x,y,w,h,r){ r=Math.min(r,w/2,h/2); if(h<=0){return;} ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function wrapLabel(ctx,txt,cx,y,maxw){ const words=txt.split(' '); let line='',lines=[]; words.forEach(w=>{ const t=line?line+' '+w:w; if(ctx.measureText(t).width>maxw && line){ lines.push(line); line=w; } else line=t; }); if(line)lines.push(line); lines.slice(0,2).forEach((l,i)=> ctx.fillText(l,cx,y+i*14)); }
+
+function drawHist(cv, vals, opts={}){
+  const {ctx,W,H}=fitCanvas(cv); const min=Math.min(...vals),max=Math.max(...vals); const nb=opts.bins||16; const bw=(max-min)/nb||1;
+  const counts=new Array(nb).fill(0); vals.forEach(v=>{ let b=Math.floor((v-min)/bw); if(b>=nb)b=nb-1; if(b<0)b=0; counts[b]++; });
+  const dens=counts.map(c=> c/(vals.length*bw)); const ymax=Math.max(...dens)*1.2;
+  const f=frame(ctx,W,H,[min-bw*0.3,max+bw*0.3],[0,ymax],opts.xLabel||'Residual','Densitas');
+  for(let i=0;i<nb;i++){ const x0=f.sx(min+i*bw), x1=f.sx(min+(i+1)*bw); const y=f.sy(dens[i]); ctx.fillStyle=PAL.blueL; ctx.globalAlpha=.85; ctx.fillRect(x0+1,y,Math.max(1,x1-x0-2),f.sy(0)-y); ctx.globalAlpha=1; }
+  // normal overlay
+  if(opts.normal!==false){ const mu=mean(vals); const sd=Math.sqrt(mean(vals.map(v=>(v-mu)*(v-mu)))); ctx.strokeStyle=PAL.red; ctx.lineWidth=2.4; ctx.beginPath(); for(let i=0;i<=80;i++){ const x=min+(max-min)*i/80; const d=Math.exp(-0.5*((x-mu)/sd)**2)/(sd*Math.sqrt(2*Math.PI)); const X=f.sx(x),Y=f.sy(d); i?ctx.lineTo(X,Y):ctx.moveTo(X,Y); } ctx.stroke(); }
+}
+function drawQQ(cv, resid){
+  const {ctx,W,H}=fitCanvas(cv); const mu=mean(resid); const sd=Math.sqrt(mean(resid.map(v=>(v-mu)*(v-mu))))||1;
+  const z=resid.map(v=>(v-mu)/sd).sort((a,b)=>a-b); const n=z.length; const th=z.map((_,i)=> normInv((i+0.5)/n));
+  const lim=Math.max(Math.abs(th[0]),Math.abs(th[n-1]),Math.abs(z[0]),Math.abs(z[n-1]))*1.05;
+  const f=frame(ctx,W,H,[-lim,lim],[-lim,lim],'Kuantil teoretis (Normal)','Kuantil residual (z)');
+  ctx.strokeStyle=PAL.red; ctx.setLineDash([6,5]); ctx.lineWidth=1.8; ctx.beginPath(); ctx.moveTo(f.sx(-lim),f.sy(-lim)); ctx.lineTo(f.sx(lim),f.sy(lim)); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle=PAL.blue; ctx.strokeStyle='#fff'; for(let i=0;i<n;i++){ ctx.beginPath(); ctx.arc(f.sx(th[i]),f.sy(z[i]),3,0,7); ctx.globalAlpha=.72; ctx.fill(); ctx.globalAlpha=1; ctx.stroke(); }
+}
+function drawCIbar(cv, lo, pt, hi){
+  const {ctx,W,H}=fitCanvas(cv); const span=hi-lo||1; const aMin=lo-span*0.7, aMax=hi+span*0.7;
+  const L=20,R=20,yc=H-44, pw=W-L-R; const sx=v=> L+(v-aMin)/(aMax-aMin)*pw;
+  // axis
+  ctx.strokeStyle=PAL.axis; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(L,yc); ctx.lineTo(L+pw,yc); ctx.stroke();
+  const t=niceTicks(aMin,aMax,5); ctx.font='12px Roboto'; ctx.fillStyle=PAL.txt; ctx.textAlign='center'; ctx.textBaseline='top';
+  t.ticks.forEach(v=>{ if(v<aMin||v>aMax)return; const x=sx(v); ctx.strokeStyle=PAL.axis; ctx.beginPath(); ctx.moveTo(x,yc-4); ctx.lineTo(x,yc+4); ctx.stroke(); ctx.fillText(fmt0(v),x,yc+8); });
+  // band
+  ctx.fillStyle='rgba(26,115,232,0.16)'; ctx.fillRect(sx(lo), yc-26, sx(hi)-sx(lo), 26);
+  ctx.strokeStyle=PAL.blue; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(sx(lo),yc-30); ctx.lineTo(sx(lo),yc); ctx.moveTo(sx(hi),yc-30); ctx.lineTo(sx(hi),yc); ctx.stroke();
+  // point
+  ctx.fillStyle=PAL.blue; ctx.beginPath(); ctx.arc(sx(pt),yc-13,6,0,7); ctx.fill();
+  ctx.fillStyle=PAL.ink; ctx.font='13px Roboto'; ctx.textBaseline='bottom';
+  ctx.textAlign='center'; ctx.fillText('prediksi '+fmt0(pt),sx(pt),yc-34);
+  ctx.textAlign='left'; ctx.fillStyle=PAL.txt; ctx.font='11.5px Roboto'; ctx.fillText('batas bawah '+fmt0(lo),sx(lo),yc-32);
+  ctx.textAlign='right'; ctx.fillText('batas atas '+fmt0(hi),sx(hi),yc-32);
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+const navMeta=[
+  {ic:'🏠',lbl:'Beranda'},{ic:'🔭',lbl:'Kenapa Banyak Prediktor'},{ic:'🧮',lbl:'Model Regresi Berganda'},
+  {ic:'⚖️',lbl:'Interpretasi Koefisien'},{ic:'📊',lbl:'R² vs Adjusted R²'},{ic:'🩺',lbl:'Diagnostik Residual'},
+  {ic:'🔗',lbl:'Multikolinearitas (VIF)'},{ic:'🎯',lbl:'Feature Selection'},{ic:'🏘️',lbl:'Studi Kasus: Rumah Jakarta'},
+  {ic:'🤖',lbl:'AI Corner'},{ic:'📝',lbl:'Kuis (40 Soal)'}
+];
+const TOTAL=navMeta.length; let cur=0; const shown=new Set(); const visited=new Set([0]);
+const INIT={}, REDRAW={};
+(function buildNav(){ const nl=$('navList'); navMeta.forEach((m,i)=>{ const b=document.createElement('button'); b.className='nav-item'+(i===0?' active':''); b.dataset.i=i; b.innerHTML='<span class="ic">'+m.ic+'</span><span class="lbl">'+(i+1)+'. '+m.lbl+'</span><span class="dot"></span>'; b.onclick=()=>{ go(i); closeNav(); }; nl.appendChild(b); }); })();
+
+function go(i){ i=clamp(i,0,TOTAL-1); const pages=document.querySelectorAll('.page'); pages.forEach(p=>p.classList.remove('active')); $('sec-'+i).classList.add('active'); cur=i; visited.add(i);
+  document.querySelectorAll('.nav-item').forEach(b=>{ const bi=+b.dataset.i; b.classList.toggle('active',bi===i); if(visited.has(bi)) b.classList.add('done'); });
+  // progress
+  const pct=Math.round((Math.max(...visited))/(TOTAL-1)*100); $('progFill').style.width=pct+'%'; $('progTxt').textContent='Bagian '+(i+1)+' / '+TOTAL;
+  // nav buttons
+  $('btnPrev').style.visibility=i===0?'hidden':'visible'; $('btnNext').style.visibility=i===TOTAL-1?'hidden':'visible';
+  if(i<TOTAL-1) $('btnNext').textContent='Selanjutnya: '+navMeta[i+1].lbl.replace(/\s*\(.*\)/,'')+' →';
+  // init/redraw
+  if(!shown.has(i)){ shown.add(i); if(INIT[i]) try{INIT[i]();}catch(e){console.error(e);} }
+  if(REDRAW[i]) try{REDRAW[i]();}catch(e){console.error(e);}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+window.go=go;
+$('btnPrev').onclick=()=>go(cur-1); $('btnNext').onclick=()=>go(cur+1);
+function closeNav(){ document.body.classList.remove('nav-open'); }
+$('hamb').onclick=()=> document.body.classList.toggle('nav-open');
+$('scrim').onclick=closeNav;
+let rzT; window.addEventListener('resize',()=>{ clearTimeout(rzT); rzT=setTimeout(()=>{ if(REDRAW[cur]) REDRAW[cur](); },180); });
+document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT')return; if(e.key==='ArrowRight')go(cur+1); if(e.key==='ArrowLeft')go(cur-1); });
+
+/* ============================================================
+   SECTION 1 — motivation
+============================================================ */
+INIT[1]=function(){
+  const fit1=ols([D.luas], D.harga); const minL=Math.min(...D.luas),maxL=Math.max(...D.luas);
+  REDRAW[1]=function(){ drawScatter($('cv-motivate'), D.luas, D.harga,{ xLabel:'Luas bangunan (m²)', yLabel:'Harga (juta Rp)', color:PAL.blue, line:{color:PAL.red, pts:[[minL, fit1.beta[0]+fit1.beta[1]*minL],[maxL, fit1.beta[0]+fit1.beta[1]*maxL]]} }); };
+  REDRAW[1]();
+  $('r2-one').textContent=fmt(fit1.r2,3); $('r2-four').textContent=fmt(FULL.r2,3); $('r2-gain').textContent='+'+fmt(FULL.r2-fit1.r2,3);
+};
+
+/* ============================================================
+   SECTION 2 — equation builder (true model)
+============================================================ */
+const TM={b0:200,b1:8.5,b2:50,b3:-15,b4:-5};
+function trueModel(l,k,j,u){ return TM.b0+TM.b1*l+TM.b2*k+TM.b3*j+TM.b4*u; }
+function renderContrib(el, items){ let h=''; const mx=Math.max(...items.map(it=>Math.abs(it.val)),1);
+  items.forEach(it=>{ const w=Math.abs(it.val)/mx*48; const pos=it.val>=0; const left=pos?50:(50-w); const sign=pos?'+':'−';
+    h+='<div class="row"><span class="nm">'+it.nm+'</span><span class="bar"><i style="left:'+left+'%;width:'+w+'%;background:'+it.col+'"></i></span><span class="vv">'+sign+fmt0(Math.abs(it.val))+'</span></div>'; });
+  el.innerHTML=h; }
+INIT[2]=function(){
+  const ids=['luas','kamar','jarak','usia'];
+  function upd(){ const l=+$('s2-luas').value,k=+$('s2-kamar').value,j=+$('s2-jarak').value,u=+$('s2-usia').value;
+    $('s2-luas-v').textContent=l; $('s2-kamar-v').textContent=k; $('s2-jarak-v').textContent=j; $('s2-usia-v').textContent=u;
+    $('s2-eq').innerHTML='ŷ = <span class="term t0">200</span> + <span class="term t1">8,5·'+l+'</span> + <span class="term t2">50·'+k+'</span> + <span class="term t3">(−15)·'+j+'</span> + <span class="term t4">(−5)·'+u+'</span>';
+    renderContrib($('s2-contrib'),[ {nm:'Intercept',val:TM.b0,col:PAL.blueL}, {nm:'Luas ('+l+'m²)',val:TM.b1*l,col:PAL.blue}, {nm:'Kamar ('+k+')',val:TM.b2*k,col:PAL.green}, {nm:'Jarak ('+j+'km)',val:TM.b3*j,col:PAL.red}, {nm:'Usia ('+u+'th)',val:TM.b4*u,col:PAL.purple} ]);
+    $('s2-price').textContent=fmt0(trueModel(l,k,j,u));
+  }
+  ids.forEach(x=> $('s2-'+x).addEventListener('input',upd)); upd(); REDRAW[2]=upd;
+};
+
+/* ============================================================
+   SECTION 3 — ceteris paribus lab
+============================================================ */
+INIT[3]=function(){
+  const coef={luas:TM.b1,kamar:TM.b2,jarak:TM.b3,usia:TM.b4}; const nice={luas:'luas',kamar:'kamar',jarak:'jarak',usia:'usia'}; const unit={luas:'m²',kamar:'kamar',jarak:'km',usia:'tahun'};
+  let active='luas'; const base={};
+  const vals=()=>({luas:+$('cp-luas').value,kamar:+$('cp-kamar').value,jarak:+$('cp-jarak').value,usia:+$('cp-usia').value});
+  function lock(){ ['luas','kamar','jarak','usia'].forEach(v=>{ $('cp-'+v).disabled=(v!==active); }); }
+  function setActive(a){ active=a; base[a]=+$('cp-'+a).value; document.querySelectorAll('#cp-seg button').forEach(b=> b.classList.toggle('on',b.dataset.cp===a)); lock(); upd(); }
+  function upd(){ const v=vals(); ['luas','kamar','jarak','usia'].forEach(x=> $('cp-'+x+'-v').textContent=v[x]);
+    const price=trueModel(v.luas,v.kamar,v.jarak,v.usia); $('cp-price').textContent=fmt0(price);
+    const d=coef[active]*(v[active]-base[active]); $('cp-delta').textContent=(d>=0?'+':'−')+fmt0(Math.abs(d));
+    $('cp-delta-sub').textContent= nice[active]+' bergeser '+fmt(v[active]-base[active],0)+' '+unit[active]+' dari titik awal';
+    $('cp-explain').innerHTML='Karena <b>'+coef[active]+'</b> adalah koefisien <b>'+nice[active]+'</b>, tiap +1 '+unit[active]+' mengubah harga sebesar '+coef[active]+' juta. Ketiga variabel lain <b>dikunci</b> — jadi seluruh perubahan harga murni datang dari '+nice[active]+'. <i>Itulah ceteris paribus.</i>';
+  }
+  document.querySelectorAll('#cp-seg button').forEach(b=> b.onclick=()=> setActive(b.dataset.cp));
+  ['luas','kamar','jarak','usia'].forEach(x=> $('cp-'+x).addEventListener('input',upd));
+  setActive('luas'); REDRAW[3]=upd;
+};
+
+/* ============================================================
+   SECTION 4 — R² vs Adjusted R² demo
+============================================================ */
+INIT[4]=function(){
+  const noiseRng=mulberry32(4242); const noiseN=makeNormal(noiseRng); let extras=[]; let history=[];
+  function recompute(){ const m=ols(D.cols.concat(extras), D.harga); return {p:4+extras.length, r2:m.r2, adjR2:m.adjR2}; }
+  function refreshStats(){ const last=history[history.length-1]; $('d-r2').textContent=fmt(last.r2,4); $('d-ar2').textContent=fmt(last.adjR2,4); $('d-p').textContent=last.p;
+    $('d-plist').textContent= extras.length? ('asli 4 + '+extras.length+' acak') : 'asli: luas, kamar, jarak, usia';
+  }
+  function draw(){ const xs=history.map(h=>h.p); const r2a=history.map(h=>h.r2), ar2a=history.map(h=>h.adjR2);
+    let vmin=Math.min(...r2a,...ar2a), vmax=Math.max(...r2a,...ar2a); let sp=Math.max(vmax-vmin,0.015); const yr=[vmin-sp*0.45, Math.min(1.002,vmax+sp*0.45)];
+    drawLines($('cv-r2line'), xs, [ {ys:r2a,color:PAL.blue,label:'R²'},{ys:ar2a,color:PAL.green,label:'Adjusted R²'} ], {xLabel:'Jumlah prediktor (p)', yLabel:'nilai', yr}); }
+  function note(){ if(extras.length===0){ $('d-note').textContent='Tekan tombol untuk menambah variabel acak. Amati: R² naik (atau diam), Adjusted R² cenderung turun.'; return; }
+    const last=history[history.length-1], prev=history[history.length-2];
+    const dr=last.r2-prev.r2, da=last.adjR2-prev.adjR2;
+    $('d-note').innerHTML='Setelah menambah noise ke-'+extras.length+': R² berubah '+(dr>=0?'+':'')+fmt(dr,5)+' (naik/tetap), Adjusted R² berubah '+(da>=0?'+':'')+fmt(da,5)+(da<0?' — turun! Variabel ini terbukti tak berguna.':'.');
+  }
+  function redraw(){ refreshStats(); draw(); note(); }
+  $('d-add').onclick=function(){ const col=[]; for(let i=0;i<D.n;i++) col.push(noiseN()); extras.push(col); history.push(recompute()); redraw(); if(extras.length>=10) this.disabled=true; };
+  $('d-reset').onclick=function(){ extras=[]; history=[{p:4,r2:FULL.r2,adjR2:FULL.adjR2}]; $('d-add').disabled=false; redraw(); };
+  history=[{p:4,r2:FULL.r2,adjR2:FULL.adjR2}]; redraw(); REDRAW[4]=draw;
+};
+
+/* ============================================================
+   SECTION 5 — residual diagnostics
+============================================================ */
+INIT[5]=function(){
+  const fitted=FULL.fitted.slice(); const minF=Math.min(...fitted),maxF=Math.max(...fitted),rng=(maxF-minF)||1;
+  const r5=mulberry32(99), n5=makeNormal(r5);
+  // sehat
+  const resSehat=FULL.resid.slice();
+  // hetero
+  let resHet=fitted.map(f=>{ const frac=(f-minF)/rng; return n5()*(12+200*frac); });
+  // nonnormal (right-skew)
+  let resNon=fitted.map(()=> (Math.exp(n5()*0.7)-1)*150 );
+  const mH=mean(resHet); resHet=resHet.map(v=>v-mH); const mN=mean(resNon); resNon=resNon.map(v=>v-mN);
+  const sets={sehat:resSehat, hetero:resHet, nonnormal:resNon};
+  let mode='sehat';
+  const verdicts={
+    sehat:'✅ <b>Model sehat.</b> Titik tersebar acak di sekitar nol, sebaran merata, titik Q-Q rapat di garis, histogram simetris. Asumsi linearitas, normalitas, dan homoskedastisitas terpenuhi. Shapiro-Wilk: p &gt; 0,05 (normal).',
+    hetero:'📣 <b>Heteroskedastisitas.</b> Sebaran residual melebar seperti corong saat prediksi membesar — variansi tidak konstan. Asumsi homoskedastisitas dilanggar. Solusi: gunakan <i>robust standard errors</i> atau transformasi log pada Y.',
+    nonnormal:'↗️ <b>Residual tidak normal (miring).</b> Histogram condong ke satu sisi dan ujung-ujung Q-Q menjauh dari garis diagonal. Untuk n &gt; 30 regresi masih cukup tahan, tapi untuk sampel kecil pertimbangkan transformasi variabel.'
+  };
+  function draw(){ const r=sets[mode];
+    drawScatter($('cv-res-fit'), fitted, r,{xLabel:'Fitted (ŷ)', yLabel:'Residual', color:PAL.blue, hline:0});
+    drawQQ($('cv-qq'), r);
+    drawHist($('cv-hist'), r,{bins:16});
+    drawScatter($('cv-scale'), fitted, r.map(v=>Math.sqrt(Math.abs(v))),{xLabel:'Fitted (ŷ)', yLabel:'√|Residual|', color:PAL.yellow});
+    $('diag-verdict').innerHTML=verdicts[mode];
+  }
+  document.querySelectorAll('#diag-seg button').forEach(b=> b.onclick=function(){ mode=this.dataset.diag; document.querySelectorAll('#diag-seg button').forEach(x=>x.classList.remove('on')); this.classList.add('on'); draw(); });
+  draw(); REDRAW[5]=draw;
+};
+
+/* ============================================================
+   SECTION 6 — multicollinearity / VIF
+============================================================ */
+INIT[6]=function(){
+  const r6=mulberry32(321), n6=makeNormal(r6); const eps=D.luas.map(()=> n6());
+  const muL=mean(D.luas); const vL=mean(D.luas.map(v=>(v-muL)*(v-muL)));
+  const labels=['Luas','Kamar','Jarak','Usia','Luas tanah'];
+  function buildTanah(s){ let r=clamp(s/100,0.05,0.995); const sigma=1.5*Math.sqrt(vL)*Math.sqrt(1/(r*r)-1); return D.luas.map((L,i)=> 1.5*L + sigma*eps[i]); }
+  function corr(a,b){ const ma=mean(a),mb=mean(b); let c=0,va=0,vb=0; for(let i=0;i<a.length;i++){ const da=a[i]-ma,db=b[i]-mb; c+=da*db; va+=da*da; vb+=db*db; } return c/Math.sqrt(va*vb); }
+  function upd(){ const s=+$('vif-k').value; $('vif-k-v').textContent=s+'%'; const tanah=buildTanah(s);
+    const cols=[D.luas,D.kamar,D.jarak,D.usia,tanah];
+    const vifs=cols.map((_,i)=> vifFor(cols,i));
+    const cols2=cols.map(c=>c); const m=ols(cols2, D.harga); const coefLuas=m.beta[1];
+    $('vif-corr').textContent=fmt(corr(D.luas,tanah),3); $('vif-coef').textContent=fmt(coefLuas,2);
+    const colors=vifs.map(v=> v>10?PAL.red : v>5?PAL.yellow : PAL.greenL);
+    drawBars($('cv-vif'), labels, vifs.map(v=>Math.min(v,80)),{ colors, ymax:Math.min(Math.max(...vifs,12)*1.15,80), fmt:(x)=> fmt(x>=80?80:x,1)+(x>=80?'+':''), thresholds:[{v:5,color:PAL.yellow,label:'VIF=5'},{v:10,color:PAL.red,label:'VIF=10'}] });
+    const mx=Math.max(...vifs);
+    $('vif-note').innerHTML = mx>10 ? '🔴 VIF "Luas" &amp; "Luas tanah" sudah <b>&gt; 10</b> (serius). Lihat koefisien "luas bangunan" yang berubah liar — itulah <b>ketidakstabilan</b> akibat multikolinearitas. Tindakan: buang salah satu atau gabungkan.' : mx>5 ? '🟡 VIF mulai memasuki zona moderat (5–10). Mulai perlu perhatian.' : '🟢 VIF masih rendah (&lt; 5). Aman — kedua variabel cukup membawa informasi sendiri-sendiri.';
+  }
+  $('vif-k').addEventListener('input',upd); upd(); REDRAW[6]=upd;
+};
+
+/* ============================================================
+   SECTION 7 — backward elimination
+============================================================ */
+INIT[7]=function(){
+  const r7=mulberry32(555), n7=makeNormal(r7); const noise=D.luas.map(()=> n7()*1);
+  let names=['Luas','Kamar','Jarak','Usia','Iklan (sampah)']; let cols=[D.luas,D.kamar,D.jarak,D.usia,noise];
+  const states=[]; let guard=0;
+  while(guard++<8){ const m=ols(cols,D.harga); const pv=m.pval.slice(1); const coef=m.beta.slice(1); let worst=-1,wp=-1; pv.forEach((p,i)=>{ if(p>wp){wp=p;worst=i;} }); const remove=wp>0.05 && cols.length>1;
+    states.push({names:[...names], pv:[...pv], coef:[...coef], r2:m.r2, adjR2:m.adjR2, worst:remove?worst:-1, done:!remove});
+    if(!remove) break; names.splice(worst,1); cols.splice(worst,1); }
+  let fsShown=0;
+  function render(){ let h=''; for(let s=0;s<=fsShown;s++){ const st=states[s]; h+='<div class="card tight" style="margin-bottom:12px;">';
+      h+='<div style="font-weight:500;margin-bottom:8px;">Langkah '+(s+1)+' — model dengan '+st.names.length+' prediktor &nbsp;<span class="muted" style="font-weight:400;font-size:13px;">(R²='+fmt(st.r2,3)+', Adj R²='+fmt(st.adjR2,3)+')</span></div>';
+      h+='<div class="tablewrap" style="margin:0;"><table><thead><tr><th>Prediktor</th><th class="center">Koefisien</th><th class="center">p-value</th><th>Status</th></tr></thead><tbody>';
+      st.names.forEach((nm,i)=>{ const isW=i===st.worst; const sig=st.pv[i]<0.05; h+='<tr'+(isW?' style="background:var(--red-tint)"':'')+'><td>'+nm+'</td><td class="center" style="font-family:var(--mono)">'+fmt(st.coef[i],2)+'</td><td class="center" style="font-family:var(--mono)">'+(st.pv[i]<0.001?'&lt;0,001':fmt(st.pv[i],3))+'</td><td>'+(isW?'<span class="pill bad">buang (p tertinggi)</span>':(sig?'<span class="pill ok">signifikan</span>':'<span class="pill warn">lemah</span>'))+'</td></tr>'; });
+      h+='</tbody></table></div>'; if(st.done) h+='<p style="margin:10px 0 0;color:var(--green);font-weight:500;">✅ Semua prediktor signifikan (p &lt; 0,05). Berhenti — inilah model akhir.</p>'; h+='</div>'; }
+    $('fs-steps').innerHTML=h; $('fs-next').disabled = (fsShown>=states.length-1);
+  }
+  $('fs-next').onclick=()=>{ if(fsShown<states.length-1){ fsShown++; render(); } };
+  $('fs-reset').onclick=()=>{ fsShown=0; render(); };
+  render(); REDRAW[7]=null;
+};
+
+/* ============================================================
+   SECTION 8 — case study predictor
+============================================================ */
+INIT[8]=function(){
+  const names=['Luas (m²)','Kamar','Jarak ke pusat (km)','Usia (tahun)'];
+  const taf=[ b=>'tiap +1 m², harga '+(b>=0?'naik':'turun')+' ±'+fmt(Math.abs(b),1)+' juta', b=>'tiap +1 kamar, harga '+(b>=0?'naik':'turun')+' ±'+fmt(Math.abs(b),0)+' juta', b=>'tiap +1 km menjauh, harga '+(b>=0?'naik':'turun')+' ±'+fmt(Math.abs(b),1)+' juta', b=>'tiap +1 tahun usia, harga '+(b>=0?'naik':'turun')+' ±'+fmt(Math.abs(b),1)+' juta' ];
+  const tb=$('cs-coefs').querySelector('tbody'); let rows='<tr><td><b>Intercept</b></td><td class="center" style="font-family:var(--mono)">'+fmt(FULL.beta[0],1)+'</td><td>harga dasar saat semua prediktor 0</td></tr>';
+  for(let i=0;i<4;i++){ rows+='<tr><td>'+names[i]+'</td><td class="center" style="font-family:var(--mono)">'+fmt(FULL.beta[i+1],2)+'</td><td>'+taf[i](FULL.beta[i+1])+'</td></tr>'; }
+  tb.innerHTML=rows;
+  $('cs-r2').textContent=fmt(FULL.r2,3); $('cs-ar2').textContent=fmt(FULL.adjR2,3); $('cs-rmse').textContent=fmt(FULL.rmse,1);
+  function upd(){ const l=+$('cs-luas').value,k=+$('cs-kamar').value,j=+$('cs-jarak').value,u=+$('cs-usia').value;
+    $('cs-luas-v').textContent=l; $('cs-kamar-v').textContent=k; $('cs-jarak-v').textContent=j; $('cs-usia-v').textContent=u;
+    const x0=[1,l,k,j,u]; const point=dot(x0,FULL.beta); const q=dot(x0, matvec(FULL.XtXinv,x0)); const se=Math.sqrt(FULL.sigma2*(1+q)); const half=1.96*se; const lo=point-half, hi=point+half;
+    $('cs-price').textContent=fmt0(point); $('cs-ci').textContent=fmt0(Math.max(0,lo))+' – '+fmt0(hi);
+    drawCIbar($('cv-ci'), Math.max(0,lo), point, hi);
+  }
+  ['luas','kamar','jarak','usia'].forEach(x=> $('cs-'+x).addEventListener('input',upd)); upd(); REDRAW[8]=upd;
+};
+
+/* ============================================================
+   QUIZ — 40 soal bertahap (CPMK-5, C4–C5)
+============================================================ */
+const QUIZ=[
+/* ---- TINGKAT 1: DASAR (mengingat & memahami) ---- */
+{l:1,c:`Sub-CPMK 10.1`,q:`Apa keunggulan utama regresi linear <b>berganda</b> dibanding regresi sederhana?`,o:[`Memakai lebih dari satu variabel prediktor sekaligus`,`Selalu menghasilkan R² = 1`,`Tidak memerlukan data sama sekali`,`Menghilangkan seluruh error`],a:0,e:`Regresi berganda memasukkan banyak prediktor sehingga model lebih mendekati kenyataan yang multikausal.`},
+{l:1,c:`Sub-CPMK 10.1`,q:`Pada model <b>ŷ = b₀ + b₁x₁ + …</b>, apa itu b₀?`,o:[`Intercept — nilai prediksi saat semua x = 0`,`Koefisien kemiringan terbesar`,`Residual model`,`Variabel dependen`],a:0,e:`b₀ adalah intercept, titik mula prediksi ketika semua prediktor bernilai 0.`},
+{l:1,c:`Sub-CPMK 10.1`,q:`Koefisien b₁ pada regresi berganda menyatakan…`,o:[`Perubahan ŷ untuk tiap +1 unit x₁, dengan variabel lain tetap`,`Nilai rata-rata Y`,`Jumlah prediktor dalam model`,`Besarnya error model`],a:0,e:`Tiap koefisien mengukur perubahan prediksi per 1 unit prediktornya, ceteris paribus.`},
+{l:1,c:`Sub-CPMK 10.1`,q:`Frasa <b>"ceteris paribus"</b> berarti…`,o:[`Variabel lain dianggap tetap / konstan`,`Semua variabel berubah bersama-sama`,`Data harus berdistribusi normal`,`Model dijamin benar`],a:0,e:`Ceteris paribus = "dengan yang lain tetap"; inilah kunci menafsir koefisien berganda.`},
+{l:1,c:`Sub-CPMK 10.2`,q:`<b>R²</b> mengukur…`,o:[`Proporsi variasi Y yang berhasil dijelaskan model`,`Jumlah prediktor`,`Besar koefisien intercept`,`Korelasi antar prediktor`],a:0,e:`R² adalah porsi keragaman Y yang ditangkap model, bernilai 0–1.`},
+{l:1,c:`Sub-CPMK 10.2`,q:`Apa kelemahan <b>R²</b> ketika prediktor terus ditambah?`,o:[`Cenderung selalu naik / tetap, bahkan untuk variabel tak berguna`,`Selalu turun drastis`,`Selalu menjadi negatif`,`Tidak pernah berubah`],a:0,e:`R² hampir tak pernah turun saat variabel ditambah — itu sebabnya ia bisa menyesatkan.`},
+{l:1,c:`Sub-CPMK 10.2`,q:`<b>Adjusted R²</b> berbeda dari R² karena…`,o:[`Memberi denda untuk tiap prediktor tambahan`,`Selalu lebih besar daripada R²`,`Mengabaikan jumlah data`,`Hanya berlaku untuk 1 prediktor`],a:0,e:`Adjusted R² menghukum kompleksitas, sehingga tiap prediktor harus "membayar" kehadirannya.`},
+{l:1,c:`Sub-CPMK 10.2`,q:`<b>Residual</b> didefinisikan sebagai…`,o:[`Selisih nilai aktual dengan nilai prediksi (y − ŷ)`,`Jumlah seluruh prediktor`,`Nilai R²`,`Koefisien intercept`],a:0,e:`Residual adalah bagian dari Y yang tak berhasil dijelaskan model.`},
+{l:1,c:`Sub-CPMK 10.2`,q:`<b>Multikolinearitas</b> adalah kondisi ketika…`,o:[`Dua atau lebih prediktor saling sangat berkorelasi`,`Variabel Y tidak normal`,`Datanya terlalu sedikit`,`Model tidak punya intercept`],a:0,e:`Multikolinearitas = prediktor "berkata sama", mengaburkan kontribusi masing-masing.`},
+{l:1,c:`Sub-CPMK 10.2`,q:`<b>VIF</b> (Variance Inflation Factor) dipakai untuk…`,o:[`Mendeteksi multikolinearitas antar prediktor`,`Mengukur normalitas residual`,`Menghitung intercept`,`Menentukan ukuran sampel`],a:0,e:`VIF mengukur seberapa "menggelembung" variansi koefisien akibat korelasi antar prediktor.`},
+
+/* ---- TINGKAT 2: MENERAPKAN ---- */
+{l:2,c:`Sub-CPMK 10.1`,q:`Model: <code>Harga = 100 + 5,2·Luas + 30·Kamar − 2,5·Jarak</code>. Tafsir koefisien <b>Luas</b> (5,2)?`,o:[`Tiap +1 m² luas, harga naik ±5,2 satuan, ceteris paribus`,`Harga rata-rata adalah 5,2`,`Luas bertambah 5,2 pada tiap rumah`,`Koefisien itu tak bisa ditafsirkan`],a:0,e:`5,2 = kenaikan harga per 1 m², dengan kamar & jarak ditahan tetap.`},
+{l:2,c:`Sub-CPMK 10.1`,q:`Pada model yang sama, koefisien <b>Jarak = −2,5</b> berarti…`,o:[`Tiap +1 unit jarak, harga turun ±2,5, ceteris paribus`,`Jarak tidak berpengaruh`,`Harga naik 2,5 tiap unit jarak`,`Jarak selalu bernilai 2,5`],a:0,e:`Tanda negatif berarti makin jauh, makin turun harga (dengan faktor lain tetap).`},
+{l:2,c:`Sub-CPMK 10.2`,q:`Untuk membandingkan dua model dengan <b>jumlah prediktor berbeda</b>, metrik yang tepat adalah…`,o:[`Adjusted R²`,`R² mentah`,`Jumlah baris data`,`Nilai intercept`],a:0,e:`Adjusted R² adil untuk jumlah prediktor berbeda karena menghukum kompleksitas.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`Jika <b>Adjusted R² turun</b> setelah sebuah prediktor ditambahkan, kesimpulan paling tepat…`,o:[`Prediktor itu kemungkinan tidak berguna`,`Model pasti rusak total`,`Seluruh data harus dibuang`,`R² juga pasti ikut turun`],a:0,e:`Penurunan Adjusted R² berarti dendanya melebihi manfaat → prediktor lemah.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`Sebuah prediktor memiliki <b>VIF = 12</b>. Tafsirnya…`,o:[`Multikolinearitas serius — perlu tindakan`,`Aman sempurna, tak ada korelasi`,`Model pasti overfit`,`Residual tidak normal`],a:0,e:`VIF &gt; 10 = serius; pertimbangkan menghapus atau menggabungkan variabel.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`VIF sebuah prediktor <b>= 1</b> menandakan…`,o:[`Tidak ada multikolinearitas pada prediktor itu`,`Korelasi sempurna dengan prediktor lain`,`Data tidak normal`,`Model tanpa prediktor`],a:0,e:`VIF = 1 berarti prediktor itu tak bisa ditebak dari prediktor lain.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`Plot apa yang dipakai untuk memeriksa <b>normalitas residual</b>?`,o:[`Q-Q plot`,`Bar chart prediktor`,`Pie chart`,`Heatmap korelasi`],a:0,e:`Q-Q plot membandingkan kuantil residual dengan normal; dekat garis = normal.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`Pada plot <b>Residual vs Fitted</b>, sebaran berbentuk "corong" (melebar) menandakan…`,o:[`Heteroskedastisitas (variansi tak konstan)`,`Normalitas sempurna`,`Multikolinearitas`,`Linearitas yang baik`],a:0,e:`Bentuk corong berarti sebaran residual berubah-ubah → homoskedastisitas dilanggar.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`<b>Forward selection</b> dimulai dari…`,o:[`Model tanpa prediktor (hanya intercept), lalu menambah`,`Model dengan semua prediktor`,`Model acak`,`Tabel data kosong`],a:0,e:`Forward = mulai kosong, tambahkan prediktor terbaik satu per satu.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`Pada tiap langkah, <b>backward elimination</b> membuang…`,o:[`Prediktor dengan p-value tertinggi (paling tak signifikan)`,`Prediktor dengan koefisien terbesar`,`Baris data outlier`,`Intercept`],a:0,e:`Backward = mulai penuh, buang yang paling tidak signifikan bertahap.`},
+{l:2,c:`Sub-CPMK 10.2`,q:`Model A: 2 prediktor, R²=0,78. Model B: 5 prediktor, R²=0,80. Cara membandingkan paling adil?`,o:[`Bandingkan Adjusted R²; jangan simpulkan dari R² saja`,`Pilih B karena R² lebih tinggi`,`Pilih A karena prediktornya lebih sedikit`,`Lempar koin`],a:0,e:`R² B lebih tinggi sebagian karena ekstra prediktor; Adjusted R² menyamakan perbandingan.`},
+{l:2,c:`Sub-CPMK 10.1`,q:`"Setiap +1 km jarak, harga turun 15 juta." Asumsi tersembunyi dalam kalimat ini?`,o:[`Variabel lain (luas, kamar, usia) ditahan tetap`,`Tidak ada asumsi apa pun`,`Jarak adalah satu-satunya prediktor`,`Harga selalu turun dalam keadaan apa pun`],a:0,e:`Tafsir koefisien berganda selalu mengandung "ceteris paribus".`},
+
+/* ---- TINGKAT 3: MENGANALISIS ---- */
+{l:3,c:`Sub-CPMK 10.2`,q:`Plot Residual vs Fitted memperlihatkan pola <b>melengkung (huruf U)</b>. Asumsi yang dilanggar?`,o:[`Linearitas`,`Normalitas`,`Independensi`,`Tidak ada yang dilanggar`],a:0,e:`Pola sistematis (melengkung) menandakan hubungan X–Y tidak benar-benar linear.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Titik-titik Q-Q plot menjauh dari garis di <b>kedua ujung</b>. Artinya…`,o:[`Residual tidak normal (ekor lebih berat/ringan dari normal)`,`Residual sempurna normal`,`Ada multikolinearitas`,`Model tanpa error`],a:0,e:`Penyimpangan di ekor = distribusi residual menyimpang dari normal pada nilai ekstrem.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Setelah menambah "luas tanah" di samping "luas bangunan", koefisien jadi berubah liar & standard error membengkak. Penyebab paling mungkin?`,o:[`Multikolinearitas antara kedua variabel`,`Sampel terlalu besar`,`Variabel Y tidak ada`,`Intercept hilang`],a:0,e:`Dua variabel sangat berkorelasi membuat estimasi koefisien tak stabil — ciri khas multikolinearitas.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Uji <b>Durbin-Watson</b> dipakai untuk mendeteksi pelanggaran asumsi…`,o:[`Independensi residual (sering pada data deret waktu)`,`Normalitas`,`Linearitas`,`Homoskedastisitas`],a:0,e:`Durbin-Watson memeriksa autokorelasi residual — yakni asumsi independensi.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Plot <b>Scale-Location</b> memperlihatkan sebaran √|residual| yang makin lebar ke kanan. Indikasi…`,o:[`Heteroskedastisitas`,`Linearitas yang baik`,`Normalitas`,`Tidak ada masalah`],a:0,e:`Tren naik pada Scale-Location menandakan variansi residual tidak konstan.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Sebuah prediktor punya p-value tinggi (tak signifikan), <b>padahal teori kuat mendukungnya</b> dan VIF-nya tinggi. Penalaran terbaik?`,o:[`Ketidaksignifikanannya mungkin akibat multikolinearitas — jangan buru-buru membuang`,`Langsung buang karena p tinggi`,`Hapus semua prediktor lain`,`Abaikan teori sepenuhnya`],a:0,e:`Multikolinearitas membengkakkan SE → p tinggi palsu. Timbang domain & VIF sebelum membuang.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`R²=0,95 di data latih, tetapi prediksi di data baru sangat buruk. Fenomena ini disebut…`,o:[`Overfitting`,`Underfitting`,`Homoskedastisitas`,`Multikolinearitas`],a:0,e:`Model menghafal noise data latih sehingga gagal menggeneralisasi — overfitting.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Mengapa R² (hampir) <b>tak pernah turun</b> saat prediktor ditambah?`,o:[`Model selalu bisa memeras sedikit kecocokan dari variabel apa pun, minimal dari kebetulan`,`Karena rumusnya keliru`,`Karena jumlah data bertambah`,`Karena intercept naik`],a:0,e:`Penambahan kolom memberi fleksibilitas; kecocokan tak pernah memburuk, bahkan dari noise.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Pada n=200, Shapiro-Wilk memberi p&lt;0,05 (menolak normal), tetapi Q-Q rapat & histogram tampak normal. Tindakan paling bijak?`,o:[`Anggap penyimpangan kecil — pada n besar uji terlalu sensitif & regresi cukup tahan; andalkan plot + akal sehat`,`Buang seluruh data`,`Tambah banyak prediktor`,`Hentikan analisis total`],a:0,e:`Uji formal sangat sensitif di sampel besar; plot + CLT menunjukkan ini bukan masalah praktis.`},
+{l:3,c:`Sub-CPMK 10.2`,q:`Menambah sebuah prediktor menaikkan R² sebesar 0,001 tetapi <b>Adjusted R² turun</b>. Kesimpulan?`,o:[`Prediktor tak sepadan dengan dendanya — sebaiknya tidak dipakai`,`Wajib dipakai karena R² naik`,`Data pasti rusak`,`Model jadi jauh lebih baik`],a:0,e:`Adjusted R² turun = manfaat &lt; denda; prinsip parsimoni menyuruh membuangnya.`},
+
+/* ---- TINGKAT 4: MENGEVALUASI ---- */
+{l:4,c:`AI Corner · C5`,q:`AI menyarankan: "buang otomatis semua variabel dengan p&gt;0,05." Kritik paling tepat?`,o:[`Mengabaikan teori/domain, multikolinearitas, dan beda practical vs statistical significance`,`Sempurna — ikuti saja`,`p-value tak pernah penting`,`Hanya berlaku untuk model 1 prediktor`],a:0,e:`Feature selection otomatis berbasis p semata berbahaya; keputusan butuh konteks & pemahaman domain.`},
+{l:4,c:`Sub-CPMK 10.1 · C5`,q:`Mahasiswa berkata: "Koef Luas = +8,5, jadi memperbesar rumah 1 m² <b>PASTI MENYEBABKAN</b> harga naik 8,5 juta." Evaluasi pernyataan ini.`,o:[`Keliru — koefisien menunjukkan hubungan, bukan sebab-akibat; menahan kamar tetap saat luas naik pun sering tak realistis`,`Benar sepenuhnya`,`Benar asalkan R² tinggi`,`Benar karena p&lt;0,05`],a:0,e:`Statistik ≠ kausalitas, dan "ceteris paribus" sering tak realistis secara fisik.`},
+{l:4,c:`Sub-CPMK 10.2 · C5`,q:`Untuk keputusan investasi yang butuh memahami pengaruh <b>tiap</b> faktor, Anda menemukan VIF=15 pada dua prediktor meski R² model tinggi. Sikap yang benar?`,o:[`Prediksi keseluruhan mungkin oke, tapi koefisien individu tak bisa dipercaya — atasi multikolinearitas dulu sebelum menafsir pengaruh tiap faktor`,`Abaikan saja, R² tinggi sudah cukup`,`Buang variabel Y`,`Tambah lebih banyak prediktor yang mirip`],a:0,e:`Multikolinearitas merusak tafsir koefisien individu, bukan prediksi agregat — sesuaikan dengan tujuanmu.`},
+{l:4,c:`Sub-CPMK 10.2 · C5`,q:`Dua model punya Adjusted R² hampir sama: satu <b>3 prediktor</b>, satu <b>7 prediktor</b>. Pilih yang mana & alasannya?`,o:[`Yang 3 prediktor — lebih sederhana, mudah ditafsir, cenderung lebih tahan di data baru (parsimoni/Occam)`,`Yang 7, karena selalu lebih kaya`,`Acak saja`,`Yang ber-intercept lebih besar`],a:0,e:`Bila kebaikannya setara, pilih yang lebih sederhana — prinsip parsimoni / Pisau Cukur Occam.`},
+{l:4,c:`Sub-CPMK 10.2 · C5`,q:`Terdapat heteroskedastisitas, dan tujuan utamamu adalah <b>uji hipotesis koefisien yang valid</b>. Remedi paling tepat?`,o:[`Gunakan robust standard errors atau transformasi (mis. log Y); jangan diabaikan`,`Naikkan R² dengan menambah prediktor`,`Hapus residual yang besar`,`Biarkan saja, tak masalah`],a:0,e:`Heteroskedastisitas membuat SE & p-value bias; robust SE / transformasi memperbaikinya.`},
+{l:4,c:`Sub-CPMK 10.2 · C5`,q:`Melaporkan "harga = 850 juta" vs "850 juta (rentang 650–1.050 juta)". Mana lebih jujur & mengapa?`,o:[`Yang memakai rentang — mengakui ketidakpastian/noise yang nyata`,`Angka tunggal, karena terlihat lebih meyakinkan`,`Sama saja`,`Yang tanpa rentang lebih ilmiah`],a:0,e:`Interval prediksi mengomunikasikan ketidakpastian; angka tunggal menyembunyikannya.`},
+{l:4,c:`Sub-CPMK 10.2 · C5`,q:`Model jelas melanggar linearitas (residual melengkung), tetapi pemangku kepentingan minta "cukup laporkan R² yang tinggi." Penilaian yang tepat?`,o:[`R² menyesatkan saat asumsi dilanggar; perbaiki non-linearitas & komunikasikan keterbatasan, jangan hanya pamer R²`,`Turuti saja, R² tinggi sudah cukup`,`R² tak terpengaruh asumsi apa pun`,`Hapus saja plot residualnya`],a:0,e:`Integritas analitis menuntut memeriksa asumsi & transparan, bukan menyembunyikan masalah di balik satu angka.`},
+{l:4,c:`Sintesis · C5`,q:`Urutan <b>alur kerja</b> paling sehat untuk regresi berganda yang tepercaya?`,o:[`EDA → bangun model → cek VIF → diagnostik residual → baru tafsir & prediksi (dengan interval)`,`Langsung prediksi → baru lihat datanya`,`Tafsir koefisien dulu → baru fit model`,`Hanya hitung R², selesai`],a:0,e:`Memeriksa multikolinearitas & asumsi SEBELUM menafsir/mengambil keputusan adalah praktik yang benar.`}
+];
+
+const LV={1:{t:`Tingkat 1 · Dasar`,c:`lvl1`,col:`#1e8e3e`},2:{t:`Tingkat 2 · Menerapkan`,c:`lvl2`,col:`#1a73e8`},3:{t:`Tingkat 3 · Menganalisis`,c:`lvl3`,col:`#f9ab00`},4:{t:`Tingkat 4 · Mengevaluasi`,c:`lvl4`,col:`#ea4335`}};
+const KEYS=['A','B','C','D'];
+let qi=0, answers=[], answeredSet, correctSet;
+
+function prepQuiz(){ answers=new Array(QUIZ.length).fill(null); answeredSet=new Set(); correctSet=new Set();
+  QUIZ.forEach(q=>{ const idx=[0,1,2,3]; for(let i=3;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [idx[i],idx[j]]=[idx[j],idx[i]]; } q._o=idx; q._a=idx.indexOf(q.a); }); }
+
+function renderQ(){ const q=QUIZ[qi]; const lv=LV[q.l];
+  $('q-level').className='qlevel '+lv.c; $('q-level').textContent=lv.t;
+  $('q-num').textContent=qi+1; $('q-score').textContent=correctSet.size;
+  $('q-prog').style.width=((qi)/(QUIZ.length-1)*100)+'%';
+  $('q-cpmk').textContent=q.c; $('q-text').innerHTML=q.q;
+  const locked=answeredSet.has(qi); const chosen=answers[qi];
+  let h=''; q._o.forEach((orig,d)=>{ let cls='opt'; if(locked){ if(d===q._a) cls+=' correct'; else if(d===chosen) cls+=' wrong'; else cls+=' dim'; } h+='<button class="'+cls+'" data-d="'+d+'"'+(locked?' disabled':'')+'><span class="k">'+KEYS[d]+'</span><span class="ktxt">'+q.o[orig]+'</span></button>'; });
+  $('q-opts').innerHTML=h;
+  if(!locked){ $('q-opts').querySelectorAll('.opt').forEach(b=> b.onclick=()=> selectOpt(+b.dataset.d)); }
+  const exp=$('q-exp');
+  if(locked){ const ok=chosen===q._a; exp.className='qexp show '+(ok?'good':'bad'); exp.innerHTML='<div class="et">'+(ok?'✅ Tepat!':'❌ Belum tepat. Jawaban benar: '+KEYS[q._a])+'</div>'+q.e; }
+  else { exp.className='qexp'; exp.innerHTML=''; }
+  $('q-prev').disabled=qi===0;
+  $('q-next').disabled=!locked;
+  $('q-next').textContent = qi===QUIZ.length-1 ? 'Lihat hasil →' : 'Lanjut →';
+}
+function selectOpt(d){ if(answeredSet.has(qi)) return; answers[qi]=d; answeredSet.add(qi); const q=QUIZ[qi]; if(d===q._a) correctSet.add(qi); renderQ(); }
+function startQuiz(){ prepQuiz(); qi=0; $('quiz-intro').style.display='none'; $('quiz-result').style.display='none'; $('quiz-runner').style.display='block'; renderQ(); window.scrollTo({top:0,behavior:'smooth'}); }
+$('quiz-start').onclick=startQuiz;
+$('q-prev').onclick=()=>{ if(qi>0){ qi--; renderQ(); } };
+$('q-next').onclick=()=>{ if(qi<QUIZ.length-1){ qi++; renderQ(); } else showResult(); };
+
+function drawDonut(pct){ const cv=$('cv-donut'); const dpr=window.devicePixelRatio||1; cv.width=180*dpr; cv.height=180*dpr; const ctx=cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,180,180);
+  const cx=90,cy=90,r=70,lw=18; ctx.lineWidth=lw; ctx.lineCap='round';
+  ctx.strokeStyle='#e8eaed'; ctx.beginPath(); ctx.arc(cx,cy,r,0,2*Math.PI); ctx.stroke();
+  const col = pct>=0.8?'#1e8e3e' : pct>=0.6?'#1a73e8' : pct>=0.4?'#f9ab00' : '#ea4335';
+  ctx.strokeStyle=col; ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+2*Math.PI*pct); ctx.stroke();
+  ctx.fillStyle='#202124'; ctx.font='600 34px Roboto'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(Math.round(pct*100)+'%',cx,cy-4);
+  ctx.fillStyle='#5f6368'; ctx.font='13px Roboto'; ctx.fillText('benar',cx,cy+20);
+}
+function showResult(){ $('quiz-runner').style.display='none'; $('quiz-result').style.display='block';
+  const sc=correctSet.size, tot=QUIZ.length, pct=sc/tot; $('r-correct').textContent=sc; $('r-pct').textContent=Math.round(pct*100)+'% benar'; drawDonut(pct);
+  let msg; if(pct>=0.9) msg='🏆 Luar biasa! Pemahamanmu setingkat C4–C5 — kamu bukan cuma hafal, tapi bisa menilai & memutuskan.'; else if(pct>=0.75) msg='🎉 Bagus sekali! Fondasimu kuat. Tinjau ulang soal yang meleset untuk menyempurnakan.'; else if(pct>=0.6) msg='👍 Cukup baik. Beberapa konsep evaluasi model masih perlu diperdalam — coba tinjau jawaban.'; else if(pct>=0.4) msg='💪 Awal yang oke. Pelajari ulang bagian yang relevan, lalu ulangi kuis.'; else msg='📚 Belum apa-apa — yang penting kamu mencoba. Baca lagi materinya pelan-pelan, lalu ulangi.';
+  $('r-msg').textContent=msg;
+  const tot4={1:0,2:0,3:0,4:0}, ok4={1:0,2:0,3:0,4:0}; QUIZ.forEach((q,i)=>{ tot4[q.l]++; if(correctSet.has(i)) ok4[q.l]++; });
+  let h=''; [1,2,3,4].forEach(l=>{ const lv=LV[l]; const p=tot4[l]?ok4[l]/tot4[l]:0; h+='<div class="lvlcell"><div class="lh"><span class="qlevel '+lv.c+'">'+lv.t+'</span><span class="muted">'+ok4[l]+' / '+tot4[l]+'</span></div><div class="lb"><i style="width:'+(p*100)+'%;background:'+lv.col+'"></i></div></div>'; });
+  $('r-breakdown').innerHTML=h;
+  $('r-review-list').style.display='none'; $('r-review').textContent='Tinjau jawaban';
+}
+$('r-retry').onclick=()=>{ $('quiz-result').style.display='none'; $('quiz-intro').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); };
+$('r-review').onclick=function(){ const box=$('r-review-list'); if(box.style.display==='block'){ box.style.display='none'; this.textContent='Tinjau jawaban'; return; } this.textContent='Sembunyikan tinjauan';
+  let h=''; QUIZ.forEach((q,i)=>{ const ok=correctSet.has(i); const chosen=answers[i]; const lv=LV[q.l];
+    h+='<div class="card tight" style="margin-bottom:12px;border-left:5px solid '+(ok?'#1e8e3e':'#ea4335')+'">';
+    h+='<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;"><span class="qlevel '+lv.c+'" style="font-size:12px;">'+lv.t+'</span><span style="font-weight:500;color:'+(ok?'#1e8e3e':'#ea4335')+'">'+(ok?'✓ Benar':'✗ Salah')+'</span></div>';
+    h+='<div style="font-weight:500;margin:8px 0;">'+(i+1)+'. '+q.q+'</div>';
+    h+='<div style="font-size:15px;color:#3c4043;">Jawaban benar: <b>'+KEYS[q._a]+'.</b> '+q.o[q.a]+'</div>';
+    if(chosen!==null && chosen!==q._a) h+='<div style="font-size:15px;color:#b5271a;">Jawabanmu: '+KEYS[chosen]+'. '+q.o[q._o[chosen]]+'</div>';
+    h+='<div style="font-size:14.5px;color:#5f6368;margin-top:6px;">'+q.e+'</div></div>'; });
+  box.innerHTML=h; box.style.display='block';
+};
+
+/* ============================================================
+   BOOTSTRAP
+============================================================ */
+go(0);
+</script>
+</body>
+</html>
