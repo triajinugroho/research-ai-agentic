@@ -1,9 +1,18 @@
 ---
-mata_kuliah: Algoritma dan Pemrograman
+id: uai-inf101-asesmen-uts-kunci
+tipe: asesmen
+judul: "Kunci Jawaban UTS — Algoritma dan Pemrograman"
 kode_mk: INF-101
-sks: 2 SKS (Teori)
-semester: Genap 2025/2026
-jenis: UTS
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+asesmen_id: ASM-UTS
+mengukur_cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4]
+mengukur_sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.4, Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4, Sub-CPMK-3.2, Sub-CPMK-3.4, Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8, Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3]
+bobot_persen: 30
+ai_diizinkan: false
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
 ---
 
 # UJIAN TENGAH SEMESTER (UTS)
@@ -735,3 +744,7 @@ while True:
 **"Man jadda wajada"** — Siapa bersungguh-sungguh, pasti berhasil.
 
 **~ Jazakumullahu khairan — Semoga berkah dalam penilaian ~**
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

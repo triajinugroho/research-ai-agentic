@@ -1,3 +1,15 @@
+---
+id: uai-inf101-datasets
+tipe: dataset
+judul: "Panduan Sumber Daya dan Latihan — Algoritma dan Pemrograman"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Panduan Resource dan Latihan Pemrograman
 
 **Mata Kuliah:** Algoritma dan Pemrograman

@@ -1328,3 +1328,7 @@ Program harus memiliki minimal 5 soal tentang materi Bab 1-4.
 ---
 
 *Bab selanjutnya: **Bab 6 — String dan Pengolahan Teks** — Anda akan belajar memanipulasi teks menggunakan fungsi-fungsi string bawaan Python, serta mengkombinasikannya dengan fungsi yang Anda buat sendiri.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -6,8 +6,8 @@ kode_mk: INF-101
 nama_mk: Algoritma dan Pemrograman
 prodi: Informatika
 asesmen_id: ASM-UAS
-mengukur_cpmk: []
-mengukur_sub_cpmk: []
+mengukur_cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4, CPMK-5, CPMK-6, CPMK-7]
+mengukur_sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-2.1, Sub-CPMK-2.3, Sub-CPMK-3.2, Sub-CPMK-3.5, Sub-CPMK-4.1, Sub-CPMK-4.6, Sub-CPMK-5.5, Sub-CPMK-5.6, Sub-CPMK-5.7, Sub-CPMK-6.1, Sub-CPMK-6.2, Sub-CPMK-6.3, Sub-CPMK-6.4, Sub-CPMK-6.5, Sub-CPMK-6.6, Sub-CPMK-6.7, Sub-CPMK-6.8, Sub-CPMK-6.9, Sub-CPMK-6.10, Sub-CPMK-6.11, Sub-CPMK-6.12, Sub-CPMK-7.1, Sub-CPMK-7.2, Sub-CPMK-7.3, Sub-CPMK-7.4, Sub-CPMK-7.5, Sub-CPMK-7.6, Sub-CPMK-7.7, Sub-CPMK-7.8, Sub-CPMK-7.9, Sub-CPMK-7.12]
 bobot_persen: 40
 ai_diizinkan: false
 versi: 2.0
@@ -34,7 +34,7 @@ diperbarui: 2026-09-05
 | **Sifat** | Closed-book + 1 lembar catatan A4 (tulisan tangan sendiri, bolak-balik) |
 | **Alat yang Diperbolehkan** | Alat tulis, 1 lembar catatan A4 tulisan tangan sendiri |
 | **Alat yang TIDAK Diperbolehkan** | HP, laptop, kalkulator, catatan tambahan, AI tools |
-| **Bobot terhadap Nilai Akhir** | 25% |
+| **Bobot terhadap Nilai Akhir** | 40% |
 | **Total Skor** | 100 poin |
 
 **Ketentuan Lembar Catatan:**
@@ -60,18 +60,21 @@ UAS bersifat **komprehensif** mencakup seluruh materi Minggu 1-15, dengan **pene
 
 ## 3. Tabel Kisi-kisi
 
+> Setiap baris menautkan butir soal ke **kode Sub-CPMK kanonik**. Penandaan ini yang membuat ketercapaian CPMK dapat dihitung pada [`../mutu/02-pengukuran-ketercapaian-cpl.md`](../mutu/02-pengukuran-ketercapaian-cpl.md).
+
 | No | CPMK | Sub-CPMK | Materi | Indikator Soal | Tipe Soal | Bobot |
-|---|---|---|---|---|---|---|
-| 1 | CPMK-1 | Menjelaskan konsep algoritma dan CT | Algoritma, pseudocode, CT | Mahasiswa dapat menganalisis pendekatan CT dalam masalah kompleks | PG, Essay | 5% |
-| 2 | CPMK-2 | Menerapkan tipe data, seleksi, perulangan | Variabel, if-else, for, while | Mahasiswa dapat men-trace dan menulis kode dasar | PG, Code Tracing | 10% |
-| 3 | CPMK-3 | Merancang fungsi modular | def, parameter, return, scope, lambda | Mahasiswa dapat merancang fungsi yang efisien dan modular | Tulis Kode, Code Tracing | 10% |
-| 4 | CPMK-4 | Menggunakan dictionary dan set | dict, set, method, operasi himpunan | Mahasiswa dapat memilih dan mengoperasikan dict/set untuk masalah tertentu | PG, Code Tracing, Tulis Kode | 15% |
-| 5 | CPMK-4 | Mengimplementasikan File I/O | open(), read, write, CSV, JSON | Mahasiswa dapat menulis kode baca/tulis file | Tulis Kode | 10% |
-| 6 | CPMK-5 | Menerapkan algoritma searching | Linear search, binary search | Mahasiswa dapat men-trace dan mengimplementasikan searching | Code Tracing, Tulis Kode | 10% |
-| 7 | CPMK-5 | Menerapkan algoritma sorting | Bubble sort, selection sort, insertion sort | Mahasiswa dapat men-trace langkah sorting dan mengimplementasikan | Code Tracing, Essay | 10% |
-| 8 | CPMK-5 | Menerapkan rekursi | Base case, recursive case, call stack | Mahasiswa dapat men-trace fungsi rekursif dan menulis solusi rekursif | Code Tracing, Tulis Kode | 10% |
-| 9 | CPMK-6 | Menganalisis kompleksitas algoritma | Big-O: O(1), O(n), O(n^2), O(log n), O(n log n) | Mahasiswa dapat menentukan dan membandingkan Big-O | PG, Essay | 10% |
-| 10 | CPMK-7 | Menerapkan AI secara etis dalam pemrograman | Prompt engineering, evaluasi output AI, etika | Mahasiswa dapat mengevaluasi dan menganalisis output AI secara kritis | Essay | 10% |
+|:-:|---|---|---|---|---|:-:|
+| 1 | CPMK-1, CPMK-2 | Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-2.1, Sub-CPMK-2.3 | Tinjauan fondasi: algoritma, CT, variabel, operator | Menganalisis pendekatan CT dan mengevaluasi ekspresi pada masalah kompleks | PG, Esai | 10% |
+| 2 | CPMK-3, CPMK-4 | Sub-CPMK-3.2, Sub-CPMK-3.5, Sub-CPMK-4.1, Sub-CPMK-4.6 | Tinjauan kontrol dan modularitas | Men-*trace* dan menulis kode seleksi, perulangan, serta fungsi | PG, *Code Tracing* | 10% |
+| 3 | CPMK-5 | Sub-CPMK-5.5, Sub-CPMK-5.6, Sub-CPMK-5.7 | *Dictionary*, *set*, pemilihan struktur data | Memilih struktur data yang tepat disertai justifikasi | PG, *Code Tracing*, Tulis Kode | 15% |
+| 4 | CPMK-6 | Sub-CPMK-6.1, Sub-CPMK-6.2, Sub-CPMK-6.3, Sub-CPMK-6.4 | *Linear search*, *binary search* | Men-*trace*, mengimplementasikan, dan membandingkan kompleksitas pencarian | *Code Tracing*, Tulis Kode | 12% |
+| 5 | CPMK-6 | Sub-CPMK-6.5, Sub-CPMK-6.6, Sub-CPMK-6.7, Sub-CPMK-6.8 | *Bubble*, *selection*, *insertion sort* | Men-*trace* langkah pengurutan dan membandingkan karakteristiknya | *Code Tracing*, Esai | 12% |
+| 6 | CPMK-6 | Sub-CPMK-6.9, Sub-CPMK-6.10, Sub-CPMK-6.11, Sub-CPMK-6.12 | Rekursi, *call stack*, *memoization* | Men-*trace* fungsi rekursif dan membandingkannya dengan iterasi | *Code Tracing*, Tulis Kode | 11% |
+| 7 | CPMK-7 | Sub-CPMK-7.1, Sub-CPMK-7.2, Sub-CPMK-7.3, Sub-CPMK-7.4 | Notasi Big-O, kelas kompleksitas, optimasi | Menentukan Big-O dan mengevaluasi *trade-off* waktu–ruang | PG, Esai | 15% |
+| 8 | CPMK-7 | Sub-CPMK-7.5, Sub-CPMK-7.6, Sub-CPMK-7.7, Sub-CPMK-7.8 | *AI-augmented programming*, *clean code*, etika AI | Mengevaluasi output AI secara kritis dan menilai aspek etikanya | Esai | 15% |
+| | | | | | **Total** | **100%** |
+
+> **Catatan.** Sub-CPMK-7.9 sampai Sub-CPMK-7.12 (presentasi, demonstrasi, mempertahankan desain, telaah sejawat) tidak diukur melalui ujian tertulis, melainkan melalui presentasi proyek Minggu 15 — lihat [`project-guidelines.md`](project-guidelines.md).
 
 ---
 

@@ -1,3 +1,15 @@
+---
+id: uai-inf101-analisis-strategis
+tipe: analisis-strategis
+judul: "Analisis Strategis — Algoritma dan Pemrograman"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Analisis Strategis: Mata Kuliah Algoritma dan Pemrograman
 
 ## Fondasi Computational Thinking dengan Python dan AI

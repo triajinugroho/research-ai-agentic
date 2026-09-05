@@ -1,9 +1,18 @@
 ---
-mata_kuliah: Algoritma dan Pemrograman
+id: uai-inf101-asesmen-uts
+tipe: asesmen
+judul: "Naskah Ujian Tengah Semester — Algoritma dan Pemrograman"
 kode_mk: INF-101
-sks: 2 SKS (Teori)
-semester: Genap 2025/2026
-jenis: UTS
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+asesmen_id: ASM-UTS
+mengukur_cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4]
+mengukur_sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.4, Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4, Sub-CPMK-3.2, Sub-CPMK-3.4, Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8, Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3]
+bobot_persen: 30
+ai_diizinkan: false
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
 ---
 
 # UJIAN TENGAH SEMESTER (UTS)
@@ -521,7 +530,7 @@ b) Terapkan keempat pilar tersebut untuk memecahkan kasus "merancang rutinitas b
 
 ---
 
-> **Sub-CPMK 3.1 & 3.2** — Menerapkan struktur seleksi if, elif, else; Merancang struktur seleksi bertingkat (nested) dan multi-kondisi
+> **Sub-CPMK-3.2 & 3.4** — Menerapkan struktur if/if-else/if-elif-else; Mengimplementasikan nested if dan conditional expression
 > *Level Bloom:* C3 · *Konteks:* Islami (klasifikasi nisab zakat mal)
 
 **E2. (12 poin)** Anda diminta menulis program klasifikasi zakat mal berdasarkan spesifikasi berikut:
@@ -537,7 +546,7 @@ b) Terapkan keempat pilar tersebut untuk memecahkan kasus "merancang rutinitas b
 
 ---
 
-> **Sub-CPMK 4.1 & 4.4** — Menerapkan perulangan for dengan range() dan iterasi koleksi; Menerapkan pola akumulator, penghitung (counter), dan flag
+> **Sub-CPMK-3.5 & 3.8** — Menerapkan perulangan for dengan range(); Menganalisis nested loop dan mengimplementasikannya untuk mencetak pola
 > *Level Bloom:* C4 · *Konteks:* Indonesia (data jumlah penduduk per provinsi)
 
 **E3. (12 poin)** Diberikan data jumlah penduduk (dalam jiwa, angka dummy) lima provinsi di Indonesia:
@@ -571,7 +580,7 @@ print(f"Provinsi terbanyak = {nama_terbanyak} ({terbanyak} jiwa)")
 
 ---
 
-> **Sub-CPMK 5.1 & 5.4** — Mendefinisikan dan memanggil fungsi dengan parameter dan nilai kembalian; Menerapkan prinsip modularitas dan code reuse
+> **Sub-CPMK-4.1 & 4.3** — Mendefinisikan fungsi dengan def, parameter, dan return; Menerapkan prinsip DRY dan pendekatan top-down design
 > *Level Bloom:* C5 · *Konteks:* JTBD (kalkulator BMI & kebutuhan kalori)
 
 **E4. (12 poin)** Perhatikan kode prosedural berikut untuk menghitung BMI dan kebutuhan kalori harian:
@@ -642,3 +651,7 @@ b) Tuliskan implementasi **Python** yang memenuhi spesifikasi, mencakup minimal:
 **"Man jadda wajada"** — Siapa bersungguh-sungguh, pasti berhasil.
 
 **~ Selamat Mengerjakan — Jazakumullahu khairan ~**
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

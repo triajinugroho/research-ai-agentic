@@ -1716,3 +1716,7 @@ comp_binary = []
 *Bab 9 --- Algoritma Pencarian (Searching)*
 *Algoritma dan Pemrograman --- Prodi Informatika, Universitas Al Azhar Indonesia*
 *Tri Aji Nugroho, S.T., M.T.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

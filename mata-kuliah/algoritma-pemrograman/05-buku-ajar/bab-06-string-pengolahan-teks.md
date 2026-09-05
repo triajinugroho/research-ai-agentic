@@ -1837,7 +1837,7 @@ Berikut ringkasan materi yang telah dipelajari dalam bab ini:
 
 6. Python Software Foundation. (2024). *The Python Tutorial — Text Sequence Type (str)*. [https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)
 
-7. Python Software Foundation. (2024). *String Methods*. [https://docs.python.org/3/library/stdtypes.html#string-methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
+7. Python Software Foundation. (2024). *String Methods*. https://docs.python.org/3/library/stdtypes.html#string-methods
 
 8. Python Software Foundation. (2024). *Format String Syntax*. [https://docs.python.org/3/library/string.html#formatstrings](https://docs.python.org/3/library/string.html#formatstrings)
 

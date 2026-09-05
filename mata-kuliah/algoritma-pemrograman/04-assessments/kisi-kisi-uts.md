@@ -6,8 +6,8 @@ kode_mk: INF-101
 nama_mk: Algoritma dan Pemrograman
 prodi: Informatika
 asesmen_id: ASM-UTS
-mengukur_cpmk: []
-mengukur_sub_cpmk: []
+mengukur_cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4, CPMK-5]
+mengukur_sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.3, Sub-CPMK-1.4, Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4, Sub-CPMK-3.1, Sub-CPMK-3.2, Sub-CPMK-3.3, Sub-CPMK-3.4, Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8, Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3, Sub-CPMK-4.4, Sub-CPMK-4.5, Sub-CPMK-4.6, Sub-CPMK-4.7, Sub-CPMK-4.8, Sub-CPMK-5.1, Sub-CPMK-5.2, Sub-CPMK-5.3, Sub-CPMK-5.4]
 bobot_persen: 30
 ai_diizinkan: false
 versi: 2.0
@@ -34,7 +34,7 @@ diperbarui: 2026-09-05
 | **Sifat** | Closed-book, tanpa catatan, tanpa AI |
 | **Alat yang Diperbolehkan** | Alat tulis (pulpen, pensil, penghapus) |
 | **Alat yang TIDAK Diperbolehkan** | HP, laptop, kalkulator, catatan, buku |
-| **Bobot terhadap Nilai Akhir** | 20% |
+| **Bobot terhadap Nilai Akhir** | 30% |
 | **Total Skor** | 100 poin |
 
 ---
@@ -57,18 +57,20 @@ UTS mencakup materi **Minggu 1 sampai Minggu 7**, yang terdiri dari:
 
 ## 3. Tabel Kisi-kisi
 
+> Setiap baris menautkan butir soal ke **kode Sub-CPMK kanonik**. Penandaan ini yang membuat ketercapaian CPMK dapat dihitung pada [`../mutu/02-pengukuran-ketercapaian-cpl.md`](../mutu/02-pengukuran-ketercapaian-cpl.md).
+
 | No | CPMK | Sub-CPMK | Materi | Indikator Soal | Tipe Soal | Bobot |
-|---|---|---|---|---|---|---|
-| 1 | CPMK-1 | Menjelaskan konsep algoritma | Algoritma, flowchart, pseudocode | Mahasiswa dapat menjelaskan langkah-langkah algoritma untuk masalah sederhana | PG, Essay | 10% |
-| 2 | CPMK-1 | Menerapkan computational thinking | Dekomposisi, pola, abstraksi, algoritma | Mahasiswa dapat mengidentifikasi komponen CT dalam suatu masalah | PG, Essay | 5% |
-| 3 | CPMK-2 | Menggunakan variabel dan tipe data | Variabel, int, float, str, bool, type casting | Mahasiswa dapat menentukan tipe data dan hasil operasi | PG, Code Tracing | 10% |
-| 4 | CPMK-2 | Menerapkan operator dan ekspresi | Aritmatika, perbandingan, logika, assignment | Mahasiswa dapat mengevaluasi ekspresi Python | PG, Code Tracing | 5% |
-| 5 | CPMK-2 | Menggunakan input/output | input(), print(), f-string, format() | Mahasiswa dapat menulis kode I/O yang benar | Tulis Kode | 5% |
-| 6 | CPMK-2 | Menerapkan struktur seleksi | if, elif, else, nested if, operator logika | Mahasiswa dapat menulis dan men-trace kode seleksi | Code Tracing, Tulis Kode | 10% |
-| 7 | CPMK-2 | Menerapkan struktur perulangan | for, while, range(), break, continue, nested loop | Mahasiswa dapat menulis dan men-trace kode perulangan | Code Tracing, Tulis Kode | 15% |
-| 8 | CPMK-3 | Mendefinisikan dan memanggil fungsi | def, parameter, return, scope | Mahasiswa dapat merancang fungsi untuk masalah tertentu | Tulis Kode, Essay | 15% |
-| 9 | CPMK-3 | Menggunakan operasi string | Slicing, method string, iterasi string | Mahasiswa dapat memanipulasi string dengan Python | PG, Code Tracing, Tulis Kode | 10% |
-| 10 | CPMK-3 | Menggunakan list dan tuple | Indexing, slicing, method list, tuple packing/unpacking | Mahasiswa dapat mengoperasikan list dan tuple | PG, Code Tracing, Tulis Kode | 15% |
+|:-:|---|---|---|---|---|:-:|
+| 1 | CPMK-1 | Sub-CPMK-1.1, Sub-CPMK-1.2 | Algoritma, empat pilar *computational thinking* | Menjelaskan langkah algoritma dan mengidentifikasi komponen CT pada masalah sederhana | PG, Esai | 10% |
+| 2 | CPMK-1 | Sub-CPMK-1.3, Sub-CPMK-1.4 | *Pseudocode*, *flowchart*, lingkungan Google Colab | Menyusun representasi algoritma dan menjelaskan eksekusi program Python | PG, Esai | 5% |
+| 3 | CPMK-2 | Sub-CPMK-2.1, Sub-CPMK-2.2 | Variabel, penamaan, tipe data, *type casting* | Menentukan tipe data dan hasil konversi | PG, *Code Tracing* | 10% |
+| 4 | CPMK-2 | Sub-CPMK-2.3, Sub-CPMK-2.4 | Operator, input/output | Mengevaluasi ekspresi Python dan menulis kode I/O yang benar | PG, *Code Tracing*, Tulis Kode | 10% |
+| 5 | CPMK-3 | Sub-CPMK-3.1, Sub-CPMK-3.2, Sub-CPMK-3.3, Sub-CPMK-3.4 | Struktur seleksi, kondisi majemuk, *nested if* | Menulis dan men-*trace* kode seleksi bertingkat | *Code Tracing*, Tulis Kode | 15% |
+| 6 | CPMK-3 | Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8 | Perulangan `for`/`while`, `break`/`continue`, *nested loop* | Menulis dan men-*trace* kode perulangan serta pola cetak | *Code Tracing*, Tulis Kode | 15% |
+| 7 | CPMK-4 | Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3, Sub-CPMK-4.4 | Fungsi, parameter, *return*, *scope*, DRY, *docstring* | Merancang fungsi modular terdokumentasi untuk masalah tertentu | Tulis Kode, Esai | 15% |
+| 8 | CPMK-4 | Sub-CPMK-4.5, Sub-CPMK-4.6, Sub-CPMK-4.7, Sub-CPMK-4.8 | *Slicing*, *string methods*, f-string, *file I/O* | Memanipulasi string dan menulis kode baca/tulis berkas | PG, *Code Tracing*, Tulis Kode | 10% |
+| 9 | CPMK-5 | Sub-CPMK-5.1, Sub-CPMK-5.2, Sub-CPMK-5.3, Sub-CPMK-5.4 | *List*, *tuple*, *comprehension*, fungsi bawaan koleksi | Mengoperasikan koleksi dan membedakan *list* dari *tuple* | PG, *Code Tracing*, Tulis Kode | 10% |
+| | | | | | **Total** | **100%** |
 
 ---
 

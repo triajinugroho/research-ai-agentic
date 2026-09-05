@@ -363,3 +363,7 @@ Sepanjang progresi AI Literacy, mahasiswa juga akan mempelajari prinsip-prinsip 
 ---
 
 *Buku ini diterbitkan pada Februari 2026 oleh Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar Indonesia, Jakarta.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

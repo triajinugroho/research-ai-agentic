@@ -853,7 +853,7 @@ PyCharm adalah IDE khusus Python yang dikembangkan oleh JetBrains. Edisi Communi
 16. Kementerian Pendidikan Tinggi, Sains, dan Teknologi. (2026). *Peraturan Menteri Pendidikan Tinggi, Sains, dan Teknologi Nomor 10 Tahun 2026 tentang Perubahan atas Peraturan Menteri Nomor 39 Tahun 2025*. Berita Negara RI Tahun 2026 Nomor 477. Jakarta. — [REG-2]
 17. Presiden Republik Indonesia. (2012). *Kerangka Kualifikasi Nasional Indonesia (KKNI)*. Peraturan Presiden Nomor 8 Tahun 2012. Jakarta. — [REG-3]
 
-> **Catatan sitasi.** Rujukan Permendikbud Nomor 3 Tahun 2020 pada edisi sebelumnya **telah dicabut** dan digantikan. Garis keturunan regulasi: Permendikbud 3/2020 → Permendikbudristek 53/2023 → Permendiktisaintek 39/2025 → 10/2026. Status verifikasi tiap acuan tercantum pada [`../../00-pedoman-obe/pedoman-obe-konvensi.md`](../../00-pedoman-obe/pedoman-obe-konvensi.md) §B.
+> **Catatan sitasi.** Rujukan Permendikbud No. 3/2020 pada edisi sebelumnya **telah dicabut** dan digantikan. Garis keturunan regulasi: Permendikbud 3/2020 → Permendikbudristek 53/2023 → Permendiktisaintek 39/2025 → 10/2026. Status verifikasi tiap acuan tercantum pada [`../../00-pedoman-obe/pedoman-obe-konvensi.md`](../../00-pedoman-obe/pedoman-obe-konvensi.md) §B.
 
 ### E.4 Sumber Online
 

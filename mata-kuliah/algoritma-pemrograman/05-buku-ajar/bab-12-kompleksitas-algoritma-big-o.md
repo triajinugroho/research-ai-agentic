@@ -1559,3 +1559,7 @@ Di Bab 13, kita akan mempelajari **File Handling dan Exception Handling**, di ma
 *Algoritma dan Pemrograman --- Prodi Informatika, Universitas Al Azhar Indonesia*
 *Tri Aji Nugroho, S.T., M.T.*
 *Edisi Pertama, 2026*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
