@@ -1,3 +1,20 @@
+---
+id: uai-inf101-asesmen-kisi-uas
+tipe: asesmen
+judul: "Kisi-Kisi UAS — Algoritma dan Pemrograman"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+asesmen_id: ASM-UAS
+mengukur_cpmk: []
+mengukur_sub_cpmk: []
+bobot_persen: 40
+ai_diizinkan: false
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Kisi-kisi UAS -- Algoritma dan Pemrograman
 
 > **Mata Kuliah:** Algoritma dan Pemrograman

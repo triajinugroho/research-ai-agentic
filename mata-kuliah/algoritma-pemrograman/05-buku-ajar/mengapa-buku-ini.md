@@ -1,3 +1,22 @@
+---
+id: uai-inf101-buku-mengapa-buku-ini
+tipe: bab-buku-ajar
+judul: "Mengapa Buku Ini?"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 0
+level_ai: understand
+cpmk: []
+sub_cpmk: []
+bloom_c: []
+bloom_a: []
+bloom_p: []
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Mengapa Buku Ini? — Positioning & Diferensiasi
 
 **Tri Aji Nugroho, S.T., M.T.**

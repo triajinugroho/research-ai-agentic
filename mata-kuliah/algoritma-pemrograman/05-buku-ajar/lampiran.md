@@ -1,3 +1,22 @@
+---
+id: uai-inf101-buku-lampiran
+tipe: bab-buku-ajar
+judul: "Buku Ajar Algoritma dan Pemrograman — Lampiran"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 15
+level_ai: create
+cpmk: []
+sub_cpmk: []
+bloom_c: []
+bloom_a: []
+bloom_p: []
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # LAMPIRAN
 
 **Algoritma dan Pemrograman: Fondasi Computational Thinking dengan Python dan AI**
@@ -826,10 +845,15 @@ PyCharm adalah IDE khusus Python yang dikembangkan oleh JetBrains. Edisi Communi
 ### E.3 Dokumen dan Standar
 
 10. ACM/IEEE-CS Joint Task Force. (2023). *Computer Science Curricula 2023 (CS2023)*. New York, NY: Association for Computing Machinery / IEEE Computer Society.
-11. UNESCO. (2024). *AI and Education: Guidance for Policy-Makers*. Paris: UNESCO Publishing.
-12. BAN-PT. (2025). SK Akreditasi No. 050/SK/LAM-INFOKOM/Ak/S/III/2025. Jakarta: Lembaga Akreditasi Mandiri Informatika dan Komputer.
-13. Kementerian Pendidikan dan Kebudayaan. (2020). Standar Nasional Pendidikan Tinggi (SN-Dikti). Peraturan Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor 3 Tahun 2020.
-14. Presiden Republik Indonesia. (2012). Kerangka Kualifikasi Nasional Indonesia (KKNI). Peraturan Presiden Nomor 8 Tahun 2012.
+11. UNESCO. (2026). *AI Competency Framework for Students* (pembaruan 16 Januari 2026). Paris: UNESCO Publishing. — [REG-9]
+12. UNESCO. (2026). *AI Competency Framework for Teachers* (pembaruan 16 Januari 2026). Paris: UNESCO Publishing. — [REG-9]
+13. Lembaga Akreditasi Mandiri Informatika dan Komputer (LAM-INFOKOM). (2025). *SK Akreditasi No. 050/SK/LAM-INFOKOM/Ak/S/III/2025*. Jakarta. — [REG-5]
+14. Lembaga Akreditasi Mandiri Informatika dan Komputer (LAM-INFOKOM). (2025). *Instrumen Akreditasi Program Studi 2.0*. Jakarta. — [REG-7]
+15. Kementerian Pendidikan Tinggi, Sains, dan Teknologi. (2025). *Peraturan Menteri Pendidikan Tinggi, Sains, dan Teknologi Nomor 39 Tahun 2025 tentang Penjaminan Mutu Pendidikan Tinggi*. Jakarta. — [REG-1]
+16. Kementerian Pendidikan Tinggi, Sains, dan Teknologi. (2026). *Peraturan Menteri Pendidikan Tinggi, Sains, dan Teknologi Nomor 10 Tahun 2026 tentang Perubahan atas Peraturan Menteri Nomor 39 Tahun 2025*. Berita Negara RI Tahun 2026 Nomor 477. Jakarta. — [REG-2]
+17. Presiden Republik Indonesia. (2012). *Kerangka Kualifikasi Nasional Indonesia (KKNI)*. Peraturan Presiden Nomor 8 Tahun 2012. Jakarta. — [REG-3]
+
+> **Catatan sitasi.** Rujukan Permendikbud Nomor 3 Tahun 2020 pada edisi sebelumnya **telah dicabut** dan digantikan. Garis keturunan regulasi: Permendikbud 3/2020 → Permendikbudristek 53/2023 → Permendiktisaintek 39/2025 → 10/2026. Status verifikasi tiap acuan tercantum pada [`../../00-pedoman-obe/pedoman-obe-konvensi.md`](../../00-pedoman-obe/pedoman-obe-konvensi.md) §B.
 
 ### E.4 Sumber Online
 
