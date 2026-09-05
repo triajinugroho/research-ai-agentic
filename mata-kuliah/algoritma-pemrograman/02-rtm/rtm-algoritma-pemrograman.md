@@ -1,3 +1,15 @@
+---
+id: uai-inf101-rtm
+tipe: rtm
+judul: "Rencana Tugas Mahasiswa — Algoritma dan Pemrograman"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Rencana Tugas Mahasiswa (RTM)
 
 ## Algoritma dan Pemrograman

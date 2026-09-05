@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-05
+tipe: bab-buku-ajar
+judul: "BAB 5: FUNGSI DAN MODULARITAS"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 5
+level_ai: apply
+cpmk: [CPMK-4]
+sub_cpmk: [Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3, Sub-CPMK-4.4]
+bloom_c: [C2, C3]
+bloom_a: []
+bloom_p: [P2, P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 5: FUNGSI DAN MODULARITAS
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,11 +29,10 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|:------------:|
-| CPMK-4.1 | Mendefinisikan fungsi dengan parameter dan return value | C3 (Menerapkan) |
-| CPMK-4.2 | Menerapkan prinsip DRY dan dekomposisi top-down | C3 (Menerapkan) |
-| CPMK-4.3 | Menjelaskan konsep scope (local vs global) | C2 (Memahami) |
-| CPMK-4.4 | Menggunakan docstring dan dokumentasi fungsi | C3 (Menerapkan) |
-
+| **Sub-CPMK-4.1** | Mendefinisikan fungsi menggunakan `def`, parameter, dan `return` untuk memecah program menjadi unit modular | C3, P2 |
+| **Sub-CPMK-4.2** | Membedakan variabel lokal dan global serta menjelaskan konsep *scope* dalam konteks fungsi | C2 |
+| **Sub-CPMK-4.3** | Menerapkan prinsip DRY dan pendekatan *top-down design* dalam perancangan solusi algoritmik | C3 |
+| **Sub-CPMK-4.4** | Mendokumentasikan fungsi menggunakan *docstring* dan memanfaatkan `help()` untuk membaca dokumentasi | C3, P3 |
 **Estimasi Waktu:** 2 pertemuan (masing-masing 2 × 50 menit)
 
 **Prasyarat:** Mahasiswa telah memahami materi Bab 1–4 (Pengantar Algoritma, Variabel & Tipe Data, Seleksi, dan Perulangan).
@@ -1311,3 +1328,7 @@ Program harus memiliki minimal 5 soal tentang materi Bab 1-4.
 ---
 
 *Bab selanjutnya: **Bab 6 — String dan Pengolahan Teks** — Anda akan belajar memanipulasi teks menggunakan fungsi-fungsi string bawaan Python, serta mengkombinasikannya dengan fungsi yang Anda buat sendiri.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

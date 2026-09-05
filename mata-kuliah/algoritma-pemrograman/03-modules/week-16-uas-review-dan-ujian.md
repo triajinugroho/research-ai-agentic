@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w16
+tipe: modul
+judul: "Minggu 16: UAS — Review dan Ujian Akhir Semester"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [16]
+estimasi_menit: 150
+cpmk: []
+sub_cpmk: []
+bloom_c: []
+bloom_a: []
+bloom_p: []
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 16: UAS — Review dan Ujian Akhir Semester
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 16 dari 16 |
 | **Topik** | Review Komprehensif dan Ujian Akhir Semester |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |

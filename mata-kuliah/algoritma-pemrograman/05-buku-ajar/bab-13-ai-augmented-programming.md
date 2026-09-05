@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-13
+tipe: bab-buku-ajar
+judul: "BAB 13: AI-AUGMENTED PROGRAMMING DAN CODE QUALITY"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 13
+level_ai: create
+cpmk: [CPMK-7]
+sub_cpmk: [Sub-CPMK-7.5, Sub-CPMK-7.6, Sub-CPMK-7.7, Sub-CPMK-7.8]
+bloom_c: [C2, C3, C4, C5]
+bloom_a: [A2, A3]
+bloom_p: [P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 13: AI-AUGMENTED PROGRAMMING DAN CODE QUALITY
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,12 +29,11 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-7.5 | Mengevaluasi penggunaan AI sebagai coding partner secara bertanggung jawab | C5 (Mengevaluasi) |
-| CPMK-7.6 | Menerapkan framework CRIDE untuk prompt engineering kode | C3 (Menerapkan) |
-| CPMK-7.7 | Merancang workflow AI pair programming yang efektif | C6 (Mencipta) |
-| CPMK-7.8 | Mengevaluasi dan memvalidasi kode yang dihasilkan AI | C5 (Mengevaluasi) |
-
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+| **Sub-CPMK-7.5** | Mengidentifikasi *AI coding assistant* dan menjelaskan perannya sebagai alat bantu, bukan pengganti pemahaman | C2, A2 |
+| **Sub-CPMK-7.6** | Menerapkan kerangka CRIDE untuk menyusun *prompt* efektif dan memvalidasi output AI | C3, P3 |
+| **Sub-CPMK-7.7** | Menganalisis kualitas kode berdasarkan prinsip *clean code* dan melakukan *code review* sistematis | C4, P3 |
+| **Sub-CPMK-7.8** | Mengevaluasi etika penggunaan AI dan mendokumentasikannya secara transparan melalui AI Usage Log | C5, A3 |
+**Estimasi Waktu:** 3 × 50 menit
 
 **Prasyarat:** Mahasiswa telah memahami seluruh fondasi pemrograman (Bab 1–12): variabel, kontrol, fungsi, string, koleksi, searching, sorting, rekursi, dan Big-O.
 

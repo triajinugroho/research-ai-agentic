@@ -1,3 +1,15 @@
+---
+id: uai-inf101-readme
+tipe: readme
+judul: "Panduan Mata Kuliah — Algoritma dan Pemrograman"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Algoritma dan Pemrograman
 
 ## MK Teori — INF-101

@@ -1,3 +1,21 @@
+---
+id: uai-inf101-modul-w12
+tipe: modul
+judul: "Minggu 12: Rekursi dan Pemecahan Masalah"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [12]
+estimasi_menit: 150
+cpmk: [CPMK-6]
+sub_cpmk: [Sub-CPMK-6.9, Sub-CPMK-6.10, Sub-CPMK-6.11, Sub-CPMK-6.12]
+bloom_c: [C2, C3, C4, C5]
+bloom_a: []
+bloom_p: [P3, P4]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 12: Rekursi dan Pemecahan Masalah
 
 ## Informasi Modul
@@ -6,14 +24,13 @@
 |----------|------------|
 | **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Kode MK** | IF1101 |
-| **SKS** | 3 SKS |
 | **Minggu** | 12 (Dua Belas) |
 | **Topik** | Rekursi dan Pemecahan Masalah |
 | **CPMK** | CPMK-6: Mampu menerapkan algoritma dasar (pencarian, pengurutan, rekursi) untuk menyelesaikan masalah komputasional |
-| **Sub-CPMK** | CPMK-6.9: Menjelaskan konsep rekursi (base case dan recursive case) |
-| | CPMK-6.10: Mengimplementasikan fungsi rekursif untuk masalah klasik (faktorial, Fibonacci, Tower of Hanoi) |
-| | CPMK-6.11: Memvisualisasikan recursion tree dan call stack |
-| | CPMK-6.12: Membandingkan pendekatan rekursif dan iteratif serta menerapkan memoization |
+| **Sub-CPMK** | Sub-CPMK-6.9: Menjelaskan konsep rekursi (base case dan recursive case) |
+| | Sub-CPMK-6.10: Mengimplementasikan fungsi rekursif untuk masalah klasik (faktorial, Fibonacci, Tower of Hanoi) |
+| | Sub-CPMK-6.11: Memvisualisasikan recursion tree dan call stack |
+| | Sub-CPMK-6.12: Membandingkan pendekatan rekursif dan iteratif serta menerapkan memoization |
 | **Durasi** | 150 menit |
 | **Metode** | Ceramah, Live Coding, Call Stack Tracing, Demonstrasi, Kuis |
 | **Bahasa Pemrograman** | Python |

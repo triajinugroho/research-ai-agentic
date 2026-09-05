@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-07
+tipe: bab-buku-ajar
+judul: "BAB 7: LIST, TUPLE, DAN OPERASI KOLEKSI"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 7
+level_ai: apply
+cpmk: [CPMK-5]
+sub_cpmk: [Sub-CPMK-5.1, Sub-CPMK-5.2, Sub-CPMK-5.3, Sub-CPMK-5.4]
+bloom_c: [C3, C4]
+bloom_a: []
+bloom_p: [P2, P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 7: LIST, TUPLE, DAN OPERASI KOLEKSI
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,12 +29,11 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-5.1 | Memahami konsep list dan tuple sebagai struktur data linear | C2 (Memahami) |
-| CPMK-5.2 | Menerapkan operasi CRUD pada list | C3 (Menerapkan) |
-| CPMK-5.3 | Menggunakan list comprehension untuk transformasi data | C3 (Menerapkan) |
-| CPMK-5.4 | Membedakan penggunaan list vs tuple berdasarkan konteks | C4 (Menganalisis) |
-
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+| **Sub-CPMK-5.1** | Memanipulasi *list* menggunakan operasi CRUD, *methods* bawaan, dan *slicing* | C3, P2 |
+| **Sub-CPMK-5.2** | Membangun *list comprehension* untuk transformasi dan penyaringan data secara efisien | C3, P3 |
+| **Sub-CPMK-5.3** | Membedakan *list* dan *tuple* serta menerapkan *tuple packing/unpacking* dalam program | C4 |
+| **Sub-CPMK-5.4** | Menggunakan fungsi bawaan (`len`, `sum`, `min`, `max`, `sorted`, `enumerate`, `zip`) untuk mengolah koleksi | C3 |
+**Estimasi Waktu:** 3 × 50 menit
 
 **Prasyarat:** Mahasiswa telah memahami materi Bab 1–6 (variabel, kontrol, fungsi, string).
 

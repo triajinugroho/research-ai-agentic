@@ -1,3 +1,22 @@
+---
+id: uai-inf101-buku-penutup
+tipe: bab-buku-ajar
+judul: "Penutup: Refleksi dan Langkah ke Depan"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 15
+level_ai: understand
+cpmk: []
+sub_cpmk: []
+bloom_c: []
+bloom_a: []
+bloom_p: []
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # PENUTUP: REFLEKSI DAN LANGKAH KE DEPAN
 
 **Tri Aji Nugroho, S.T., M.T.**

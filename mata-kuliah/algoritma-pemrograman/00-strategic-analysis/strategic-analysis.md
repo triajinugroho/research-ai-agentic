@@ -1,3 +1,15 @@
+---
+id: uai-inf101-analisis-strategis
+tipe: analisis-strategis
+judul: "Analisis Strategis — Algoritma dan Pemrograman"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Analisis Strategis: Mata Kuliah Algoritma dan Pemrograman
 
 ## Fondasi Computational Thinking dengan Python dan AI
@@ -623,7 +635,7 @@ ke depan.
 9. **PwC Indonesia.** (2025). *Digital Trust Insights: Indonesia Edition.* PwC.
 10. **Kementerian Komunikasi dan Informatika RI.** (2024). *Roadmap Digital Talent
     Indonesia 2024-2029.* Kominfo.
-11. **Peraturan Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi.** (2024).
+15. **Kementerian Pendidikan Tinggi, Sains, dan Teknologi.** (2025). *Penjaminan Mutu Pendidikan Tinggi.* Peraturan Menteri Pendidikan Tinggi, Sains, dan Teknologi Nomor 39 Tahun 2025, sebagaimana diubah dengan Peraturan Menteri Nomor 10 Tahun 2026.
     *Standar Nasional Pendidikan Tinggi (SN-Dikti).* Kemendikbudristek.
 12. **Wing, J. M.** (2006). *Computational Thinking.* Communications of the ACM,
     49(3), 33-35.

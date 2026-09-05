@@ -1,5 +1,16 @@
 # PROMPT LENGKAP: Paket Mata Kuliah "Algoritma dan Pemrograman"
 
+> ## ⚠️ KONVENSI DALAM BERKAS INI KEDALUWARSA (per 5 September 2026)
+>
+> **Sumber kebenaran yang berlaku:** `mata-kuliah/00-pedoman-obe/pedoman-obe-konvensi.md` (v0.2).
+>
+> Meregenerasi konten dari prompt ini **tanpa penyesuaian** akan membatalkan:
+> kode Sub-CPMK kanonik (`Sub-CPMK-<induk>.<urut>`), CPL resmi prodi, taksonomi tiga ranah C/A/P,
+> metadata YAML front-matter, artefak mutu (PPEPP), dan sitasi regulasi terbaru
+> (Permendiktisaintek 39/2025, 10/2026, 14/2026).
+>
+> Perbarui prompt ini lebih dulu (Fase 2.5) sebelum dipakai untuk generasi ulang.
+
 > **Instruksi**: Copy-paste seluruh isi prompt di bawah ini ke chat Claude baru untuk men-generate paket mata kuliah lengkap. Prompt ini self-contained — tidak memerlukan file atau konteks tambahan.
 
 ---

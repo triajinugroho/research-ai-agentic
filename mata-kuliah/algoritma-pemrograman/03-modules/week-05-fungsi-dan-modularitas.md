@@ -1,14 +1,32 @@
+---
+id: uai-inf101-modul-w05
+tipe: modul
+judul: "Minggu 5: Fungsi dan Modularitas"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [5]
+estimasi_menit: 150
+cpmk: [CPMK-4]
+sub_cpmk: [Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3, Sub-CPMK-4.4]
+bloom_c: [C2, C3]
+bloom_a: []
+bloom_p: [P2, P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 5: Fungsi dan Modularitas
 
 ## Informasi Modul
 
 | Komponen       | Detail                                                        |
 |----------------|---------------------------------------------------------------|
-| Mata Kuliah    | Algoritma dan Pemrograman (3 SKS)                             |
+| Mata Kuliah    | Algoritma dan Pemrograman                             |
 | Minggu         | 5 (Lima)                                                      |
 | Topik          | Fungsi dan Modularitas                                        |
 | CPMK           | CPMK-4: Mampu menerapkan prinsip modularitas dalam pemrograman |
-| Sub-CPMK       | CPMK-4.1, CPMK-4.2, CPMK-4.3, CPMK-4.4                     |
+| Sub-CPMK       | Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3, Sub-CPMK-4.4                     |
 | Durasi         | 150 menit                                                     |
 | Metode         | Ceramah, live coding, latihan refactoring                     |
 | Pengajar       | Tri Aji Nugroho, S.T., M.T.                                  |
@@ -21,10 +39,10 @@
 
 Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
-1. **Mendefinisikan** fungsi menggunakan keyword `def`, parameter, dan `return` untuk memecah program menjadi unit modular (CPMK-4.1).
-2. **Membedakan** variabel lokal dan global serta menjelaskan konsep scope dalam konteks fungsi (CPMK-4.2).
-3. **Menerapkan** prinsip DRY dan pendekatan top-down design dalam perancangan solusi algoritmik (CPMK-4.3).
-4. **Mendokumentasikan** fungsi menggunakan docstring dan memanfaatkan `help()` untuk membaca dokumentasi (CPMK-4.4).
+1. **Mendefinisikan** fungsi menggunakan keyword `def`, parameter, dan `return` untuk memecah program menjadi unit modular (Sub-CPMK-4.1).
+2. **Membedakan** variabel lokal dan global serta menjelaskan konsep scope dalam konteks fungsi (Sub-CPMK-4.2).
+3. **Menerapkan** prinsip DRY dan pendekatan top-down design dalam perancangan solusi algoritmik (Sub-CPMK-4.3).
+4. **Mendokumentasikan** fungsi menggunakan docstring dan memanfaatkan `help()` untuk membaca dokumentasi (Sub-CPMK-4.4).
 
 ---
 

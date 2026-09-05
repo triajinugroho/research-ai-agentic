@@ -1,14 +1,32 @@
+---
+id: uai-inf101-modul-w06
+tipe: modul
+judul: "Minggu 6: String dan Pengolahan Teks"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [6]
+estimasi_menit: 150
+cpmk: [CPMK-4]
+sub_cpmk: [Sub-CPMK-4.5, Sub-CPMK-4.6, Sub-CPMK-4.7, Sub-CPMK-4.8]
+bloom_c: [C3, C4]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 6: String dan Pengolahan Teks
 
 ## Informasi Modul
 
 | Komponen       | Detail                                                           |
 |----------------|------------------------------------------------------------------|
-| Mata Kuliah    | Algoritma dan Pemrograman (3 SKS)                                |
+| Mata Kuliah    | Algoritma dan Pemrograman                                |
 | Minggu         | 6 (Enam)                                                        |
 | Topik          | String dan Pengolahan Teks                                       |
 | CPMK           | CPMK-4: Mampu menerapkan prinsip modularitas dalam pemrograman   |
-| Sub-CPMK       | CPMK-4.5, CPMK-4.6, CPMK-4.7, CPMK-4.8                        |
+| Sub-CPMK       | Sub-CPMK-4.5, Sub-CPMK-4.6, Sub-CPMK-4.7, Sub-CPMK-4.8                        |
 | Durasi         | 150 menit                                                        |
 | Metode         | Ceramah, live coding, praktikum                                  |
 | Pengajar       | Tri Aji Nugroho, S.T., M.T.                                     |
@@ -21,10 +39,10 @@
 
 Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
-1. **Menganalisis** string sebagai sequence dan menerapkan indexing serta slicing untuk memanipulasi karakter (CPMK-4.5).
-2. **Menggunakan** string methods bawaan Python untuk pengolahan dan transformasi teks (CPMK-4.6).
-3. **Menerapkan** formatting string menggunakan f-string untuk output yang terstruktur (CPMK-4.7).
-4. **Mengimplementasikan** file I/O dasar (baca/tulis file teks, CSV sederhana) dengan statement `with` (CPMK-4.8).
+1. **Menganalisis** string sebagai sequence dan menerapkan indexing serta slicing untuk memanipulasi karakter (Sub-CPMK-4.5).
+2. **Menggunakan** string methods bawaan Python untuk pengolahan dan transformasi teks (Sub-CPMK-4.6).
+3. **Menerapkan** formatting string menggunakan f-string untuk output yang terstruktur (Sub-CPMK-4.7).
+4. **Mengimplementasikan** file I/O dasar (baca/tulis file teks, CSV sederhana) dengan statement `with` (Sub-CPMK-4.8).
 
 ---
 

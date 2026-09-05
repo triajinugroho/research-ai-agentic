@@ -1,9 +1,18 @@
 ---
-mata_kuliah: Algoritma dan Pemrograman
+id: uai-inf101-asesmen-uts-kunci
+tipe: asesmen
+judul: "Kunci Jawaban UTS — Algoritma dan Pemrograman"
 kode_mk: INF-101
-sks: 2 SKS (Teori)
-semester: Genap 2025/2026
-jenis: UTS
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+asesmen_id: ASM-UTS
+mengukur_cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4]
+mengukur_sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.4, Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4, Sub-CPMK-3.2, Sub-CPMK-3.4, Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8, Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3]
+bobot_persen: 30
+ai_diizinkan: false
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
 ---
 
 # UJIAN TENGAH SEMESTER (UTS)
@@ -35,7 +44,7 @@ jenis: UTS
 
 ### PG No. 1
 
-**Sub-CPMK:** CPMK-1.1 — Mendefinisikan konsep algoritma, sejarah perkembangannya, dan relevansinya dalam kehidupan sehari-hari
+**Sub-CPMK:** Sub-CPMK-1.1 — Mendefinisikan konsep algoritma dan menjelaskan perannya dalam pemecahan masalah komputasional
 **Level Bloom:** C2
 **Konteks:** Umum
 
@@ -50,7 +59,7 @@ Sifat wajib algoritma klasik (Knuth) meliputi: *finiteness* (berakhir dalam lang
 
 ### PG No. 2
 
-**Sub-CPMK:** CPMK-1.2 — Menjelaskan empat pilar computational thinking: dekomposisi, pengenalan pola, abstraksi, dan desain algoritma
+**Sub-CPMK:** Sub-CPMK-1.2 — Mengidentifikasi empat pilar computational thinking dan menerapkannya pada permasalahan sederhana
 **Level Bloom:** C3
 **Konteks:** JTBD (manajemen waktu belajar)
 
@@ -65,7 +74,7 @@ Membagi aktivitas harian menjadi bagian-bagian kecil yang dapat dijadwalkan satu
 
 ### PG No. 3
 
-**Sub-CPMK:** CPMK-1.3 — Menjelaskan peran Python dan AI dalam ekosistem pemrograman modern serta hubungan dengan mata kuliah ko-requisite Analisis Data Statistik
+**Sub-CPMK:** Sub-CPMK-1.4 — Menjalankan program Python pertama menggunakan Google Colab sebagai lingkungan pengembangan
 **Level Bloom:** C2
 **Konteks:** Umum
 
@@ -80,7 +89,7 @@ Python justru **bukan** bahasa tercepat — bahasa seperti C/C++/Rust unggul dar
 
 ### PG No. 4
 
-**Sub-CPMK:** CPMK-2.1 — Mengidentifikasi dan menggunakan variabel, konstanta, dan aturan penamaan (naming convention) di Python
+**Sub-CPMK:** Sub-CPMK-2.1 — Menjelaskan konsep variabel, aturan penamaan, dan mekanisme penugasan nilai dalam Python
 **Level Bloom:** C2
 **Konteks:** Umum
 
@@ -95,7 +104,7 @@ PEP 8 merekomendasikan *snake_case* untuk variabel biasa: `total_harga`. Distrak
 
 ### PG No. 5
 
-**Sub-CPMK:** CPMK-2.2 — Membedakan tipe data dasar (int, float, str, bool) dan melakukan konversi tipe (type casting)
+**Sub-CPMK:** Sub-CPMK-2.2 — Membedakan tipe data dasar (int, float, str, bool) beserta karakteristik dan penggunaannya
 **Level Bloom:** C3
 **Konteks:** Umum
 
@@ -110,7 +119,7 @@ PEP 8 merekomendasikan *snake_case* untuk variabel biasa: `total_harga`. Distrak
 
 ### PG No. 6
 
-**Sub-CPMK:** CPMK-2.2 — Membedakan tipe data dasar (int, float, str, bool) dan melakukan konversi tipe (type casting)
+**Sub-CPMK:** Sub-CPMK-2.2 — Membedakan tipe data dasar (int, float, str, bool) beserta karakteristik dan penggunaannya
 **Level Bloom:** C3
 **Konteks:** Umum
 
@@ -125,7 +134,7 @@ PEP 8 merekomendasikan *snake_case* untuk variabel biasa: `total_harga`. Distrak
 
 ### PG No. 7
 
-**Sub-CPMK:** CPMK-2.3 — Menerapkan operator aritmatika, perbandingan, logika, dan assignment dalam ekspresi komputasi
+**Sub-CPMK:** Sub-CPMK-2.3 — Menerapkan operator aritmetika, perbandingan, dan logika untuk membangun ekspresi komputasional
 **Level Bloom:** C3
 **Konteks:** Umum
 
@@ -144,7 +153,7 @@ Distraktor A (9) terjadi jika `- 1` dievaluasi lebih dulu dari `+`. C (11) lupa 
 
 ### PG No. 8
 
-**Sub-CPMK:** CPMK-2.3 — Menerapkan operator aritmatika, perbandingan, logika, dan assignment dalam ekspresi komputasi
+**Sub-CPMK:** Sub-CPMK-2.3 — Menerapkan operator aritmetika, perbandingan, dan logika untuk membangun ekspresi komputasional
 **Level Bloom:** C4
 **Konteks:** Umum
 
@@ -159,7 +168,7 @@ Python memakai **short-circuit evaluation**. Pada `x and cek()`: karena `x = Fal
 
 ### PG No. 9
 
-**Sub-CPMK:** CPMK-2.4 — Menerapkan fungsi input/output untuk interaksi program sederhana
+**Sub-CPMK:** Sub-CPMK-2.4 — Mengimplementasikan operasi input/output dan konversi tipe data dalam program Python sederhana
 **Level Bloom:** C3
 **Konteks:** JTBD (form belanja online)
 
@@ -174,7 +183,7 @@ Python memakai **short-circuit evaluation**. Pada `x and cek()`: karena `x = Fal
 
 ### PG No. 10
 
-**Sub-CPMK:** CPMK-3.1 — Menerapkan struktur seleksi if, elif, else untuk pengambilan keputusan dalam program
+**Sub-CPMK:** Sub-CPMK-3.2 — Menerapkan struktur if, if-else, dan if-elif-else untuk kondisi tunggal maupun majemuk
 **Level Bloom:** C3
 **Konteks:** Islami (kalkulasi zakat mal 2,5%)
 
@@ -189,7 +198,7 @@ Python memakai **short-circuit evaluation**. Pada `x and cek()`: karena `x = Fal
 
 ### PG No. 11
 
-**Sub-CPMK:** CPMK-3.2 — Merancang struktur seleksi bertingkat (nested) dan multi-kondisi untuk kasus yang kompleks
+**Sub-CPMK:** Sub-CPMK-3.4 — Mengimplementasikan nested if dan conditional expression untuk percabangan bertingkat
 **Level Bloom:** C4
 **Konteks:** Indonesia (grade IP UAI)
 
@@ -204,7 +213,7 @@ Evaluasi berurutan: `78 >= 85` salah, `78 >= 80` salah, `78 >= 75` **benar** →
 
 ### PG No. 12
 
-**Sub-CPMK:** CPMK-3.3 — Menerapkan match-case statement (Python 3.10+) sebagai alternatif seleksi
+**Sub-CPMK:** Sub-CPMK-3.2 — Menerapkan struktur if, if-else, dan if-elif-else untuk kondisi tunggal maupun majemuk
 **Level Bloom:** C3
 **Konteks:** Umum
 
@@ -219,7 +228,7 @@ Evaluasi berurutan: `78 >= 85` salah, `78 >= 80` salah, `78 >= 75` **benar** →
 
 ### PG No. 13
 
-**Sub-CPMK:** CPMK-4.1 — Menerapkan perulangan for dengan range() dan iterasi koleksi
+**Sub-CPMK:** Sub-CPMK-3.5 — Menerapkan perulangan for dengan range() untuk iterasi dengan jumlah pengulangan diketahui
 **Level Bloom:** C3
 **Konteks:** Umum
 
@@ -234,7 +243,7 @@ Evaluasi berurutan: `78 >= 85` salah, `78 >= 80` salah, `78 >= 75` **benar** →
 
 ### PG No. 14
 
-**Sub-CPMK:** CPMK-4.2 — Menerapkan perulangan while dengan kondisi berhenti yang tepat
+**Sub-CPMK:** Sub-CPMK-3.6 — Menerapkan perulangan while untuk iterasi dengan kondisi berhenti tertentu
 **Level Bloom:** C4
 **Konteks:** Umum
 
@@ -249,7 +258,7 @@ Evaluasi berurutan: `78 >= 85` salah, `78 >= 80` salah, `78 >= 75` **benar** →
 
 ### PG No. 15
 
-**Sub-CPMK:** CPMK-4.3 — Menggunakan break, continue, dan perulangan bertingkat (nested loop) untuk kontrol alur lanjutan
+**Sub-CPMK:** Sub-CPMK-3.7 — Menggunakan break, continue, dan klausa else pada loop untuk mengontrol alur perulangan
 **Level Bloom:** C4
 **Konteks:** Umum
 
@@ -269,7 +278,7 @@ Total akhir = **12**. Distraktor B (10) terjadi jika salah hitung iterasi `i=2`;
 
 ### PG No. 16
 
-**Sub-CPMK:** CPMK-4.4 — Menerapkan pola akumulator, penghitung (counter), dan flag dalam perulangan
+**Sub-CPMK:** Sub-CPMK-3.8 — Menganalisis nested loop menggunakan loop trace table dan mengimplementasikannya untuk mencetak pola
 **Level Bloom:** C3
 **Konteks:** JTBD (rekap pengeluaran harian — akumulator)
 
@@ -284,7 +293,7 @@ Pola akumulator klasik: inisialisasi `total = 0` lalu di tiap iterasi tambahkan 
 
 ### PG No. 17
 
-**Sub-CPMK:** CPMK-5.1 — Mendefinisikan dan memanggil fungsi dengan parameter dan nilai kembalian (return value)
+**Sub-CPMK:** Sub-CPMK-4.1 — Mendefinisikan fungsi menggunakan def, parameter, dan return untuk memecah program menjadi unit modular
 **Level Bloom:** C2
 **Konteks:** Umum
 
@@ -299,7 +308,7 @@ Istilah resmi: identifier di *signature* fungsi disebut **parameter** (`panjang`
 
 ### PG No. 18
 
-**Sub-CPMK:** CPMK-5.2 — Menjelaskan konsep scope (lokal vs global) dan lifetime variabel
+**Sub-CPMK:** Sub-CPMK-4.2 — Membedakan variabel lokal dan global serta menjelaskan konsep scope dalam konteks fungsi
 **Level Bloom:** C4
 **Konteks:** Umum
 
@@ -314,7 +323,7 @@ Penugasan `x = 5` di dalam `ubah()` membuat variabel **lokal** baru bernama `x` 
 
 ### PG No. 19
 
-**Sub-CPMK:** CPMK-5.3 — Menerapkan fungsi lambda, default parameter, dan variable-length arguments (*args, **kwargs)
+**Sub-CPMK:** Sub-CPMK-4.1 — Mendefinisikan fungsi menggunakan def, parameter, dan return untuk memecah program menjadi unit modular
 **Level Bloom:** C3
 **Konteks:** Umum
 
@@ -329,7 +338,7 @@ Penugasan `x = 5` di dalam `ubah()` membuat variabel **lokal** baru bernama `x` 
 
 ### PG No. 20
 
-**Sub-CPMK:** CPMK-5.4 — Menerapkan prinsip modularitas dan code reuse melalui pengorganisasian fungsi
+**Sub-CPMK:** Sub-CPMK-4.3 — Menerapkan prinsip DRY dan pendekatan top-down design dalam perancangan solusi algoritmik
 **Level Bloom:** C4
 **Konteks:** Umum
 
@@ -346,7 +355,7 @@ Prinsip DRY (*Don't Repeat Yourself*) jelas dilanggar: rumus `3.14 * r * r` ditu
 
 ### Esai No. E1
 
-**Sub-CPMK:** CPMK-1.2 — Menjelaskan empat pilar computational thinking: dekomposisi, pengenalan pola, abstraksi, dan desain algoritma
+**Sub-CPMK:** Sub-CPMK-1.2 — Mengidentifikasi empat pilar computational thinking dan menerapkannya pada permasalahan sederhana
 **Level Bloom:** C3
 **Konteks:** JTBD (merancang rutinitas belajar efektif)
 
@@ -384,7 +393,7 @@ Prinsip DRY (*Don't Repeat Yourself*) jelas dilanggar: rumus `3.14 * r * r` ditu
 
 ### Esai No. E2
 
-**Sub-CPMK:** CPMK-3.1 & 3.2 — Menerapkan struktur seleksi if/elif/else; Merancang struktur seleksi bertingkat (nested) dan multi-kondisi
+**Sub-CPMK:** Sub-CPMK-3.2 & 3.2 — Menerapkan struktur seleksi if/elif/else; Merancang struktur seleksi bertingkat (nested) dan multi-kondisi
 **Level Bloom:** C3
 **Konteks:** Islami (klasifikasi nisab zakat mal)
 
@@ -436,7 +445,7 @@ else:
 
 ### Esai No. E3
 
-**Sub-CPMK:** CPMK-4.1 & 4.4 — Menerapkan perulangan for dengan range(); Menerapkan pola akumulator, penghitung, dan flag
+**Sub-CPMK:** Sub-CPMK-3.5 & 4.4 — Menerapkan perulangan for dengan range(); Menerapkan pola akumulator, penghitung, dan flag
 **Level Bloom:** C4
 **Konteks:** Indonesia (data jumlah penduduk per provinsi)
 
@@ -494,7 +503,7 @@ Provinsi terbanyak = Jawa Barat (48200000 jiwa)
 
 ### Esai No. E4
 
-**Sub-CPMK:** CPMK-5.1 & 5.4 — Mendefinisikan dan memanggil fungsi dengan parameter & return; Menerapkan prinsip modularitas dan code reuse
+**Sub-CPMK:** Sub-CPMK-4.1 & 5.4 — Mendefinisikan dan memanggil fungsi dengan parameter & return; Menerapkan prinsip modularitas dan code reuse
 **Level Bloom:** C5
 **Konteks:** JTBD (kalkulator BMI & kebutuhan kalori)
 
@@ -570,7 +579,7 @@ Dengan fungsi, tiap perhitungan dapat diuji dan dipanggil kembali tanpa duplikas
 
 ### Esai No. E5
 
-**Sub-CPMK:** CPMK-2.x s/d 5.x (integratif) — Integrasi variabel, seleksi, perulangan, dan fungsi pada kasus realistis (*merujuk ke sub-CPMK 2.1, 2.3, 2.4, 3.1, 4.2, 5.1*)
+**Sub-CPMK:** CPMK-2.x s/d 5.x (integratif) — Integrasi variabel, seleksi, perulangan, dan fungsi pada kasus realistis (*merujuk ke sub-Sub-CPMK-2.1, 2.3, 2.4, 3.1, 4.2, 5.1*)
 **Level Bloom:** C5
 **Konteks:** Indonesia (sistem antrean puskesmas)
 
@@ -673,27 +682,27 @@ while True:
 
 | Sub-CPMK | Deskripsi Singkat                                                   | Nomor Soal          | Total Poin |
 |----------|----------------------------------------------------------------------|---------------------|------------|
-| CPMK-1.1 | Definisi algoritma & sejarah                                         | PG #1               | 2          |
-| CPMK-1.2 | Empat pilar computational thinking                                   | PG #2, E1           | 14         |
-| CPMK-1.3 | Peran Python & AI dalam ekosistem modern                             | PG #3               | 2          |
-| CPMK-2.1 | Variabel, konstanta, naming convention PEP 8                         | PG #4, E5 (bagian)  | 2          |
-| CPMK-2.2 | Tipe data dasar & type casting                                       | PG #5, PG #6        | 4          |
-| CPMK-2.3 | Operator aritmatika/logika/perbandingan                              | PG #7, PG #8, E5    | 4          |
-| CPMK-2.4 | Input/output interaktif                                              | PG #9, E5 (bagian)  | 2          |
-| CPMK-3.1 | if/elif/else untuk pengambilan keputusan                             | PG #10, E2, E5      | 14         |
-| CPMK-3.2 | Nested & multi-kondisi                                               | PG #11, E2          | 2          |
-| CPMK-3.3 | match-case statement                                                 | PG #12              | 2          |
-| CPMK-4.1 | for dengan range() & iterasi koleksi                                 | PG #13, E3          | 14         |
-| CPMK-4.2 | while & kondisi berhenti                                             | PG #14, E5 (bagian) | 2          |
-| CPMK-4.3 | break/continue & nested loop                                         | PG #15              | 2          |
-| CPMK-4.4 | Pola akumulator/counter/flag                                         | PG #16, E3          | 2          |
-| CPMK-5.1 | Fungsi, parameter, return value                                      | PG #17, E4, E5      | 14         |
-| CPMK-5.2 | Scope lokal vs global                                                | PG #18              | 2          |
-| CPMK-5.3 | Lambda, default parameter, *args/**kwargs                            | PG #19              | 2          |
-| CPMK-5.4 | Modularitas & code reuse                                             | PG #20, E4          | 14         |
+| Sub-CPMK-1.1 | Definisi algoritma & sejarah                                         | PG #1               | 2          |
+| Sub-CPMK-1.2 | Empat pilar computational thinking                                   | PG #2, E1           | 14         |
+| Sub-CPMK-1.4 | Peran Python & AI dalam ekosistem modern                             | PG #3               | 2          |
+| Sub-CPMK-2.1 | Variabel, konstanta, naming convention PEP 8                         | PG #4, E5 (bagian)  | 2          |
+| Sub-CPMK-2.2 | Tipe data dasar & type casting                                       | PG #5, PG #6        | 4          |
+| Sub-CPMK-2.3 | Operator aritmatika/logika/perbandingan                              | PG #7, PG #8, E5    | 4          |
+| Sub-CPMK-2.4 | Input/output interaktif                                              | PG #9, E5 (bagian)  | 2          |
+| Sub-CPMK-3.2 | if/elif/else untuk pengambilan keputusan                             | PG #10, E2, E5      | 14         |
+| Sub-CPMK-3.4 | Nested & multi-kondisi                                               | PG #11, E2          | 2          |
+| Sub-CPMK-3.2 | match-case statement                                                 | PG #12              | 2          |
+| Sub-CPMK-3.5 | for dengan range() & iterasi koleksi                                 | PG #13, E3          | 14         |
+| Sub-CPMK-3.6 | while & kondisi berhenti                                             | PG #14, E5 (bagian) | 2          |
+| Sub-CPMK-3.7 | break/continue & nested loop                                         | PG #15              | 2          |
+| Sub-CPMK-3.8 | Pola akumulator/counter/flag                                         | PG #16, E3          | 2          |
+| Sub-CPMK-4.1 | Fungsi, parameter, return value                                      | PG #17, E4, E5      | 14         |
+| Sub-CPMK-4.2 | Scope lokal vs global                                                | PG #18              | 2          |
+| Sub-CPMK-4.1 | Lambda, default parameter, *args/**kwargs                            | PG #19              | 2          |
+| Sub-CPMK-4.3 | Modularitas & code reuse                                             | PG #20, E4          | 14         |
 | **TOTAL**|                                                                      |                     | **100**    |
 
-*Catatan: Poin Esai dialokasikan ke sub-CPMK "anchor" primernya untuk menghindari double-counting. E1 (12) → CPMK-1.2; E2 (12) → CPMK-3.1; E3 (12) → CPMK-4.1; E4 (12) → CPMK-5.4; E5 (12) → CPMK-5.1. Kolom "Nomor Soal" tetap menyebut seluruh sub-CPMK yang ikut terukur dalam soal tersebut.*
+*Catatan: Poin Esai dialokasikan ke sub-CPMK "anchor" primernya untuk menghindari double-counting. E1 (12) → Sub-CPMK-1.2; E2 (12) → Sub-CPMK-3.2; E3 (12) → Sub-CPMK-3.5; E4 (12) → Sub-CPMK-4.3; E5 (12) → Sub-CPMK-4.1. Kolom "Nomor Soal" tetap menyebut seluruh sub-CPMK yang ikut terukur dalam soal tersebut.*
 
 ### Tabel B — Distribusi Level Bloom
 
@@ -735,3 +744,7 @@ while True:
 **"Man jadda wajada"** — Siapa bersungguh-sungguh, pasti berhasil.
 
 **~ Jazakumullahu khairan — Semoga berkah dalam penilaian ~**
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w13
+tipe: modul
+judul: "Minggu 13: Kompleksitas Algoritma (Big-O) dan Optimasi"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [13]
+estimasi_menit: 150
+cpmk: [CPMK-7]
+sub_cpmk: [Sub-CPMK-7.1, Sub-CPMK-7.2, Sub-CPMK-7.3, Sub-CPMK-7.4]
+bloom_c: [C2, C3, C4, C5]
+bloom_a: []
+bloom_p: [P4]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 13: Kompleksitas Algoritma (Big-O) dan Optimasi
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 13 dari 16 |
 | **Topik** | Kompleksitas Algoritma (Big-O) dan Optimasi |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
@@ -12,7 +30,7 @@
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python |
 | **CPMK** | CPMK-7 |
-| **Sub-CPMK** | CPMK-7.1, CPMK-7.2, CPMK-7.3, CPMK-7.4 |
+| **Sub-CPMK** | Sub-CPMK-7.1, Sub-CPMK-7.2, Sub-CPMK-7.3, Sub-CPMK-7.4 |
 | **Durasi** | 150 menit (Teori: 75 menit, Praktik: 75 menit) |
 | **Metode** | Ceramah interaktif, Visualisasi, Analisis kode, Praktik |
 
@@ -22,16 +40,16 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Menjelaskan** mengapa efisiensi algoritma penting dan bagaimana notasi Big-O digunakan untuk mengukur kompleksitas waktu dan ruang (CPMK-7.1)
-2. **Mengklasifikasikan** algoritma ke dalam kelas kompleksitas yang sesuai: O(1), O(log n), O(n), O(n log n), O(n^2), O(2^n) (CPMK-7.2)
-3. **Menganalisis** potongan kode Python untuk menentukan kompleksitas Big-O secara sistematis (CPMK-7.3)
-4. **Mengevaluasi** trade-off antara kompleksitas waktu dan ruang serta menerapkan teknik optimasi pada algoritma yang telah dipelajari (CPMK-7.4)
+1. **Menjelaskan** mengapa efisiensi algoritma penting dan bagaimana notasi Big-O digunakan untuk mengukur kompleksitas waktu dan ruang (Sub-CPMK-7.1)
+2. **Mengklasifikasikan** algoritma ke dalam kelas kompleksitas yang sesuai: O(1), O(log n), O(n), O(n log n), O(n^2), O(2^n) (Sub-CPMK-7.2)
+3. **Menganalisis** potongan kode Python untuk menentukan kompleksitas Big-O secara sistematis (Sub-CPMK-7.3)
+4. **Mengevaluasi** trade-off antara kompleksitas waktu dan ruang serta menerapkan teknik optimasi pada algoritma yang telah dipelajari (Sub-CPMK-7.4)
 
 ---
 
 ## Materi Pembelajaran
 
-### 1. Mengapa Efisiensi Algoritma Penting? (CPMK-7.1)
+### 1. Mengapa Efisiensi Algoritma Penting? (Sub-CPMK-7.1)
 
 Dua algoritma yang menghasilkan output benar bisa memiliki kinerja yang sangat berbeda. Bayangkan mencari nama di buku telepon 1 juta entri:
 
@@ -46,7 +64,7 @@ Perbedaan ini semakin dramatis seiring bertambahnya ukuran data. Di dunia nyata,
 - **Kompleksitas Ruang (Space Complexity)** -- berapa banyak memori tambahan yang diperlukan relatif terhadap ukuran input *n*
 - Fokus pada **worst-case** (kasus terburuk) sebagai jaminan performa
 
-### 2. Notasi Big-O: Definisi Formal dan Informal (CPMK-7.1)
+### 2. Notasi Big-O: Definisi Formal dan Informal (Sub-CPMK-7.1)
 
 **Definisi informal:** Big-O menggambarkan laju pertumbuhan jumlah operasi seiring bertambahnya ukuran input. Kita mengabaikan konstanta dan suku-suku yang lebih kecil.
 
@@ -59,7 +77,7 @@ Perbedaan ini semakin dramatis seiring bertambahnya ukuran data. Di dunia nyata,
 - Operasi berurutan dijumlahkan: O(n) + O(n^2) -> O(n^2)
 - Operasi bersarang dikalikan: loop O(n) di dalam loop O(n) -> O(n^2)
 
-### 3. Kelas Kompleksitas Umum (CPMK-7.2)
+### 3. Kelas Kompleksitas Umum (Sub-CPMK-7.2)
 
 | Notasi | Nama | Contoh Algoritma | n=10 | n=1.000 | n=1.000.000 |
 |--------|------|------------------|------|---------|-------------|
@@ -74,7 +92,7 @@ Perbedaan ini semakin dramatis seiring bertambahnya ukuran data. Di dunia nyata,
 
 O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n)
 
-### 4. Menghitung Big-O dari Kode Python (CPMK-7.3)
+### 4. Menghitung Big-O dari Kode Python (Sub-CPMK-7.3)
 
 **Contoh 1 -- O(1): Akses langsung**
 
@@ -123,7 +141,7 @@ def binary_search(data, target):
 # Total: O(log n)
 ```
 
-### 5. Kompleksitas Ruang (Space Complexity) (CPMK-7.3)
+### 5. Kompleksitas Ruang (Space Complexity) (Sub-CPMK-7.3)
 
 Selain waktu, kita juga menganalisis memori tambahan yang digunakan:
 
@@ -141,7 +159,7 @@ def duplikat(data):
     return hasil
 ```
 
-### 6. Trade-off Waktu vs Ruang (CPMK-7.4)
+### 6. Trade-off Waktu vs Ruang (Sub-CPMK-7.4)
 
 Seringkali kita bisa mempercepat waktu dengan mengorbankan memori, atau sebaliknya:
 
@@ -170,7 +188,7 @@ def ada_duplikat_v2(data):
     return False
 ```
 
-### 7. Review Kompleksitas Algoritma yang Telah Dipelajari (CPMK-7.4)
+### 7. Review Kompleksitas Algoritma yang Telah Dipelajari (Sub-CPMK-7.4)
 
 | Algoritma | Waktu (Best) | Waktu (Worst) | Ruang | Minggu |
 |-----------|-------------|---------------|-------|--------|
@@ -183,7 +201,7 @@ def ada_duplikat_v2(data):
 | Stack (push/pop) | O(1) | O(1) | O(n) | 11 |
 | Queue (enqueue/dequeue) | O(1) | O(1) | O(n) | 11 |
 
-### 8. Teknik Optimasi dan Contoh (CPMK-7.4)
+### 8. Teknik Optimasi dan Contoh (Sub-CPMK-7.4)
 
 **Mengukur waktu eksekusi di Python:**
 

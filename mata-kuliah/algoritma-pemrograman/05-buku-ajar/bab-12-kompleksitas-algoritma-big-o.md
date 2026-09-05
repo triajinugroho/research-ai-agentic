@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-12
+tipe: bab-buku-ajar
+judul: "BAB 12: KOMPLEKSITAS ALGORITMA (BIG-O) DAN OPTIMASI"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 12
+level_ai: create
+cpmk: [CPMK-7]
+sub_cpmk: [Sub-CPMK-7.1, Sub-CPMK-7.2, Sub-CPMK-7.3, Sub-CPMK-7.4]
+bloom_c: [C2, C3, C4, C5]
+bloom_a: []
+bloom_p: [P4]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 12: KOMPLEKSITAS ALGORITMA (BIG-O) DAN OPTIMASI
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,11 +29,10 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-7.1 | Menjelaskan konsep kompleksitas waktu dan ruang | C2 (Memahami) |
-| CPMK-7.2 | Mengidentifikasi dan menghitung Big-O dari algoritma sederhana | C3 (Menerapkan) |
-| CPMK-7.3 | Membandingkan efisiensi algoritma berdasarkan Big-O | C4 (Menganalisis) |
-| CPMK-7.4 | Mengevaluasi trade-off antara waktu dan ruang | C5 (Mengevaluasi) |
-
+| **Sub-CPMK-7.1** | Menjelaskan pentingnya efisiensi algoritma dan penggunaan notasi Big-O untuk kompleksitas waktu dan ruang | C2 |
+| **Sub-CPMK-7.2** | Mengklasifikasikan algoritma ke kelas kompleksitas O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ) | C3 |
+| **Sub-CPMK-7.3** | Menganalisis potongan kode Python untuk menentukan kompleksitas Big-O secara sistematis | C4 |
+| **Sub-CPMK-7.4** | Mengevaluasi *trade-off* waktu–ruang serta menerapkan teknik optimasi pada algoritma yang dipelajari | C5, P4 |
 **Prasyarat:** Mahasiswa telah memahami konsep loop, fungsi, rekursi (Bab 5--7), serta algoritma sorting dan searching (Bab 10--11).
 
 ---
@@ -1542,3 +1559,7 @@ Di Bab 13, kita akan mempelajari **File Handling dan Exception Handling**, di ma
 *Algoritma dan Pemrograman --- Prodi Informatika, Universitas Al Azhar Indonesia*
 *Tri Aji Nugroho, S.T., M.T.*
 *Edisi Pertama, 2026*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

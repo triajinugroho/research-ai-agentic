@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w15
+tipe: modul
+judul: "Minggu 15: Presentasi Proyek Akhir"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [15]
+estimasi_menit: 150
+cpmk: [CPMK-7]
+sub_cpmk: [Sub-CPMK-7.9, Sub-CPMK-7.10, Sub-CPMK-7.11, Sub-CPMK-7.12]
+bloom_c: [C5, C6]
+bloom_a: [A2, A3]
+bloom_p: [P4]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 15: Presentasi Proyek Akhir
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 15 dari 16 |
 | **Topik** | Presentasi Proyek Akhir |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
@@ -12,7 +30,7 @@
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python |
 | **CPMK** | CPMK-7 |
-| **Sub-CPMK** | CPMK-7.9, CPMK-7.10, CPMK-7.11, CPMK-7.12 |
+| **Sub-CPMK** | Sub-CPMK-7.9, Sub-CPMK-7.10, Sub-CPMK-7.11, Sub-CPMK-7.12 |
 | **Durasi** | 150 menit (Presentasi: 120 menit, Wrap-up: 30 menit) |
 | **Metode** | Presentasi mahasiswa, Demo langsung, Tanya jawab, Peer evaluation |
 
@@ -22,16 +40,16 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Mempresentasikan** proyek akhir secara sistematis dan meyakinkan dalam batas waktu yang ditentukan (CPMK-7.9)
-2. **Mendemonstrasikan** program Python yang berfungsi dan menjelaskan arsitektur serta algoritma yang digunakan (CPMK-7.10)
-3. **Mempertahankan** keputusan desain dan implementasi melalui sesi tanya jawab secara kritis (CPMK-7.11)
-4. **Mengevaluasi** proyek rekan sejawat secara konstruktif menggunakan rubrik penilaian yang disediakan (CPMK-7.12)
+1. **Mempresentasikan** proyek akhir secara sistematis dan meyakinkan dalam batas waktu yang ditentukan (Sub-CPMK-7.9)
+2. **Mendemonstrasikan** program Python yang berfungsi dan menjelaskan arsitektur serta algoritma yang digunakan (Sub-CPMK-7.10)
+3. **Mempertahankan** keputusan desain dan implementasi melalui sesi tanya jawab secara kritis (Sub-CPMK-7.11)
+4. **Mengevaluasi** proyek rekan sejawat secara konstruktif menggunakan rubrik penilaian yang disediakan (Sub-CPMK-7.12)
 
 ---
 
 ## Materi Pembelajaran
 
-### 1. Jadwal Presentasi (CPMK-7.9)
+### 1. Jadwal Presentasi (Sub-CPMK-7.9)
 
 Setiap mahasiswa/kelompok mendapatkan alokasi waktu **20 menit** dengan pembagian sebagai berikut:
 
@@ -48,7 +66,7 @@ Setiap mahasiswa/kelompok mendapatkan alokasi waktu **20 menit** dengan pembagia
 - Urutan presentasi ditentukan secara acak (undian) di awal pertemuan
 - Timer akan digunakan untuk memastikan kedisiplinan waktu
 
-### 2. Format Presentasi -- 7 Slide (CPMK-7.9)
+### 2. Format Presentasi -- 7 Slide (Sub-CPMK-7.9)
 
 Presentasi menggunakan **maksimal 7 slide** dengan struktur sebagai berikut:
 
@@ -95,7 +113,7 @@ Presentasi menggunakan **maksimal 7 slide** dengan struktur sebagai berikut:
 - Apa yang akan dilakukan berbeda jika mengulang proyek ini
 - Rencana pengembangan selanjutnya (jika ada)
 
-### 3. Rubrik Penilaian Presentasi (CPMK-7.10, CPMK-7.11)
+### 3. Rubrik Penilaian Presentasi (Sub-CPMK-7.10, Sub-CPMK-7.11)
 
 Penilaian proyek akhir mencakup **8 komponen** yang mengacu pada RTM (Rencana Tugas Mahasiswa):
 
@@ -119,7 +137,7 @@ Penilaian proyek akhir mencakup **8 komponen** yang mengacu pada RTM (Rencana Tu
 | 2 | Cukup | Memenuhi sebagian besar kriteria, ada kekurangan minor |
 | 1 | Kurang | Banyak kekurangan, pemahaman masih dangkal |
 
-### 4. Tips Presentasi Efektif (CPMK-7.9)
+### 4. Tips Presentasi Efektif (Sub-CPMK-7.9)
 
 **Persiapan:**
 
@@ -140,7 +158,7 @@ Penilaian proyek akhir mencakup **8 komponen** yang mengacu pada RTM (Rencana Tu
 - Jika tidak tahu jawabannya, katakan dengan jujur dan tawarkan untuk menjelaskan apa yang Anda pahami
 - Hubungkan jawaban dengan konsep yang telah dipelajari di perkuliahan
 
-### 5. Formulir Peer Evaluation (CPMK-7.12)
+### 5. Formulir Peer Evaluation (Sub-CPMK-7.12)
 
 Setiap mahasiswa mengisi formulir evaluasi untuk **setiap** presentasi rekan:
 

@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-10
+tipe: bab-buku-ajar
+judul: "BAB 10: ALGORITMA PENGURUTAN (SORTING)"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 10
+level_ai: apply
+cpmk: [CPMK-6]
+sub_cpmk: [Sub-CPMK-6.3, Sub-CPMK-6.4, Sub-CPMK-6.5, Sub-CPMK-6.6]
+bloom_c: [C2, C3, C4]
+bloom_a: []
+bloom_p: [P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 10: ALGORITMA PENGURUTAN (SORTING)
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,12 +29,11 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-6.3 | Memahami konsep sorting dan mengapa pengurutan penting | C2 (Memahami) |
-| CPMK-6.4 | Mengimplementasikan bubble sort, selection sort, dan insertion sort | C3 (Menerapkan) |
-| CPMK-6.5 | Menganalisis dan membandingkan performa algoritma pengurutan | C4 (Menganalisis) |
-| CPMK-6.6 | Mengevaluasi pemilihan algoritma sorting berdasarkan konteks | C5 (Mengevaluasi) |
-
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+| **Sub-CPMK-6.3** | Mengimplementasikan algoritma *binary search* dan melakukan *tracing* | C3, P3 |
+| **Sub-CPMK-6.4** | Membandingkan kompleksitas waktu *linear search* O(n) dan *binary search* O(log n) | C4 |
+| **Sub-CPMK-6.5** | Menjelaskan konsep dan pentingnya pengurutan data | C2 |
+| **Sub-CPMK-6.6** | Mengimplementasikan *bubble sort*, *selection sort*, dan *insertion sort* | C3, P3 |
+**Estimasi Waktu:** 3 × 50 menit
 
 **Prasyarat:** Mahasiswa telah memahami materi Bab 1–9 (terutama Bab 7 untuk list dan Bab 9 untuk searching).
 

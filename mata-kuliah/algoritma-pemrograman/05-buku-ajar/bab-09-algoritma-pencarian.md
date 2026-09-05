@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-09
+tipe: bab-buku-ajar
+judul: "BAB 9: ALGORITMA PENCARIAN (SEARCHING)"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 9
+level_ai: apply
+cpmk: [CPMK-6]
+sub_cpmk: [Sub-CPMK-6.1, Sub-CPMK-6.2, Sub-CPMK-6.3, Sub-CPMK-6.4]
+bloom_c: [C2, C3, C4]
+bloom_a: []
+bloom_p: [P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 9: ALGORITMA PENCARIAN (SEARCHING)
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,11 +29,10 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-6.1 | Menjelaskan konsep dan pentingnya algoritma pencarian dalam pemrograman | C2 --- Memahami |
-| CPMK-6.2 | Mengimplementasikan algoritma Linear Search dalam bahasa Python | C3 --- Menerapkan |
-| CPMK-6.3 | Mengimplementasikan algoritma Binary Search (iteratif dan rekursif) dalam bahasa Python | C3 --- Menerapkan |
-| CPMK-6.4 | Menganalisis dan membandingkan performa algoritma Linear Search dan Binary Search | C4 --- Menganalisis |
-
+| **Sub-CPMK-6.1** | Menjelaskan pentingnya algoritma pencarian dalam pemrograman | C2 |
+| **Sub-CPMK-6.2** | Mengimplementasikan algoritma *linear search* dan melakukan *tracing* | C3, P3 |
+| **Sub-CPMK-6.3** | Mengimplementasikan algoritma *binary search* dan melakukan *tracing* | C3, P3 |
+| **Sub-CPMK-6.4** | Membandingkan kompleksitas waktu *linear search* O(n) dan *binary search* O(log n) | C4 |
 ---
 
 ## Pendahuluan
@@ -1699,3 +1716,7 @@ comp_binary = []
 *Bab 9 --- Algoritma Pencarian (Searching)*
 *Algoritma dan Pemrograman --- Prodi Informatika, Universitas Al Azhar Indonesia*
 *Tri Aji Nugroho, S.T., M.T.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -1,14 +1,32 @@
+---
+id: uai-inf101-modul-w07
+tipe: modul
+judul: "Minggu 7: List, Tuple, dan Operasi Koleksi"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [7]
+estimasi_menit: 150
+cpmk: [CPMK-5]
+sub_cpmk: [Sub-CPMK-5.1, Sub-CPMK-5.2, Sub-CPMK-5.3, Sub-CPMK-5.4]
+bloom_c: [C3, C4]
+bloom_a: []
+bloom_p: [P2, P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 7: List, Tuple, dan Operasi Koleksi
 
 ## Informasi Modul
 
 | Komponen       | Detail                                                              |
 |----------------|---------------------------------------------------------------------|
-| Mata Kuliah    | Algoritma dan Pemrograman (3 SKS)                                   |
+| Mata Kuliah    | Algoritma dan Pemrograman                                   |
 | Minggu         | 7 (Tujuh)                                                          |
 | Topik          | List, Tuple, dan Operasi Koleksi                                    |
 | CPMK           | CPMK-5: Mampu menggunakan struktur data koleksi untuk mengelola data |
-| Sub-CPMK       | CPMK-5.1, CPMK-5.2, CPMK-5.3, CPMK-5.4                           |
+| Sub-CPMK       | Sub-CPMK-5.1, Sub-CPMK-5.2, Sub-CPMK-5.3, Sub-CPMK-5.4                           |
 | Durasi         | 150 menit                                                           |
 | Metode         | Ceramah, live coding, praktikum                                     |
 | Pengajar       | Tri Aji Nugroho, S.T., M.T.                                        |
@@ -21,10 +39,10 @@
 
 Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
-1. **Memanipulasi** list menggunakan operasi CRUD, methods bawaan, dan slicing (CPMK-5.1).
-2. **Membangun** list comprehension untuk transformasi dan filtering data secara efisien (CPMK-5.2).
-3. **Membedakan** list dan tuple serta menerapkan tuple packing/unpacking dalam program (CPMK-5.3).
-4. **Menggunakan** fungsi bawaan (`len`, `sum`, `min`, `max`, `sorted`, `enumerate`, `zip`) untuk mengolah koleksi (CPMK-5.4).
+1. **Memanipulasi** list menggunakan operasi CRUD, methods bawaan, dan slicing (Sub-CPMK-5.1).
+2. **Membangun** list comprehension untuk transformasi dan filtering data secara efisien (Sub-CPMK-5.2).
+3. **Membedakan** list dan tuple serta menerapkan tuple packing/unpacking dalam program (Sub-CPMK-5.3).
+4. **Menggunakan** fungsi bawaan (`len`, `sum`, `min`, `max`, `sorted`, `enumerate`, `zip`) untuk mengolah koleksi (Sub-CPMK-5.4).
 
 ---
 

@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-03
+tipe: bab-buku-ajar
+judul: "BAB 3: STRUKTUR KONTROL: SELEKSI"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 3
+level_ai: understand
+cpmk: [CPMK-3]
+sub_cpmk: [Sub-CPMK-3.1, Sub-CPMK-3.2, Sub-CPMK-3.3, Sub-CPMK-3.4]
+bloom_c: [C2, C3, C4]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 3: STRUKTUR KONTROL: SELEKSI
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,11 +29,10 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|:------------:|
-| CPMK-3.1 | Menjelaskan konsep percabangan dalam algoritma | C2 --- Memahami |
-| CPMK-3.2 | Menerapkan statement `if`, `if-else`, dan `if-elif-else` | C3 --- Menerapkan |
-| CPMK-3.3 | Menggunakan operator logika dalam kondisi majemuk | C3 --- Menerapkan |
-| CPMK-3.4 | Menerapkan nested if dan conditional expression | C3 --- Menerapkan |
-
+| **Sub-CPMK-3.1** | Menjelaskan konsep percabangan dan peran struktur seleksi dalam mengontrol alur program | C2 |
+| **Sub-CPMK-3.2** | Menerapkan struktur `if`, `if-else`, dan `if-elif-else` untuk kondisi tunggal maupun majemuk | C3, P2 |
+| **Sub-CPMK-3.3** | Menganalisis kondisi majemuk menggunakan operator logika (`and`, `or`, `not`) serta tabel kebenaran | C4 |
+| **Sub-CPMK-3.4** | Mengimplementasikan *nested if* dan *conditional expression* untuk percabangan bertingkat | C3, P2 |
 **Prasyarat:** Mahasiswa telah memahami materi Bab 2 (Variabel, Tipe Data, dan Operator), khususnya operator perbandingan (`==`, `!=`, `>`, `<`, `>=`, `<=`) dan tipe data `bool`.
 
 **Durasi:** 2 pertemuan (masing-masing 2x50 menit)

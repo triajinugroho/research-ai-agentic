@@ -1,9 +1,18 @@
 ---
-mata_kuliah: Algoritma dan Pemrograman
+id: uai-inf101-asesmen-uts
+tipe: asesmen
+judul: "Naskah Ujian Tengah Semester — Algoritma dan Pemrograman"
 kode_mk: INF-101
-sks: 2 SKS (Teori)
-semester: Genap 2025/2026
-jenis: UTS
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+asesmen_id: ASM-UTS
+mengukur_cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4]
+mengukur_sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.4, Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4, Sub-CPMK-3.2, Sub-CPMK-3.4, Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8, Sub-CPMK-4.1, Sub-CPMK-4.2, Sub-CPMK-4.3]
+bobot_persen: 30
+ai_diizinkan: false
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
 ---
 
 # UJIAN TENGAH SEMESTER (UTS)
@@ -48,7 +57,7 @@ jenis: UTS
 
 ---
 
-> **Sub-CPMK 1.1** — Mendefinisikan konsep algoritma, sejarah perkembangannya, dan relevansinya dalam kehidupan sehari-hari
+> **Sub-CPMK-1.1** — Mendefinisikan konsep algoritma dan menjelaskan perannya dalam pemecahan masalah komputasional
 > *Level Bloom:* C2 · *Konteks:* Umum
 
 **1.** Manakah dari pernyataan berikut yang **bukan** merupakan sifat wajib sebuah algoritma?
@@ -61,7 +70,7 @@ E. Randomness — setiap langkah harus menggunakan nilai acak untuk menjamin keb
 
 ---
 
-> **Sub-CPMK 1.2** — Menjelaskan empat pilar computational thinking: dekomposisi, pengenalan pola, abstraksi, dan desain algoritma
+> **Sub-CPMK-1.2** — Mengidentifikasi empat pilar computational thinking dan menerapkannya pada permasalahan sederhana
 > *Level Bloom:* C3 · *Konteks:* JTBD (manajemen waktu belajar)
 
 **2.** Seorang mahasiswa ingin mengelola waktu belajarnya dengan lebih baik. Ia membagi aktivitas harian menjadi bagian-bagian kecil seperti "membaca materi", "mengerjakan latihan", dan "review catatan", lalu menjadwalkannya satu per satu. Pilar *computational thinking* yang paling tepat menggambarkan langkah tersebut adalah ...
@@ -74,7 +83,7 @@ E. Evaluasi — menilai hasil akhir dari sebuah proses
 
 ---
 
-> **Sub-CPMK 1.3** — Menjelaskan peran Python dan AI dalam ekosistem pemrograman modern serta hubungan dengan mata kuliah ko-requisite Analisis Data Statistik
+> **Sub-CPMK-1.4** — Menjalankan program Python pertama menggunakan Google Colab sebagai lingkungan pengembangan
 > *Level Bloom:* C2 · *Konteks:* Umum
 
 **3.** Berikut ini adalah alasan Python banyak dipakai sebagai bahasa utama di ekosistem AI dan data science modern, **kecuali** ...
@@ -87,7 +96,7 @@ E. Interoperabilitas dengan framework AI seperti TensorFlow dan PyTorch
 
 ---
 
-> **Sub-CPMK 2.1** — Mengidentifikasi dan menggunakan variabel, konstanta, dan aturan penamaan (naming convention) di Python
+> **Sub-CPMK-2.1** — Menjelaskan konsep variabel, aturan penamaan, dan mekanisme penugasan nilai dalam Python
 > *Level Bloom:* C2 · *Konteks:* Umum
 
 **4.** Manakah nama variabel berikut yang **paling sesuai** konvensi penamaan PEP 8 untuk variabel biasa di Python?
@@ -100,7 +109,7 @@ E. `totalHarga@`
 
 ---
 
-> **Sub-CPMK 2.2** — Membedakan tipe data dasar (int, float, str, bool) dan melakukan konversi tipe (type casting)
+> **Sub-CPMK-2.2** — Membedakan tipe data dasar (int, float, str, bool) beserta karakteristik dan penggunaannya
 > *Level Bloom:* C3 · *Konteks:* Umum
 
 **5.** Perhatikan potongan kode berikut:
@@ -121,7 +130,7 @@ E. Terjadi `TypeError` karena tipe tidak kompatibel
 
 ---
 
-> **Sub-CPMK 2.2** — Membedakan tipe data dasar (int, float, str, bool) dan melakukan konversi tipe (type casting)
+> **Sub-CPMK-2.2** — Membedakan tipe data dasar (int, float, str, bool) beserta karakteristik dan penggunaannya
 > *Level Bloom:* C3 · *Konteks:* Umum
 
 **6.** Perhatikan potongan kode berikut:
@@ -143,7 +152,7 @@ E. `<class 'float'> <class 'bool'> <class 'float'>`
 
 ---
 
-> **Sub-CPMK 2.3** — Menerapkan operator aritmatika, perbandingan, logika, dan assignment dalam ekspresi komputasi
+> **Sub-CPMK-2.3** — Menerapkan operator aritmetika, perbandingan, dan logika untuk membangun ekspresi komputasional
 > *Level Bloom:* C3 · *Konteks:* Umum
 
 **7.** Perhatikan ekspresi berikut:
@@ -162,7 +171,7 @@ E. 31
 
 ---
 
-> **Sub-CPMK 2.3** — Menerapkan operator aritmatika, perbandingan, logika, dan assignment dalam ekspresi komputasi
+> **Sub-CPMK-2.3** — Menerapkan operator aritmetika, perbandingan, dan logika untuk membangun ekspresi komputasional
 > *Level Bloom:* C4 · *Konteks:* Umum
 
 **8.** Perhatikan potongan kode berikut:
@@ -187,7 +196,7 @@ E. Tidak bisa ditentukan tanpa menjalankan program
 
 ---
 
-> **Sub-CPMK 2.4** — Menerapkan fungsi input/output untuk interaksi program sederhana
+> **Sub-CPMK-2.4** — Mengimplementasikan operasi input/output dan konversi tipe data dalam program Python sederhana
 > *Level Bloom:* C3 · *Konteks:* JTBD (form belanja online)
 
 **9.** Pada sebuah form belanja online, pengguna memasukkan harga satuan dan jumlah barang. Potongan kode berikut digunakan untuk menghitung total belanja:
@@ -209,7 +218,7 @@ E. Tambahkan `total = str(total)` sebelum `print`
 
 ---
 
-> **Sub-CPMK 3.1** — Menerapkan struktur seleksi if, elif, else untuk pengambilan keputusan dalam program
+> **Sub-CPMK-3.2** — Menerapkan struktur if, if-else, dan if-elif-else untuk kondisi tunggal maupun majemuk
 > *Level Bloom:* C3 · *Konteks:* Islami (kalkulasi zakat mal 2,5%)
 
 **10.** Perhatikan potongan kode berikut untuk menghitung zakat mal:
@@ -235,7 +244,7 @@ E. `Wajib zakat: 22500.0`
 
 ---
 
-> **Sub-CPMK 3.2** — Merancang struktur seleksi bertingkat (nested) dan multi-kondisi untuk kasus yang kompleks
+> **Sub-CPMK-3.4** — Mengimplementasikan nested if dan conditional expression untuk percabangan bertingkat
 > *Level Bloom:* C4 · *Konteks:* Indonesia (grade IP UAI)
 
 **11.** Perhatikan potongan kode konversi nilai akhir ke huruf mutu sesuai standar UAI:
@@ -272,7 +281,7 @@ E. `C`
 
 ---
 
-> **Sub-CPMK 3.3** — Menerapkan match-case statement (Python 3.10+) sebagai alternatif seleksi
+> **Sub-CPMK-3.2** — Menerapkan struktur if, if-else, dan if-elif-else untuk kondisi tunggal maupun majemuk
 > *Level Bloom:* C3 · *Konteks:* Umum
 
 **12.** Perhatikan potongan kode berikut:
@@ -299,7 +308,7 @@ E. Terjadi `SyntaxError`
 
 ---
 
-> **Sub-CPMK 4.1** — Menerapkan perulangan for dengan range() dan iterasi koleksi
+> **Sub-CPMK-3.5** — Menerapkan perulangan for dengan range() untuk iterasi dengan jumlah pengulangan diketahui
 > *Level Bloom:* C3 · *Konteks:* Umum
 
 **13.** Berapa kali badan perulangan (`body`) pada potongan kode berikut dieksekusi?
@@ -317,7 +326,7 @@ E. 20 kali
 
 ---
 
-> **Sub-CPMK 4.2** — Menerapkan perulangan while dengan kondisi berhenti yang tepat
+> **Sub-CPMK-3.6** — Menerapkan perulangan while untuk iterasi dengan kondisi berhenti tertentu
 > *Level Bloom:* C4 · *Konteks:* Umum
 
 **14.** Perhatikan potongan kode berikut:
@@ -339,7 +348,7 @@ E. Mencetak angka 10 saja lalu berhenti karena `n` tidak dimodifikasi
 
 ---
 
-> **Sub-CPMK 4.3** — Menggunakan break, continue, dan perulangan bertingkat (nested loop) untuk kontrol alur lanjutan
+> **Sub-CPMK-3.7** — Menggunakan break, continue, dan klausa else pada loop untuk mengontrol alur perulangan
 > *Level Bloom:* C4 · *Konteks:* Umum
 
 **15.** Perhatikan potongan kode berikut:
@@ -366,7 +375,7 @@ E. 18
 
 ---
 
-> **Sub-CPMK 4.4** — Menerapkan pola akumulator, penghitung (counter), dan flag dalam perulangan
+> **Sub-CPMK-3.8** — Menganalisis nested loop menggunakan loop trace table dan mengimplementasikannya untuk mencetak pola
 > *Level Bloom:* C3 · *Konteks:* JTBD (rekap pengeluaran harian — akumulator)
 
 **16.** Anda ingin merekap total pengeluaran harian Anda selama seminggu dari list `pengeluaran`. Pola yang **paling tepat** digunakan adalah ...
@@ -407,7 +416,7 @@ for x in pengeluaran:
 
 ---
 
-> **Sub-CPMK 5.1** — Mendefinisikan dan memanggil fungsi dengan parameter dan nilai kembalian (return value)
+> **Sub-CPMK-4.1** — Mendefinisikan fungsi menggunakan def, parameter, dan return untuk memecah program menjadi unit modular
 > *Level Bloom:* C2 · *Konteks:* Umum
 
 **17.** Perhatikan definisi fungsi berikut:
@@ -429,7 +438,7 @@ E. `hasil` akan bernilai `None` karena `return` hanya berlaku di dalam loop
 
 ---
 
-> **Sub-CPMK 5.2** — Menjelaskan konsep scope (lokal vs global) dan lifetime variabel
+> **Sub-CPMK-4.2** — Membedakan variabel lokal dan global serta menjelaskan konsep scope dalam konteks fungsi
 > *Level Bloom:* C4 · *Konteks:* Umum
 
 **18.** Perhatikan potongan kode berikut:
@@ -455,7 +464,7 @@ E. Terjadi `NameError` karena `x` di dalam fungsi tidak dideklarasi global
 
 ---
 
-> **Sub-CPMK 5.3** — Menerapkan fungsi lambda, default parameter, dan variable-length arguments (*args, **kwargs)
+> **Sub-CPMK-4.1** — Mendefinisikan fungsi menggunakan def, parameter, dan return untuk memecah program menjadi unit modular
 > *Level Bloom:* C3 · *Konteks:* Umum
 
 **19.** Perhatikan potongan kode berikut:
@@ -475,7 +484,7 @@ E. Terjadi `TypeError` karena lambda tidak boleh memakai `*args`
 
 ---
 
-> **Sub-CPMK 5.4** — Menerapkan prinsip modularitas dan code reuse melalui pengorganisasian fungsi
+> **Sub-CPMK-4.3** — Menerapkan prinsip DRY dan pendekatan top-down design dalam perancangan solusi algoritmik
 > *Level Bloom:* C4 · *Konteks:* Umum
 
 **20.** Perhatikan potongan kode berikut:
@@ -510,7 +519,7 @@ E. Perhitungan lingkaran tidak boleh memakai konstanta `3.14`, harus memakai bil
 
 ---
 
-> **Sub-CPMK 1.2** — Menjelaskan empat pilar computational thinking: dekomposisi, pengenalan pola, abstraksi, dan desain algoritma
+> **Sub-CPMK-1.2** — Mengidentifikasi empat pilar computational thinking dan menerapkannya pada permasalahan sederhana
 > *Level Bloom:* C3 · *Konteks:* JTBD (merancang rutinitas belajar efektif)
 
 **E1. (12 poin)** Sebagai mahasiswa baru Informatika UAI, Anda ingin merancang rutinitas belajar harian yang efektif agar target akademik tercapai tanpa kelelahan berlebihan.
@@ -521,7 +530,7 @@ b) Terapkan keempat pilar tersebut untuk memecahkan kasus "merancang rutinitas b
 
 ---
 
-> **Sub-CPMK 3.1 & 3.2** — Menerapkan struktur seleksi if, elif, else; Merancang struktur seleksi bertingkat (nested) dan multi-kondisi
+> **Sub-CPMK-3.2 & 3.4** — Menerapkan struktur if/if-else/if-elif-else; Mengimplementasikan nested if dan conditional expression
 > *Level Bloom:* C3 · *Konteks:* Islami (klasifikasi nisab zakat mal)
 
 **E2. (12 poin)** Anda diminta menulis program klasifikasi zakat mal berdasarkan spesifikasi berikut:
@@ -537,7 +546,7 @@ b) Terapkan keempat pilar tersebut untuk memecahkan kasus "merancang rutinitas b
 
 ---
 
-> **Sub-CPMK 4.1 & 4.4** — Menerapkan perulangan for dengan range() dan iterasi koleksi; Menerapkan pola akumulator, penghitung (counter), dan flag
+> **Sub-CPMK-3.5 & 3.8** — Menerapkan perulangan for dengan range(); Menganalisis nested loop dan mengimplementasikannya untuk mencetak pola
 > *Level Bloom:* C4 · *Konteks:* Indonesia (data jumlah penduduk per provinsi)
 
 **E3. (12 poin)** Diberikan data jumlah penduduk (dalam jiwa, angka dummy) lima provinsi di Indonesia:
@@ -571,7 +580,7 @@ print(f"Provinsi terbanyak = {nama_terbanyak} ({terbanyak} jiwa)")
 
 ---
 
-> **Sub-CPMK 5.1 & 5.4** — Mendefinisikan dan memanggil fungsi dengan parameter dan nilai kembalian; Menerapkan prinsip modularitas dan code reuse
+> **Sub-CPMK-4.1 & 4.3** — Mendefinisikan fungsi dengan def, parameter, dan return; Menerapkan prinsip DRY dan pendekatan top-down design
 > *Level Bloom:* C5 · *Konteks:* JTBD (kalkulator BMI & kebutuhan kalori)
 
 **E4. (12 poin)** Perhatikan kode prosedural berikut untuk menghitung BMI dan kebutuhan kalori harian:
@@ -642,3 +651,7 @@ b) Tuliskan implementasi **Python** yang memenuhi spesifikasi, mencakup minimal:
 **"Man jadda wajada"** — Siapa bersungguh-sungguh, pasti berhasil.
 
 **~ Selamat Mengerjakan — Jazakumullahu khairan ~**
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

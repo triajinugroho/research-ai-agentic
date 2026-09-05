@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-11
+tipe: bab-buku-ajar
+judul: "BAB 11: REKURSI DAN PEMECAHAN MASALAH"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 11
+level_ai: apply
+cpmk: [CPMK-6]
+sub_cpmk: [Sub-CPMK-6.7, Sub-CPMK-6.8, Sub-CPMK-6.9, Sub-CPMK-6.10]
+bloom_c: [C2, C3, C4]
+bloom_a: []
+bloom_p: [P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 11: REKURSI DAN PEMECAHAN MASALAH
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,12 +29,11 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-6.7 | Memahami konsep rekursi: base case dan recursive case | C2 (Memahami) |
-| CPMK-6.8 | Mengimplementasikan solusi rekursif untuk masalah klasik | C3 (Menerapkan) |
-| CPMK-6.9 | Menganalisis call stack dan recursion tree | C4 (Menganalisis) |
-| CPMK-6.10 | Mengevaluasi kapan menggunakan rekursi vs iterasi | C5 (Mengevaluasi) |
-
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+| **Sub-CPMK-6.7** | Melakukan *tracing* langkah demi langkah pada setiap algoritma pengurutan | C4, P3 |
+| **Sub-CPMK-6.8** | Membandingkan kompleksitas dan karakteristik ketiga algoritma serta pengurutan bawaan Python | C4 |
+| **Sub-CPMK-6.9** | Menjelaskan konsep rekursi (*base case* dan *recursive case*) | C2 |
+| **Sub-CPMK-6.10** | Mengimplementasikan fungsi rekursif untuk masalah klasik (faktorial, Fibonacci, *Tower of Hanoi*) | C3, P3 |
+**Estimasi Waktu:** 3 × 50 menit
 
 **Prasyarat:** Mahasiswa telah memahami materi Bab 1–10, terutama Bab 5 (fungsi) dan Bab 9-10 (searching dan sorting).
 

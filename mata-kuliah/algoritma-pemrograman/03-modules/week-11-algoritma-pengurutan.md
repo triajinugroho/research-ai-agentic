@@ -1,3 +1,21 @@
+---
+id: uai-inf101-modul-w11
+tipe: modul
+judul: "Minggu 11: Algoritma Pengurutan (Sorting)"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [11]
+estimasi_menit: 150
+cpmk: [CPMK-6]
+sub_cpmk: [Sub-CPMK-6.5, Sub-CPMK-6.6, Sub-CPMK-6.7, Sub-CPMK-6.8]
+bloom_c: [C2, C3, C4]
+bloom_a: []
+bloom_p: [P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 11: Algoritma Pengurutan (Sorting)
 
 ## Informasi Modul
@@ -6,14 +24,13 @@
 |----------|------------|
 | **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Kode MK** | IF1101 |
-| **SKS** | 3 SKS |
 | **Minggu** | 11 (Sebelas) |
 | **Topik** | Algoritma Pengurutan (Sorting) |
 | **CPMK** | CPMK-6: Mampu menerapkan algoritma dasar (pencarian, pengurutan, rekursi) untuk menyelesaikan masalah komputasional |
-| **Sub-CPMK** | CPMK-6.5: Menjelaskan konsep dan pentingnya pengurutan data |
-| | CPMK-6.6: Mengimplementasikan bubble sort, selection sort, dan insertion sort |
-| | CPMK-6.7: Melakukan tracing langkah demi langkah pada setiap algoritma pengurutan |
-| | CPMK-6.8: Membandingkan kompleksitas dan karakteristik ketiga algoritma serta pengurutan bawaan Python |
+| **Sub-CPMK** | Sub-CPMK-6.5: Menjelaskan konsep dan pentingnya pengurutan data |
+| | Sub-CPMK-6.6: Mengimplementasikan bubble sort, selection sort, dan insertion sort |
+| | Sub-CPMK-6.7: Melakukan tracing langkah demi langkah pada setiap algoritma pengurutan |
+| | Sub-CPMK-6.8: Membandingkan kompleksitas dan karakteristik ketiga algoritma serta pengurutan bawaan Python |
 | **Durasi** | 150 menit |
 | **Metode** | Ceramah, Live Coding, Tracing Exercise, Card Sorting Activity |
 | **Bahasa Pemrograman** | Python |

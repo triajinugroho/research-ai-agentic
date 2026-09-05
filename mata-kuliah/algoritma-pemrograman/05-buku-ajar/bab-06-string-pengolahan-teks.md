@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-06
+tipe: bab-buku-ajar
+judul: "BAB 6: STRING DAN PENGOLAHAN TEKS"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 6
+level_ai: apply
+cpmk: [CPMK-4]
+sub_cpmk: [Sub-CPMK-4.5, Sub-CPMK-4.6, Sub-CPMK-4.7]
+bloom_c: [C3, C4]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 6: STRING DAN PENGOLAHAN TEKS
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,11 +29,10 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |-----------|-----------|---------------|
-| CPMK-4.5 | Memahami string sebagai sequence dan operasinya | C2 (Memahami) |
-| CPMK-4.6 | Menerapkan string methods untuk pengolahan teks | C3 (Menerapkan) |
-| CPMK-4.7 | Mengimplementasikan program pengolahan teks dengan fungsi | C3-C4 (Menerapkan-Menganalisis) |
-
-**Estimasi Waktu:** 3 x 50 menit (3 SKS)
+| **Sub-CPMK-4.5** | Menganalisis string sebagai *sequence* dan menerapkan *indexing* serta *slicing* untuk memanipulasi karakter | C4 |
+| **Sub-CPMK-4.6** | Menggunakan *string methods* bawaan Python untuk pengolahan dan transformasi teks | C3, P2 |
+| **Sub-CPMK-4.7** | Menerapkan *formatting* string menggunakan f-string untuk output yang terstruktur | C3 |
+**Estimasi Waktu:** 3 x 50 menit
 
 **Prasyarat:** Mahasiswa telah memahami materi Bab 1-5 (Pengantar, Variabel & Tipe Data, Seleksi, Perulangan, dan Fungsi).
 
@@ -1820,7 +1837,7 @@ Berikut ringkasan materi yang telah dipelajari dalam bab ini:
 
 6. Python Software Foundation. (2024). *The Python Tutorial — Text Sequence Type (str)*. [https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)
 
-7. Python Software Foundation. (2024). *String Methods*. [https://docs.python.org/3/library/stdtypes.html#string-methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
+7. Python Software Foundation. (2024). *String Methods*. https://docs.python.org/3/library/stdtypes.html#string-methods
 
 8. Python Software Foundation. (2024). *Format String Syntax*. [https://docs.python.org/3/library/string.html#formatstrings](https://docs.python.org/3/library/string.html#formatstrings)
 

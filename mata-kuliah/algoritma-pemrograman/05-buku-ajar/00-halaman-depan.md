@@ -1,3 +1,22 @@
+---
+id: uai-inf101-buku-depan
+tipe: bab-buku-ajar
+judul: "Buku Ajar Algoritma dan Pemrograman — Halaman Depan"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 0
+level_ai: understand
+cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4, CPMK-5, CPMK-6, CPMK-7]
+sub_cpmk: []
+bloom_c: []
+bloom_a: []
+bloom_p: []
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # BUKU AJAR
 # ALGORITMA DAN PEMROGRAMAN
 ## Fondasi Computational Thinking dengan Python dan AI
@@ -183,40 +202,38 @@ Universitas Al Azhar Indonesia
 
 ## Peta Capaian Pembelajaran
 
-### Hubungan CPL - CPMK - Bab
+### Hubungan CPL – CPMK – Bab
+
+Peta ini **identik dengan RPS** ([`../01-rps/rps-algoritma-pemrograman.md`](../01-rps/rps-algoritma-pemrograman.md) §C–D). Rumusan lengkap CPL tidak diulang di sini — sumber tunggalnya adalah [`../../00-pedoman-obe/cpl-master.md`](../../00-pedoman-obe/cpl-master.md).
+
+| CPL | Unsur | CPMK pengampu | Bab |
+|---|---|---|---|
+| **CPL03** — Pengetahuan cara kerja sistem komputer; penerapan algoritma untuk memecahkan masalah | Pengetahuan | CPMK-1, CPMK-2, CPMK-5, CPMK-6 | 1, 2, 7–11 |
+| **CPL07** — Pemikiran logis, kritis, sistematis, inovatif dengan nilai-nilai Islami | Kemampuan Umum | CPMK-1, CPMK-3, CPMK-6 | 1, 3, 4, 9–11 |
+| **CPL08** — Merancang dan mengembangkan algoritma untuk berbagai keperluan komputasi | Keterampilan Khusus | CPMK-2, CPMK-3, CPMK-4, CPMK-5, CPMK-6, CPMK-7 | 2–14 |
+| **CPLUAI1** — Ketakwaan, etika, integritas, kepedulian sosial | Sikap | CPMK-7 | 13, 14 |
+| **CPLUAI3** — Penalaran kritis, kreativitas, etika Islami dan akademik | Sikap | CPMK-7 | 13, 14 |
+
+### Rantai Keterlacakan
 
 ```
- CPL (Capaian Pembelajaran Lulusan)
-  |
-  |--- CPL-1: Mampu menerapkan pemikiran logis, kritis,
-  |    |       sistematis, dan inovatif (Computational Thinking)
-  |    |
-  |    |--- CPMK-1: Menerapkan empat pilar CT -----> Bab 1
-  |    |--- CPMK-2: Merancang solusi seleksi ------> Bab 3
-  |    |--- CPMK-3: Merancang solusi perulangan ----> Bab 4
-  |    |--- CPMK-4: Menganalisis rekursi -----------> Bab 11
-  |
-  |--- CPL-2: Mampu merancang dan mengimplementasikan
-  |    |       algoritma serta struktur data
-  |    |
-  |    |--- CPMK-5: Menggunakan variabel & tipe ----> Bab 2
-  |    |--- CPMK-6: Menerapkan fungsi & modul ------> Bab 5
-  |    |--- CPMK-7: Mengolah string & teks ---------> Bab 6
-  |    |--- CPMK-8: Menggunakan koleksi data -------> Bab 7, 8
-  |
-  |--- CPL-3: Mampu menganalisis kompleksitas algoritma
-  |    |       dan memilih solusi optimal
-  |    |
-  |    |--- CPMK-9:  Menerapkan algoritma searching -> Bab 9
-  |    |--- CPMK-10: Menerapkan algoritma sorting ---> Bab 10
-  |    |--- CPMK-11: Menganalisis Big-O ------------> Bab 12
-  |
-  |--- CPL-4: Mampu memanfaatkan AI tools secara etis
-       |       dan produktif dalam pengembangan perangkat lunak
-       |
-       |--- CPMK-12: Menggunakan AI untuk coding ---> Bab 13
-       |--- CPMK-13: Membangun proyek end-to-end ---> Bab 14
+Profil Lulusan (PL01, PL03, PL04)
+  └── CPL (CPL03, CPL07, CPL08, CPLUAI1, CPLUAI3)
+        └── Bahan Kajian (BK12, BK14, BK01)
+              └── CPMK-1 .. CPMK-7
+                    └── Sub-CPMK-1.1 .. Sub-CPMK-7.12  (55 capaian)
+                          └── Bab 1-14  +  Asesmen (ASM-*)
 ```
+
+| CPMK | Rumusan ringkas | Bab |
+|---|---|---|
+| **CPMK-1** | Konsep algoritma, *computational thinking*, dan peran pemrograman di era AI | 1 |
+| **CPMK-2** | Variabel, tipe data, operator, dan ekspresi | 2 |
+| **CPMK-3** | Struktur kontrol: seleksi dan perulangan | 3, 4 |
+| **CPMK-4** | Fungsi, pengolahan string, dan modularitas | 5, 6 |
+| **CPMK-5** | Pemilihan dan penggunaan struktur data | 7, 8 |
+| **CPMK-6** | Algoritma pencarian, pengurutan, dan rekursi | 9, 10, 11 |
+| **CPMK-7** | Efisiensi algoritma dan pemrograman berbantuan AI yang bertanggung jawab | 12, 13, 14 |
 
 ### Empat Fase Pembelajaran
 
@@ -303,45 +320,35 @@ Buku ini memperkenalkan keterampilan AI secara bertahap melalui fitur **AI Corne
 
 ### Tahapan Progresi
 
-| Level | Bab | Fokus AI Corner | Kompetensi yang Dibangun |
-|-------|-----|-----------------|--------------------------|
-| **Dasar** | 1 | Mengenal AI tools sebagai asisten belajar | Mampu mengidentifikasi AI tools yang tersedia dan memahami cara kerjanya secara umum |
-| **Dasar** | 2 | Bertanya kepada AI tentang tipe data dan error | Mampu membuat prompt sederhana untuk mendapatkan penjelasan konsep dasar |
-| **Dasar** | 3 | Menggunakan AI untuk memahami logika percabangan | Mampu meminta AI menjelaskan alur eksekusi kode sederhana |
-| **Dasar** | 4 | AI menjelaskan trace eksekusi perulangan | Mampu memvalidasi output prediksi sendiri dengan bantuan AI |
-| **Menengah** | 5 | AI untuk debugging dan refactoring fungsi | Mampu menggunakan AI untuk menemukan bug dan memperbaiki struktur kode |
-| **Menengah** | 6 | AI untuk refactoring kode pengolahan string | Mampu mengevaluasi saran refactoring AI secara kritis |
-| **Menengah** | 7 | AI membantu debugging koleksi data | Mampu menggunakan AI untuk memahami error pada struktur data kompleks |
-| **Lanjut** | 8 | AI untuk desain struktur data | Mampu berdiskusi dengan AI tentang pemilihan struktur data yang optimal |
-| **Lanjut** | 9 | AI membandingkan algoritma pencarian | Mampu meminta AI menganalisis trade-off antar algoritma |
-| **Lanjut** | 10 | AI menjelaskan trace sorting step-by-step | Mampu menggunakan AI untuk memvisualisasikan dan memahami algoritma kompleks |
-| **Lanjut** | 11 | AI untuk analisis algoritma rekursif | Mampu berdiskusi dengan AI tentang strategi pemecahan masalah rekursif |
-| **Mahir** | 12 | AI pair programming untuk optimasi kode | Mampu berkolaborasi dengan AI dalam mengoptimasi kompleksitas algoritma |
-| **Mahir** | 13 | AI code review dan prompt engineering lanjut | Mampu menggunakan AI secara profesional untuk review kode dan menjaga kualitas |
-| **Mahir** | 14 | AI dalam siklus proyek penuh (end-to-end) | Mampu mengintegrasikan AI di seluruh fase pengembangan proyek perangkat lunak |
+Progresi mengikuti **UNESCO AI Competency Framework for Students** (pembaruan 16 Januari 2026), yang menetapkan tiga tingkat penguasaan: **Understand → Apply → Create**. Label lokal (Dasar/Menengah/Lanjut/Mahir) tetap dipakai sebagai padanan, namun tingkat UNESCO yang menjadi acuan.
 
-### Ringkasan Progresi per Fase
+| Tingkat UNESCO | Padanan lokal | Bab | Fokus AI Corner | Kompetensi yang dibangun |
+|---|---|:-:|---|---|
+| **Understand** | Dasar | 1 | Mengenal AI sebagai asisten belajar | Mengidentifikasi AI tools dan memahami cara kerjanya secara umum |
+| **Understand** | Dasar | 2 | Bertanya kepada AI tentang tipe data dan galat | Menyusun *prompt* sederhana untuk penjelasan konsep dasar |
+| **Understand** | Dasar | 3 | Memahami logika percabangan dengan AI | Meminta AI menjelaskan alur eksekusi kode sederhana |
+| **Understand** | Dasar | 4 | AI menjelaskan *trace* eksekusi perulangan | Memvalidasi prediksi sendiri dengan bantuan AI |
+| **Apply** | Menengah | 5 | AI untuk *debugging* dan *refactoring* fungsi | Menemukan bug dan memperbaiki struktur kode |
+| **Apply** | Menengah | 6 | AI untuk *refactoring* kode pengolahan string | Mengevaluasi saran *refactoring* AI secara kritis |
+| **Apply** | Menengah | 7 | AI membantu *debugging* koleksi data | Memahami galat pada struktur data kompleks |
+| **Apply** | Lanjut | 8 | AI untuk desain struktur data | Berdiskusi tentang pemilihan struktur data yang optimal |
+| **Apply** | Lanjut | 9 | AI membandingkan algoritma pencarian | Meminta AI menganalisis *trade-off* antar algoritma |
+| **Apply** | Lanjut | 10 | AI menjelaskan *trace* pengurutan | Memvisualisasikan dan memahami algoritma kompleks |
+| **Apply** | Lanjut | 11 | AI untuk analisis algoritma rekursif | Berdiskusi tentang strategi pemecahan masalah rekursif |
+| **Create** | Mahir | 12 | AI *pair programming* untuk optimasi | Berkolaborasi mengoptimasi kompleksitas algoritma |
+| **Create** | Mahir | 13 | *Code review* dan *prompt engineering* lanjut | Menggunakan AI secara profesional dan menjaga kualitas kode |
+| **Create** | Mahir | 14 | AI dalam siklus proyek penuh | Mengintegrasikan AI di seluruh fase pengembangan |
 
-```
-   FASE 1: DASAR (Bab 1-4)              FASE 2: MENENGAH (Bab 5-7)
-   ========================             ============================
-   "AI sebagai Guru"                    "AI sebagai Debugger"
+### Empat Dimensi Kompetensi AI (UNESCO)
 
-   - Mengenal tools AI                  - Menemukan bug dengan AI
-   - Prompt sederhana                   - Refactoring bersama AI
-   - Memahami penjelasan AI             - Evaluasi kritis saran AI
-   - Validasi jawaban sendiri           - Debugging struktur data
-          |                                       |
-          v                                       v
-   FASE 3: LANJUT (Bab 8-11)            FASE 4: MAHIR (Bab 12-14)
-   ==========================           ===========================
-   "AI sebagai Konsultan"               "AI sebagai Partner"
+Kerangka UNESCO menetapkan empat dimensi yang seluruhnya tersentuh buku ini:
 
-   - Diskusi desain dengan AI           - Pair programming dengan AI
-   - Analisis trade-off                 - Code review profesional
-   - Perbandingan algoritma             - Prompt engineering lanjut
-   - Visualisasi proses                 - Integrasi AI di proyek
-```
+| Dimensi | Wujud dalam buku ini |
+|---|---|
+| ***Human-centred mindset*** | AI sebagai mitra, bukan pengganti — ditegaskan sejak Bab 1 dan diuji tanpa AI pada UTS/UAS |
+| ***Ethics of AI*** | Bab 13: etika, batasan, dan AI Usage Log; diukur melalui Sub-CPMK-7.8 (ranah afektif A3) |
+| ***AI techniques and applications*** | AI Corner di seluruh 14 bab, dengan kedalaman meningkat |
+| ***AI system design*** | Bab 14: integrasi AI di seluruh siklus pengembangan proyek |
 
 ### Prinsip Etis Penggunaan AI
 
@@ -356,3 +363,7 @@ Sepanjang progresi AI Literacy, mahasiswa juga akan mempelajari prinsip-prinsip 
 ---
 
 *Buku ini diterbitkan pada Februari 2026 oleh Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar Indonesia, Jakarta.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

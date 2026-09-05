@@ -1,3 +1,20 @@
+---
+id: uai-inf101-asesmen-framework
+tipe: asesmen
+judul: "Kerangka Asesmen — Algoritma dan Pemrograman"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+asesmen_id: ASM-FRAMEWORK
+mengukur_cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4, CPMK-5, CPMK-6, CPMK-7]
+mengukur_sub_cpmk: []
+bobot_persen: 100
+ai_diizinkan: false
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
+
 # Framework Asesmen — Algoritma dan Pemrograman (Teori)
 
 > **Mata Kuliah:** Algoritma dan Pemrograman — 2 SKS (Teori)
@@ -68,18 +85,16 @@ Asesmen autentik berarti tugas dan ujian dirancang agar relevan dengan dunia nya
 
 ### 3.1 Kuis (K1-K3) — 20%
 
-Kuis diberikan di awal kelas sebagai *assessment for learning* dan pengecek pemahaman.
-
-| Kuis | Minggu | Cakupan | Format | Durasi | Bobot |
-|---|---|---|---|---|---|
-| K1 | 4 | Minggu 1-3 (Variabel, Tipe Data, I/O) | 10 PG + 2 code tracing | 20 menit | 7% |
-| K2 | 8 | Minggu 4-7 (Seleksi, Perulangan, Fungsi) | 10 PG + 2 code tracing | 20 menit | 7% |
-| K3 | 12 | Minggu 9-11 (String, List, Dict, Set) | 10 PG + 2 code tracing | 20 menit | 6% |
+| Kode | Minggu | Cakupan | CPMK diukur | Format | Durasi | Bobot |
+|---|:-:|---|---|---|---|:-:|
+| `ASM-K1` | 4 | Minggu 1-4 (algoritma, variabel, seleksi, perulangan) | CPMK-3 | 10 PG + 2 *code tracing* | 20 menit | 7% |
+| `ASM-K2` | 7 | Minggu 5-7 (fungsi, string, list & tuple) | CPMK-4, CPMK-5 | 10 PG + 2 *code tracing* | 20 menit | 7% |
+| `ASM-K3` | 12 | Minggu 9-12 (dict & set, pencarian, pengurutan, rekursi) | CPMK-6 | 10 PG + 2 *code tracing* | 20 menit | 6% |
 
 **Ketentuan Kuis:**
-- Dikerjakan secara individu di kelas (closed-book, tanpa AI)
+- Dikerjakan secara individu di kelas (*closed-book*, tanpa AI)
 - Tidak ada kuis susulan kecuali dengan surat keterangan resmi
-- Nilai kuis terbaik 2 dari 3 yang dihitung (1 kuis terendah di-drop)
+- Setiap butir soal **wajib ditandai kode Sub-CPMK** agar ketercapaian dapat dihitung
 
 ### 3.2 Ujian Tengah Semester (UTS) — 30%
 
@@ -127,23 +142,23 @@ Penilaian partisipasi mencakup dua aspek:
 
 ## 4. Matrix CPMK x Asesmen
 
-Tabel berikut menunjukkan keterkaitan antara setiap CPMK dengan instrumen asesmen yang mengukurnya:
+> **Sumber tunggal.** Matriks ini **wajib identik** dengan RPS §G.2 ([`../01-rps/rps-algoritma-pemrograman.md`](../01-rps/rps-algoritma-pemrograman.md)). Bila berbeda, RPS yang berlaku.
+>
+> Matriks hanya memuat komponen yang terdaftar pada peta bobot §2. Komponen praktikum (tugas pemrograman, laporan, proyek) berada pada RPS INF-102.
 
-| CPMK | Deskripsi | K1-K3 | UTS | UAS | Partisipasi |
-|---|---|---|---|---|---|
-| CPMK-1 | Menjelaskan konsep dasar algoritma dan computational thinking | K1 | V | V | - |
-| CPMK-2 | Menerapkan tipe data, variabel, operator, I/O, seleksi, perulangan | K1, K2 | V | V | - |
-| CPMK-3 | Merancang program modular menggunakan fungsi | K2 | V | V | - |
-| CPMK-4 | Mengimplementasikan struktur data dasar (list, tuple, dict, set) | K3 | - | V | - |
-| CPMK-5 | Menerapkan algoritma searching, sorting, dan rekursi | K3 | - | V | - |
-| CPMK-6 | Menganalisis kompleksitas algoritma dengan notasi Big-O | - | - | V | - |
-| CPMK-7 | Menggunakan AI secara etis sebagai alat bantu pemrograman | - | - | V | V |
+| CPMK | Rumusan ringkas | `ASM-K1` | `ASM-K2` | `ASM-K3` | `ASM-UTS` | `ASM-UAS` | `ASM-PAR` |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| **CPMK-1** | Konsep algoritma, *computational thinking*, peran pemrograman di era AI | | | | ✓ | ✓ | ✓ |
+| **CPMK-2** | Variabel, tipe data, operator, dan ekspresi | | | | ✓ | ✓ | ✓ |
+| **CPMK-3** | Struktur kontrol: seleksi dan perulangan | ✓ | | | ✓ | ✓ | ✓ |
+| **CPMK-4** | Fungsi, pengolahan string, dan modularitas | | ✓ | | ✓ | ✓ | ✓ |
+| **CPMK-5** | Pemilihan dan penggunaan struktur data | | ✓ | | ✓ | ✓ | ✓ |
+| **CPMK-6** | Algoritma pencarian, pengurutan, dan rekursi | | | ✓ | | ✓ | ✓ |
+| **CPMK-7** | Efisiensi algoritma dan pemrograman berbantuan AI | | | | | ✓ | ✓ |
 
-> **Catatan:** CPMK-1 sampai CPMK-7 juga diukur melalui Tugas Pemrograman (T1-T6) dan Proyek Akhir pada mata kuliah Praktikum Algoritma dan Pemrograman (INF-102).
+**Keterangan:** ✓ = CPMK diukur melalui instrumen tersebut.
 
-**Keterangan:**
-- V = Diukur melalui instrumen asesmen tersebut
-- K(n) = Kuis spesifik yang mengukur CPMK
+> **Catatan cakupan.** Seluruh CPMK juga diukur melalui tugas pemrograman dan proyek akhir pada INF-102. Rincian penghitungan ketercapaian: [`../mutu/02-pengukuran-ketercapaian-cpl.md`](../mutu/02-pengukuran-ketercapaian-cpl.md).
 
 ---
 
@@ -225,15 +240,17 @@ Nilai akhir = **73.30** -> Huruf mutu: **B**
 ## 7. Kalender Asesmen
 
 | Minggu | Asesmen | Keterangan |
-|---|---|---|
-| 4 | K1: Kuis 1 | Awal pertemuan Minggu 4, 20 menit |
-| 8 | K2: Kuis 2 | Awal pertemuan Minggu 8, 20 menit |
-| 8 | UTS | Sesuai jadwal UAI |
-| 12 | K3: Kuis 3 | Awal pertemuan Minggu 12, 20 menit |
-| 16 | UAS | Sesuai jadwal UAI |
-| 1-16 | Partisipasi | Penilaian kehadiran dan kontribusi diskusi sepanjang semester |
+|:-:|---|---|
+| 4 | `ASM-K1` — Kuis 1 | Awal pertemuan Minggu 4, 20 menit |
+| 7 | `ASM-K2` — Kuis 2 | Awal pertemuan Minggu 7, 20 menit |
+| 8 | `ASM-UTS` | Sesuai jadwal akademik UAI |
+| 12 | `ASM-K3` — Kuis 3 | Awal pertemuan Minggu 12, 20 menit |
+| 16 | `ASM-UAS` | Sesuai jadwal akademik UAI |
+| 1-16 | `ASM-PAR` — Partisipasi | Kehadiran dan kontribusi diskusi sepanjang semester |
 
-> **Catatan:** Kalender asesmen untuk Tugas Pemrograman (T1-T6) dan Proyek Akhir tersedia dalam dokumen Praktikum Algoritma dan Pemrograman (INF-102).
+> Kalender ini identik dengan RPS §G.3. Kuis 2 dijadwalkan **Minggu 7**, bukan Minggu 8, agar tidak bertumpuk dengan UTS.
+
+> **Catatan:** Kalender tugas pemrograman dan proyek akhir tersedia pada dokumen INF-102.
 
 ---
 
