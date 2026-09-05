@@ -57,18 +57,31 @@ Maksimal lima butir, masing-masing tertaut ID capaian agar dapat diverifikasi.
 
 Repositori ini berbasis git, sehingga **riwayat commit adalah jejak bukti PPEPP yang paling kredibel** — ia memperlihatkan *apa* yang berubah, *kapan*, dan *mengapa*, tanpa memerlukan dokumen tambahan.
 
-| Penanda | Keterangan |
+### Penetapan siklus 2025-2026-genap
+
+| Commit | Perubahan |
 |---|---|
-| `pra-migrasi-kode-v1` | Keadaan dokumen sebelum penggantian kode Sub-CPMK — titik balik bila diperlukan |
-| *(akan ditambahkan)* `siklus-2025-2026-genap` | Penanda penetapan dokumen untuk siklus berjalan |
+| `2acf568` | Registri prodi ditetapkan: Profil Lulusan, CPL, Bahan Kajian, taksonomi C/A/P, kamus metadata |
+| `fa01d07` | Pedoman OBE & Konvensi v2.0 ditetapkan sebagai acuan tunggal |
+| `06797e2` | **Titik balik pra-migrasi** — tabel migrasi kode Sub-CPMK ditetapkan sebelum berkas isi disentuh |
+| `3096c3b` | RPS v2.0 dan tiga artefak mutu ditetapkan |
+| `22aad2c` | Kode Sub-CPMK dinormalisasi ke bentuk kanonik di modul dan buku ajar |
+| `2e3814d` | Kode asesmen dipetakan; kerangka asesmen diselaraskan; sitasi regulasi diperbarui |
+| `7c40783` | Validator dan checklist verifikasi ditetapkan; Fase 1 dinyatakan selesai |
 
-**Cara membaca bukti peningkatan antar siklus:**
+Penanda lokal `pra-migrasi-kode-v1` dan `siklus-2025-2026-genap` menunjuk ke `06797e2` dan `7c40783`. Keduanya **belum terkirim ke remote** karena pengiriman tag terhalang konfigurasi jaringan; SHA commit di atas menjadi acuan yang setara dan tetap tersedia bagi siapa pun yang meng-*clone* repositori.
 
+### Cara membaca bukti peningkatan antar siklus
+
+```bash
+# Perubahan sejak penetapan siklus berjalan
+git diff 7c40783..HEAD -- mata-kuliah/algoritma-pemrograman/
+
+# Perubahan yang dibawa migrasi kode (bukti tindakan Peningkatan)
+git diff 06797e2..22aad2c -- mata-kuliah/algoritma-pemrograman/
 ```
-git diff siklus-2025-2026-genap..siklus-2026-2027-genap -- mata-kuliah/algoritma-pemrograman/
-```
 
-Perintah tersebut memperlihatkan seluruh perubahan RPS, materi, dan asesmen antar dua siklus — inilah bukti *continuous quality improvement* yang diminta kriteria 1 (Budaya Mutu).
+Perintah tersebut memperlihatkan seluruh perubahan RPS, materi, dan asesmen — inilah bukti *continuous quality improvement* yang diminta kriteria 1 (Budaya Mutu).
 
 ## 5. Telaah Sejawat
 
