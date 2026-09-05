@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w14
+tipe: modul
+judul: "Minggu 14: AI-Augmented Programming dan Code Quality"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [14]
+estimasi_menit: 150
+cpmk: [CPMK-7]
+sub_cpmk: [Sub-CPMK-7.5, Sub-CPMK-7.6, Sub-CPMK-7.7, Sub-CPMK-7.8]
+bloom_c: [C2, C3, C4, C5]
+bloom_a: [A2, A3]
+bloom_p: [P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 14: AI-Augmented Programming dan Code Quality
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 14 dari 16 |
 | **Topik** | AI-Augmented Programming dan Code Quality |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
@@ -12,7 +30,7 @@
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python |
 | **CPMK** | CPMK-7 |
-| **Sub-CPMK** | CPMK-7.5, CPMK-7.6, CPMK-7.7, CPMK-7.8 |
+| **Sub-CPMK** | Sub-CPMK-7.5, Sub-CPMK-7.6, Sub-CPMK-7.7, Sub-CPMK-7.8 |
 | **Durasi** | 150 menit (Teori: 75 menit, Praktik: 75 menit) |
 | **Metode** | Ceramah interaktif, Demo langsung, Praktik AI pair programming, Code review |
 
@@ -22,16 +40,16 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Mengidentifikasi** berbagai AI coding assistant dan menjelaskan perannya sebagai alat bantu dalam pemrograman, bukan pengganti pemahaman fundamental (CPMK-7.5)
-2. **Menerapkan** framework CRIDE untuk menyusun prompt yang efektif kepada AI coding assistant dan memvalidasi output yang dihasilkan (CPMK-7.6)
-3. **Menganalisis** kualitas kode berdasarkan prinsip clean code (PEP 8, penamaan, fungsi, DRY, KISS) dan melakukan code review secara sistematis (CPMK-7.7)
-4. **Mengevaluasi** aspek etika penggunaan AI dalam pemrograman dan mendokumentasikan penggunaan AI secara transparan melalui AI Usage Log (CPMK-7.8)
+1. **Mengidentifikasi** berbagai AI coding assistant dan menjelaskan perannya sebagai alat bantu dalam pemrograman, bukan pengganti pemahaman fundamental (Sub-CPMK-7.5)
+2. **Menerapkan** framework CRIDE untuk menyusun prompt yang efektif kepada AI coding assistant dan memvalidasi output yang dihasilkan (Sub-CPMK-7.6)
+3. **Menganalisis** kualitas kode berdasarkan prinsip clean code (PEP 8, penamaan, fungsi, DRY, KISS) dan melakukan code review secara sistematis (Sub-CPMK-7.7)
+4. **Mengevaluasi** aspek etika penggunaan AI dalam pemrograman dan mendokumentasikan penggunaan AI secara transparan melalui AI Usage Log (Sub-CPMK-7.8)
 
 ---
 
 ## Materi Pembelajaran
 
-### 1. Lanskap AI Coding Assistants (CPMK-7.5)
+### 1. Lanskap AI Coding Assistants (Sub-CPMK-7.5)
 
 AI coding assistant adalah alat berbasis kecerdasan buatan yang membantu programmer menulis, memahami, dan memperbaiki kode. Berikut perbandingan beberapa tools utama:
 
@@ -44,7 +62,7 @@ AI coding assistant adalah alat berbasis kecerdasan buatan yang membantu program
 
 **Prinsip utama:** AI adalah *co-pilot*, bukan *auto-pilot*. Mahasiswa harus **memahami** kode yang dihasilkan AI, bukan sekadar menyalin.
 
-### 2. Framework CRIDE untuk Prompt Engineering (CPMK-7.6)
+### 2. Framework CRIDE untuk Prompt Engineering (Sub-CPMK-7.6)
 
 CRIDE adalah kerangka kerja untuk menyusun prompt yang efektif:
 
@@ -68,7 +86,7 @@ Sertakan komentar penjelasan di setiap bagian penting.
 Examples: is_balanced("({[]})") -> True, is_balanced("([)]") -> False
 ```
 
-### 3. Validasi Kode dari AI (CPMK-7.6)
+### 3. Validasi Kode dari AI (Sub-CPMK-7.6)
 
 Kode dari AI **wajib divalidasi** sebelum digunakan. Langkah-langkah validasi:
 
@@ -98,7 +116,7 @@ def cari_maks_fixed(data):
     return maks
 ```
 
-### 4. Prinsip Clean Code (CPMK-7.7)
+### 4. Prinsip Clean Code (Sub-CPMK-7.7)
 
 #### a. PEP 8 -- Style Guide Python
 
@@ -141,7 +159,7 @@ for nama, nilai in data_mahasiswa.items():
     print(format_persentase(nama, nilai, total))
 ```
 
-### 5. Code Review: Checklist Sistematis (CPMK-7.7)
+### 5. Code Review: Checklist Sistematis (Sub-CPMK-7.7)
 
 | Aspek | Pertanyaan Kunci |
 |-------|-----------------|
@@ -153,7 +171,7 @@ for nama, nilai in data_mahasiswa.items():
 | **Error Handling** | Apakah kode menangani input yang tidak valid? |
 | **Dokumentasi** | Apakah ada docstring dan komentar yang diperlukan? |
 
-### 6. AI Usage Log dan Etika AI (CPMK-7.8)
+### 6. AI Usage Log dan Etika AI (Sub-CPMK-7.8)
 
 **AI Usage Log** adalah dokumen transparansi yang mencatat bagaimana AI digunakan dalam pengerjaan tugas:
 

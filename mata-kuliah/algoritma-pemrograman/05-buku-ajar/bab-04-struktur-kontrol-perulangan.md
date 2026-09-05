@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-04
+tipe: bab-buku-ajar
+judul: "BAB 4: STRUKTUR KONTROL: PERULANGAN"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 4
+level_ai: understand
+cpmk: [CPMK-3]
+sub_cpmk: [Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8]
+bloom_c: [C3, C4]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 4: STRUKTUR KONTROL: PERULANGAN
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,11 +29,10 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's |
 |----------|-----------|---------|
-| CPMK-3.5 | Menjelaskan konsep perulangan dan jenisnya | C2 |
-| CPMK-3.6 | Menerapkan perulangan `for` untuk iterasi tertentu | C3 |
-| CPMK-3.7 | Menerapkan perulangan `while` untuk kondisi tertentu | C3 |
-| CPMK-3.8 | Mengimplementasikan nested loops dan pola-pola perulangan | C3 |
-
+| **Sub-CPMK-3.5** | Menerapkan perulangan `for` dengan `range()` untuk iterasi dengan jumlah pengulangan diketahui | C3, P2 |
+| **Sub-CPMK-3.6** | Menerapkan perulangan `while` untuk iterasi dengan kondisi berhenti tertentu | C3, P2 |
+| **Sub-CPMK-3.7** | Menggunakan `break`, `continue`, dan klausa `else` pada loop untuk mengontrol alur perulangan | C3 |
+| **Sub-CPMK-3.8** | Menganalisis *nested loop* menggunakan *loop trace table* dan mengimplementasikannya untuk mencetak pola | C4 |
 ---
 
 ## 4.1 Konsep Perulangan

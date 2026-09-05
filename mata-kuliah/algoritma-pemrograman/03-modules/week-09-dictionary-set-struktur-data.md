@@ -1,3 +1,21 @@
+---
+id: uai-inf101-modul-w09
+tipe: modul
+judul: "Minggu 9: Dictionary, Set, dan Pemilihan Struktur Data"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [9]
+estimasi_menit: 150
+cpmk: [CPMK-5]
+sub_cpmk: [Sub-CPMK-5.5, Sub-CPMK-5.6, Sub-CPMK-5.7]
+bloom_c: [C3, C5]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 9: Dictionary, Set, dan Pemilihan Struktur Data
 
 ## Informasi Modul
@@ -6,13 +24,12 @@
 |----------|------------|
 | **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Kode MK** | IF1101 |
-| **SKS** | 3 SKS |
 | **Minggu** | 9 (Sembilan) |
 | **Topik** | Dictionary, Set, dan Pemilihan Struktur Data |
 | **CPMK** | CPMK-5: Mampu menerapkan struktur data dasar untuk menyimpan dan mengelola data secara efektif |
-| **Sub-CPMK** | CPMK-5.5: Membuat dan memanipulasi dictionary (key-value pairs) |
-| | CPMK-5.6: Menggunakan set untuk operasi himpunan pada data unik |
-| | CPMK-5.7: Memilih struktur data yang tepat berdasarkan kebutuhan masalah |
+| **Sub-CPMK** | Sub-CPMK-5.5: Membuat dan memanipulasi dictionary (key-value pairs) |
+| | Sub-CPMK-5.6: Menggunakan set untuk operasi himpunan pada data unik |
+| | Sub-CPMK-5.7: Memilih struktur data yang tepat berdasarkan kebutuhan masalah |
 | **Durasi** | 150 menit |
 | **Metode** | Ceramah, Live Coding, Latihan Terbimbing, Diskusi |
 | **Bahasa Pemrograman** | Python |

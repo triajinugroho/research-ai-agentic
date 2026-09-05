@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w08
+tipe: modul
+judul: "Minggu 8: UTS -- Review dan Ujian Tengah Semester"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [8]
+estimasi_menit: 150
+cpmk: []
+sub_cpmk: []
+bloom_c: []
+bloom_a: []
+bloom_p: []
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 8: UTS -- Review dan Ujian Tengah Semester
 
 ## Informasi Modul
 
 | Komponen       | Detail                                                              |
 |----------------|---------------------------------------------------------------------|
-| Mata Kuliah    | Algoritma dan Pemrograman (3 SKS)                                   |
+| Mata Kuliah    | Algoritma dan Pemrograman                                   |
 | Minggu         | 8 (Delapan)                                                        |
 | Topik          | UTS -- Review dan Ujian Tengah Semester                              |
 | CPMK           | CPMK-1 s.d. CPMK-5 (Komprehensif Minggu 1--7)                      |

@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-08
+tipe: bab-buku-ajar
+judul: "BAB 8: DICTIONARY, SET, DAN PEMILIHAN STRUKTUR DATA"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 8
+level_ai: apply
+cpmk: [CPMK-5]
+sub_cpmk: [Sub-CPMK-5.5, Sub-CPMK-5.6, Sub-CPMK-5.7]
+bloom_c: [C3, C5]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 8: DICTIONARY, SET, DAN PEMILIHAN STRUKTUR DATA
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,11 +29,10 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-5.5 | Memahami dictionary sebagai pemetaan key-value | C2 (Memahami) |
-| CPMK-5.6 | Menerapkan operasi pada dictionary dan set | C3 (Menerapkan) |
-| CPMK-5.7 | Menganalisis kapan menggunakan list vs tuple vs dict vs set | C4 (Menganalisis) |
-
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+| **Sub-CPMK-5.5** | Membuat dan memanipulasi *dictionary* (pasangan *key-value*) | C3, P2 |
+| **Sub-CPMK-5.6** | Menggunakan *set* untuk operasi himpunan pada data unik | C3 |
+| **Sub-CPMK-5.7** | Memilih struktur data yang tepat berdasarkan kebutuhan masalah | C5 |
+**Estimasi Waktu:** 3 × 50 menit
 
 **Prasyarat:** Mahasiswa telah memahami materi Bab 1–7 (termasuk list dan tuple).
 

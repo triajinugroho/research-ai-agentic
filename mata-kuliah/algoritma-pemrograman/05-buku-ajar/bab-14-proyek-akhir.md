@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-14
+tipe: bab-buku-ajar
+judul: "BAB 14: PROYEK AKHIR — MEMBANGUN SOLUSI END-TO-END"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 14
+level_ai: create
+cpmk: [CPMK-7]
+sub_cpmk: [Sub-CPMK-7.9, Sub-CPMK-7.10, Sub-CPMK-7.11, Sub-CPMK-7.12]
+bloom_c: [C5, C6]
+bloom_a: [A2, A3]
+bloom_p: [P4]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 14: PROYEK AKHIR — MEMBANGUN SOLUSI END-TO-END
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,12 +29,11 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-7.9 | Merancang solusi pemrograman end-to-end dari perumusan masalah hingga implementasi | C6 (Mencipta) |
-| CPMK-7.10 | Mengintegrasikan seluruh konsep (variabel, kontrol, fungsi, struktur data, algoritma) | C5 (Mengevaluasi) |
-| CPMK-7.11 | Mendokumentasikan proses pengembangan termasuk AI Usage Log | C4 (Menganalisis) |
-| CPMK-7.12 | Mempresentasikan solusi dengan jelas dan profesional | C5 (Mengevaluasi) |
-
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+| **Sub-CPMK-7.9** | Mempresentasikan proyek akhir secara sistematis dan meyakinkan dalam batas waktu yang ditentukan | C6, A2, P4 |
+| **Sub-CPMK-7.10** | Mendemonstrasikan program Python yang berfungsi serta menjelaskan arsitektur dan algoritmanya | C6, P4 |
+| **Sub-CPMK-7.11** | Mempertahankan keputusan desain dan implementasi melalui sesi tanya jawab secara kritis | C5, A3 |
+| **Sub-CPMK-7.12** | Mengevaluasi proyek rekan sejawat secara konstruktif menggunakan rubrik penilaian yang disediakan | C5, A3 |
+**Estimasi Waktu:** 3 × 50 menit
 
 **Prasyarat:** Seluruh materi Bab 1–13.
 
@@ -466,7 +483,7 @@ dan Pemrograman — Universitas Al Azhar Indonesia.
 ## Identitas
 - Nama: [Nama Anda]
 - NIM: [NIM Anda]
-- Mata Kuliah: Algoritma dan Pemrograman (3 SKS)
+- Mata Kuliah: Algoritma dan Pemrograman
 - Dosen: Tri Aji Nugroho, S.T., M.T.
 - Semester: Genap 2025/2026
 ```

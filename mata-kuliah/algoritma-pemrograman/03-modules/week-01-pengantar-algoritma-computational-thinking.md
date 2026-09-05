@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w01
+tipe: modul
+judul: "Minggu 1: Pengantar Algoritma dan Computational Thinking di Era AI"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [1]
+estimasi_menit: 150
+cpmk: [CPMK-1]
+sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.3, Sub-CPMK-1.4]
+bloom_c: [C1, C2, C3]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 1: Pengantar Algoritma dan Computational Thinking di Era AI
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 1 dari 16 |
 | **Topik** | Pengantar Algoritma dan Computational Thinking |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
@@ -12,7 +30,7 @@
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python |
 | **CPMK** | CPMK-1 |
-| **Sub-CPMK** | CPMK-1.1, CPMK-1.2, CPMK-1.3, CPMK-1.4 |
+| **Sub-CPMK** | Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.3, Sub-CPMK-1.4 |
 | **Durasi** | 150 menit (Teori: 75 menit, Praktik: 75 menit) |
 | **Metode** | Ceramah interaktif, Diskusi, Praktik |
 
@@ -22,16 +40,16 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Mendefinisikan** konsep algoritma dan menjelaskan perannya dalam pemecahan masalah komputasional (CPMK-1.1)
-2. **Mengidentifikasi** empat pilar computational thinking dan menerapkannya pada permasalahan sederhana (CPMK-1.2)
-3. **Merepresentasikan** algoritma dalam bentuk bahasa natural, pseudocode, dan flowchart secara sistematis (CPMK-1.3)
-4. **Menjalankan** program Python pertama menggunakan Google Colab sebagai lingkungan pengembangan (CPMK-1.4)
+1. **Mendefinisikan** konsep algoritma dan menjelaskan perannya dalam pemecahan masalah komputasional (Sub-CPMK-1.1)
+2. **Mengidentifikasi** empat pilar computational thinking dan menerapkannya pada permasalahan sederhana (Sub-CPMK-1.2)
+3. **Merepresentasikan** algoritma dalam bentuk bahasa natural, pseudocode, dan flowchart secara sistematis (Sub-CPMK-1.3)
+4. **Menjalankan** program Python pertama menggunakan Google Colab sebagai lingkungan pengembangan (Sub-CPMK-1.4)
 
 ---
 
 ## Materi Pembelajaran
 
-### 1. Definisi Algoritma dan Sejarah Al-Khwarizmi (CPMK-1.1)
+### 1. Definisi Algoritma dan Sejarah Al-Khwarizmi (Sub-CPMK-1.1)
 
 **Algoritma** adalah urutan langkah-langkah logis dan sistematis yang digunakan untuk menyelesaikan suatu masalah atau mencapai tujuan tertentu. Istilah ini berasal dari nama matematikawan Persia, **Abu Abdullah Muhammad ibn Musa Al-Khwarizmi** (780--850 M), yang menulis kitab *Al-Kitab al-Mukhtasar fi Hisab al-Jabr wal-Muqabala*.
 
@@ -52,7 +70,7 @@ Setelah menyelesaikan modul ini, mahasiswa mampu:
 5. Aduk hingga merata
 6. Kopi siap disajikan
 
-### 2. Empat Pilar Computational Thinking (CPMK-1.2)
+### 2. Empat Pilar Computational Thinking (Sub-CPMK-1.2)
 
 **Computational Thinking (CT)** adalah pendekatan pemecahan masalah yang menggunakan konsep-konsep ilmu komputer. CT terdiri dari empat pilar utama:
 
@@ -63,7 +81,7 @@ Setelah menyelesaikan modul ini, mahasiswa mampu:
 | **Abstraction** | Memfokuskan pada informasi penting dan mengabaikan detail yang tidak relevan | Peta kota hanya menampilkan jalan utama, bukan setiap detail bangunan |
 | **Algorithm Design** | Merancang langkah-langkah penyelesaian yang sistematis | Menulis langkah-langkah untuk mengurutkan data dari kecil ke besar |
 
-### 3. Representasi Algoritma (CPMK-1.3)
+### 3. Representasi Algoritma (Sub-CPMK-1.3)
 
 #### a. Bahasa Natural (Deskripsi Naratif)
 
@@ -94,7 +112,7 @@ Representasi visual algoritma menggunakan simbol-simbol standar:
 | Belah Ketupat (Diamond) | Decision | Percabangan/pengambilan keputusan |
 | Anak Panah (Arrow) | Flow Line | Arah aliran proses |
 
-### 4. Pengenalan Python dan Pemrograman di Era AI (CPMK-1.4)
+### 4. Pengenalan Python dan Pemrograman di Era AI (Sub-CPMK-1.4)
 
 **Mengapa Python?**
 

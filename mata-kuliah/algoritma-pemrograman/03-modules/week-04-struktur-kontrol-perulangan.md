@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w04
+tipe: modul
+judul: "Minggu 4: Struktur Kontrol: Perulangan (for/while)"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [4]
+estimasi_menit: 150
+cpmk: [CPMK-3]
+sub_cpmk: [Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8]
+bloom_c: [C3, C4]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 4: Struktur Kontrol: Perulangan (for/while)
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 4 dari 16 |
 | **Topik** | Struktur Kontrol: Perulangan (for/while) |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
@@ -12,7 +30,7 @@
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python |
 | **CPMK** | CPMK-3 |
-| **Sub-CPMK** | CPMK-3.5, CPMK-3.6, CPMK-3.7, CPMK-3.8 |
+| **Sub-CPMK** | Sub-CPMK-3.5, Sub-CPMK-3.6, Sub-CPMK-3.7, Sub-CPMK-3.8 |
 | **Durasi** | 150 menit (Teori: 75 menit, Praktik: 75 menit) |
 | **Metode** | Ceramah interaktif, Live Coding, Praktik |
 
@@ -22,16 +40,16 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Menerapkan** perulangan `for` dengan fungsi `range()` untuk iterasi dengan jumlah pengulangan yang diketahui (CPMK-3.5)
-2. **Menerapkan** perulangan `while` untuk iterasi dengan kondisi berhenti tertentu (CPMK-3.6)
-3. **Menggunakan** pernyataan `break`, `continue`, dan klausa `else` pada loop untuk mengontrol alur perulangan (CPMK-3.7)
-4. **Menganalisis** nested loop menggunakan loop trace table dan mengimplementasikannya untuk mencetak pola (CPMK-3.8)
+1. **Menerapkan** perulangan `for` dengan fungsi `range()` untuk iterasi dengan jumlah pengulangan yang diketahui (Sub-CPMK-3.5)
+2. **Menerapkan** perulangan `while` untuk iterasi dengan kondisi berhenti tertentu (Sub-CPMK-3.6)
+3. **Menggunakan** pernyataan `break`, `continue`, dan klausa `else` pada loop untuk mengontrol alur perulangan (Sub-CPMK-3.7)
+4. **Menganalisis** nested loop menggunakan loop trace table dan mengimplementasikannya untuk mencetak pola (Sub-CPMK-3.8)
 
 ---
 
 ## Materi Pembelajaran
 
-### 1. Perulangan for dan Fungsi range() (CPMK-3.5)
+### 1. Perulangan for dan Fungsi range() (Sub-CPMK-3.5)
 
 Perulangan `for` digunakan ketika jumlah iterasi sudah diketahui sebelumnya.
 
@@ -58,7 +76,7 @@ for huruf in "PYTHON":
     print(huruf, end="-")  # P-Y-T-H-O-N-
 ```
 
-### 2. Perulangan while (CPMK-3.6)
+### 2. Perulangan while (Sub-CPMK-3.6)
 
 Perulangan `while` digunakan ketika jumlah iterasi belum diketahui dan bergantung pada suatu kondisi.
 
@@ -78,7 +96,7 @@ print("Selamat! Tebakan Anda benar!")
 
 **Perhatian -- Infinite Loop:** Pastikan kondisi `while` akan bernilai `False` pada suatu titik agar loop berhenti. Selalu sertakan mekanisme pengubah kondisi di dalam blok while.
 
-### 3. Pernyataan break, continue, dan else pada Loop (CPMK-3.7)
+### 3. Pernyataan break, continue, dan else pada Loop (Sub-CPMK-3.7)
 
 ```python
 # break -- menghentikan loop secara paksa
@@ -103,7 +121,7 @@ else:
     print(f"{bilangan} adalah bilangan prima")
 ```
 
-### 4. Nested Loop dan Loop Trace Table (CPMK-3.8)
+### 4. Nested Loop dan Loop Trace Table (Sub-CPMK-3.8)
 
 ```python
 for i in range(1, 6):          # Tabel perkalian 1-5

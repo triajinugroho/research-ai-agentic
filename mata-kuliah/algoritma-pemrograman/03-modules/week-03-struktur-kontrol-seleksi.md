@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w03
+tipe: modul
+judul: "Minggu 3: Struktur Kontrol: Seleksi (if/elif/else)"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [3]
+estimasi_menit: 150
+cpmk: [CPMK-3]
+sub_cpmk: [Sub-CPMK-3.1, Sub-CPMK-3.2, Sub-CPMK-3.3, Sub-CPMK-3.4]
+bloom_c: [C2, C3, C4]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 3: Struktur Kontrol: Seleksi (if/elif/else)
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 3 dari 16 |
 | **Topik** | Struktur Kontrol: Seleksi (if/elif/else) |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
@@ -12,7 +30,7 @@
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python |
 | **CPMK** | CPMK-3 |
-| **Sub-CPMK** | CPMK-3.1, CPMK-3.2, CPMK-3.3, CPMK-3.4 |
+| **Sub-CPMK** | Sub-CPMK-3.1, Sub-CPMK-3.2, Sub-CPMK-3.3, Sub-CPMK-3.4 |
 | **Durasi** | 150 menit (Teori: 75 menit, Praktik: 75 menit) |
 | **Metode** | Ceramah interaktif, Live Coding, Praktik |
 
@@ -22,16 +40,16 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Menjelaskan** konsep percabangan dan peran struktur seleksi dalam mengontrol alur program (CPMK-3.1)
-2. **Menerapkan** struktur if, if-else, dan if-elif-else untuk menyelesaikan permasalahan dengan kondisi tunggal maupun majemuk (CPMK-3.2)
-3. **Menganalisis** kondisi majemuk menggunakan operator logika (and, or, not) serta tabel kebenaran (CPMK-3.3)
-4. **Mengimplementasikan** nested if dan conditional expression untuk menangani kasus percabangan bertingkat (CPMK-3.4)
+1. **Menjelaskan** konsep percabangan dan peran struktur seleksi dalam mengontrol alur program (Sub-CPMK-3.1)
+2. **Menerapkan** struktur if, if-else, dan if-elif-else untuk menyelesaikan permasalahan dengan kondisi tunggal maupun majemuk (Sub-CPMK-3.2)
+3. **Menganalisis** kondisi majemuk menggunakan operator logika (and, or, not) serta tabel kebenaran (Sub-CPMK-3.3)
+4. **Mengimplementasikan** nested if dan conditional expression untuk menangani kasus percabangan bertingkat (Sub-CPMK-3.4)
 
 ---
 
 ## Materi Pembelajaran
 
-### 1. Konsep Percabangan dan Struktur if (CPMK-3.1)
+### 1. Konsep Percabangan dan Struktur if (Sub-CPMK-3.1)
 
 Struktur seleksi memungkinkan program mengambil keputusan berdasarkan kondisi tertentu. Alur eksekusi tidak lagi linear, melainkan bergantung pada hasil evaluasi kondisi (True atau False).
 
@@ -44,7 +62,7 @@ if bilangan > 0:
 
 **Catatan penting:** Python menggunakan **indentasi** (4 spasi) untuk menandai blok kode, bukan kurung kurawal seperti bahasa C/Java.
 
-### 2. Struktur if-else dan if-elif-else (CPMK-3.2)
+### 2. Struktur if-else dan if-elif-else (Sub-CPMK-3.2)
 
 #### Struktur if-else
 
@@ -87,7 +105,7 @@ print(f"Nilai huruf: {huruf}")
 | 40 -- 54 | D | Kurang |
 | 0 -- 39 | E | Sangat Kurang |
 
-### 3. Kondisi Majemuk dan Tabel Kebenaran (CPMK-3.3)
+### 3. Kondisi Majemuk dan Tabel Kebenaran (Sub-CPMK-3.3)
 
 Kondisi majemuk (compound condition) menggabungkan dua atau lebih ekspresi boolean menggunakan operator logika.
 
@@ -116,7 +134,7 @@ if not hujan:
 
 **Prioritas operator logika:** `not` (tertinggi) > `and` > `or` (terendah). Contoh: `not True or False and True` dievaluasi sebagai `(not True) or (False and True)` = `False or False` = `False`.
 
-### 4. Nested if dan Conditional Expression (CPMK-3.4)
+### 4. Nested if dan Conditional Expression (Sub-CPMK-3.4)
 
 #### Nested if (Percabangan Bertingkat)
 

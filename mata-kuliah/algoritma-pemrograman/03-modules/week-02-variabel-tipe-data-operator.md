@@ -1,10 +1,28 @@
+---
+id: uai-inf101-modul-w02
+tipe: modul
+judul: "Minggu 2: Variabel, Tipe Data, dan Operator"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [2]
+estimasi_menit: 150
+cpmk: [CPMK-2]
+sub_cpmk: [Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4]
+bloom_c: [C2, C3]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 2: Variabel, Tipe Data, dan Operator
 
 ## Informasi Modul
 
 | Komponen | Detail |
 |----------|--------|
-| **Mata Kuliah** | Algoritma dan Pemrograman (3 SKS) |
+| **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Minggu** | 2 dari 16 |
 | **Topik** | Variabel, Tipe Data, dan Operator |
 | **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
@@ -12,7 +30,7 @@
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python |
 | **CPMK** | CPMK-2 |
-| **Sub-CPMK** | CPMK-2.1, CPMK-2.2, CPMK-2.3, CPMK-2.4 |
+| **Sub-CPMK** | Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4 |
 | **Durasi** | 150 menit (Teori: 75 menit, Praktik: 75 menit) |
 | **Metode** | Ceramah interaktif, Live Coding, Praktik |
 
@@ -22,16 +40,16 @@
 
 Setelah menyelesaikan modul ini, mahasiswa mampu:
 
-1. **Menjelaskan** konsep variabel, aturan penamaan, dan mekanisme penugasan nilai dalam Python (CPMK-2.1)
-2. **Membedakan** tipe data dasar (int, float, str, bool) beserta karakteristik dan penggunaannya (CPMK-2.2)
-3. **Menerapkan** operator aritmetika, perbandingan, dan logika untuk membangun ekspresi komputasional (CPMK-2.3)
-4. **Mengimplementasikan** operasi input/output dan konversi tipe data dalam program Python sederhana (CPMK-2.4)
+1. **Menjelaskan** konsep variabel, aturan penamaan, dan mekanisme penugasan nilai dalam Python (Sub-CPMK-2.1)
+2. **Membedakan** tipe data dasar (int, float, str, bool) beserta karakteristik dan penggunaannya (Sub-CPMK-2.2)
+3. **Menerapkan** operator aritmetika, perbandingan, dan logika untuk membangun ekspresi komputasional (Sub-CPMK-2.3)
+4. **Mengimplementasikan** operasi input/output dan konversi tipe data dalam program Python sederhana (Sub-CPMK-2.4)
 
 ---
 
 ## Materi Pembelajaran
 
-### 1. Variabel dan Aturan Penamaan (CPMK-2.1)
+### 1. Variabel dan Aturan Penamaan (Sub-CPMK-2.1)
 
 **Variabel** adalah nama yang merujuk pada lokasi di memori tempat data disimpan. Dalam Python, variabel dibuat saat pertama kali diberi nilai (tidak perlu deklarasi eksplisit).
 
@@ -53,7 +71,7 @@ aktif = True            # boolean
 
 **Konvensi penamaan:** Gunakan `snake_case` untuk variabel (contoh: `nama_mahasiswa`, `nilai_rata_rata`). Hindari `PascalCase` (khusus untuk nama class) dan penulisan tanpa pemisah yang sulit dibaca.
 
-### 2. Tipe Data Dasar (CPMK-2.2)
+### 2. Tipe Data Dasar (Sub-CPMK-2.2)
 
 Python memiliki empat tipe data dasar yang sering digunakan:
 
@@ -66,7 +84,7 @@ Python memiliki empat tipe data dasar yang sering digunakan:
 
 Gunakan fungsi `type()` untuk memeriksa tipe data: `type(42)` menghasilkan `<class 'int'>`, `type("Halo")` menghasilkan `<class 'str'>`.
 
-### 3. Operator (CPMK-2.3)
+### 3. Operator (Sub-CPMK-2.3)
 
 #### a. Operator Aritmetika
 
@@ -99,7 +117,7 @@ Gunakan fungsi `type()` untuk memeriksa tipe data: `type(42)` menghasilkan `<cla
 | `or` | ATAU -- True jika salah satu True | `True or False` | `True` |
 | `not` | NEGASI -- membalik nilai logika | `not True` | `False` |
 
-### 4. Input/Output dan Konversi Tipe Data (CPMK-2.4)
+### 4. Input/Output dan Konversi Tipe Data (Sub-CPMK-2.4)
 
 #### Input dari Pengguna
 

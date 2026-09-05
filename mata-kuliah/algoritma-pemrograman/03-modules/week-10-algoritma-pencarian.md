@@ -1,3 +1,21 @@
+---
+id: uai-inf101-modul-w10
+tipe: modul
+judul: "Minggu 10: Algoritma Pencarian (Searching)"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+minggu: [10]
+estimasi_menit: 150
+cpmk: [CPMK-6]
+sub_cpmk: [Sub-CPMK-6.1, Sub-CPMK-6.2, Sub-CPMK-6.3, Sub-CPMK-6.4]
+bloom_c: [C2, C3, C4]
+bloom_a: []
+bloom_p: [P3]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # Minggu 10: Algoritma Pencarian (Searching)
 
 ## Informasi Modul
@@ -6,14 +24,13 @@
 |----------|------------|
 | **Mata Kuliah** | Algoritma dan Pemrograman |
 | **Kode MK** | IF1101 |
-| **SKS** | 3 SKS |
 | **Minggu** | 10 (Sepuluh) |
 | **Topik** | Algoritma Pencarian (Searching) |
 | **CPMK** | CPMK-6: Mampu menerapkan algoritma dasar (pencarian, pengurutan, rekursi) untuk menyelesaikan masalah komputasional |
-| **Sub-CPMK** | CPMK-6.1: Menjelaskan pentingnya algoritma pencarian dalam pemrograman |
-| | CPMK-6.2: Mengimplementasikan algoritma linear search dan melakukan tracing |
-| | CPMK-6.3: Mengimplementasikan algoritma binary search dan melakukan tracing |
-| | CPMK-6.4: Membandingkan kompleksitas waktu linear search O(n) dan binary search O(log n) |
+| **Sub-CPMK** | Sub-CPMK-6.1: Menjelaskan pentingnya algoritma pencarian dalam pemrograman |
+| | Sub-CPMK-6.2: Mengimplementasikan algoritma linear search dan melakukan tracing |
+| | Sub-CPMK-6.3: Mengimplementasikan algoritma binary search dan melakukan tracing |
+| | Sub-CPMK-6.4: Membandingkan kompleksitas waktu linear search O(n) dan binary search O(log n) |
 | **Durasi** | 150 menit |
 | **Metode** | Ceramah, Live Coding, Tracing Exercise, Demonstrasi Performa |
 | **Bahasa Pemrograman** | Python |

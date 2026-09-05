@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-01
+tipe: bab-buku-ajar
+judul: "BAB 1: PENGANTAR ALGORITMA DAN COMPUTATIONAL THINKING"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 1
+level_ai: understand
+cpmk: [CPMK-1]
+sub_cpmk: [Sub-CPMK-1.1, Sub-CPMK-1.2, Sub-CPMK-1.3, Sub-CPMK-1.4]
+bloom_c: [C1, C2, C3]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 1: PENGANTAR ALGORITMA DAN COMPUTATIONAL THINKING
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,12 +29,11 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-1.1 | Mendefinisikan konsep algoritma dan sejarahnya | C1 (Mengingat) |
-| CPMK-1.2 | Menjelaskan 4 pilar computational thinking | C2 (Memahami) |
-| CPMK-1.3 | Membuat flowchart dan pseudocode sederhana | C3 (Menerapkan) |
-| CPMK-1.4 | Menjelaskan peran pemrograman di era AI | C2 (Memahami) |
-
-**Estimasi Waktu:** 3 × 50 menit (3 SKS)
+| **Sub-CPMK-1.1** | Mendefinisikan konsep algoritma dan menjelaskan perannya dalam pemecahan masalah komputasional | C1 |
+| **Sub-CPMK-1.2** | Mengidentifikasi empat pilar *computational thinking* dan menerapkannya pada permasalahan sederhana | C2, C3 |
+| **Sub-CPMK-1.3** | Merepresentasikan algoritma dalam bahasa natural, *pseudocode*, dan *flowchart* secara sistematis | C3 |
+| **Sub-CPMK-1.4** | Menjalankan program Python pertama menggunakan Google Colab sebagai lingkungan pengembangan | C3, P2 |
+**Estimasi Waktu:** 3 × 50 menit
 
 **Prasyarat:** Tidak ada (bab pembuka).
 

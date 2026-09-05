@@ -1,6 +1,6 @@
 # Kisi-kisi UTS -- Algoritma dan Pemrograman
 
-> **Mata Kuliah:** Algoritma dan Pemrograman (3 SKS)
+> **Mata Kuliah:** Algoritma dan Pemrograman
 > **Dosen Pengampu:** Tri Aji Nugroho, S.T., M.T.
 > **Program Studi:** Informatika, Universitas Al Azhar Indonesia
 > **Semester:** Genap 2025/2026

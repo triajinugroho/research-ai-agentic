@@ -1,3 +1,21 @@
+---
+id: uai-inf101-bab-02
+tipe: bab-buku-ajar
+judul: "BAB 2: VARIABEL, TIPE DATA, DAN OPERATOR"
+kode_mk: INF-101
+nama_mk: Algoritma dan Pemrograman
+prodi: Informatika
+bab: 2
+level_ai: understand
+cpmk: [CPMK-2]
+sub_cpmk: [Sub-CPMK-2.1, Sub-CPMK-2.2, Sub-CPMK-2.3, Sub-CPMK-2.4]
+bloom_c: [C2, C3]
+bloom_a: []
+bloom_p: [P2]
+versi: 2.0
+status: draft
+diperbarui: 2026-09-05
+---
 # BAB 2: VARIABEL, TIPE DATA, DAN OPERATOR
 
 **Tri Aji Nugroho, S.T., M.T.**
@@ -11,12 +29,11 @@ Setelah mempelajari bab ini, mahasiswa diharapkan mampu:
 
 | Sub-CPMK | Deskripsi | Bloom's Level |
 |----------|-----------|---------------|
-| CPMK-2.1 | Menjelaskan konsep variabel dan cara penamaan yang baik | C2 (Memahami) |
-| CPMK-2.2 | Mengidentifikasi dan menggunakan tipe data dasar Python | C3 (Menerapkan) |
-| CPMK-2.3 | Menerapkan operator aritmatika, perbandingan, dan logika | C3 (Menerapkan) |
-| CPMK-2.4 | Membuat program sederhana dengan input/output | C3 (Menerapkan) |
-
-**Estimasi Waktu:** 3 x 50 menit (3 SKS)
+| **Sub-CPMK-2.1** | Menjelaskan konsep variabel, aturan penamaan, dan mekanisme penugasan nilai dalam Python | C2 |
+| **Sub-CPMK-2.2** | Membedakan tipe data dasar (`int`, `float`, `str`, `bool`) beserta karakteristik dan penggunaannya | C2 |
+| **Sub-CPMK-2.3** | Menerapkan operator aritmetika, perbandingan, dan logika untuk membangun ekspresi komputasional | C3 |
+| **Sub-CPMK-2.4** | Mengimplementasikan operasi input/output dan konversi tipe data dalam program Python sederhana | C3, P2 |
+**Estimasi Waktu:** 3 x 50 menit
 
 **Prasyarat:** Mahasiswa telah memahami materi Bab 1 (Pengantar Algoritma dan Pemrograman) dan telah berhasil menginstal Python serta IDE/text editor.
 
