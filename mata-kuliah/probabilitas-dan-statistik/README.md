@@ -119,7 +119,7 @@ probabilitas-dan-statistik/
 | 10 | [Uji Hipotesis Satu Sampel](06-buku-ajar/bab-10-uji-hipotesis-satu-sampel.md) |
 | 11 | [Uji Hipotesis Dua Sampel dan Proporsi](06-buku-ajar/bab-11-uji-hipotesis-dua-sampel.md) |
 | 12 | [ANOVA dan Uji Chi-Square](06-buku-ajar/bab-12-anova-chi-square.md) |
-| 13 | [Statistika dengan Bantuan AI: Batas dan Tanggung Jawab](06-buku-ajar/bab-13-statistika-dengan-bantuan-ai.md) |
+| 13 | [Korelasi dan Regresi Linear](06-buku-ajar/bab-13-korelasi-regresi-linear.md) |
 | 14 | [Proyek Akhir: Analisis Data Statistik End-to-End](06-buku-ajar/bab-14-proyek-akhir.md) |
 | — | [Lampiran](06-buku-ajar/lampiran.md) · [Penutup](06-buku-ajar/penutup.md) |
 

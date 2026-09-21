@@ -41,7 +41,7 @@ Pendekatan pembelajaran memadukan kuliah konseptual, komputasi statistik dengan 
 
 ## C. CAPAIAN PEMBELAJARAN LULUSAN (CPL) YANG DIBEBANKAN
 
-Rumusan CPL diambil dari [registri kurikulum terbaru](../00-kurikulum-if-2025-revisi-2026/03-cpl-prodi.md). Rumusan tidak boleh ditulis ulang di dokumen turunan.
+Rumusan CPL diambil dari [registri kurikulum terbaru](../../00-kurikulum-if-2025-revisi-2026/03-cpl-prodi.md). Rumusan tidak boleh ditulis ulang di dokumen turunan.
 
 | Kode | Unsur | Deskripsi CPL |
 |------|-------|---------------|
@@ -66,7 +66,7 @@ CPMK pada Kurikulum 2025 revisi 2026 adalah **rumusan tingkat prodi** yang melek
 
 ## E. SUB-CPMK
 
-Sub-CPMK adalah **pembeda mata kuliah** — tingkat inilah yang menerjemahkan CPMK prodi menjadi capaian khas Probabilitas dan Statistik. Rumusan diambil verbatim dari [pemetaan kurikulum](../00-kurikulum-if-2025-revisi-2026/15b-subcpmk-tingkat-1-semester-1-2.md).
+Sub-CPMK adalah **pembeda mata kuliah** — tingkat inilah yang menerjemahkan CPMK prodi menjadi capaian khas Probabilitas dan Statistik. Rumusan diambil verbatim dari [pemetaan kurikulum](../../00-kurikulum-if-2025-revisi-2026/15b-subcpmk-tingkat-1-semester-1-2.md).
 
 ### Sub-CPMK 1 — `PS-Sub-CPMK081-1`
 

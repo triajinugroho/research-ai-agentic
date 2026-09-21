@@ -314,7 +314,7 @@ diagnostik_regresi(model, X_const, y)
 
 ### Sebelum Kelas (Mandiri — 60 menit)
 
-1. Membaca [Bab 13 buku ajar](../06-buku-ajar/bab-13-statistika-dengan-bantuan-ai.md) bagian korelasi–regresi, dan Bab 12.
+1. Membaca [Bab 13 buku ajar](../06-buku-ajar/bab-13-korelasi-regresi-linear.md) bagian korelasi–regresi, dan Bab 12.
 2. **Mencari satu contoh korelasi palsu** (misalnya dari *Spurious Correlations*) dan menjelaskan penyebabnya.
 
 ### Di Kelas (150 menit)
