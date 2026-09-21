@@ -29,6 +29,13 @@ Repository ini berisi **materi kuliah lengkap** untuk enam mata kuliah di Progra
 
 ```
 mata-kuliah/
+├── 00-kurikulum-if-2025-revisi-2026/     # ★ Referensi kurikulum terbaru — 26 file
+│                                         #   Transkripsi Revisi 2026 Kurikulum OBE IF 2025:
+│                                         #   PL, CPL, BK, susunan MK, CPMK, Sub-CPMK, bobot penilaian,
+│                                         #   AI Curriculum Infusion Matrix
+│
+├── 00-pedoman-obe/                       # Pedoman & registri OBE internal — 9 file
+│
 ├── algoritma-pemrograman/                # INF-101 — 43 file
 │   ├── 00-strategic-analysis/            # Analisis SWOT & tren
 │   ├── 01-rps/                           # Rencana Pembelajaran Semester
@@ -85,7 +92,13 @@ mata-kuliah/
     └── datasets/                         # Panduan dataset ML
 ```
 
-**Total: 264 dokumen Markdown** — mencakup RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
+**Total: 309 dokumen Markdown** — mencakup referensi kurikulum, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
+
+## Referensi Kurikulum Terbaru
+
+Folder [`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`](mata-kuliah/00-kurikulum-if-2025-revisi-2026/) berisi transkripsi **Revisi 2026 atas Kurikulum OBE Informatika 2025** — rujukan resmi terbaru untuk seluruh penyusunan RPS, modul, buku ajar, dan asesmen di repositori ini: 5 Profil Lulusan, 11 CPL, 19 Bahan Kajian, 58 mata kuliah (144 SKS), 26 CPMK, dan 154 Sub-CPMK lengkap dengan bobot penilaiannya.
+
+> **Perhatian.** Kurikulum baru mengubah kode mata kuliah, arsitektur CPMK, dan skema bobot penilaian. Materi mata kuliah yang sudah ada **belum** disesuaikan. Rincian dampak dan usulan tindak lanjut ada pada [`91-validasi-dan-catatan-dampak.md`](mata-kuliah/00-kurikulum-if-2025-revisi-2026/91-validasi-dan-catatan-dampak.md).
 
 ## Pendekatan Pembelajaran
 
