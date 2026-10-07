@@ -6,13 +6,13 @@ prodi: Informatika
 universitas: Universitas Al Azhar Indonesia
 versi: 1.0
 status: berlaku
-diperbarui: 2026-09-05
+diperbarui: 2026-10-07
 berlaku_untuk: [INF-101, INF-102, TBD-STAT, IF2205, IF2206, IF3XXX]
 ---
 
 # Checklist Verifikasi Manual
 
-> **Pembagian tugas.** `tools/validasi-obe.py` memeriksa yang dapat dimekanisasi (V1–V12). Checklist ini memeriksa yang **tidak dapat diskripkan**: mutu rumusan, ketepatan pedagogis, dan kebenaran substansi. Keduanya wajib dijalankan.
+> **Pembagian tugas.** `tools/validasi-obe.py` memeriksa yang dapat dimekanisasi (V1–V13). Checklist ini memeriksa yang **tidak dapat diskripkan**: mutu rumusan, ketepatan pedagogis, dan kebenaran substansi. Keduanya wajib dijalankan.
 >
 > **Tanda tangan penelaah sejawat pada bagian akhir bukan formalitas** — telaah sejawat adalah bukti langsung kriteria 1 (Budaya Mutu) Instrumen LAM-INFOKOM 2.0.
 
@@ -28,17 +28,18 @@ Keluar dengan kode 0 bila bersih. **Syarat lulus: 0 pelanggaran** untuk mata kul
 ### Pemeriksaan cepat tanpa skrip
 
 ```bash
+# <mk> = slug folder MK; N = semester kurikulum (MK arsip: mata-kuliah/arsip/<mk>/)
 # Sisa kode Sub-CPMK bentuk lama (harus kosong)
-grep -rEn '(^|[^-])CPMK-[0-9]+\.[0-9]+|Sub-CPMK [0-9]' mata-kuliah/<mk>/ --include=*.md
+grep -rEn '(^|[^-])CPMK-[0-9]+\.[0-9]+|Sub-CPMK [0-9]' mata-kuliah/semester-N/<mk>/ --include=*.md
 
 # Sitasi regulasi yang sudah dicabut (harus kosong)
 grep -rn "Nomor 3 Tahun 2020" mata-kuliah/ --include=*.md
 
 # Penyebutan SKS di luar RPS (harus kosong)
-grep -rn "SKS" mata-kuliah/<mk>/03-modules/ mata-kuliah/<mk>/0*-buku-ajar/ --include=*.md
+grep -rn "SKS" mata-kuliah/semester-N/<mk>/03-modules/ mata-kuliah/semester-N/<mk>/0*-buku-ajar/ --include=*.md
 
 # Panjang RPS (pagu 550 baris)
-wc -l mata-kuliah/<mk>/01-rps/*.md
+wc -l mata-kuliah/semester-N/<mk>/01-rps/*.md
 ```
 
 ## B. Checklist Telaah Manusia

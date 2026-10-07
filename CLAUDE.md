@@ -6,95 +6,135 @@
 
 ## Project Overview
 
-This is an **educational materials repository** for four coordinated university courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. It contains **179+ Markdown documents** — lecture modules, lab guides, textbooks, assessments, and strategic analyses — for **Semester Genap 2025/2026** and **Semester Ganjil 2026/2027**.
+This is an **educational materials repository** for courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. The materials are organized **per curriculum semester** following the **Kurikulum Informatika 2025 Revisi 2026**, whose official registry is transcribed in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`.
 
-**Instructor:** Tri Aji Nugroho, S.T., M.T.
+- **547 Markdown documents** under `mata-kuliah/` (count as of 7 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
+- **10 course folders:** 8 active courses in `mata-kuliah/semester-N/` (placed by their registry semester) and 2 old-curriculum courses in `mata-kuliah/arsip/`.
+- **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: audits and generation prompts).
 
-There is **no application code, no build system, no tests, and no CI/CD**. The entire repository is static Markdown content.
+**Author of all materials (*penyusun materi*):** Tri Aji Nugroho, S.T., M.T. — for **every** course in this repository, including courses whose registry instructor (*pengampu*) is someone else:
+
+| Course | Penyusun materi | Pengampu (registri) |
+|---|---|---|
+| Rekayasa Perangkat Lunak (`IF52520011`) | Tri Aji Nugroho, S.T., M.T. | Dr. Ir. Winangsari Pradani, M.T. |
+| Metodologi Penelitian (`IF52510021`) | Tri Aji Nugroho, S.T., M.T. | Andi Arniaty Arsyad, Ph.D. |
+
+For all other active courses the registry *pengampu* is also Tri Aji Nugroho, S.T., M.T.
+
+The content is static Markdown plus **one interactive HTML module**, `mata-kuliah/semester-2/analisis-data-statistik/03-modules/regresi-berganda.html` (self-contained page with an inline `<script>`; not counted in the Markdown total and not scanned by the validator). The only script/tool is `tools/validasi-obe.py`, a dependency-free consistency validator. There is **no application code, no build system, no automated test suite, and no CI/CD**.
 
 ---
 
 ## Repository Structure
 
+**Path convention in this file:** paths are relative to the repository root (`mata-kuliah/00-…`, `mata-kuliah/semester-N/…`), so they can be checked with `test -e` from the root. Three shorthands are used where the base is stated or obvious: (a) in tables with a "Folder (under `mata-kuliah/`)" column, in the Placement & Authorship Rules, and wherever "under `mata-kuliah/`" is stated, `semester-N/…` and `arsip/…` are relative to `mata-kuliah/`; (b) bare registry file names (`11-susunan-mata-kuliah-dan-dosen.md`, `13-…`, `14-…`, `15-…`, `15a`–`15e`) are files in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`, and bare Pedoman file names (`pedoman-obe-konvensi.md`, `konversi-nilai.md`) are in `mata-kuliah/00-pedoman-obe/`; (c) course subfolders and files (`01-rps/`, `00-halaman-depan.md`, …) are relative to the course folder.
+
 ```
 research-ai-agentic/
-├── README.md                                    # Root overview
-├── CLAUDE.md                                    # This file
-└── mata kuliah/                                 # All course materials
-    ├── prompt-algoritma-pemrograman.md           # Master prompt for generating course content
+├── README.md                                 # Root overview: course list, structure, total file count
+├── CLAUDE.md                                 # This file
+├── tools/
+│   └── validasi-obe.py                       # OBE consistency validator (rules V1–V13), pure Python
+└── mata-kuliah/
+    ├── 00-kurikulum-if-2025-revisi-2026/     # Official curriculum registry (Markdown transcription of
+    │                                         #   Revisi_2026_Kurikulum_OBE_IF_2025_2.xlsx): profil lulusan,
+    │                                         #   CPL, bahan kajian, course list & lecturers (11), CPMK (13),
+    │                                         #   Sub-CPMK (15, 15b–15e), assessment weights (15a)
+    ├── 00-pedoman-obe/                       # Internal OBE guidelines & registries: pedoman-obe-konvensi.md,
+    │                                         #   konversi-nilai.md (grade scale), cpl-master.md,
+    │                                         #   taksonomi-cap.md, checklist-verifikasi.md,
+    │                                         #   migrasi/ (Sub-CPMK code migration table for INF-101)
+    ├── 00-meta/
+    │   ├── README.md                         # Index of the meta documents and their status
+    │   ├── AUDIT-MENYELURUH-2026-10.md       # Full repository audit, October 2026
+    │   ├── AUDIT-KESELARASAN-IF2205-IF2206.md    # Historical IF2205 × IF2206 alignment audit
+    │   ├── prompt-algoritma-pemrograman.md       # Master prompt (Algoritma dan Pemrograman) — flagged outdated
+    │   └── prompt-paket-mata-kuliah-informatika.md   # Generic course-package prompt — flagged outdated
     │
-    ├── algoritma-pemrograman/                   # INF-101: Algorithms & Programming (Theory, 2 SKS)
+    ├── semester-1/                           # Ganjil
+    │   ├── README.md                         # Semester course map (all registry MK, SKS, pengampu)
+    │   └── probabilitas-dan-statistik/       # IF52510033
+    ├── semester-2/                           # Genap
     │   ├── README.md
-    │   ├── 00-strategic-analysis/               # SWOT, Porter's 5 Forces, AI trends
-    │   ├── 01-rps/                              # Semester Learning Plan (RPS)
-    │   ├── 02-rtm/                              # Student Task Plan (RTM)
-    │   ├── 03-modules/                          # 16 weekly lecture modules
-    │   ├── 04-assessments/                      # Assessment framework, exam specs, rubrics
-    │   ├── 05-buku-ajar/                        # Textbook (14 chapters + front matter + appendices)
-    │   └── datasets/                            # Resource guide
-    │
-    ├── praktikum-algoritma-pemrograman/         # INF-102: Programming Lab (1 SKS)
+    │   ├── algoritma-pemrograman/            # IF52520004 (formerly INF-101)
+    │   ├── praktikum-algoritma-pemrograman/  # IF52520005 (formerly INF-102)
+    │   └── analisis-data-statistik/          # IF52520025 (formerly IF2XXX in the materials,
+    │                                         #   TBD-STAT in Pedoman OBE / 91 §2.1; 2 → 3 SKS)
+    ├── semester-3/                           # Ganjil — README.md only (no course material yet)
+    ├── semester-4/                           # Genap
     │   ├── README.md
-    │   ├── 00-pedoman-praktikum/                # Lab guidelines & rules
-    │   ├── 01-rps/                              # Lab semester plan
-    │   ├── 02-rtm/                              # Lab task plan
-    │   ├── 03-modul-praktikum/                  # 13 lab modules (weeks 1-7, 9-14)
-    │   ├── 04-assessments/                      # Rubrics, project guidelines
-    │   └── datasets/                            # Dataset references
-    │
-    ├── analisis-data-statistik/                 # Statistical Data Analysis (2 SKS)
+    │   └── rekayasa-perangkat-lunak/         # IF52520011 (formerly IF2205)
+    │                                         #   penyusun materi: Tri Aji Nugroho, S.T., M.T.
+    │                                         #   pengampu (registri): Dr. Ir. Winangsari Pradani, M.T.
+    ├── semester-5/                           # Ganjil
     │   ├── README.md
-    │   ├── 00-strategic-analysis/               # Strategic analysis
-    │   ├── 01-rps/                              # Semester learning plan
-    │   ├── 02-rtm/                              # Student task plan
-    │   ├── 03-modules/                          # 16 weekly lecture modules
-    │   ├── 04-labs/                             # 13 hands-on Python labs
-    │   ├── 05-assessments/                      # Framework, rubrics, exam specs
-    │   ├── 06-buku-ajar/                        # Textbook (14 chapters + appendices)
-    │   └── datasets/                            # Dataset guide
-    │
-    ├── rekayasa-perangkat-lunak/                # IF2205: Software Engineering (Theory, 3 SKS)
+    │   ├── dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/   # IF52510031
+    │   └── teknopreneur/                     # ST52510002
+    ├── semester-6/                           # Genap — README.md only
+    ├── semester-7/                           # Ganjil
     │   ├── README.md
-    │   ├── 00-strategic-analysis/               # SWOT, Porter's 5 Forces, SE trends
-    │   ├── 01-rps/                              # Semester Learning Plan (RPS)
-    │   ├── 02-rtm/                              # Student Task Plan (RTM)
-    │   ├── 03-modules/                          # 16 weekly lecture modules
-    │   ├── 04-labs/                             # 13 theory lab exercises
-    │   ├── 05-assessments/                      # Framework, rubrics, exam specs, project
-    │   ├── 06-buku-ajar/                        # Textbook (14 chapters + appendices)
-    │   └── datasets/                            # Resource guide
-    │
-    ├── praktikum-rekayasa-perangkat-lunak/      # IF2206: SE Lab (1 SKS)
-    │   ├── README.md
-    │   ├── 00-pedoman-praktikum/                # Lab guidelines & rules
-    │   ├── 01-rps/                              # Lab semester plan
-    │   ├── 02-rtm/                              # Lab task plan
-    │   ├── 03-modul-praktikum/                  # 13 lab modules (weeks 1-7, 9-14)
-    │   ├── 04-assessments/                      # Rubrics, project guidelines
-    │   └── datasets/                            # Resource guide
-    │
-    └── kecerdasan-buatan-machine-learning/      # IF3XXX: AI & ML (4 SKS)
-        ├── README.md
-        ├── 00-strategic-analysis/               # SWOT, Porter's 5 Forces, AI trends
-        ├── 01-rps/                              # Semester Learning Plan (RPS)
-        ├── 02-rtm/                              # Student Task Plan (RTM)
-        ├── 03-modules/                          # 16 weekly lecture modules
-        ├── 04-labs/                             # 13 hands-on ML labs
-        ├── 05-assessments/                      # Framework, rubrics, exam specs, project
-        ├── 06-buku-ajar/                        # Textbook (14 chapters + appendices)
-        └── datasets/                            # ML dataset guide
+    │   └── metodologi-penelitian/            # IF52510021 — pengampu (registri): Andi Arniaty Arsyad, Ph.D.
+    ├── semester-8/                           # Genap — README.md only
+    └── arsip/                                # Old-curriculum courses with no active counterpart
+        ├── README.md                         # Archive contents, reasons, content-bank mapping, rules
+        ├── kecerdasan-buatan-machine-learning/   # IF3XXX (4 SKS) — superseded by IF52510031
+        └── praktikum-rekayasa-perangkat-lunak/   # IF2206 (1 SKS) — not in the new curriculum
 ```
 
-### Six Courses
+Odd curriculum semesters (1, 3, 5, 7) run in the **Semester Ganjil** of the academic year; even ones (2, 4, 6, 8) in the **Semester Genap**.
 
-| Code    | Course                                | Credits | Type        | Semester |
-|---------|---------------------------------------|---------|-------------|----------|
-| INF-101 | Algoritma dan Pemrograman             | 2 SKS   | Theory      | Genap 2025/2026 |
-| INF-102 | Praktikum Algoritma dan Pemrograman   | 1 SKS   | Lab (co-req INF-101) | Genap 2025/2026 |
-| —       | Analisis Data Statistik               | 2 SKS   | Theory + Lab | Genap 2025/2026 |
-| IF2205  | Rekayasa Perangkat Lunak              | 3 SKS   | Theory      | Genap 2025/2026 |
-| IF2206  | Praktikum Rekayasa Perangkat Lunak    | 1 SKS   | Lab (co-req IF2205) | Genap 2025/2026 |
-| IF3XXX  | Kecerdasan Buatan dan Machine Learning | 4 SKS  | Theory + Lab | Ganjil 2026/2027 |
+### Courses
+
+**Active courses** (placed by registry semester; registry data from `mata-kuliah/00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md`):
+
+| Folder (under `mata-kuliah/`) | Official code | Course (registry name) | SKS (registry) | Curriculum semester | Former code | Pengampu (registri), if not the author | Materials written for |
+|---|---|---|---|---|---|---|---|
+| `semester-1/probabilitas-dan-statistik/` | `IF52510033` | Probabilitas dan Statistik | 3 | 1 (Ganjil) | — | — | Kurikulum 2025 Rev. 2026 (Ganjil 2026/2027) |
+| `semester-2/algoritma-pemrograman/` | `IF52520004` | Algoritma Pemrograman | 2 | 2 (Genap) | INF-101 | — | Old curriculum (Genap 2025/2026) |
+| `semester-2/praktikum-algoritma-pemrograman/` | `IF52520005` | Praktikum Algoritma Pemrograman | 1 | 2 (Genap) | INF-102 | — | Old curriculum (Genap 2025/2026) |
+| `semester-2/analisis-data-statistik/` | `IF52520025` | Analisis Data Statistik | 3 (materials: 2) | 2 (Genap) | `IF2XXX` in the materials (`TBD-STAT` in Pedoman OBE / `91` §2.1) | — | Old curriculum (Genap 2025/2026) |
+| `semester-4/rekayasa-perangkat-lunak/` | `IF52520011` | Rekayasa Perangkat Lunak | 3 | 4 (Genap) | IF2205 | **Dr. Ir. Winangsari Pradani, M.T.** | Old curriculum (Genap 2025/2026) |
+| `semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/` | `IF52510031` | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin | 3 | 5 (Ganjil) | — | — | Kurikulum 2025 Rev. 2026 (Ganjil 2026/2027) |
+| `semester-5/teknopreneur/` | `ST52510002` | Teknopreneur | 3 | 5 (Ganjil) | — | — | Kurikulum 2025 Rev. 2026 (Ganjil 2026/2027) |
+| `semester-7/metodologi-penelitian/` | `IF52510021` | Metodologi Penelitian | 2 | 7 (Ganjil) | — | **Andi Arniaty Arsyad, Ph.D.** | Kurikulum 2025 Rev. 2026 (Ganjil 2026/2027) |
+
+**Archived courses** (old curriculum, no active counterpart — see `mata-kuliah/arsip/README.md`):
+
+| Folder (under `mata-kuliah/`) | Former code | Course | SKS (old) | Status |
+|---|---|---|---|---|
+| `arsip/kecerdasan-buatan-machine-learning/` | IF3XXX | Kecerdasan Buatan dan Machine Learning | 4 | Superseded by `IF52510031` (semester 5), which has its own new materials; kept as a content bank |
+| `arsip/praktikum-rekayasa-perangkat-lunak/` | IF2206 | Praktikum Rekayasa Perangkat Lunak | 1 | Not in the new curriculum; fate pending a prodi decision |
+
+Materials written for the old curriculum (semester-2 courses, Rekayasa Perangkat Lunak, and `arsip/`) still use the old scheme — local `CPMK-1` … `CPMK-7`, old course codes, old assessment weights. Courses in `semester-N/` must be aligned with the registry before they are used under the new curriculum (see the semester READMEs, `mata-kuliah/00-kurikulum-if-2025-revisi-2026/91-validasi-dan-catatan-dampak.md` §2, and `mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md`).
+
+---
+
+## Placement & Authorship Rules
+
+1. **New course → `mata-kuliah/semester-N/<slug>/`**, where N is the course's semester in the registry (`11-susunan-mata-kuliah-dan-dosen.md`) and `<slug>` is the registry course name in lowercase kebab-case (e.g., `rekayasa-perangkat-lunak`, `dasar-kecerdasan-artifisial-dan-pembelajaran-mesin`). Then update `semester-N/README.md` and the root `README.md`.
+2. **Old-curriculum course without a counterpart → `mata-kuliah/arsip/<slug>/`**, recorded in `arsip/README.md` (old code, SKS, file count, reason, successor). An old course whose successor has separately written materials is also archived (IF3XXX → `IF52510031`). An old course that maps directly onto a registry course goes to that course's `semester-N/` folder (INF-101 → `semester-2/algoritma-pemrograman/`, IF2205 → `semester-4/rekayasa-perangkat-lunak/`).
+3. **Do not develop new material inside `arsip/`.** To reuse archived content, copy the needed part into the target course in `semester-N/` and align it with that course's RPS, CPMK and Sub-CPMK.
+4. **No course folders directly under `mata-kuliah/`.** The `00-*` folders are reference layers only. Semester folders without materials keep only their `README.md`.
+5. **Moving files:** use `git mv` to keep history, then fix every relative link from the file's new location (cross-course links now go through `../semester-N/…` or `../arsip/…`).
+6. **Authorship (penyusun vs. pengampu):** every material in this repository is authored by **Tri Aji Nugroho, S.T., M.T.** (*penyusun materi*). The registry *pengampu* may differ. When it differs, state both explicitly and never replace one with the other — for Rekayasa Perangkat Lunak: *"Penyusun materi: Tri Aji Nugroho, S.T., M.T.; Pengampu (registri): Dr. Ir. Winangsari Pradani, M.T."* Semester READMEs carry a "Penyusun materi" note, and course tables use a "Pengampu (registri)" column (see `mata-kuliah/semester-4/README.md`).
+
+---
+
+## Sources of Truth
+
+| Topic | Authoritative source |
+|---|---|
+| Course list, official codes, SKS, semester, registry *pengampu* | `mata-kuliah/00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md` |
+| CPL, CPMK (program-level) | `mata-kuliah/00-kurikulum-if-2025-revisi-2026/03-cpl-prodi.md`, `13-cpmk-master.md`, `14-pemetaan-cpl-mk-cpmk.md` |
+| Sub-CPMK, indicators, criteria per course | `mata-kuliah/00-kurikulum-if-2025-revisi-2026/15-pemetaan-mk-cpmk-subcpmk.md`, `15b`–`15e` |
+| Assessment weights per course (new-curriculum codes) | `mata-kuliah/00-kurikulum-if-2025-revisi-2026/15a-rekap-bobot-penilaian.md` |
+| AI integration per course | `mata-kuliah/00-kurikulum-if-2025-revisi-2026/14a-ai-curriculum-infusion-matrix.md` |
+| Grade conversion scale (all courses) | `mata-kuliah/00-pedoman-obe/konversi-nilai.md` |
+| Repository conventions (metadata, codes, footer, consistency and validation rules) | `mata-kuliah/00-pedoman-obe/pedoman-obe-konvensi.md` |
+
+- `pedoman-obe-konvensi.md` states that it prevails over `CLAUDE.md` and the `prompt-*.md` files on conventions; the registry README states that the registry prevails over existing course materials. The two still differ on some codes (bahan kajian, CPMK model, Sub-CPMK format, assessment codes). The order of authority is an open decision for the lecturer (`mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md` §7.1 and §9) — do not resolve it silently; follow what the target course's RPS already uses and flag the conflict.
+- **Registry sheet transcriptions** — the files numbered `00` to `16` in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`, including `06a`, `14a` and `15a`–`15e` (`14a` is a sheet transcription even though the registry README lists it under "Arah pengembangan dan catatan kerja") — transcribe the official Excel file: do not edit their content. Report internal discrepancies instead (audit §7.3). They change only through a full re-extraction (registry README, "Cara Memperbarui").
+- **Registry working notes** — `90-ringkasan-mk-pengampu-tri-aji-nugroho.md` (a quick-reference summary compiled from the transcription files; registry README: "Lembar acuan cepat") and `91-validasi-dan-catatan-dampak.md` (header: "Analisis turunan — bukan transkripsi sheet") — are not part of the official document. Keep them up to date with the repository's state (folder paths, the old → new course mapping in `91` §2.1, impact notes), adding a dated update note as the 2026-10-07 update in `91` §2 does. The registry `README.md` (folder index) is likewise maintained.
 
 ---
 
@@ -114,18 +154,22 @@ research-ai-agentic/
 | Lab modules         | `lab-NN-topic.md`                  | `lab-05-functions-decomposition.md`           |
 | Textbook chapters   | `bab-NN-topic.md`                  | `bab-01-pengantar-algoritma-computational-thinking.md` |
 | Plans               | `rps-*.md`, `rtm-*.md`            | `rps-algoritma-pemrograman.md`                |
+| Course folders      | `semester-N/<slug>/` or `arsip/<slug>/` | `semester-4/rekayasa-perangkat-lunak/`   |
 
 ### Folder Structure per Course
 
-Each course follows a consistent template:
-1. `00-strategic-analysis/` or `00-pedoman-praktikum/` — Strategic positioning or lab guidelines
-2. `01-rps/` — Rencana Pembelajaran Semester (Semester Learning Plan)
-3. `02-rtm/` — Rencana Tugas Mahasiswa (Student Task Plan)
-4. `03-modules/` or `03-modul-praktikum/` — Weekly materials
-5. `04-assessments/` or `04-labs/` — Assessment or lab content
-6. `05-buku-ajar/` or `05-assessments/` — Textbook or assessments
-7. `06-buku-ajar/` — Textbook (statistics course)
-8. `datasets/` — Dataset references and resources
+Each course folder (`mata-kuliah/semester-N/<slug>/` or `mata-kuliah/arsip/<slug>/`) follows a consistent template (Pedoman OBE §D):
+
+1. `README.md` — course overview
+2. `00-strategic-analysis/` (theory courses) or `00-pedoman-praktikum/` (lab courses) — strategic positioning or lab guidelines
+3. `01-rps/` — Rencana Pembelajaran Semester (Semester Learning Plan)
+4. `02-rtm/` — Rencana Tugas Mahasiswa (Student Task Plan)
+5. `03-modules/` (theory) or `03-modul-praktikum/` (lab) — weekly materials
+6. `04-labs/` (most theory courses) or `04-assessments/` (`algoritma-pemrograman` and the lab courses)
+7. `05-assessments/` (courses with `04-labs/`) or `05-buku-ajar/` (`algoritma-pemrograman` only)
+8. `06-buku-ajar/` — textbook (every theory course except `algoritma-pemrograman`)
+9. `mutu/` — quality documents (Pedoman OBE §F; currently only `algoritma-pemrograman`)
+10. `datasets/` — dataset references and resources
 
 ---
 
@@ -137,10 +181,12 @@ Understanding these principles is critical when editing or creating content:
 
 Every module, assignment, and assessment traces back to:
 - **CPL** (Capaian Pembelajaran Lulusan) — Program Learning Outcomes
-- **CPMK** (Capaian Pembelajaran Mata Kuliah) — Course Learning Outcomes (7 per course)
-- **Sub-CPMK** — Weekly learning objectives
+- **CPMK** (Capaian Pembelajaran Mata Kuliah) — Course Learning Outcomes:
+  - **New-curriculum courses:** program-level CPMK shared across courses (26 CPMK for 11 CPL, codes such as `CPMK032`), assigned per course in `14-pemetaan-cpl-mk-cpmk.md`; courses differ at the Sub-CPMK level
+  - **Old-curriculum materials:** 7 local CPMK per course (`CPMK-1` … `CPMK-7`)
+- **Sub-CPMK** — Weekly learning objectives (new-curriculum courses: taken verbatim from the registry, `15-pemetaan-mk-cpmk-subcpmk.md` and `15b`–`15e`)
 
-Use **Bloom's Taxonomy** verb levels (C1-C6) for all learning objectives:
+Use **Bloom's Taxonomy** verb levels (C1-C6) for all learning objectives (cognitive, affective and psychomotor levels: `mata-kuliah/00-kurikulum-if-2025-revisi-2026/16-taksonomi-bloom-cap.md`, `mata-kuliah/00-pedoman-obe/taksonomi-cap.md`):
 - C1 (Remember): mendefinisikan, menyebutkan
 - C2 (Understand): menjelaskan, membedakan
 - C3 (Apply): menerapkan, mengimplementasikan
@@ -208,37 +254,42 @@ Every chapter must contain:
 
 ## Consistency Rules
 
-These rules **must** be followed across all documents:
+These rules **must** be followed across all documents. Where a rule here and `mata-kuliah/00-pedoman-obe/pedoman-obe-konvensi.md` differ, the Pedoman prevails — with one explicit exception: the **date scoping in rule 1** applies even though Pedoman §I.1 still states "Semester Genap 2025/2026 … Jakarta, Februari 2026" without condition. §I.1 was written for the Genap 2025/2026 package and has not yet been updated for courses of other semesters (its `berlaku_untuk` already includes IF3XXX, a Ganjil 2026/2027 course dated "Agustus 2026"). Until §I.1 is updated, do not use it to change another course's dates to "Februari 2026".
 
-1. **Date references:** Semester Genap 2025/2026. Publication year is **2026** (not 2025). Use "Jakarta, Februari 2026".
+1. **Date references:** Materials written for **Semester Genap 2025/2026** (Algoritma dan Pemrograman/INF-101, Praktikum Algoritma dan Pemrograman/INF-102, Analisis Data Statistik, Rekayasa Perangkat Lunak/IF2205, Praktikum Rekayasa Perangkat Lunak/IF2206) use publication year **2026** (not 2025) and "Jakarta, Februari 2026" (Pedoman OBE §I.1). This date applies **only** to those materials: for other courses, follow the academic year and date already used in that course's RPS and textbook front matter (`00-halaman-depan.md`), and do not copy "Februari 2026" into them.
 
-2. **Course name:** Always "Algoritma dan Pemrograman" in formal docs — never "Algoritma & Pemrograman" or "AlPro".
+2. **Course name:** Use the full formal name, never an abbreviation. Materials in `semester-2/algoritma-pemrograman/` use "Algoritma dan Pemrograman" — never "Algoritma & Pemrograman" or "AlPro". The registry name of `IF52520004` is "Algoritma Pemrograman"; registry-facing tables (e.g., semester READMEs) use the registry name.
 
-3. **Instructor name:** Always "Tri Aji Nugroho, S.T., M.T." — never abbreviated.
+3. **Names:** The author's name is always "Tri Aji Nugroho, S.T., M.T." — never abbreviated. Other lecturers' names are written exactly as in registry sheet 11 (e.g., "Dr. Ir. Winangsari Pradani, M.T."). Author vs. registry *pengampu*: see Placement & Authorship Rules, item 6.
 
 4. **Chapter numbering:**
-   - Bab 13 = AI-Augmented Programming
+   - Bab 13 = AI-Augmented Programming (Algoritma dan Pemrograman)
    - Bab 14 = Proyek Akhir (Final Project)
    - References to "proyek akhir" must point to **Bab 14**, not Bab 13
+   - Each textbook's own table of contents (`00-halaman-depan.md`) is the reference for chapter titles (e.g., Bab 14 of Metodologi Penelitian is the research proposal)
 
 5. **Assessment weights must total 100%:**
-   - INF-101: Kuis 20% + UTS 30% + UAS 40% + Partisipasi 10%
-   - INF-102: Laporan 25% + Tugas 25% + Proyek 35% + Responsi 10% + Partisipasi 5%
-   - Statistik: Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
-   - AI/ML: Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
-   - RPL (IF2205): Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
-   - Praktikum RPL (IF2206): Laporan 25% + Tugas 25% + Proyek 35% + Responsi 10% + Partisipasi 5%
+   - **Courses with an official code (new curriculum):** the authoritative weights of the six assessment techniques (Partisipasi, Kuis, Observasi, Unjuk Kerja, UTS, UAS) for each course are in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/15a-rekap-bobot-penilaian.md`. Use them when writing or aligning any course — do not copy the legacy schemes below into new-curriculum materials.
+   - **Legacy schemes still written in the old-curriculum materials** (valid only for those materials as they currently stand, until they are aligned):
+     - Algoritma dan Pemrograman (INF-101): Kuis 20% + UTS 30% + UAS 40% + Partisipasi 10%
+     - Praktikum Algoritma dan Pemrograman (INF-102): Laporan 25% + Tugas 25% + Proyek 35% + Responsi 10% + Partisipasi 5%
+     - Analisis Data Statistik (`IF2XXX`, old, 2 SKS): Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
+     - Rekayasa Perangkat Lunak (IF2205): Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
+     - Archived AI/ML (IF3XXX): Tugas 15% + Kuis 10% + UTS 20% + Proyek 25% + UAS 25% + Partisipasi 5%
+     - Archived Praktikum RPL (IF2206): Laporan 25% + Tugas 25% + Proyek 35% + Responsi 10% + Partisipasi 5%
 
-6. **CPMK traceability:** Every Sub-CPMK in RPS must trace to a CPMK. Every textbook chapter must reference its Sub-CPMK. Every assessment must indicate which CPMK it measures.
+6. **Grade conversion scale:** defined **only** in `mata-kuliah/00-pedoman-obe/konversi-nilai.md` — official UAI scale: A ≥ 81,00; nine letters (A, A−, B+, B, B−, C+, C, D, E); pass mark C (55,00). The "Konversi Nilai" section of every RPS and assessment framework copies its §A table verbatim and links to it. Enforced by validator rule V13.
 
-7. **Python code:** Must be Google Colab-compatible, Python 3.x, with comments in Indonesian.
+7. **CPMK traceability:** Every Sub-CPMK in RPS must trace to a CPMK. Every textbook chapter must reference its Sub-CPMK. Every assessment must indicate which CPMK it measures.
 
-8. **AI literacy progression:** AI Corner tables must cover Bab 1-14 (not stop at Bab 13).
+8. **Python code:** Must be Google Colab-compatible, Python 3.x, with comments in Indonesian.
 
-9. **Footer:** Every file ends with:
-   ```
-   *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
-   ```
+9. **AI literacy progression:** AI Corner tables must cover Bab 1-14 (not stop at Bab 13).
+
+10. **Footer:** Every Markdown file under `mata-kuliah/` ends with (validator rule V8):
+    ```
+    *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
+    ```
 
 ---
 
@@ -262,25 +313,41 @@ These rules **must** be followed across all documents:
 
 ### Git Practices
 
-- The primary branch is `master`
+- The primary branch is `main`
 - Feature branches use `claude/` prefix for AI-assisted development
 - Commit messages may be in Indonesian or English
 - Commits should describe the content changes clearly
 
 ### Content Development
 
-- New content is typically generated from the master prompt (`mata kuliah/prompt-algoritma-pemrograman.md`)
-- Follow the batch generation order described in the prompt file for large content creation
-- After creating or modifying content, verify against the consistency rules above
+- New-curriculum courses are built directly from the registry: Sub-CPMK, indicators, criteria and assessment weights are taken verbatim from `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`
+- Earlier content was generated from the prompts in `mata-kuliah/00-meta/`; both prompts are flagged outdated (see "Working with the Generation Prompts")
+- After creating or modifying content, verify against the consistency rules above and run the validator
+
+### Validation
+
+Run from the repository root:
+
+```
+python3 tools/validasi-obe.py                # whole repository
+python3 tools/validasi-obe.py --mk INF-101   # one course, by kode_mk in its RPS front-matter
+```
+
+- Checks every `mata-kuliah/**/*.md` against rules V1–V13 (Pedoman OBE §Q): V1 front-matter, V2 unique `id`, V3 referential integrity, V4 old code patterns, V5 coverage, V6 weights = 100%, V7 master data (SKS only in RPS), V8 footer tagline, V9 revoked regulation citations, V10 relative links, V11 size caps, V12 approval status, V13 grade scale vs. `konversi-nilai.md`.
+- Exits with code 1 when any violation exists. The baseline is **not clean**:
+  - **V1 (no front-matter):** most files outside `mata-kuliah/semester-2/algoritma-pemrograman/` and `mata-kuliah/00-pedoman-obe/` have none — including the **new-curriculum course folders** under `mata-kuliah/` (`semester-1/probabilitas-dan-statistik/`, `semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`, `semester-5/teknopreneur/`, `semester-7/metodologi-penelitian/`; about 228 V1 findings as of 7 October 2026) and the registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`, 26 files). A V1 finding on these files is baseline, not a new violation — and these folders are **not** validator-clean.
+  - **V4/V8/V10:** old-curriculum folders also carry these legacy findings (the outdated prompts in `mata-kuliah/00-meta/` carry V4 as well).
+  - Only courses whose RPS has front-matter `tipe: rps` (currently INF-101) are recognized for V3/V5/V6/V7.
+- Run it before and after your change and make sure you introduce **no new** violations — especially V8 (footer), V10 (relative links) and V13 (grade scale).
+- The validator does not scan files outside `mata-kuliah/` (e.g., this file or the root README); check their relative links manually with `test -e`.
 
 ### What This Repository Does NOT Have
 
 - No package manager (no `package.json`, `pyproject.toml`, etc.)
 - No build system or compilation step
-- No automated tests or linting
-- No CI/CD pipelines
+- No automated test suite or CI/CD pipelines (the validator is run manually)
 - No deployment configuration
-- No application code — only educational documentation with embedded Python examples
+- No application code — only educational documentation with embedded Python examples, one interactive HTML module (`mata-kuliah/semester-2/analisis-data-statistik/03-modules/regresi-berganda.html`), plus `tools/validasi-obe.py`
 
 ---
 
@@ -288,12 +355,13 @@ These rules **must** be followed across all documents:
 
 ### Adding or Updating Course Materials
 
-1. Follow the appropriate content structure template (textbook chapter, module, or lab)
-2. Maintain CPMK traceability
-3. Use Indonesian with bilingual technical terms
-4. Include Indonesian-context examples and datasets
-5. Ensure the footer tagline is present
-6. Verify consistency rules (dates, names, chapter numbers)
+1. Place the material in the correct folder (see Placement & Authorship Rules)
+2. Follow the appropriate content structure template (textbook chapter, module, or lab)
+3. Maintain CPMK traceability
+4. Use Indonesian with bilingual technical terms
+5. Include Indonesian-context examples and datasets
+6. Ensure the footer tagline is present
+7. Verify consistency rules (dates, names, chapter numbers) and run `python3 tools/validasi-obe.py`
 
 ### Editing Existing Content
 
@@ -304,13 +372,20 @@ These rules **must** be followed across all documents:
 
 ### Updating README Files
 
-1. The root `README.md` contains the overall repository structure and file counts
-2. Each course has its own `README.md` with course-specific details
-3. When adding files, update the relevant file count tables
+1. The root `README.md` contains the overall course list, repository structure and total file count
+2. Each semester has a `mata-kuliah/semester-N/README.md` (semesters 1–8): the full course map for that semester from registry sheet 11 (code, group, SKS, *pengampu* registri), a "Materi di repositori" column, a "Materi di Folder Ini" section, and the "Penyusun materi" note. Update it whenever a course folder is added, moved or removed in that semester
+3. `mata-kuliah/arsip/README.md` lists the archived courses (old code, SKS, file count, reason, successor) and the archive rules
+4. Each course has its own `README.md` with course-specific details
+5. When adding files, update the relevant file count tables (root README, `arsip/README.md`), recounting with `find`
 
-### Working with the Master Prompt
+### Working with the Generation Prompts
 
-The file `mata kuliah/prompt-algoritma-pemrograman.md` contains the comprehensive prompt used to generate the Algoritma dan Pemrograman course materials. It documents all specifications, anti-patterns, and verification checklists. Refer to this file for authoritative guidance on content standards.
+Both prompts live in `mata-kuliah/00-meta/`:
+
+- `prompt-algoritma-pemrograman.md` — the master prompt used to generate the Algoritma dan Pemrograman materials (specifications, anti-patterns, verification checklists)
+- `prompt-paket-mata-kuliah-informatika.md` — the generic prompt for a full course package
+
+Both carry a banner marking their conventions **outdated** (as of 5 September 2026) and naming `mata-kuliah/00-pedoman-obe/pedoman-obe-konvensi.md` as the source of truth. Do not regenerate content from them without updating them first; for new-curriculum courses, the registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`) governs the substance.
 
 ---
 
@@ -318,11 +393,27 @@ The file `mata kuliah/prompt-algoritma-pemrograman.md` contains the comprehensiv
 
 | File | Purpose |
 |------|---------|
-| `README.md` | Repository overview with course listing and structure |
-| `mata kuliah/prompt-algoritma-pemrograman.md` | Master prompt with full course specifications |
-| `mata kuliah/algoritma-pemrograman/01-rps/rps-algoritma-pemrograman.md` | INF-101 semester learning plan |
-| `mata kuliah/algoritma-pemrograman/05-buku-ajar/00-halaman-depan.md` | Textbook front matter and table of contents |
-| `mata kuliah/praktikum-algoritma-pemrograman/00-pedoman-praktikum/*.md` | Lab rules and guidelines |
-| `mata kuliah/analisis-data-statistik/01-rps/rps-statistika-analisis-data.md` | Statistics course semester plan |
-| `mata kuliah/kecerdasan-buatan-machine-learning/01-rps/rps-kecerdasan-buatan-machine-learning.md` | AI/ML course semester plan |
-| `mata kuliah/kecerdasan-buatan-machine-learning/06-buku-ajar/00-halaman-depan.md` | AI/ML textbook front matter |
+| `README.md` | Repository overview with course listing, structure and file count |
+| `tools/validasi-obe.py` | OBE consistency validator (V1–V13) |
+| `mata-kuliah/semester-N/README.md` | Course map per curriculum semester (1–8) |
+| `mata-kuliah/arsip/README.md` | Archived courses, reasons, content-bank mapping, archive rules |
+| `mata-kuliah/00-kurikulum-if-2025-revisi-2026/README.md` | Registry index |
+| `mata-kuliah/00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md` | Official course list per semester: codes, SKS, *pengampu* |
+| `mata-kuliah/00-kurikulum-if-2025-revisi-2026/13-cpmk-master.md` | Program-level CPMK (26) |
+| `mata-kuliah/00-kurikulum-if-2025-revisi-2026/15-pemetaan-mk-cpmk-subcpmk.md` | Course × CPMK × Sub-CPMK mapping (details in `15b`–`15e`) |
+| `mata-kuliah/00-kurikulum-if-2025-revisi-2026/15a-rekap-bobot-penilaian.md` | Assessment weights per course (six techniques) |
+| `mata-kuliah/00-kurikulum-if-2025-revisi-2026/90-ringkasan-mk-pengampu-tri-aji-nugroho.md` | Quick reference for the courses whose registry *pengampu* is Tri Aji Nugroho |
+| `mata-kuliah/00-kurikulum-if-2025-revisi-2026/91-validasi-dan-catatan-dampak.md` | Curriculum impact notes; old → new course mapping (§2.1) |
+| `mata-kuliah/00-pedoman-obe/pedoman-obe-konvensi.md` | Repository conventions (§D folders, §G metadata, §I consistency, §Q validation) |
+| `mata-kuliah/00-pedoman-obe/konversi-nilai.md` | Official UAI grade conversion scale (single source) |
+| `mata-kuliah/00-pedoman-obe/checklist-verifikasi.md` | Manual verification checklist |
+| `mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md` | Latest full audit: readiness per course, open decisions |
+| `mata-kuliah/00-meta/prompt-algoritma-pemrograman.md` | Master prompt for Algoritma dan Pemrograman (outdated) |
+| `mata-kuliah/semester-2/algoritma-pemrograman/01-rps/rps-algoritma-pemrograman.md` | Algoritma dan Pemrograman (INF-101 → `IF52520004`) semester learning plan |
+| `mata-kuliah/semester-2/algoritma-pemrograman/05-buku-ajar/00-halaman-depan.md` | Algoritma dan Pemrograman textbook front matter and table of contents |
+| `mata-kuliah/semester-2/praktikum-algoritma-pemrograman/00-pedoman-praktikum/*.md` | Lab rules and guidelines |
+| `mata-kuliah/semester-2/analisis-data-statistik/01-rps/rps-statistika-analisis-data.md` | Analisis Data Statistik semester plan |
+| `mata-kuliah/semester-4/rekayasa-perangkat-lunak/01-rps/rps-rekayasa-perangkat-lunak.md` | Rekayasa Perangkat Lunak (IF2205 → `IF52520011`) semester plan |
+| `mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md` | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin (`IF52510031`) semester plan |
+| `mata-kuliah/arsip/kecerdasan-buatan-machine-learning/01-rps/rps-kecerdasan-buatan-machine-learning.md` | Archived AI/ML (IF3XXX) semester plan |
+| `mata-kuliah/arsip/kecerdasan-buatan-machine-learning/06-buku-ajar/00-halaman-depan.md` | Archived AI/ML textbook front matter |

@@ -106,6 +106,21 @@ Sebagian acuan di bawah diperoleh melalui penelusuran publik, bukan dari salinan
 └── datasets/
 ```
 
+**Lokasi paket di repositori** *(ditambahkan 2026-10-07)*. Folder `<mata-kuliah>/` di atas berada di `mata-kuliah/semester-N/<slug>/`:
+
+- **N** adalah semester MK menurut registri kurikulum ([`11-susunan-mata-kuliah-dan-dosen.md`](../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md)).
+- **`<slug>`** adalah nama MK dalam huruf kecil dengan tanda hubung, mis. `mata-kuliah/semester-2/algoritma-pemrograman/`.
+
+Setiap `semester-N/` memuat `README.md` berisi peta seluruh MK semester itu. Ketentuan lokasi lainnya:
+
+| Jenis | Lokasi |
+|---|---|
+| MK kurikulum lama tanpa padanan aktif (tidak ada di registri, atau sudah digantikan MK baru yang punya folder sendiri) | `mata-kuliah/arsip/<slug>/` — tidak dipelihara; lihat [`arsip/README.md`](../arsip/README.md) |
+| Dokumen meta (laporan audit, `prompt-*.md`) | [`mata-kuliah/00-meta/`](../00-meta/README.md) |
+| Lapisan rujukan (`00-kurikulum-if-2025-revisi-2026/`, `00-pedoman-obe/`) | Tetap di akar `mata-kuliah/` |
+
+Karena paket berada dua tingkat di bawah `mata-kuliah/`, tautan dari berkas tingkat-1 paket (mis. `01-rps/rps-*.md`) ke lapisan rujukan memakai `../../../00-…/`. Pemindahan folder tidak mengubah `id` pada *front-matter* ([kamus data §D](kamus-data-metadata.md)).
+
 **Penyeragaman penomoran folder** (`05-buku-ajar` vs `06-buku-ajar`) dikerjakan di **akhir Fase 2** menggunakan `git mv` agar riwayat terjaga dan tidak mengaburkan *diff* migrasi kode.
 
 ---
@@ -264,6 +279,7 @@ diperbarui: 2026-09-05
 7. **[BARU]** Kode PL/CPL/BK/CPMK/Sub-CPMK/asesmen mengikuti §E.
 8. **[BARU]** Sitasi regulasi mengikuti §B dengan sistem tiga status.
 9. **[BARU] SKS ditulis hanya di RPS §A.** Modul dan bab buku ajar menulis `Estimasi waktu: N × 50 menit` **tanpa menyebut SKS**. Ini menutup konflik "2 SKS vs 3 SKS" secara struktural.
+10. **[BARU] Skala konversi nilai** hanya ditetapkan di **`konversi-nilai.md`** — skala resmi UAI: A ≥ 81,00; sembilan huruf (A, A−, B+, B, B−, C+, C, D, E); lulus minimal C (55,00). Bagian Konversi Nilai pada RPS dan kerangka asesmen menyalin tabelnya apa adanya dan menautkannya. Ditegakkan validator aturan V13.
 
 > **Latar keputusan SKS.** INF-101 berbobot **2 SKS teori**; INF-102 berbobot **1 SKS praktikum** dan berdiri terpisah. Estimasi "3 × 50 menit" pada modul mencerminkan **sesi gabungan teori + praktikum**, bukan bobot INF-101. Karena SKS adalah data induk yang dilaporkan ke PDDikti ([REG-6]), penulisannya dipusatkan di satu tempat.
 
@@ -295,6 +311,7 @@ diperbarui: 2026-09-05
 | Matriks butir Instrumen LAM-INFOKOM 2.0 | 🔲 menunggu |
 | Penetapan ambang ketercapaian CPL (SK) | 🔲 menunggu — sementara ditandai "usulan" |
 | Penetapan resmi pembebanan BK per mata kuliah | 🔲 menunggu — sementara ditandai [PERLU VALIDASI PRODI] |
+| Tabel resmi konversi nilai UAI | ✅ rentang, huruf, dan kategori diterima (7 Oktober 2026) · 🟡 bobot nilai mutu · 🔲 nama/nomor dokumen — lihat `konversi-nilai.md` §B |
 
 Salinan resmi dapat ditaruh di `00-pedoman-obe/sumber/`.
 
@@ -396,6 +413,7 @@ Ditegakkan oleh `tools/validasi-obe.py` dan `checklist-verifikasi.md`.
 | **V10** | Tautan relatif antar-berkas tidak putus | Tautan mati |
 | **V11** | **Pagu ukuran** — RPS ≤550 baris; tiap berkas `mutu/` ≤180 baris | Pembengkakan dokumen |
 | **V12** | RPS `status: berlaku` ditolak selama `cpl_status: interim` | Pengesahan prematur |
+| **V13** | **Skala konversi nilai** — setiap tabel huruf mutu ↔ rentang 0–100 wajib sama persis dengan tabel §A `konversi-nilai.md` (rentang, huruf, bobot) dan memuat kesembilan huruf | Kambuhnya skala nilai yang tidak resmi |
 
 **Yang tetap memerlukan manusia:** mutu rumusan Sub-CPMK (kata kerja operasional dan terukur), kesesuaian level taksonomi dengan bentuk asesmen, keselarasan isi materi dengan Sub-CPMK, dan kebenaran substansi regulasi. Ditangani `checklist-verifikasi.md` **dengan tanda tangan penelaah sejawat** — telaah sejawat itu sendiri adalah bukti kriteria 1 (Budaya Mutu).
 
