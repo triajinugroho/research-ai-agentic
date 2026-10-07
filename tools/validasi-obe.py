@@ -12,21 +12,25 @@ skala acuan V13 dibaca dari registri 00-pedoman-obe/konversi-nilai.md:
     V6  Bobot asesmen = 100%           V13 Skala konversi nilai
     V7  Data induk
 
-V3, V5, V6, dan V7 hanya berlaku untuk mata kuliah yang RPS-nya ber-front-matter
-`tipe: rps`; daftar aturan beserta uraian singkatnya dicetak oleh --help.
+V3, V5, V6, dan V7 hanya berlaku untuk mata kuliah yang RPS-nya
+ber-front-matter `tipe: rps`; daftar aturan beserta uraiannya dicetak --help.
 
 V10 memeriksa tautan relatif Markdown [teks](target) (bukan http(s):, mailto:,
-atau #anchor) terhadap sistem berkas, dengan mengabaikan isi blok kode berpagar
-dan kode inline, karena tautan di sana hanya contoh (mis. README contoh di dalam
-```markdown) dan tidak dirender GitHub sebagai tautan. Blok berpagar dikenali
-seperti CommonMark/GitHub: dibuka oleh >= 3 backtick atau tilde (boleh
-berindentasi, mis. di butir daftar, atau di dalam kutipan ">"), dan hanya
-ditutup oleh pagar dari karakter yang sama, minimal sepanjang pagar pembuka,
-tanpa info string, pada kedalaman kutipan yang sama. Jadi ```python di dalam
-blok ```markdown TIDAK menutup blok itu; pagar yang tidak tertutup berlaku
-sampai akhir berkas (atau akhir kutipannya). Kode inline: deretan n backtick
-sampai deretan n backtick berikutnya pada baris yang sama. Pesan V10 memuat
-nomor baris target tautan.
+atau #anchor) terhadap sistem berkas, dengan mengabaikan isi blok kode
+berpagar dan kode inline, karena tautan di sana hanya contoh (mis. README
+contoh di dalam ```markdown) dan tidak dirender GitHub sebagai tautan. Blok
+berpagar dikenali seperti CommonMark/GitHub: dibuka oleh >= 3 backtick atau
+tilde (boleh berindentasi, mis. di butir daftar, atau di dalam kutipan ">"),
+dan hanya ditutup oleh pagar dari karakter yang sama, minimal sepanjang pagar
+pembuka, tanpa info string, pada kedalaman kutipan yang sama. Jadi ```python
+di dalam blok ```markdown TIDAK menutup blok itu, tetapi ``` polos sesudahnya
+menutupnya (seperti di GitHub), sehingga tautan setelah contoh bersarang
+semacam itu tetap diperiksa; contoh bersarang perlu pagar luar ````markdown.
+Pagar yang tidak tertutup berlaku sampai akhir berkas (atau akhir
+kutipannya). Kode inline: deretan n backtick sampai deretan n backtick
+berikutnya pada baris yang sama (kode inline lintas baris dan blok kode
+berindentasi 4 spasi tanpa pagar tidak dikenali). Pesan V10 memuat nomor
+baris target tautan.
 
 V13 membaca tabel §A konversi-nilai.md (rentang, huruf, bobot) saat dijalankan,
 lalu memeriksa setiap tabel Markdown di luar blok kode yang memuat >= 3 baris
@@ -46,24 +50,28 @@ baris di atasnya diberi label "skala disederhanakan" (contoh latihan).
 
 Python murni, tanpa dependensi eksternal. Jalankan dari akar repositori:
 
-    python3 tools/validasi-obe.py                          # seluruh repositori
-    python3 tools/validasi-obe.py --mk INF-101             # satu MK (kode_mk RPS)
-    python3 tools/validasi-obe.py --baseline-tulis b.json  # simpan temuan saat ini
-    python3 tools/validasi-obe.py --baseline b.json        # laporkan temuan baru saja
-    python3 tools/validasi-obe.py --help                   # penggunaan + daftar aturan
+    python3 tools/validasi-obe.py                       # seluruh repositori
+    python3 tools/validasi-obe.py --mk INF-101          # satu MK (kode_mk RPS)
+    python3 tools/validasi-obe.py --baseline-tulis b.json   # simpan temuan
+    python3 tools/validasi-obe.py --baseline b.json     # hanya temuan baru
+    python3 tools/validasi-obe.py --help                # penggunaan + aturan
 
 Mode baseline. --baseline-tulis BERKAS menulis semua pelanggaran saat ini ke
-BERKAS sebagai JSON (daftar objek {"aturan", "berkas", "pesan"}, terurut menurut
-nomor aturan, berkas, pesan) lalu keluar 0; berkas tidak ditulis bila ada galat
-penggunaan. --baseline BERKAS hanya melaporkan pelanggaran yang tidak ada di
-baseline. Pencocokan memakai kunci (aturan, berkas, pesan) sebagai multiset
-(dua temuan identik butuh dua entri baseline); angka pada "baris N" dan
-"N baris" di pesan diganti "#", sehingga pergeseran nomor baris (V10, V13) dan
-perubahan jumlah baris berkas yang sudah melampaui pagu (V11) tidak dihitung
-sebagai temuan baru. Ringkasan menyebut jumlah temuan warisan (cocok dengan
-baseline), temuan baru, dan entri baseline yang sudah teratasi. --baseline dapat
-digabung dengan --mk; entri baseline untuk berkas di luar cakupan --mk tidak
-dihitung sebagai teratasi.
+BERKAS sebagai JSON (daftar objek {"aturan", "berkas", "pesan"}, terurut
+menurut nomor aturan, berkas, lalu pesan dengan angka dibandingkan sebagai
+bilangan) dan keluar 0; berkas tidak ditulis bila ada galat penggunaan, dan
+folder tujuan diperiksa sebelum repositori dipindai. --baseline BERKAS hanya
+melaporkan pelanggaran yang tidak ada di baseline. Pencocokan memakai kunci
+(aturan, berkas, pesan) sebagai multiset (dua temuan identik butuh dua entri
+baseline), dua tahap: temuan yang sama persis dipasangkan lebih dulu, lalu
+sisanya dicocokkan dengan angka pada "baris N" dan "N baris" di pesan diganti
+"#". Dengan begitu pergeseran nomor baris (V10, V13) dan perubahan jumlah baris
+berkas yang sudah melampaui pagu (V11) tidak dihitung sebagai temuan baru,
+sedangkan temuan yang tidak bergeser tetap dipasangkan dengan entri yang
+tepat. Ringkasan menyebut jumlah temuan warisan (cocok dengan baseline),
+temuan baru, dan entri baseline yang sudah teratasi. --baseline dapat digabung
+dengan --mk; entri baseline untuk berkas di luar cakupan --mk tidak dihitung
+sebagai teratasi.
 
 Kode keluar: 0 = tidak ada pelanggaran (mode --baseline: tidak ada temuan baru;
 --baseline-tulis: baseline ditulis; --help); 1 = ada pelanggaran (mode
@@ -71,7 +79,7 @@ Kode keluar: 0 = tidak ada pelanggaran (mode --baseline: tidak ada temuan baru;
 tanpa argumen, mata kuliah --mk tidak ditemukan, berkas baseline tidak dapat
 dibaca/ditulis atau formatnya salah).
 """
-import os, re, sys, glob, json, textwrap
+import os, re, sys, glob, json, textwrap, collections
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MK   = os.path.join(ROOT, "mata-kuliah")
@@ -150,20 +158,21 @@ def bantuan():
     aturan = "\n".join(textwrap.fill(f"{ATURAN[a]} — {URAIAN[a]}", 79, initial_indent=f"  {a:<4} ",
                                      subsequent_indent=" " * 7) for a in ATURAN)
     return f"""Penggunaan: python3 tools/validasi-obe.py [-h] [--mk KODE_MK]
-                                     [--baseline BERKAS | --baseline-tulis BERKAS]
+                  [--baseline BERKAS | --baseline-tulis BERKAS]
 
 Validator konsistensi OBE (Pedoman OBE §Q) untuk semua mata-kuliah/**/*.md.
 Jalankan dari akar repositori; tanpa dependensi selain Python 3.
 
 Opsi:
   -h, --help               cetak bantuan ini lalu keluar (kode 0)
-  --mk KODE_MK             periksa satu mata kuliah saja, dikenali dari kode_mk
-                           front-matter RPS (tipe: rps), mis. INF-101; berkas
-                           00-pedoman-obe/ tetap ikut diperiksa
+  --mk KODE_MK             periksa satu mata kuliah saja, dikenali dari
+                           kode_mk front-matter RPS (tipe: rps), mis. INF-101;
+                           berkas 00-pedoman-obe/ tetap ikut diperiksa
   --baseline BERKAS        laporkan HANYA pelanggaran yang tidak ada di BERKAS
-                           (JSON dari --baseline-tulis); dicocokkan per aturan +
-                           berkas + pesan dengan nomor baris diabaikan; kode 0
-                           bila tidak ada temuan baru, 1 bila ada
+                           (JSON hasil --baseline-tulis), dicocokkan per
+                           aturan + berkas + pesan dengan nomor baris
+                           diabaikan; kode 0 bila tidak ada temuan baru,
+                           1 bila ada
   --baseline-tulis BERKAS  tulis semua pelanggaran saat ini ke BERKAS (JSON
                            terurut: aturan, berkas, pesan) lalu keluar (kode 0)
 
@@ -171,12 +180,17 @@ Aturan (Pedoman OBE §Q):
 {aturan}
   (*) hanya untuk mata kuliah yang RPS-nya ber-front-matter `tipe: rps`
 
+Contoh:
+  python3 tools/validasi-obe.py --baseline-tulis /tmp/baseline-obe.json
+  python3 tools/validasi-obe.py --baseline /tmp/baseline-obe.json
+
 Kode keluar:
-  0  tidak ada pelanggaran (--baseline: tidak ada temuan baru; --baseline-tulis:
-     baseline ditulis)
-  1  ada pelanggaran (--baseline: ada temuan baru)
-  2  galat penggunaan: opsi tidak dikenal, opsi tanpa argumen, mata kuliah --mk
-     tidak ditemukan, berkas baseline tidak dapat dibaca/ditulis atau formatnya salah"""
+  0  tidak ada pelanggaran; --baseline: tidak ada temuan baru;
+     --baseline-tulis: baseline ditulis; --help
+  1  ada pelanggaran; --baseline: ada temuan baru
+  2  galat penggunaan: opsi tidak dikenal, opsi tanpa argumen, mata kuliah
+     --mk tidak ditemukan, berkas baseline tidak dapat dibaca/ditulis atau
+     formatnya salah"""
 
 def galat(pesan):
     print(f"validasi-obe.py: galat: {pesan}\nGunakan --help untuk melihat penggunaan.",
@@ -205,6 +219,13 @@ def urai_argumen(argv):
         arg[nama] = nilai
     if "--baseline" in arg and "--baseline-tulis" in arg:
         galat("--baseline dan --baseline-tulis tidak dapat dipakai bersamaan")
+    if "--baseline-tulis" in arg:         # gagal lebih awal, sebelum seluruh repositori diperiksa
+        jalur = os.path.abspath(arg["--baseline-tulis"])
+        induk = os.path.dirname(jalur)
+        if os.path.isdir(jalur) or not os.path.isdir(induk) or not os.access(induk, os.W_OK) \
+                or (os.path.exists(jalur) and not os.access(jalur, os.W_OK)):
+            galat(f"berkas baseline tidak dapat ditulis: {arg['--baseline-tulis']} "
+                  "(folder tidak ada, bukan berkas, atau tanpa izin tulis)")
     return arg
 
 def baca_baseline(jalur):
@@ -591,18 +612,26 @@ def cetak_rincian(per, keterangan=""):
 def ringkas(per):
     return ", ".join(f"{a} {len(per[a])}" for a in sorted(per, key=no_aturan)) or "-"
 
-# kunci pencocokan baseline: berkas bergaya POSIX, angka "baris N" / "N baris" -> "#"
+# kunci pencocokan baseline: berkas bergaya POSIX; kunci longgar mengganti angka pada
+# "baris N" / "N baris" dengan "#" agar tahan terhadap pergeseran nomor baris
 RE_ANGKA_BARIS = re.compile(r'\bbaris \d+|\b\d+ baris\b')
+def kunci_tepat(a, f, m):
+    return (a, f.replace(os.sep, "/"), m)
+
 def kunci_baseline(a, f, m):
     return (a, f.replace(os.sep, "/"),
             RE_ANGKA_BARIS.sub(lambda x: re.sub(r'\d+', '#', x.group(0)), m))
+
+def urut_alami(s):
+    """'baris 9' < 'baris 34': bagian angka dibandingkan sebagai bilangan."""
+    return [int(t) if t.isdigit() else t for t in re.split(r'(\d+)', s)]
 
 print(f"# Laporan Validasi OBE\n\nBerkas diperiksa: {len(dok)}  |  Mata kuliah: {len(mk_daftar)}\n")
 
 if "--baseline-tulis" in ARG:
     jalur = ARG["--baseline-tulis"]
-    entri = sorted(((a, f.replace(os.sep, "/"), m) for a, f, m in masalah),
-                   key=lambda x: (no_aturan(x[0]), x[1], x[2]))
+    entri = sorted((kunci_tepat(a, f, m) for a, f, m in masalah),
+                   key=lambda x: (no_aturan(x[0]), x[1], urut_alami(x[2])))
     isi = "[\n" + ",\n".join("  " + json.dumps({"aturan": a, "berkas": f, "pesan": m},
                                                ensure_ascii=False) for a, f, m in entri)
     try:
@@ -615,16 +644,24 @@ if "--baseline-tulis" in ARG:
     sys.exit(0)
 
 if BASELINE is not None:
-    sisa = {}
-    for a, f, m in BASELINE:
-        k = kunci_baseline(a, f, m); sisa[k] = sisa.get(k, 0) + 1
-    warisan, baru = [], []
-    for a, f, m in masalah:
-        k = kunci_baseline(a, f, m)
-        if sisa.get(k, 0) > 0:
-            sisa[k] -= 1; warisan.append((a, f, m))
-        else:
-            baru.append((a, f, m))
+    # tahap 1: pasangkan temuan yang sama persis (termasuk nomor baris) dengan entri baseline;
+    # tahap 2: sisanya dipasangkan dengan kunci longgar (nomor baris diabaikan). Keduanya
+    # multiset: dua temuan identik butuh dua entri baseline.
+    sisa_tepat = collections.Counter(kunci_tepat(a, f, m) for a, f, m in BASELINE)
+    cocok = [False] * len(masalah)
+    for i, x in enumerate(masalah):
+        k = kunci_tepat(*x)
+        if sisa_tepat[k] > 0:
+            sisa_tepat[k] -= 1; cocok[i] = True
+    sisa = collections.Counter()
+    for k, n in sisa_tepat.items():
+        if n > 0: sisa[kunci_baseline(*k)] += n
+    for i, x in enumerate(masalah):
+        k = kunci_baseline(*x)
+        if not cocok[i] and sisa[k] > 0:
+            sisa[k] -= 1; cocok[i] = True
+    warisan = [x for x, c in zip(masalah, cocok) if c]
+    baru    = [x for x, c in zip(masalah, cocok) if not c]
     # dengan --mk, entri baseline untuk berkas di luar cakupan tidak dihitung teratasi
     diperiksa = {os.path.relpath(p, ROOT).replace(os.sep, "/") for p in dok}
     teratasi = sum(n for (a, f, m), n in sisa.items() if n > 0 and (not FILTER or f in diperiksa))
