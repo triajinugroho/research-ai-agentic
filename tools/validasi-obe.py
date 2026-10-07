@@ -249,7 +249,7 @@ for p, d in dok.items():
 # Skala konversi nilai: tabel huruf mutu ↔ rentang 0-100 harus sama dengan
 # tabel §A registri konversi-nilai.md (satu-satunya sumber skala).
 FKONVERSI   = os.path.join(PEDOMAN, "konversi-nilai.md")
-V13_KECUALI = {FKONVERSI, os.path.join(MK, "AUDIT-KESELARASAN-IF2205-IF2206.md")}
+V13_KECUALI = {FKONVERSI, os.path.join(MK, "00-meta", "AUDIT-KESELARASAN-IF2205-IF2206.md")}
 _ANGKA      = r'(\d{1,3}(?:[.,]\d+)?)'
 RE_V13_HURUF   = re.compile(r'^[A-F](?:[A-F]|[+\-−])?$')     # kandidat sel huruf mutu
 RE_V13_RENTANG = re.compile(rf'^{_ANGKA}\s*(?:-{{1,2}}|[–—−]|s\.\s?d\.?|s/d|sampai)\s*{_ANGKA}$', re.I)

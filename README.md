@@ -15,11 +15,11 @@ Empat mata kuliah terbaru — Probabilitas dan Statistik, Dasar Kecerdasan Artif
 
 | Kode | Mata Kuliah | SKS | Tipe | Deskripsi |
 |------|-------------|-----|------|-----------|
-| INF-101 | [Algoritma dan Pemrograman](mata-kuliah/algoritma-pemrograman/) | 2 | Teori | Fondasi computational thinking dengan Python dan AI |
-| INF-102 | [Praktikum Algoritma dan Pemrograman](mata-kuliah/praktikum-algoritma-pemrograman/) | 1 | Praktikum | Hands-on programming lab (ko-requisite INF-101) |
-| — | [Analisis Data Statistik](mata-kuliah/analisis-data-statistik/) | 2 | Teori + Lab | Statistika dan analisis data dengan Python |
-| IF2205 | [Rekayasa Perangkat Lunak](mata-kuliah/rekayasa-perangkat-lunak/) | 3 | Teori | Full-stack SE Process: SDLC, requirements, design, testing, DevOps |
-| IF2206 | [Praktikum Rekayasa Perangkat Lunak](mata-kuliah/praktikum-rekayasa-perangkat-lunak/) | 1 | Praktikum | Hands-on web app development (ko-requisite IF2205) |
+| INF-101 | [Algoritma dan Pemrograman](mata-kuliah/semester-2/algoritma-pemrograman/) | 2 | Teori | Fondasi computational thinking dengan Python dan AI |
+| INF-102 | [Praktikum Algoritma dan Pemrograman](mata-kuliah/semester-2/praktikum-algoritma-pemrograman/) | 1 | Praktikum | Hands-on programming lab (ko-requisite INF-101) |
+| — | [Analisis Data Statistik](mata-kuliah/semester-2/analisis-data-statistik/) | 2 | Teori + Lab | Statistika dan analisis data dengan Python |
+| IF2205 | [Rekayasa Perangkat Lunak](mata-kuliah/semester-4/rekayasa-perangkat-lunak/) | 3 | Teori | Full-stack SE Process: SDLC, requirements, design, testing, DevOps |
+| IF2206 | [Praktikum Rekayasa Perangkat Lunak](mata-kuliah/arsip/praktikum-rekayasa-perangkat-lunak/) | 1 | Praktikum | Hands-on web app development (ko-requisite IF2205) |
 
 ### Semester Ganjil 2026/2027 — Kurikulum Informatika 2025 Revisi 2026
 
@@ -27,10 +27,10 @@ Empat mata kuliah berikut disusun mengikuti registri kurikulum terbaru.
 
 | Kode | Mata Kuliah | SKS | Sem | Tipe | Deskripsi |
 |------|-------------|-----|-----|------|-----------|
-| `IF52510033` | [Probabilitas dan Statistik](mata-kuliah/probabilitas-dan-statistik/) | 3 | 1 | Teori | Fondasi berpikir di bawah ketidakpastian untuk Informatika |
-| `IF52510031` | [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](mata-kuliah/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | 3 | 5 | Teori + Lab | Daur hidup ML dari perumusan masalah sampai AI yang bertanggung jawab |
-| `ST52510002` | [Teknopreneur](mata-kuliah/teknopreneur/) | 3 | 5 | MKF | Menemukan persoalan, menilai kelayakan, dan mempertanggungjawabkan usaha |
-| `IF52510021` | [Metodologi Penelitian](mata-kuliah/metodologi-penelitian/) | 2 | 7 | MKP | Menyusun argumen penelitian yang dapat diperiksa |
+| `IF52510033` | [Probabilitas dan Statistik](mata-kuliah/semester-1/probabilitas-dan-statistik/) | 3 | 1 | Teori | Fondasi berpikir di bawah ketidakpastian untuk Informatika |
+| `IF52510031` | [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | 3 | 5 | Teori + Lab | Daur hidup ML dari perumusan masalah sampai AI yang bertanggung jawab |
+| `ST52510002` | [Teknopreneur](mata-kuliah/semester-5/teknopreneur/) | 3 | 5 | MKF | Menemukan persoalan, menilai kelayakan, dan mempertanggungjawabkan usaha |
+| `IF52510021` | [Metodologi Penelitian](mata-kuliah/semester-7/metodologi-penelitian/) | 2 | 7 | MKP | Menyusun argumen penelitian yang dapat diperiksa |
 
 > **Catatan pengampu.** Registri kurikulum menetapkan pengampu Metodologi
 > Penelitian adalah **Andi Arniaty Arsyad, Ph.D.** (`AAA`), bukan Tri Aji
@@ -41,11 +41,11 @@ Empat mata kuliah berikut disusun mengikuti registri kurikulum terbaru.
 
 | Kode | Mata Kuliah | SKS | Tipe | Deskripsi |
 |------|-------------|-----|------|-----------|
-| IF3XXX | [Kecerdasan Buatan dan Machine Learning](mata-kuliah/kecerdasan-buatan-machine-learning/) | 4 | Teori + Lab | Fondasi AI/ML, supervised/unsupervised learning, deep learning, NLP, CV |
+| IF3XXX | [Kecerdasan Buatan dan Machine Learning](mata-kuliah/arsip/kecerdasan-buatan-machine-learning/) | 4 | Teori + Lab | Fondasi AI/ML, supervised/unsupervised learning, deep learning, NLP, CV |
 
 > Folder ini dipertahankan berdampingan dengan `dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`.
 > Keduanya berbeda kurikulum, kode, bobot SKS, arsitektur CPMK, dan skema penilaian.
-> Perbandingannya ada pada [README mata kuliah baru](mata-kuliah/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/README.md).
+> Perbandingannya ada pada [README mata kuliah baru](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/README.md).
 
 ## Struktur Repository
 
@@ -145,7 +145,7 @@ mata-kuliah/
 
 **Total: 537 dokumen Markdown** — mencakup referensi kurikulum, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
 
-> **Audit kesiapan terbaru:** [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/AUDIT-MENYELURUH-2026-10.md) — peta seluruh repositori, temuan per mata kuliah, dan arah perbaikan. Skala konversi nilai resmi UAI (A ≥ 81, sembilan huruf, lulus minimal C 55,00): [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
+> **Audit kesiapan terbaru:** [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md) — peta seluruh repositori, temuan per mata kuliah, dan arah perbaikan. Skala konversi nilai resmi UAI (A ≥ 81, sembilan huruf, lulus minimal C 55,00): [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
 
 ## Referensi Kurikulum Terbaru
 
