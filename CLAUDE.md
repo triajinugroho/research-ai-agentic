@@ -10,7 +10,7 @@ This is an **educational materials repository** for courses in the Computer Scie
 
 - **548 Markdown documents** under `mata-kuliah/` (count as of 7 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
 - **10 course folders:** 8 active courses in `mata-kuliah/semester-N/` (placed by their registry semester) and 2 old-curriculum courses in `mata-kuliah/arsip/`.
-- **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: audits and generation prompts).
+- **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: execution checklist, audits, and generation prompts).
 
 **Author of all materials (*penyusun materi*):** Tri Aji Nugroho, S.T., M.T. — for **every** course in this repository, including courses whose registry instructor (*pengampu*) is someone else:
 
@@ -27,14 +27,14 @@ The content is static Markdown plus **one interactive HTML module**, `mata-kulia
 
 ## Execution Control (read first)
 
-`mata-kuliah/00-meta/KENDALI-EKSEKUSI.md` is the **single living checklist** of open work: deadlines anchored to lecture weeks (Mg), pending lecturer decisions (`D-xx`), formal documents to collect (`F-xx`), and the evidence for finished items. The audit report (`mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md`) is the reference for *findings*; *status* lives only in the control file.
+`mata-kuliah/00-meta/KENDALI-EKSEKUSI.md` is the **single living checklist** of open work: deadlines anchored to lecture weeks (Mg), pending lecturer decisions (`D-xx`), formal documents to collect (`F-xx`), and the evidence for finished items. The audit report (`mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md`) is the reference for *findings*; the *status of audit findings and work items* lives only in the control file (dated notes in `91`, `konversi-nilai.md` §B and Pedoman §J/§K record the status of those documents themselves).
 
 In every session:
 
 1. **Read the control file before starting.** If the request matches an item, cite its ID (e.g., `T0-09`). Without a specific request, propose the open item with the nearest deadline that is not ⏸.
 2. **Respect dependencies.** Do not carry out an item whose "Butuh" column names an undecided `D-xx`; ask the lecturer, or do only the part that does not depend on the decision.
 3. **Close the loop.** After finishing, set the status to ☑ with the short commit hash or date, update `diperbarui:`, and record a decision (date + content) in §1 when the lecturer makes one. Add newly found open items with the next free ID in the right stage — never renumber. Keep the file ≤ 180 lines (`tipe: mutu`, validator V11); summarize finished batches in §7, one line each.
-4. **The repository is public.** Never commit exam papers, answer keys, question banks, or per-student grades (decision `D-08`). The repository holds only kisi-kisi, item blueprints, and aggregate numbers.
+4. **The repository is public.** Until decision `D-08` is made, never commit exam papers, answer keys, question banks, or per-student grades; only kisi-kisi, item blueprints, and aggregate numbers belong here. The three UTS + answer-key pairs already committed for Genap 2025/2026 await `D-08`.
 
 ---
 

@@ -17,7 +17,7 @@ siklus: 2026-2027-ganjil
 
 **Pemilik:** Tri Aji Nugroho, S.T., M.T. · **Tanggal audit:** 7 Oktober 2026 · **Status:** draf untuk telaah dosen
 
-> **Pembaruan v1.3 (7 Oktober 2026).** Status setiap temuan laporan ini kini **dilacak di [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md)** — ceklis eksekusi bertanggal dengan ID butir, tenggat, ketergantungan keputusan, dan bukti commit. Laporan ini tetap menjadi rujukan temuan; tabel status di §8 dan §9 tidak lagi diperbarui. Angka validator di §3.2 dan §7.2 dimutakhirkan (837 pelanggaran dari 547 berkas).
+> **Pembaruan v1.3 (7 Oktober 2026).** Status setiap temuan laporan ini kini **dilacak di [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md)** — ceklis eksekusi bertanggal dengan ID butir, tenggat, ketergantungan keputusan, dan bukti commit. Laporan ini tetap menjadi rujukan temuan; tabel status di §8 dan §9 tidak lagi diperbarui. Angka validator di §3.2 dan §7.2 dimutakhirkan (837 pelanggaran dari 548 berkas).
 
 > **Pembaruan v1.2 (7 Oktober 2026).** Repositori disusun ulang per semester kurikulum (commit `d339d8a`, `f7904f1`).
 >
@@ -200,7 +200,7 @@ Akibatnya, `bk: [BK12, BK14, BK01]` di RPS INF-101 berarti "SDF, Security, AI" b
 
 ### 7.2 Validator
 
-Hasil saat audit awal: **851 pelanggaran** dari 536 berkas. Hasil v1.3 (setelah penataan per semester): **837 pelanggaran** dari 547 berkas — V1 518, V4 253, V8 60, V10 6 (sisa V10 adalah contoh tautan di dalam blok kode), V13 0.
+Hasil saat audit awal: **851 pelanggaran** dari 536 berkas. Hasil v1.3 (setelah penataan per semester): **837 pelanggaran** dari 548 berkas — V1 518, V4 253, V8 60, V10 6 (sisa V10 adalah contoh tautan di dalam blok kode), V13 0.
 
 | Kode | Jumlah | Penjelasan |
 |------|-------:|-----------|
