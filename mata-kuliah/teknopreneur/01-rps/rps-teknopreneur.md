@@ -60,16 +60,16 @@ Mata kuliah ini membebani **empat CPL dari tiga tingkat**. Rumusan diambil dari 
 
 ## D. CAPAIAN PEMBELAJARAN MATA KULIAH (CPMK)
 
-Lima CPMK dari empat CPL:
+Enam CPMK dari empat CPL (rumusan verbatim dari [registri CPMK](../../00-kurikulum-if-2025-revisi-2026/13-cpmk-master.md)):
 
 | Kode | CPL | Rumusan | Bloom |
 |------|-----|---------|-------|
 | **CPMK091** | CPL09 | Mampu mengidentifikasi (C2) dan menganalisis (C4) kebutuhan, karakteristik, proses, kendala, dan konteks pengguna maupun organisasi terhadap solusi computing multi-platform. | C2–C4 |
 | **CPMKFSTS11** | CPL-FSTS1 | Mampu mengomunikasikan (A2/P4) gagasan, informasi, proses, dan hasil pekerjaan secara efektif melalui komunikasi lisan, tulisan, visual, dan akademik dalam konteks profesional dan multidisiplin. | A2/P4 |
-| **CPMKFSTS12** | CPL-FSTS1 | Mampu berkolaborasi (A4), beradaptasi (A4), dan mengelola (P5) peran serta pekerjaan dalam tim multidisiplin untuk mengembangkan (C6/P5) solusi inovatif secara bertanggung jawab dan beretika. | A4/P5 |
-| **CPMKUAI21** | CPLUAI2 | Mampu mengidentifikasi (C2), menganalisis (C4), dan mengevaluasi (C5) masalah, kebutuhan pengguna, peluang, potensi penciptaan nilai, serta kelayakan solusi atau usaha berbasis teknologi digital. | C2–C5 |
-| **CPMKUAI22** | CPLUAI2 | Mampu merancang (C6/P4), mengembangkan (C6/P5), dan mengelola (P5) solusi, prototipe, MVP, produk, layanan, proyek, atau usaha berbasis teknologi digital yang memiliki proposisi nilai bagi pengguna. | C6/P4–P5 |
-| **CPMKUAI32** | CPLUAI3 | Mampu mengembangkan (C6) gagasan, literasi, pengetahuan, dan kompetensi diri serta mengintegrasikan (A4) kemandirian, kolaborasi, pembelajaran sepanjang hayat, karakter unggul, dan semangat kewirausahaan. | C6/A4 |
+| **CPMKFSTS12** | CPL-FSTS1 | Mampu berkolaborasi (A4), beradaptasi (A4), dan mengelola (P5) peran serta pekerjaan dalam tim multidisiplin untuk mengembangkan (C6/P5) solusi inovatif secara bertanggung jawab dan beretika. | C6, A4, P5 |
+| **CPMKUAI21** | CPLUAI2 | Mampu mengidentifikasi (C2), menganalisis (C4), dan mengevaluasi (C5) masalah, kebutuhan pengguna, peluang, potensi penciptaan nilai, serta kelayakan solusi atau usaha berbasis teknologi digital dengan mempertimbangkan aspek pengguna, pasar, teknologi, operasional, sumber daya, finansial, dan risiko. | C2–C5 |
+| **CPMKUAI22** | CPLUAI2 | Mampu merancang (C6/P4), mengembangkan (C6/P5), dan mengelola (P5) solusi, prototipe, MVP, produk, layanan, proyek, atau usaha berbasis teknologi digital yang memiliki proposisi nilai bagi pengguna dan masyarakat secara adaptif, kolaboratif, dan beretika (A4). | C6, A4, P4–P5 |
+| **CPMKUAI32** | CPLUAI3 | Mampu mengembangkan (C6) gagasan, literasi, pengetahuan, dan kompetensi diri serta mengintegrasikan (A4) kemandirian, kolaborasi, pembelajaran sepanjang hayat, karakter unggul, dan semangat kewirausahaan untuk berkontribusi terhadap masyarakat dan peradaban. | C6, A4 |
 
 ---
 

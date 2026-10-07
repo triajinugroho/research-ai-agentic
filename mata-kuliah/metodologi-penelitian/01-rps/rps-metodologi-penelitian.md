@@ -73,9 +73,9 @@ Tiga hal membedakan mata kuliah ini dari pengajaran metodologi yang lazim:
 
 | Kode | Unsur | Rumusan |
 |------|-------|---------|
-| **CPL04** | Keterampilan Khusus | Mampu menganalisis persoalan *computing* yang kompleks dengan mempertimbangkan konteks organisasi, kebutuhan, arsitektur sistem, batasan, teknologi, risiko, dan perkembangan ilmu transdisiplin. |
-| **CPL07** | Keterampilan Umum | Mampu menerapkan pemikiran logis, kritis, sistematis, dan inovatif dalam konteks pengembangan atau implementasi ilmu pengetahuan dan teknologi. |
-| **CPL09** | Keterampilan Khusus | Mampu mengidentifikasi dan menganalisis kebutuhan, karakteristik, proses, kendala, dan konteks pengguna maupun organisasi terhadap solusi *computing* multi-platform. |
+| **CPL04** | Pengetahuan | Memiliki kompetensi untuk menganalisis persoalan *computing* yang kompleks untuk mengidentifikasi solusi pengelolaan proyek teknologi bidang informatika/ilmu komputer dengan mempertimbangkan wawasan perkembangan ilmu transdisiplin |
+| **CPL07** | Kemampuan Umum | Mampu menerapkan pemikiran logis, kritis, sistematis, dan inovatif dalam konteks pengembangan atau implementasi ilmu pengetahuan dan teknologi yang memperhatikan dan menerapkan nilai-nilai Islami. |
+| **CPL09** | Keterampilan Khusus | Kemampuan mengidentifikasi, menganalisis kebutuhan pengguna, merancang, mengimplementasi dan mengevaluasi solusi berbasis *computing* multi-platform yang memenuhi kebutuhan *computing* pada sebuah organisasi. |
 
 ---
 
