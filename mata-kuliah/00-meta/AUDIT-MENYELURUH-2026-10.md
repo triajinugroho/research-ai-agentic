@@ -5,7 +5,7 @@ judul: Audit Menyeluruh Repositori Materi Kuliah — Oktober 2026
 kode_mk: PRODI-IF
 nama_mk: Seluruh paket mata kuliah
 prodi: Informatika
-versi: 1.1
+versi: 1.2
 status: draft
 diperbarui: 2026-10-07
 kriteria_lam: [1-budaya-mutu, 2-relevansi-pendidikan, 5-akuntabilitas]
@@ -16,6 +16,16 @@ siklus: 2026-2027-ganjil
 # Audit Menyeluruh Repositori — Oktober 2026
 
 **Pemilik:** Tri Aji Nugroho, S.T., M.T. · **Tanggal audit:** 7 Oktober 2026 · **Status:** draf untuk telaah dosen
+
+> **Pembaruan v1.2 (7 Oktober 2026).** Repositori disusun ulang per semester kurikulum (commit `d339d8a`, `f7904f1`).
+>
+> - Setiap folder MK kini berada di `mata-kuliah/semester-N/<slug>/` sesuai semester registri.
+> - Dua MK kurikulum lama tanpa padanan aktif (IF3XXX, IF2206) dipindah ke [`mata-kuliah/arsip/`](../arsip/README.md).
+> - Dokumen meta dipindah ke [`mata-kuliah/00-meta/`](README.md): dua laporan audit (termasuk laporan ini) dan dua `prompt-*.md`.
+> - Tautan relatif ditulis ulang otomatis. V10 turun dari 20 ke 6, dan 14 tautan IF2206 yang putus ikut diperbaiki.
+> - Rekayasa Perangkat Lunak (`IF52520011`) ditempatkan di [`semester-4/rekayasa-perangkat-lunak/`](../semester-4/rekayasa-perangkat-lunak/README.md). Atas keputusan dosen, **penyusun materi** tetap **Tri Aji Nugroho, S.T., M.T.**, sedangkan **pengampu menurut registri** adalah **Dr. Ir. Winangsari Pradani, M.T.** Keterangan ini tercantum di README, RPS, RTM, dan halaman depan buku ajarnya.
+>
+> Path dalam teks laporan ini sudah disesuaikan, dan tabel §3.1 kini mencatat status arsip. Cakupan audit tetap 536 berkas seperti pada v1.0–v1.1. Setelah penataan, `mata-kuliah/` memuat 547 berkas `.md`: 536 berkas tersebut, laporan ini, 8 README peta semester, serta README `00-meta/` dan `arsip/`.
 
 > **Pembaruan v1.1 (7 Oktober 2026).** Tabel konversi nilai resmi UAI diterima dari dosen pengampu dan sudah diterapkan ke seluruh repositori: A ≥ 81,00; sembilan huruf (A, A−, B+, B, B−, C+, C, D, E); lulus minimal C (55,00). Skala sementara tujuh huruf (A ≥ 81, lulus ≥ 56) yang dipakai pada v1.0 sudah tidak berlaku. Validator kini menegakkannya lewat aturan V13.
 
@@ -46,6 +56,9 @@ siklus: 2026-2027-ganjil
 | `e5f88e3` | Pedoman OBE §I butir 10 dan §K menautkan registri konversi nilai; laporan ini (v1.0) |
 | `8f09bc0` | Registri [`konversi-nilai.md`](../00-pedoman-obe/konversi-nilai.md) v2.0: **tabel resmi UAI** (9 huruf, A ≥ 81,00, lulus C 55,00), status sumber per aspek |
 | `e10654c` | Skala resmi diterapkan ke **10 folder MK** (52 berkas): tabel kebijakan, ambang lulus, rubrik yang memetakan skor ke huruf, soal UTS INF-101 no. 11 beserta kunci dan pembahasannya, serta contoh kode konversi nilai di modul, buku ajar, dan lab. Kedua `prompt-*.md` kini menyematkan tabel resmi. Aturan validator **V13** ditambahkan (Pedoman §Q). Laporan ini menjadi v1.1 |
+| `d339d8a` | **Penataan per semester** (pemindahan mekanis dengan `git mv`, tanpa perubahan isi materi; pengecualian path di validator disesuaikan): folder MK ke `semester-N/` sesuai registri, IF3XXX dan IF2206 ke `arsip/`, `AUDIT-*.md` dan `prompt-*.md` ke `00-meta/`. Sebanyak 199 tautan relatif di 76 berkas ditulis ulang, termasuk 14 tautan IF2206 yang sebelumnya putus. V10: 20 → 6 |
+| `f7904f1` | README peta mata kuliah untuk `semester-1/` … `semester-8/` dari registri `11`: kode, SKS, pengampu menurut registri, folder materi, dan catatan penyusun materi |
+| *(menyusul)* | Spanduk arsip dan README [`arsip/`](../arsip/README.md) serta [`00-meta/`](README.md); keterangan **penyusun materi: Tri Aji Nugroho, S.T., M.T.; pengampu (registri): Dr. Ir. Winangsari Pradani, M.T.** pada RPL; path dalam teks diperbarui di registri, pedoman, dan laporan ini. Laporan ini menjadi v1.2 |
 
 ---
 
@@ -55,16 +68,18 @@ siklus: 2026-2027-ganjil
 
 | Folder | Kode lama → kode resmi | SKS | Sem | Pengampu menurut registri | Kesiapan | Arah |
 |--------|------------------------|:---:|:---:|---------------------------|----------|------|
-| [`dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | — → `IF52510031` | 3 | V | Tri Aji Nugroho | **Belum siap** | Tuntaskan Tahap 0 (§8) sebelum UTS |
-| [`probabilitas-dan-statistik/`](../semester-1/probabilitas-dan-statistik/) | — → `IF52510033` | 3 | I | Tri Aji Nugroho | Siap dengan perbaikan | Naskah UTS + kunci; CSV lab; pengaitan Sub-CPMK |
-| [`teknopreneur/`](../semester-5/teknopreneur/) | — → `ST52510002` | 3 | V | Tri Aji Nugroho | Siap dengan perbaikan | Persetujuan prodi untuk syarat lulus tambahan; label teknik; sitasi hukum |
-| [`metodologi-penelitian/`](../semester-7/metodologi-penelitian/) | — → `IF52510021` | 2 | VII | **Andi Arniaty Arsyad, Ph.D.** | Belum siap | Skala nilai, pengesahan, dan rubrik — keputusan pada pengampu |
-| [`algoritma-pemrograman/`](../semester-2/algoritma-pemrograman/) | INF-101 → `IF52520004` | 2 | II | Tri Aji Nugroho | Pilot OBE v2.0 tuntas, **tetapi pada skema yang sudah digantikan** | Selaraskan ulang sebelum Genap 2026/2027 |
-| [`praktikum-algoritma-pemrograman/`](../semester-2/praktikum-algoritma-pemrograman/) | INF-102 → `IF52520005` | 1 | II | Tri Aji Nugroho | Skema lama; bobot rubrik salah salin | Selaraskan ulang |
-| [`analisis-data-statistik/`](../semester-2/analisis-data-statistik/) | TBD-STAT → `IF52520025` | **2 → 3** | II | Tri Aji Nugroho | Skema lama; 55 berkas tanpa *footer* | Selaraskan ulang **berat**: tambah SKS dan pisahkan dari Probabilitas dan Statistik |
-| [`rekayasa-perangkat-lunak/`](../semester-4/rekayasa-perangkat-lunak/) | IF2205 → `IF52520011` | 3 | IV | **Winangsari Pradani** | Skema lama | Serahkan ke pengampu baru atau arsipkan sebagai rujukan |
-| [`praktikum-rekayasa-perangkat-lunak/`](../arsip/praktikum-rekayasa-perangkat-lunak/) | IF2206 → **tidak ada** | 1 | — | — | 14 tautan putus | Arsipkan, atau lebur ke Proyek PL / Pengujian PL |
-| [`kecerdasan-buatan-machine-learning/`](../arsip/kecerdasan-buatan-machine-learning/) | IF3XXX → digantikan `IF52510031` | 4 | — | — | Kode Keras 3 / sklearn 1.6 sebagian rusak | Arsipkan (`status: arsip`) sebagai bank konten untuk JST, NLP, dan Pengolahan Citra |
+| [`semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | — → `IF52510031` | 3 | V | Tri Aji Nugroho, S.T., M.T. | **Belum siap** | Tuntaskan Tahap 0 (§8) sebelum UTS |
+| [`semester-1/probabilitas-dan-statistik/`](../semester-1/probabilitas-dan-statistik/) | — → `IF52510033` | 3 | I | Tri Aji Nugroho, S.T., M.T. | Siap dengan perbaikan | Naskah UTS + kunci; CSV lab; pengaitan Sub-CPMK |
+| [`semester-5/teknopreneur/`](../semester-5/teknopreneur/) | — → `ST52510002` | 3 | V | Tri Aji Nugroho, S.T., M.T. | Siap dengan perbaikan | Persetujuan prodi untuk syarat lulus tambahan; label teknik; sitasi hukum |
+| [`semester-7/metodologi-penelitian/`](../semester-7/metodologi-penelitian/) | — → `IF52510021` | 2 | VII | **Andi Arniaty Arsyad, Ph.D.** | Belum siap | Skala nilai, pengesahan, dan rubrik — keputusan pada pengampu |
+| [`semester-2/algoritma-pemrograman/`](../semester-2/algoritma-pemrograman/) | INF-101 → `IF52520004` | 2 | II | Tri Aji Nugroho, S.T., M.T. | Pilot OBE v2.0 tuntas, **tetapi pada skema yang sudah digantikan** | Selaraskan ulang sebelum Genap 2026/2027 |
+| [`semester-2/praktikum-algoritma-pemrograman/`](../semester-2/praktikum-algoritma-pemrograman/) | INF-102 → `IF52520005` | 1 | II | Tri Aji Nugroho, S.T., M.T. | Skema lama; bobot rubrik salah salin | Selaraskan ulang |
+| [`semester-2/analisis-data-statistik/`](../semester-2/analisis-data-statistik/) | TBD-STAT → `IF52520025` | **2 → 3** | II | Tri Aji Nugroho, S.T., M.T. | Skema lama; 55 berkas tanpa *footer* | Selaraskan ulang **berat**: tambah SKS dan pisahkan dari Probabilitas dan Statistik |
+| [`semester-4/rekayasa-perangkat-lunak/`](../semester-4/rekayasa-perangkat-lunak/) | IF2205 → `IF52520011` | 3 | IV | **Dr. Ir. Winangsari Pradani, M.T.** (penyusun materi: Tri Aji Nugroho, S.T., M.T.) | Skema lama | ~~Serahkan ke pengampu baru atau arsipkan sebagai rujukan~~ **Diputuskan (v1.2):** tetap di repositori, ditempatkan di semester 4 dengan keterangan penyusun materi vs pengampu registri; selaraskan ke registri bersama pengampu |
+| [`arsip/praktikum-rekayasa-perangkat-lunak/`](../arsip/praktikum-rekayasa-perangkat-lunak/) | IF2206 → **tidak ada** | 1 | — | — | ~~14 tautan putus~~ **Diarsipkan (v1.2)**; 14 tautan sudah diperbaiki (`d339d8a`) | ~~Arsipkan~~ Sudah diarsipkan; peleburan ke RPL / Proyek PL / Pengujian PL menunggu prodi |
+| [`arsip/kecerdasan-buatan-machine-learning/`](../arsip/kecerdasan-buatan-machine-learning/) | IF3XXX → digantikan `IF52510031` | 4 | — | — | **Diarsipkan (v1.2)**; kode Keras 3 / sklearn 1.6 sebagian rusak | ~~Arsipkan~~ Sudah dipindah ke `arsip/` dengan spanduk pada README dan RPS; `status: arsip` **belum diterapkan** (berkas materi arsip belum ber-*front-matter*); dipakai sebagai bank konten untuk JST, NLP, dan Pengolahan Citra |
+
+Path folder relatif terhadap `mata-kuliah/` (susunan per semester sejak v1.2). Kolom *Pengampu menurut registri* mengikuti [registri `11`](../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Seluruh materi di kesepuluh folder disusun oleh Tri Aji Nugroho, S.T., M.T., termasuk Rekayasa Perangkat Lunak dan Metodologi Penelitian yang pengampu registrinya berbeda.
 
 ### 3.2 Lapisan Rujukan
 
@@ -154,15 +169,15 @@ Akibatnya, ketercapaian CPL yang dihitung dari nilai ini tidak sahih. **Pilihan:
 
 | Temuan | Lokasi | Tingkat |
 |--------|--------|:-------:|
-| ~~Terdapat **delapan varian skala nilai** di MK lama, termasuk tiga skala berbeda di dalam INF-101 sendiri. Soal UTS INF-101 no. 11 menyebut skala tanpa C+ sebagai "standar UAI".~~ **Selesai (Oktober 2026):** semua skala mengikuti tabel resmi; soal no. 11 kini memakai skala resmi, kuncinya `A-`, dan pembahasan distraktornya diperbarui. | `algoritma-pemrograman/04-assessments/uts-algoritma-pemrograman.md` | ~~TINGGI~~ |
-| Bobot di rubrik INF-102 tersalin dari templat teori (15/10/20/25/25/5), berbeda dengan RPS-nya (25/25/35/10/5) | `praktikum-algoritma-pemrograman/04-assessments/rubrik-tugas.md` | KRITIS (bila dipakai lagi) |
-| INF-101 lulus validator dengan 0 pelanggaran, padahal 7 CPMK lokal dan 55 Sub-CPMK-nya **tidak sesuai registri** (resmi: CPMK032/033, 2 Sub-CPMK, bobot 5/25/30/20/20) | `algoritma-pemrograman/01-rps/` | KRITIS (untuk Genap 2026/2027) |
-| Materi Analisis Data Statistik (probabilitas → regresi) kini sebagian besar menjadi isi Probabilitas dan Statistik semester I | `analisis-data-statistik/` | KRITIS (untuk Genap 2026/2027) |
-| 55 dari 59 berkas ADS tanpa *footer*; buku ajar bertahun "2025"; tabel literasi AI berhenti di Bab 12–13 | `analisis-data-statistik/06-buku-ajar/` | SEDANG |
-| 14 tautan `../../../` putus di lab 01–04 IF2206 | `praktikum-rekayasa-perangkat-lunak/03-modul-praktikum/` | SEDANG |
-| Kode Keras 3 / sklearn 1.6 rusak di IF3XXX (`model.save('dir/')`, `.h5`, `mean_squared_error(squared=False)`, `ImageDataGenerator`) | `kecerdasan-buatan-machine-learning/06-buku-ajar/lampiran.md` dll. | RENDAH (diarsipkan) |
-| SK LAM-INFOKOM diatribusikan ke **BAN-PT** | `strategic-analysis.md` di ADS, IF2205, IF3XXX; kedua `prompt-*.md` | SEDANG |
-| `AUDIT-KESELARASAN-IF2205-IF2206.md` menyatakan 13 isu selesai, padahal templat AI Usage Log masih ada 6 versi dan ada rubrik proyek ketiga di `week-15` | `AUDIT-KESELARASAN-IF2205-IF2206.md` | RENDAH |
+| ~~Terdapat **delapan varian skala nilai** di MK lama, termasuk tiga skala berbeda di dalam INF-101 sendiri. Soal UTS INF-101 no. 11 menyebut skala tanpa C+ sebagai "standar UAI".~~ **Selesai (Oktober 2026):** semua skala mengikuti tabel resmi; soal no. 11 kini memakai skala resmi, kuncinya `A-`, dan pembahasan distraktornya diperbarui. | `semester-2/algoritma-pemrograman/04-assessments/uts-algoritma-pemrograman.md` | ~~TINGGI~~ |
+| Bobot di rubrik INF-102 tersalin dari templat teori (15/10/20/25/25/5), berbeda dengan RPS-nya (25/25/35/10/5) | `semester-2/praktikum-algoritma-pemrograman/04-assessments/rubrik-tugas.md` | KRITIS (bila dipakai lagi) |
+| INF-101 lulus validator dengan 0 pelanggaran, padahal 7 CPMK lokal dan 55 Sub-CPMK-nya **tidak sesuai registri** (resmi: CPMK032/033, 2 Sub-CPMK, bobot 5/25/30/20/20) | `semester-2/algoritma-pemrograman/01-rps/` | KRITIS (untuk Genap 2026/2027) |
+| Materi Analisis Data Statistik (probabilitas → regresi) kini sebagian besar menjadi isi Probabilitas dan Statistik semester I | `semester-2/analisis-data-statistik/` | KRITIS (untuk Genap 2026/2027) |
+| 55 dari 59 berkas ADS tanpa *footer*; buku ajar bertahun "2025"; tabel literasi AI berhenti di Bab 12–13 | `semester-2/analisis-data-statistik/06-buku-ajar/` | SEDANG |
+| ~~14 tautan `../../../` putus di lab 01–04 IF2206~~ **Selesai (v1.2):** diperbaiki saat penataan per semester (`d339d8a`) | `arsip/praktikum-rekayasa-perangkat-lunak/03-modul-praktikum/` | ~~SEDANG~~ |
+| Kode Keras 3 / sklearn 1.6 rusak di IF3XXX (`model.save('dir/')`, `.h5`, `mean_squared_error(squared=False)`, `ImageDataGenerator`) | `arsip/kecerdasan-buatan-machine-learning/06-buku-ajar/lampiran.md` dll. | RENDAH (diarsipkan) |
+| SK LAM-INFOKOM diatribusikan ke **BAN-PT** | `00-strategic-analysis/strategic-analysis.md` di ADS, IF2205, IF3XXX; kedua `00-meta/prompt-*.md` | SEDANG |
+| `AUDIT-KESELARASAN-IF2205-IF2206.md` menyatakan 13 isu selesai, padahal templat AI Usage Log masih ada 6 versi dan ada rubrik proyek ketiga di `week-15` | `00-meta/AUDIT-KESELARASAN-IF2205-IF2206.md` | RENDAH |
 
 ---
 
@@ -200,17 +215,19 @@ Hanya INF-101 yang dikenali sebagai mata kuliah, sehingga pemeriksaan V3/V5/V6/V
 - **Komposisi SKS di `11`:** tertulis MKP 111 + MKPP 9, padahal tabelnya menjumlah MKP 117 (19 + 5 + 117 + 3 = 144).
 - **Rentang CPMK per MK:** tertulis "2–3" atau "2–6", padahal sebenarnya 2–7.
 - **Salah ketik:** `CPLUA3`; CPL08 tercantum dua kali di `07`; kode dosen ENR/ERN.
-- **Catatan `91` §2 sudah usang:** masih menyebut folder Probabilitas dan Statistik serta Teknopreneur belum ada, dan menyatakan kode CPL resmi "konsisten di seluruh materi".
+- **Catatan `91` §2 sudah usang:** masih menyebut folder Probabilitas dan Statistik serta Teknopreneur belum ada, dan menyatakan kode CPL resmi "konsisten di seluruh materi". *(v1.2: bagian folder sudah diberi catatan pembaruan bertanggal 2026-10-07 beserta path baru; klaim konsistensi kode CPL di §2.3 belum ditinjau.)*
 - **Urutan semester:** Sains Data (semester 4, *Core*, *end-to-end ML*) mendahului Dasar AI/ML (semester 5).
 
 ### 7.4 Dokumen meta yang usang
+
+> **Pembaruan v1.2:** `CLAUDE.md` dan `README.md` akar sudah ditulis ulang (susunan per semester, jumlah berkas aktual, kode resmi, rujukan ke registri, validator, dan bobot dari `15a`). Kedua prompt sudah memakai lokasi `mata-kuliah/semester-N/` dan tabel skala resmi, tetapi bagian lainnya (kode Sub-CPMK lama, atribusi BAN-PT) masih menunggu Fase 2.5. Butir di bawah dipertahankan sebagai catatan temuan awal.
 
 - **`CLAUDE.md`:**
   - menyebut "179+ dokumen" dan "4–6 mata kuliah" (kenyataannya 536 berkas dan 10 MK);
   - jalurnya masih `mata kuliah/` dengan spasi;
   - bobot asesmen dan klaim "7 CPMK per MK" masih versi lama;
   - tidak menyebut registri kurikulum maupun validator.
-- **Kedua `prompt-*.md`:** masih membangkitkan kode Sub-CPMK gaya lama (nomor CPMK dan urutan tanpa prefiks) dan atribusi BAN-PT, sehingga regenerasi konten akan memasukkan kembali kesalahan lama. Ini adalah Fase 2.5 Pedoman, yang **belum dikerjakan**.
+- **Kedua `00-meta/prompt-*.md`:** masih membangkitkan kode Sub-CPMK gaya lama (nomor CPMK dan urutan tanpa prefiks) dan atribusi BAN-PT, sehingga regenerasi konten akan memasukkan kembali kesalahan lama. Ini adalah Fase 2.5 Pedoman, yang **belum dikerjakan**.
 - **`ROADMAP-ENHANCEMENT.md` (RPL dan PRPL):** masih berstatus "✅ Complete" per April 2026 dan belum menyadari adanya kurikulum baru.
 
 ---
@@ -247,7 +264,7 @@ Hanya INF-101 yang dikenali sebagai mata kuliah, sehingga pemeriksaan V3/V5/V6/V
 | 2.1 | **Pedoman OBE v3.0:** urutan otoritas (Excel resmi > registri > pedoman > `CLAUDE.md`/prompt); ganti registri BK lama dengan BK registri; format kode CPMK/Sub-CPMK/asesmen mengikuti registri |
 | 2.2 | **Validator v3:** baca kode, bobot, dan SKS dari registri; kenali kode `XX-Sub-CPMKnnn-n`; perluas V13 ke skala dalam kode/prosa; jalankan kode lab |
 | 2.3 | **Selaraskan ulang tiga MK semester II** ke registri: Algoritma Pemrograman `IF52520004` (2 Sub-CPMK; bobot 5/25/30/20/20; pisahkan dari Dasar Pemrograman semester I), Praktikum `IF52520005` (bobot 5/5/50/20/10/10), Analisis Data Statistik `IF52520025` (**3 SKS**; bobot 15/25/10/25/25; fokus pada akuisisi, kualitas data, EDA, dan analitik berbantuan AI yang tervalidasi — bukan mengulang Probabilitas dan Statistik) |
-| 2.4 | Arsipkan `kecerdasan-buatan-machine-learning/` dan `praktikum-rekayasa-perangkat-lunak/` (`status: arsip` + spanduk), serahkan `rekayasa-perangkat-lunak/` kepada pengampu baru |
+| 2.4 | ~~Arsipkan `kecerdasan-buatan-machine-learning/` dan `praktikum-rekayasa-perangkat-lunak/` (`status: arsip` + spanduk), serahkan `rekayasa-perangkat-lunak/` kepada pengampu baru~~ **Selesai sebagian (v1.2):** kedua folder sudah dipindah ke `arsip/` dan diberi spanduk arsip, tetapi spanduk baru ada pada README dan RPS masing-masing folder (4 dari 80 berkas materi arsip: 57 + 23; indeks `arsip/README.md` tidak dihitung). `semester-4/rekayasa-perangkat-lunak/` tetap di repositori dengan keterangan penyusun materi: Tri Aji Nugroho, S.T., M.T.; pengampu (registri): Dr. Ir. Winangsari Pradani, M.T. **Sisa pekerjaan:** (a) `status: arsip` belum diterapkan — berkas materi arsip belum ber-*front-matter*; sesuai ketentuan penanda arsip di [`arsip/README.md`](../arsip/README.md), `status: arsip` dipasang bila *front-matter* ditambahkan; (b) penyelarasan RPL ke registri `IF52520011` masih perlu dikoordinasikan dengan pengampu |
 | 2.5 | **Fase 2.5:** perbarui `CLAUDE.md`, README utama, dan kedua prompt agar regenerasi tidak memasukkan kembali kesalahan lama |
 | 2.6 | Laporkan temuan §7.3 kepada tim kurikulum |
 
@@ -268,7 +285,7 @@ Hanya INF-101 yang dikenali sebagai mata kuliah, sehingga pemeriksaan V3/V5/V6/V
 1. **Skala nilai — sisa verifikasi.** Tabel resmi lengkap sudah diterima dan diterapkan (7 Oktober 2026). Yang masih perlu dipastikan dari dokumen resmi: bobot nilai mutu (kini bobot umum 4,00/3,70/3,30/3,00/2,70/2,30/2,00/1,00/0,00), nama/nomor dokumen, dan aturan pembulatan.
 2. **Syarat lulus tambahan** (≥ 50% per Sub-CPMK, wajib presentasi, 15 wawancara): ajukan ke prodi atau cabut?
 3. **Ketidakcocokan teknik ↔ Sub-CPMK:** tandai per butir (dalam kendali dosen) atau usulkan revisi registri?
-4. **Nasib folder** IF2205, IF2206, dan IF3XXX.
+4. **Nasib folder** IF2205, IF2206, dan IF3XXX. *(v1.2 — sudah diputuskan: IF3XXX dan IF2206 diarsipkan; IF2205 ditempatkan di `semester-4/rekayasa-perangkat-lunak/` sebagai `IF52520011` dengan keterangan penyusun materi. Yang tersisa hanya keputusan prodi tentang peleburan lab IF2206.)*
 5. **Urutan otoritas** registri vs Pedoman OBE, dan apakah kode asesmen memakai `ASM-*` atau `K-01/T-01/P-01`.
 6. **Metodologi Penelitian:** teruskan ke Andi Arniaty Arsyad, Ph.D. untuk pengesahan dan rubrik; beri tahu juga bahwa skala resmi UAI sudah diterapkan di bahan mata kuliah tersebut.
 

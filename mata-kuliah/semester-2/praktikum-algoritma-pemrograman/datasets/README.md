@@ -2,7 +2,7 @@
 
 Dataset dan resource untuk praktikum menggunakan dataset yang sama dengan mata kuliah teori. Silakan merujuk ke folder datasets di paket mata kuliah teori:
 
-`../algoritma-pemrograman/datasets/`
+[`../../algoritma-pemrograman/datasets/`](../../algoritma-pemrograman/datasets/)
 
 ---
 

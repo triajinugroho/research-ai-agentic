@@ -1,5 +1,7 @@
 # Kecerdasan Buatan dan Machine Learning — Prodi Informatika UAI
 
+> **🗄 Arsip — kurikulum sebelumnya.** Materi ini tidak lagi dipakai pada Kurikulum Informatika 2025 Revisi 2026. `IF3XXX` (4 SKS) digantikan oleh **Dasar Kecerdasan Artifisial dan Pembelajaran Mesin** (`IF52510031`, 3 SKS, semester 5) — penerus: [`semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](../../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/). Folder ini disimpan sebagai bank konten (Jaringan Syaraf Tiruan dan Pembelajaran Mendalam, Pengolahan Bahasa Alami, Pengolahan Citra) dan **tidak dipelihara** — kode dapat usang (mis. Keras 3). Materi disusun oleh Tri Aji Nugroho, S.T., M.T. Lihat [arsip](../README.md).
+
 > **Mata Kuliah:** Kecerdasan Buatan dan Machine Learning (4 SKS)
 > **Program Studi:** Informatika, Universitas Al Azhar Indonesia
 > **Semester:** Ganjil 2026/2027 (Tingkat 3)

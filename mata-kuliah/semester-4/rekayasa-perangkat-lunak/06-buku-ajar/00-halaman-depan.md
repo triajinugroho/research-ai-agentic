@@ -27,6 +27,7 @@
 |----------|--------|
 | **Judul** | Rekayasa Perangkat Lunak: Proses, Desain, dan Praktik Modern dengan AI |
 | **Penulis** | Tri Aji Nugroho, S.T., M.T. |
+| **Dosen Pengampu** | Dr. Ir. Winangsari Pradani, M.T. (Kurikulum 2025 Revisi 2026, kode `IF52520011`) |
 | **Institusi** | Universitas Al Azhar Indonesia |
 | **Fakultas** | Sains dan Teknologi |
 | **Program Studi** | Informatika |
@@ -36,6 +37,8 @@
 | **Pendekatan** | Outcome-Based Education (OBE), AI-Augmented |
 | **Bahasa Pemrograman** | Python 3.x + JavaScript/TypeScript |
 | **Platform** | GitHub Codespaces |
+
+> **Catatan penulis dan pengampu.** Buku ajar ini — beserta seluruh materi mata kuliah Rekayasa Perangkat Lunak di repositori ini — ditulis dan disusun oleh **Tri Aji Nugroho, S.T., M.T.** untuk kurikulum sebelumnya (kode IF2205). Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini berkode `IF52520011` (semester 4, 3 SKS) dengan dosen pengampu/pengembang RPS **Dr. Ir. Winangsari Pradani, M.T.** menurut [registri](../../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md).
 
 ---
 
@@ -60,7 +63,7 @@ Buku ini terdiri dari **14 bab** yang disusun secara progresif — dari fondasi 
 Jakarta, Februari 2026
 
 **Tri Aji Nugroho, S.T., M.T.**
-Dosen Pengampu Mata Kuliah Rekayasa Perangkat Lunak
+Penulis Buku Ajar dan Penyusun Materi Mata Kuliah Rekayasa Perangkat Lunak
 Program Studi Informatika
 Universitas Al Azhar Indonesia
 

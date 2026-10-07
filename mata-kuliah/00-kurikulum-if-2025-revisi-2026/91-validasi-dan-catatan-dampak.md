@@ -4,6 +4,7 @@
 **Sifat:** Analisis turunan — **bukan** transkripsi sheet  
 **Kurikulum:** Kurikulum Informatika 2025 — Revisi 2026  
 **Ekstraksi:** September 2026  
+**Diperbarui:** 7 Oktober 2026 — path folder disesuaikan dengan penataan repositori per semester (catatan pembaruan di §2 dan §3)  
 
 ---
 
@@ -58,14 +59,35 @@ sebagai dua versi dari hal yang sama.
 
 ### 2.1 Pemetaan mata kuliah repositori → kurikulum baru
 
+Path folder ditulis relatif terhadap `mata-kuliah/` dan mengikuti susunan per semester (7 Oktober 2026).
+
 | Folder Repositori | Kode Lama | Kode Kurikulum 2025/2026 | Nama Resmi Baru | SKS Repo → Baru | Sem | Status |
 |---|---|---|---|---|---|---|
-| `algoritma-pemrograman/` | INF-101 | `IF52520004` | Algoritma Pemrograman | 2 → 2 | II | Cocok |
-| `praktikum-algoritma-pemrograman/` | INF-102 | `IF52520005` | Praktikum Algoritma Pemrograman | 1 → 1 | II | Cocok |
-| `analisis-data-statistik/` | TBD-STAT | `IF52520025` | Analisis Data Statistik | **2 → 3** | II | SKS berubah |
-| `rekayasa-perangkat-lunak/` | IF2205 | `IF52520011` | Rekayasa Perangkat Lunak | 3 → 3 | IV | Kode berubah; pengampu WNS |
-| `praktikum-rekayasa-perangkat-lunak/` | IF2206 | **tidak ada** | — | 1 → — | — | **Tidak ada padanan** |
-| `kecerdasan-buatan-machine-learning/` | IF3XXX | `IF52510031` | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin | **4 → 3** | V | SKS & nama berubah |
+| `semester-2/algoritma-pemrograman/` | INF-101 | `IF52520004` | Algoritma Pemrograman | 2 → 2 | II | Cocok |
+| `semester-2/praktikum-algoritma-pemrograman/` | INF-102 | `IF52520005` | Praktikum Algoritma Pemrograman | 1 → 1 | II | Cocok |
+| `semester-2/analisis-data-statistik/` | TBD-STAT | `IF52520025` | Analisis Data Statistik | **2 → 3** | II | SKS berubah |
+| `semester-4/rekayasa-perangkat-lunak/` | IF2205 | `IF52520011` | Rekayasa Perangkat Lunak | 3 → 3 | IV | Kode berubah; pengampu WNS (registri: Dr. Ir. Winangsari Pradani, M.T.); penyusun materi Tri Aji Nugroho, S.T., M.T. |
+| `arsip/praktikum-rekayasa-perangkat-lunak/` | IF2206 | **tidak ada** | — | 1 → — | — | **Tidak ada padanan** — diarsipkan |
+| `arsip/kecerdasan-buatan-machine-learning/` | IF3XXX | `IF52510031` | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin | **4 → 3** | V | SKS & nama berubah — diarsipkan; materi `IF52510031` di `semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/` |
+
+> **Pembaruan 2026-10-07 — penataan repositori per semester.** Sejak commit `d339d8a` dan `f7904f1`,
+> folder materi dikelompokkan menurut semester registri: `mata-kuliah/semester-N/<slug>/`. Dua folder
+> kurikulum lama tanpa padanan aktif dipindah ke [`mata-kuliah/arsip/`](../arsip/README.md). Kolom
+> *Folder Repositori* di atas sudah memakai path baru, dan kolom *Status* diberi tambahan keterangan
+> 2026-10-07 (diarsipkan; letak materi `IF52510031`; penyusun materi dan nama lengkap pengampu RPL).
+> Isi kolom lainnya tetap seperti hasil analisis September 2026. Setelah catatan ini disusun,
+> repositori juga sudah memuat materi untuk empat mata kuliah kurikulum baru berikut:
+>
+> | Folder Repositori | Kode Kurikulum 2025/2026 | Mata Kuliah | SKS | Sem | Pengampu (registri) |
+> |---|---|---|---|---|---|
+> | [`semester-1/probabilitas-dan-statistik/`](../semester-1/probabilitas-dan-statistik/) | `IF52510033` | Probabilitas dan Statistik | 3 | I | Tri Aji Nugroho, S.T., M.T. |
+> | [`semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | `IF52510031` | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin | 3 | V | Tri Aji Nugroho, S.T., M.T. |
+> | [`semester-5/teknopreneur/`](../semester-5/teknopreneur/) | `ST52510002` | Teknopreneur | 3 | V | Tri Aji Nugroho, S.T., M.T. |
+> | [`semester-7/metodologi-penelitian/`](../semester-7/metodologi-penelitian/) | `IF52510021` | Metodologi Penelitian | 2 | VII | Andi Arniaty Arsyad, Ph.D. |
+>
+> Seluruh materi di repositori ini disusun oleh **Tri Aji Nugroho, S.T., M.T.** Kolom *Pengampu
+> (registri)* mengikuti [11-susunan-mata-kuliah-dan-dosen.md](11-susunan-mata-kuliah-dan-dosen.md)
+> dan dapat berbeda dari penyusun materi.
 
 ### 2.2 Perubahan yang berdampak besar
 
@@ -100,13 +122,28 @@ Unjuk Kerja (Presentasi/Proyek), Tes Tulis UTS, dan Tes Tulis UAS — dengan bob
 **c. Praktikum Rekayasa Perangkat Lunak (IF2206) tidak ada dalam kurikulum baru.**
 Sheet 8, 9, 11, 14, dan 15 tidak memuat mata kuliah praktikum untuk Rekayasa Perangkat Lunak.
 Praktikum yang terdaftar hanya: Praktikum Dasar Pemrograman, Praktikum Algoritma Pemrograman,
-dan Praktikum Basis Data. Materi pada folder `praktikum-rekayasa-perangkat-lunak/` perlu
+dan Praktikum Basis Data. Materi pada folder `praktikum-rekayasa-perangkat-lunak/` (kini
+`arsip/praktikum-rekayasa-perangkat-lunak/`) perlu
 diputuskan nasibnya — diarsipkan, dilebur ke `Rekayasa Perangkat Lunak` (IF52520011) atau ke
 `Proyek Perangkat Lunak` (IF52520017, 4 SKS, semester VI — 5 Sub-CPMK, bobot Partisipasi 5% · Observasi 35% · Unjuk Kerja 40% · UTS 10% · UAS 10%), atau diusulkan kembali ke prodi.
+
+> **Pembaruan 2026-10-07.** Folder ini sudah dipindah ke
+> [`arsip/praktikum-rekayasa-perangkat-lunak/`](../arsip/praktikum-rekayasa-perangkat-lunak/)
+> (commit `d339d8a`) dan disimpan sebagai bank konten. Usulan peleburan lab per mata kuliah tujuan
+> dicatat di [README arsip](../arsip/README.md); keputusan peleburan tetap menunggu prodi.
 
 **d. Rekayasa Perangkat Lunak bukan mata kuliah ampuan Tri Aji Nugroho.**
 Sheet 11 mencatat pengampu/pengembang RPS `IF52520011 Rekayasa Perangkat Lunak` adalah
 Dr. Ir. Winangsari Pradani, M.T. (kode `WNS`), dan validatornya juga `WNS`.
+
+> **Pembaruan 2026-10-07 (keputusan dosen).** Materi Rekayasa Perangkat Lunak tetap disimpan di
+> repositori dan ditempatkan sesuai semester registri, yaitu di
+> [`semester-4/rekayasa-perangkat-lunak/`](../semester-4/rekayasa-perangkat-lunak/README.md).
+> **Penyusun materi:** Tri Aji Nugroho, S.T., M.T. — seluruh materi RPL (RPS, RTM, modul, lab,
+> asesmen, buku ajar) disusun olehnya, seperti seluruh materi lain di repositori ini.
+> **Pengampu (registri):** Dr. Ir. Winangsari Pradani, M.T. Keterangan ini dicantumkan di README,
+> RPS, RTM, dan halaman depan buku ajar mata kuliah tersebut. Materi masih disusun untuk kode lama
+> IF2205 dan perlu diselaraskan dengan registri `IF52520011` sebelum dipakai pada kurikulum baru.
 
 **e. Ada dua mata kuliah ampuan yang belum punya materi di repositori.**
 
@@ -118,6 +155,13 @@ Dr. Ir. Winangsari Pradani, M.T. (kode `WNS`), dan validatornya juga `WNS`.
 `Probabilitas dan Statistik` (semester I) berbeda dari `Analisis Data Statistik` (semester II) —
 keduanya diampu Tri Aji Nugroho dan keduanya mengampu `CPMK102`, sehingga pembagian materinya
 perlu ditegaskan agar tidak tumpang tindih.
+
+> **Pembaruan 2026-10-07.** Butir ini sudah usang: kedua mata kuliah kini **sudah memiliki
+> materi** di repositori, yaitu
+> [`semester-1/probabilitas-dan-statistik/`](../semester-1/probabilitas-dan-statistik/) dan
+> [`semester-5/teknopreneur/`](../semester-5/teknopreneur/). Tabel di atas dipertahankan sebagai
+> catatan keadaan September 2026. Catatan tentang pembagian materi dengan Analisis Data Statistik
+> masih berlaku.
 
 ### 2.3 Yang sudah selaras
 
@@ -133,12 +177,21 @@ perlu ditegaskan agar tidak tumpang tindih.
 
 1. Konfirmasikan temuan **T-1** s.d. **T-3** ke tim kurikulum — ketiganya salah ketik pada berkas
    sumber, bukan keputusan kurikulum, dan paling cepat diperbaiki.
-2. Putuskan nasib `praktikum-rekayasa-perangkat-lunak/` (butir 2.2c) sebelum memetakan ulang CPMK.
+2. Putuskan nasib `arsip/praktikum-rekayasa-perangkat-lunak/` (butir 2.2c) sebelum memetakan ulang CPMK.
+   *(Pembaruan 2026-10-07: folder sudah diarsipkan; keputusan peleburan masih menunggu prodi.)*
 3. Petakan ulang CPMK dan bobot penilaian pada empat mata kuliah ampuan yang sudah punya materi,
-   mulai dari `algoritma-pemrograman/` dan `praktikum-algoritma-pemrograman/` yang SKS-nya tidak berubah.
-4. Sesuaikan SKS `analisis-data-statistik/` (2 → 3) dan `kecerdasan-buatan-machine-learning/` (4 → 3),
-   termasuk jumlah pertemuan dan beban tugas.
+   mulai dari `semester-2/algoritma-pemrograman/` dan `semester-2/praktikum-algoritma-pemrograman/`
+   yang SKS-nya tidak berubah.
+   *(Pembaruan 2026-10-07: keenam MK ampuan kini punya materi; Probabilitas dan Statistik, Dasar
+   AI/ML, dan Teknopreneur sudah disusun pada skema registri, sedangkan IF3XXX diarsipkan. Yang
+   masih perlu dipetakan ulang adalah tiga MK semester II.)*
+4. Sesuaikan SKS `semester-2/analisis-data-statistik/` (2 → 3) dan
+   `arsip/kecerdasan-buatan-machine-learning/` (4 → 3), termasuk jumlah pertemuan dan beban tugas.
+   *(Pembaruan 2026-10-07: untuk IF3XXX butir ini tertangani — folder lama diarsipkan dan materi
+   3 SKS `IF52510031` tersedia di `semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`.)*
 5. Perbarui `CLAUDE.md` dan `README.md` repositori: kode mata kuliah, SKS, dan aturan bobot penilaian.
+   *(Pembaruan 2026-10-07: `CLAUDE.md` dan `README.md` akar sudah diperbarui — kode resmi, SKS registri,
+   susunan per semester, dan rujukan bobot ke `15a-rekap-bobot-penilaian.md`.)*
 6. Tunggu sheet 16–20 final sebelum menyusun instrumen penilaian tingkat prodi.
 
 ---

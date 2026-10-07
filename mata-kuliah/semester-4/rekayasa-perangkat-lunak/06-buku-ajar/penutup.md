@@ -63,7 +63,7 @@ Bangunlah software yang bermanfaat. Jadilah engineer yang amanah. Teruslah belaj
 **Jakarta, Februari 2026**
 
 **Tri Aji Nugroho, S.T., M.T.**
-Dosen Pengampu Rekayasa Perangkat Lunak
+Penulis Buku Ajar dan Penyusun Materi Mata Kuliah Rekayasa Perangkat Lunak
 Program Studi Informatika
 Universitas Al Azhar Indonesia
 

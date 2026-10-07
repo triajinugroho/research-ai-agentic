@@ -38,7 +38,7 @@ Sebelum menjalankan prompt, isi variabel-variabel berikut:
 | `[SKS]` | 2 SKS | Jumlah SKS |
 | `[TIPE_MK]` | Teori / Lab / Teori+Lab | Pilih salah satu |
 | `[SEMESTER]` | Genap 2025/2026 | Semester penyelenggaraan |
-| `[SEMESTER_KE]` | 2 | Semester ke-berapa di kurikulum |
+| `[SEMESTER_KE]` | 2 | Semester ke-berapa di kurikulum (menurut registri kurikulum); menentukan folder `mata-kuliah/semester-[SEMESTER_KE]/` di repositori `research-ai-agentic` |
 | `[DURASI_MENIT]` | 150 menit/minggu | Total tatap muka per minggu |
 | `[PRASYARAT]` | Pengantar Informatika | Mata kuliah prasyarat |
 | `[KO_REQUISITE]` | Analisis Data Statistik | Ko-requisite (jika ada) |
@@ -177,6 +177,8 @@ Seluruh contoh, studi kasus, dan dataset harus menggunakan konteks Indonesia:
 ### D. TEMPLATE TIPE MATA KULIAH
 
 > **Pilih SATU template** sesuai tipe mata kuliah yang akan di-generate.
+
+> **Lokasi keluaran.** Folder akar `[SLUG_MK]/` pada setiap struktur folder di bawah adalah satu paket MK. Dalam repositori `research-ai-agentic`, paket ditempatkan di `mata-kuliah/semester-[SEMESTER_KE]/[SLUG_MK]/`, dengan `[SEMESTER_KE]` = semester kurikulum MK menurut registri `mata-kuliah/00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md` (semester ganjil kurikulum dilaksanakan pada Semester Ganjil tahun akademik, semester genap pada Semester Genap). Tautan relatif dari folder tingkat-1 paket (`01-rps/`, `02-rtm/`, `00-pedoman-praktikum/`, dst.) ke registri memakai `../../../00-pedoman-obe/<berkas>.md` dan `../../../00-kurikulum-if-2025-revisi-2026/<berkas>.md`; dari `README.md` paket memakai `../../00-pedoman-obe/<berkas>.md` dan `../../00-kurikulum-if-2025-revisi-2026/<berkas>.md`. Di luar repositori itu berkas registri tidak ada, jadi jangan menulis tautan ke registri.
 
 ---
 
@@ -463,9 +465,9 @@ Harus memiliki **SEMUA** bagian berikut (format SN-Dikti):
 - **G. Peta Evaluasi** — ringkasan bobot, matrix CPMK × asesmen, timeline asesmen
 - **H. Konversi Nilai** — salin **apa adanya** tabel konversi di bawah ini, termasuk tanda minus "−" pada A− dan B− serta koma desimal (skala resmi UAI, sama dengan tabel §A registri konversi nilai `mata-kuliah/00-pedoman-obe/konversi-nilai.md` di repositori `research-ai-agentic`): 9 huruf mutu A, A−, B+, B, B−, C+, C, D, E; A ≥ 81,00; batas lulus C ≥ 55,00, D dan E tidak lulus. JANGAN mengarang atau mengubah skala.
 
-  Tepat di atas tabel, tulis kalimat berikut sebagai tautan Markdown biasa (tanpa backtick). Tautan ini hanya berlaku bila paket ditempatkan di `mata-kuliah/[SLUG_MK]/` dalam repositori `research-ai-agentic` (path dihitung dari `01-rps/`); di luar repositori itu berkas registri tidak ada dan tautannya akan putus, jadi salin tabelnya saja tanpa kalimat bertautan tersebut.
+  Tepat di atas tabel, tulis kalimat berikut sebagai tautan Markdown biasa (tanpa backtick). Tautan ini hanya berlaku bila paket ditempatkan di `mata-kuliah/semester-[SEMESTER_KE]/[SLUG_MK]/` dalam repositori `research-ai-agentic` (path dihitung dari `01-rps/`); di luar repositori itu berkas registri tidak ada dan tautannya akan putus, jadi salin tabelnya saja tanpa kalimat bertautan tersebut.
 
-  `Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.`
+  `Skala mengikuti [registri konversi nilai](../../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.`
 
   | Rentang Nilai Akhir | Huruf | Bobot | Kategori |
   |---------------------|-------|-------|----------|
@@ -517,7 +519,7 @@ File: `00-pedoman-praktikum/pedoman-praktikum.md`
 - Kode etik akademik (larangan plagiarisme, kode sharing)
 - Tata krama
 - Komponen penilaian (tabel bobot)
-- Konversi nilai — salin tabel konversi pada H.2 bagian H apa adanya; kalimat pengantar bertautan mengikuti ketentuan penempatan yang sama seperti H.2 (hanya bila paket berada di `mata-kuliah/[SLUG_MK]/` dalam `research-ai-agentic`; dari `00-pedoman-praktikum/` path tautannya sama: `../../00-pedoman-obe/konversi-nilai.md`); jangan mengarang skala
+- Konversi nilai — salin tabel konversi pada H.2 bagian H apa adanya; kalimat pengantar bertautan mengikuti ketentuan penempatan yang sama seperti H.2 (hanya bila paket berada di `mata-kuliah/semester-[SEMESTER_KE]/[SLUG_MK]/` dalam `research-ai-agentic`; dari `00-pedoman-praktikum/` path tautannya sama: `../../../00-pedoman-obe/konversi-nilai.md`); jangan mengarang skala
 - Format laporan (template Google Colab Notebook)
 - Kriteria penilaian laporan
 - AI Usage Policy (kapan boleh, kapan tidak, konsekuensi)

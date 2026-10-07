@@ -1,5 +1,7 @@
 # RENCANA PEMBELAJARAN SEMESTER (RPS)
 
+> **🗄 Arsip — kurikulum sebelumnya.** RPS ini tidak lagi berlaku pada Kurikulum Informatika 2025 Revisi 2026. `IF3XXX` (4 SKS) digantikan oleh **Dasar Kecerdasan Artifisial dan Pembelajaran Mesin** (`IF52510031`, 3 SKS, semester 5) — penerus: [RPS `IF52510031`](../../../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/01-rps/). CPMK, bobot penilaian, dan kode MK di bawah ini mengikuti kurikulum lama dan tidak dipelihara. Materi disusun oleh Tri Aji Nugroho, S.T., M.T. Lihat [arsip](../../README.md).
+
 ## UNIVERSITAS AL AZHAR INDONESIA
 ### Fakultas Sains dan Teknologi — Program Studi Informatika
 

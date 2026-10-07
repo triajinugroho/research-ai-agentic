@@ -106,6 +106,21 @@ Sebagian acuan di bawah diperoleh melalui penelusuran publik, bukan dari salinan
 └── datasets/
 ```
 
+**Lokasi paket di repositori** *(ditambahkan 2026-10-07)*. Folder `<mata-kuliah>/` di atas berada di `mata-kuliah/semester-N/<slug>/`:
+
+- **N** adalah semester MK menurut registri kurikulum ([`11-susunan-mata-kuliah-dan-dosen.md`](../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md)).
+- **`<slug>`** adalah nama MK dalam huruf kecil dengan tanda hubung, mis. `mata-kuliah/semester-2/algoritma-pemrograman/`.
+
+Setiap `semester-N/` memuat `README.md` berisi peta seluruh MK semester itu. Ketentuan lokasi lainnya:
+
+| Jenis | Lokasi |
+|---|---|
+| MK kurikulum lama tanpa padanan aktif (tidak ada di registri, atau sudah digantikan MK baru yang punya folder sendiri) | `mata-kuliah/arsip/<slug>/` — tidak dipelihara; lihat [`arsip/README.md`](../arsip/README.md) |
+| Dokumen meta (laporan audit, `prompt-*.md`) | [`mata-kuliah/00-meta/`](../00-meta/README.md) |
+| Lapisan rujukan (`00-kurikulum-if-2025-revisi-2026/`, `00-pedoman-obe/`) | Tetap di akar `mata-kuliah/` |
+
+Karena paket berada dua tingkat di bawah `mata-kuliah/`, tautan dari berkas tingkat-1 paket (mis. `01-rps/rps-*.md`) ke lapisan rujukan memakai `../../../00-…/`. Pemindahan folder tidak mengubah `id` pada *front-matter* ([kamus data §D](kamus-data-metadata.md)).
+
 **Penyeragaman penomoran folder** (`05-buku-ajar` vs `06-buku-ajar`) dikerjakan di **akhir Fase 2** menggunakan `git mv` agar riwayat terjaga dan tidak mengaburkan *diff* migrasi kode.
 
 ---

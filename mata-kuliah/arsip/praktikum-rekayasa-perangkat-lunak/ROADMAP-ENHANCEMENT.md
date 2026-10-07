@@ -133,7 +133,7 @@ File asesmen saat ini sangat minim. Mahasiswa dan dosen membutuhkan rubrik detai
 
 Batch terakhir bukan file baru, tapi **pass integrasi** di semua file yang sudah di-enhance:
 
-- [ ] Setiap lab merujuk modul teori IF2205 minggu yang sama (link relatif ke `../rekayasa-perangkat-lunak/03-modules/`)
+- [ ] Setiap lab merujuk modul teori IF2205 minggu yang sama (link relatif dari lab ke `../../../semester-4/rekayasa-perangkat-lunak/03-modules/`)
 - [ ] Studi kasus konsisten: gunakan Sistem Perpustakaan UAI sebagai red thread di Lab 03-14
 - [ ] Code antar lab saling sambung (lab-05 frontend → lab-06 backend → lab-07 database → lab-09 testing)
 - [ ] Proyek akhir deliverables di project-guidelines.md selaras dengan rubrik di assessment-framework

@@ -152,21 +152,21 @@ Rincian lengkap ada pada [kerangka asesmen](05-assessments/assessment-framework.
 
 ---
 
-## Catatan tentang Folder `kecerdasan-buatan-machine-learning/`
+## Catatan tentang Folder `arsip/kecerdasan-buatan-machine-learning/`
 
-Repositori ini memuat folder terpisah [`kecerdasan-buatan-machine-learning/`](../../arsip/kecerdasan-buatan-machine-learning/) berisi materi mata kuliah **Kecerdasan Buatan dan Machine Learning (IF3XXX, 4 SKS)** yang disusun pada kerangka kurikulum **sebelumnya**.
+Repositori ini memuat folder terpisah [`arsip/kecerdasan-buatan-machine-learning/`](../../arsip/kecerdasan-buatan-machine-learning/) berisi materi mata kuliah **Kecerdasan Buatan dan Machine Learning (IF3XXX, 4 SKS)** yang disusun pada kerangka kurikulum **sebelumnya**.
 
-Kedua folder **sengaja dipertahankan berdampingan**:
+Kedua folder **sengaja dipertahankan**. Sejak 7 Oktober 2026, folder lama disimpan di [`mata-kuliah/arsip/`](../../arsip/README.md), sedangkan folder ini berada di `mata-kuliah/semester-5/` sesuai semester registri:
 
-| Aspek | `kecerdasan-buatan-machine-learning/` | Folder ini |
-|-------|---------------------------------------|------------|
+| Aspek | `arsip/kecerdasan-buatan-machine-learning/` | Folder ini |
+|-------|---------------------------------------------|------------|
 | Kode | IF3XXX (sementara) | **IF52510031** |
 | Bobot | 4 SKS | **3 SKS** |
 | Kurikulum | Kerangka sebelumnya | **2025 Revisi 2026** |
 | Arsitektur CPMK | 7 CPMK lokal mata kuliah | **2 CPMK prodi** (CPMK082, CPMK102) |
 | Sub-CPMK | Per minggu | **2 Sub-CPMK** dengan bobot melekat |
 | Teknik penilaian | Tugas/Kuis/UTS/Proyek/UAS/Partisipasi | **6 teknik baku kurikulum** |
-| Status | Rujukan historis | **Acuan pelaksanaan** |
+| Status | Arsip — rujukan historis, tidak dipelihara | **Acuan pelaksanaan** |
 
 Materi pada folder lama tetap berguna sebagai bank konten — terutama bab-bab Deep Learning, NLP, dan Computer Vision yang pada kurikulum baru **dipisah menjadi mata kuliah tersendiri** (Jaringan Syaraf Tiruan dan Pembelajaran Mendalam, Pengolahan Bahasa Alami, Pengolahan Citra).
 

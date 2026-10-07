@@ -2,6 +2,8 @@
 
 ## Mata Kuliah: Rekayasa Perangkat Lunak
 
+> **Penyusun materi dan pengampu.** Seluruh materi mata kuliah ini — RPS, RTM, modul, lab, asesmen, dan buku ajar — disusun oleh **Tri Aji Nugroho, S.T., M.T.** Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini berkode `IF52520011` (semester 4, 3 SKS) dengan dosen pengampu/pengembang RPS **Dr. Ir. Winangsari Pradani, M.T.** menurut [registri](../../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). RPS ini disusun untuk kurikulum sebelumnya (kode IF2205) dan perlu diselaraskan dengan registri sebelum dipakai pada kurikulum baru.
+
 ---
 
 ## A. Identitas Mata Kuliah
@@ -13,7 +15,8 @@
 | **SKS** | 3 SKS (Teori) |
 | **Semester** | 4 (Genap) |
 | **Tahun Akademik** | 2025/2026 |
-| **Dosen Pengampu** | Tri Aji Nugroho, S.T., M.T. |
+| **Penyusun Materi** | Tri Aji Nugroho, S.T., M.T. |
+| **Dosen Pengampu** | Dr. Ir. Winangsari Pradani, M.T. (Kurikulum 2025 Revisi 2026) |
 | **Program Studi** | Informatika |
 | **Fakultas** | Sains dan Teknologi |
 | **Universitas** | Al Azhar Indonesia |

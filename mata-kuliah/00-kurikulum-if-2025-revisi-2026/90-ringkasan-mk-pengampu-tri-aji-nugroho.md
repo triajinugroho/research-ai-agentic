@@ -26,6 +26,16 @@ Tri Aji Nugroho juga tercatat sebagai **koordinator rumpun Kecerdasan Buatan & S
 (kode `AI`)** pada sheet `7. CPL-BK`, dan sebagai **validator** untuk 65 dari 154 pasangan
 MK × CPMK pada sheet `14`.
 
+> **Penyusun materi vs pengampu (pembaruan 2026-10-07).** Tabel di atas memuat mata kuliah yang
+> **diampu** Tri Aji Nugroho menurut registri. Selain itu, seluruh materi di repositori ini juga
+> **disusun** oleh Tri Aji Nugroho, S.T., M.T., termasuk **Rekayasa Perangkat Lunak** (`IF52520011`,
+> 3 SKS, semester IV) di
+> [`mata-kuliah/semester-4/rekayasa-perangkat-lunak/`](../semester-4/rekayasa-perangkat-lunak/README.md).
+> Pengampu/pengembang RPS mata kuliah itu menurut registri adalah Dr. Ir. Winangsari Pradani, M.T.
+> Hal yang sama berlaku untuk bahan rujukan **Metodologi Penelitian** (`IF52510021`, semester VII) di
+> [`mata-kuliah/semester-7/metodologi-penelitian/`](../semester-7/metodologi-penelitian/README.md),
+> yang menurut registri diampu Andi Arniaty Arsyad, Ph.D. Rincian RPL ada di [91-validasi-dan-catatan-dampak.md §2.2d](91-validasi-dan-catatan-dampak.md#22-perubahan-yang-berdampak-besar).
+
 ## 2. Rincian per Mata Kuliah
 
 ### Probabilitas dan Statistik — `IF52510033`
@@ -41,7 +51,7 @@ MK × CPMK pada sheet `14`.
 | CPL yang dibebankan | CPL08, CPL10 |
 | CPMK | CPMK081, CPMK102 |
 | Tahap AI / Mode | F / K — DS–AI |
-| Folder materi di repositori | [`mata-kuliah/probabilitas-dan-statistik/`](../semester-1/probabilitas-dan-statistik/) |
+| Folder materi di repositori | [`mata-kuliah/semester-1/probabilitas-dan-statistik/`](../semester-1/probabilitas-dan-statistik/) |
 
 **Sub-CPMK:**
 
@@ -74,7 +84,7 @@ Rincian penuh: [15b-subcpmk-tingkat-1-semester-1-2.md](15b-subcpmk-tingkat-1-sem
 | CPL yang dibebankan | CPL03 |
 | CPMK | CPMK032, CPMK033 |
 | Tahap AI / Mode | F→A / E — SE–AI |
-| Folder materi di repositori | [`mata-kuliah/algoritma-pemrograman/`](../semester-2/algoritma-pemrograman/) |
+| Folder materi di repositori | [`mata-kuliah/semester-2/algoritma-pemrograman/`](../semester-2/algoritma-pemrograman/) |
 
 **Sub-CPMK:**
 
@@ -107,7 +117,7 @@ Rincian penuh: [15b-subcpmk-tingkat-1-semester-1-2.md](15b-subcpmk-tingkat-1-sem
 | CPL yang dibebankan | CPL03 |
 | CPMK | CPMK032, CPMK033 |
 | Tahap AI / Mode | A / E — SE–AI |
-| Folder materi di repositori | [`mata-kuliah/praktikum-algoritma-pemrograman/`](../semester-2/praktikum-algoritma-pemrograman/) |
+| Folder materi di repositori | [`mata-kuliah/semester-2/praktikum-algoritma-pemrograman/`](../semester-2/praktikum-algoritma-pemrograman/) |
 
 **Sub-CPMK:**
 
@@ -140,7 +150,7 @@ Rincian penuh: [15b-subcpmk-tingkat-1-semester-1-2.md](15b-subcpmk-tingkat-1-sem
 | CPL yang dibebankan | CPL07, CPL10 |
 | CPMK | CPMK071, CPMK101, CPMK102 |
 | Tahap AI / Mode | A / E — DS–AI |
-| Folder materi di repositori | [`mata-kuliah/analisis-data-statistik/`](../semester-2/analisis-data-statistik/) |
+| Folder materi di repositori | [`mata-kuliah/semester-2/analisis-data-statistik/`](../semester-2/analisis-data-statistik/) |
 
 **Sub-CPMK:**
 
@@ -174,7 +184,7 @@ Rincian penuh: [15b-subcpmk-tingkat-1-semester-1-2.md](15b-subcpmk-tingkat-1-sem
 | CPL yang dibebankan | CPL08, CPL10 |
 | CPMK | CPMK082, CPMK102 |
 | Tahap AI / Mode | U→A→C / Core — AI Core |
-| Folder materi di repositori | [`mata-kuliah/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) (folder `kecerdasan-buatan-machine-learning/` adalah versi kurikulum lama) |
+| Folder materi di repositori | [`mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) (folder [`mata-kuliah/arsip/kecerdasan-buatan-machine-learning/`](../arsip/kecerdasan-buatan-machine-learning/) adalah versi kurikulum lama yang sudah diarsipkan) |
 
 **Sub-CPMK:**
 
@@ -207,7 +217,7 @@ Rincian penuh: [15d-subcpmk-tingkat-3-semester-5-6.md](15d-subcpmk-tingkat-3-sem
 | CPL yang dibebankan | CPL-FSTS1, CPL09, CPLUAI2, CPLUAI3 |
 | CPMK | CPMK091, CPMKFSTS11, CPMKFSTS12, CPMKUAI21, CPMKUAI22, CPMKUAI32 |
 | Tahap AI / Mode | A→C / E — AI Product |
-| Folder materi di repositori | [`mata-kuliah/teknopreneur/`](../semester-5/teknopreneur/) |
+| Folder materi di repositori | [`mata-kuliah/semester-5/teknopreneur/`](../semester-5/teknopreneur/) |
 
 **Sub-CPMK:**
 

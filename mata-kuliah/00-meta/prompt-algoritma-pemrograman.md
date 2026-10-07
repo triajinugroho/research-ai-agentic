@@ -378,6 +378,8 @@ Jelaskan bagaimana mata kuliah ini memberikan 100x value:
 
 Buat **SEMUA** file berikut di repository baru. Setiap file harus lengkap dan substantif.
 
+> **Penempatan di repositori `research-ai-agentic`.** Bila paket ini ditempatkan di repositori `research-ai-agentic` (bukan di repository baru), isi folder `algoritma-pemrograman-uai/` di bawah diletakkan di `mata-kuliah/semester-2/algoritma-pemrograman/` — Algoritma Pemrograman (`IF52520004`) berada di semester 2 kurikulum menurut registri `mata-kuliah/00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md`. Tautan relatif dari folder tingkat-1 paket (mis. `01-rps/`) ke registri memakai `../../../00-pedoman-obe/<berkas>.md` dan `../../../00-kurikulum-if-2025-revisi-2026/<berkas>.md`; dari `README.md` paket memakai `../../00-pedoman-obe/<berkas>.md` dan `../../00-kurikulum-if-2025-revisi-2026/<berkas>.md`.
+
 ```text
 algoritma-pemrograman-uai/
 ├── README.md
@@ -477,9 +479,9 @@ Harus memiliki SEMUA bagian berikut (mengikuti format SN-Dikti):
 - **G. Peta Evaluasi** (ringkasan bobot, matrix CPMK × asesmen, timeline asesmen)
 - **H. Konversi Nilai** — salin **apa adanya** tabel konversi di bawah ini, termasuk tanda minus "−" pada A− dan B− serta koma desimal (skala resmi UAI, sama dengan tabel §A registri konversi nilai `mata-kuliah/00-pedoman-obe/konversi-nilai.md` di repositori `research-ai-agentic`): 9 huruf mutu A, A−, B+, B, B−, C+, C, D, E; A ≥ 81,00; batas lulus C ≥ 55,00, D dan E tidak lulus. JANGAN mengarang atau mengubah skala.
 
-  Tepat di atas tabel, tulis kalimat berikut sebagai tautan Markdown biasa (tanpa backtick). Tautan ini hanya berlaku bila paket ditempatkan di `mata-kuliah/algoritma-pemrograman/` dalam repositori `research-ai-agentic` (path dihitung dari `01-rps/`); di repository baru `algoritma-pemrograman-uai/` berkas registri tidak ada dan tautannya akan keluar dari repository lalu putus, jadi salin tabelnya saja tanpa kalimat bertautan tersebut.
+  Tepat di atas tabel, tulis kalimat berikut sebagai tautan Markdown biasa (tanpa backtick). Tautan ini hanya berlaku bila paket ditempatkan di `mata-kuliah/semester-2/algoritma-pemrograman/` dalam repositori `research-ai-agentic` (path dihitung dari `01-rps/`); di repository baru `algoritma-pemrograman-uai/` berkas registri tidak ada dan tautannya akan keluar dari repository lalu putus, jadi salin tabelnya saja tanpa kalimat bertautan tersebut.
 
-  `Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.`
+  `Skala mengikuti [registri konversi nilai](../../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.`
 
   | Rentang Nilai Akhir | Huruf | Bobot | Kategori |
   |---------------------|-------|-------|----------|
@@ -814,3 +816,7 @@ Setelah menyelesaikan lab ini, mahasiswa mampu:
 Mulai generate dari **Batch 1** (Strategic Analysis + RPS + RTM + README). Setelah selesai, lanjut ke batch berikutnya sesuai urutan. Pastikan setiap file lengkap, substantif, dan konsisten.
 
 ## [AKHIR PROMPT]
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

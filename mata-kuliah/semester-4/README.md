@@ -33,6 +33,8 @@ Peta mata kuliah semester 4 menurut [registri Kurikulum Informatika 2025 Revisi 
 |---|---|---|
 | [`rekayasa-perangkat-lunak/`](rekayasa-perangkat-lunak/) | Rekayasa Perangkat Lunak (`IF52520011`) | Ada — disusun untuk kurikulum sebelumnya (IF2205) |
 
+> **Rekayasa Perangkat Lunak — penyusun dan pengampu.** Seluruh materi di [`rekayasa-perangkat-lunak/`](rekayasa-perangkat-lunak/) (RPS, RTM, modul, lab, asesmen, buku ajar) disusun oleh **Tri Aji Nugroho, S.T., M.T.** Dosen pengampu/pengembang RPS `IF52520011` menurut [registri](../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md) adalah **Dr. Ir. Winangsari Pradani, M.T.** Materi disusun untuk kurikulum sebelumnya (IF2205) dan perlu diselaraskan dengan registri sebelum dipakai pada kurikulum baru.
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

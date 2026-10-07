@@ -2,9 +2,12 @@
 
 ## Mata Kuliah: Rekayasa Perangkat Lunak (IF2205)
 
-**Dosen:** Tri Aji Nugroho, S.T., M.T.
+**Penyusun Materi:** Tri Aji Nugroho, S.T., M.T.
+**Dosen Pengampu:** Dr. Ir. Winangsari Pradani, M.T. (Kurikulum 2025 Revisi 2026)
 **Semester:** Genap 2025/2026
 **Program Studi:** Informatika, Universitas Al Azhar Indonesia
+
+> **Catatan penyusun dan pengampu.** RTM ini disusun oleh **Tri Aji Nugroho, S.T., M.T.** untuk kurikulum sebelumnya (kode IF2205). Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini berkode `IF52520011` dengan dosen pengampu/pengembang RPS **Dr. Ir. Winangsari Pradani, M.T.** menurut [registri](../../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md).
 
 ---
 

@@ -1,5 +1,7 @@
 # Praktikum Rekayasa Perangkat Lunak
 
+> **🗄 Arsip — kurikulum sebelumnya.** Materi ini tidak lagi dipakai pada Kurikulum Informatika 2025 Revisi 2026: Praktikum Rekayasa Perangkat Lunak (`IF2206`, 1 SKS) **tidak ada** dalam kurikulum baru ([catatan dampak §2.2c](../../00-kurikulum-if-2025-revisi-2026/91-validasi-dan-catatan-dampak.md#22-perubahan-yang-berdampak-besar)). Tidak ada penerus langsung; lab-labnya dapat dilebur ke Rekayasa Perangkat Lunak (`IF52520011`, semester 4 — [`semester-4/rekayasa-perangkat-lunak/`](../../semester-4/rekayasa-perangkat-lunak/)), Proyek Perangkat Lunak (`IF52520017`, semester 6), atau Pengujian Perangkat Lunak (`IF52510029`, semester 5). Materi **tidak dipelihara** dan disusun oleh Tri Aji Nugroho, S.T., M.T. Lihat [arsip](../README.md).
+
 ## Hands-on Web App Development dengan Python Flask & JavaScript
 
 ### MK Praktikum — IF2206
@@ -83,7 +85,7 @@ Praktikum ini merupakan komponen hands-on dari MK Rekayasa Perangkat Lunak (IF22
 
 ## Referensi
 
-Buku ajar dan modul teori tersedia di `../rekayasa-perangkat-lunak/` (jika tersedia).
+Buku ajar dan modul teori tersedia di [`semester-4/rekayasa-perangkat-lunak/`](../../semester-4/rekayasa-perangkat-lunak/) (kini `IF52520011`, dulu `IF2205`).
 
 ---
 

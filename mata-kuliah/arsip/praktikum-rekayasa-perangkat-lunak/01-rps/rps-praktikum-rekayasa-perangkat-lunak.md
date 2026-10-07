@@ -1,5 +1,7 @@
 # Rencana Pembelajaran Semester (RPS) — Praktikum Rekayasa Perangkat Lunak (IF2206)
 
+> **🗄 Arsip — kurikulum sebelumnya.** RPS ini tidak lagi berlaku pada Kurikulum Informatika 2025 Revisi 2026: `IF2206` (1 SKS) **tidak ada** dalam kurikulum baru ([catatan dampak §2.2c](../../../00-kurikulum-if-2025-revisi-2026/91-validasi-dan-catatan-dampak.md#22-perubahan-yang-berdampak-besar)). Tidak ada penerus langsung; lab dapat dilebur ke Rekayasa Perangkat Lunak (`IF52520011`, semester 4 — [`semester-4/rekayasa-perangkat-lunak/`](../../../semester-4/rekayasa-perangkat-lunak/)), Proyek Perangkat Lunak (`IF52520017`, semester 6), atau Pengujian Perangkat Lunak (`IF52510029`, semester 5). CPMK dan bobot penilaian di bawah ini mengikuti kurikulum lama dan tidak dipelihara. Materi disusun oleh Tri Aji Nugroho, S.T., M.T. Lihat [arsip](../../README.md).
+
 ## A. Identitas Mata Kuliah
 
 | Komponen | Keterangan |

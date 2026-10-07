@@ -10,7 +10,7 @@ kriteria_lam: [1-budaya-mutu, 5-akuntabilitas]
 tahap_ppepp: [P1-penetapan, P2-pelaksanaan, E-evaluasi, P3-pengendalian, P4-peningkatan]
 versi: 1.0
 status: draft
-diperbarui: 2026-09-05
+diperbarui: 2026-10-07
 ---
 
 # Siklus PPEPP — INF-101
@@ -75,13 +75,17 @@ Penanda lokal `pra-migrasi-kode-v1` dan `siklus-2025-2026-genap` menunjuk ke `06
 
 ```bash
 # Perubahan sejak penetapan siklus berjalan
-git diff 7c40783..HEAD -- mata-kuliah/algoritma-pemrograman/
+# (folder dipindah ke semester-2/ pada d339d8a; -M dan kedua path menjaga pemindahan terbaca sebagai rename)
+git diff -M 7c40783..HEAD -- mata-kuliah/algoritma-pemrograman/ mata-kuliah/semester-2/algoritma-pemrograman/
 
 # Perubahan yang dibawa migrasi kode (bukti tindakan Peningkatan)
+# (kedua commit mendahului penataan per semester, jadi memakai path lama)
 git diff 06797e2..22aad2c -- mata-kuliah/algoritma-pemrograman/
 ```
 
 Perintah tersebut memperlihatkan seluruh perubahan RPS, materi, dan asesmen — inilah bukti *continuous quality improvement* yang diminta kriteria 1 (Budaya Mutu).
+
+Sejak 7 Oktober 2026 (commit `d339d8a`) folder mata kuliah ini berada di `mata-kuliah/semester-2/algoritma-pemrograman/`. Untuk riwayat satu berkas melintasi pemindahan itu, gunakan `git log --follow -- mata-kuliah/semester-2/algoritma-pemrograman/<berkas>`.
 
 ## 5. Telaah Sejawat
 

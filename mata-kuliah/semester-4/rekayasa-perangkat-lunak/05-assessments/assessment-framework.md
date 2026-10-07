@@ -7,7 +7,8 @@
 | **Mata Kuliah** | Rekayasa Perangkat Lunak |
 | **Kode** | IF2205 |
 | **SKS** | 3 SKS (Teori) |
-| **Dosen** | Tri Aji Nugroho, S.T., M.T. |
+| **Penyusun Materi** | Tri Aji Nugroho, S.T., M.T. |
+| **Dosen Pengampu (registri)** | Dr. Ir. Winangsari Pradani, M.T. |
 | **Semester** | Genap 2025/2026 |
 
 ## Filosofi Asesmen

@@ -3,8 +3,13 @@
 > **Mata Kuliah:** Rekayasa Perangkat Lunak (3 SKS)
 > **Program Studi:** Informatika, Universitas Al Azhar Indonesia
 > **Semester:** Genap 2025/2026 (Tingkat 2)
-> **Dosen Pengampu:** Tri Aji Nugroho, S.T., M.T.
+> **Penyusun Materi:** Tri Aji Nugroho, S.T., M.T.
+> **Dosen Pengampu (Kurikulum 2025 Revisi 2026):** Dr. Ir. Winangsari Pradani, M.T.
 > **Pendekatan:** Outcome-Based Education (OBE) | AI-Augmented
+
+---
+
+> **Penyusun materi dan pengampu.** Seluruh materi di folder ini — RPS, RTM, modul, lab, asesmen, dan buku ajar — disusun oleh **Tri Aji Nugroho, S.T., M.T.** Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini berkode `IF52520011` (semester 4, 3 SKS) dengan dosen pengampu/pengembang RPS **Dr. Ir. Winangsari Pradani, M.T.** menurut [registri](../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Materi disusun untuk kurikulum sebelumnya (kode IF2205) dan perlu diselaraskan dengan registri sebelum dipakai pada kurikulum baru.
 
 ---
 
@@ -36,7 +41,7 @@ Fondasi SE + SDLC Modern + Agile/DevOps + AI-Augmented Development = Future-Proo
 | **Semester** | 4 (Genap) |
 | **Tahun Akademik** | 2025/2026 |
 | **Prasyarat** | Algoritma dan Pemrograman (INF-101/102) |
-| **Ko-requisite** | Praktikum Rekayasa Perangkat Lunak (IF2206) |
+| **Ko-requisite** | Praktikum Rekayasa Perangkat Lunak (IF2206) — kurikulum lama; tidak ada di Kurikulum 2025 Revisi 2026 dan kini diarsipkan di [`arsip/praktikum-rekayasa-perangkat-lunak/`](../../arsip/praktikum-rekayasa-perangkat-lunak/) |
 | **Platform** | LMS UAI (utama), GitHub Codespaces (coding), GitHub (kolaborasi) |
 | **Bahasa** | Python 3.x + JavaScript/TypeScript |
 
@@ -191,7 +196,8 @@ Ko-requisite:                     └──────────────�
 
 | Komponen | Detail |
 |----------|--------|
-| **Dosen** | Tri Aji Nugroho, S.T., M.T. |
+| **Penyusun Materi** | Tri Aji Nugroho, S.T., M.T. |
+| **Dosen Pengampu** | Dr. Ir. Winangsari Pradani, M.T. (Kurikulum 2025 Revisi 2026) |
 | **Program Studi** | Informatika |
 | **Fakultas** | Sains dan Teknologi |
 | **Universitas** | Al Azhar Indonesia |

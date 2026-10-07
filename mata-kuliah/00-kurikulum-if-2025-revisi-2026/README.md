@@ -116,6 +116,14 @@ Rinciannya — termasuk tabel pemetaan folder repositori ke kode mata kuliah bar
 tindak lanjut — ada pada
 [91-validasi-dan-catatan-dampak.md](91-validasi-dan-catatan-dampak.md).
 
+> **Penataan repositori (7 Oktober 2026).** Folder materi kini dikelompokkan menurut semester pada
+> [11-susunan-mata-kuliah-dan-dosen.md](11-susunan-mata-kuliah-dan-dosen.md):
+> `mata-kuliah/semester-N/<slug>/`, misalnya [`semester-2/`](../semester-2/README.md) dan
+> [`semester-4/`](../semester-4/README.md). Mata kuliah kurikulum lama tanpa padanan aktif disimpan di
+> [`mata-kuliah/arsip/`](../arsip/README.md), sedangkan laporan audit dan prompt generator ada di
+> [`mata-kuliah/00-meta/`](../00-meta/README.md). Folder ini sendiri tidak dipindah. Seluruh materi
+> disusun oleh Tri Aji Nugroho, S.T., M.T.; pengampu tiap mata kuliah tetap mengikuti registri.
+
 ## Cara Memperbarui
 
 Bila berkas Excel kurikulum diperbarui:

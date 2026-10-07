@@ -8,7 +8,8 @@
 | **Kode** | IF2205 |
 | **Minggu** | 14 dari 16 |
 | **Topik** | Modern SE Trends dan Software Supply Chain |
-| **Dosen** | Tri Aji Nugroho, S.T., M.T. |
+| **Penyusun Materi** | Tri Aji Nugroho, S.T., M.T. |
+| **Dosen Pengampu (registri)** | Dr. Ir. Winangsari Pradani, M.T. |
 | **Program Studi** | Informatika, Universitas Al Azhar Indonesia |
 | **Semester** | Genap 2025/2026 |
 | **Bahasa Pemrograman** | Python 3.x + JavaScript |
