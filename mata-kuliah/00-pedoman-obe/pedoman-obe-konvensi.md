@@ -264,6 +264,7 @@ diperbarui: 2026-09-05
 7. **[BARU]** Kode PL/CPL/BK/CPMK/Sub-CPMK/asesmen mengikuti §E.
 8. **[BARU]** Sitasi regulasi mengikuti §B dengan sistem tiga status.
 9. **[BARU] SKS ditulis hanya di RPS §A.** Modul dan bab buku ajar menulis `Estimasi waktu: N × 50 menit` **tanpa menyebut SKS**. Ini menutup konflik "2 SKS vs 3 SKS" secara struktural.
+10. **[BARU] Skala konversi nilai** hanya ditetapkan di **`konversi-nilai.md`** (A ≥ 81, tujuh huruf, lulus ≥ 56). Bagian Konversi Nilai pada RPS dan kerangka asesmen menyalin tabelnya dan menautkannya.
 
 > **Latar keputusan SKS.** INF-101 berbobot **2 SKS teori**; INF-102 berbobot **1 SKS praktikum** dan berdiri terpisah. Estimasi "3 × 50 menit" pada modul mencerminkan **sesi gabungan teori + praktikum**, bukan bobot INF-101. Karena SKS adalah data induk yang dilaporkan ke PDDikti ([REG-6]), penulisannya dipusatkan di satu tempat.
 
@@ -295,6 +296,7 @@ diperbarui: 2026-09-05
 | Matriks butir Instrumen LAM-INFOKOM 2.0 | 🔲 menunggu |
 | Penetapan ambang ketercapaian CPL (SK) | 🔲 menunggu — sementara ditandai "usulan" |
 | Penetapan resmi pembebanan BK per mata kuliah | 🔲 menunggu — sementara ditandai [PERLU VALIDASI PRODI] |
+| Peraturan akademik UAI tentang konversi nilai | 🔲 menunggu — skala sementara di `konversi-nilai.md` berstatus 🟡 |
 
 Salinan resmi dapat ditaruh di `00-pedoman-obe/sumber/`.
 

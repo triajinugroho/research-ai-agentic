@@ -56,7 +56,7 @@ mata-kuliah/
 │                                         #   PL, CPL, BK, susunan MK, CPMK, Sub-CPMK, bobot penilaian,
 │                                         #   AI Curriculum Infusion Matrix
 │
-├── 00-pedoman-obe/                       # Pedoman & registri OBE internal — 9 file
+├── 00-pedoman-obe/                       # Pedoman & registri OBE internal — 10 file
 │
 ├── algoritma-pemrograman/                # INF-101 — 48 file
 │   ├── 00-strategic-analysis/            # Analisis SWOT & tren
@@ -143,7 +143,9 @@ mata-kuliah/
     └── datasets/                         # Sumber pustaka & data penelitian
 ```
 
-**Total: 535 dokumen Markdown** — mencakup referensi kurikulum, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
+**Total: 537 dokumen Markdown** — mencakup referensi kurikulum, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
+
+> **Audit kesiapan terbaru:** [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/AUDIT-MENYELURUH-2026-10.md) — peta seluruh repositori, temuan per mata kuliah, dan arah perbaikan. Skala konversi nilai baku: [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
 
 ## Referensi Kurikulum Terbaru
 
