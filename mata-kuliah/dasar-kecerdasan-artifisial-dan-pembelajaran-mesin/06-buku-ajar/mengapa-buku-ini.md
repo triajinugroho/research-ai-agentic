@@ -112,7 +112,7 @@ Keputusan untuk melepaskan materi-materi itu adalah keputusan yang sulit, dan ia
 
 ## Siapa yang Buku Ini Tujukan
 
-Mahasiswa semester 5 Informatika UAI yang telah menempuh Probabilitas dan Statistik, Dasar-dasar Pemrograman, Struktur Data dan Algoritma, dan Basis Data.
+Mahasiswa semester 5 Informatika UAI yang telah menempuh Probabilitas dan Statistik, Dasar Pemrograman, Algoritma Pemrograman, Struktur Data, dan Basis Data.
 
 Buku ini mengandaikan kemampuan Python dasar dan ingatan tentang distribusi, probabilitas bersyarat, serta inferensi statistik. Bagian yang paling sering terlupa — terutama karena rentang empat semester sejak Probabilitas dan Statistik — diulang secara terarah pada Bab 4 dan 7.
 

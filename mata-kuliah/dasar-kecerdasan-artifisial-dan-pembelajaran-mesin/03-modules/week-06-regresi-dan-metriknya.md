@@ -271,7 +271,7 @@ Diagnosis melalui kurva pembelajaran dibahas pada Minggu 12.
 | Luaran | Notebook Colab |
 | Isi | (a) *Baseline* `DummyRegressor`; (b) Regresi linear, Ridge, dan Lasso dalam `Pipeline`; (c) α ditentukan dengan validasi silang; (d) MAE, RMSE, R², MAPE untuk seluruh model; (e) **Penjelasan mengapa metrik-metrik itu memberi kesimpulan berbeda**; (f) Koefisien yang dinolkan Lasso dan tafsirnya |
 | Tenggat | Awal pertemuan Minggu 7 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

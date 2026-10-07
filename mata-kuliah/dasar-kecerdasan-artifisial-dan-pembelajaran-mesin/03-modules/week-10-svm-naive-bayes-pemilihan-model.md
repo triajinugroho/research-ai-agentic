@@ -264,7 +264,7 @@ print(tabel.round(3).to_string(index=False))
 | Luaran | Notebook Colab |
 | Isi | (a) SVM dengan tiga *kernel*, dalam `Pipeline` berpenskalaan; (b) Naive Bayes sebagai pembanding cepat; (c) `GridSearchCV` **pada data latih saja**; (d) Tabel perbandingan lima model dengan lipatan yang sama, memuat rerata, simpangan, min, dan maks; (e) **Kesimpulan yang memperhatikan simpangan**, bukan hanya rerata |
 | Tenggat | Awal pertemuan Minggu 11 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

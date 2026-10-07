@@ -354,7 +354,7 @@ anomali_lof = lof.fit_predict(X_scaled)
 | Isi | (a) Segmentasi data BPS dengan K-Means, *hierarchical*, dan DBSCAN; (b) Penentuan k dengan *elbow* **dan** *silhouette*; (c) Ketiga metrik internal untuk tiap metode; (d) Dendrogram; (e) **Tabel profil klaster beserta nama dan penjelasan substantif**; (f) Perbandingan hasil ketiga metode dan pembahasan mengapa berbeda |
 | Ketentuan khusus | Notebook tanpa interpretasi substantif dikembalikan |
 | Tenggat | Awal pertemuan Minggu 12 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

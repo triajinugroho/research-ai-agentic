@@ -316,7 +316,7 @@ np.random.seed(RANDOM_STATE)
 | Luaran | Notebook Colab |
 | Isi | (a) Pemeriksaan versi pustaka; (b) Memuat tiga dataset berbeda; (c) Untuk tiap dataset: tentukan jenis *task*, target, fitur, dan **apakah ML memang diperlukan** beserta alasannya |
 | Tenggat | Awal pertemuan Minggu 2 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

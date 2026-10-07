@@ -305,7 +305,7 @@ Untuk masing-masing, tentukan: target tepatnya, kapan prediksi dibutuhkan, fitur
 | Luaran | Dokumen formulasi (1 halaman) + notebook *baseline* |
 | Isi | (a) Formulasi lengkap satu masalah dengan tujuh pertanyaan §2.1.1; (b) Metrik beserta alasan pemilihannya dikaitkan dengan dampak kesalahan; (c) *Baseline* yang dibangun dan skornya; (d) Daftar fitur yang **tidak boleh** dipakai beserta alasannya |
 | Tenggat | Awal pertemuan Minggu 3 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

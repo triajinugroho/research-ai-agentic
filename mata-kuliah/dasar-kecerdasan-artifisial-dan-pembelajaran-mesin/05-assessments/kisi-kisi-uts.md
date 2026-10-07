@@ -119,12 +119,12 @@ print(model.score(X_te, y_te))
 | Metrik | Nilai |
 |--------|-------|
 | Akurasi | 0,987 |
-| Precision | 0,21 |
+| Precision | 0,56 |
 | Recall | 0,64 |
 
 (a) Mengapa akurasi 0,987 **tidak** menunjukkan model yang baik di sini?
 (b) Berapa akurasi model yang selalu menjawab "bukan penipuan"? Tunjukkan perhitungannya.
-(c) Apa arti *precision* 0,21 bagi petugas yang harus memeriksa peringatan?
+(c) Apa arti *precision* 0,56 bagi petugas yang harus memeriksa peringatan?
 (d) Bila biaya melewatkan penipuan jauh lebih besar daripada biaya pemeriksaan sia-sia, ambang keputusan sebaiknya dinaikkan atau diturunkan? Jelaskan dampaknya pada *precision* dan *recall*.
 
 **B4.** Sebuah data penjualan harian selama dua tahun dibagi dengan `train_test_split(X, y, test_size=0.2, random_state=42)`.

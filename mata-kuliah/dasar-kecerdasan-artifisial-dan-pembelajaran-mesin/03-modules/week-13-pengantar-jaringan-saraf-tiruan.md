@@ -294,7 +294,7 @@ Karena itu Lab 13 secara khusus meminta mahasiswa membandingkan MLP dengan *Rand
 | Luaran | Notebook Colab + perhitungan manual |
 | Isi | (a) **Perhitungan manual** satu langkah maju dan mundur jaringan 2-2-1, diverifikasi dengan kode; (b) `MLPClassifier` dengan `early_stopping`; (c) Kurva *loss* beserta diagnosisnya; (d) Pengaruh tiga nilai laju pembelajaran yang berbeda; (e) **Perbandingan MLP dan *Random Forest*** pada data yang sama, dengan waktu pelatihan; (f) Kesimpulan jujur tentang model mana yang lebih sesuai untuk data itu |
 | Tenggat | Awal pertemuan Minggu 14 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

@@ -268,7 +268,7 @@ Model dan hiperparameter **tidak berubah sama sekali** sepanjang keempat tahap.
 | Isi | (a) *Baseline* dengan fitur mentah; (b) Minimal empat kelompok fitur baru, ditambahkan bertahap; (c) Skor validasi setelah tiap penambahan; (d) **Catatan fitur yang gagal** beserta dugaan sebabnya; (e) Pemeriksaan kebocoran untuk setiap fitur baru |
 | Ketentuan khusus | **Model dan hiperparameter dikunci** — hanya fitur yang boleh diubah |
 | Tenggat | Awal pertemuan Minggu 6 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 2,0% (Observasi, Sub-CPMK102-1) |
 
 ---
 

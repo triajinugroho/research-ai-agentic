@@ -321,7 +321,7 @@ Bila kasus yang salah ternyata terpusat pada kelompok tertentu — satu wilayah,
 | Luaran | Notebook Colab |
 | Isi | (a) PCA dengan *scree plot*, varians kumulatif, dan tabel *loading*; (b) Visualisasi t-SNE beserta catatan keterbatasannya; (c) **Lima grafik diagnostik** §12.5; (d) **Diagnosis tertulis** kondisi model berdasarkan kurva pembelajaran; (e) Analisis kesalahan: adakah pola pada kasus yang salah |
 | Tenggat | Awal pertemuan Minggu 13 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 2,0% (Observasi, Sub-CPMK102-1) |
 
 ---
 

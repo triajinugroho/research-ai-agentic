@@ -299,7 +299,7 @@ Skor sebelum perbaikan: 0,97. Setelah keempatnya diperbaiki: 0,71. Selisih inila
 | Luaran | Notebook perbaikan + laporan temuan 1 halaman |
 | Isi | (a) Menemukan seluruh kebocoran pada notebook yang diberikan; (b) Menjelaskan **mekanisme** tiap kebocoran; (c) Memperbaikinya; (d) Melaporkan skor sebelum dan sesudah; (e) Menerapkan validasi silang yang benar dengan pelaporan rerata ± simpangan |
 | Tenggat | Awal pertemuan Minggu 5 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 2,0% (Observasi, Sub-CPMK102-1) |
 
 ---
 

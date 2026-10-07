@@ -9,7 +9,7 @@ Dasar Kecerdasan Artifisial dan Pembelajaran Mesin (IF52510031) — Program Stud
 
 | Lampiran | Judul | Kegunaan |
 |----------|-------|----------|
-| [A](#lampiran-a-formularium) | Formularium | **Dibawa saat UTS dan UAS** |
+| [A](#lampiran-a-formularium) | Formularium | Persiapan UTS dan UAS — rumus ujian dicetak pada lembar soal |
 | [B](#lampiran-b-pohon-keputusan-pemilihan-model) | Pohon Keputusan Pemilihan Model | Rujukan cepat |
 | [C](#lampiran-c-rujukan-scikit-learn) | Rujukan `scikit-learn` | Praktikum dan proyek |
 | [D](#lampiran-d-sel-pembuka-baku) | Sel Pembuka Baku dan Templat Notebook | Setiap notebook |
@@ -19,7 +19,7 @@ Dasar Kecerdasan Artifisial dan Pembelajaran Mesin (IF52510031) — Program Stud
 | [H](#lampiran-h-templat-model-card) | Templat *Model Card* | Laporan proyek |
 | [I](#lampiran-i-peta-bab-modul-praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
 
-> **Ketentuan ujian:** Lampiran A **boleh dibawa** saat UTS dan UAS dalam bentuk cetak. Lampiran lain tidak. Alat bantu AI **tidak diperkenankan** dalam bentuk apa pun selama ujian.
+> **Ketentuan ujian:** UTS dan UAS bersifat *closed book* — alat bantu yang diperkenankan hanya kalkulator. Rumus yang diperlukan **dicetak pada lembar soal** (lihat [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) dan [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md)); Lampiran A dipakai untuk belajar dan **tidak dibawa** ke ruang ujian. Alat bantu AI **tidak diperkenankan** dalam bentuk apa pun selama ujian.
 
 ---
 

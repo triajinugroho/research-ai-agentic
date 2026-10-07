@@ -276,7 +276,7 @@ kepentingan_perm = pd.Series(hasil.importances_mean, index=X_test.columns)
 | Luaran | Notebook Colab + perhitungan manual |
 | Isi | (a) **Perhitungan manual** *entropy* dan *information gain* satu percabangan, diverifikasi dengan `scikit-learn`; (b) Pohon tunggal tanpa dan dengan pembatasan, dengan skor latih dan uji; (c) *Random Forest* dan *gradient boosting*; (d) Perbandingan keempatnya dengan protokol sama; (e) Kepentingan fitur bawaan **dan** permutasi, beserta pembahasan selisihnya |
 | Tenggat | Awal pertemuan Minggu 10 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

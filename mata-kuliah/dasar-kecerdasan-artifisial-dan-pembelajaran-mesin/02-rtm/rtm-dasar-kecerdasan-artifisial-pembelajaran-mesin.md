@@ -36,19 +36,19 @@
 
 | Kode | Nama | Mg | Bentuk | Bobot | Sub-CPMK | Tenggat |
 |------|------|----|--------|-------|----------|---------|
-| T-01 | Penyiapan lingkungan dan eksplorasi dataset pertama | 1 | Notebook | 1,9% | 082-1 | Mg 2 |
-| T-02 | Formulasi masalah dan *baseline* | 2 | Notebook + dokumen | 1,9% | 082-1 | Mg 3 |
-| T-03 | *Pipeline* prapemrosesan | 3 | Notebook | 1,9% | 102-1 | Mg 4 |
-| T-04 | Validasi silang dan perburuan kebocoran | 4 | Notebook + laporan temuan | 1,9% | 102-1 | Mg 5 |
-| T-05 | Rekayasa fitur | 5 | Notebook | 1,9% | 102-1 | Mg 6 |
-| T-06 | Model regresi dan metriknya | 6 | Notebook | 1,9% | 082-1 | Mg 7 |
-| T-07 | Model klasifikasi dan metriknya | 7 | Notebook | 1,9% | 082-1 | Mg 9 |
-| T-09 | Pohon keputusan dan *ensemble* | 9 | Notebook | 1,9% | 082-1 | Mg 10 |
-| T-10 | SVM, Naive Bayes, dan penyetelan | 10 | Notebook | 1,9% | 082-1 | Mg 11 |
-| T-11 | *Clustering* dan metriknya | 11 | Notebook | 1,9% | 082-1 | Mg 12 |
-| T-12 | PCA dan visualisasi kinerja model | 12 | Notebook | 1,9% | 102-1 | Mg 13 |
-| T-13 | Jaringan saraf tiruan | 13 | Notebook | 1,9% | 082-1 | Mg 14 |
-| T-14 | Audit *bias* dan *model card* | 14 | Notebook + *model card* | 1,9% | 102-1 | Mg 15 |
+| T-01 | Penyiapan lingkungan dan eksplorasi dataset pertama | 1 | Notebook | 1,875% | 082-1 | Mg 2 |
+| T-02 | Formulasi masalah dan *baseline* | 2 | Notebook + dokumen | 1,875% | 082-1 | Mg 3 |
+| T-03 | *Pipeline* prapemrosesan | 3 | Notebook | 2,0% | 102-1 | Mg 4 |
+| T-04 | Validasi silang dan perburuan kebocoran | 4 | Notebook + laporan temuan | 2,0% | 102-1 | Mg 5 |
+| T-05 | Rekayasa fitur | 5 | Notebook | 2,0% | 102-1 | Mg 6 |
+| T-06 | Model regresi dan metriknya | 6 | Notebook | 1,875% | 082-1 | Mg 7 |
+| T-07 | Model klasifikasi dan metriknya | 7 | Notebook | 1,875% | 082-1 | Mg 9 |
+| T-09 | Pohon keputusan dan *ensemble* | 9 | Notebook | 1,875% | 082-1 | Mg 10 |
+| T-10 | SVM, Naive Bayes, dan penyetelan | 10 | Notebook | 1,875% | 082-1 | Mg 11 |
+| T-11 | *Clustering* dan metriknya | 11 | Notebook | 1,875% | 082-1 | Mg 12 |
+| T-12 | PCA dan visualisasi kinerja model | 12 | Notebook | 2,0% | 102-1 | Mg 13 |
+| T-13 | Jaringan saraf tiruan | 13 | Notebook | 1,875% | 082-1 | Mg 14 |
+| T-14 | Audit *bias* dan *model card* | 14 | Notebook + *model card* | 2,0% | 102-1 | Mg 15 |
 | K-01 | Kuis — data dan kebocoran | 4 | 20 menit | 1,25% | 102-1 | Di kelas |
 | K-02 | Kuis — metrik klasifikasi | 7 | 20 menit | 1,25% | 102-1 | Di kelas |
 | K-03 | Kuis — pemilihan model | 10 | 20 menit | 1,25% | 102-1 | Di kelas |
@@ -61,7 +61,7 @@
 | U-01 | Ujian Tengah Semester | 8 | Tes tulis 120' | 20% | 102-1 | Mg 8 |
 | U-02 | Ujian Akhir Semester | 16 | Tes tulis 120' | 15% | 082-1 | Mg 16 |
 
-> Bobot tiap lab adalah 25% ÷ 13 ≈ **1,9%**.
+> Bobot Observasi 25% dibagi sesuai bobot registri per Sub-CPMK: 15% untuk 8 lab `082-1` (masing-masing **1,875%**) dan 10% untuk 5 lab `102-1` (masing-masing **2,0%**).
 
 ---
 

@@ -69,7 +69,7 @@ Lebih besar daripada UTS (20%) maupun UAS (15%). Proyek bukan pelengkap akhir se
 | Ujian Akhir Semester | U-02 | 16 | 15% | 15% | — | Tes Tulis |
 | | | | **100%** | **60%** | **40%** | |
 
-> Bobot tiap praktikum: 25% ÷ 13 ≈ **1,9%**.
+> Bobot Observasi 25% dibagi sesuai bobot registri per Sub-CPMK: 15% untuk 8 lab `082-1` (masing-masing **1,875%**) dan 10% untuk 5 lab `102-1` (masing-masing **2,0%**).
 
 ---
 

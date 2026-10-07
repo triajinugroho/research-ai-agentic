@@ -21,16 +21,15 @@ Bila ada satu kalimat yang pantas dibawa keluar dari mata kuliah ini, kalimat it
 
 Pada Kurikulum Informatika 2025 Revisi 2026, mata kuliah ini berstatus **mode Core** pada AI Curriculum Infusion Matrix dan berperan sebagai **fondasi wajib AI seluruh mahasiswa** — bukan mata kuliah peminatan.
 
-Penempatan itu disengaja. Visi program studi menyebut tiga domain keilmuan: *Software Engineering*, *Data Science*, dan *Artificial Intelligence*. Mata kuliah ini adalah satu-satunya mata kuliah wajib yang secara langsung mewujudkan domain ketiga bagi setiap lulusan — termasuk yang tidak akan bekerja di bidang AI.
+Penempatan itu disengaja. Visi program studi menyebut tiga domain keilmuan: *Software Engineering*, *Data Science*, dan *Artificial Intelligence*. Mata kuliah ini adalah fondasi wajib yang mewujudkan domain ketiga bagi setiap lulusan — termasuk yang tidak akan bekerja di bidang AI.
 
 Alasannya sederhana: pada 2026, hampir setiap lulusan informatika akan berhadapan dengan sistem berbasis pembelajaran mesin, entah sebagai pembangunnya, pengintegrasinya, pemeliharanya, atau orang yang harus menilai apakah sistem itu layak dipakai. Yang terakhir itu mungkin yang paling sering, dan paling menentukan.
 
-### Lima Mata Kuliah yang Bergantung
+### Mata Kuliah yang Memakai Fondasi Ini
 
 | Mata kuliah | Yang dibawa dari sini |
 |-------------|------------------------|
-| Jaringan Syaraf Tiruan dan Pembelajaran Mendalam | Dasar pelatihan, *loss*, evaluasi, *overfitting* |
-| Sains Data | Seluruh alur ML dan evaluasinya |
+| Jaringan Syaraf Tiruan dan Pembelajaran Mendalam (semester yang sama) | Dasar pelatihan, *loss*, evaluasi, *overfitting* |
 | Pengolahan Citra | Klasifikasi, metrik, validasi |
 | Pengolahan Bahasa Alami | Klasifikasi, evaluasi, *embedding* sebagai fitur |
 | Web Semantik | Representasi dan penalaran atas data |

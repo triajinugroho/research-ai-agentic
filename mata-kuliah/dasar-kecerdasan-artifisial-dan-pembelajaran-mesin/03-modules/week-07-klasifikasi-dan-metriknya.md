@@ -289,7 +289,7 @@ model = LogisticRegression(class_weight="balanced", max_iter=1000, random_state=
 | Luaran | Notebook Colab |
 | Isi | (a) **Perhitungan manual** matriks konfusi dan metrik, diverifikasi dengan `scikit-learn`; (b) Regresi logistik dan k-NN dalam `Pipeline`; (c) Tafsir *odds ratio*; (d) Kurva ROC dan PR; (e) **Analisis ambang berdasarkan biaya kesalahan**; (f) Perbandingan dengan *baseline* |
 | Tenggat | Awal pertemuan Minggu 9 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

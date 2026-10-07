@@ -7,7 +7,7 @@
 | Sub-CPMK | `DAIML-Sub-CPMK102-1` · ICM-03 |
 | Durasi | 100 menit |
 | Prasyarat | Lab 2 selesai |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 2,0% (Observasi, Sub-CPMK102-1) |
 
 ---
 

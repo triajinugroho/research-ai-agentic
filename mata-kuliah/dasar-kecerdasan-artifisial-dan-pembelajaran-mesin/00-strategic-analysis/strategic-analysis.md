@@ -11,7 +11,7 @@
 
 ### 1.1 Mengapa Mata Kuliah Ini Berbeda dari Mata Kuliah Lain
 
-Visi Program Studi Informatika UAI 2025 menyebut tiga domain keilmuan: **Software Engineering**, **Data Science**, dan **Artificial Intelligence**. Mata kuliah ini adalah **satu-satunya mata kuliah wajib** yang secara langsung mewujudkan domain ketiga bagi seluruh mahasiswa.
+Visi Program Studi Informatika UAI 2025 menyebut tiga domain keilmuan: **Software Engineering**, **Data Science**, dan **Artificial Intelligence**. Mata kuliah ini berperan sebagai **fondasi wajib AI bagi seluruh mahasiswa**: tempat alur ML klasik dibangun utuh sebelum mata kuliah AI wajib berikutnya — Pengolahan Citra (sem 6), Pengolahan Bahasa Alami dan Web Semantik (sem 7) — mendalami domainnya.
 
 Pada AI Curriculum Infusion Matrix, statusnya:
 
@@ -22,28 +22,31 @@ Pada AI Curriculum Infusion Matrix, statusnya:
 | Pilar | **AI Core** | Batu penjuru jalur AI Core & Advanced |
 | Peran | **Fondasi wajib AI seluruh mahasiswa** | Bukan peminatan |
 
-Dari 58 mata kuliah dalam kurikulum, hanya sebagian kecil berstatus **Core**. Mata kuliah inilah tempat mahasiswa pertama kali membangun model AI sendiri — dan satu-satunya kesempatan wajib untuk melakukannya bagi mahasiswa yang tidak mengambil peminatan AI.
+Dari 58 mata kuliah dalam kurikulum, hanya **dua** berstatus **Core**: mata kuliah ini dan Sains Data (IF52520026, semester 4). Karena Sains Data ditempuh lebih dahulu dan memakai CPMK yang sama, pembagian materi keduanya harus disepakati (lihat §1.3).
 
 ### 1.2 Peran sebagai Simpul Prasyarat
 
 ```
-DIBUTUHKAN OLEH                           MEMBUTUHKAN
+DIPAKAI OLEH                              MENGANDALKAN
 ──────────────────────────                ─────────────────────────
 Jaringan Syaraf Tiruan &      ◄──┐   ┌──► Probabilitas dan Statistik
 Pembelajaran Mendalam            │   │    (sem 1) — distribusi, Bayes,
-                                 │   │    inferensi, evaluasi
-Sains Data                    ◄──┤   │
-                                 │   ├──► Struktur Data dan Algoritma
-Pengolahan Bahasa Alami       ◄──┤   │    (sem 3) — kompleksitas,
-                                 │   │    struktur representasi
-Pengolahan Citra              ◄──┤   │
-                                 │   ├──► Basis Data (sem 4) —
-Web Semantik                  ◄──┤   │    pengambilan dan penggabungan
-                                 │   │    data
-Tugas Akhir (jalur AI)        ◄──┘   └──► Pemrograman (sem 1–2) — Python
+(sem 5, bersamaan)               │   │    inferensi, evaluasi
+                                 │   │
+Pengolahan Citra (sem 6)      ◄──┤   ├──► Dasar Pemrograman (sem 1),
+                                 │   │    Algoritma Pemrograman (sem 2)
+Pengolahan Bahasa Alami       ◄──┤   │
+(sem 7)                          │   ├──► Struktur Data (sem 3) —
+                                 │   │    kompleksitas, representasi
+Web Semantik (sem 7)          ◄──┤   │
+                                 │   ├──► Basis Data (sem 3) —
+Tugas Akhir (sem 8)           ◄──┘   │    pengambilan data
+                                     │
+                                     └──► Sains Data (sem 4) — alur
+                                          data ujung-ke-ujung
 ```
 
-Lima mata kuliah lanjutan bergantung padanya. Kelemahan pada mata kuliah ini **berlipat** ke seluruh jalur AI.
+Tiga mata kuliah AI wajib sesudahnya dan Tugas Akhir memakai fondasinya; Jaringan Syaraf Tiruan berjalan pada semester yang sama. Registri tidak menetapkan prasyarat formal, sehingga kelemahan pada mata kuliah ini **berlipat** ke seluruh jalur AI tanpa tersaring oleh aturan prasyarat.
 
 ### 1.3 Relasi dengan Mata Kuliah Sejenis dalam Kurikulum
 
@@ -51,11 +54,11 @@ Lima mata kuliah lanjutan bergantung padanya. Kelemahan pada mata kuliah ini **b
 |-------------|------|-----|-----------|
 | **Dasar AI dan Pembelajaran Mesin** | IF52510031 | 5 | **Keluasan** — seluruh alur ML klasik, dari formulasi sampai evaluasi |
 | Jaringan Syaraf Tiruan dan Pembelajaran Mendalam | IF52510032 | 5 | **Kedalaman** — arsitektur *deep learning* |
-| Sains Data | — | 6 | **Skala dan alur data** — *pipeline*, *big data* |
+| Sains Data | IF52520026 | 4 | **Alur data ujung-ke-ujung** — ditempuh *lebih dahulu*; pembagian materi perlu disepakati |
 | Pengolahan Bahasa Alami | IF52510024 | 7 | **Domain teks** |
 | Pengolahan Citra | IF52510016 | 6 | **Domain citra** |
 
-Pembagian ini menuntut disiplin: mata kuliah ini **tidak** mendalami *deep learning* (itu porsi IF52510032), dan **tidak** membahas NLP atau *computer vision* sebagai domain (itu porsi semester 6–7). Minggu 13 hanya memberi pengantar JST secukupnya untuk menjembatani.
+Pembagian ini menuntut disiplin: mata kuliah ini **tidak** mendalami *deep learning* (itu porsi IF52510032), dan **tidak** membahas NLP atau *computer vision* sebagai domain (itu porsi Pengolahan Bahasa Alami dan Pengolahan Citra). Minggu 13 hanya memberi pengantar JST secukupnya untuk menjembatani.
 
 > **Risiko yang paling nyata:** tergoda mengajarkan semuanya. Materi *deep learning*, NLP, dan CV dari kerangka kurikulum sebelumnya **harus dilepaskan** agar keluasan alur ML klasik tercakup tuntas.
 
@@ -269,13 +272,13 @@ Nilai **adil** memperoleh tempat khusus: Minggu 14 membahas bagaimana model yang
 | Proyek dengan notebook yang dapat dijalankan ulang | 100% |
 | Proyek dengan *model card* lengkap | 100% |
 | Proyek tanpa kebocoran data | ≥ 90% |
-| Mahasiswa melanjutkan ke MK jalur AI | ≥ 40% |
+| Proyek akhir atau Tugas Akhir mahasiswa yang bertema AI/ML | dipantau (belum ada target) |
 
 ---
 
 ## 8. SIMPULAN STRATEGIS
 
-Mata kuliah ini berdiri pada titik yang tidak biasa: ia adalah **satu-satunya kesempatan wajib** bagi setiap mahasiswa Informatika UAI untuk membangun model AI sendiri, sekaligus **prasyarat bagi lima mata kuliah lanjutan**, dalam bobot hanya 3 SKS.
+Mata kuliah ini berdiri pada titik yang tidak biasa: ia adalah **fondasi wajib AI** bagi setiap mahasiswa Informatika UAI untuk membangun model AI sendiri, sekaligus **fondasi bagi tiga mata kuliah AI wajib sesudahnya dan Tugas Akhir**, dalam bobot hanya 3 SKS.
 
 Ketegangan antara keluasan cakupan dan keterbatasan waktu adalah persoalan strategis utamanya. Jalan keluarnya bukan memadatkan lebih banyak materi, melainkan memilih dengan tegas apa yang **tidak** diajarkan — dan menyerahkannya kepada mata kuliah yang memang dirancang untuk itu.
 

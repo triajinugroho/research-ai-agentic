@@ -41,7 +41,7 @@ MK × CPMK pada sheet `14`.
 | CPL yang dibebankan | CPL08, CPL10 |
 | CPMK | CPMK081, CPMK102 |
 | Tahap AI / Mode | F / K — DS–AI |
-| Folder materi di repositori | — (belum ada di repositori) |
+| Folder materi di repositori | [`mata-kuliah/probabilitas-dan-statistik/`](../probabilitas-dan-statistik/) |
 
 **Sub-CPMK:**
 
@@ -174,7 +174,7 @@ Rincian penuh: [15b-subcpmk-tingkat-1-semester-1-2.md](15b-subcpmk-tingkat-1-sem
 | CPL yang dibebankan | CPL08, CPL10 |
 | CPMK | CPMK082, CPMK102 |
 | Tahap AI / Mode | U→A→C / Core — AI Core |
-| Folder materi di repositori | [`mata-kuliah/kecerdasan-buatan-machine-learning/`](../kecerdasan-buatan-machine-learning/) |
+| Folder materi di repositori | [`mata-kuliah/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](../dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) (folder `kecerdasan-buatan-machine-learning/` adalah versi kurikulum lama) |
 
 **Sub-CPMK:**
 
@@ -207,7 +207,7 @@ Rincian penuh: [15d-subcpmk-tingkat-3-semester-5-6.md](15d-subcpmk-tingkat-3-sem
 | CPL yang dibebankan | CPL-FSTS1, CPL09, CPLUAI2, CPLUAI3 |
 | CPMK | CPMK091, CPMKFSTS11, CPMKFSTS12, CPMKUAI21, CPMKUAI22, CPMKUAI32 |
 | Tahap AI / Mode | A→C / E — AI Product |
-| Folder materi di repositori | — (belum ada di repositori) |
+| Folder materi di repositori | [`mata-kuliah/teknopreneur/`](../teknopreneur/) |
 
 **Sub-CPMK:**
 

@@ -319,7 +319,7 @@ skor = model.score(X_test, y_test)   # data uji hanya ditransformasi
 | Luaran | Notebook Colab |
 | Isi | (a) Pemeriksaan kualitas lengkap atas dataset yang diberikan; (b) Identifikasi pola nilai hilang beserta alasan penanganannya; (c) `ColumnTransformer` untuk kolom numerik dan kategorik; (d) `Pipeline` lengkap sampai model; (e) Catatan keputusan: apa, berapa banyak, mengapa |
 | Tenggat | Awal pertemuan Minggu 4 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 2,0% (Observasi, Sub-CPMK102-1) |
 
 ---
 

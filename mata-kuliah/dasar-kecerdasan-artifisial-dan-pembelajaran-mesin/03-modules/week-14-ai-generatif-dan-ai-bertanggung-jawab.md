@@ -301,7 +301,7 @@ Dalam kerangka nilai yang dipegang program studi ini, inilah wujud **amanah** pa
 | Isi | (a) Audit kinerja **model sendiri** terpisah per sekurang-kurangnya dua kelompok; (b) Selisih *recall* dan *precision* antarkelompok; (c) Pembahasan dugaan penyebab ketimpangan; (d) Ukuran *fairness* yang dipilih **beserta alasannya**; (e) *Model card* lengkap sesuai format §14.5; (f) Jawaban atas enam pertanyaan tanggung jawab §14.6.1 |
 | Ketentuan khusus | Audit dilakukan pada model proyek sendiri, bukan pada contoh |
 | Tenggat | Awal pertemuan Minggu 15 |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 2,0% (Observasi, Sub-CPMK102-1) |
 
 ---
 

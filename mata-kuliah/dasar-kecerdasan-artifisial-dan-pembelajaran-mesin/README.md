@@ -39,14 +39,17 @@ Posisinya pada jalur **AI Core & Advanced**:
 │ & Statistik  │───────►│  DASAR AI DAN   │──►│ Tiruan & Deep    │
 │ (sem 1)      │        │  PEMBELAJARAN   │   │ Learning (sem 5) │
 │              │        │  MESIN          │   ├──────────────────┤
-│ Struktur     │───────►│  (sem 5)        │──►│ Sains Data       │
-│ Data (sem 3) │        │  ◄── ANDA DI    │   ├──────────────────┤
-│              │        │      SINI       │──►│ Pengolahan       │
-│ Basis Data   │───────►│                 │   │ Bahasa Alami     │
-│ (sem 4)      │        │                 │   ├──────────────────┤
-└──────────────┘        └─────────────────┘   │ Pengolahan Citra │
-                                 │            │ Web Semantik     │
-                                 ▼            └──────────────────┘
+│ Struktur     │───────►│  (sem 5)        │──►│ Pengolahan Citra │
+│ Data (sem 3) │        │  ◄── ANDA DI    │   │ (sem 6)          │
+│              │        │      SINI       │   ├──────────────────┤
+│ Basis Data   │───────►│                 │──►│ Pengolahan       │
+│ (sem 3)      │        │                 │   │ Bahasa Alami     │
+│              │        │                 │   │ (sem 7)          │
+│ Sains Data   │───────►│                 │   ├──────────────────┤
+│ (sem 4)      │        │                 │──►│ Web Semantik     │
+└──────────────┘        └─────────────────┘   │ (sem 7)          │
+                                 │            └──────────────────┘
+                                 ▼                     │
                         ┌─────────────────┐            │
                         │  Tugas Akhir    │◄───────────┘
                         └─────────────────┘

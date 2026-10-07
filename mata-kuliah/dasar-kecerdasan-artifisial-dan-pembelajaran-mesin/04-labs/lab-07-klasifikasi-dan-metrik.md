@@ -7,7 +7,7 @@
 | Sub-CPMK | `DAIML-Sub-CPMK082-1` · ICM-07 |
 | Durasi | 100 menit |
 | Prasyarat | Lab 6 selesai |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

@@ -19,7 +19,7 @@
 | Status | **Wajib** |
 | Rumpun Keilmuan | R06 — Kecerdasan Artifisial (*Artificial Intelligence*) |
 | Bahan Kajian | **BK01** — *Artificial Intelligence* · **BK08** — *Mathematical and Statistical Foundations* |
-| Prasyarat | Probabilitas dan Statistik; Struktur Data dan Algoritma; Dasar-dasar Pemrograman |
+| Prasyarat | Tidak ditetapkan dalam registri kurikulum. Pengetahuan awal yang diandalkan: lihat §M.1 |
 | Dosen Pengampu | **Tri Aji Nugroho, S.T., M.T.** |
 | Posisi AI Infusion | Tahap **U→A→C** · Mode **Core** · Pilar **AI Core** |
 | Beban belajar | 3 × 170 menit/minggu = 510 menit/minggu (tatap muka 150' + terstruktur 180' + mandiri 180') |
@@ -477,30 +477,33 @@ Kecuali dengan alasan yang dapat diterima dan disampaikan **sebelum** tenggat.
 
 ## M. KETERKAITAN DENGAN MATA KULIAH LAIN
 
-### M.1 Prasyarat yang Dipakai
+### M.1 Pengetahuan Awal yang Dipakai
+
+Registri kurikulum tidak menetapkan prasyarat formal. Mata kuliah berikut ditempuh lebih dahulu dan bekalnya diandalkan di sini.
 
 | Mata kuliah | Yang dipakai di sini |
 |-------------|----------------------|
 | Probabilitas dan Statistik (sem 1) | Distribusi, Bayes, inferensi, interval kepercayaan, korelasi–regresi, ukuran efek |
-| Dasar-dasar Pemrograman (sem 1–2) | Python, struktur kendali, fungsi |
-| Struktur Data dan Algoritma (sem 3) | Kompleksitas, struktur pohon, kompromi ruang–waktu |
-| Basis Data (sem 4) | Pengambilan dan penggabungan data |
+| Dasar Pemrograman (sem 1) dan Algoritma Pemrograman (sem 2) | Python, struktur kendali, fungsi |
+| Struktur Data (sem 3) | Kompleksitas, struktur pohon, kompromi ruang–waktu |
+| Basis Data (sem 3) | Pengambilan dan penggabungan data |
+| Sains Data (sem 4) | Alur data ujung-ke-ujung — lihat catatan koordinasi §M.3 |
 
-### M.2 Mata Kuliah yang Bergantung
+### M.2 Mata Kuliah yang Memakai Fondasi Ini
 
 | Mata kuliah | Sem | Yang dibawa dari sini |
 |-------------|-----|------------------------|
-| Jaringan Syaraf Tiruan dan Pembelajaran Mendalam | 5 | Dasar pelatihan, *loss*, evaluasi, *overfitting* |
-| Sains Data | 6 | Seluruh alur ML dan evaluasinya |
+| Jaringan Syaraf Tiruan dan Pembelajaran Mendalam | 5 (bersamaan) | Dasar pelatihan, *loss*, evaluasi, *overfitting* |
 | Pengolahan Citra | 6 | Klasifikasi, metrik, validasi |
 | Pengolahan Bahasa Alami | 7 | Klasifikasi, evaluasi, *embedding* sebagai fitur |
 | Web Semantik | 7 | Representasi dan penalaran atas data |
-| Tugas Akhir | 7–8 | Metodologi eksperimen dan pembandingan yang sah |
+| Tugas Akhir | 8 | Metodologi eksperimen dan pembandingan yang sah |
 
 ### M.3 Catatan Koordinasi
 
 - **Dengan Jaringan Syaraf Tiruan (semester yang sama):** pembagian disepakati — mata kuliah ini hanya memberi pengantar MLP pada Minggu 13; arsitektur lanjut sepenuhnya di IF52510032.
 - **Dengan Teknopreneur (semester yang sama):** proyek boleh berbagi tema, dengan syarat luaran keduanya berbeda dan dinyatakan terbuka kepada kedua dosen.
+- **Dengan Sains Data (IF52520026, semester 4):** berstatus *Core* pada AI Curriculum Infusion Matrix, memakai CPMK082 dan CPMK102 yang sama, dan ditempuh **lebih dahulu**. Pembagian materi Minggu 2–7 (formulasi, prapemrosesan, pembagian data, metrik) perlu disepakati tertulis dengan dosen pengampu Sains Data agar tidak terjadi pengulangan.
 - **Dengan Probabilitas dan Statistik:** Bab 4 dan 7 memuat pengulangan terarah, karena rentang empat semester membuat sebagian materi terlupa.
 
 ---

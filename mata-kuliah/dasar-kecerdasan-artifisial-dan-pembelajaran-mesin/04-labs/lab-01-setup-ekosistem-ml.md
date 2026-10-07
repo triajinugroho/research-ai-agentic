@@ -7,7 +7,7 @@
 | Sub-CPMK | `DAIML-Sub-CPMK082-1` · ICM-01 |
 | Durasi | 100 menit (45' di kelas + 55' mandiri) |
 | Prasyarat | Akun Google; dasar Python |
-| Bobot | 1,9% (Observasi) |
+| Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
 ---
 

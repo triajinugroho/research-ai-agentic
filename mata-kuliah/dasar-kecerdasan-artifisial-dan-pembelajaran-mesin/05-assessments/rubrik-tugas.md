@@ -12,7 +12,7 @@
 | Aspek | Ketentuan |
 |-------|-----------|
 | Jumlah praktikum | 13 (Minggu 1–7, 9–14) |
-| Bobot per praktikum | 25% ÷ 13 ≈ **1,9%** |
+| Bobot per praktikum | **1,875%** untuk 8 lab `082-1` (Σ 15%) · **2,0%** untuk 5 lab `102-1` (Σ 10%) — lihat §3 |
 | Bentuk | Notebook Google Colab (`.ipynb`) |
 | Pengumpulan | Tautan Colab + berkas `.ipynb` |
 | Penamaan | `NIM_Nama_LabNN.ipynb` |
@@ -32,7 +32,7 @@
 
 ### Konversi
 
-$$\text{Nilai praktikum} = \left(\sum_{\text{aspek}} \frac{\text{skor}}{4} \times \text{bobot aspek}\right) \times 1{,}9\%$$
+$$\text{Nilai praktikum} = \left(\sum_{\text{aspek}} \frac{\text{skor}}{4} \times \text{bobot aspek}\right) \times \text{bobot lab}$$
 
 ---
 
@@ -134,7 +134,7 @@ Seorang mahasiswa mengumpulkan Lab 07 dengan penilaian:
 | Reproduksibilitas | 10% | 3 | 3/4 × 10% | 7,5% |
 | **Jumlah** | | | | **91,25%** |
 
-Nilai terhadap total mata kuliah: 91,25% × 1,9% = **1,73%** dari 100%.
+Lab 07 menelusur ke `082-1` (bobot 1,875%), sehingga nilai terhadap total mata kuliah: 91,25% × 1,875% = **1,71%** dari 100%.
 
 ---
 
