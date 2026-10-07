@@ -341,7 +341,7 @@ diagnostik_regresi(model, X_const, y)
 
 | Kode | Tugas | Bobot | Batas Waktu |
 |------|-------|-------|-------------|
-| T-14 | Laporan Lab 14 — Korelasi dan regresi linear | 2,04% | Sebelum kelas Minggu 15 |
+| T-14 | Laporan Lab 14 — Korelasi dan regresi linear | 1,96% | Sebelum kelas Minggu 15 |
 | P-01a | **Laporan dan notebook proyek** | (dinilai Minggu 15) | Minggu 14 |
 
 ---

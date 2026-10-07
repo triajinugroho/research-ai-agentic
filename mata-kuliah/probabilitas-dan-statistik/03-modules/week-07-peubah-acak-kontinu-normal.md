@@ -301,10 +301,11 @@ from scipy import stats
 stat_sw, p_sw = stats.shapiro(data)
 print(f"Shapiro-Wilk     : W = {stat_sw:.4f}, p-value = {p_sw:.6f}")
 
-# Kolmogorov-Smirnov terhadap Normal dengan parameter dari data
-stat_ks, p_ks = stats.kstest(
-    data, "norm", args=(data.mean(), data.std(ddof=1))
-)
+# Kolmogorov-Smirnov terhadap Normal dengan parameter dari data.
+# Catatan: karena mean dan simpangan baku ditaksir dari data yang sama,
+# p-value KS menjadi terlalu besar (konservatif); versi yang tepat adalah uji Lilliefors.
+dist_normal = stats.norm(loc=data.mean(), scale=data.std(ddof=1))
+stat_ks, p_ks = stats.kstest(data, dist_normal.cdf)
 print(f"Kolmogorov-Smirnov: D = {stat_ks:.4f}, p-value = {p_ks:.6f}")
 
 alpha = 0.05

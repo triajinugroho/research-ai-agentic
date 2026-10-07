@@ -128,7 +128,7 @@ sebaran_b = np.concatenate([rng.normal(55, 5, 250), rng.normal(85, 5, 250)])
 
 fig, axes = plt.subplots(1, 3, figsize=(16, 4.5))
 
-axes[0].boxplot([sebaran_a, sebaran_b], labels=["A", "B"])
+axes[0].boxplot([sebaran_a, sebaran_b], tick_labels=["A", "B"])
 axes[0].set_title("Boxplot — tampak serupa")
 
 sns.violinplot(data=[sebaran_a, sebaran_b], ax=axes[1], palette="Set2")

@@ -230,7 +230,7 @@ b = np.concatenate([np.random.normal(55, 5, 250), np.random.normal(85, 5, 250)])
 fig, axes = plt.subplots(1, 2, figsize=(13, 4))
 
 # Boxplot: terlihat mirip
-axes[0].boxplot([a, b], labels=["Sebaran A", "Sebaran B"])
+axes[0].boxplot([a, b], tick_labels=["Sebaran A", "Sebaran B"])
 axes[0].set_title("Boxplot: tampak serupa")
 
 # Violin plot: perbedaannya terlihat

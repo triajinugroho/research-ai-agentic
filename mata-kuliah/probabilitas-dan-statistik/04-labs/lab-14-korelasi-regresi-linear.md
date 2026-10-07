@@ -7,7 +7,7 @@
 | **Durasi** | 180 menit (mandiri) |
 | **Prasyarat** | Lab 13 selesai; materi Minggu 14 |
 | **Sub-CPMK** | `PS-Sub-CPMK102-1` |
-| **Bobot** | 2,04% |
+| **Bobot** | 1,96% |
 | **Berkas data** | `harga_rumah_jabodetabek.csv`, `nilai_mahasiswa_if.csv` |
 
 ---

@@ -228,7 +228,9 @@ def periksa_kenormalan(data, nama):
         w, p_sw = stats.shapiro(sub)
         print(f"  Shapiro-Wilk (subsampel 5000): W = {w:.4f}, p = {p_sw:.8f}")
 
-    d, p_ks = stats.kstest(data, "norm", args=(data.mean(), data.std(ddof=1)))
+    # Parameter ditaksir dari data yang sama → p-value KS konservatif (lihat uji Lilliefors)
+    dist_normal = stats.norm(loc=data.mean(), scale=data.std(ddof=1))
+    d, p_ks = stats.kstest(data, dist_normal.cdf)
     print(f"  Kolmogorov-S: D = {d:.4f}, p = {p_ks:.8f}")
 
     # Kesimpulan yang bijak

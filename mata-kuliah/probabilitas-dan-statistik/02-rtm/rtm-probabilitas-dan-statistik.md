@@ -45,7 +45,7 @@ Seluruh tugas pada mata kuliah ini menelusuri balik ke dua Sub-CPMK yang ditetap
 | T-11 | Laporan Lab 11 — Uji hipotesis satu sampel | Individu | 102-1 | 1,92% | Minggu 12 |
 | T-12 | Laporan Lab 12 — A/B testing dua sampel | Individu | 102-1 | 1,92% | Minggu 13 |
 | T-13 | Laporan Lab 13 — ANOVA dan chi-square | Individu | 102-1 | 1,92% | Minggu 14 |
-| T-14 | Laporan Lab 14 — Korelasi dan regresi linear | Individu | 102-1 | 2,04% | Minggu 15 |
+| T-14 | Laporan Lab 14 — Korelasi dan regresi linear | Individu | 102-1 | 1,96% | Minggu 15 |
 | K-01 | Kuis 1 — deskriptif dan visualisasi | Individu | 081-1 | 3,75% | Minggu 3 |
 | K-02 | Kuis 2 — probabilitas dan Bayes | Individu | 081-1 | 3,75% | Minggu 5 |
 | K-03 | Kuis 3 — sampling dan estimasi | Individu | 081-1 | 3,75% | Minggu 10 |

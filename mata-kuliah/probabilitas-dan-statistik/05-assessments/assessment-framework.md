@@ -74,7 +74,7 @@ Diambil dari sheet `Copy of (Ref) 15. Pemetaan MK-CPMK-SubCPMK` berkas kurikulum
 | Aspek | Ketentuan |
 |-------|-----------|
 | Jumlah | 13 laporan (Lab 01–07, 09–14) |
-| Bobot | 1,92% per laporan (Lab 14 = 2,04% untuk menggenapkan) |
+| Bobot | 1,92% per laporan (Lab 14 = 1,96% untuk menggenapkan: 12 × 1,92% + 1,96% = 25%) |
 | Bentuk | Notebook Google Colab `.ipynb` |
 | Pengumpulan | Sebelum kelas minggu berikutnya |
 | AI | Diizinkan untuk kode, wajib dicatat di AI Usage Log |

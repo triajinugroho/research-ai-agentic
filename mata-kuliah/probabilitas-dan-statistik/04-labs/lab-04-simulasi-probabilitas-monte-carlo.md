@@ -178,8 +178,9 @@ print("Bila fungsi hash menghasilkan k bit, ruang keluarannya 2^k.")
 print("Jumlah masukan sebelum peluang tabrakan mencapai 50%:\n")
 for k in [16, 32, 64, 128]:
     ruang = 2 ** k
-    # Hampiran: n ≈ 1,177 × sqrt(ruang)
-    n_50 = 1.1774 * np.sqrt(ruang)
+    # Hampiran: n ≈ 1,177 × sqrt(ruang) = 1,177 × 2^(k/2)
+    # (np.sqrt tidak dapat menerima bilangan bulat Python sebesar 2^64 ke atas)
+    n_50 = 1.1774 * 2 ** (k / 2)
     print(f"  hash {k:>3} bit (ruang 2^{k}) → sekitar {n_50:.3e} masukan")
 print("\n→ Inilah yang disebut 'birthday attack' dalam kriptografi.")
 ```
