@@ -45,7 +45,7 @@ siklus: 2026-2027-ganjil
 | `b37ec23` | Rumusan verbatim CPMK **Teknopreneur** ("Lima CPMK" padahal enam; tiga rumusan terpotong) dan tabel CPL **Metodologi Penelitian** (memuat rumusan CPMK sebagai CPL, ranah salah) dipulihkan dari registri |
 | `e5f88e3` | Pedoman OBE §I butir 10 dan §K menautkan registri konversi nilai; laporan ini (v1.0) |
 | `8f09bc0` | Registri [`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md) v2.0: **tabel resmi UAI** (9 huruf, A ≥ 81,00, lulus C 55,00), status sumber per aspek |
-| *(commit penerapan skala resmi)* | Skala resmi diterapkan ke **10 folder MK** (52 berkas): tabel kebijakan, ambang lulus, rubrik yang memetakan skor ke huruf, soal UTS INF-101 no. 11 beserta kunci dan pembahasannya, serta contoh kode konversi nilai di modul, buku ajar, dan lab. Kedua `prompt-*.md` kini menyematkan tabel resmi. Aturan validator **V13** ditambahkan (Pedoman §Q). Laporan ini menjadi v1.1 |
+| `e10654c` | Skala resmi diterapkan ke **10 folder MK** (52 berkas): tabel kebijakan, ambang lulus, rubrik yang memetakan skor ke huruf, soal UTS INF-101 no. 11 beserta kunci dan pembahasannya, serta contoh kode konversi nilai di modul, buku ajar, dan lab. Kedua `prompt-*.md` kini menyematkan tabel resmi. Aturan validator **V13** ditambahkan (Pedoman §Q). Laporan ini menjadi v1.1 |
 
 ---
 
