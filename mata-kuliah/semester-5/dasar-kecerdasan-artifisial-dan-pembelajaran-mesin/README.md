@@ -146,9 +146,21 @@ Rincian lengkap ada pada [kerangka asesmen](05-assessments/assessment-framework.
 | Google Colab | Lingkungan kerja seluruh praktikum |
 | NumPy, pandas | Manipulasi data |
 | Matplotlib, seaborn | Visualisasi |
-| **scikit-learn** | Pustaka ML utama sepanjang semester |
-| TensorFlow/Keras | Hanya pada Minggu 13 (pengantar JST) |
+| **scikit-learn** | Pustaka ML utama sepanjang semester — termasuk `MLPClassifier` untuk pengantar JST Minggu 13 |
 | Git/GitHub | Pengumpulan proyek dan penelusuran versi |
+
+> TensorFlow/Keras **tidak dipakai** di mata kuliah ini; arsitektur *deep learning* dibahas pada Jaringan Syaraf Tiruan dan Pembelajaran Mendalam (IF52510032).
+
+---
+
+## Data yang Dipakai
+
+| Kegiatan | Data |
+|----------|------|
+| Praktikum | Sebagian besar **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga — dinyatakan pada bagian Persiapan setiap lab. Aturan pembangkitnya diketahui, sehingga dampak kebocoran, regularisasi, atau *bias* dapat diukur |
+| Proyek akhir | **Wajib data nyata** berkonteks Indonesia (BPS, Satu Data Indonesia, portal daerah, Kaggle berkonteks Indonesia, atau data primer), minimal 500 baris |
+
+Rincian per lab dan alasannya: [panduan dataset §1.1](datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda).
 
 ---
 
@@ -174,7 +186,7 @@ Materi pada folder lama tetap berguna sebagai bank konten — terutama bab-bab D
 
 ## Rujukan Kurikulum
 
-Seluruh rumusan CPL, CPMK, Sub-CPMK, indikator, kriteria, dan bobot pada folder ini **diambil verbatim** dari registri kurikulum, bukan ditulis ulang:
+Rumusan CPL, CPMK, dan Sub-CPMK beserta level Bloom dan bobotnya **diambil verbatim** dari registri kurikulum (hanya ditambah huruf miring untuk istilah asing). Materi, indikator, dan kriteria Sub-CPMK **diadaptasi dari registri (diterjemahkan)** — istilah Inggris pada registri diterjemahkan tanpa mengubah maknanya:
 
 | Dokumen | Isi yang dirujuk |
 |---------|------------------|

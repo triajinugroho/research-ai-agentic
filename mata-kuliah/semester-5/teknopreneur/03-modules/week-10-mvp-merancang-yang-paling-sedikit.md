@@ -11,7 +11,7 @@
 | Bloom | C6 (Merancang) · P4 |
 | Durasi | 150 menit |
 | Metode | Kuliah · Studio pembangunan |
-| Penilaian | Observasi (Studio 10) — bagian dari P-03 |
+| Penilaian | Unjuk Kerja — Studio 10 adalah tahapan P-03 (tanpa bobot sendiri) |
 
 ---
 

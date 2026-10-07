@@ -109,7 +109,7 @@ Kuis menilai `PS-Sub-CPMK081-1` pada tingkat C3–C4: kemampuan menerapkan rumus
 |-------|-----------|
 | **Bentuk** | Tertulis di kelas, 20 menit, *closed book* |
 | **Jumlah soal** | 3–4 soal hitungan kontekstual |
-| **Alat bantu** | Kalkulator ilmiah dan satu lembar tabel distribusi |
+| **Alat bantu** | Kalkulator ilmiah *non-programmable* dan alat tulis; tabel distribusi yang diperlukan dibagikan bersama lembar soal; rumus **tidak disediakan** (sama dengan UTS dan UAS, lihat [§F](#f-rincian-ujian-u-01-dan-u-02)) |
 | **AI** | **Tidak diizinkan** |
 | **Susulan** | Hanya dengan surat keterangan sakit/tugas institusi, maksimal 7 hari setelah jadwal |
 
@@ -186,15 +186,7 @@ Kuis menilai `PS-Sub-CPMK081-1` pada tingkat C3–C4: kemampuan menerapkan rumus
 | Laporan | PDF 8–12 halaman | Struktur: Pendahuluan, Data dan Metode, Hasil, Pembahasan, Kesimpulan dan Keterbatasan, Referensi, AI Usage Log |
 | Presentasi | PDF/slide | 15 menit presentasi + 5 menit tanya jawab |
 
-**Rubrik penilaian proyek (10% nilai akhir).**
-
-| Aspek | Sub-CPMK | Bobot dari 10% | Deskripsi |
-|-------|----------|----------------|-----------|
-| Perumusan pertanyaan dan kesesuaian data | 102-1 | 1,5% | Pertanyaan tajam, data relevan dan memadai |
-| Pengolahan dan visualisasi | 102-1 | 2,0% | Pembersihan data terdokumentasi; grafik tepat dan terbaca |
-| Ketepatan uji dan pemeriksaan asumsi | 081-1 | 2,5% | Uji yang dipilih sesuai; asumsi diperiksa, bukan diasumsikan |
-| Validitas interpretasi dan keterbatasan | 081-1 | 2,5% | Kesimpulan tidak melampaui data; keterbatasan disebut jujur |
-| Kualitas presentasi dan penguasaan | 102-1 | 1,5% | Penyampaian jelas; seluruh anggota menguasai isi |
+**Rubrik penilaian proyek (10% nilai akhir).** Rubrik proyek hanya satu, yaitu [panduan proyek §8](../05-assessments/project-guidelines.md#8-rubrik-penilaian-10-nilai-akhir): tujuh aspek dengan deskriptor tingkat 1–4 — 5% menelusuri ke `PS-Sub-CPMK081-1` (§8.1) dan 5% ke `PS-Sub-CPMK102-1` (§8.2) — beserta konversi skor (§8.3) dan pengurangan nilai (§8.4). Rubrik itu menilai notebook, laporan, dan presentasi sekaligus; RTM ini dan [modul Minggu 15](../03-modules/week-15-presentasi-proyek.md) tidak memuat rubrik tersendiri. Jadwal sesi presentasi untuk kelas IF26A dan IF26H diatur pada [modul Minggu 15](../03-modules/week-15-presentasi-proyek.md#kapasitas-dan-sesi-tambahan).
 
 > **Catatan penting.** Kelompok yang hasil ujinya **tidak signifikan** tidak dirugikan. Yang dinilai adalah ketepatan prosedur dan kejujuran interpretasi. Melaporkan "tidak ditemukan perbedaan yang signifikan" dengan analisis yang benar bernilai lebih tinggi daripada memaksakan hasil signifikan dengan prosedur yang keliru.
 
@@ -212,8 +204,10 @@ Kuis menilai `PS-Sub-CPMK081-1` pada tingkat C3–C4: kemampuan menerapkan rumus
 | **Durasi** | 100 menit |
 | **Bentuk** | Tes tulis *closed book* |
 | **Cakupan** | Minggu 1–7 |
-| **Alat bantu** | Kalkulator ilmiah, satu lembar tabel distribusi (disediakan pengawas) |
-| **AI** | **Tidak diizinkan** |
+| **Alat bantu diizinkan** | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| **Disediakan pengawas** | Tabel distribusi Normal baku dan tabel-t, dibagikan bersama lembar soal |
+| **Rumus** | **Tidak disediakan** — hafalkan [daftar rumus kisi-kisi UTS §7](../05-assessments/kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
+| **Dilarang** | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 
 Komposisi soal dan bobot per pokok bahasan ada pada [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md).
 
@@ -227,8 +221,10 @@ Komposisi soal dan bobot per pokok bahasan ada pada [kisi-kisi UTS](../05-assess
 | **Durasi** | 120 menit |
 | **Bentuk** | Tes tulis *closed book* |
 | **Cakupan** | Komprehensif Minggu 1–15, penekanan Minggu 9–14 |
-| **Alat bantu** | Kalkulator ilmiah, satu lembar tabel distribusi (disediakan pengawas) |
-| **AI** | **Tidak diizinkan** |
+| **Alat bantu diizinkan** | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| **Disediakan pengawas** | Tabel distribusi Normal baku, tabel-t, tabel chi-square, dan tabel F, dibagikan bersama lembar soal |
+| **Rumus** | **Tidak disediakan** — hafalkan [daftar rumus kisi-kisi UAS §8](../05-assessments/kisi-kisi-uas.md#8-daftar-rumus-tambahan-di-luar-rumus-uts) beserta [daftar rumus kisi-kisi UTS §7](../05-assessments/kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
+| **Dilarang** | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 | **Syarat mengikuti** | Kehadiran minimal 75% |
 
 Komposisi soal ada pada [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md).

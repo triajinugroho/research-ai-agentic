@@ -2,7 +2,7 @@
 
 | Aspek | Keterangan |
 |-------|------------|
-| Minggu | 9 · Sub-CPMK `UAI22-1` · Bagian dari P-03 (25%) |
+| Minggu | 9 · Sub-CPMK `UAI22-1` · Tahapan P-03 (Unjuk Kerja, 25%) — tanpa bobot sendiri |
 | Durasi | 40' di kelas + 60' mandiri |
 | Luaran | *Value proposition canvas* + BMC sembilan kotak |
 
@@ -14,6 +14,15 @@
 2. Mengisi BMC dengan keterlacakan ke dokumen asal.
 3. Menguji konsistensi antarkotak.
 4. Memilih pola model bisnis beserta pertimbangan etisnya.
+
+---
+
+## Persiapan
+
+- Berkas P-02 (S-05, S-06, kesimpulan kelayakan) dan model *unit economics* S-07.
+- Persona, JTBD, dan tabel titik nyeri dari S-03 — bahan *Value Proposition Canvas* sisi pelanggan.
+- Kanvas kosong (kertas besar atau papan digital) untuk VPC dan BMC, dengan kolom sumber bukti pada setiap kotak.
+- Bab 8 buku ajar sudah dibaca.
 
 ---
 

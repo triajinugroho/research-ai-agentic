@@ -12,10 +12,10 @@
 | Aspek | Ketentuan |
 |-------|-----------|
 | Jumlah studio berbobot | 7 (S-02, S-03, S-04, S-05, S-06, S-07, S-13) |
-| Studio tanpa bobot sendiri | S-09 sampai S-12, S-14 (tahapan P-03 dan P-04) |
+| Studio tanpa bobot sendiri | S-09 sampai S-11 (tahapan P-03, Unjuk Kerja); S-12 dan S-14 (formatif — S-14 persiapan P-04) |
 | Bentuk | Dokumen kerja kelompok yang dapat diperiksa |
 | Pengerjaan | **Kelompok** |
-| Tenggat | Awal pertemuan minggu berikutnya |
+| Tenggat | Awal pertemuan minggu berikutnya; S-07 pada Minggu 9 karena Minggu 8 UTS ([RTM §B](../02-rtm/rtm-teknopreneur.md#b-ringkasan-seluruh-tugas)) |
 | AI Usage Log | **Wajib** pada setiap studio |
 
 ---
@@ -40,7 +40,7 @@
 | [S-04](../04-labs/lab-04-matriks-kebutuhan-persyaratan.md) | 4 | 3,4% | 091-1 | **Tidak ada persyaratan tanpa induk kebutuhan**; persyaratan dapat diperiksa; Milestone 1 memuat "apa yang berbeda" |
 | [S-05](../04-labs/lab-05-perhitungan-pasar-dan-peta-kompetitor.md) | 5 | 6,25% | UAI21-1 | ***Bottom-up* wajib**; setiap asumsi bersumber dengan tanggal akses; **kompetitor tidak langsung disertakan** |
 | [S-06](../04-labs/lab-06-uji-kelayakan-teknologi.md) | 6 | 6,25% | UAI21-1 | Kemampuan tim dinilai jujur; **beban operasional per 100 pengguna dihitung**; keputusan dinyatakan |
-| [S-07](../04-labs/lab-07-model-unit-economics.md) | 7 | 6,25% | UAI21-1 | **Waktu tim dihitung dalam CAC**; **analisis sensitivitas 3 asumsi**; risiko dengan **tanda awal** |
+| [S-07](../04-labs/lab-07-model-unit-economics.md) | 7 | 6,25% | UAI21-1 | **Waktu tim dihitung dalam CAC**; **analisis sensitivitas 3 asumsi**; risiko dengan **tanda awal**; Milestone 2 memuat kesimpulan kelayakan berbasis angka |
 | [S-13](../04-labs/lab-13-kelayakan-produk-ai.md) | 13 | 6,25% | UAI21-1 | Biaya dengan **harga terkini yang diperiksa**; dampak pada margin; **keputusan dinyatakan** — termasuk "tidak memakai AI" |
 
 ---

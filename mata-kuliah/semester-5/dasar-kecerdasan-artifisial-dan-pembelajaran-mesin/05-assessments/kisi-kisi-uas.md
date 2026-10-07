@@ -71,6 +71,10 @@ $$\sigma(z)=\frac{1}{1+e^{-z}} \qquad \sigma'(z)=\sigma(z)\bigl(1-\sigma(z)\bigr
 
 $$s(i)=\frac{b(i)-a(i)}{\max\{a(i),b(i)\}} \qquad \text{Precision}=\frac{TP}{TP+FP} \qquad \text{Recall}=\frac{TP}{TP+FN}$$
 
+$$\bar{s}=\frac{1}{k}\sum_i s_i \qquad s=\sqrt{\frac{\sum_i(s_i-\bar{s})^2}{k-1}} \quad \text{(simpangan baku sampel skor lipatan, pembagi } k-1\text{)}$$
+
+$$d_i=\text{skor}_{A,i}-\text{skor}_{B,i} \qquad \bar d=\frac{1}{k}\sum_i d_i \qquad s_d=\sqrt{\frac{\sum_i(d_i-\bar d)^2}{k-1}} \qquad SE=\frac{s_d}{\sqrt{k}}$$
+
 Nilai $\log_2$ yang sering dipakai juga disediakan dalam tabel kecil.
 
 ---
@@ -85,7 +89,10 @@ Nilai $\log_2$ yang sering dipakai juga disediakan dalam tabel kecil.
 
 **A3.** Sebuah tim melaporkan skor *silhouette* 0,68 pada hasil *clustering* mereka, lalu menyimpulkan bahwa klasternya bermakna. Jelaskan mengapa kesimpulan itu belum sah, dan apa yang masih harus dilakukan.
 
-**A4.** Jelaskan mengapa ukuran-ukuran *fairness* (*demographic parity*, *equal opportunity*, *equalized odds*) **tidak dapat dipenuhi sekaligus** ketika angka kejadian dasar berbeda antarkelompok. Apa konsekuensinya bagi seorang insinyur?
+**A4.** Pada data dengan angka kejadian dasar (*base rate*) yang berbeda antarkelompok, seorang rekan menyatakan: *"Tidak ada model yang dapat memenuhi demographic parity, equal opportunity, dan equalized odds sekaligus."*
+(a) Nilailah pernyataan itu sebagaimana dirumuskan: adakah pengklasifikasi yang memenuhi ketiganya sekaligus, dan apakah ia berguna?
+(b) Rumuskan ulang pernyataan itu dengan tepat, lalu jelaskan mengapa *independence* (*demographic parity*) dan *separation* (*equalized odds*) umumnya tidak dapat dipenuhi bersamaan oleh pengklasifikasi yang berguna bila *base rate* berbeda.
+(c) Apa konsekuensinya bagi seorang insinyur yang menyusun bagian Pertimbangan Etis pada *model card*?
 
 **A5.** Sebuah model memiliki akurasi keseluruhan 0,88, tetapi *recall* pada kelompok yang hanya berjumlah 3% dari data adalah 0,45. Jelaskan (a) mengapa angka keseluruhan tidak memperlihatkan masalah ini, dan (b) apa yang harus dilaporkan pada *model card*.
 
@@ -135,20 +142,23 @@ Masukan $x = [1, 1]$, target $y = 0$, laju pembelajaran $\eta = 0{,}2$.
 (e) Hitung $\partial L/\partial v_1$ dan $\partial L/\partial v_2$, lalu perbarui $v_1$ dan $v_2$.
 (f) Apakah kedua bobot naik atau turun? Jelaskan mengapa arah itu masuk akal.
 
-**C3.** Sebuah perbandingan model menghasilkan:
+**C3.** Dua model dinilai dengan validasi silang 5 lipatan pada **lipatan yang sama** (ROC-AUC per lipatan):
 
-| Model | ROC-AUC rerata | Simpangan |
-|-------|----------------|-----------|
-| Random Forest | 0,842 | 0,018 |
-| Gradient Boosting | 0,851 | 0,022 |
-| SVM (RBF) | 0,838 | 0,015 |
-| Baseline | 0,500 | 0,000 |
+| Model | L1 | L2 | L3 | L4 | L5 |
+|-------|----|----|----|----|----|
+| Random Forest | 0,830 | 0,861 | 0,825 | 0,848 | 0,846 |
+| Gradient Boosting | 0,842 | 0,865 | 0,840 | 0,854 | 0,854 |
 
-(a) Model mana yang reratanya tertinggi?
-(b) Hitung simpangan gabungan antara dua model teratas ($\sqrt{s_1^2+s_2^2}$).
-(c) Apakah selisih antara keduanya lebih besar daripada simpangan gabungan itu? Apa kesimpulannya?
-(d) Bila *Random Forest* jauh lebih cepat dilatih dan lebih mudah dijelaskan, model mana yang Anda rekomendasikan? Jelaskan.
-(e) Apa yang akan Anda periksa bila salah satu model menghasilkan ROC-AUC 0,98?
+Pada lipatan yang sama, SVM (RBF) memperoleh rerata 0,838 dan *baseline* 0,500.
+
+(a) Hitung rerata dan simpangan baku sampel (pembagi $k-1$) skor lipatan kedua model. Model mana yang reratanya tertinggi?
+(b) Hitung selisih per lipatan $d_i = \text{skor}_{GB,i} - \text{skor}_{RF,i}$, lalu $\bar d$, $s_d$, dan $SE = s_d/\sqrt{k}$.
+(c) Menurut aturan praktis mata kuliah — selisih bermakna bila $|\bar d| > 2 \cdot SE$ **dan** arahnya konsisten di sebagian besar lipatan — apakah keunggulan *Gradient Boosting* bermakna?
+(d) Seorang rekan membandingkan selisih rerata dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$ yang dihitung dari simpangan baku skor masing-masing model. Jelaskan dua alasan cara itu tidak tepat untuk skor yang diperoleh pada lipatan yang sama, dan apakah kesimpulannya dapat berbeda dari (c).
+(e) Bila *Random Forest* jauh lebih cepat dilatih dan lebih mudah dijelaskan, model mana yang Anda rekomendasikan? Jelaskan.
+(f) Apa yang akan Anda periksa bila salah satu model menghasilkan ROC-AUC 0,98?
+
+> Aturan $|\bar d| > 2 \cdot SE$ hanya penyaring kasar, karena skor antarlipatan tidak benar-benar saling bebas (data latihnya tumpang-tindih). Untuk analisis formal dipakai *corrected resampled t-test* (Nadeau & Bengio, 2003) — dibahas pada Lab 10, tidak diujikan dalam hitungan manual.
 
 ---
 

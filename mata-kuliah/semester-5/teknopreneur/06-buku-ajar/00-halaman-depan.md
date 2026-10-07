@@ -127,7 +127,7 @@ AI hadir dalam **dua peran** yang berbeda:
 ### Untuk Dosen Pengampu
 
 - Setiap bab selaras dengan satu modul mingguan dan satu studio.
-- Latihan Soal dapat dipakai sebagai bank soal UTS dan UAS.
+- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal ujian: soal UTS dan UAS disusun terpisah dengan mengacu pada kisi-kisi, dan **tidak dipublikasikan**.
 - AI Corner dapat menjadi bahan diskusi 15 menit.
 - Seluruh contoh berkonteks Indonesia dan dapat diganti.
 

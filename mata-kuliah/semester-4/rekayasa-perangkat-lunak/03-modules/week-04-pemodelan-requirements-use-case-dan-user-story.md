@@ -989,7 +989,7 @@ Buatlah Use Case Narrative lengkap (dengan Precondition, Main Flow, Alternative 
 | **Format** | Markdown di GitHub repository proyek kelompok |
 | **Konteks** | Menggunakan domain proyek akhir kelompok (konteks Indonesia) |
 | **Rubrik** | Kualitas INVEST (30%), AC GWT (30%), Prioritisasi (20%), Story Map (20%) |
-| **AI Policy** | AI diizinkan sebagai brainstorming partner + wajib AI Usage Log |
+| **AI Policy** | AI diizinkan sebagai brainstorming partner + wajib AI Usage Log ([format Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log)) |
 | **Deadline** | Sebelum perkuliahan Minggu 5 |
 
 ### K1: Kuis Fondasi RPL & Requirements (4% nilai akhir)

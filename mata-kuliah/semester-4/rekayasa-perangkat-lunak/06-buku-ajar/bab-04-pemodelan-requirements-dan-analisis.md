@@ -1155,7 +1155,7 @@ Tech stack: Flask + MySQL + HTML/CSS/JS
 3. **Enhance**: Perbaiki stories yang gagal INVEST — tulis ulang secara manual
 4. **AC**: Untuk 3 stories teratas, minta AI generate acceptance criteria (Given-When-Then)
 5. **Validate**: Apakah AC mencakup happy path dan edge cases? Tambahkan yang kurang
-6. **Log**: Catat di **AI Usage Log**: prompt, output AI, modifikasi Anda, refleksi
+6. **Log**: Catat di **AI Usage Log** ([Lampiran C](lampiran.md#lampiran-c-template-ai-usage-log)): prompt, output AI, evaluasi, modifikasi Anda, refleksi
 
 ---
 

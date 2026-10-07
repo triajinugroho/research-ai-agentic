@@ -199,10 +199,10 @@ Temuan dipresentasikan singkat kepada tim asal. Bagian ini sering tidak nyaman d
 
 | Aspek | Ketentuan |
 |-------|-----------|
-| Luaran | Matriks keterlacakan + berkas Milestone 1 lengkap |
+| Luaran | Matriks keterlacakan (S-04) + berkas Milestone 1 (P-01), yang menghimpun S-02 dan S-03 |
 | Kriteria khusus | **Keterlacakan penuh**; tidak ada persyaratan tanpa induk |
 | Isi tambahan | Ringkasan "apa yang ternyata berbeda" + pernyataan arah |
-| Tenggat | Akhir Minggu 4 |
+| Tenggat | P-01: akhir Minggu 4 · S-04: awal pertemuan Minggu 5 |
 | Bobot | 3,4% (Observasi); P-01 dinilai sebagai bagian komponen Observasi `091-1` |
 
 ---

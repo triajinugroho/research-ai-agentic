@@ -19,7 +19,7 @@
 | Status | **Wajib** |
 | Rumpun Keilmuan | R08 — Riset, Inovasi & Kewirausahaan |
 | Bahan Kajian | **BK07** (HCI) · **BK13** (Software Engineering) · **BK17** (Specialized Platform Development) · **BK18** (Pengembangan Diri) |
-| Prasyarat | Kreativitas dan Entrepreneurship |
+| Prasyarat | Tidak ditetapkan dalam registri kurikulum. Pengetahuan awal yang diandalkan: lihat [§J.6](#j6-pengetahuan-awal-yang-diandalkan) |
 | Dosen Pengampu | **Tri Aji Nugroho, S.T., M.T.** |
 | Posisi AI Infusion | Tahap **A→C** · Mode **E (Eksplisit)** · Pilar **AI Product** |
 | Beban belajar | 3 × 170 menit/minggu = 510 menit/minggu |
@@ -55,6 +55,8 @@ Mata kuliah ini membebani **empat CPL dari tiga tingkat**. Rumusan diambil dari 
 | **CPL-FSTS1** | Fakultas | Kemampuan Umum (Pilihan) | Mampu berkolaborasi dan berkomunikasi secara efektif dalam tim multidisiplin untuk merancang, mengembangkan, dan menyelesaikan solusi inovatif secara bertanggung jawab, adaptif, dan beretika. |
 | **CPLUAI2** | Universitas | Kemampuan Umum (Pilihan) | Mampu menguasai konsep teoretis bidang pengetahuan dan keterampilan tertentu secara umum dan khusus untuk menyelesaikan masalah secara prosedural sesuai dengan lingkup pekerjaannya, dan mampu beradaptasi terhadap situasi perubahan yang dihadapi. |
 | **CPLUAI3** | Universitas | Sikap (Pilihan) | Mampu mengkaji, mengamalkan, dan mengembangkan konsep teoretis dengan karakter unggul, penalaran kritis, kreativitas, serta etika Islami dan akademik untuk meningkatkan mutu kehidupan, berkontribusi pada kemajuan peradaban, serta mengembangkan literasi dan kompetensi ilmu pengetahuan dan teknologi dengan semangat kolaborasi, kemandirian, dan kewirausahaan. |
+
+> **Catatan CPL09 bagi peserta dari program studi lain.** Sebagai MKF, mata kuliah ini dapat diikuti mahasiswa program studi lain di Fakultas Sains dan Teknologi, sedangkan CPL09 adalah CPL Program Studi Informatika. Cara melaporkan ketercapaian CPL09 (melalui `TEKNO-Sub-CPMK091-1`) bagi mahasiswa program studi lain **belum ditetapkan dan menunggu keputusan prodi/fakultas**. Sampai keputusan itu ada, penilaian mata kuliah tetap mengikuti RPS ini bagi seluruh peserta; yang tertunda hanya pelaporan ketercapaian CPL09-nya.
 
 ---
 
@@ -185,7 +187,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Bentuk | Kuliah · Studio · Presentasi silang |
 | Pengalaman belajar | Menyusun matriks kebutuhan→persyaratan yang setiap barisnya dapat ditelusuri ke wawancara |
 | Materi | [Modul 4](../03-modules/week-04-dari-kebutuhan-ke-persyaratan.md) · [Bab 4](../06-buku-ajar/bab-04-dari-kebutuhan-ke-persyaratan.md) · [Studio 4](../04-labs/lab-04-matriks-kebutuhan-persyaratan.md) |
-| Penilaian | Observasi (Studio 4) · **Milestone 1 (P-01)** |
+| Penilaian | Observasi (Studio 4) · **Milestone 1 (P-01)** — menghimpun S-02 dan S-03 |
 
 ### Minggu 5 — Ukuran Pasar dan Analisis Kompetitor
 
@@ -218,7 +220,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Bentuk | Kuliah · Studio perhitungan · Presentasi silang |
 | Pengalaman belajar | Membangun model *unit economics* dengan asumsi yang dapat diuji |
 | Materi | [Modul 7](../03-modules/week-07-unit-economics-harga-risiko.md) · [Bab 7](../06-buku-ajar/bab-07-unit-economics-harga-risiko.md) · [Studio 7](../04-labs/lab-07-model-unit-economics.md) |
-| Penilaian | Observasi (Studio 7) · **Milestone 2 (P-02)** |
+| Penilaian | Observasi (Studio 7) · **Milestone 2 (P-02)** — menghimpun S-05 dan S-06 |
 
 ### Minggu 8 — Ujian Tengah Semester
 
@@ -226,7 +228,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 |-------|------------|
 | Sub-CPMK | `TEKNO-Sub-CPMK091-1` — **bobot 10%** |
 | Cakupan | Minggu 1–7, penekanan pada penemuan pelanggan dan perumusan kebutuhan |
-| Bentuk | Tes tulis, *closed book*, 90 menit, **tanpa alat bantu AI** |
+| Bentuk | Tes tulis, *closed book*, 90 menit, **tanpa alat bantu AI**; alat bantu yang diperkenankan hanya **kalkulator** (bukan kalkulator pada ponsel atau laptop); rumus yang dibutuhkan dicetak pada lembar soal |
 | Materi | [Modul 8](../03-modules/week-08-uts-review-dan-ujian.md) · [Kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) |
 | Penilaian | **Tes Tulis UTS (10%)** |
 
@@ -239,7 +241,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Bentuk | Kuliah · Studio penyusunan |
 | Pengalaman belajar | Menyusun BMC yang setiap kotaknya ditelusuri ke bukti pelanggan |
 | Materi | [Modul 9](../03-modules/week-09-model-bisnis-dan-proposisi-nilai.md) · [Bab 8](../06-buku-ajar/bab-08-model-bisnis-dan-proposisi-nilai.md) · [Studio 9](../04-labs/lab-09-business-model-canvas.md) |
-| Penilaian | Observasi (Studio 9) |
+| Penilaian | Unjuk Kerja — Studio 9 adalah tahapan **P-03** (tanpa bobot sendiri) |
 
 ### Minggu 10 — MVP: Merancang yang Paling Sedikit
 
@@ -250,7 +252,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Bentuk | Kuliah · Studio pembangunan |
 | Pengalaman belajar | Merancang, membangun, dan **menguji MVP kepada orang di luar tim** |
 | Materi | [Modul 10](../03-modules/week-10-mvp-merancang-yang-paling-sedikit.md) · [Bab 9](../06-buku-ajar/bab-09-mvp-merancang-yang-paling-sedikit.md) · [Studio 10](../04-labs/lab-10-rancang-dan-uji-mvp.md) |
-| Penilaian | Observasi (Studio 10) |
+| Penilaian | Unjuk Kerja — Studio 10 adalah tahapan **P-03** (tanpa bobot sendiri) |
 
 ### Minggu 11 — *Go-to-Market* dan Eksperimen Pertumbuhan
 
@@ -261,7 +263,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Bentuk | Kuliah · Studio perencanaan |
 | Pengalaman belajar | Menyusun rencana *go-to-market* dengan *milestone* dan ukuran keberhasilan yang dapat diperiksa |
 | Materi | [Modul 11](../03-modules/week-11-go-to-market-dan-eksperimen.md) · [Bab 10](../06-buku-ajar/bab-10-go-to-market-dan-eksperimen.md) · [Studio 11](../04-labs/lab-11-rencana-go-to-market.md) |
-| Penilaian | Observasi (Studio 11) · **Milestone 3 (P-03)** |
+| Penilaian | Unjuk Kerja — **Milestone 3 (P-03, 25%)**, menghimpun Studio 9–11 |
 
 ### Minggu 12 — Tata Kelola, Legalitas, dan Etika Usaha Teknologi
 
@@ -272,7 +274,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Bentuk | Kuliah · Studi kasus · Audit mandiri |
 | Pengalaman belajar | Mengaudit usaha sendiri terhadap daftar periksa kepatuhan dan etika |
 | Materi | [Modul 12](../03-modules/week-12-tata-kelola-legalitas-etika.md) · [Bab 11](../06-buku-ajar/bab-11-tata-kelola-legalitas-etika.md) · [Studio 12](../04-labs/lab-12-audit-etika-dan-kepatuhan.md) |
-| Penilaian | Observasi (Studio 12) |
+| Penilaian | Formatif (Studio 12, tanpa bobot) — temuan audit ditindaklanjuti sebelum *Demo Day*; tidak termasuk P-03 karena tenggatnya Minggu 13 |
 
 ### Minggu 13 — Produk Berbasis AI: Kelayakan dan Batasnya
 
@@ -294,7 +296,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Bentuk | Kuliah · Latihan *pitch* · Umpan balik sejawat |
 | Pengalaman belajar | Menyampaikan *pitch* dan menerima kritik keras sebelum *Demo Day* |
 | Materi | [Modul 14](../03-modules/week-14-pitching-dan-komunikasi-bisnis.md) · [Bab 13](../06-buku-ajar/bab-13-pitching-dan-komunikasi-bisnis.md) · [Studio 14](../04-labs/lab-14-latihan-pitch-dan-umpan-balik.md) |
-| Penilaian | Observasi (Studio 14) |
+| Penilaian | Formatif (Studio 14, tanpa bobot) — persiapan **P-04** (Unjuk Kerja) |
 
 ### Minggu 15 — *Demo Day*
 
@@ -302,7 +304,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 |-------|------------|
 | Sub-CPMK | `TEKNO-Sub-CPMKFSTS11-1` · `TEKNO-Sub-CPMKFSTS12-1` |
 | Bahan kajian | Presentasi dan pertanggungjawaban di hadapan penguji luar |
-| Bentuk | Presentasi 15 menit + tanya jawab 10 menit per kelompok |
+| Bentuk | Presentasi 15 menit + tanya jawab 10 menit per kelompok; penguji: dosen pengampu + minimal 1 praktisi/alumni dari luar (nilai ditetapkan dosen pengampu — [RTM §G.2](../02-rtm/rtm-teknopreneur.md#g2-ketentuan-presentasi)) |
 | Pengalaman belajar | Mempertahankan setiap klaim di hadapan praktisi yang tidak mengenal proyeknya |
 | Materi | [Modul 15](../03-modules/week-15-demo-day.md) · [Bab 14](../06-buku-ajar/bab-14-proyek-akhir.md) |
 | Penilaian | **Unjuk Kerja — *pitch* (P-04, 10%)** · **Kolaborasi tim (P-05, 5%)** |
@@ -313,7 +315,7 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 |-------|------------|
 | Sub-CPMK | `TEKNO-Sub-CPMKUAI32-1` — **bobot 10%** |
 | Cakupan | Refleksi pembelajaran, adaptasi, dan pemindaian tren |
-| Bentuk | Tes tulis reflektif, *closed book*, 90 menit, **tanpa alat bantu AI** |
+| Bentuk | Tes tulis reflektif, *closed book*, 90 menit, **tanpa alat bantu apa pun** (termasuk AI dan kalkulator) |
 | Materi | [Modul 16](../03-modules/week-16-uas-review-dan-ujian.md) · [Kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md) |
 | Penilaian | **Tes Tulis UAS (10%)** |
 
@@ -340,15 +342,18 @@ Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulu
 | Studio 2, 3, 4 | S-02…S-04 | 2–4 | 10% | 091-1 | Observasi |
 | Studio 5, 6, 7, 13 | S-05…S-13 | 5–13 | 25% | UAI21-1 | Observasi |
 | Persetujuan ranah | P-00 | 1 | prasyarat | — | — |
-| Milestone 1 — bukti masalah | P-01 | 4 | *(dalam Observasi)* | 091-1 | Observasi |
-| Milestone 2 — bukti kelayakan | P-02 | 7 | *(dalam Observasi)* | UAI21-1 | Observasi |
-| Milestone 3 — BMC, MVP, GTM | P-03 | 11 | **25%** | UAI22-1 | Unjuk Kerja |
+| Milestone 1 — bukti masalah (S-02, S-03) | P-01 | 4 | *(dalam Observasi)* | 091-1 | Observasi |
+| Milestone 2 — bukti kelayakan (S-05, S-06) | P-02 | 7 | *(dalam Observasi)* | UAI21-1 | Observasi |
+| Milestone 3 — BMC, MVP, GTM (S-09…S-11) | P-03 | 11 | **25%** | UAI22-1 | Unjuk Kerja |
+| Studio 12 (audit etika) dan Studio 14 (latihan *pitch*) | S-12, S-14 | 12, 14 | formatif | UAI22-1, FSTS11-1 | — |
 | *Pitch deck* dan *Demo Day* | P-04 | 15 | **10%** | FSTS11-1 | Unjuk Kerja |
 | Bukti kolaborasi tim | P-05 | 15 | **5%** | FSTS12-1 | Unjuk Kerja |
 | Partisipasi kerja tim | — | 1–15 | **5%** | FSTS12-1 | Partisipasi |
 | Ujian Tengah Semester | U-01 | 8 | **10%** | 091-1 | Tes Tulis |
 | Ujian Akhir Semester | U-02 | 16 | **10%** | UAI32-1 | Tes Tulis |
 | | | | **100%** | | |
+
+> **Cakupan *milestone*.** Setiap *milestone* hanya menghimpun studio yang tenggatnya **tidak lebih lambat** dari tenggat *milestone* itu. Karena itu S-04 (tenggat Mg 5) dan S-07 (tenggat Mg 9, karena Mg 8 UTS) dinilai sebagai studio tersendiri, dan S-12 (tenggat Mg 13) bersifat formatif. Rincian tenggat: [RTM §B](../02-rtm/rtm-teknopreneur.md#b-ringkasan-seluruh-tugas).
 
 ### G.3 Catatan tentang Partisipasi 5%
 
@@ -413,10 +418,10 @@ Skala mengikuti [registri konversi nilai](../../../00-pedoman-obe/konversi-nilai
 
 ### Konteks Indonesia
 
-10. Kementerian Koperasi dan UKM RI. *Statistik UMKM Indonesia* (terbitan terbaru).
+10. Kementerian Usaha Mikro, Kecil, dan Menengah RI (Kementerian UMKM; sebelum Oktober 2024 bagian dari Kementerian Koperasi dan UKM). *Data UMKM* (terbitan terbaru). <https://umkm.go.id>
 11. Badan Pusat Statistik. *Statistik E-Commerce Indonesia* (terbitan terbaru).
 12. Undang-Undang No. 27 Tahun 2022 tentang **Pelindungan Data Pribadi**.
-13. Undang-Undang No. 11 Tahun 2008 jo. No. 19 Tahun 2016 tentang **Informasi dan Transaksi Elektronik**.
+13. Undang-Undang No. 11 Tahun 2008 jo. No. 19 Tahun 2016 jo. No. 1 Tahun 2024 tentang **Informasi dan Transaksi Elektronik**.
 
 ### Dokumen Kurikulum
 
@@ -485,6 +490,18 @@ Mata kuliah ini berstatus **mode E (Eksplisit)** dengan pilar **AI Product**. AI
 - **Penilaian sejawat** dilakukan dua kali (Minggu 8 dan 15) dan memengaruhi nilai perorangan pada komponen kolaborasi.
 - Ketimpangan kontribusi yang nyata dan terbukti dapat menurunkan nilai perorangan hingga 30% pada komponen Partisipasi dan `Sub-CPMKFSTS12-1`.
 
+### J.6 Pengetahuan Awal yang Diandalkan
+
+Registri kurikulum ([susunan mata kuliah](../../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md)) tidak menetapkan prasyarat formal untuk mata kuliah ini. Mata kuliah berikut ditempuh lebih dahulu dalam kurikulum Informatika dan bekalnya diandalkan di sini, tetapi **bukan syarat untuk mengambil** Teknopreneur.
+
+| Mata kuliah | Sem | Yang dipakai di sini |
+|-------------|-----|----------------------|
+| Kreativitas dan Entrepreneurship (`ST52510001`, MKF) | 3 | Pembangkitan gagasan; dasar kewirausahaan |
+| Interaksi Manusia dan Komputer (`IF52510009`) | 3 | Riset pengguna; persona; konteks penggunaan |
+| Rekayasa Perangkat Lunak (`IF52520011`) | 4 | Perumusan dan keterlacakan persyaratan |
+
+Semester di atas mengikuti kurikulum Informatika. Peserta dari program studi lain mungkin menempuh mata kuliah tersebut pada semester berbeda atau tidak menempuhnya; bagi mereka, Bab 2–4 dan Studio 2–4 menjadi bekal utama untuk penemuan pelanggan, persona, dan perumusan persyaratan.
+
 ---
 
 ## K. PENGESAHAN
@@ -505,6 +522,7 @@ Mata kuliah ini berstatus **mode E (Eksplisit)** dengan pilar **AI Product**. AI
 | Versi | Tanggal | Perubahan |
 |-------|---------|-----------|
 | 1.0 | September 2026 | Penyusunan awal mengacu Kurikulum Informatika 2025 Revisi 2026 |
+| 1.1 | Oktober 2026 | Label teknik §F diselaraskan dengan kerangka asesmen (Studio 9–11 tahapan P-03; Studio 12 dan 14 formatif); cakupan *milestone* disesuaikan dengan tenggat studio; satu aturan alat bantu UTS/UAS; prasyarat diganti pengetahuan awal (§J.6); catatan CPL09 bagi peserta prodi lain; sitasi regulasi diperbarui |
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

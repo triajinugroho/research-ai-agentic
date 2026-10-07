@@ -103,17 +103,24 @@ Angka keseluruhan (0,86) tampak baik. Bagi penduduk Papua, model ini melewatkan 
 
 ### 14.3 Mengukur *Fairness*
 
-#### 14.3.1 Tiga Ukuran Pokok
+#### 14.3.1 Ukuran-Ukuran Pokok
 
 | Ukuran | Definisi | Menuntut |
 |--------|----------|----------|
-| **Demographic parity** | $P(\hat{y}=1 \mid A=a)$ sama untuk semua kelompok | Proporsi prediksi positif setara |
+| **Demographic parity** (*independence*) | $P(\hat{y}=1 \mid A=a)$ sama untuk semua kelompok | Proporsi prediksi positif setara |
 | **Equal opportunity** | *Recall* sama untuk semua kelompok | Yang layak memperoleh peluang setara |
-| **Equalized odds** | *Recall* **dan** FPR sama | Kedua jenis kesalahan setara |
+| **Equalized odds** (*separation*) | *Recall* **dan** FPR sama | Kedua jenis kesalahan setara |
+| **Predictive parity** | *Precision* (PPV) sama untuk semua kelompok | Prediksi positif sama dapat dipercaya di setiap kelompok (versi skornya: **kalibrasi dalam kelompok**) |
 
-#### 14.3.2 Ketiganya Tidak Dapat Dipenuhi Sekaligus
+#### 14.3.2 Mengapa Tidak Semuanya Dapat Dipenuhi
 
-Kleinberg et al. (2016) membuktikan bahwa ketika angka kejadian dasar (*base rate*) berbeda antarkelompok, ukuran-ukuran *fairness* tersebut **saling bertentangan secara matematis**. Tidak ada model yang dapat memenuhi semuanya.
+Ketika angka kejadian dasar (*base rate*) berbeda antarkelompok, ukuran-ukuran di atas tidak dapat dipenuhi bersamaan **oleh pengklasifikasi yang berguna**:
+
+- **Kleinberg, Mullainathan, & Raghavan (2017):** kalibrasi dalam kelompok dan keseimbangan galat untuk kelas positif maupun kelas negatif tidak dapat dipenuhi bersamaan, **kecuali** *base rate* antarkelompok sama atau prediksinya sempurna.
+- **Chouldechova (2017):** bila *base rate* berbeda, pengklasifikasi yang tidak sempurna tidak dapat sekaligus memiliki PPV yang sama dan FPR serta FNR yang sama.
+- **Barocas, Hardt, & Narayanan (2023):** *independence* (*demographic parity*) dan *separation* (*equalized odds*) umumnya tidak dapat dipenuhi bersamaan bila *base rate* berbeda, **kecuali** pada pengklasifikasi trivial — mis. yang memberi keputusan sama untuk semua orang: memenuhi keduanya, tetapi tidak berguna.
+
+Jadi bukan "tidak ada model yang dapat memenuhi semuanya" — pengklasifikasi konstan memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus. Yang benar: **bila *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.**
 
 > **Konsekuensinya bagi praktik:** *fairness* bukan kotak centang yang dapat dipenuhi, melainkan **pilihan yang harus dinyatakan dan dipertanggungjawabkan**. Insinyur wajib menyatakan ukuran mana yang dipilih dan mengapa — dan mengakui apa yang dikorbankan.
 
@@ -280,9 +287,9 @@ Dalam kerangka nilai yang dipegang program studi ini, inilah wujud **amanah** pa
 | Diskusi | 25' | Studi kasus: sistem penilaian yang merugikan kelompok tertentu |
 | Penutup | 15' | *Model card*; enam pertanyaan tanggung jawab; persiapan presentasi |
 
-**Kegiatan inti — audit model sendiri:** setiap kelompok menjalankan fungsi `audit_kelompok` §14.3.3 pada modelnya, lalu melaporkan selisih *recall* terbesar antarkelompok. Kelompok dengan selisih besar diminta menjelaskan dugaan penyebabnya — hampir selalu berkaitan dengan jumlah data per kelompok.
+**Kegiatan inti — audit model sendiri:** setiap kelompok menjalankan fungsi `audit_kelompok` §14.3.3 pada modelnya, lalu melaporkan selisih *recall* terbesar antarkelompok. Kelompok dengan selisih besar diminta menjelaskan dugaan penyebabnya — perbedaan *base rate*, fitur proksi atribut sensitif, atau jumlah data per kelompok (kelompok dengan sedikit kasus positif bahkan tidak dapat diukur dengan andal; lihat [Lab 14](../04-labs/lab-14-audit-bias-dan-model-card.md)).
 
-**Studi kasus untuk diskusi:** sistem penilaian risiko yang dipakai pengadilan di Amerika Serikat, yang ditemukan memiliki tingkat positif palsu berbeda antar-kelompok ras (ProPublica, 2016), beserta bantahan pengembangnya bahwa sistem itu terkalibrasi setara. **Keduanya benar secara teknis** — dan itulah demonstrasi paling konkret dari ketidakmungkinan §14.3.2.
+**Studi kasus untuk diskusi:** sistem penilaian risiko yang dipakai pengadilan di Amerika Serikat, yang ditemukan memiliki tingkat positif palsu berbeda antar-kelompok ras (ProPublica, 2016), beserta bantahan pengembangnya bahwa sistem itu terkalibrasi setara. **Keduanya benar secara teknis** — dan itulah demonstrasi paling konkret dari ketidakmungkinan §14.3.2 (Chouldechova, 2017).
 
 ### Setelah Kelas (120 menit)
 
@@ -312,7 +319,7 @@ Dalam kerangka nilai yang dipegang program studi ini, inilah wujud **amanah** pa
 3. **Enam sumber *bias***; yang paling berbahaya adalah **bias umpan balik** karena memperkuat dirinya sendiri.
 4. **Akurasi keseluruhan tinggi dapat menyembunyikan kinerja buruk pada kelompok tertentu.**
 5. Audit terpisah per kelompok **wajib**, bukan pilihan.
-6. **Ukuran-ukuran *fairness* saling bertentangan secara matematis** ketika *base rate* berbeda — *fairness* adalah pilihan yang harus dinyatakan.
+6. Ketika *base rate* berbeda, **tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semua ukuran *fairness* sekaligus** — *fairness* adalah pilihan yang harus dinyatakan.
 7. **Menghapus atribut sensitif tidak membuat model adil** — proksi tetap ada.
 8. Bila keputusan menyentuh hak seseorang, pertimbangkan **model yang dapat ditafsirkan sejak awal**.
 9. ***Model card*** mendokumentasikan penggunaan yang dimaksudkan, kinerja per kelompok, keterbatasan, dan pertimbangan etis.
@@ -324,12 +331,13 @@ Dalam kerangka nilai yang dipegang program studi ini, inilah wujud **amanah** pa
 
 1. Barocas, S., Hardt, M., & Narayanan, A. (2023). *Fairness and Machine Learning*. MIT Press. <https://fairmlbook.org>
 2. Mitchell, M., et al. (2019). Model Cards for Model Reporting. *FAT* '19*, 220–229.
-3. Kleinberg, J., Mullainathan, S., & Raghavan, M. (2016). Inherent Trade-Offs in the Fair Determination of Risk Scores. *arXiv:1609.05807*.
-4. Angwin, J., et al. (2016). Machine Bias. *ProPublica*.
-5. Suresh, H., & Guttag, J. (2021). A Framework for Understanding Sources of Harm throughout the ML Life Cycle. *EAAMO '21*.
-6. Lundberg, S. M., & Lee, S.-I. (2017). A Unified Approach to Interpreting Model Predictions. *NeurIPS*.
-7. UNESCO (2024). *AI Competency Framework for Students*.
-8. Tim Kurikulum Informatika UAI (2026). *AI Curriculum Infusion Matrix*.
+3. Kleinberg, J., Mullainathan, S., & Raghavan, M. (2017). Inherent Trade-Offs in the Fair Determination of Risk Scores. *Proceedings of the 8th Innovations in Theoretical Computer Science Conference (ITCS 2017)*, LIPIcs 67, 43:1–43:23. <https://doi.org/10.4230/LIPIcs.ITCS.2017.43> (pracetak 2016: arXiv:1609.05807)
+4. Chouldechova, A. (2017). Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments. *Big Data*, 5(2), 153–163. <https://doi.org/10.1089/big.2016.0047>
+5. Angwin, J., et al. (2016). Machine Bias. *ProPublica*.
+6. Suresh, H., & Guttag, J. (2021). A Framework for Understanding Sources of Harm throughout the ML Life Cycle. *EAAMO '21*.
+7. Lundberg, S. M., & Lee, S.-I. (2017). A Unified Approach to Interpreting Model Predictions. *NeurIPS*.
+8. UNESCO (2024, diperbarui 16 Januari 2026). *AI Competency Framework for Students*.
+9. Tim Kurikulum Informatika UAI (2026). *AI Curriculum Infusion Matrix*.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

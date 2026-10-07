@@ -17,7 +17,7 @@ Dasar Kecerdasan Artifisial dan Pembelajaran Mesin (IF52510031) — Program Stud
 | [F](#lampiran-f-glosarium) | Glosarium | Padanan Indonesia–Inggris |
 | [G](#lampiran-g-kesalahan-tafsir-yang-sering-terjadi) | Kesalahan Tafsir yang Sering Terjadi | Sebelum menulis laporan |
 | [H](#lampiran-h-templat-model-card) | Templat *Model Card* | Laporan proyek |
-| [I](#lampiran-i-peta-bab-modul-praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
+| [I](#lampiran-i-peta-bab--modul--praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
 
 > **Ketentuan ujian:** UTS dan UAS bersifat *closed book* — alat bantu yang diperkenankan hanya kalkulator. Rumus yang diperlukan **dicetak pada lembar soal** (lihat [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) dan [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md)); Lampiran A dipakai untuk belajar dan **tidak dibawa** ke ruang ujian. Alat bantu AI **tidak diperkenankan** dalam bentuk apa pun selama ujian.
 
@@ -142,10 +142,13 @@ Dari matriks konfusi (TP, TN, FP, FN):
 | Besaran | Rumus |
 |---------|-------|
 | Rerata validasi silang | $\bar{s}=\dfrac{1}{k}\sum_i s_i$ |
-| Simpangan baku sampel | $s=\sqrt{\dfrac{\sum(s_i-\bar{s})^2}{k-1}}$ |
-| Simpangan gabungan dua model | $\sqrt{s_1^2+s_2^2}$ |
+| Simpangan baku sampel (`ddof=1`) | $s=\sqrt{\dfrac{\sum(s_i-\bar{s})^2}{k-1}}$ |
+| Selisih per lipatan (model A dan B pada lipatan yang **sama**) | $d_i=s_{A,i}-s_{B,i}$ |
+| Rerata selisih | $\bar{d}=\dfrac{1}{k}\sum_i d_i$ |
+| Simpangan baku sampel selisih (`ddof=1`) | $s_d=\sqrt{\dfrac{\sum(d_i-\bar{d})^2}{k-1}}$ |
+| Galat baku rerata selisih | $SE=\dfrac{s_d}{\sqrt{k}}$ |
 
-> **Kaidah:** selisih antarmodel yang **lebih kecil** daripada simpangan gabungan **bukan perbedaan yang dapat disimpulkan**.
+> **Kaidah (aturan praktis mata kuliah):** karena kedua model dinilai pada lipatan yang sama, skornya **berpasangan**. Selisih dianggap bermakna bila $|\bar{d}| > 2\cdot SE$ **dan** arah selisih konsisten di sebagian besar lipatan (pada 5 lipatan: minimal 4); bila tidak, **tidak dapat disimpulkan** mana yang lebih baik. Jangan membandingkan selisih rerata dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$ — rumus itu mengabaikan pasangan lipatan dan memakai SD, bukan SE. Aturan ini penyaring kasar; untuk analisis formal, gunakan *corrected resampled t-test* (Nadeau & Bengio, 2003). Di Python, simpangan baku skor lipatan selalu dihitung dengan `np.std(x, ddof=1)` atau `pd.Series.std()`.
 
 ---
 
@@ -447,7 +450,7 @@ Periksa daftar ini sebelum menyerahkan laporan apa pun.
 |---|---------------------|----------------|------------------|
 | 1 | "Model ini akurat 94%" | Tanpa *baseline* dan tanpa keseimbangan kelas, tidak bermakna | "Akurasi 94%, *baseline* 91%, *recall* kelas positif 0,38" |
 | 2 | "Fitur X paling memengaruhi hasil" | Kepentingan fitur bukan sebab-akibat | "Fitur X paling berkontribusi pada kemampuan model membedakan kelas" |
-| 3 | "Model A lebih baik (0,852 vs 0,847)" | Selisih lebih kecil daripada simpangan | "Selisih 0,005 dengan simpangan gabungan 0,041 — tidak dapat disimpulkan" |
+| 3 | "Model A lebih baik (0,852 vs 0,847)" | Selisih rerata kecil dibandingkan ketidakpastiannya, dan arahnya tidak konsisten antarlipatan | "Selisih berpasangan per lipatan: rerata 0,005, SE 0,006 ($\lvert\bar d\rvert < 2\cdot SE$), A unggul di 3 dari 5 lipatan — tidak dapat disimpulkan" |
 | 4 | "ROC-AUC 0,98, model sangat baik" | Skor terlalu tinggi adalah tanda bahaya | "ROC-AUC 0,98 — diperiksa terhadap kebocoran; hasilnya: ..." |
 | 5 | "Model sudah adil karena kolom gender dibuang" | Proksi tetap ada | "Kinerja diukur per kelompok meski gender tidak dipakai sebagai fitur" |
 | 6 | "Tidak ada keterbatasan" | Selalu ada | Tulis minimal empat butir |

@@ -22,7 +22,7 @@ Asesmen dirancang berdasarkan **Outcome-Based Education (OBE)** — setiap kompo
 | Tugas Mingguan (T1-T6) | 15% | 6 × 2.5% | Individu/tim, AI diizinkan + log |
 | Kuis (K1-K3) | 10% | K1: 4%, K2: 3%, K3: 3% | Closed-book, tanpa AI |
 | UTS | 20% | 1× (Minggu 8) | Closed-book, tanpa AI |
-| Proyek Akhir | 25% | Tim (Minggu 5-15) | AI sebagai partner + log |
+| Proyek Akhir | 25% | Tim (Minggu 5-15) | AI sebagai partner + log; dinilai dengan [rubrik Panduan Proyek Akhir](project-guidelines.md#rubrik-penilaian) |
 | UAS | 25% | 1× (Minggu 16) | Closed-book + 1 lembar catatan |
 | Partisipasi & Etika | 5% | Ongoing | Kehadiran, diskusi, etika |
 | **Total** | **100%** | | |
@@ -66,7 +66,7 @@ Skala mengikuti [registri konversi nilai](../../../00-pedoman-obe/konversi-nilai
 
 | Komponen | AI Diizinkan? | Ketentuan |
 |----------|---------------|-----------|
-| Tugas (T1-T6) | ✅ Ya | Wajib AI Usage Log |
+| Tugas (T1-T6) | ✅ Ya | Wajib AI Usage Log ([templat Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log)) |
 | Proyek Akhir | ✅ Ya | AI sebagai partner, wajib Log |
 | Kuis (K1-K3) | ❌ Tidak | Closed-book, tanpa AI |
 | UTS | ❌ Tidak | Closed-book, tanpa AI |

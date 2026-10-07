@@ -116,6 +116,8 @@ Proyek akhir mengintegrasikan **seluruh pengetahuan Software Engineering** dari 
 
 ### 14.1.4 Grading Rubric
 
+Tabel berikut menjabarkan rubrik resmi proyek akhir — [Rubrik Penilaian pada Panduan Proyek Akhir](../05-assessments/project-guidelines.md#rubrik-penilaian) — dengan komponen dan bobot yang sama; bila ada perbedaan, panduan proyek yang berlaku.
+
 | Komponen | Bobot | Kriteria Penilaian |
 |----------|-------|--------------------|
 | **Requirements & Design** | 15% | SRS lengkap, 15+ user stories INVEST, UML (class, sequence, activity), ERD ternormalisasi |

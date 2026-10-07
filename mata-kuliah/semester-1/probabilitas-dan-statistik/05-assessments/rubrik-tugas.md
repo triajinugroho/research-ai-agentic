@@ -13,7 +13,7 @@
 |-----------|----------|-------------|--------|
 | Laporan Lab (13×) | `PS-Sub-CPMK102-1` | 25% | §2 |
 | Kuis (4×) | `PS-Sub-CPMK081-1` | 15% | §3 |
-| Proyek | Keduanya | 10% | [project-guidelines.md](project-guidelines.md) |
+| Proyek | Keduanya | 10% | [project-guidelines.md §8](project-guidelines.md#8-rubrik-penilaian-10-nilai-akhir) — satu-satunya rubrik proyek |
 | UTS | `PS-Sub-CPMK102-1` | 25% | [kisi-kisi-uts.md](kisi-kisi-uts.md) |
 | UAS | `PS-Sub-CPMK081-1` | 25% | [kisi-kisi-uas.md](kisi-kisi-uas.md) |
 
@@ -150,7 +150,7 @@ Kriteria kurikulum: *ketepatan rumus dan hitung; kecocokan asumsi; kualitas inte
 
 ## 4. Rubrik Penilaian Sejawat (Presentasi Proyek)
 
-**Tidak berbobot nilai**, tetapi **wajib diisi** sebagai bagian dari keterlibatan kelas.
+Umpan balik **formatif**: **tidak dinilai** dan tidak masuk komponen nilai mana pun (mata kuliah ini tidak memiliki komponen Partisipasi). Diisi setiap mahasiswa untuk kelompok lain yang tampil di sesinya, dikumpulkan kepada dosen, lalu diteruskan kepada kelompok yang dinilai sebagai bahan refleksi. Lembar yang sama ada pada [modul Minggu 15](../03-modules/week-15-presentasi-proyek.md).
 
 | Aspek | 1 | 2 | 3 | 4 | 5 |
 |-------|---|---|---|---|---|
@@ -179,7 +179,7 @@ Diisi oleh **setiap anggota** untuk dirinya dan rekan sekelompok, dikumpulkan be
 
 Skala per aspek: 0 = tidak berkontribusi · 1 = sedikit · 2 = memadai · 3 = baik · 4 = memimpin.
 
-**Penggunaan:** bila rata-rata penilaian sejawat terhadap seorang anggota berada di bawah 8 dari 20, nilai proyek anggota itu dapat **dikurangi hingga 30%** setelah dikonfirmasi dosen melalui wawancara.
+**Penggunaan:** bila rata-rata skor kontribusi yang diberikan rekan sekelompok kepada seorang anggota berada di bawah 8 dari 20, nilai proyek anggota itu dapat **dikurangi hingga 30%** setelah dikonfirmasi dosen melalui wawancara.
 
 ---
 

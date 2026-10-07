@@ -861,7 +861,7 @@ c) Identifikasi minimal 3 HTTP status code yang mungkin terjadi dan kapan
 | **Format** | Markdown + PlantUML/Mermaid di GitHub repository |
 | **Tools** | PlantUML, Mermaid, draw.io, atau ASCII diagram |
 | **Rubrik** | Class Diagram (25%), Sequence Diagram (25%), ERD (25%), API Design (25%) |
-| **AI Policy** | AI diizinkan untuk generate diagram syntax + wajib AI Usage Log |
+| **AI Policy** | AI diizinkan untuk generate diagram syntax + wajib AI Usage Log ([format Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log)) |
 | **Deadline** | Sebelum perkuliahan Minggu 7 |
 
 ---

@@ -17,6 +17,15 @@
 
 ---
 
+## Persiapan
+
+- Matriks persyaratan dan persona — untuk menetapkan segmen yang dihitung.
+- Spreadsheet kosong (Google Sheets atau sejenisnya) dan templat [perhitungan SOM dari bawah](../06-buku-ajar/lampiran.md#a5-perhitungan-som-dari-bawah).
+- Daftar sumber data resmi dari [panduan sumber data](../datasets/README.md) dan [Lampiran C](../06-buku-ajar/lampiran.md#lampiran-c--sumber-data-indonesia-yang-dapat-ditelusuri); siapkan pencatatan tanggal akses untuk setiap angka.
+- Kutipan wawancara tentang kesediaan membayar dan tentang cara yang kini dipakai narasumber — bahan kompetitor tidak langsung.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Menyiapkan Spreadsheet
@@ -26,7 +35,7 @@ Bangun dengan **sel asumsi terpisah** agar dapat diubah:
 ```
  A                          B            C           D
  1  ASUMSI                  NILAI        SUMBER      TANGGAL AKSES
- 2  Jumlah UMKM Indonesia    64.200.000   KemenkopUKM  2026-09-20
+ 2  Jumlah UMKM Indonesia    64.200.000   KemenUMKM    2026-09-20
  3  Proporsi kuliner         12%          BPS          2026-09-20
  4  Pakai ponsel untuk usaha 30%          BPS          2026-09-20
  5  Berada di Jabodetabek    4%           BPS          2026-09-20

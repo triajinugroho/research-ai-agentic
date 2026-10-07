@@ -101,9 +101,11 @@ Kurikulum menetapkan kriteria untuk tiap Sub-CPMK. Seluruh rubrik pada mata kuli
 
 ## 5. Rubrik Umum
 
-Seluruh penilaian memakai skala 1–4, dikonversi dengan:
+Penilaian berbasis rubrik — praktikum (§5.1), proyek (§5.3), dan presentasi — memakai skala 1–4, dikonversi dengan:
 
 $$\text{Nilai aspek} = \frac{\text{skor}}{4} \times \text{bobot aspek}$$
+
+**Pengecualian:** kuis **tidak** memakai skala 1–4, melainkan porsi **40/60** (jawaban 40%, alasan 60%; §5.2); ujian tulis dinilai per butir dengan pedoman skor (§5.4 dan kaidah penilaian pada kisi-kisi). Pengurangan nilai di luar rubrik hanya yang tercantum pada §7.
 
 ### 5.1 Rubrik Praktikum (Observasi, 25%)
 
@@ -127,7 +129,7 @@ Kuis dinilai dengan kunci jawaban. Setiap soal menuntut **alasan**, bukan hanya 
 
 ### 5.3 Rubrik Proyek
 
-Rincian ada pada [panduan proyek](project-guidelines.md) §8. Ringkasannya:
+Rincian ada pada [panduan proyek](project-guidelines.md) §5–§8 (rubrik P-04 pada [Modul Minggu 15](../03-modules/week-15-presentasi-proyek.md)). Ringkasannya:
 
 | Tahap | Bobot | Aspek utama |
 |-------|-------|-------------|
@@ -179,18 +181,42 @@ Mahasiswa dinyatakan lulus apabila memenuhi **seluruh** syarat:
 
 ## 7. Pengurangan Nilai
 
-| Pelanggaran | Pengurangan |
-|-------------|-------------|
-| Notebook tidak dapat dijalankan ulang | −20% dari komponen bersangkutan |
-| **Kebocoran data pada laporan akhir** | Hingga −30% nilai proyek |
-| Kebocoran data pada praktikum | Dikembalikan; dinilai sebagai terlambat |
-| Melaporkan akurasi saja pada data tak seimbang | −10% dari komponen bersangkutan |
-| Tidak menyertakan *baseline* | −10% dari komponen bersangkutan |
-| AI Usage Log tidak ada atau tidak lengkap | Pekerjaan dikembalikan; dinilai sebagai terlambat |
-| *Model card* tanpa bagian Keterbatasan atau Etis | Dikembalikan untuk dilengkapi |
-| Keterlambatan ≤ 24 jam | −10% |
-| Keterlambatan 24–72 jam | −25% |
-| Keterlambatan > 72 jam | Tidak dinilai |
+> **Tabel acuan tunggal.** Tabel §7.1 adalah **satu-satunya** daftar pengurangan nilai dan sanksi pada mata kuliah ini. [RPS §K](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md), [RTM](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md), [rubrik tugas](rubrik-tugas.md), dan [panduan proyek](project-guidelines.md) merujuk ke sini dan tidak memuat versi lain. Bila ada dokumen yang berbeda, tabel ini yang berlaku.
+
+### 7.1 Tabel Pengurangan
+
+| Temuan | Berlaku pada | Konsekuensi |
+|--------|--------------|-------------|
+| Notebook tidak dapat dijalankan ulang dari sel pertama | Lab; P-01, P-02, P-03 | −20% dari komponen bersangkutan |
+| Kebocoran data (§7.2 butir c) | Lab | Dikembalikan; dinilai sebagai terlambat |
+| Kebocoran data | Milestone P-01, P-02 | Dinilai menurut rubrik tahap itu; **wajib diperbaiki sebelum tahap berikutnya** (tanpa pengurangan tambahan) |
+| **Kebocoran data pada laporan akhir** | P-03 | Hingga −30% nilai proyek, sebanding dengan seberapa jauh kesimpulan terpengaruh |
+| Melaporkan akurasi saja pada data tak seimbang | Lab; P-01, P-02, P-03 | −10% dari komponen bersangkutan |
+| Tidak menyertakan *baseline* | Lab; P-01, P-02, P-03 | −10% dari komponen bersangkutan |
+| Data sintetis dipakai sebagai **data utama** proyek | Proyek | −40% nilai proyek |
+| Proposal P-00 belum disetujui | Proyek | Tahap berikutnya tidak dinilai sampai proposal disetujui |
+| AI Usage Log tidak ada atau tidak lengkap | Lab; seluruh tahap proyek | Dikembalikan; dinilai sebagai terlambat |
+| Log mencantumkan AI pada kegiatan yang **tidak boleh** (butir L1–L5, §8) | Lab; seluruh tahap proyek | Dikembalikan; bagian itu dikerjakan ulang sendiri; dinilai sebagai terlambat |
+| Memakai AI tanpa mencatatnya, atau memakai AI saat kuis/ujian (L6) | Semua | **Pelanggaran integritas akademik** — diproses menurut ketentuan integritas akademik universitas, bukan sekadar pengurangan nilai |
+| Bagian Keterbatasan kosong atau hanya menyatakan "tidak ada keterbatasan" — pada laporan **atau** *model card* — atau *model card* tanpa bagian Etis | P-03 | Dikembalikan untuk dilengkapi |
+| Kontribusi seorang anggota jauh di bawah rekan sekelompoknya | P-01–P-04 | Nilai perorangan disesuaikan dengan faktor kontribusi — [panduan proyek §10](project-guidelines.md#10-kontribusi-anggota-kelompok-dan-nilai-perorangan) |
+| Keterlambatan ≤ 24 jam | Lab; seluruh tahap proyek | −10% |
+| Keterlambatan > 24 jam s.d. 72 jam | Lab; seluruh tahap proyek | −25% |
+| Keterlambatan > 72 jam | Lab; seluruh tahap proyek | Tidak dinilai (nilai 0) |
+
+### 7.2 Cara Menerapkan
+
+a. **Satu temuan, satu baris.** Setiap temuan dikenai satu baris tabel saja per komponen. Rubrik tetap mengukur mutu tiap aspek menurut deskriptornya, tetapi **tidak membatasi skor aspek lain** karena temuan yang sama — ketentuan lama "skor maksimum 2 pada Kebenaran teknis" di rubrik tugas tidak berlaku lagi.
+
+b. **Cara menghitung.** Persentase pengurangan dihitung terhadap nilai maksimum komponen (skala 0–100) lalu dikurangkan dari skor rubrik: $\text{nilai komponen} = \max(0;\ \text{skor rubrik} - \sum \text{pengurangan})$. "Komponen bersangkutan" = satu lab atau satu tahap proyek. "Nilai proyek" = gabungan P-01–P-04 (bobot 35%). Contoh: lab dengan skor rubrik 80 yang terlambat ≤ 24 jam bernilai 80 − 10 = 70.
+
+c. **Yang termasuk kebocoran:** transformasi yang di-*fit* pada data lengkap sebelum pembagian (di luar `Pipeline`), fitur yang baru tersedia setelah saat prediksi, data uji yang dipakai untuk memilih atau menyetel, dan pembagian yang mengabaikan waktu atau kelompok. Transformasi di luar `Pipeline` yang **tidak** menimbulkan kebocoran dinilai melalui aspek Kebenaran teknis, tanpa pengurangan.
+
+d. **"Dikembalikan"** berarti pekerjaan diperbaiki dan dikumpulkan ulang paling lambat **3 hari** setelah dikembalikan. **"Dinilai sebagai terlambat"** berarti versi perbaikan dikenai pengurangan keterlambatan ≤ 24 jam (−10%). Bila tidak dikumpulkan ulang dalam 3 hari: temuan kebocoran dan bagian Keterbatasan/Etis dinilai apa adanya menurut rubrik; AI Usage Log yang tetap tidak ada, atau bagian terlarang yang tidak dikerjakan ulang, membuat pekerjaan tidak dinilai.
+
+e. **Keterlambatan** dapat dikecualikan bila alasannya dapat diterima dan disampaikan **sebelum** tenggat. Kuis dan ujian dikerjakan di kelas, sehingga baris keterlambatan tidak berlaku padanya.
+
+f. **Yang tidak dikenai pengurangan:** model berkinerja rendah, model yang tidak mengungguli *baseline*, dan fitur yang ternyata tidak membantu (§9).
 
 ---
 
@@ -204,12 +230,14 @@ Mata kuliah ini berstatus **mode Core** pada AI Curriculum Infusion Matrix. Pemb
 | Memperbaiki galat; menjelaskan dokumentasi | Boleh | Bukan yang dinilai |
 | Menyarankan jenis visualisasi | Boleh | Bukan yang dinilai |
 | Menyunting bahasa laporan | Boleh | Bukan yang dinilai |
-| **Memformulasikan masalah menjadi *task* ML** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
-| **Memilih model dan hiperparameter** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
-| **Memilih dan menafsirkan metrik** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
-| **Menganalisis kesalahan model** | **Tidak boleh** | Inti kedua Sub-CPMK |
-| **Menulis *model card* dan keterbatasan** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
-| **Selama UTS dan UAS** | **Tidak boleh sama sekali** | Ujian *closed book* |
+| **L1. Memformulasikan masalah menjadi *task* ML** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L2. Memilih model dan hiperparameter** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L3. Memilih dan menafsirkan metrik** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L4. Menganalisis kesalahan model** | **Tidak boleh** | Inti kedua Sub-CPMK |
+| **L5. Menulis *model card* dan analisis keterbatasan** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L6. Selama kuis, UTS, dan UAS** | **Tidak boleh sama sekali** | Kuis dan ujian *closed book* |
+
+Butir L1–L6 adalah **daftar larangan AI yang sama** dengan [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md); RTM §I dan [rubrik tugas §6](rubrik-tugas.md) memakai daftar ini. Konsekuensi pelanggarannya ada pada §7.1.
 
 **AI Usage Log wajib** pada setiap praktikum dan setiap tahap proyek. Formatnya ada pada [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md).
 

@@ -175,13 +175,15 @@ gb = HistGradientBoostingClassifier(
 
 | Aspek | Pohon tunggal | *Random Forest* | *Gradient Boosting* |
 |-------|---------------|-----------------|---------------------|
-| Pelatihan | Cepat | Paralel, cepat | Berurutan, lebih lambat |
+| Pelatihan | Cepat | Paralel antarpohon, cepat | Berurutan antarpohon. `GradientBoostingClassifier` klasik lambat pada data besar; `HistGradientBoostingClassifier` (berbasis histogram) jauh lebih cepat — menurut dokumentasi `scikit-learn`, dapat berkali-kali lipat lebih cepat pada data puluhan ribu baris ke atas |
 | Kinerja khas | Sedang | Baik | **Sering terbaik pada data tabular** |
 | Kepekaan hiperparameter | Sedang | **Rendah** | Tinggi |
 | Risiko *overfit* | Tinggi | Rendah | Sedang–tinggi bila tidak disetel |
 | Keterjelasan | **Sangat tinggi** | Rendah | Rendah |
 
 > **Pada data tabular — yang mendominasi masalah nyata di organisasi Indonesia — *gradient boosting* masih sering mengungguli jaringan saraf dalam** (Grinsztajn et al., 2022). Ini bukan pengetahuan usang; ia tetap berlaku pada 2026, dan menjadi alasan mengapa bab ini memperoleh porsi penuh.
+
+> **Membandingkan dua *ensemble* secara jujur.** Bila *Random Forest* dan *gradient boosting* dinilai dengan validasi silang pada **lipatan yang sama**, skor keduanya **berpasangan**. Bandingkan dengan **selisih per lipatan** $d_i = \text{skor}_{A,i} - \text{skor}_{B,i}$: hitung rerata $\bar d$, simpangan baku sampel $s_d$ (`ddof=1`), dan galat baku $SE = s_d/\sqrt{k}$. Aturan praktis mata kuliah: selisih dianggap bermakna bila $|\bar d| > 2\cdot SE$ **dan** arahnya konsisten di sebagian besar lipatan. Jangan membandingkan selisih rerata dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$ — rumus itu mengabaikan pasangan lipatan dan memakai SD, bukan SE. Rinciannya pada [Bab 9 §9.4.2](bab-09-svm-naive-bayes-pemilihan-model.md#942-membaca-hasil-perbandingan) dan [Lampiran A.10](lampiran.md#a10-perbandingan-model).
 
 ---
 
@@ -221,7 +223,7 @@ Inilah bias yang diperingatkan Strobl et al. (2007), dan alasan mengapa kepentin
 
 ---
 
-## AI Corner — Tahap *Apply → Create*
+## AI Corner — Tahap *Apply*
 
 ### Memverifikasi Keluaran AI tentang *Ensemble*
 
@@ -274,11 +276,19 @@ Tafsir yang benar: *"rasio utang adalah fitur yang paling berkontribusi pada kem
    (c) Apa yang harus dilakukan terhadap kolom itu?
    (d) Bagaimana kekeliruan ini dapat memengaruhi keputusan yang diambil dari model?
 
-8. Sebuah perbandingan menghasilkan: pohon tunggal ROC-AUC 0,78 ± 0,04; *Random Forest* 0,86 ± 0,02; *gradient boosting* 0,87 ± 0,03.
-   (a) Apakah *gradient boosting* jelas lebih baik daripada *Random Forest*?
-   (b) Hitung simpangan gabungan antara keduanya.
-   (c) Faktor apa selain skor yang layak dipertimbangkan?
-   (d) Model mana yang Anda rekomendasikan, dan mengapa?
+8. Tiga model dinilai dengan validasi silang 5 lipatan pada **lipatan yang sama**. ROC-AUC per lipatan:
+
+   | Lipatan | 1 | 2 | 3 | 4 | 5 |
+   |---------|---|---|---|---|---|
+   | Pohon tunggal | 0,74 | 0,82 | 0,76 | 0,80 | 0,78 |
+   | *Random Forest* | 0,84 | 0,88 | 0,85 | 0,87 | 0,86 |
+   | *Gradient boosting* | 0,85 | 0,89 | 0,86 | 0,89 | 0,86 |
+
+   (a) Hitung rerata dan simpangan baku sampel (`ddof=1`) skor tiap model.
+   (b) Hitung selisih per lipatan $d_i$ = *gradient boosting* − *Random Forest*, lalu $\bar d$, $s_d$, dan $SE$. Apakah selisihnya bermakna menurut aturan praktis mata kuliah?
+   (c) Seorang rekan membandingkan selisih rerata dengan simpangan baku masing-masing model dan menyimpulkan "tidak ada perbedaan". Di mana letak kekeliruannya?
+   (d) Faktor apa selain skor yang layak dipertimbangkan?
+   (e) Model mana yang Anda rekomendasikan, dan mengapa?
 
 ### Tingkat Mahir
 
@@ -299,8 +309,8 @@ Tafsir yang benar: *"rasio utang adalah fitur yang paling berkontribusi pada kem
 
 11. Bandingkan pohon, *Random Forest*, *gradient boosting*, dan MLP pada data tabular nyata.
     (a) Pakai protokol yang sama untuk seluruhnya: lipatan sama, anggaran penyetelan sebanding.
-    (b) Laporkan rerata, simpangan, dan waktu latih.
-    (c) Tentukan apakah selisih peringkat 1 dan 2 lebih besar daripada simpangan gabungan.
+    (b) Laporkan rerata, simpangan baku sampel (`ddof=1`), dan waktu latih.
+    (c) Hitung selisih berpasangan per lipatan antara peringkat 1 dan 2; tentukan apakah $|\bar d| > 2\cdot SE$ dan arahnya konsisten di sebagian besar lipatan.
     (d) Buat rekomendasi yang mempertimbangkan kinerja, waktu, dan keterjelasan.
     (e) Bandingkan kesimpulan Anda dengan temuan Grinsztajn et al. (2022).
 
@@ -318,6 +328,7 @@ Tafsir yang benar: *"rasio utang adalah fitur yang paling berkontribusi pada kem
 8. Pohon tunggal **paling mudah dijelaskan**; *ensemble* mengorbankan keterjelasan demi kinerja.
 9. Kepentingan bawaan **bias terhadap kardinalitas tinggi**; gunakan *permutation importance*.
 10. **Kepentingan fitur adalah hubungan prediktif, bukan sebab-akibat**, dan urutannya tidak stabil.
+11. Dua model yang dinilai pada lipatan yang sama dibandingkan dengan **selisih berpasangan per lipatan** ($\bar d$, $s_d$ dengan `ddof=1`, $SE = s_d/\sqrt{k}$) — bukan dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$.
 
 ---
 
@@ -326,7 +337,7 @@ Tafsir yang benar: *"rasio utang adalah fitur yang paling berkontribusi pada kem
 1. Géron, A. (2022). *Hands-On Machine Learning* (3rd ed.), Bab 6–7. O'Reilly.
 2. James, G., et al. (2023). *An Introduction to Statistical Learning with Python*, Bab 8. Springer.
 3. Breiman, L. (2001). Random Forests. *Machine Learning*, 45(1), 5–32.
-4. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Tabular Data? *NeurIPS*.
+4. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Typical Tabular Data? *NeurIPS 2022 (Datasets and Benchmarks Track)*.
 5. Strobl, C., et al. (2007). Bias in Random Forest Variable Importance Measures. *BMC Bioinformatics*, 8(25).
 6. Dokumentasi scikit-learn — *Ensemble methods*. <https://scikit-learn.org/stable/modules/ensemble.html>
 ---

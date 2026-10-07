@@ -355,8 +355,8 @@ fig, ax = plt.subplots(figsize=(9, 5.5))
 ax.hist(df["nilai_uas"], bins=20, color="steelblue",
         edgecolor="white", alpha=0.85)
 
-ax.set_title("Sebaran Nilai UAS Probabilitas dan Statistik\n"
-             "Prodi Informatika UAI, Semester Ganjil 2026/2027",
+ax.set_title("Sebaran Nilai UAS — Data Latihan\n"
+             "Kelas IF26A dan IF26H (data sintetis, bukan nilai sesungguhnya)",
              fontsize=12, pad=12)
 ax.set_xlabel("Nilai UAS (skala 0–100)")
 ax.set_ylabel("Jumlah mahasiswa")
@@ -367,8 +367,8 @@ ax.axvline(median, color="#c0392b", linestyle="--", linewidth=1.8,
            label=f"Median = {median:.1f}")
 ax.legend()
 
-# Keterangan sumber dan ukuran sampel
-ax.text(0.99, -0.14, f"n = {len(df)} mahasiswa · Sumber: data kelas IF26A dan IF26H",
+# Keterangan sumber dan ukuran sampel — sifat data (sintetis) ikut disebut
+ax.text(0.99, -0.14, f"n = {len(df)} mahasiswa · Sumber: nilai_mahasiswa_if.csv (sintetis)",
         transform=ax.transAxes, ha="right", fontsize=8, color="gray")
 
 plt.tight_layout()

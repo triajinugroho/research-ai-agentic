@@ -17,6 +17,15 @@
 
 ---
 
+## Persiapan
+
+- Seluruh catatan wawancara S-02 (≥ 5; targetkan 8 sebelum P-01) dengan kutipan verbatim yang diberi kode wawancara (W01, W02, …).
+- Kartu kosong atau spreadsheet untuk menuliskan setiap kutipan pada satu kartu atau baris (Langkah 1).
+- Dugaan awal tim pada formulir P-00 — dipakai untuk menandai kelompok temuan yang bertentangan dengan dugaan.
+- Bab 3 buku ajar sudah dibaca.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Sintesis dengan Kartu (di kelas, 50 menit)

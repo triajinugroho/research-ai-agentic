@@ -57,7 +57,7 @@ Diambil dari sheet `Copy of (Ref) 15. Pemetaan MK-CPMK-SubCPMK` berkas kurikulum
 | Jadwal | Minggu 3, 5, 10, 13 |
 | Bentuk | Tertulis di kelas, 20 menit, *closed book* |
 | Isi | 3–4 soal hitungan kontekstual |
-| Alat bantu | Kalkulator ilmiah, satu lembar tabel distribusi |
+| Alat bantu | Kalkulator ilmiah *non-programmable* dan alat tulis; tabel distribusi yang diperlukan dibagikan bersama lembar soal; rumus **tidak disediakan** (sama dengan UTS dan UAS, lihat §3.4–3.5) |
 | AI | **Tidak diizinkan** |
 
 **Rubrik kuis** (mengikuti kriteria Sub-CPMK: *ketepatan rumus dan hitung; kecocokan asumsi; kualitas interpretasi*):
@@ -99,6 +99,7 @@ Diambil dari sheet `Copy of (Ref) 15. Pemetaan MK-CPMK-SubCPMK` berkas kurikulum
 | Luaran | Proposal (Minggu 6) · Notebook + laporan (Minggu 14) · Presentasi (Minggu 15) |
 | Bobot | 5% ke `PS-Sub-CPMK081-1` + 5% ke `PS-Sub-CPMK102-1` |
 | AI | Boleh untuk kode dan penyuntingan bahasa; **tidak boleh** untuk memilih uji atau menafsirkan hasil |
+| Rubrik | Satu rubrik saja — [panduan proyek §8](project-guidelines.md#8-rubrik-penilaian-10-nilai-akhir) (tujuh aspek, menilai notebook, laporan, dan presentasi sekaligus); umpan balik sejawat saat presentasi bersifat formatif dan tidak dinilai |
 
 Rincian pada [panduan proyek](project-guidelines.md).
 
@@ -109,8 +110,11 @@ Rincian pada [panduan proyek](project-guidelines.md).
 | Minggu | 8 |
 | Durasi | 100 menit |
 | Cakupan | Minggu 1–7 |
-| Bentuk | *Closed book*; kalkulator ilmiah + tabel distribusi |
-| AI | **Tidak diizinkan** |
+| Bentuk | *Closed book* |
+| Alat bantu diizinkan | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| Disediakan pengawas | Tabel distribusi Normal baku dan tabel-t, dibagikan bersama lembar soal |
+| Rumus | **Tidak disediakan** — hafalkan [daftar rumus kisi-kisi UTS §7](kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
+| Dilarang | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 
 Rincian pada [kisi-kisi UTS](kisi-kisi-uts.md).
 
@@ -121,8 +125,11 @@ Rincian pada [kisi-kisi UTS](kisi-kisi-uts.md).
 | Minggu | 16 |
 | Durasi | 120 menit |
 | Cakupan | Komprehensif Minggu 1–15, penekanan Minggu 9–14 |
-| Bentuk | *Closed book*; kalkulator ilmiah + tabel distribusi |
-| AI | **Tidak diizinkan** |
+| Bentuk | *Closed book* |
+| Alat bantu diizinkan | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| Disediakan pengawas | Tabel distribusi Normal baku, tabel-t, tabel chi-square, dan tabel F, dibagikan bersama lembar soal |
+| Rumus | **Tidak disediakan** — hafalkan [daftar rumus kisi-kisi UAS §8](kisi-kisi-uas.md#8-daftar-rumus-tambahan-di-luar-rumus-uts) beserta [daftar rumus kisi-kisi UTS §7](kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
+| Dilarang | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 | Prasyarat | Kehadiran minimal 75% |
 
 Rincian pada [kisi-kisi UAS](kisi-kisi-uas.md).

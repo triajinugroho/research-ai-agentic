@@ -518,11 +518,7 @@ Sebelum meninggalkan lab, isi refleksi berikut di file `docs/refleksi-lab-04.md`
 3. **Bagaimana pengalaman estimasi Planning Poker? Apakah tim sering tidak sepakat?**
 4. **Apa hubungan antara user stories di lab ini dengan SRS di Lab 03?**
 
-Jika menggunakan AI selama lab, catat di **AI Usage Log**:
-
-| Prompt yang Diberikan | Output AI | Modifikasi yang Dilakukan | Refleksi |
-|----------------------|-----------|--------------------------|----------|
-| (contoh prompt) | (ringkasan output) | (apa yang diubah) | (apa yang dipelajari) |
+Jika menggunakan AI selama lab, catat di **AI Usage Log** dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Simpan log di bagian akhir berkas refleksi `docs/refleksi-lab-04.md`.
 
 ---
 

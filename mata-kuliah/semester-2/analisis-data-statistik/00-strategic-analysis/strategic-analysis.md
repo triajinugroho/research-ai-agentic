@@ -23,7 +23,7 @@
 
 Mata kuliah Analisis Data Statistik di Prodi Informatika UAI berada di persimpangan strategis yang unik. Di satu sisi, **statistika adalah fondasi yang tidak tergantikan** dalam era AI — setiap model machine learning, setiap insight dari big data, setiap keputusan berbasis data membutuhkan pemahaman statistik yang solid. Di sisi lain, **lanskap pendidikan berubah drastis**: 92% mahasiswa sudah menggunakan AI tools (2025), pasar data science global mencapai $166.89 miliar, dan 70% skill kerja diprediksi berubah pada 2030.
 
-**Posisi UAI:** Dengan akreditasi "Baik Sekali" (BAN-PT, SK 050/SK/LAM-INFOKOM/Ak/S/III/2025), fokus pada Data Science & Sistem Cerdas, serta kerjasama dengan Google, Red Hat Academy, Alibaba Academy, dan Data Academy, UAI memiliki fondasi yang kuat. Tantangannya: bagaimana mendesain kurikulum statistik yang tidak hanya mengajar rumus, tetapi **membentuk data thinkers** yang siap berkolaborasi dengan AI.
+**Posisi UAI:** Dengan akreditasi "Baik Sekali" (LAM-INFOKOM, SK 050/SK/LAM-INFOKOM/Ak/S/III/2025), fokus pada Data Science & Sistem Cerdas, serta kerjasama dengan Google, Red Hat Academy, Alibaba Academy, dan Data Academy, UAI memiliki fondasi yang kuat. Tantangannya: bagaimana mendesain kurikulum statistik yang tidak hanya mengajar rumus, tetapi **membentuk data thinkers** yang siap berkolaborasi dengan AI.
 
 **Rekomendasi utama:** Adopsi pendekatan **"AI-Augmented Statistical Thinking"** — di mana AI bukan menggantikan pemahaman konseptual, tetapi memperkuat kemampuan analisis mahasiswa melalui human-AI collaboration yang bertanggung jawab dan beretika Islami.
 
@@ -35,7 +35,7 @@ Mata kuliah Analisis Data Statistik di Prodi Informatika UAI berada di persimpan
 
 | # | Kekuatan | Dampak |
 | --- | --- | --- |
-| S1 | **Akreditasi Baik Sekali** — BAN-PT/LAM-INFOKOM 2025, menjamin kualitas dan kredibilitas | Daya tarik mahasiswa & kepercayaan industri tinggi |
+| S1 | **Akreditasi Baik Sekali** — LAM-INFOKOM 2025 (SK 050/SK/LAM-INFOKOM/Ak/S/III/2025), menjamin kualitas dan kredibilitas | Daya tarik mahasiswa & kepercayaan industri tinggi |
 | S2 | **Fokus Data Science & Sistem Cerdas** — Visi prodi selaras langsung dengan kebutuhan statistika modern | Kurikulum bisa didesain terintegrasi, bukan silo |
 | S3 | **Partnership industri kuat** — Google, Red Hat Academy, Alibaba Academy, Data Academy, Solusi 247 | Akses ke tools, sertifikasi, dan real-world datasets |
 | S4 | **Dosen ahli AI/ML** — Expertise di bidang Data Science, AI & Machine Learning | Kapasitas mengajar materi frontier |

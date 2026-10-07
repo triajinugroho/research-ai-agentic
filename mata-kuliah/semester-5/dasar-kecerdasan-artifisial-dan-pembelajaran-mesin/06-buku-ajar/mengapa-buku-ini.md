@@ -47,9 +47,11 @@ Sepanjang buku ini, setiap kali sebuah model dievaluasi, **skor *baseline* diser
 
 ## Konteks Indonesia Bukan Hiasan
 
-Seluruh contoh dalam buku ini memakai data dan persoalan Indonesia: IPM provinsi dari BPS, kelayakan kredit UMKM, kepadatan TransJakarta, keluhan layanan publik, harga properti Jabodetabek.
+Seluruh contoh dalam buku ini memakai persoalan Indonesia: IPM provinsi, kelayakan kredit UMKM, kepadatan TransJakarta, keluhan layanan publik, harga properti Jabodetabek.
 
-Ini bukan sekadar pilihan gaya. Data Indonesia memiliki ciri yang tidak muncul pada dataset latihan internasional:
+Datanya perlu dibedakan dengan jujur. Sebagian besar praktikum memakai **data sintetis (simulasi) yang berpola Indonesia** — dibangkitkan dengan kode agar setiap orang memperoleh angka yang sama dan pola yang hendak diajarkan dapat dikendalikan. Data itu dinyatakan sebagai data sintetis pada lab yang memakainya dan **bukan data resmi BPS atau lembaga mana pun**. Data nyata dari sumbernya — BPS, Satu Data Indonesia, portal data daerah — diunduh sendiri oleh mahasiswa sejak Lab 1, dan **wajib** menjadi data utama proyek akhir.
+
+Ini bukan sekadar pilihan gaya. Data nyata Indonesia — yang akan Anda hadapi pada proyek — memiliki ciri yang tidak muncul pada dataset latihan internasional:
 
 - **Nama wilayah tidak baku** — "DI Yogyakarta", "D.I. Yogyakarta", dan "Yogyakarta" adalah entitas yang sama, tetapi tidak bagi komputer.
 - **Pemekaran wilayah** membuat kategori berubah antartahun.
@@ -68,14 +70,18 @@ Menutup mata terhadap kenyataan itu akan membuat buku ini tidak berguna. Melaran
 
 | Boleh dibantu AI | Tidak boleh dibantu AI |
 |------------------|------------------------|
-| Menulis kode `scikit-learn` rutin | Memformulasikan masalah menjadi *task* ML |
+| Menulis kode `scikit-learn` rutin (wajib dicatat) | Memformulasikan masalah menjadi *task* ML |
 | Memperbaiki galat; menjelaskan dokumentasi | Memilih model dan hiperparameter |
 | Menyarankan jenis visualisasi | Memilih dan menafsirkan metrik |
-| Menyunting bahasa laporan | Menganalisis kesalahan dan keterbatasan |
+| Menyunting bahasa laporan | Menganalisis kesalahan model |
+| | Menulis *model card* dan analisis keterbatasan |
+| | **Apa pun selama UTS dan UAS** — ujian bersifat *closed book* |
 
-Pembatasan di kolom kanan bukan kekhawatiran akan kecurangan. Alasannya teknis dan dapat diperiksa: **model bahasa tidak mengetahui konteks data Anda**. Ia tidak tahu bagaimana data dikumpulkan, siapa yang tercakup dan siapa yang tidak, atau apa arti sebenarnya sebuah kolom pada instansi penerbitnya. Seluruh keputusan di kolom kanan bergantung pada pengetahuan itu.
+Daftar ini sama dengan kebijakan AI pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial); bila kelak berbeda, RPS yang berlaku.
 
-Lebih jauh lagi: empat hal di kolom kanan **justru merupakan Sub-CPMK mata kuliah ini**. Menyerahkannya kepada alat sama dengan tidak mengikuti mata kuliah.
+Lima larangan pertama di kolom kanan tidak lahir dari kekhawatiran akan kecurangan. Alasannya teknis dan dapat diperiksa: **model bahasa tidak mengetahui konteks data Anda**. Ia tidak tahu bagaimana data dikumpulkan, siapa yang tercakup dan siapa yang tidak, atau apa arti sebenarnya sebuah kolom pada instansi penerbitnya. Seluruh keputusan itu bergantung pada pengetahuan tersebut.
+
+Lebih jauh lagi: kelima hal itu **justru merupakan inti Sub-CPMK mata kuliah ini**. Menyerahkannya kepada alat sama dengan tidak mengikuti mata kuliah. Larangan keenam berlaku karena ujian mengukur pemahaman Anda sendiri, tanpa alat bantu selain kalkulator.
 
 ---
 

@@ -63,11 +63,11 @@ Ketentuan UU No. 27 Tahun 2022 berlaku pada catatan wawancara tim:
 |--------|---------|--------|
 | **Badan Pusat Statistik** | Statistik resmi; profil UMK; e-commerce | <https://www.bps.go.id> |
 | **SIRUSA BPS** | **Definisi baku setiap variabel** | <https://sirusa.bps.go.id> |
-| Kementerian Koperasi dan UKM | Data UMKM | <https://kemenkopukm.go.id> |
+| Kementerian UMKM (sebelum Oktober 2024: Kementerian Koperasi dan UKM) | Data UMKM | <https://umkm.go.id> |
 | Satu Data Indonesia | Data lintas kementerian | <https://data.go.id> |
 | Bank Indonesia | Statistik ekonomi, sistem pembayaran | <https://www.bi.go.id/id/statistik> |
 | OJK | Statistik keuangan dan fintech | <https://www.ojk.go.id> |
-| Kominfo | Data digital dan regulasi | <https://www.komdigi.go.id> |
+| Komdigi (d/h Kominfo) | Data digital dan regulasi | <https://www.komdigi.go.id> |
 | Jakarta Open Data | Data DKI Jakarta | <https://data.jakarta.go.id> |
 
 ### 3.1 Sumber Lanskap Digital

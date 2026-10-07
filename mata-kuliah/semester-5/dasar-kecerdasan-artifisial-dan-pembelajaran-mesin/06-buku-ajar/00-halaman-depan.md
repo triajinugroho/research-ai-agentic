@@ -96,13 +96,15 @@ Setiap bab memuat bagian **AI Corner**. Mata kuliah ini berstatus **tahap U→A�
 1. **AI sebagai yang dipelajari** — bagaimana sistem ini bekerja dan di mana batasnya.
 2. **AI sebagai alat kerja** — bagaimana memakainya tanpa menyerahkan penalaran yang justru sedang dinilai.
 
-| Bab | Tahap | Fokus AI Corner |
-|-----|-------|-----------------|
-| 1–2 | **Understand** | Memahami apa yang benar-benar dilakukan sistem AI, dan kapan ia tidak diperlukan |
-| 3–5 | **Understand → Apply** | Mengapa AI tidak dapat memutuskan penanganan data; batas pengetahuannya atas konteks Anda |
-| 6–9 | **Apply** | Memakai AI untuk kode sambil mempertahankan pemilihan model dan metrik sebagai keputusan sendiri |
-| 10–12 | **Apply → Create** | Memverifikasi keluaran AI; mengenali kekeliruan khas yang diulangnya |
-| 13–14 | **Create** | Tanggung jawab atas sistem yang dibangun; dokumentasi dan pelaporan yang jujur |
+Level progresinya mengikuti *AI Competency Framework for Students* dari UNESCO — **Understand → Apply → Create** (acuan [REG-9] pada Pedoman OBE §B.2) — dengan pembagian bab menurut [Pedoman OBE §P](../../../00-pedoman-obe/pedoman-obe-konvensi.md#p-kerangka-kompetensi-ai-unesco-januari-2026):
+
+| Bab | Level UNESCO | Dimensi dominan | Fokus AI Corner |
+|-----|--------------|-----------------|-----------------|
+| 1–4 | **Understand** | *AI techniques and applications*; *Human-centred mindset* | Memahami apa yang benar-benar dilakukan sistem AI dan kapan ia tidak diperlukan; mengapa AI tidak dapat memutuskan penanganan data dan tidak mengenal konteks data Anda |
+| 5–11 | **Apply** | *AI techniques and applications*; *Ethics of AI* | Memakai AI untuk kode sambil mempertahankan rekayasa fitur, pemilihan model, dan pemilihan metrik sebagai keputusan sendiri; memverifikasi keluaran AI dan mengenali kekeliruan khas yang diulangnya |
+| 12–14 | **Create** | *AI system design*; *Ethics of AI* | Tanggung jawab penuh atas sistem yang dibangun; dokumentasi dan pelaporan yang jujur |
+
+> Judul AI Corner tiap bab mencantumkan levelnya; bila berbeda, **tabel inilah acuannya**. Label lokal Dasar/Menengah/Lanjut/Mahir hanya padanan — level UNESCO yang menjadi acuan.
 
 ---
 
@@ -116,12 +118,12 @@ Setiap bab memuat bagian **AI Corner**. Mata kuliah ini berstatus **tahap U→A�
 4. **Kerjakan tingkat Menengah** setelah kuliah dan praktikum.
 5. **Kerjakan tingkat Mahir** sebagai persiapan ujian dan bahan proyek.
 6. **Jangan melewati AI Corner** — di situlah batas dan tanggung jawab dibahas.
-7. **Hitung manual dulu, baru pakai komputer.** UTS dan UAS bersifat *closed book* tanpa perangkat apa pun.
+7. **Hitung manual dulu, baru pakai komputer.** UTS dan UAS bersifat *closed book*: alat bantu yang diperkenankan **hanya kalkulator** — tanpa catatan, tanpa perangkat lain, tanpa AI (lihat [Lampiran](lampiran.md#daftar-lampiran)).
 
 ### Untuk Dosen Pengampu
 
 - Setiap bab selaras dengan satu modul mingguan pada `03-modules/` dan satu praktikum pada `04-labs/`.
-- Latihan Soal dapat dipakai langsung sebagai bank soal kuis dan ujian.
+- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal kuis, UTS, dan UAS disusun terpisah dari cetak biru butir pada kisi-kisi dan **tidak dipublikasikan**.
 - AI Corner dapat menjadi bahan diskusi kelas 15 menit.
 - Seluruh contoh dan data berkonteks Indonesia, dapat diganti sesuai kebutuhan.
 
@@ -143,7 +145,7 @@ Kode di buku ini ditulis untuk **dapat dijalankan apa adanya** setelah sel pembu
 
 ## Rujukan Kurikulum
 
-Seluruh rumusan CPL, CPMK, Sub-CPMK, indikator, kriteria, dan bobot diambil verbatim dari [registri Kurikulum Informatika 2025 Revisi 2026](../../../00-kurikulum-if-2025-revisi-2026/README.md), bukan ditulis ulang.
+Rumusan CPL, CPMK, Sub-CPMK, indikator, kriteria, dan bobot **diadaptasi dari** [registri Kurikulum Informatika 2025 Revisi 2026](../../../00-kurikulum-if-2025-revisi-2026/README.md) (diterjemahkan): kode, level Bloom, dan bobot sama persis dengan registri; rumusan Sub-CPMK mengikuti registri; sedangkan materi, indikator, dan kriteria yang di registri bercampur istilah Inggris diterjemahkan ke bahasa Indonesia tanpa mengubah maknanya. Bila terdapat perbedaan, **registri yang berlaku**.
 
 ---
 

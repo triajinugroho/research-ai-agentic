@@ -17,6 +17,15 @@
 
 ---
 
+## Persiapan
+
+- Matriks persyaratan S-04 — titik awal penguraian komponen teknologi (Langkah 1).
+- Peta kompetitor S-05, untuk melihat komponen yang dipakai pemain lain.
+- Daftar layanan pihak ketiga yang mungkin dipakai, beserta tautan halaman harga dan syarat layanannya.
+- Penilaian jujur kemampuan tiap anggota (menguasai / familiar / belum tahu) atas komponen yang mungkin dibutuhkan.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Menguraikan Komponen Teknologi

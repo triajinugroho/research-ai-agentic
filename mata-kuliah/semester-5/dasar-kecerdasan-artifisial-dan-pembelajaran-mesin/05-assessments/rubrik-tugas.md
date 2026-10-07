@@ -58,18 +58,19 @@ Selain rubrik umum, tiap praktikum memiliki satu kriteria khusus yang menjadi pe
 
 ---
 
-## 4. Yang Menggugurkan Nilai Penuh
+## 4. Temuan yang Dikenai Pengurangan
 
-Hal-hal berikut membatasi skor aspek **Kebenaran teknis** pada maksimal 2, berapa pun baiknya bagian lain:
+Temuan berikut dikenai konsekuensi menurut **satu tabel acuan**, yaitu [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Besarnya tidak ditulis ulang di sini agar tidak ada dua versi. Setiap temuan dikenai satu baris tabel saja, dan **tidak** membatasi skor aspek rubrik yang lain.
 
-| Temuan | Alasan |
-|--------|--------|
-| **Kebocoran data** | Melanggar kriteria kurikulum *"correctness preprocessing dan split"* |
-| Transformasi di luar `Pipeline` | Sumber kebocoran struktural |
-| Data uji dipakai untuk memilih atau menyetel | Kebocoran pemilihan |
+| Temuan | Mengapa penting |
+|--------|-----------------|
+| **Kebocoran data** — termasuk transformasi yang di-*fit* sebelum pembagian (di luar `Pipeline`) dan data uji yang dipakai untuk memilih atau menyetel | Melanggar kriteria kurikulum *"correctness preprocessing dan split"* |
 | Notebook tidak dapat dijalankan ulang | Melanggar kriteria *"reproduksibilitas eksperimen"* |
 | Hasil dilaporkan tanpa *baseline* | Angka tanpa pembanding tidak bermakna |
 | Akurasi dilaporkan sendirian pada data tak seimbang | Kesimpulan menyesatkan |
+| AI Usage Log tidak ada, tidak lengkap, atau mencantumkan AI pada butir L1–L5 (§6) | Integritas akademik |
+
+> Transformasi di luar `Pipeline` yang **tidak** menimbulkan kebocoran tidak dikenai pengurangan; ia dinilai melalui aspek **Kebenaran teknis** (dan kriteria khusus Lab 03).
 
 ---
 
@@ -89,12 +90,18 @@ Agar tidak salah paham, berikut hal-hal yang **tidak** mengurangi nilai:
 
 ## 6. AI Usage Log — Wajib
 
-Setiap notebook wajib memuat AI Usage Log pada sel terakhir. Log yang mencantumkan AI pada salah satu dari **empat baris berikut dikembalikan**:
+Setiap notebook wajib memuat AI Usage Log pada sel terakhir. Daftar larangan AI berikut **sama persis** dengan [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md) (bila berbeda, RPS yang berlaku):
 
-1. Formulasi masalah menjadi *task* ML
-2. Pemilihan model dan hiperparameter
-3. Pemilihan dan penafsiran metrik
-4. Analisis kesalahan dan keterbatasan
+| No | Kegiatan yang **tidak boleh** dibantu AI |
+|----|------------------------------------------|
+| L1 | Memformulasikan masalah menjadi *task* ML |
+| L2 | Memilih model dan hiperparameter |
+| L3 | Memilih dan menafsirkan metrik |
+| L4 | Menganalisis kesalahan model |
+| L5 | Menulis *model card* dan analisis keterbatasan |
+| L6 | Mengerjakan kuis, UTS, dan UAS (tidak boleh sama sekali) |
+
+Butir **L1–L5** wajib muncul di setiap log sebagai "dikerjakan sendiri". Log yang mencantumkan AI pada salah satu butir L1–L5 **dikembalikan**; konsekuensinya mengikuti [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Butir L6 berlaku di ruang kuis dan ujian.
 
 Format lengkap ada pada [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md).
 
@@ -102,13 +109,7 @@ Format lengkap ada pada [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pemb
 
 ## 7. Keterlambatan
 
-| Keterlambatan | Pengurangan |
-|---------------|-------------|
-| ≤ 24 jam | −10% |
-| 24–72 jam | −25% |
-| > 72 jam | Tidak dinilai |
-
-Kecuali dengan alasan yang dapat diterima dan disampaikan **sebelum** tenggat.
+Pengurangan keterlambatan dan pengecualiannya mengikuti [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai) — tabel yang sama untuk seluruh tugas mata kuliah ini.
 
 ---
 
@@ -118,7 +119,7 @@ Kecuali dengan alasan yang dapat diterima dan disampaikan **sebelum** tenggat.
 |-------|-----------|
 | Waktu pengembalian | Paling lambat 1 minggu setelah tenggat |
 | Bentuk | Skor per aspek + catatan tertulis pada bagian yang perlu diperbaiki |
-| Kesempatan perbaikan | Praktikum yang dikembalikan karena kebocoran atau AI Log dapat diperbaiki dalam 3 hari, dinilai sebagai terlambat ≤ 24 jam |
+| Kesempatan perbaikan | Praktikum yang **dikembalikan** (kebocoran, AI Usage Log) diperbaiki menurut ketentuan "Dikembalikan" pada [kerangka asesmen §7.2](assessment-framework.md#72-cara-menerapkan) |
 
 ---
 

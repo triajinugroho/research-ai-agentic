@@ -10,13 +10,13 @@
 |----------|-------------------|-------------|
 | `DAIML-Sub-CPMK102-1` | Menerapkan strategi pembagian data yang sesuai sifat datanya | C3 |
 | `DAIML-Sub-CPMK102-1` | Menganalisis sebuah *pipeline* dan menemukan kebocoran di dalamnya | C4 |
-| `DAIML-Sub-CPMK102-1` | Memperbaiki kebocoran dan melaporkan dampaknya terhadap skor | C5 |
+| `DAIML-Sub-CPMK102-1` | Memperbaiki (P3) kebocoran dengan `Pipeline` dan membandingkan (C4) skor sebelum dan sesudah perbaikan untuk melaporkan dampaknya | C4 / P3 |
 
 ---
 
 ## 4.1 Satu Bab Penuh untuk Satu Jenis Kesalahan
 
-Kapoor dan Narayanan (2023) menelaah 294 makalah ilmiah dari 17 bidang yang memakai pembelajaran mesin, dan menemukan **kebocoran data pada sebagian besar di antaranya**. Akibatnya: hasil yang dilaporkan tidak dapat diulang, dan sebagian kesimpulan ilmiah yang telah dipublikasikan ternyata keliru.
+Kapoor dan Narayanan (2023) menghimpun temuan dari tinjauan-tinjauan terdahulu atas sains berbasis pembelajaran mesin, dan mendapati bahwa **kebocoran data telah ditemukan di 17 bidang ilmu dan memengaruhi sedikitnya 294 makalah** — dalam sebagian kasus menghasilkan kesimpulan yang jauh terlalu optimistis. Pada studi kasus mereka sendiri tentang prediksi perang saudara, model ML yang rumit tidak lagi lebih baik secara berarti daripada regresi logistik setelah kebocorannya diperbaiki.
 
 Ini bukan kesalahan pemula. Ini kesalahan yang terjadi pada peneliti terlatih, berulang kali, karena satu sebab:
 
@@ -126,7 +126,7 @@ cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
 # PENTING: yang divalidasi-silang adalah PIPELINE, bukan model saja.
 skor = cross_val_score(pipeline, X_train, y_train, cv=cv, scoring="f1")
-print(f"F1 = {skor.mean():.3f} ± {skor.std():.3f}")
+print(f"F1 = {skor.mean():.3f} ± {skor.std(ddof=1):.3f}")   # simpangan baku SAMPEL (ddof=1)
 print("Per lipatan:", np.round(skor, 3))
 ```
 
@@ -210,7 +210,7 @@ Wajib dijalankan sebelum mengumpulkan pekerjaan apa pun:
 
 ---
 
-## AI Corner — Tahap *Understand → Apply*
+## AI Corner — Tahap *Understand*
 
 ### Kebocoran Adalah Kesalahan yang Tidak Dapat Dideteksi Alat
 
@@ -329,7 +329,7 @@ Prompt ini berhasil karena memberikan konteks yang tidak dimiliki AI (arti tiap 
 
 ## Referensi
 
-1. Kapoor, S., & Narayanan, A. (2023). Leakage and the Reproducibility Crisis in ML-based Science. *Patterns*, 4(9), 100804.
+1. Kapoor, S., & Narayanan, A. (2023). Leakage and the reproducibility crisis in machine-learning-based science. *Patterns*, 4(9), 100804. <https://doi.org/10.1016/j.patter.2023.100804>
 2. Kaufman, S., Rosset, S., & Perlich, C. (2012). Leakage in Data Mining. *ACM TKDD*, 6(4), 1–21.
 3. Géron, A. (2022). *Hands-On Machine Learning* (3rd ed.), Bab 2. O'Reilly.
 4. Müller, A. C., & Guido, S. (2016). *Introduction to Machine Learning with Python*, Bab 5. O'Reilly.

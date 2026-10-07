@@ -33,7 +33,7 @@
 | Ujian Akhir Semester | U-02 | 10% | `UAI32-1` |
 | **Total** | | **100%** | |
 
-> Studio 9–12 tidak berbobot sendiri; ia merupakan tahapan penyusunan **P-03**, yang dinilai sebagai satu kesatuan pada Minggu 11.
+> Studio 9–11 tidak berbobot sendiri; ketiganya merupakan tahapan penyusunan **P-03** (Unjuk Kerja), yang dinilai sebagai satu kesatuan pada Minggu 11. Studio 12 (audit etika) dan Studio 14 (latihan *pitch*) bersifat **formatif** tanpa bobot: temuan S-12 ditindaklanjuti sebelum *Demo Day*, dan S-14 adalah latihan menuju P-04.
 
 ---
 
@@ -45,23 +45,25 @@
 | S-02 | Wawancara masalah (batch 1) | 2 | Catatan ≥ 5 wawancara | 3,3% | 091-1 | Mg 3 |
 | S-03 | Persona dan peta perjalanan | 3 | Dokumen sintesis | 3,3% | 091-1 | Mg 4 |
 | S-04 | Matriks kebutuhan → persyaratan | 4 | Matriks terlacak | 3,4% | 091-1 | Mg 5 |
-| **P-01** | **Milestone 1 — bukti masalah** | **4** | **Berkas lengkap** | *(dalam S-02..04)* | 091-1 | **Mg 4** |
+| **P-01** | **Milestone 1 — bukti masalah** | **4** | **S-02 + S-03 + ringkasan dan pernyataan arah** | *(tanpa bobot sendiri)* | 091-1 | **Mg 4** |
 | S-05 | Perhitungan pasar dan peta kompetitor | 5 | Spreadsheet + peta | 6,25% | UAI21-1 | Mg 6 |
 | S-06 | Uji kelayakan teknologi dan operasional | 6 | Dokumen penilaian | 6,25% | UAI21-1 | Mg 7 |
-| S-07 | Model *unit economics* | 7 | Spreadsheet + daftar risiko | 6,25% | UAI21-1 | Mg 9 |
-| **P-02** | **Milestone 2 — bukti kelayakan** | **7** | **Berkas lengkap** | *(dalam S-05..07)* | UAI21-1 | **Mg 7** |
-| S-09 | *Business Model Canvas* | 9 | BMC terlacak ke bukti | — | UAI22-1 | Mg 10 |
-| S-10 | Rancang dan uji MVP | 10 | MVP + catatan pengujian | — | UAI22-1 | Mg 11 |
-| S-11 | Rencana *go-to-market* | 11 | Dokumen rencana | — | UAI22-1 | Mg 11 |
-| S-12 | Audit etika dan kepatuhan | 12 | Daftar periksa terisi | — | UAI22-1 | Mg 13 |
-| **P-03** | **Milestone 3 — BMC + MVP + GTM** | **11** | **Laporan + bukti** | **25%** | UAI22-1 | **Mg 11** |
+| S-07 | Model *unit economics* | 7 | Spreadsheet + daftar risiko | 6,25% | UAI21-1 | Mg 9 (Mg 8 UTS) |
+| **P-02** | **Milestone 2 — bukti kelayakan** | **7** | **S-05 + S-06 + kesimpulan kelayakan** | *(tanpa bobot sendiri)* | UAI21-1 | **Mg 7** |
+| S-09 | *Business Model Canvas* | 9 | BMC terlacak ke bukti | *(tahapan P-03)* | UAI22-1 | Mg 10 |
+| S-10 | Rancang dan uji MVP | 10 | MVP + catatan pengujian | *(tahapan P-03)* | UAI22-1 | Mg 11 |
+| S-11 | Rencana *go-to-market* | 11 | Dokumen rencana | *(tahapan P-03)* | UAI22-1 | Mg 11 |
+| S-12 | Audit etika dan kepatuhan | 12 | Daftar periksa terisi | formatif | UAI22-1 | Mg 13 |
+| **P-03** | **Milestone 3 — BMC + MVP + GTM** | **11** | **S-09 + S-10 + S-11 + laporan ringkas** | **25%** | UAI22-1 | **Mg 11** |
 | S-13 | Penilaian kelayakan komponen AI | 13 | Dokumen penilaian | 6,25% | UAI21-1 | Mg 14 |
-| S-14 | Latihan *pitch* dan umpan balik | 14 | *Pitch deck* draf | — | FSTS11-1 | Mg 14 |
+| S-14 | Latihan *pitch* dan umpan balik | 14 | *Pitch deck* draf | formatif | FSTS11-1 | Mg 14 |
 | **P-04** | ***Pitch deck* dan *Demo Day*** | **15** | **Deck + presentasi 15'** | **10%** | FSTS11-1 | **Mg 15** |
 | **P-05** | **Bukti kolaborasi tim** | **15** | **Catatan sprint + penilaian sejawat** | **5%** | FSTS12-1 | **Mg 15** |
 | — | Partisipasi kerja tim | 1–15 | Pengamatan + bukti | **5%** | FSTS12-1 | — |
 | U-01 | Ujian Tengah Semester | 8 | Tes tulis 90' | **10%** | 091-1 | Mg 8 |
 | U-02 | Ujian Akhir Semester | 16 | Tes tulis reflektif 90' | **10%** | UAI32-1 | Mg 16 |
+
+> **Aturan cakupan *milestone*:** setiap *milestone* hanya menghimpun studio yang tenggatnya **tidak lebih lambat** dari tenggat *milestone* itu. Karena itu S-04 (Mg 5), S-07 (Mg 9), dan S-12 (Mg 13) tidak termasuk *milestone* yang jatuh tempo lebih awal. Bagian milik *milestone* sendiri (ringkasan, pernyataan arah, kesimpulan kelayakan) disusun pada studio minggu *milestone* dan dinilai bersama studio itu — P-01 bersama S-04, P-02 bersama S-07 (lihat [rubrik studio](../05-assessments/rubrik-tugas.md)).
 
 ---
 
@@ -150,13 +152,15 @@
 
 ### P-01 — Milestone 1: Bukti Masalah (Minggu 4)
 
-Gabungan S-02 sampai S-04, ditambah:
+Gabungan S-02 dan S-03 (keduanya sudah jatuh tempo), ditambah:
 
 - **Minimal 8 wawancara** terdokumentasi sampai titik ini.
 - Ringkasan 1 halaman: apa yang ternyata **berbeda** dari dugaan awal tim.
 - Pernyataan apakah tim melanjutkan ranah yang sama atau mengubahnya, beserta alasannya.
 
 > Butir ketiga bukan formalitas. Sub-CPMK `UAI32-1` menilai **bukti adaptasi keputusan**. Tim yang menemukan bahwa dugaan awalnya keliru dan menyatakannya memperoleh nilai pada indikator itu.
+
+Matriks S-04 **tidak** termasuk P-01: tenggatnya Minggu 5, dan matriks disusun di atas arah yang dinyatakan pada P-01.
 
 ---
 
@@ -201,10 +205,12 @@ Gabungan S-02 sampai S-04, ditambah:
 
 ### P-02 — Milestone 2: Bukti Kelayakan (Minggu 7)
 
-Gabungan S-05 sampai S-07, ditambah:
+Gabungan S-05 dan S-06 (keduanya sudah jatuh tempo), ditambah:
 
 - **Minimal 12 wawancara** terdokumentasi sampai titik ini.
-- Kesimpulan kelayakan: **lanjut, ubah arah, atau hentikan** — dengan alasan berbasis angka.
+- Kesimpulan kelayakan: **lanjut, ubah arah, atau hentikan** — dengan alasan berbasis angka pasar (S-05) serta beban teknologi dan operasional (S-06).
+
+Model *unit economics* dan daftar risiko (S-07) **tidak** termasuk P-02 karena tenggatnya Minggu 9 (Minggu 8 adalah UTS). Bila angka S-07 mengubah kesimpulan kelayakan, perubahan itu dicatat di jurnal keputusan dan dinyatakan pada bagian "apa yang berubah sejak Milestone 2" di laporan P-03.
 
 > Pilihan ketiga ("hentikan") adalah pilihan yang sah dan tidak merugikan nilai, asalkan didukung analisis yang benar. Tim yang memilihnya akan mengganti ranah dan melanjutkan dengan siklus yang dipersingkat.
 
@@ -212,7 +218,7 @@ Gabungan S-05 sampai S-07, ditambah:
 
 ## F. P-03 — Milestone 3: BMC, MVP, dan *Go-to-Market* (Minggu 11) — 25%
 
-Komponen terbesar, menelusur ke `TEKNO-Sub-CPMKUAI22-1`.
+Komponen terbesar, menelusur ke `TEKNO-Sub-CPMKUAI22-1`. Studio 9–11 adalah tahapan penyusunannya. Audit etika S-12 (Minggu 12) tidak termasuk P-03 karena tenggatnya Minggu 13; temuannya ditindaklanjuti sebelum *Demo Day*.
 
 ### F.1 Tiga Luaran
 
@@ -274,6 +280,7 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS11-1`.
 | Durasi | 15 menit presentasi + 10 menit tanya jawab |
 | Pembicara | **Setiap anggota wajib berbicara** |
 | Penguji | Dosen + minimal 1 praktisi/alumni dari luar |
+| Peran penguji luar | Mengajukan pertanyaan dan memberi umpan balik; **nilai P-04 ditetapkan dosen pengampu** dengan mempertimbangkan masukan itu |
 | Penguasaan | Pertanyaan dapat diarahkan kepada siapa saja |
 
 ### G.3 Pertanyaan yang Akan Diajukan
@@ -324,7 +331,7 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS12-1`.
 | Aspek | Ketentuan |
 |-------|-----------|
 | Bentuk | Tes tulis, *closed book*, 90 menit |
-| Alat bantu | **Tanpa catatan, tanpa perangkat, tanpa AI** |
+| Alat bantu | **Kalkulator saja** (bukan kalkulator pada ponsel atau laptop); rumus yang dibutuhkan dicetak pada lembar soal. **Tanpa catatan, buku, ponsel, laptop, dan AI** |
 | Cakupan | Minggu 1–7, penekanan pada penemuan pelanggan dan perumusan kebutuhan |
 | Komposisi | 30% konsep · 50% analisis kasus · 20% perancangan naskah wawancara |
 | Kisi-kisi | [kisi-kisi-uts.md](../05-assessments/kisi-kisi-uts.md) |
@@ -334,12 +341,12 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS12-1`.
 | Aspek | Ketentuan |
 |-------|-----------|
 | Bentuk | **Tes tulis reflektif**, *closed book*, 90 menit |
-| Alat bantu | **Tanpa catatan, tanpa perangkat, tanpa AI** |
+| Alat bantu | **Tidak ada** — tanpa catatan, buku, kalkulator, ponsel, laptop, dan AI |
 | Cakupan | Refleksi atas perjalanan proyek sendiri; pemindaian tren; rencana pembelajaran |
 | Komposisi | 40% refleksi berbasis pengalaman · 30% analisis tren · 30% rencana pengembangan diri |
 | Kisi-kisi | [kisi-kisi-uas.md](../05-assessments/kisi-kisi-uas.md) |
 
-> UAS berbentuk **reflektif** karena Sub-CPMK yang diukurnya bersifat afektif: pola pikir adaptif dan pembelajaran berkelanjutan. Yang dinilai adalah kedalaman refleksi dan bukti adaptasi — bukan hafalan. Jawaban yang menyatakan "tidak ada yang berubah sepanjang semester" hampir selalu menunjukkan refleksi yang dangkal.
+> UAS berbentuk **reflektif** karena Sub-CPMK yang diukurnya menuntut **mengembangkan (C6)** pola pikir adaptif dan pembelajaran berkelanjutan — dengan dimensi sikap (A4) pada CPMK induknya, `CPMKUAI32`. Yang dinilai adalah kedalaman refleksi dan bukti adaptasi — bukan hafalan. Jawaban yang menyatakan "tidak ada yang berubah sepanjang semester" hampir selalu menunjukkan refleksi yang dangkal.
 
 ---
 
@@ -350,16 +357,16 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS12-1`.
 | 1 | **P-00 ranah dan tim** | Prasyarat |
 | 2 | — | Mulai wawancara |
 | 3 | **S-02** (≥ 5 wawancara) | |
-| 4 | **S-03** · **P-01 milestone 1** (≥ 8 wawancara) | |
+| 4 | **S-03** · **P-01 milestone 1** (≥ 8 wawancara) | P-01 menghimpun S-02 dan S-03 |
 | 5 | **S-04** | |
 | 6 | **S-05** | |
-| 7 | **S-06** · **P-02 milestone 2** (≥ 12 wawancara) | |
+| 7 | **S-06** · **P-02 milestone 2** (≥ 12 wawancara) | P-02 menghimpun S-05 dan S-06 |
 | 8 | **U-01 UTS** · Penilaian sejawat 1 | |
-| 9 | **S-07** | |
+| 9 | **S-07** | Tenggat bergeser karena Mg 8 UTS |
 | 10 | — | MVP dibangun |
-| 11 | **P-03 milestone 3** (BMC + MVP + GTM) | **Komponen terbesar** |
+| 11 | **P-03 milestone 3** (BMC + MVP + GTM) | **Komponen terbesar**; menghimpun S-09–S-11 |
 | 12 | — | |
-| 13 | **S-12** | |
+| 13 | **S-12** (formatif) | Temuan ditindaklanjuti sebelum *Demo Day* |
 | 14 | **S-13** · **S-14 deck draf** | |
 | 15 | **P-04 Demo Day** · **P-05 bukti kolaborasi** · Penilaian sejawat 2 | |
 | 16 | **U-02 UAS** | |

@@ -96,7 +96,7 @@ Setiap pengali harus punya sumber. Sumber yang sah ada tiga jenis saja:
 
 | Jenis sumber | Contoh | Kekuatan |
 |--------------|--------|----------|
-| **Data resmi** | BPS, Kemenkop-UKM, dinas kota | Kuat untuk jumlah populasi |
+| **Data resmi** | BPS, Kementerian UMKM, dinas kota | Kuat untuk jumlah populasi |
 | **Hitungan sendiri** | Pencacahan langsung di 3 kecamatan | Kuat untuk jangkauan nyata |
 | **Wawancara tim** | 15 narasumber, 4 menyatakan bersedia membayar | Kuat untuk proporsi dan harga |
 
@@ -345,9 +345,8 @@ Lapis 4 paling sering terlewat. "UMKM" dalam terbitan BPS memiliki definisi tert
 2. Blank, S., & Dorf, B. (2020). *The Startup Owner's Manual* (2nd ed.). Wiley.
 3. Croll, A., & Yoskovitz, B. (2013). *Lean Analytics: Use Data to Build a Better Startup Faster*. O'Reilly Media.
 4. Badan Pusat Statistik. (2024). *Statistik Usaha Mikro dan Kecil*. BPS.
-5. Kementerian Koperasi dan UKM Republik Indonesia. (2024). *Data Usaha Mikro Kecil Menengah*. Kemenkop-UKM.
+5. Kementerian Usaha Mikro, Kecil, dan Menengah Republik Indonesia (Kementerian UMKM; sebelum Oktober 2024 bagian dari Kementerian Koperasi dan UKM). (terbitan terbaru). *Data UMKM*. <https://umkm.go.id>
 6. Christensen, C. M. (1997). *The Innovator's Dilemma*. Harvard Business Review Press.
-7. Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). On the Dangers of Stochastic Parrots. *Proceedings of FAccT '21*, 610–623.
 
 ---
 

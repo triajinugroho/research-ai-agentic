@@ -46,7 +46,7 @@ Sebagian besar nama algoritma pada Lampiran B akan terlupakan. Itu wajar dan tid
 
 Kebocoran data adalah satu-satunya jenis kesalahan dalam pembelajaran mesin yang *memberi hadiah* ketika dilakukan. Ia tidak menghasilkan galat; ia menghasilkan skor yang bagus.
 
-Kapoor dan Narayanan menemukan kebocoran pada sebagian besar dari 294 makalah yang mereka telaah — makalah yang ditulis peneliti terlatih, melewati peninjauan sejawat, dan dipublikasikan. Yang membedakan mereka dari orang yang tidak terkena bukan kecerdasan, melainkan **kebiasaan curiga sebelum merayakan**.
+Kapoor dan Narayanan (2023) menghimpun temuan dari tinjauan-tinjauan terdahulu dan mendapati bahwa kebocoran telah memengaruhi **sedikitnya 294 makalah di 17 bidang ilmu** — makalah karya peneliti terlatih, yang dalam sebagian kasus berujung pada kesimpulan yang jauh terlalu optimistis. Yang membedakan peneliti yang terhindar dari kekeliruan itu bukan kecerdasan, melainkan **kebiasaan curiga sebelum merayakan**.
 
 ### 2. Kebiasaan Menyertakan Pembanding
 

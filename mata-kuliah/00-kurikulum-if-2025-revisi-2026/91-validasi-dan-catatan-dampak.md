@@ -4,7 +4,7 @@
 **Sifat:** Analisis turunan — **bukan** transkripsi sheet  
 **Kurikulum:** Kurikulum Informatika 2025 — Revisi 2026  
 **Ekstraksi:** September 2026  
-**Diperbarui:** 7 Oktober 2026 — path folder disesuaikan dengan penataan repositori per semester (catatan pembaruan di §2 dan §3)  
+**Diperbarui:** 7 Oktober 2026 — path folder disesuaikan dengan penataan repositori per semester (catatan pembaruan di §2 dan §3); koreksi rentang CPMK per mata kuliah (§2.2a), rujukan bobot (§2.2b), dan klaim kode CPL (§2.3)  
 
 ---
 
@@ -106,6 +106,14 @@ dipetakan ulang.
 | Rekayasa Perangkat Lunak | CPMK-1 … CPMK-7 (7) | CPMK052, CPMK091, CPMK092, CPMKFSTS11, CPMKFSTS12 (5) | 5 |
 | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin | CPMK-1 … CPMK-7 (7) | CPMK082, CPMK102 (2) | 2 |
 
+> **Pembaruan 2026-10-07 — koreksi rentang CPMK.** Frasa "hanya **2–3 CPMK per mata kuliah**" di
+> atas tidak tepat — tabel di atas sendiri sudah memuat Rekayasa Perangkat Lunak dengan 5 CPMK.
+> Menurut rekap [14-pemetaan-cpl-mk-cpmk.md §2](14-pemetaan-cpl-mk-cpmk.md#2-rekap-jumlah-cpmk-per-mata-kuliah),
+> jumlah CPMK per mata kuliah berkisar **2–7**: 42 MK memiliki 2 CPMK, 6 MK memiliki 3, 3 MK memiliki 4,
+> 4 MK memiliki 5, 1 MK (Teknopreneur) memiliki 6, dan 2 MK (Kerja Praktik; JK3) memiliki 7. Kesimpulan
+> bahwa pembeda antarmata kuliah berpindah ke tingkat Sub-CPMK tetap berlaku. Teks dan tabel di atas
+> dipertahankan sebagai catatan analisis September 2026.
+
 **b. Bobot penilaian memakai enam teknik, bukan komponen nilai bebas.**
 Kurikulum baru menetapkan enam teknik: Partisipasi, Kuis, Observasi (Praktek/Tugas),
 Unjuk Kerja (Presentasi/Proyek), Tes Tulis UTS, dan Tes Tulis UAS — dengan bobot melekat pada
@@ -118,6 +126,17 @@ Unjuk Kerja (Presentasi/Proyek), Tes Tulis UTS, dan Tes Tulis UAS — dengan bob
 | Analisis Data Statistik | Tugas 15% · Kuis 10% · UTS 20% · Proyek 25% · UAS 25% · Partisipasi 5% | Kuis 15% · Observasi 25% · Unjuk Kerja 10% · UTS 25% · UAS 25% |
 | Rekayasa Perangkat Lunak | Tugas 15% · Kuis 10% · UTS 20% · Proyek 25% · UAS 25% · Partisipasi 5% | Partisipasi 5% · Kuis 5% · Observasi 30% · Unjuk Kerja 20% · UTS 20% · UAS 20% |
 | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin | Tugas 15% · Kuis 10% · UTS 20% · Proyek 25% · UAS 25% · Partisipasi 5% | Kuis 5% · Observasi 25% · Unjuk Kerja 35% · UTS 20% · UAS 15% |
+
+> **Pembaruan 2026-10-07 — rujukan bobot.** Perbandingan di atas ditulis terhadap `CLAUDE.md` versi
+> September 2026. `CLAUDE.md` kini (aturan konsistensi 5) merujuk
+> [15a-rekap-bobot-penilaian.md](15a-rekap-bobot-penilaian.md) sebagai sumber bobot resmi untuk
+> mata kuliah berkode resmi, dan mencantumkan skema lama hanya sebagai skema yang **masih tertulis di
+> materi kurikulum lama** sampai materi itu diselaraskan. Karena itu kolom "Bobot di `CLAUDE.md`" kini
+> dibaca sebagai **bobot yang masih tertulis di materi lama**. Selisihnya tetap nyata untuk materi tiga
+> MK semester II dan Rekayasa Perangkat Lunak, yang belum diselaraskan (lihat
+> [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) T2-03 s.d. T2-06). Baris Dasar Kecerdasan Artifisial
+> dan Pembelajaran Mesin kini hanya berlaku untuk materi arsip IF3XXX; materi `IF52510031` di
+> `semester-5/` disusun dengan bobot registri.
 
 **c. Praktikum Rekayasa Perangkat Lunak (IF2206) tidak ada dalam kurikulum baru.**
 Sheet 8, 9, 11, 14, dan 15 tidak memuat mata kuliah praktikum untuk Rekayasa Perangkat Lunak.
@@ -172,6 +191,17 @@ perlu ditegaskan agar tidak tumpang tindih.
 - Pendekatan **AI-augmented learning** pada materi yang ada sejalan dengan
   [14a-ai-curriculum-infusion-matrix.md](14a-ai-curriculum-infusion-matrix.md), yang menempatkan
   AI sebagai salah satu dari tiga domain keilmuan resmi prodi.
+
+> **Pembaruan 2026-10-07 — klaim kode CPL dikoreksi.** Butir kedua di atas ("sudah dipakai konsisten
+> di seluruh materi repositori") belum benar. Kode CPL resmi dipakai pada materi yang disusun dari
+> registri (Probabilitas dan Statistik, Dasar Kecerdasan Artifisial dan Pembelajaran Mesin,
+> Teknopreneur, Metodologi Penelitian) dan pada RPS Algoritma dan Pemrograman (INF-101), yang
+> memetakan `CPL-1` … `CPL-6` lokalnya ke kode resmi. Materi kurikulum lama lainnya masih memakai kode
+> lama: `CPL-1` … `CPL-6` lokal tanpa pemetaan di RPS Praktikum Algoritma dan Pemrograman, serta kode
+> ranah SN-Dikti (`CPL-S2`, `CPL-P1`, `CPL-KU2`, `CPL-KK1`, …) di RPS dan buku ajar Analisis Data
+> Statistik dan Rekayasa Perangkat Lunak, juga di kedua mata kuliah arsip. Penyelarasan kode CPL
+> termasuk dalam [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) T2-03 s.d. T2-06; mata kuliah
+> arsip tidak dipelihara.
 
 ## 3. Usulan Urutan Tindak Lanjut
 

@@ -168,10 +168,10 @@ Skala mengikuti [registri konversi nilai](../../../00-pedoman-obe/konversi-nilai
 
 | Komponen | AI Policy | Ketentuan |
 |----------|-----------|-----------|
-| Tugas (T1-T6) | **Diizinkan + Documented** | Wajib mengisi AI Usage Log: prompt, output, modifikasi, refleksi |
+| Tugas (T1-T6) | **Diizinkan + Documented** | Wajib mengisi AI Usage Log: prompt, output, modifikasi, refleksi ([templat: Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log)) |
 | Kuis (K1-K3) | **TIDAK diizinkan** | Closed-book, tanpa akses AI/internet |
 | UTS | **TIDAK diizinkan** | Closed-book, tanpa akses AI/internet |
-| Proyek Akhir | **AI sebagai partner + Documented** | AI Usage Log wajib (10% rubrik proyek), verifikasi pemahaman via demo |
+| Proyek Akhir | **AI sebagai partner + Documented** | AI Usage Log wajib (dinilai pada komponen *AI Integration & Usage Log* [rubrik proyek](../05-assessments/project-guidelines.md#rubrik-penilaian)), verifikasi pemahaman via demo |
 | UAS | **TIDAK diizinkan** | Closed-book + 1 lembar catatan A4 tulisan tangan, tanpa AI |
 | Partisipasi | **N/A** | Kontribusi diskusi dan refleksi etika AI |
 

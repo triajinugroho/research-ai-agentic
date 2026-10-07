@@ -154,7 +154,7 @@ luar  = StratifiedKFold(n_splits=5, shuffle=True, random_state=7)
 
 pencarian = GridSearchCV(model, ruang_grid, cv=dalam, scoring="f1")
 skor = cross_val_score(pencarian, X, y, cv=luar, scoring="f1")
-print(f"Taksiran tidak bias: {skor.mean():.3f} ± {skor.std():.3f}")
+print(f"Taksiran tidak bias: {skor.mean():.3f} ± {skor.std(ddof=1):.3f}")   # ddof=1: SD sampel
 ```
 
 Lingkar dalam memilih hiperparameter; lingkar luar menaksir kinerja. Karena pemilihan terjadi **di dalam** tiap lipatan luar, taksirannya tidak terkontaminasi oleh proses pemilihan.
@@ -171,24 +171,47 @@ Lingkar dalam memilih hiperparameter; lingkar luar menaksir kinerja. Karena pemi
 | **Prapemrosesan yang sesuai** tiap model | Tidak adil membandingkan SVM tanpa penskalaan dengan *Random Forest* |
 | **Anggaran penyetelan yang sebanding** | Model yang disetel 100 kali vs 5 kali bukan perbandingan |
 | ***Baseline* disertakan** | Tanpa itu seluruh angka tidak bermakna |
-| **Simpangan dilaporkan** | Selisih 0,01 dengan simpangan 0,05 bukan perbedaan |
+| **Simpangan dan selisih per lipatan dilaporkan** | Selisih rerata 0,01 baru bermakna bila konsisten antarlipatan — diukur dengan selisih berpasangan (§9.4.2), bukan dengan membandingkannya pada simpangan masing-masing model |
 
 ### 9.4.2 Membaca Hasil Perbandingan
 
+Karena seluruh model dinilai pada **lipatan yang sama**, skor dua model **berpasangan**: pada lipatan ke-$i$, keduanya diuji pada baris yang persis sama. Sebagian variasi skor berasal dari lipatannya sendiri — ada lipatan yang "mudah" dan ada yang "sulit" — dan dialami kedua model bersama-sama. Selisih per lipatan menghapus variasi bersama itu.
+
+Untuk $k$ lipatan, hitung selisih per lipatan $d_i = \text{skor}_{A,i} - \text{skor}_{B,i}$, lalu rerata, simpangan baku sampel, dan galat baku (*standard error*) rerata selisih:
+
+$$\bar d=\frac{1}{k}\sum_{i=1}^{k} d_i \qquad s_d=\sqrt{\frac{1}{k-1}\sum_{i=1}^{k}\left(d_i-\bar d\right)^2} \qquad SE=\frac{s_d}{\sqrt{k}}$$
+
+```python
+import numpy as np
+
+# skor_a, skor_b: skor per lipatan dari cross_val_score dengan objek CV yang SAMA
+d = np.asarray(skor_a) - np.asarray(skor_b)
+k = len(d)
+d_bar = d.mean()
+s_d = d.std(ddof=1)           # simpangan baku SAMPEL (ddof=1), sama dengan pd.Series.std()
+se = s_d / np.sqrt(k)
+searah = int((np.sign(d) == np.sign(d_bar)).sum())   # lipatan yang searah dengan rerata
+bermakna = abs(d_bar) > 2 * se and searah >= 0.8 * k
+print(f"rerata selisih = {d_bar:.4f} | s_d = {s_d:.4f} | SE = {se:.4f} | "
+      f"searah di {searah} dari {k} lipatan | bermakna: {bermakna}")
+```
+
 | Hasil | Tafsir |
 |-------|--------|
-| Selisih ≫ simpangan gabungan | Perbedaan kemungkinan nyata |
-| Selisih ≈ simpangan gabungan | **Tidak dapat disimpulkan mana yang lebih baik** |
+| $\lvert\bar d\rvert > 2\cdot SE$ **dan** arah selisih konsisten di sebagian besar lipatan (pada 5 lipatan: minimal 4) | Perbedaan kemungkinan nyata |
+| $\lvert\bar d\rvert \le 2\cdot SE$, atau arah selisih berganti-ganti antarlipatan | **Tidak dapat disimpulkan mana yang lebih baik** |
 | Seluruh model ≈ *baseline* | Fitur tidak memuat sinyal untuk target ini |
 | Model sederhana ≈ model kompleks | **Pilih yang sederhana** |
 
-Simpangan gabungan dihitung sebagai $\sqrt{s_1^2+s_2^2}$.
+Aturan $|\bar d| > 2\cdot SE$ adalah **aturan praktis mata kuliah** — penyaring kasar, karena skor antarlipatan tidak benar-benar saling bebas (data latihnya tumpang-tindih). Untuk analisis formal, gunakan *corrected resampled t-test* (Nadeau & Bengio, 2003).
 
-> Baris terakhir adalah kaidah yang sering diabaikan. Model yang lebih rumit hanya sepadan bila peningkatannya nyata dan bermakna **secara praktis** — bukan sekadar lebih besar pada angka desimal ketiga. Model yang lebih sederhana lebih mudah dipelihara, lebih cepat dijalankan, lebih mudah dijelaskan, dan lebih jarang rusak.
+> **Jangan pakai "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$.** Rumus itu memperlakukan skor kedua model seolah-olah tidak berpasangan dan memakai simpangan baku (SD) skor masing-masing model, padahal ketidakpastian **rerata selisih** diukur oleh galat baku (SE) dari selisih per lipatan. Akibatnya, selisih yang konsisten di semua lipatan dapat dinyatakan "tidak bermakna" hanya karena kedua model sama-sama naik-turun dari lipatan ke lipatan. Seragamkan pula cara menghitung simpangan baku skor lipatan: selalu **`ddof=1`** — `np.std(x, ddof=1)` atau `pd.Series.std()`; `np.std(x)` dan `skor.std()` pada larik NumPy tanpa argumen memakai `ddof=0`.
+
+> Baris terakhir tabel di atas — *model sederhana ≈ model kompleks* — adalah kaidah yang sering diabaikan. Model yang lebih rumit hanya sepadan bila peningkatannya nyata dan bermakna **secara praktis** — bukan sekadar lebih besar pada angka desimal ketiga. Model yang lebih sederhana lebih mudah dipelihara, lebih cepat dijalankan, lebih mudah dijelaskan, dan lebih jarang rusak.
 
 ---
 
-## AI Corner — Tahap *Apply → Create*
+## AI Corner — Tahap *Apply*
 
 ### Penyetelan Adalah Tempat Kebocoran Paling Mudah Terjadi
 
@@ -211,7 +234,7 @@ Kekeliruan ini lolos dengan mudah karena kodenya berjalan tanpa galat dan mengha
 Saya menjalankan GridSearchCV pada X_train saja, dengan cv=5,
 lalu melaporkan skor pada X_test yang belum pernah disentuh.
 
-Alpha terbaik yang ditemukan adalah nilai terbesar pada rentang
+Nilai C terbaik yang ditemukan adalah nilai terbesar pada rentang
 yang saya coba (C=100 dari [0.1, 1, 10, 100]).
 
 Pertanyaan saya: apa artinya optimum berada di tepi rentang, dan
@@ -254,9 +277,15 @@ Prompt ini menunjukkan bahwa prosedurnya sudah benar, dan yang ditanyakan adalah
    (c) Selain jumlah kombinasi, apa lagi yang harus disetarakan?
    (d) Bagaimana bila menyetarakan anggaran tidak memungkinkan karena keterbatasan waktu?
 
-8. Hasil perbandingan: Model A 0,847 ± 0,031; Model B 0,852 ± 0,028.
-   (a) Hitung simpangan gabungan.
-   (b) Apakah selisihnya bermakna?
+8. Dua model dinilai dengan validasi silang 5 lipatan pada **lipatan yang sama**. F1 per lipatan:
+
+   | Lipatan | 1 | 2 | 3 | 4 | 5 |
+   |---------|---|---|---|---|---|
+   | Model A | 0,832 | 0,871 | 0,845 | 0,889 | 0,868 |
+   | Model B | 0,847 | 0,865 | 0,857 | 0,885 | 0,886 |
+
+   (a) Hitung selisih per lipatan $d_i$ = B − A, lalu $\bar d$, $s_d$ (`ddof=1`), dan $SE$.
+   (b) Apakah selisihnya bermakna menurut aturan praktis mata kuliah (§9.4.2)? Periksa juga arah selisih di tiap lipatan.
    (c) Bila Model A jauh lebih cepat dan lebih mudah dijelaskan, apa rekomendasi Anda?
    (d) Bagaimana Anda menuliskan kesimpulan ini dalam laporan?
 
@@ -266,8 +295,8 @@ Prompt ini menunjukkan bahwa prosedurnya sudah benar, dan yang ditanyakan adalah
    (a) Pilih masalah klasifikasi pada data nyata.
    (b) Sertakan *baseline*, satu model linear, satu berbasis jarak, dua berbasis pohon, dan Naive Bayes.
    (c) Pakai lipatan yang sama dan anggaran penyetelan yang sebanding.
-   (d) Laporkan rerata, simpangan, min, maks, dan waktu latih.
-   (e) Uji apakah selisih peringkat 1 dan 2 melampaui simpangan gabungan.
+   (d) Laporkan rerata, simpangan baku sampel (`ddof=1`), min, maks, dan waktu latih.
+   (e) Hitung selisih berpasangan per lipatan antara peringkat 1 dan 2, lalu terapkan aturan praktis $|\bar d| > 2\cdot SE$ beserta pemeriksaan arah selisih.
    (f) Tuliskan rekomendasi yang mempertimbangkan kinerja, waktu, keterjelasan, dan kemudahan pemeliharaan.
 
 10. Selidiki batas skala SVM.
@@ -298,7 +327,7 @@ Prompt ini menunjukkan bahwa prosedurnya sudah benar, dan yang ditanyakan adalah
 7. Nilai optimum di tepi ruang berarti ruangnya **perlu diperluas**.
 8. **Validasi silang bersarang** memberi taksiran kinerja yang tidak bias.
 9. Perbandingan adil menuntut **lipatan sama, anggaran setara, *baseline*, dan pelaporan simpangan**.
-10. **Selisih yang lebih kecil daripada simpangan gabungan bukan perbedaan.** Bila setara, pilih yang sederhana.
+10. Karena lipatannya sama, skor dua model **berpasangan**: bandingkan dengan **selisih per lipatan** — $\bar d$, $s_d$ (`ddof=1`), $SE = s_d/\sqrt{k}$. Selisih dianggap bermakna bila $|\bar d| > 2\cdot SE$ dan arahnya konsisten; bukan dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$. Bila setara, **pilih yang sederhana**.
 
 ---
 
@@ -310,6 +339,7 @@ Prompt ini menunjukkan bahwa prosedurnya sudah benar, dan yang ditanyakan adalah
 4. Bergstra, J., & Bengio, Y. (2012). Random Search for Hyper-Parameter Optimization. *JMLR*, 13, 281–305.
 5. Cawley, G. C., & Talbot, N. L. C. (2010). On Over-fitting in Model Selection and Subsequent Selection Bias. *JMLR*, 11, 2079–2107.
 6. Dokumentasi scikit-learn — *Tuning the hyper-parameters*. <https://scikit-learn.org/stable/modules/grid_search.html>
+7. Nadeau, C., & Bengio, Y. (2003). Inference for the Generalization Error. *Machine Learning*, 52(3), 239–281.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -61,7 +61,7 @@ UAS menekankan `PS-Sub-CPMK081-1`. Sepuluh konsep berikut adalah inti yang akan 
 
 ### 1.3 Daftar Rumus yang Harus Hafal
 
-Tabel distribusi disediakan, tetapi rumus berikut **tidak** disediakan:
+Tabel distribusi dibagikan pengawas bersama lembar soal, tetapi rumus **tidak** disediakan. Tabel berikut merangkum rumus yang paling sering dipakai; daftar lengkap yang harus dihafal ada pada [kisi-kisi UTS §7](../05-assessments/kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) dan [kisi-kisi UAS §8](../05-assessments/kisi-kisi-uas.md#8-daftar-rumus-tambahan-di-luar-rumus-uts):
 
 | Konsep | Rumus |
 |--------|-------|
@@ -97,9 +97,10 @@ Tabel distribusi disediakan, tetapi rumus berikut **tidak** disediakan:
 |-------|-----------|
 | **Durasi** | 120 menit |
 | **Sifat** | *Closed book* |
-| **Alat bantu yang diizinkan** | Kalkulator ilmiah non-programmable, alat tulis |
-| **Disediakan pengawas** | Tabel distribusi Normal baku, tabel-t, tabel chi-square, tabel F |
-| **Yang dilarang** | Telepon genggam, jam pintar, laptop, catatan, **AI dalam bentuk apa pun** |
+| **Alat bantu diizinkan** | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| **Disediakan pengawas** | Tabel distribusi Normal baku, tabel-t, tabel chi-square, dan tabel F, dibagikan bersama lembar soal |
+| **Rumus** | **Tidak disediakan** — hafalkan [daftar rumus kisi-kisi UAS §8](../05-assessments/kisi-kisi-uas.md#8-daftar-rumus-tambahan-di-luar-rumus-uts) beserta [daftar rumus kisi-kisi UTS §7](../05-assessments/kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
+| **Dilarang** | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 | **Cakupan** | Komprehensif Minggu 1–15, penekanan Minggu 9–14 |
 | **Sub-CPMK yang dinilai** | `PS-Sub-CPMK081-1` |
 | **Syarat mengikuti** | Kehadiran minimal 75% |

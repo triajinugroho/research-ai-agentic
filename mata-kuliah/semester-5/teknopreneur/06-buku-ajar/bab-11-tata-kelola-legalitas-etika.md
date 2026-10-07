@@ -29,7 +29,7 @@ Setelah membaca bab ini, pembaca diharapkan mampu:
 |--------|--------------|---------|
 | **Perorangan (tanpa badan hukum)** | Uji pasar, pendapatan kecil | Tanggung jawab melekat pribadi |
 | **CV** | Beberapa pendiri, skala kecil-menengah | Lebih sederhana daripada PT |
-| **PT Perorangan** | Satu pendiri, ingin tanggung jawab terbatas | Diperkenalkan melalui UU Cipta Kerja |
+| **PT Perorangan** | Satu pendiri, ingin tanggung jawab terbatas | Diperkenalkan melalui UU Cipta Kerja (kini UU No. 6 Tahun 2023) |
 | **PT** | Beberapa pendiri, berencana menerima investasi | Struktur paling lengkap dan paling mahal |
 | **Koperasi** | Kepemilikan bersama anggota | Sesuai untuk usaha berbasis paguyuban |
 
@@ -309,12 +309,12 @@ Perintah terakhir penting. Yang perlu diperbaiki bukan drafnya, melainkan salah 
 ## Referensi
 
 1. Republik Indonesia. (2022). *Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi*.
-2. Republik Indonesia. (2020). *Undang-Undang Nomor 11 Tahun 2020 tentang Cipta Kerja*.
-3. Republik Indonesia. (2008, 2016). *Undang-Undang Informasi dan Transaksi Elektronik* beserta perubahannya.
+2. Republik Indonesia. (2023). *Undang-Undang Nomor 6 Tahun 2023 tentang Penetapan Peraturan Pemerintah Pengganti Undang-Undang Nomor 2 Tahun 2022 tentang Cipta Kerja menjadi Undang-Undang*. (Menggantikan UU No. 11 Tahun 2020 tentang Cipta Kerja.)
+3. Republik Indonesia. (2008, 2016, 2024). *Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik* jo. UU No. 19 Tahun 2016 jo. UU No. 1 Tahun 2024.
 4. Kementerian Investasi/BKPM. (2024). *Panduan Perizinan Berusaha Berbasis Risiko (OSS)*. BKPM.
-5. Otoritas Jasa Keuangan. (2023). *Pedoman Perlindungan Konsumen Sektor Jasa Keuangan*. OJK.
+5. Otoritas Jasa Keuangan. (2023). *Peraturan OJK No. 22 Tahun 2023 tentang Pelindungan Konsumen dan Masyarakat di Sektor Jasa Keuangan*. OJK.
 6. Antonio, M. S. (2001). *Bank Syariah: Dari Teori ke Praktik*. Gema Insani.
-7. Dewan Syariah Nasional MUI. (2000). *Fatwa DSN-MUI tentang Jual Beli*. DSN-MUI.
+7. Dewan Syariah Nasional–Majelis Ulama Indonesia. (2017). *Fatwa DSN-MUI No. 110/DSN-MUI/IX/2017 tentang Akad Jual Beli*. DSN-MUI.
 8. Floridi, L., & Taddeo, M. (2016). What Is Data Ethics? *Philosophical Transactions of the Royal Society A*, 374(2083).
 
 ---

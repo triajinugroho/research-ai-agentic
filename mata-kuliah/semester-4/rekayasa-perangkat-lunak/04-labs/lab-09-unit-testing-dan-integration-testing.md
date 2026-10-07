@@ -720,11 +720,7 @@ Analisis coverage report, identifikasi semua baris yang belum tercakup (`Missing
 
 ## Refleksi & AI Usage Log
 
-Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools:
-
-| No | Task | Tool | Prompt (ringkas) | Output | Modifikasi yang Dilakukan |
-|----|------|------|------------------|--------|--------------------------|
-| 1 | ... | ... | ... | ... | ... |
+Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log.
 
 **Pertanyaan refleksi:**
 1. Apa perbedaan utama yang Anda rasakan antara menulis unit test vs integration test?

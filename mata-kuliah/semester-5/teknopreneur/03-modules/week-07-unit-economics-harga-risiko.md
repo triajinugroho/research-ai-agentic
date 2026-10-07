@@ -240,11 +240,11 @@ Latihan ini sering mengungkap bahwa kelayakan usaha bergantung pada satu asumsi 
 
 | Aspek | Ketentuan |
 |-------|-----------|
-| Luaran | Spreadsheet model + daftar risiko + berkas Milestone 2 |
+| Luaran | Spreadsheet model + daftar risiko (S-07) + berkas Milestone 2 (P-02), yang menghimpun S-05 dan S-06 |
 | Isi model | CAC · LTV · margin kotor · *payback* · titik impas · **analisis sensitivitas 3 asumsi** |
 | Daftar risiko | Minimal 8, dengan **tanda awal** dan mitigasi |
-| Kesimpulan | **Lanjut, ubah, atau hentikan** — berbasis angka |
-| Tenggat | Akhir Minggu 7 |
+| Kesimpulan | **Lanjut, ubah, atau hentikan** — berbasis angka (bagian P-02); ditinjau ulang setelah S-07 selesai |
+| Tenggat | P-02: akhir Minggu 7 · S-07: awal pertemuan Minggu 9 (Minggu 8 UTS) |
 | Bobot | 6,25% (Observasi) |
 | Yang menggugurkan | Model tanpa analisis sensitivitas; biaya waktu tim tidak dihitung |
 

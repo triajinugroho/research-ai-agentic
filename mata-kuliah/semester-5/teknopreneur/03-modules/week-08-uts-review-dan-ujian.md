@@ -85,7 +85,7 @@ Dikerjakan bersama sebelum ujian:
 |-------|-----------|
 | Bentuk | Tes tulis, ***closed book*** |
 | Durasi | 90 menit |
-| Alat bantu | Kalkulator |
+| Alat bantu | **Kalkulator saja** (bukan kalkulator pada ponsel atau laptop); rumus yang dibutuhkan dicetak pada lembar soal |
 | Yang tidak diperkenankan | Catatan, buku, telepon, laptop, **alat bantu AI** |
 | Bobot | **10%** |
 | Sub-CPMK | `TEKNO-Sub-CPMK091-1` |

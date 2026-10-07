@@ -609,7 +609,7 @@ roadmap.tampilkan()
 
 - Persiapkan presentasi proyek akhir untuk Minggu 15 (slide, demo environment, backup video)
 - Lengkapi dependency audit dan perbaiki vulnerability jika ada: `npm audit fix` atau upgrade versions
-- Finalisasi AI Usage Log untuk dilampirkan dalam laporan proyek
+- Finalisasi AI Usage Log ([format Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log)) untuk dilampirkan dalam laporan proyek
 - Buat draft personal career roadmap (1 halaman, 5 tahun ke depan)
 - Finalisasi Sprint 4 proyek kelompok
 

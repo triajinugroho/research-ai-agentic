@@ -343,8 +343,8 @@ Butir 1 adalah pemakaian yang paling bernilai. Tabel yang disusun beberapa mingg
 3. Nagle, T. T., & Müller, G. (2017). *The Strategy and Tactics of Pricing* (6th ed.). Routledge.
 4. Ramanujam, M., & Tacke, G. (2016). *Monetizing Innovation: How Smart Companies Design the Product Around the Price*. Wiley.
 5. Antonio, M. S. (2001). *Bank Syariah: Dari Teori ke Praktik*. Gema Insani.
-6. Dewan Syariah Nasional MUI. (2000). *Fatwa DSN-MUI tentang Jual Beli*. DSN-MUI.
-7. Otoritas Jasa Keuangan. (2023). *Pedoman Perlindungan Konsumen Sektor Jasa Keuangan*. OJK.
+6. Dewan Syariah Nasional–Majelis Ulama Indonesia. (2017). *Fatwa DSN-MUI No. 110/DSN-MUI/IX/2017 tentang Akad Jual Beli*. DSN-MUI.
+7. Otoritas Jasa Keuangan. (2023). *Peraturan OJK No. 22 Tahun 2023 tentang Pelindungan Konsumen dan Masyarakat di Sektor Jasa Keuangan*. OJK.
 
 ---
 

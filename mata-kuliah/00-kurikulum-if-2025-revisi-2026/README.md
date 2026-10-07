@@ -63,6 +63,7 @@ materi mata kuliah yang sudah ada, **dokumen di folder ini yang berlaku**.
 |---|---|
 | [13-cpmk-master.md](13-cpmk-master.md) | **26 CPMK** dan CPL induknya + MK pengampu |
 | [14-pemetaan-cpl-mk-cpmk.md](14-pemetaan-cpl-mk-cpmk.md) | 154 pasangan MK × CPMK + validator |
+| [14a-ai-curriculum-infusion-matrix.md](14a-ai-curriculum-infusion-matrix.md) | **AI Curriculum Infusion Matrix** + visi keilmuan 2025 (sheet `(Ref) 14a`; panduan arah pengembangan AI per MK) |
 | [15-pemetaan-mk-cpmk-subcpmk.md](15-pemetaan-mk-cpmk-subcpmk.md) | **Indeks Sub-CPMK** — cara baca + daftar MK |
 | [15a-rekap-bobot-penilaian.md](15a-rekap-bobot-penilaian.md) | Rekap bobot 6 teknik penilaian per MK |
 | [15b-subcpmk-tingkat-1-semester-1-2.md](15b-subcpmk-tingkat-1-semester-1-2.md) | Rincian Sub-CPMK Tingkat 1 |
@@ -71,13 +72,21 @@ materi mata kuliah yang sudah ada, **dokumen di folder ini yang berlaku**.
 | [15e-subcpmk-tingkat-4-semester-7-8.md](15e-subcpmk-tingkat-4-semester-7-8.md) | Rincian Sub-CPMK Tingkat 4 |
 | [16-taksonomi-bloom-cap.md](16-taksonomi-bloom-cap.md) | Taksonomi Bloom C-A-P dan kata kerja operasional |
 
-### Arah pengembangan dan catatan kerja
+### Catatan kerja (bukan transkripsi sheet)
 
 | Berkas | Isi |
 |---|---|
-| [14a-ai-curriculum-infusion-matrix.md](14a-ai-curriculum-infusion-matrix.md) | **AI Curriculum Infusion Matrix** + visi keilmuan 2025 |
 | [90-ringkasan-mk-pengampu-tri-aji-nugroho.md](90-ringkasan-mk-pengampu-tri-aji-nugroho.md) | Lembar acuan cepat untuk MK ampuan Tri Aji Nugroho |
 | [91-validasi-dan-catatan-dampak.md](91-validasi-dan-catatan-dampak.md) | Hasil pemeriksaan konsistensi + dampak ke materi repositori |
+
+> **Kedudukan berkas (pembaruan 7 Oktober 2026).** Berkas bernomor `00` sampai `16` — termasuk
+> `06a`, `14a`, dan `15a`–`15e` — adalah **transkripsi sheet** berkas Excel resmi: isinya tidak
+> disunting dan hanya berubah lewat ekstraksi ulang (lihat [Cara Memperbarui](#cara-memperbarui)).
+> `14a` adalah transkripsi sheet `(Ref) 14a. AI Infusion Matrix` (status *Final*, panduan
+> perancangan; lihat [00-metadata-sumber-dan-status.md](00-metadata-sumber-dan-status.md)); sebelum
+> pembaruan ini ia tercantum di bawah judul "Arah pengembangan dan catatan kerja". Berkas `90` dan
+> `91` adalah catatan kerja turunan, bukan bagian dokumen resmi, dan dipelihara mengikuti keadaan
+> repositori.
 
 ## Rantai Penjaminan Mutu
 
@@ -105,8 +114,10 @@ Empat hal yang paling berdampak pada materi mata kuliah di repositori ini:
 1. **Kode mata kuliah berganti** ke format `IF525xxxxx` — `INF-101` menjadi `IF52520004`,
    `IF2205` menjadi `IF52520011`, dan seterusnya.
 2. **Arsitektur CPMK berubah.** CPMK kini milik prodi dan melekat pada CPL (`CPMK032`, `CPMK101`, …),
-   hanya **2–6 per mata kuliah**, bukan 7 CPMK lokal per mata kuliah. Pembeda antar mata kuliah
-   dipindahkan ke tingkat **Sub-CPMK**.
+   **2–7 per mata kuliah** — 42 dari 58 mata kuliah hanya memiliki 2 CPMK (rekap di
+   [14-pemetaan-cpl-mk-cpmk.md §2](14-pemetaan-cpl-mk-cpmk.md#2-rekap-jumlah-cpmk-per-mata-kuliah)) —
+   bukan 7 CPMK lokal per mata kuliah. Pembeda antar mata kuliah dipindahkan ke tingkat **Sub-CPMK**.
+   *(Dikoreksi 7 Oktober 2026; sebelumnya tertulis "2–6".)*
 3. **Bobot penilaian memakai 6 teknik baku** dan melekat pada Sub-CPMK, dengan komposisi berbeda
    untuk tiap mata kuliah.
 4. **Praktikum Rekayasa Perangkat Lunak tidak ada** dalam kurikulum baru; beberapa SKS mata kuliah

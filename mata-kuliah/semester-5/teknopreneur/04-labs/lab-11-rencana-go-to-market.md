@@ -2,7 +2,7 @@
 
 | Aspek | Keterangan |
 |-------|------------|
-| Minggu | 11 · Sub-CPMK `UAI22-1` · **P-03 dikumpulkan (25%)** |
+| Minggu | 11 · Sub-CPMK `UAI22-1` · **P-03 dikumpulkan (Unjuk Kerja, 25%)** — menghimpun Studio 9–11 |
 | Durasi | 50' di kelas + 60' mandiri |
 | Luaran | Rencana GTM + penggabungan P-03 |
 
@@ -14,6 +14,15 @@
 2. Memilih saluran berdasarkan bukti wawancara.
 3. Menyusun *milestone* dengan ukuran keberhasilan berangka.
 4. Membedakan metrik bermakna dari metrik hampa.
+
+---
+
+## Persiapan
+
+- Catatan pengujian MVP dari S-10, termasuk yang tidak berjalan.
+- Kutipan wawancara tentang tempat narasumber menemukan produk atau layanan baru — bahan pemilihan saluran.
+- Model *unit economics* S-07 — dasar memeriksa CAC yang direncanakan.
+- BMC (S-09) dan berkas MVP (S-10) untuk digabungkan menjadi P-03 pada Langkah 7.
 
 ---
 

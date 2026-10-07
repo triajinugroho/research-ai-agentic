@@ -14,14 +14,14 @@
 | Bentuk | **Tes tulis reflektif** |
 | Durasi | 90 menit |
 | Sifat | ***Closed book*** |
-| Alat bantu | Tidak ada |
+| Alat bantu | **Tidak ada** (termasuk kalkulator) |
 | Yang tidak diperkenankan | Catatan, buku, telepon, laptop, **alat bantu AI** |
 
 ---
 
 ## 2. Mengapa Berbentuk Reflektif
 
-Sub-CPMK yang diukur bersifat **afektif**:
+Sub-CPMK yang diukur menuntut **mengembangkan (C6)** pola pikir — dengan dimensi sikap (A4) pada CPMK induknya, `CPMKUAI32`:
 
 > Mampu mengembangkan (C6) pola pikir *technopreneur* yang adaptif, mandiri, dan berbasis pembelajaran berkelanjutan dalam menghadapi perubahan teknologi dan pasar.
 

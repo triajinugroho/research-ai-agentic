@@ -30,7 +30,7 @@ Peta mata kuliah semester 7 menurut [registri Kurikulum Informatika 2025 Revisi 
 
 | Folder | Mata Kuliah | Status materi |
 |---|---|---|
-| [`metodologi-penelitian/`](metodologi-penelitian/) | Metodologi Penelitian (`IF52510021`) | Lengkap — rujukan penyelarasan kurikulum |
+| [`metodologi-penelitian/`](metodologi-penelitian/) | Metodologi Penelitian (`IF52510021`) | Materi lengkap sebagai rujukan penyelarasan kurikulum; menunggu persetujuan pengampu. Asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) |
 
 ---
 

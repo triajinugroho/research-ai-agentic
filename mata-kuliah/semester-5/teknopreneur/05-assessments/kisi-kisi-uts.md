@@ -14,7 +14,7 @@
 | Bentuk | Tes tulis di kelas |
 | Durasi | 90 menit |
 | Sifat | ***Closed book*** |
-| Alat bantu | Kalkulator |
+| Alat bantu | **Kalkulator saja** (bukan kalkulator pada ponsel atau laptop); rumus yang dibutuhkan dicetak pada lembar soal |
 | Yang tidak diperkenankan | Catatan, buku, telepon, laptop, **alat bantu AI** |
 
 ---

@@ -207,7 +207,7 @@ Karena Sub-CPMK pada kurikulum baru berjumlah sedikit dan berlaku untuk seluruh 
 | Aspek | Uraian |
 |-------|--------|
 | **Cakupan** | Minggu 1–7: statistika deskriptif, visualisasi, probabilitas, Bayes, distribusi diskret dan kontinu |
-| **Bentuk** | Tes tulis *closed book*, 100 menit. Kalkulator ilmiah dan satu lembar tabel distribusi diizinkan. **AI tidak diizinkan.** |
+| **Bentuk** | Tes tulis *closed book*, 100 menit. **Alat bantu diizinkan:** kalkulator ilmiah *non-programmable* dan alat tulis. **Disediakan pengawas:** tabel distribusi Normal baku dan tabel-t, dibagikan bersama lembar soal. **Rumus:** tidak disediakan. **Dilarang:** catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun**. |
 | **Bobot** | 25% dari nilai akhir — menelusuri ke PS-Sub-CPMK102-1 |
 | **Referensi** | [Kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) |
 
@@ -286,9 +286,9 @@ Karena Sub-CPMK pada kurikulum baru berjumlah sedikit dan berlaku untuk seluruh 
 | Aspek | Uraian |
 |-------|--------|
 | **Materi** | Presentasi proyek kelompok: perumusan pertanyaan, deskripsi data, analisis deskriptif, inferensi, kesimpulan, dan keterbatasan; sesi tanya jawab dan umpan balik sejawat |
-| **Metode** | Presentasi, diskusi, *peer review* |
-| **Aktivitas Mahasiswa** | Presentasi 15 menit + tanya jawab 5 menit per kelompok |
-| **Penilaian** | **Unjuk Kerja 10%** — 5% PS-Sub-CPMK081-1 + 5% PS-Sub-CPMK102-1 |
+| **Metode** | Presentasi, diskusi, *peer review* formatif (tidak dinilai) |
+| **Aktivitas Mahasiswa** | Presentasi 15 menit + tanya jawab 5 menit per kelompok, per kelas; satu sesi 150 menit memuat 6 kelompok — kelas dengan lebih dari 6 kelompok mendapat sesi tambahan atau sesi paralel ([modul Minggu 15](../03-modules/week-15-presentasi-proyek.md#kapasitas-dan-sesi-tambahan)) |
+| **Penilaian** | **Unjuk Kerja 10%** — 5% PS-Sub-CPMK081-1 + 5% PS-Sub-CPMK102-1, dengan rubrik tunggal [panduan proyek §8](../05-assessments/project-guidelines.md#8-rubrik-penilaian-10-nilai-akhir) |
 | **Estimasi Waktu** | Tatap muka 150' · Tugas terstruktur 180' · Mandiri 180' |
 | **Referensi** | [Panduan proyek](../05-assessments/project-guidelines.md) |
 
@@ -297,7 +297,7 @@ Karena Sub-CPMK pada kurikulum baru berjumlah sedikit dan berlaku untuk seluruh 
 | Aspek | Uraian |
 |-------|--------|
 | **Cakupan** | Komprehensif Minggu 1–15, dengan penekanan pada Minggu 9–14 (inferensi, ANOVA, chi-square, korelasi–regresi) |
-| **Bentuk** | Tes tulis *closed book*, 120 menit. Kalkulator ilmiah dan satu lembar tabel distribusi diizinkan. **AI tidak diizinkan.** |
+| **Bentuk** | Tes tulis *closed book*, 120 menit. **Alat bantu diizinkan:** kalkulator ilmiah *non-programmable* dan alat tulis. **Disediakan pengawas:** tabel distribusi Normal baku, tabel-t, tabel chi-square, dan tabel F, dibagikan bersama lembar soal. **Rumus:** tidak disediakan. **Dilarang:** catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun**. |
 | **Bobot** | 25% dari nilai akhir — menelusuri ke PS-Sub-CPMK081-1 |
 | **Referensi** | [Kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md) |
 

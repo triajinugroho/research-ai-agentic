@@ -128,33 +128,37 @@ Jaringan 2-2-1, aktivasi sigmoid, satu contoh: $x=[1,0]$, target $y=1$, $\eta=0{
 | Masukan → tersembunyi | $w_{11}=0{,}5$, $w_{12}=0{,}3$, $w_{21}=0{,}2$, $w_{22}=0{,}4$; bias 0 |
 | Tersembunyi → keluaran | $v_1=0{,}6$, $v_2=0{,}7$; bias 0 |
 
+**Konvensi pembulatan:** setiap nilai dihitung dengan presisi penuh dari nilai sebelumnya, lalu **ditampilkan dalam 4 desimal** — sama dengan keluaran kode Lab 13 (Langkah 1–2). Bila Anda membulatkan di setiap langkah, digit keempat dapat bergeser ±0,0001.
+
 **Langkah maju:**
 
 $$z_1=0{,}5(1)+0{,}2(0)+0=0{,}5 \qquad h_1=\sigma(0{,}5)=0{,}6225$$
 $$z_2=0{,}3(1)+0{,}4(0)+0=0{,}3 \qquad h_2=\sigma(0{,}3)=0{,}5744$$
 $$z_{\text{out}}=0{,}6(0{,}6225)+0{,}7(0{,}5744)=0{,}3735+0{,}4021=0{,}7756$$
-$$\hat{y}=\sigma(0{,}7756)=0{,}6848$$
+$$\hat{y}=\sigma(0{,}7756)=0{,}6847$$
 
-**Loss (MSE):** $L=(1-0{,}6848)^2=0{,}0994$
+**Loss (MSE):** $L=(1-0{,}6847)^2=0{,}0994$
 
 **Langkah mundur:**
 
-$$\frac{\partial L}{\partial\hat{y}}=-2(y-\hat{y})=-2(0{,}3152)=-0{,}6304$$
-$$\sigma'(z_{\text{out}})=\hat{y}(1-\hat{y})=0{,}6848(0{,}3152)=0{,}2158$$
-$$\delta_{\text{out}}=-0{,}6304\times 0{,}2158=-0{,}1360$$
+$$\frac{\partial L}{\partial\hat{y}}=-2(y-\hat{y})=-2(0{,}3153)=-0{,}6305$$
+$$\sigma'(z_{\text{out}})=\hat{y}(1-\hat{y})=0{,}6847(0{,}3153)=0{,}2159$$
+$$\delta_{\text{out}}=-0{,}6305\times 0{,}2159=-0{,}1361$$
 
-$$\frac{\partial L}{\partial v_1}=\delta_{\text{out}}\cdot h_1=-0{,}1360\times 0{,}6225=-0{,}0847$$
-$$\frac{\partial L}{\partial v_2}=\delta_{\text{out}}\cdot h_2=-0{,}1360\times 0{,}5744=-0{,}0781$$
+Pada baris pertama, $-2 \times 0{,}3153$ dari angka yang sudah dibulatkan memberi $-0{,}6306$; nilai presisi penuh $1-\hat{y}=0{,}31527\ldots$ memberi $-0{,}6305$. Inilah contoh pergeseran digit keempat yang dimaksud konvensi di atas.
+
+$$\frac{\partial L}{\partial v_1}=\delta_{\text{out}}\cdot h_1=-0{,}1361\times 0{,}6225=-0{,}0847$$
+$$\frac{\partial L}{\partial v_2}=\delta_{\text{out}}\cdot h_2=-0{,}1361\times 0{,}5744=-0{,}0782$$
 
 **Pembaruan bobot:**
 
-$$v_1\leftarrow 0{,}6-0{,}1(-0{,}0847)=0{,}6085 \qquad v_2\leftarrow 0{,}7-0{,}1(-0{,}0781)=0{,}7078$$
+$$v_1\leftarrow 0{,}6-0{,}1(-0{,}0847)=0{,}6085 \qquad v_2\leftarrow 0{,}7-0{,}1(-0{,}0782)=0{,}7078$$
 
-Keduanya **naik** — tepat sebagaimana diharapkan, karena prediksi (0,6848) masih di bawah target (1).
+Keduanya **naik** — tepat sebagaimana diharapkan, karena prediksi (0,6847) masih di bawah target (1).
 
 **Gradien merambat ke lapis tersembunyi:**
 
-$$\delta_{h_1}=\delta_{\text{out}}\cdot v_1\cdot h_1(1-h_1)=-0{,}1360\times 0{,}6\times 0{,}6225\times 0{,}3775=-0{,}01918$$
+$$\delta_{h_1}=\delta_{\text{out}}\cdot v_1\cdot h_1(1-h_1)=-0{,}1361\times 0{,}6\times 0{,}6225\times 0{,}3775=-0{,}0192$$
 
 Inilah yang dimaksud "*back*propagation": gradien merambat mundur dari keluaran ke masukan melalui aturan rantai.
 
@@ -175,6 +179,7 @@ model = Pipeline([
     ("mlp", MLPClassifier(
         hidden_layer_sizes=(64, 32), activation="relu", solver="adam",
         alpha=1e-4, learning_rate_init=1e-3, max_iter=500,
+        # early_stopping memantau AKURASI validasi — pada data tak seimbang, baca 12.5.2
         early_stopping=True, n_iter_no_change=20, random_state=42)),
 ])
 ```
@@ -182,9 +187,9 @@ model = Pipeline([
 | Hiperparameter | Pengaruh |
 |----------------|----------|
 | `hidden_layer_sizes` | Kapasitas; makin besar makin rawan *overfit* |
-| `alpha` | Regularisasi L2 |
+| `alpha` | Regularisasi L2; nilai lebih besar meredam *overfitting* |
 | `learning_rate_init` | Ukuran langkah |
-| `early_stopping` | **Sangat disarankan** — pertahanan utama terhadap *overfitting* |
+| `early_stopping` | **Disarankan** bila kelas cukup seimbang — pertahanan terhadap *overfitting*; pada data tak seimbang, periksa dulu (12.5.2) |
 
 ### 12.5.1 Membaca Kurva *Loss*
 
@@ -193,7 +198,26 @@ model = Pipeline([
 | Turun mantap lalu mendatar | Normal |
 | Naik-turun tajam | Laju pembelajaran terlalu besar |
 | Turun sangat lambat | Laju terlalu kecil, atau **data belum diskalakan** |
-| Latih terus turun, validasi naik | *Overfitting* — aktifkan `early_stopping` |
+| Latih terus turun, validasi naik | *Overfitting* — aktifkan `early_stopping` atau perbesar `alpha` |
+| Akurasi validasi datar di sekitar proporsi kelas mayoritas | `early_stopping` tidak dapat bekerja — lihat 12.5.2 |
+
+### 12.5.2 Catatan: `early_stopping` pada Data Tak Seimbang
+
+Dengan `early_stopping=True`, `MLPClassifier` menyisihkan sebagian data latih (`validation_fraction`, bawaan 10%) sebagai data validasi dan **memantau akurasinya** — bukan *loss*, bukan ROC-AUC. Pelatihan berhenti bila akurasi validasi tidak membaik lebih dari `tol` selama `n_iter_no_change` iterasi berturut-turut, lalu bobot **dikembalikan ke iterasi dengan akurasi validasi tertinggi**.
+
+Pada data tak seimbang, mekanisme ini mudah tertipu. Bila hanya 11% data positif, model yang selalu menebak kelas mayoritas sudah mencapai akurasi ±89% sejak iterasi pertama. Akurasi validasi lalu datar, sehingga:
+
+- pelatihan berhenti terlalu dini; dan
+- bila akurasi tidak pernah melampaui nilai iterasi pertama, bobot yang dipulihkan adalah **bobot iterasi pertama** — model yang hampir belum belajar.
+
+Pada data Lab 13 (11% positif), varian `early_stopping=True` dari konfigurasi Lab 13 Langkah 4 (`alpha=1.0`) menghasilkan ROC-AUC validasi silang ±0,44 — **lebih buruk daripada tebakan acak** di kelima lipatan. Konfigurasi contoh di atas (`alpha=1e-4`) tidak jauh lebih baik: ±0,55, dengan tiga dari lima lipatan di bawah 0,5.
+
+Menaikkan `n_iter_no_change` memberi pelatihan lebih banyak kesempatan, tetapi **tidak menjamin** perbaikan: bila akurasi validasi memang tidak bergerak, kesabaran berapa pun tetap memulihkan bobot iterasi pertama. Pilihan yang lebih aman:
+
+1. Matikan `early_stopping` dan kendalikan *overfitting* dengan regularisasi `alpha` yang lebih kuat serta batas `max_iter` (konfigurasi Langkah 4 Lab 13).
+2. Pantau metrik yang tidak bergantung pada ambang — *log-loss* atau ROC-AUC — pada data validasi sendiri, misalnya dengan memilih `alpha` atau `max_iter` melalui validasi silang.
+
+Apa pun pilihannya, **periksa `validation_scores_`**: kurva akurasi validasi yang datar di sekitar proporsi kelas mayoritas adalah tanda bahaya. Dan jangan pernah menyimpulkan bahwa JST "kalah" dari model lain bila ROC-AUC-nya di bawah 0,5 — itu tanda pelatihannya gagal, bukan hasil perbandingan.
 
 ---
 
@@ -223,6 +247,33 @@ Memilih jaringan saraf ketika *gradient boosting* lebih sesuai bukan sekadar pem
 - Ketergantungan pada pustaka yang lebih berat untuk penerapan.
 
 Seluruhnya adalah biaya nyata, dibayar untuk sesuatu yang tidak memberi imbalan.
+
+### 12.6.2 Membandingkan Dua Model: Skor Berpasangan
+
+Keputusan "JST atau model klasik" diambil dari perbandingan validasi silang. Karena kedua model dinilai pada **lipatan yang sama**, skor keduanya **berpasangan**: pada lipatan ke-$i$, keduanya diuji pada baris yang persis sama. Sebagian variasi skor berasal dari lipatannya sendiri — ada lipatan yang "mudah", ada yang "sulit" — dan dialami kedua model bersama-sama. Selisih per lipatan menghapus variasi bersama itu.
+
+Untuk $k$ lipatan, hitung selisih per lipatan $d_i = \text{skor}_{A,i} - \text{skor}_{B,i}$, lalu laporkan rerata, simpangan baku sampel, dan galat baku rerata selisih:
+
+$$\bar d=\frac{1}{k}\sum_{i=1}^{k} d_i \qquad s_d=\sqrt{\frac{1}{k-1}\sum_{i=1}^{k}\left(d_i-\bar d\right)^2} \qquad SE=\frac{s_d}{\sqrt{k}}$$
+
+**Aturan praktis mata kuliah:** selisih dianggap bermakna bila $|\bar d| > 2\cdot SE$ **dan** arahnya konsisten di sebagian besar lipatan (pada 5 lipatan: minimal 4). Aturan ini penyaring kasar — skor antarlipatan tidak benar-benar saling bebas karena data latihnya tumpang-tindih. Untuk analisis formal, gunakan *corrected resampled t-test* (Nadeau & Bengio, 2003).
+
+```python
+import numpy as np
+
+# skor_a, skor_b: skor per lipatan dari cross_val_score dengan objek CV yang SAMA
+d = np.asarray(skor_a) - np.asarray(skor_b)
+k = len(d)
+d_bar = d.mean()
+s_d = d.std(ddof=1)        # simpangan baku SAMPEL (ddof=1), sama dengan pd.Series.std()
+se = s_d / np.sqrt(k)
+searah = int((np.sign(d) == np.sign(d_bar)).sum())
+bermakna = abs(d_bar) > 2 * se and searah >= 0.8 * k
+```
+
+> **Jangan pakai "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$.** Rumus itu memperlakukan skor kedua model seolah-olah tidak berpasangan dan memakai simpangan baku (SD) skor masing-masing model, padahal ketidakpastian **rerata selisih** diukur oleh galat baku (SE) dari selisih per lipatan. Akibatnya, selisih yang konsisten di semua lipatan dapat dinyatakan "tidak bermakna" hanya karena kedua model sama-sama naik-turun dari lipatan ke lipatan.
+>
+> Seragamkan pula cara menghitung simpangan baku skor lipatan: selalu **`ddof=1`** — `np.std(x, ddof=1)` atau `pd.Series.std()`. `np.std(x)` tanpa argumen memakai `ddof=0`.
 
 ---
 
@@ -277,11 +328,18 @@ Kaidah sederhana: mulai dari yang kecil (`(32,)` atau `(64, 32)`), tambah hanya 
    (c) Apa yang paling mungkin terjadi?
    (d) Apa arsitektur yang lebih masuk akal?
 
-8. Pada data tabular, *Random Forest* memperoleh ROC-AUC 0,871 ± 0,019 dan MLP 0,843 ± 0,027.
-   (a) Apakah selisihnya bermakna? Hitung simpangan gabungan.
-   (b) Apakah hasil ini sesuai dengan literatur?
-   (c) Bagaimana Anda melaporkannya dalam laporan proyek?
-   (d) Apakah wajar bila hasil Anda berbeda dari literatur? Apa yang harus diperiksa?
+8. Pada data tabular, *Random Forest* dan MLP dinilai dengan validasi silang 5 lipatan yang **sama**. ROC-AUC per lipatan:
+
+   | Lipatan | 1 | 2 | 3 | 4 | 5 |
+   |---|---|---|---|---|---|
+   | *Random Forest* | 0,862 | 0,888 | 0,852 | 0,894 | 0,859 |
+   | MLP | 0,832 | 0,866 | 0,817 | 0,875 | 0,825 |
+
+   (a) Hitung rerata dan simpangan baku (`ddof=1`) skor masing-masing model.
+   (b) Hitung selisih per lipatan $d_i$, lalu $\bar d$, $s_d$, dan $SE$. Apakah selisihnya bermakna menurut aturan praktis mata kuliah (12.6.2)?
+   (c) Seorang rekan membandingkan selisih rerata dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$. Hitung, lalu jelaskan mengapa cara itu keliru untuk skor validasi silang.
+   (d) Apakah hasil ini sesuai dengan literatur? Bagaimana Anda melaporkannya dalam laporan proyek?
+   (e) Apakah wajar bila hasil Anda berbeda dari literatur? Apa yang harus diperiksa lebih dahulu (petunjuk: 12.5.2)?
 
 ### Tingkat Mahir
 
@@ -320,9 +378,10 @@ Kaidah sederhana: mulai dari yang kecil (`(32,)` atau `(64, 32)`), tambah hanya 
 6. *Backpropagation* menyebarkan gradien mundur dengan aturan rantai.
 7. **Laju terlalu besar** membuat *loss* naik-turun; terlalu kecil membuatnya sangat lambat.
 8. **JST wajib diskalakan** dan sangat peka terhadapnya.
-9. `early_stopping` adalah pertahanan utama terhadap *overfitting*.
+9. `early_stopping` dan regularisasi `alpha` adalah pertahanan utama terhadap *overfitting*. `early_stopping` bawaan memantau **akurasi** validasi, sehingga pada data tak seimbang ia dapat berhenti terlalu dini dan memulihkan bobot iterasi pertama — periksa `validation_scores_`.
 10. **Pada data tabular, metode berbasis pohon masih sering mengungguli JST.** JST unggul pada data tak terstruktur.
 11. Memilih JST ketika model klasik lebih sesuai membawa **biaya nyata** tanpa imbalan.
+12. Dua model yang dinilai pada lipatan yang sama dibandingkan dengan **selisih berpasangan per lipatan**: $\bar d$, $s_d$ (`ddof=1`), dan $SE=s_d/\sqrt{k}$ — bukan dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$.
 
 ---
 
@@ -332,8 +391,9 @@ Kaidah sederhana: mulai dari yang kecil (`(32,)` atau `(64, 32)`), tambah hanya 
 2. Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*, Bab 6. MIT Press.
 3. Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning Representations by Back-Propagating Errors. *Nature*, 323, 533–536.
 4. Minsky, M., & Papert, S. (1969). *Perceptrons*. MIT Press.
-5. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Tabular Data? *NeurIPS*.
+5. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Typical Tabular Data? *NeurIPS 2022 (Datasets and Benchmarks Track)*.
 6. Dokumentasi scikit-learn — *Neural network models*. <https://scikit-learn.org/stable/modules/neural_networks_supervised.html>
+7. Nadeau, C., & Bengio, Y. (2003). Inference for the Generalization Error. *Machine Learning*, 52(3), 239–281.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

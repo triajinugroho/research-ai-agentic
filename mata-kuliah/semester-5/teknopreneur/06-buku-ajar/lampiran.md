@@ -10,10 +10,10 @@
 |----------|-----|
 | [A](#lampiran-a--templat-siap-pakai) | Templat siap pakai |
 | [B](#lampiran-b--daftar-periksa) | Daftar periksa |
-| [C](#lampiran-c--sumber-data-indonesia) | Sumber data Indonesia yang dapat ditelusuri |
+| [C](#lampiran-c--sumber-data-indonesia-yang-dapat-ditelusuri) | Sumber data Indonesia yang dapat ditelusuri |
 | [D](#lampiran-d--perkakas-tanpa-biaya) | Perkakas tanpa biaya |
 | [E](#lampiran-e--glosarium) | Glosarium istilah |
-| [F](#lampiran-f--rujukan-silang-bab-modul-studio) | Rujukan silang bab–modul–studio |
+| [F](#lampiran-f--rujukan-silang-babmodulstudio) | Rujukan silang bab–modul–studio |
 
 ---
 
@@ -287,11 +287,11 @@ Layanan ini berjalan sampai: [tanggal]
 | Lembaga | Terbitan yang relevan | Keterangan |
 |---------|----------------------|------------|
 | **Badan Pusat Statistik (BPS)** | *Statistik Usaha Mikro dan Kecil*; *Survei Sosial Ekonomi Nasional (Susenas)*; *Statistik Telekomunikasi Indonesia* | Definisi UMKM mengikuti kriteria omzet/aset — periksa kesesuaiannya |
-| **Kementerian Koperasi dan UKM** | *Data UMKM*; laporan kinerja tahunan | Jumlah pelaku usaha per sektor |
+| **Kementerian UMKM** (sebelum Oktober 2024: Kementerian Koperasi dan UKM) | *Data UMKM*; laporan kinerja tahunan | Jumlah pelaku usaha per sektor |
 | **Kementerian Investasi/BKPM** | *Data Perizinan Berusaha (OSS)* | Jumlah NIB terbit per wilayah dan sektor |
 | **Bank Indonesia** | *Survei Penjualan Eceran*; *Laporan Sistem Pembayaran* | Kecenderungan konsumsi dan pembayaran |
 | **Otoritas Jasa Keuangan** | *Survei Nasional Literasi dan Inklusi Keuangan* | Akses keuangan per kelompok |
-| **Kominfo** | *Survei Penggunaan TIK*; panduan pelindungan data | Kepemilikan perangkat dan akses internet |
+| **Komdigi** (d/h Kominfo) | *Survei Penggunaan TIK*; panduan pelindungan data | Kepemilikan perangkat dan akses internet |
 | **Pemerintah daerah** | Data dinas koperasi/perdagangan kota atau kabupaten | Paling relevan untuk segmen lokal |
 
 ### C.2 Ketentuan Pemakaian Angka

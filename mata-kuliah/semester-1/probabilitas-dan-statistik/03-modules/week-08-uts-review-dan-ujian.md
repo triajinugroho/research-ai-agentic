@@ -125,9 +125,10 @@ Tandai konsep yang sudah Anda kuasai. Konsep yang belum tercentang adalah priori
 |-------|-----------|
 | **Durasi** | 100 menit |
 | **Sifat** | *Closed book* |
-| **Alat bantu yang diizinkan** | Kalkulator ilmiah non-programmable, alat tulis |
-| **Disediakan pengawas** | Satu lembar tabel distribusi Normal baku dan tabel-t |
-| **Yang dilarang** | Telepon genggam, jam pintar, laptop, catatan apa pun, **AI dalam bentuk apa pun** |
+| **Alat bantu diizinkan** | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| **Disediakan pengawas** | Tabel distribusi Normal baku dan tabel-t, dibagikan bersama lembar soal |
+| **Rumus** | **Tidak disediakan** — hafalkan [daftar rumus kisi-kisi UTS §7](../05-assessments/kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
+| **Dilarang** | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 | **Cakupan** | Minggu 1–7 |
 | **Sub-CPMK yang dinilai** | `PS-Sub-CPMK102-1` |
 

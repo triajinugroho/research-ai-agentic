@@ -72,7 +72,7 @@ Alasannya: perhitungan *top-down* memindahkan seluruh beban pada satu angka pers
 
 ```
   Populasi dasar                     64.200.000 UMKM
-      × Proporsi segmen (kuliner)    × 12%        [sumber: KemenkopUKM]
+      × Proporsi segmen (kuliner)    × 12%        [sumber: Kementerian UMKM]
       = Segmen                       = 7.704.000
       × Punya ponsel pintar untuk
         usaha                        × 30%        [sumber: survei BPS]
@@ -257,7 +257,7 @@ Latihan ini hampir selalu menurunkan angka yang semula dihitung tim — dan itul
 1. Blank, S., & Dorf, B. (2020). *The Startup Owner's Manual*, Bab 5. Wiley.
 2. Croll, A., & Yoskovitz, B. (2013). *Lean Analytics*, Bab 4. O'Reilly.
 3. Badan Pusat Statistik. *Statistik E-Commerce Indonesia* dan *Profil UMK*. <https://www.bps.go.id>
-4. Kementerian Koperasi dan UKM RI. *Data UMKM*.
+4. Kementerian Usaha Mikro, Kecil, dan Menengah RI (Kementerian UMKM; sebelum Oktober 2024 bagian dari Kementerian Koperasi dan UKM). *Data UMKM* (terbitan terbaru). <https://umkm.go.id>
 5. Google, Temasek, & Bain (terbitan terbaru). *e-Conomy SEA Report*.
 ---
 

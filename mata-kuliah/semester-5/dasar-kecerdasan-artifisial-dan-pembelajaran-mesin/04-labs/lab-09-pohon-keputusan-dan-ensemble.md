@@ -8,6 +8,7 @@
 | Durasi | 100 menit |
 | Prasyarat | Lab 7 selesai; UTS |
 | Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
+| Diuji pada | scikit-learn 1.6 dan 1.9, pandas 2.2 dan 3.0 (Oktober 2026) |
 
 ---
 
@@ -17,6 +18,14 @@
 2. Menunjukkan *overfitting* pada pohon tanpa batas kedalaman.
 3. Membandingkan pohon tunggal, *Random Forest*, dan *gradient boosting*.
 4. Menafsirkan kepentingan fitur beserta keterbatasannya.
+
+---
+
+## Persiapan
+
+1. Buat notebook baru bernama `NIM_Nama_Lab09.ipynb`.
+2. Jalankan **sel pembuka baku** di [Lampiran D](../06-buku-ajar/lampiran.md#lampiran-d-sel-pembuka-baku) — mengimpor pustaka, mencatat versi, dan menetapkan `RANDOM_STATE = 42`. Seluruh langkah di bawah mengandaikan sel itu sudah dijalankan.
+3. **Data:** data kredit pada Langkah 3–8 adalah **data sintetis (simulasi)** yang meniru pola pengajuan kredit UMKM di Indonesia; **bukan data resmi BPS/lembaga** mana pun (termasuk bank atau OJK). Data dibangkitkan pada Langkah 3: 4.000 pengajuan dengan sekitar sepertiga (≈ 35%) berlabel gagal bayar. Proporsi ini **sengaja dibuat tinggi** untuk keperluan latihan agar pohon dangkal pun dapat menemukan pola; angka ini bukan gambaran tingkat gagal bayar kredit UMKM yang sebenarnya. Aturan pembangkit label (omzet kecil, usaha yang masih muda, rasio beban utang tinggi, dan riwayat telat bayar → lebih berisiko) adalah **asumsi ilustratif**, bukan temuan empiris; `jumlah_pegawai`, `jenis_usaha`, `wilayah`, dan `kode_cabang` sengaja **tidak** ikut menentukan label.
 
 ---
 
@@ -81,16 +90,46 @@ y_manual = pd.Series([1]*20 + [0]*35 + [1]*40 + [0]*5)
 pohon = DecisionTreeClassifier(criterion="entropy", max_depth=1,
                                random_state=RANDOM_STATE).fit(X_manual, y_manual)
 
+# Catatan: sklearn meletakkan ambang di titik tengah dua nilai yang berdekatan
+# (30 dan 80 -> 55); pemisahannya sama dengan "omzet <= 50 juta" pada kasus manual.
 print(export_text(pohon, feature_names=["omzet"]))
 print("\nEntropy akar menurut sklearn:", round(pohon.tree_.impurity[0], 4))
 print("Entropy akar hitungan manual  :", round(H_induk, 4))
+
+# Information gain versi sklearn: entropy akar - rerata berbobot entropy kedua anak
+t_manual = pohon.tree_
+kiri, kanan = t_manual.children_left[0], t_manual.children_right[0]
+IG_sklearn = t_manual.impurity[0] - (
+    t_manual.n_node_samples[kiri] * t_manual.impurity[kiri]
+    + t_manual.n_node_samples[kanan] * t_manual.impurity[kanan]
+) / t_manual.n_node_samples[0]
+print("\nInformation gain menurut sklearn:", round(IG_sklearn, 4))
+print("Information gain hitungan manual  :", round(IG, 4))
 ```
 
-### LANGKAH 3: Data Nyata
+**Pemeriksaan otomatis.** Sel berikut harus lulus tanpa `AssertionError`; bila gagal, pesannya menunjukkan apa yang perlu diperiksa.
 
 ```python
 # =============================================
-# LANGKAH 3: Data kelayakan kredit UMKM
+# Pemeriksaan otomatis — Langkah 1 dan 2
+# =============================================
+assert abs(t_manual.impurity[0] - H_induk) < 1e-6, (
+    "Entropy akar menurut sklearn berbeda dari hitungan manual — "
+    "periksa fungsi entropy() dan data rekonstruksi X_manual/y_manual")
+assert abs(IG_sklearn - IG) < 1e-6, (
+    "Information gain sklearn berbeda dari hitungan manual — "
+    "periksa bobot n_cabang/n pada rerata berbobot entropy anak")
+print("Pemeriksaan otomatis lulus.")
+```
+
+### LANGKAH 3: Data Sintetis Kelayakan Kredit UMKM
+
+> **Data sintetis (simulasi)** yang meniru pola pengajuan kredit UMKM di Indonesia; bukan data resmi BPS/lembaga. Peluang gagal bayar dibangkitkan dari omzet, lama usaha, rasio beban utang, dan riwayat telat bayar, ditambah keacakan; sekitar sepertiga pengajuan berakhir berlabel gagal bayar.
+
+```python
+# =============================================
+# LANGKAH 3: Data SINTETIS kelayakan kredit UMKM (≈ 35% gagal bayar)
+# (simulasi, bukan data resmi BPS/lembaga)
 # =============================================
 rng = np.random.default_rng(RANDOM_STATE)
 n = 4000
@@ -108,12 +147,19 @@ df = pd.DataFrame({
     "kode_cabang":       rng.integers(1, 121, size=n),
 })
 
-logit = (-1.8 - 0.022 * df["omzet_bulanan_jt"] - 0.16 * df["lama_usaha_thn"]
-         + 2.8 * df["rasio_beban_utang"] + 0.42 * df["riwayat_telat_12bln"])
+# Aturan pembangkit label (asumsi ilustratif): omzet kecil, usaha yang masih muda,
+# rasio beban utang tinggi, dan riwayat telat bayar menaikkan peluang gagal bayar.
+# jumlah_pegawai, jenis_usaha, wilayah, dan kode_cabang TIDAK ikut menentukan label.
+# Intersep -0,8 membuat sekitar sepertiga pengajuan gagal bayar — sengaja tinggi
+# agar pohon dangkal pun dapat menemukan pola (lihat Langkah 5).
+logit = (-0.8 - 0.025 * df["omzet_bulanan_jt"] - 0.18 * df["lama_usaha_thn"]
+         + 4.5 * df["rasio_beban_utang"] + 0.7 * df["riwayat_telat_12bln"])
 df["gagal_bayar"] = rng.binomial(1, 1 / (1 + np.exp(-logit)))
 
 print("Dimensi:", df.shape)
 print("Proporsi gagal bayar:", df["gagal_bayar"].mean().round(3))
+print("Jumlah per kelas (0 = lancar, 1 = gagal bayar):",
+      df["gagal_bayar"].value_counts().sort_index().to_dict())
 ```
 
 ### LANGKAH 4: *Overfitting* pada Pohon Tunggal
@@ -186,9 +232,93 @@ plt.tight_layout(); plt.show()
 
 print(export_text(pohon_dangkal.named_steps["clf"],
                   feature_names=list(nama_fitur), max_depth=3))
+
+# --- Aturan setiap daun, dihitung dari data LATIH (bukan teks tetap) ---
+clf_dangkal = pohon_dangkal.named_steps["clf"]
+struktur = clf_dangkal.tree_
+nama_rapi = [f.split("__", 1)[1] for f in nama_fitur]   # buang awalan num__/kat__
+label_kelas = {0: "Lancar", 1: "Gagal bayar"}
+
+def telusuri(node=0, syarat=()):
+    # Mengembalikan {id_daun: daftar syarat dari akar sampai daun itu}
+    if struktur.children_left[node] == -1:              # -1 menandai daun
+        return {node: list(syarat)}
+    f, t = nama_rapi[struktur.feature[node]], struktur.threshold[node]
+    return {**telusuri(struktur.children_left[node],  syarat + (f"{f} <= {t:.2f}",)),
+            **telusuri(struktur.children_right[node], syarat + (f"{f} > {t:.2f}",))}
+
+jalur = telusuri()
+daun_latih = clf_dangkal.apply(pohon_dangkal[:-1].transform(X_train))
+per_daun = (pd.DataFrame({"daun": daun_latih, "gagal": y_train.to_numpy()})
+              .groupby("daun")["gagal"].agg(["size", "mean"]))
+
+tabel_daun = pd.DataFrame([
+    {"Prediksi": label_kelas[int(struktur.value[d, 0].argmax())],
+     "% gagal": 100 * per_daun.loc[d, "mean"],
+     "n latih": int(per_daun.loc[d, "size"]),
+     "Aturan": " DAN ".join(jalur[d])}
+    for d in jalur
+]).sort_values("% gagal", ascending=False)
+
+print("Aturan per daun (diurutkan dari yang paling berisiko):")
+for _, r in tabel_daun.iterrows():
+    print(f"  [{r['Prediksi']:<11}] {r['% gagal']:5.1f}% gagal dari {r['n latih']:4d} "
+          f"pengajuan | JIKA {r['Aturan']}")
+
+# --- Kesimpulan dihitung dari hasil ---
+n_daun_gagal = int((tabel_daun["Prediksi"] == "Gagal bayar").sum())
+f1_dangkal = f1_score(y_test, pohon_dangkal.predict(X_test))
+print(f"\n{n_daun_gagal} dari {len(tabel_daun)} daun memprediksi 'Gagal bayar'; "
+      f"F1 uji pohon dangkal = {f1_dangkal:.3f}")
+if n_daun_gagal == 0:
+    print("Semua daun memprediksi 'Lancar' (F1 = 0): pohon ini mudah dijelaskan, tetapi "
+          "tidak menyaring satu pun pengajuan berisiko. Periksa proporsi gagal bayar "
+          "atau coba class_weight='balanced' (Lab 7).")
+else:
+    lancar_terburuk = tabel_daun.loc[tabel_daun["Prediksi"] == "Lancar", "% gagal"].max()
+    print(f"Pohon menghasilkan aturan untuk kedua kelas. Namun daun 'Lancar' yang paling "
+          f"berisiko masih memuat {lancar_terburuk:.0f}% gagal bayar —")
+    print("label daun hanyalah suara mayoritas (> 50%), bukan jaminan bahwa nasabahnya aman.")
 ```
 
-> **Inilah kelebihan pohon yang hilang pada *ensemble*:** keputusan untuk satu nasabah dapat ditelusuri sebagai rangkaian pertanyaan yang dapat dijelaskan. Pada bidang yang menuntut keterjelasan, ini bernilai tinggi.
+> **Inilah kelebihan pohon yang hilang pada *ensemble*:** keputusan untuk satu nasabah dapat ditelusuri sebagai rangkaian pertanyaan yang dapat dijelaskan. Pada bidang yang menuntut keterjelasan, ini bernilai tinggi — **asalkan** pohonnya memang memprediksi kedua kelas. Pohon dangkal yang semua daunnya berlabel "Lancar" tetap mudah dijelaskan, tetapi tidak berguna (F1 = 0).
+
+**Membaca pohon pada data lab ini** (hasil sama pada scikit-learn 1.6 dan 1.9; ambang dibulatkan): pemisah akar adalah `rasio_beban_utang` ≤ 0,41. Pohon berisi 7 daun — cabang `omzet_bulanan_jt` > 74,40 berhenti lebih awal karena `min_samples_leaf=50` — dan **2 daun** berlabel "Gagal bayar":
+
+| Aturan (akar → daun) | Pengajuan latih | Gagal bayar |
+|---|---|---|
+| `rasio_beban_utang` > 0,41 **dan** `omzet_bulanan_jt` ≤ 74,40 **dan** `lama_usaha_thn` ≤ 9,45 | 550 | 64,5% |
+| `rasio_beban_utang` ≤ 0,41 **dan** `omzet_bulanan_jt` ≤ 39,05 **dan** `riwayat_telat_12bln` > 1,5 (telat **2 kali atau lebih**) | 255 | 62,0% |
+
+Dengan bahasa nasabah: *"Pengajuan Bapak/Ibu tergolong berisiko karena rasio beban utang di atas 0,41, omzet di bawah ±74 juta rupiah per bulan, dan usaha berjalan kurang dari ±9,5 tahun."* F1 uji pohon dangkal ini ≈ 0,53 (bandingkan dengan baris `max_depth=3` di Langkah 4). Perhatikan pula daun-daun "Lancar": yang terbesar (`rasio_beban_utang` ≤ 0,41, `omzet_bulanan_jt` ≤ 39,05, `riwayat_telat_12bln` ≤ 1,5; 1.194 pengajuan latih) memuat ≈ 32% gagal bayar, dan yang paling berisiko ≈ 34%.
+
+**Tulis interpretasi:** (a) jelaskan satu aturan "Gagal bayar" dengan kalimat yang dapat dipahami nasabah; (b) mengapa daun berisi lebih dari 30% gagal bayar tetap berlabel "Lancar", dan apa akibatnya bila bank hanya melihat label daun, bukan proporsinya? Hubungkan dengan pemilihan ambang di Lab 7.
+
+**Pemeriksaan otomatis.** Sel berikut harus lulus tanpa `AssertionError`.
+
+```python
+# =============================================
+# Pemeriksaan otomatis — Langkah 3 sampai 5
+# =============================================
+proporsi_gagal = y.mean()
+assert 0.25 <= proporsi_gagal <= 0.45, (
+    f"Proporsi gagal bayar {proporsi_gagal:.1%} di luar rentang 25–45% yang dimaksud — "
+    f"periksa intersep logit di Langkah 3")
+
+tanpa_batas = hasil[0]   # baris "Tanpa batas" dari Langkah 4
+assert tanpa_batas["F1 latih"] >= 0.99 and tanpa_batas["Selisih"] >= 0.2, (
+    f"Pohon tanpa batas seharusnya menghafal data latih (F1 latih ≈ 1) dengan selisih "
+    f"F1 latih–uji besar; sekarang F1 latih {tanpa_batas['F1 latih']:.3f}, "
+    f"selisih {tanpa_batas['Selisih']:.3f}")
+
+assert n_daun_gagal >= 1 and n_daun_gagal < len(tabel_daun), (
+    "Pohon dangkal harus memprediksi kedua kelas (ada daun 'Lancar' dan daun "
+    "'Gagal bayar') — periksa proporsi gagal bayar di Langkah 3 atau class_weight")
+assert f1_dangkal >= 0.30, (
+    f"F1 uji pohon dangkal {f1_dangkal:.3f} terlalu rendah (< 0,30) — pohon belum "
+    f"menyaring pengajuan berisiko; periksa data Langkah 3 atau class_weight")
+print("Pemeriksaan otomatis lulus.")
+```
 
 ### LANGKAH 6: *Ensemble*
 
@@ -259,9 +389,42 @@ print(permutasi.sort_values(ascending=False).head(10).round(4).to_string())
 print("\nPeringkat kode_cabang:")
 print("  bawaan   :", bawaan.filter(like="kode_cabang").round(4).to_string())
 print("  permutasi:", permutasi.filter(like="kode_cabang").round(4).to_string())
+
+# --- Kesimpulan dihitung dari hasil ---
+peringkat_bawaan = int(bawaan.rank(ascending=False)["num__kode_cabang"])
+kode_bawaan = bawaan["num__kode_cabang"]
+kode_permutasi = permutasi["kode_cabang"]
+# Fitur yang benar-benar ikut menentukan label tetapi kalah dari kode_cabang (bawaan)
+kalah = [f for f in ["omzet_bulanan_jt", "lama_usaha_thn", "rasio_beban_utang",
+                     "riwayat_telat_12bln"] if bawaan[f"num__{f}"] < kode_bawaan]
+print(f"\nkode_cabang: peringkat {peringkat_bawaan} dari {len(bawaan)} pada kepentingan "
+      f"bawaan ({kode_bawaan:.3f}), permutasi {kode_permutasi:+.4f}.")
+if kalah and abs(kode_permutasi) < 0.01:
+    print(f"Bias terlihat: fitur acak ini mengungguli {', '.join(kalah)} (yang benar-benar "
+          f"menentukan label) pada kepentingan bawaan, padahal kepentingan permutasinya ≈ 0.")
+elif abs(kode_permutasi) < 0.01:
+    print("Kepentingan permutasi kode_cabang ≈ 0; pada data ini ia tidak mengungguli "
+          "fitur penentu label mana pun pada kepentingan bawaan.")
+else:
+    print("Kepentingan permutasi kode_cabang tidak ≈ 0 — periksa ulang data dan model.")
 ```
 
-> **Yang harus diperhatikan:** `kode_cabang` berisi 120 nilai acak yang **tidak** berhubungan dengan target. Kepentingan bawaan cenderung memberinya nilai tinggi karena kardinalitasnya tinggi; kepentingan permutasi mendekati nol. Inilah bias yang diperingatkan Strobl et al. (2007).
+> **Yang harus diperhatikan:** `kode_cabang` berisi 120 nilai acak yang **tidak** berhubungan dengan target. Kepentingan bawaan cenderung memberinya nilai tinggi karena kardinalitasnya tinggi; kepentingan permutasi mendekati nol. Inilah bias yang diperingatkan Strobl et al. (2007). Pada data lab ini, `kode_cabang` berada di peringkat 4 kepentingan bawaan (≈ 0,14) — di atas `riwayat_telat_12bln` yang benar-benar ikut menentukan label — sedangkan kepentingan permutasinya ≈ 0. Fitur lain yang tidak menentukan label, `jumlah_pegawai`, juga memperoleh kepentingan bawaan yang tidak kecil; bandingkan dengan nilai permutasinya.
+
+**Pemeriksaan otomatis.**
+
+```python
+# =============================================
+# Pemeriksaan otomatis — Langkah 7
+# =============================================
+assert abs(kode_permutasi) < 0.01, (
+    f"Kepentingan permutasi kode_cabang {kode_permutasi:.4f} seharusnya ≈ 0 "
+    f"(fitur acak) — periksa apakah permutasi dihitung pada data UJI")
+assert kode_bawaan > 0.05 and kode_bawaan > 5 * max(kode_permutasi, 0.001), (
+    f"Kepentingan bawaan kode_cabang ({kode_bawaan:.3f}) seharusnya jauh di atas nilai "
+    f"permutasinya — inilah bias fitur berkardinalitas tinggi yang ingin ditunjukkan")
+print("Pemeriksaan otomatis lulus.")
+```
 
 ### LANGKAH 8: Stabilitas Kepentingan Fitur
 
@@ -303,6 +466,10 @@ Buat grafik ROC-AUC terhadap `n_estimators` pada rentang 10–500 untuk *Random 
 
 Buang `kode_cabang` dari data, lalu latih ulang ketiga model. Apakah kinerjanya berubah? Jelaskan hubungannya dengan temuan Langkah 7.
 
+### Tantangan 4 — Pohon Dangkal dengan `class_weight`
+
+Latih ulang pohon dangkal Langkah 5 dengan `class_weight="balanced"` (Lab 7), lalu jalankan ulang kode tabel aturan daun. Apakah struktur pohon dan jumlah daun berlabel "Gagal bayar" berubah? Bandingkan F1 dan *recall* ujinya dengan pohon tanpa pembobotan. Ubah pula intersep logit Langkah 3 dari −0,8 menjadi −2,3 (proporsi gagal bayar turun ke ±13%): apa yang terjadi pada pohon dangkal tanpa pembobotan, dan apakah `class_weight="balanced"` menolongnya? Pada percobaan ini pemeriksaan otomatis Langkah 3–5 memang akan gagal (proporsi di luar 25–45%); kembalikan intersep ke −0,8 setelah selesai.
+
 ---
 
 ## Checklist Penyelesaian
@@ -310,13 +477,15 @@ Buang `kode_cabang` dari data, lalu latih ulang ketiga model. Apakah kinerjanya 
 - [ ] **Perhitungan manual** *entropy* dan *information gain*, diverifikasi dengan sklearn
 - [ ] Gini dihitung sebagai pembanding
 - [ ] *Overfitting* pohon tanpa batas ditunjukkan dengan selisih F1 latih dan uji
-- [ ] Struktur pohon dangkal ditampilkan dan dibaca
+- [ ] Struktur pohon dangkal ditampilkan dan dibaca; pohon memprediksi **kedua kelas** (F1 uji > 0)
+- [ ] Satu aturan daun "Gagal bayar" dijelaskan dengan bahasa nasabah
 - [ ] Tiga model dibandingkan dengan **lipatan yang sama**
 - [ ] Rerata, simpangan, min, maks, dan waktu dilaporkan
 - [ ] **Kesimpulan memperhatikan simpangan**, bukan hanya rerata
 - [ ] Kepentingan bawaan **dan** permutasi dibandingkan
 - [ ] Bias terhadap fitur berkardinalitas tinggi ditunjukkan pada `kode_cabang`
 - [ ] Stabilitas peringkat kepentingan diperiksa lintas *seed*
+- [ ] Ketiga sel **Pemeriksaan otomatis** lulus
 - [ ] Notebook berjalan ulang tanpa galat
 - [ ] AI Usage Log lengkap
 

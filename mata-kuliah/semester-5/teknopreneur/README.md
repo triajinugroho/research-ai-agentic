@@ -19,7 +19,7 @@
 | Rumpun | R08 — Riset, Inovasi & Kewirausahaan |
 | Bahan Kajian | BK07 (HCI) · BK13 (Software Engineering) · BK17 (Specialized Platform Development) · BK18 (Pengembangan Diri) |
 | CPL yang dibebankan | CPL09 · CPL-FSTS1 · CPLUAI2 · CPLUAI3 |
-| CPMK | 5 CPMK dari 4 CPL |
+| CPMK | 6 CPMK dari 4 CPL |
 | Sub-CPMK | **6 Sub-CPMK** |
 | Posisi AI Infusion | **Tahap A→C · Mode E (Eksplisit) · Pilar AI Product** |
 | Rujukan kurikulum | [Kurikulum Informatika 2025 Revisi 2026](../../00-kurikulum-if-2025-revisi-2026/README.md) |
@@ -40,7 +40,7 @@ Pada AI Curriculum Infusion Matrix ia berstatus **mode E (Eksplisit)** dengan pi
    Jalur Riset, Inovasi & Kewirausahaan (R08)
    ┌────────────────────┐
    │ Kreativitas dan    │
-   │ Entrepreneurship   │  (semester lebih awal)
+   │ Entrepreneurship   │  (semester 3; bukan prasyarat formal)
    └─────────┬──────────┘
              ▼
    ┌────────────────────┐        ┌──────────────────────┐
@@ -80,8 +80,8 @@ Pada AI Curriculum Infusion Matrix ia berstatus **mode E (Eksplisit)** dengan pi
 | `TEKNO-Sub-CPMKUAI21-1` | CPLUAI2 → CPMKUAI21 | **25%** | Kognitif — analisis pasar, kelayakan, dan risiko |
 | `TEKNO-Sub-CPMKUAI22-1` | CPLUAI2 → CPMKUAI22 | **25%** | Psikomotorik — MVP, model bisnis, *go-to-market* |
 | `TEKNO-Sub-CPMKFSTS11-1` | CPL-FSTS1 → CPMKFSTS11 | **10%** | Psikomotorik — komunikasi dan *pitching* |
-| `TEKNO-Sub-CPMKFSTS12-1` | CPL-FSTS1 → CPMKFSTS12 | **10%** | Afektif — kolaborasi dan pengelolaan tim |
-| `TEKNO-Sub-CPMKUAI32-1` | CPLUAI3 → CPMKUAI32 | **10%** | Afektif — pola pikir adaptif dan pembelajaran berkelanjutan |
+| `TEKNO-Sub-CPMKFSTS12-1` | CPL-FSTS1 → CPMKFSTS12 | **10%** | Afektif dan psikomotorik (A4/P5) — kolaborasi dan pengelolaan tim |
+| `TEKNO-Sub-CPMKUAI32-1` | CPLUAI3 → CPMKUAI32 | **10%** | Kognitif C6 (CPMK induk: C6, A4) — mengembangkan pola pikir adaptif dan pembelajaran berkelanjutan |
 | | | **100%** | |
 
 Rumusan lengkap ada pada [RPS §E](01-rps/rps-teknopreneur.md).
@@ -144,7 +144,7 @@ Seluruh studio dan penilaian berpusat pada **satu usaha teknologi** yang dibangu
 | Pembentukan tim dan pemilihan ranah | 1 | Kesepakatan tim, peran, dan ranah masalah |
 | Bukti masalah | 2–4 | **Minimal 15 wawancara pelanggan** + persona + persyaratan |
 | Bukti kelayakan | 5–7 | Ukuran pasar, peta kompetitor, *unit economics*, daftar risiko |
-| Bukti solusi | 9–12 | *Business model canvas*, MVP yang diuji, rencana *go-to-market* |
+| Bukti solusi | 9–11 | *Business model canvas*, MVP yang diuji, rencana *go-to-market* |
 | Bukti tanggung jawab | 12–13 | Audit etika, kepatuhan, dan kelayakan AI bila relevan |
 | *Pitch* | 14–15 | *Pitch deck* + presentasi *Demo Day* |
 
@@ -172,7 +172,7 @@ Seluruh studio dan penilaian berpusat pada **satu usaha teknologi** yang dibangu
 | Dokumen | Isi yang dirujuk |
 |---------|------------------|
 | [`03-cpl-prodi.md`](../../00-kurikulum-if-2025-revisi-2026/03-cpl-prodi.md) | CPL09, CPL-FSTS1, CPLUAI2, CPLUAI3 |
-| [`13-cpmk-master.md`](../../00-kurikulum-if-2025-revisi-2026/13-cpmk-master.md) | Kelima CPMK yang dibebankan |
+| [`13-cpmk-master.md`](../../00-kurikulum-if-2025-revisi-2026/13-cpmk-master.md) | Keenam CPMK yang dibebankan |
 | [`15d-subcpmk-tingkat-3-semester-5-6.md`](../../00-kurikulum-if-2025-revisi-2026/15d-subcpmk-tingkat-3-semester-5-6.md) | Keenam Sub-CPMK, indikator, kriteria, bobot |
 | [`14a-ai-curriculum-infusion-matrix.md`](../../00-kurikulum-if-2025-revisi-2026/14a-ai-curriculum-infusion-matrix.md) | Tahap A→C, mode E, pilar AI Product |
 | [`06-bahan-kajian.md`](../../00-kurikulum-if-2025-revisi-2026/06-bahan-kajian.md) | BK07, BK13, BK17, BK18 |

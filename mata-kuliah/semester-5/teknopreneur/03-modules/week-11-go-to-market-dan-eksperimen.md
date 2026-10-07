@@ -11,7 +11,7 @@
 | Bloom | C6 (Merancang) |
 | Durasi | 150 menit |
 | Metode | Kuliah · Studio perencanaan |
-| Penilaian | Observasi (Studio 11) · **Milestone 3 (P-03) — 25%** |
+| Penilaian | Unjuk Kerja — **Milestone 3 (P-03) — 25%**, menghimpun Studio 9–11 |
 
 ---
 

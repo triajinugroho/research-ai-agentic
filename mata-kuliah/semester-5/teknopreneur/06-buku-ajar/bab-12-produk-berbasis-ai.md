@@ -320,7 +320,7 @@ Simpan jawabannya. Bandingkan dengan hasil ujian empat pertanyaan yang tim jalan
 5. Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). On the Dangers of Stochastic Parrots. *Proceedings of FAccT '21*, 610–623.
 6. Barocas, S., Hardt, M., & Narayanan, A. (2023). *Fairness and Machine Learning: Limitations and Opportunities*. MIT Press.
 7. Republik Indonesia. (2022). *Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi*.
-8. Kementerian Komunikasi dan Informatika. (2023). *Panduan Etika Kecerdasan Artifisial Indonesia*. Kominfo.
+8. Kementerian Komunikasi dan Informatika. (2023). *Surat Edaran Menteri Komunikasi dan Informatika Nomor 9 Tahun 2023 tentang Etika Kecerdasan Artifisial*. (Kementerian kini bernama Kementerian Komunikasi dan Digital/Komdigi.)
 
 ---
 

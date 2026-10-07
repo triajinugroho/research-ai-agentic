@@ -9,7 +9,7 @@
 | Sub-CPMK | Deskripsi Capaian | Level Bloom |
 |----------|-------------------|-------------|
 | `DAIML-Sub-CPMK082-1` | Merancang dan membangun solusi ML utuh untuk masalah nyata | C6 |
-| `DAIML-Sub-CPMK102-1` | Mengevaluasi kinerja model dan mengomunikasikan batasnya | C4–C5 |
+| `DAIML-Sub-CPMK102-1` | Menganalisis kinerja model dengan metrik yang tepat dan mengomunikasikan batasnya | C4 |
 
 ---
 
@@ -161,7 +161,9 @@ Lima syarat pada Bab 9 §9.4.1 berlaku penuh:
 - Prapemrosesan yang sesuai tiap model.
 - Anggaran penyetelan yang sebanding.
 - *Baseline* disertakan.
-- **Simpangan dilaporkan.**
+- **Simpangan dan selisih per lipatan dilaporkan.**
+
+Karena seluruh kandidat dinilai pada lipatan yang sama, skor peringkat 1 dan 2 **berpasangan**. Keduanya dibandingkan dengan **selisih per lipatan** sebagaimana Bab 9 §9.4.2 — bukan dengan "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$.
 
 ```python
 from sklearn.model_selection import StratifiedKFold, cross_val_score
@@ -169,20 +171,34 @@ import pandas as pd, numpy as np
 
 CV = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)   # SAMA untuk semua
 
-baris = []
+baris, per_lipatan = [], {}
 for nama, pipa in kandidat.items():
     skor = cross_val_score(pipa, X_train, y_train, cv=CV, scoring="f1", n_jobs=-1)
-    baris.append({"Model": nama, "F1": skor.mean(), "Simpangan": skor.std(),
+    per_lipatan[nama] = skor                 # disimpan untuk perbandingan berpasangan
+    baris.append({"Model": nama, "F1": skor.mean(),
+                  "Simpangan": skor.std(ddof=1),   # simpangan baku SAMPEL (ddof=1)
                   "Min": skor.min(), "Maks": skor.max()})
 
 t = pd.DataFrame(baris).sort_values("F1", ascending=False).reset_index(drop=True)
-selisih = t.loc[0, "F1"] - t.loc[1, "F1"]
-gabung = np.sqrt(t.loc[0, "Simpangan"]**2 + t.loc[1, "Simpangan"]**2)
 print(t.round(4).to_string(index=False))
-print(f"\nSelisih 1-2: {selisih:.4f} | Simpangan gabungan: {gabung:.4f}")
-print("Kesimpulan:", "perbedaan kemungkinan nyata" if selisih > gabung
+
+# Peringkat 1 vs 2: selisih BERPASANGAN per lipatan (lipatan ke-i sama untuk keduanya)
+m1, m2 = t.loc[0, "Model"], t.loc[1, "Model"]
+d = per_lipatan[m1] - per_lipatan[m2]
+k = len(d)
+d_bar = d.mean()
+s_d = d.std(ddof=1)
+se = s_d / np.sqrt(k)
+searah = int((np.sign(d) == np.sign(d_bar)).sum())
+bermakna = abs(d_bar) > 2 * se and searah >= 0.8 * k   # aturan praktis mata kuliah
+
+print(f"\n{m1} - {m2}: rerata selisih = {d_bar:.4f} | s_d = {s_d:.4f} | "
+      f"SE = {se:.4f} | searah di {searah} dari {k} lipatan")
+print("Kesimpulan:", "perbedaan kemungkinan nyata" if bermakna
       else "TIDAK DAPAT DISIMPULKAN mana yang lebih baik")
 ```
+
+> Aturan $|\bar d| > 2\cdot SE$ adalah penyaring kasar, karena skor antarlipatan tidak benar-benar saling bebas. Untuk analisis formal, gunakan *corrected resampled t-test* (Nadeau & Bengio, 2003). Bila hasilnya "tidak dapat disimpulkan", pilih model yang lebih sederhana, lebih cepat, atau lebih mudah dijelaskan — dan tuliskan alasannya.
 
 ---
 
@@ -247,7 +263,7 @@ Tiga pertanyaan yang dijawabnya:
 
 > **Kelompok yang modelnya tidak mengungguli *baseline* tidak dirugikan nilainya.**
 >
-> Yang dinilai adalah ketepatan formulasi, kebenaran prosedur, kesesuaian metrik, dan kejujuran analisis. Melaporkan *"model terbaik kami hanya unggul 0,03 dari baseline, dengan simpangan 0,04 — sehingga kami tidak dapat menyimpulkan bahwa model ini lebih baik; berikut analisis mengapa, dan berikut yang akan kami lakukan dengan data lebih banyak"* dengan prosedur yang benar bernilai **lebih tinggi** daripada melaporkan ROC-AUC 0,99 yang ternyata mengandung kebocoran.
+> Yang dinilai adalah ketepatan formulasi, kebenaran prosedur, kesesuaian metrik, dan kejujuran analisis. Melaporkan *"model terbaik kami hanya unggul rata-rata 0,03 dari baseline, dan selisih per lipatannya berganti arah ($|\bar d| < 2\cdot SE$) — sehingga kami tidak dapat menyimpulkan bahwa model ini lebih baik; berikut analisis mengapa, dan berikut yang akan kami lakukan dengan data lebih banyak"* dengan prosedur yang benar bernilai **lebih tinggi** daripada melaporkan ROC-AUC 0,99 yang ternyata mengandung kebocoran.
 >
 > Ini bukan kelonggaran. Di lapangan, seorang insinyur yang melaporkan "pendekatan ini tidak berhasil, dan berikut sebabnya" setelah tiga bulan bekerja menghemat organisasinya jauh lebih banyak daripada yang memaksakan hasil yang tampak baik.
 
@@ -321,28 +337,32 @@ Tiga pertanyaan yang dijawabnya:
 
 Sepanjang buku ini, pembatasan pemakaian AI dinyatakan berulang kali. Pada proyek, pembatasan itu menjadi nyata — karena di sinilah godaan terbesarnya.
 
+Keenam larangan di kolom kanan sama dengan kebijakan AI pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial):
+
 | Boleh | Tidak boleh |
 |-------|-------------|
-| Menulis kode `scikit-learn` rutin | Memformulasikan masalah menjadi *task* ML |
+| Menulis kode `scikit-learn` rutin (wajib dicatat) | Memformulasikan masalah menjadi *task* ML |
 | Memperbaiki galat; menjelaskan dokumentasi | Memilih model dan hiperparameter |
 | Menyarankan jenis visualisasi | Memilih dan menafsirkan metrik |
-| Menyunting bahasa laporan | Menganalisis kesalahan dan keterbatasan |
-| Memeriksa apakah ada bagian laporan yang kosong | Menulis *model card* dan bagian etis |
+| Menyunting bahasa laporan | Menganalisis kesalahan model |
+| Memeriksa apakah ada bagian laporan yang kosong | Menulis *model card* dan analisis keterbatasan, termasuk bagian etis |
+| | **Memakai AI dalam bentuk apa pun selama UTS dan UAS** (*closed book*) |
 
-### Mengapa Empat Hal di Kolom Kanan
+### Mengapa Kolom Kanan Dilarang
 
-Bukan karena sulit, dan bukan karena terlarang secara prinsip. Melainkan karena **keempatnya adalah Sub-CPMK mata kuliah ini**, dan karena keempatnya menuntut pengetahuan yang tidak ada dalam prompt:
+Bukan karena sulit, dan bukan karena terlarang secara prinsip. Lima larangan pertama ada karena **kelimanya adalah inti Sub-CPMK mata kuliah ini**, dan karena kelimanya menuntut pengetahuan yang tidak ada dalam prompt. Larangan keenam berlaku karena UTS dan UAS bersifat *closed book*.
 
 | Keputusan | Pengetahuan yang dibutuhkan |
 |-----------|----------------------------|
 | Formulasi | Kapan data setiap kolom tersedia; apa yang akan dilakukan dengan keluarannya |
 | Pemilihan model | Batas komputasi, kebutuhan keterjelasan, siapa yang akan memeliharanya |
 | Pemilihan metrik | Berapa biaya nyata tiap jenis kesalahan |
-| Analisis dan keterbatasan | Bagaimana data dikumpulkan; siapa yang tidak tercakup |
+| Analisis kesalahan | Kasus mana yang paling merugikan pengguna; pola kesalahan mana yang berakar pada cara data dikumpulkan |
+| *Model card* dan keterbatasan | Bagaimana data dikumpulkan; siapa yang tidak tercakup; dalam keadaan apa model tidak boleh dipakai |
 
 ### AI Usage Log
 
-Setiap tahap proyek wajib melampirkan catatan pemakaian AI, dengan **empat baris yang wajib ditulis "dikerjakan sendiri"** sebagaimana daftar di atas.
+Setiap tahap proyek wajib melampirkan catatan pemakaian AI, dengan **empat baris yang wajib ditulis "dikerjakan sendiri"** (format [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md)): formulasi, pemilihan model dan hiperparameter, pemilihan dan penafsiran metrik, serta analisis kesalahan dan keterbatasan — baris terakhir ini mencakup *model card*. Keempat baris itu meliputi lima larangan pertama di atas.
 
 > Mencatat pemakaian AI **tidak mengurangi nilai**. Tidak mencatatnya, padahal memakainya, adalah pelanggaran integritas akademik — dan inilah **amanah** dalam bentuknya yang paling sehari-hari: menyatakan apa adanya tentang bagaimana sebuah pekerjaan dikerjakan, ketika tidak ada yang akan mengetahuinya bila disembunyikan.
 
@@ -382,8 +402,8 @@ Pada sesi tanya jawab akan ada satu pertanyaan tentang ini: *"Bagian mana yang d
    (c) Bagaimana pengaruhnya pada nilai, menurut rubrik?
    (d) Bandingkan dengan kelompok yang menyembunyikannya dan ketahuan saat tanya jawab.
 
-8. Hasil akhir: model terbaik F1 0,71 ± 0,05; *baseline* 0,68.
-   (a) Apakah model ini berguna?
+8. Hasil akhir pada lima lipatan yang sama: model terbaik F1 0,71 (simpangan baku 0,05); *baseline* 0,68. Selisih per lipatan (model − *baseline*): +0,06; −0,01; +0,04; +0,05; +0,01.
+   (a) Hitung $\bar d$, $s_d$ (`ddof=1`), dan $SE$. Apakah selisihnya bermakna menurut aturan praktis mata kuliah? Apakah model ini berguna?
    (b) Bagaimana Anda menuliskannya dalam kesimpulan laporan?
    (c) Apa yang akan Anda rekomendasikan kepada organisasi yang memesan model ini?
    (d) Apa yang akan Anda usulkan sebagai langkah berikutnya?
@@ -416,7 +436,7 @@ Pada sesi tanya jawab akan ada satu pertanyaan tentang ini: *"Bagian mana yang d
 5. Setiap keputusan penyiapan dicatat dengan **apa, berapa banyak, mengapa**.
 6. **Pencilan hanya dibuang bila terbukti keliru** — bukan agar hasil lebih rapi.
 7. ***Baseline* dibangun sebelum model apa pun**; yang paling bermakna adalah sistem yang berlaku saat ini.
-8. Perbandingan menuntut **lipatan sama, anggaran setara, dan pelaporan simpangan**.
+8. Perbandingan menuntut **lipatan sama, anggaran setara, dan pelaporan simpangan**; dua model dibandingkan dengan **selisih berpasangan per lipatan** ($|\bar d| > 2\cdot SE$), bukan dengan simpangan gabungan.
 9. Evaluasi berjalan **tiga lapis**: teknis, diagnostik, dan keadilan.
 10. Laporan wajib menyatakan **apa yang tidak dapat dilakukan model**.
 11. **Hasil yang sederhana tetap bernilai** bila prosedurnya benar dan pelaporannya jujur.
@@ -428,11 +448,12 @@ Pada sesi tanya jawab akan ada satu pertanyaan tentang ini: *"Bagian mana yang d
 
 1. Géron, A. (2022). *Hands-On Machine Learning* (3rd ed.), Bab 2. O'Reilly.
 2. Huyen, C. (2022). *Designing Machine Learning Systems*. O'Reilly.
-3. Kapoor, S., & Narayanan, A. (2023). Leakage and the Reproducibility Crisis in ML-based Science. *Patterns*, 4(9).
+3. Kapoor, S., & Narayanan, A. (2023). Leakage and the reproducibility crisis in machine-learning-based science. *Patterns*, 4(9), 100804. <https://doi.org/10.1016/j.patter.2023.100804>
 4. Mitchell, M., et al. (2019). Model Cards for Model Reporting. *FAT* '19*.
 5. Sculley, D., et al. (2015). Hidden Technical Debt in Machine Learning Systems. *NeurIPS*.
 6. Badan Pusat Statistik. *Sistem Informasi Rujukan Statistik*. <https://sirusa.bps.go.id>
 7. Tim Kurikulum Informatika UAI (2026). *AI Curriculum Infusion Matrix*.
+8. Nadeau, C., & Bengio, Y. (2003). Inference for the Generalization Error. *Machine Learning*, 52(3), 239–281.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

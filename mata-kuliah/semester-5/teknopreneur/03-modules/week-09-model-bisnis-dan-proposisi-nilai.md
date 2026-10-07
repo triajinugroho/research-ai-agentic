@@ -11,7 +11,7 @@
 | Bloom | C6 (Merancang) |
 | Durasi | 150 menit |
 | Metode | Kuliah · Studio penyusunan |
-| Penilaian | Observasi (Studio 9) — bagian dari P-03 |
+| Penilaian | Unjuk Kerja — Studio 9 adalah tahapan P-03 (tanpa bobot sendiri) |
 
 ---
 

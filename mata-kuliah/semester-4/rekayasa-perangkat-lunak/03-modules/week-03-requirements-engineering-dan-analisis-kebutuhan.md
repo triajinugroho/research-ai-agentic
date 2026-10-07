@@ -751,7 +751,7 @@ c) Tuliskan 3 FR dan 3 NFR untuk toko online batik tersebut.
 - **Format:** Markdown, submit via LMS
 - **Minimum:** 10 functional requirements, 5 non-functional requirements, stakeholder analysis
 - **Struktur:** Mengikuti template IEEE 830 yang dibahas di kelas
-- **AI Policy:** AI diizinkan + wajib AI Usage Log (prompt, output, modifikasi, refleksi)
+- **AI Policy:** AI diizinkan + wajib AI Usage Log (prompt, output, modifikasi, refleksi) dengan format [Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log)
 
 ## Referensi
 

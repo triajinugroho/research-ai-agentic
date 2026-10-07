@@ -14,13 +14,13 @@ Empat mata kuliah terbaru — Probabilitas dan Statistik, Dasar Kecerdasan Artif
 
 ## Mata Kuliah
 
-Kode, kelompok (Kel.), dan SKS mengikuti [registri kurikulum](mata-kuliah/00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Kolom *Status materi* menunjukkan kurikulum yang menjadi dasar penyusunan materi di folder tersebut.
+Kode, kelompok (Kel.), dan SKS mengikuti [registri kurikulum](mata-kuliah/00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Kolom *Status materi* menunjukkan kurikulum yang menjadi dasar penyusunan materi di folder tersebut dan, untuk mata kuliah yang sudah selaras, membedakan **materi ajar** (RPS, RTM, modul, lab, buku ajar — lengkap) dari **naskah asesmen dan dokumen mutu** (naskah kuis/UTS/UAS dan folder `mutu/` — belum lengkap). Butir yang masih terbuka beserta tenggatnya dilacak di [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md).
 
 ### [Semester 1](mata-kuliah/semester-1/) — Ganjil (Tingkat 1)
 
 | Kode | Mata Kuliah | Kel. | SKS | Tipe | Deskripsi | Status materi |
 |------|-------------|------|-----|------|-----------|---------------|
-| `IF52510033` | [Probabilitas dan Statistik](mata-kuliah/semester-1/probabilitas-dan-statistik/) | MKP | 3 | Teori + Lab | Fondasi berpikir di bawah ketidakpastian untuk Informatika | Selaras Kurikulum 2025 Revisi 2026 |
+| `IF52510033` | [Probabilitas dan Statistik](mata-kuliah/semester-1/probabilitas-dan-statistik/) | MKP | 3 | Teori + Lab | Fondasi berpikir di bawah ketidakpastian untuk Informatika | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
 
 ### [Semester 2](mata-kuliah/semester-2/) — Genap (Tingkat 1)
 
@@ -45,14 +45,14 @@ Kode, kelompok (Kel.), dan SKS mengikuti [registri kurikulum](mata-kuliah/00-kur
 
 | Kode | Mata Kuliah | Kel. | SKS | Tipe | Deskripsi | Status materi |
 |------|-------------|------|-----|------|-----------|---------------|
-| `IF52510031` | [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | MKP | 3 | Teori + Lab | Daur hidup ML dari perumusan masalah sampai AI yang bertanggung jawab | Selaras Kurikulum 2025 Revisi 2026 |
-| `ST52510002` | [Teknopreneur](mata-kuliah/semester-5/teknopreneur/) | MKF | 3 | Teori + Studio | Menemukan persoalan, menilai kelayakan, dan mempertanggungjawabkan usaha | Selaras Kurikulum 2025 Revisi 2026 |
+| `IF52510031` | [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | MKP | 3 | Teori + Lab | Daur hidup ML dari perumusan masalah sampai AI yang bertanggung jawab | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
+| `ST52510002` | [Teknopreneur](mata-kuliah/semester-5/teknopreneur/) | MKF | 3 | Teori + Studio | Menemukan persoalan, menilai kelayakan, dan mempertanggungjawabkan usaha | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
 
 ### [Semester 7](mata-kuliah/semester-7/) — Ganjil (Tingkat 4)
 
 | Kode | Mata Kuliah | Kel. | SKS | Tipe | Deskripsi | Status materi |
 |------|-------------|------|-----|------|-----------|---------------|
-| `IF52510021` | [Metodologi Penelitian](mata-kuliah/semester-7/metodologi-penelitian/) | MKP | 2 | Teori + Lokakarya | Menyusun argumen penelitian yang dapat diperiksa | Selaras Kurikulum 2025 Revisi 2026 — rujukan penyelarasan; perlu persetujuan pengampu |
+| `IF52510021` | [Metodologi Penelitian](mata-kuliah/semester-7/metodologi-penelitian/) | MKP | 2 | Teori + Lokakarya | Menyusun argumen penelitian yang dapat diperiksa | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap sebagai rujukan penyelarasan; menunggu persetujuan pengampu; asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
 
 > **Catatan pengampu.** Registri kurikulum menetapkan pengampu Metodologi
 > Penelitian adalah **Andi Arniaty Arsyad, Ph.D.** (`AAA`), bukan Tri Aji

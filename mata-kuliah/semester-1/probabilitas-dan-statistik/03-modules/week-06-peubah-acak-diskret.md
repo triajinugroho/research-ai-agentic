@@ -323,7 +323,7 @@ Untuk tiap kasus, tentukan distribusinya beserta parameternya:
 
 ---
 
-### 7. Memeriksa Kecocokan Distribusi pada Data Nyata
+### 7. Memeriksa Kecocokan Distribusi pada Data Pengamatan
 
 ```python
 import pandas as pd

@@ -2,7 +2,7 @@
 
 | Aspek | Keterangan |
 |-------|------------|
-| Minggu | 14 · Sub-CPMK `FSTS11-1` · Persiapan P-04 |
+| Minggu | 14 · Sub-CPMK `FSTS11-1` · **Formatif**, tanpa bobot sendiri — persiapan P-04 |
 | Durasi | 80' di kelas + 90' mandiri |
 | Luaran | Draf *pitch deck* + catatan umpan balik + jawaban 9 pertanyaan |
 
@@ -14,6 +14,15 @@
 2. Menyampaikan *pitch* dan menghadapi pertanyaan tajam.
 3. Memberi umpan balik yang spesifik kepada tim lain.
 4. Menyiapkan jawaban untuk sembilan pertanyaan *Demo Day*.
+
+---
+
+## Persiapan
+
+- Seluruh berkas S-02 sampai S-13 dan P-03 — isi *deck* diambil dari sini (Langkah 1).
+- Laporan audit etika S-12 beserta tindak lanjutnya — bahan menjawab pertanyaan tentang risiko.
+- Tangkapan layar atau video MVP, dan perangkat untuk demonstrasi.
+- Pengatur waktu untuk latihan; daftar periksa [sebelum *Demo Day*](../06-buku-ajar/lampiran.md#b5-sebelum-demo-day).
 
 ---
 

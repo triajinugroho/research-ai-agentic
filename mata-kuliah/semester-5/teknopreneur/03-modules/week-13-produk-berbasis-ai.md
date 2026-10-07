@@ -168,7 +168,7 @@ Menyembunyikan bahwa keluaran dapat salah, atau mengklaim ketepatan yang tidak d
 
 | Tingkat | Keadaan 2026 |
 |---------|--------------|
-| **Indonesia** | Berkembang; UU PDP sudah berlaku dan mencakup pemrosesan data oleh sistem AI |
+| **Indonesia** | Berkembang; UU PDP sudah berlaku dan mencakup pemrosesan data oleh sistem AI; Surat Edaran Menteri Komunikasi dan Informatika No. 9 Tahun 2023 tentang Etika Kecerdasan Artifisial menjadi pedoman etika (berbentuk surat edaran, bukan undang-undang); kementerian itu kini bernama Kementerian Komunikasi dan Digital (Komdigi) |
 | **Internasional** | Regulasi AI Uni Eropa memengaruhi produk yang menjangkau pasar sana |
 | **Sektoral** | Sektor keuangan dan kesehatan memiliki ketentuan tersendiri |
 
@@ -268,6 +268,7 @@ Hasilnya sering mengejutkan tim yang merencanakan pemakaian model bahasa secara 
 4. Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi.
 5. Dokumentasi harga penyedia model (diperiksa pada saat penyusunan rencana).
 6. Tim Kurikulum Informatika UAI (2026). *AI Curriculum Infusion Matrix*.
+7. Surat Edaran Menteri Komunikasi dan Informatika No. 9 Tahun 2023 tentang Etika Kecerdasan Artifisial (kementerian kini bernama Kementerian Komunikasi dan Digital).
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

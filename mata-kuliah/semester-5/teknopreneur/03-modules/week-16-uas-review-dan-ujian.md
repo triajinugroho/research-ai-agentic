@@ -75,14 +75,14 @@
 |-------|-----------|
 | Bentuk | **Tes tulis reflektif**, *closed book* |
 | Durasi | 90 menit |
-| Alat bantu | Tidak ada |
+| Alat bantu | **Tidak ada** (termasuk kalkulator) |
 | Yang tidak diperkenankan | Catatan, buku, telepon, laptop, **alat bantu AI** |
 | Bobot | **10%** |
 | Sub-CPMK | `TEKNO-Sub-CPMKUAI32-1` |
 
 ### 16.5 Mengapa Berbentuk Reflektif
 
-Sub-CPMK yang diukur bersifat **afektif**: pola pikir adaptif, mandiri, dan berbasis pembelajaran berkelanjutan. Indikatornya:
+Sub-CPMK yang diukur menuntut **mengembangkan (C6)** pola pikir adaptif, mandiri, dan berbasis pembelajaran berkelanjutan — dengan dimensi sikap (A4) pada CPMK induknya, `CPMKUAI32`. Indikatornya:
 
 1. Menyusun rencana pembelajaran *entrepreneur* berbasis tren.
 2. **Merevisi asumsi bisnis setelah bukti pasar.**
@@ -187,7 +187,7 @@ Berkas yang dihasilkannya adalah **portofolio yang dapat ditunjukkan** — bukan
 
 1. Semester ini mencakup **enam Sub-CPMK** pada tiga ranah: kognitif, psikomotorik, afektif.
 2. Dua belas prinsip §16.2 adalah inti yang layak dibawa keluar.
-3. UAS berbentuk **reflektif** karena Sub-CPMK yang diukur bersifat afektif.
+3. UAS berbentuk **reflektif** karena Sub-CPMK yang diukur menuntut mengembangkan (C6) pola pikir adaptif, dengan dimensi sikap (A4) pada CPMK induknya.
 4. Yang dinilai: **kedalaman refleksi dan bukti adaptasi**, bukan hafalan.
 5. Refleksi berbasis **kejadian konkret** dinilai jauh lebih tinggi daripada pernyataan umum.
 6. **"Tidak ada yang berubah" hampir selalu menunjukkan refleksi yang dangkal.**

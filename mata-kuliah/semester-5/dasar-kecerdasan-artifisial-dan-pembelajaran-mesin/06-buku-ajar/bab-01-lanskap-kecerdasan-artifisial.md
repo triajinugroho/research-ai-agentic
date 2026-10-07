@@ -330,9 +330,9 @@ Prompt ini menunjukkan dua hal: yang diminta adalah penjelasan (bukan pekerjaan)
 2. Mitchell, T. (1997). *Machine Learning*, Bab 1. McGraw-Hill.
 3. Géron, A. (2022). *Hands-On Machine Learning* (3rd ed.), Bab 1. O'Reilly.
 4. Domingos, P. (2012). A Few Useful Things to Know About Machine Learning. *CACM*, 55(10), 78–87.
-5. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Tabular Data? *NeurIPS*.
-6. ACM/IEEE-CS (2023). *Computer Science Curricula 2023*, Knowledge Area: Artificial Intelligence.
-7. UNESCO (2024). *AI Competency Framework for Students*.
+5. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Typical Tabular Data? *NeurIPS 2022 (Datasets and Benchmarks Track)*.
+6. ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023* (CS2023), Knowledge Area: Artificial Intelligence. ACM, IEEE Computer Society, dan AAAI. — [REG-10]
+7. UNESCO (2024, diperbarui 16 Januari 2026). *AI Competency Framework for Students*. Paris: UNESCO. — [REG-9]
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

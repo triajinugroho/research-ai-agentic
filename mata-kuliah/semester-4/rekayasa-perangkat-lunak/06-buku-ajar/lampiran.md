@@ -99,6 +99,16 @@ git config --global user.email "email@uai.ac.id"
 
 ## Lampiran C: Template AI Usage Log
 
+Lampiran ini adalah **satu-satunya templat AI Usage Log** mata kuliah Rekayasa Perangkat Lunak. Templat yang sama dipakai untuk tugas (T1–T6), lab, dan proyek akhir; RPS, RTM, modul mingguan, lab, dan bab lain hanya merujuk ke sini. Bila ada perbedaan format di dokumen lain, yang berlaku adalah lampiran ini.
+
+### Identitas Log
+
+Tulis di bagian atas berkas log:
+
+- **Nama / NIM** — untuk proyek akhir: nama tim dan nama setiap anggota (setiap anggota mengisi entrinya sendiri)
+- **Tugas / Lab / Proyek** — misalnya "T6 — AI-Augmented Code Review Report", "Lab 13", atau "Proyek Akhir: Sistem Perpustakaan UAI"
+- **Periode** — tanggal pengerjaan, atau Sprint 1–4 untuk proyek akhir
+
 ### Format Tabel
 
 | No | Tanggal | Task/Aktivitas | Tool AI | Prompt yang Digunakan | Output AI (Ringkasan) | Evaluasi (Benar/Salah/Perlu Modifikasi) | Modifikasi yang Dilakukan | Waktu Tanpa AI (estimasi) | Waktu Dengan AI |
@@ -113,11 +123,23 @@ git config --global user.email "email@uai.ac.id"
 | 1 | 2026-03-15 | Buat unit test | Claude | "Buatkan pytest untuk class BukuService" | 5 test functions | 4/5 benar | Fix assertion test_stok_kosong | 45 min | 15 min |
 | 2 | 2026-03-16 | Refactor route | Copilot | Autocomplete | Extract method | Sesuai | Minor rename | 20 min | 5 min |
 
+### Refleksi (wajib, di akhir log)
+
+Untuk tugas dan lab, tulis refleksi sekali di akhir log; untuk proyek akhir, tulis per sprint.
+
+- **AI paling membantu untuk:** ___
+- **AI kurang baik / menyesatkan untuk:** ___ (sertakan contoh output yang "terlihat benar tapi salah", bila ada)
+- **Yang saya pelajari:** ___
+- **Ringkasan (opsional):** total interaksi ___; output langsung dipakai ___; perlu modifikasi ___; salah/tidak relevan ___
+- **Pernyataan tanggung jawab:** "Saya bertanggung jawab penuh atas semua kode dan dokumen yang saya kumpulkan, termasuk yang dibantu oleh AI."
+
 ### Panduan Pengisian
 1. **Isi setiap kali menggunakan AI** untuk tugas akademik
 2. **Jujur** — catat juga ketika AI memberikan output yang salah
-3. **Evaluasi kritis** — jangan hanya "Benar" tanpa verifikasi
-4. **Submit** bersama tugas/laporan yang relevan
+3. **Evaluasi kritis** — jangan hanya "Benar" tanpa verifikasi; tulis alasan singkat di kolom Evaluasi (misalnya "6/8 test case benar; edge case pinjam buku yang sama terlewat")
+4. **Rinci modifikasi** — sebutkan apa yang Anda ubah dari output AI dan mengapa
+5. **Proyek akhir** — sebutkan fase SDLC (requirements, design, code, test, deploy) di kolom Task/Aktivitas, dan simpan log di `docs/ai-usage-log.md` repositori tim
+6. **Submit** bersama tugas/laporan yang relevan; untuk lab, simpan di berkas yang diminta modul lab
 
 ---
 
@@ -371,7 +393,7 @@ def seed_buku(db, n=100):
 
 ### H.1 Prinsip Utama
 
-1. **Transparansi**: Selalu dokumentasikan penggunaan AI (AI Usage Log)
+1. **Transparansi**: Selalu dokumentasikan penggunaan AI (AI Usage Log, format [Lampiran C](#lampiran-c-template-ai-usage-log))
 2. **Verifikasi**: Jangan percaya output AI tanpa verifikasi
 3. **Pemahaman**: Jangan submit kode yang tidak Anda pahami
 4. **Atribusi**: Jangan klaim AI output sebagai karya original

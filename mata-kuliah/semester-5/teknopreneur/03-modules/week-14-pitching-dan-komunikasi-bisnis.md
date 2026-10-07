@@ -11,7 +11,7 @@
 | Bloom | P4 (Mengartikulasikan) |
 | Durasi | 150 menit |
 | Metode | Kuliah · Latihan *pitch* · Umpan balik sejawat |
-| Penilaian | Observasi (Studio 14) |
+| Penilaian | Formatif (Studio 14, tanpa bobot) — persiapan P-04 (Unjuk Kerja) |
 
 ---
 

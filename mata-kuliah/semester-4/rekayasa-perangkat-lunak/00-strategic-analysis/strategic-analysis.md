@@ -172,7 +172,7 @@ Mata kuliah ini dirancang sebagai respons terhadap disrupsi tersebut, mengacu pa
 
 ### Dampak untuk Institusi
 
-- **Akreditasi**: CPMK-based assessment mendukung dokumen akreditasi BAN-PT/LAM-INFOKOM
+- **Akreditasi**: CPMK-based assessment mendukung dokumen akreditasi program studi oleh LAM-INFOKOM — peringkat berjalan "Baik Sekali", SK 050/SK/LAM-INFOKOM/Ak/S/III/2025 ([REG-5](../../../00-pedoman-obe/pedoman-obe-konvensi.md#b2-daftar-acuan))
 - **Diferensiasi**: Satu-satunya kampus Indonesia dengan SE course berbasis SWEBOK v4 + AI-augmented
 - **Industry Partnership**: Proyek konteks Indonesia menarik partnership dengan startup/tech company
 

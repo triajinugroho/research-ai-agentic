@@ -510,7 +510,7 @@ TIDAK BOLEH menggunakan AI untuk:
 
 WAJIB menggunakan AI Usage Log untuk:
 +-- Tugas T1-T6 (documented AI usage)
-+-- Proyek akhir (10% rubrik = AI Usage Log)
++-- Proyek akhir (komponen "AI Integration & Usage Log" rubrik proyek)
 +-- Lab praktikum (documented)
 ```
 
@@ -572,61 +572,69 @@ print(hitung_ppn(100_000))
 
 ### 13.6 AI Usage Log
 
-Setiap mahasiswa **wajib** mencatat penggunaan AI dalam proyek sebagai bentuk transparansi akademik:
+Setiap mahasiswa **wajib** mencatat penggunaan AI dalam tugas dan proyek sebagai bentuk transparansi akademik. Format yang dipakai adalah **satu templat resmi** di [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log): identitas log, tabel satu baris per interaksi AI, dan refleksi di akhir log. Modul ini tidak memuat templat tersendiri.
 
-```markdown
-## AI Usage Log -- [Nama Mahasiswa]
-### Proyek: Toko UMKM Online
+Untuk proyek akhir, perhatikan tiga hal berikut:
 
-| # | Tanggal | Tool | Fase SDLC | Tugas | Prompt (ringkas) | Hasil | Modifikasi | Waktu Hemat |
-|---|---------|------|-----------|-------|-----------------|-------|------------|-------------|
-| 1 | 15/4/26 | Claude | Testing | Generate test | "Buat pytest untuk checkout" | 8 test cases | Fix 2 assertions | ~30 menit |
-| 2 | 16/4/26 | Copilot | Code | Autocomplete | (inline) | Route handler | + error handling | ~15 menit |
-| 3 | 17/4/26 | ChatGPT | Design | Arsitektur | "Sarankan arsitektur..." | ERD + API | Sesuaikan req | ~45 menit |
-| 4 | 18/4/26 | Claude Code | Code | Fitur baru | "Implementasi search" | 3 file baru | Fix 1 bug | ~60 menit |
+- Tulis **fase SDLC** (requirements, design, code, test, deploy) di kolom *Task/Aktivitas*, misalnya "Testing — generate pytest untuk checkout"
+- Isi kolom *Modifikasi* secara rinci — misalnya "fix 2 assertion", "tambah error handling" — bukan sekadar "sudah dicek"
+- Tulis refleksi per sprint: kapan AI paling membantu (biasanya *boilerplate code* dan test case) dan kapan kurang baik (misalnya keputusan arsitektur yang butuh pemahaman bisnis)
 
-### Refleksi:
-- AI paling membantu untuk: generate boilerplate code dan test cases
-- AI kurang baik untuk: keputusan arsitektur (butuh pemahaman bisnis)
-- Yang saya pelajari: pentingnya prompt yang spesifik (CRIDE)
-```
+Script berikut membuat berkas log kosong `docs/ai-usage-log.md` dengan kolom yang sama persis dengan Lampiran C, sehingga setiap anggota tim mulai dari format yang sama:
 
 ```python
-# Script untuk generate AI Usage Log template
+# Script untuk membuat berkas AI Usage Log kosong sesuai Lampiran C buku ajar
 from datetime import datetime
 
-def generate_ai_log_template(nama_mahasiswa: str, nama_proyek: str) -> str:
-    """Generate template AI Usage Log dalam format Markdown."""
-    template = f"""# AI Usage Log
+# Kolom tabel mengikuti Lampiran C (satu-satunya templat resmi)
+KOLOM_LAMPIRAN_C = [
+    "No", "Tanggal", "Task/Aktivitas", "Tool AI", "Prompt yang Digunakan",
+    "Output AI (Ringkasan)", "Evaluasi (Benar/Salah/Perlu Modifikasi)",
+    "Modifikasi yang Dilakukan", "Waktu Tanpa AI (estimasi)", "Waktu Dengan AI",
+]
 
-**Mahasiswa:** {nama_mahasiswa}
-**Proyek:** {nama_proyek}
-**Periode:** Sprint 1-4 ({datetime.now().strftime('%B %Y')})
+# Nama bulan dalam Bahasa Indonesia (strftime bergantung locale sistem)
+BULAN = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
+         "Agustus", "September", "Oktober", "November", "Desember"]
 
-## Log Penggunaan AI
+def generate_ai_log_template(nama_mahasiswa: str, nama_proyek: str, jumlah_baris: int = 2) -> str:
+    """Membuat templat AI Usage Log (format Lampiran C) dalam Markdown."""
+    header = "| " + " | ".join(KOLOM_LAMPIRAN_C) + " |"
+    pemisah = "|" + "|".join("---" for _ in KOLOM_LAMPIRAN_C) + "|"
+    sekarang = datetime.now()
+    # Baris kosong bernomor untuk diisi mahasiswa
+    baris = [
+        "| " + str(i) + " |" + " |" * (len(KOLOM_LAMPIRAN_C) - 1)
+        for i in range(1, jumlah_baris + 1)
+    ]
+    return "\n".join([
+        "# AI Usage Log",
+        "",
+        f"- **Nama / NIM:** {nama_mahasiswa}",
+        f"- **Tugas / Lab / Proyek:** {nama_proyek}",
+        f"- **Periode:** Sprint 1-4 ({BULAN[sekarang.month - 1]} {sekarang.year})",
+        "",
+        header,
+        pemisah,
+        *baris,
+        "",
+        "## Refleksi",
+        "- AI paling membantu untuk: ___",
+        "- AI kurang baik / menyesatkan untuk: ___",
+        "- Yang saya pelajari: ___",
+        "- Pernyataan tanggung jawab: Saya bertanggung jawab penuh atas semua",
+        "  kode dan dokumen yang saya kumpulkan, termasuk yang dibantu oleh AI.",
+    ])
 
-| # | Tanggal | Tool | Fase SDLC | Tugas | Prompt | Hasil | Modifikasi | Waktu |
-|---|---------|------|-----------|-------|--------|-------|------------|-------|
-| 1 | | | | | | | | |
-
-## Statistik Penggunaan
-- Total interaksi AI: ___
-- Tool paling sering: ___
-- Fase SDLC paling terbantu: ___
-- Estimasi total waktu dihemat: ___ jam
-
-## Refleksi
-- AI paling membantu untuk: ___
-- AI kurang baik untuk: ___
-- Yang saya pelajari: ___
-- Komitmen etika: Saya bertanggung jawab penuh atas semua
-  kode yang saya submit, termasuk yang dibantu oleh AI.
-"""
-    return template
-
-# Generate template
-log = generate_ai_log_template("Ahmad Fauzi", "Toko Batik Online")
+# Membuat templat dan menampilkannya
+log = generate_ai_log_template("Ahmad Fauzi", "Proyek Akhir: Toko Batik Online")
 print(log)
+
+# Opsional: simpan ke repositori proyek
+# import os
+# os.makedirs("docs", exist_ok=True)
+# with open("docs/ai-usage-log.md", "w", encoding="utf-8") as f:
+#     f.write(log)
 ```
 
 > **Nilai Islami -- Amanah dan Kejujuran:** Mencatat penggunaan AI adalah bentuk amanah akademik. Islam mengajarkan bahwa kejujuran (*shidq*) adalah fondasi karakter yang baik. Rasulullah SAW bersabda: "Sesungguhnya kejujuran itu menunjukkan kepada kebaikan" (HR. Bukhari-Muslim). Mengklaim kode AI sebagai karya sendiri tanpa transparansi adalah bentuk ketidakjujuran yang bertentangan dengan prinsip ini. Sebaliknya, mendokumentasikan penggunaan AI dengan jujur menunjukkan integritas dan profesionalisme -- kualitas yang dihargai baik dalam Islam maupun di dunia industri.
@@ -716,7 +724,7 @@ Evaluasi perbedaan kualitas output dan jelaskan mengapa CRIDE menghasilkan outpu
 | **Tipe** | Individual |
 | **Bobot** | 2.5% dari nilai akhir |
 | **Deadline** | Minggu 15 |
-| **Deliverable** | Laporan markdown (min. 1500 kata) + AI Usage Log |
+| **Deliverable** | Laporan markdown (min. 1500 kata) + AI Usage Log ([format Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log)) |
 | **CPMK** | CPMK-7 |
 
 **Instruksi:**

@@ -3,6 +3,8 @@
 ## UNIVERSITAS AL AZHAR INDONESIA
 ### Fakultas Sains dan Teknologi — Program Studi Informatika
 
+> **Kode resmi dan penyusun materi.** Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini berkode `IF52520025` (semester 2, **3 SKS**) menurut [registri](../../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Seluruh materi mata kuliah ini disusun oleh **Tri Aji Nugroho, S.T., M.T.**, yang juga dosen pengampunya menurut registri. RPS ini disusun untuk kurikulum sebelumnya dengan kode sementara `IF2XXX` dan bobot **2 SKS**, dan perlu diselaraskan dengan registri — kode, SKS, CPMK dan Sub-CPMK, bobot penilaian, serta pembagian isi dengan Probabilitas dan Statistik (semester 1) — sebelum dipakai pada kurikulum baru; lihat butir T2-05 di [KENDALI-EKSEKUSI](../../../00-meta/KENDALI-EKSEKUSI.md).
+
 ---
 
 ## A. IDENTITAS MATA KULIAH

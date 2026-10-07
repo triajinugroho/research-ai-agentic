@@ -129,12 +129,12 @@ Setiap bab memuat bagian **AI Corner**. Karena mata kuliah ini berstatus **tahap
 3. **Kerjakan tingkat Menengah** setelah kuliah, saat konsep sudah dibahas.
 4. **Kerjakan tingkat Mahir** sebagai persiapan ujian.
 5. **Jangan melewati bagian AI Corner** — di situlah pembahasan tentang batas dan tanggung jawab berada.
-6. **Hitung manual dulu, baru pakai komputer.** Ujian bersifat *closed book*.
+6. **Hitung manual dulu, baru pakai komputer.** UTS dan UAS bersifat *closed book*: alat bantu yang diizinkan hanya kalkulator ilmiah *non-programmable* dan alat tulis; tabel distribusi dibagikan pengawas; rumus tidak disediakan (lihat [Lampiran](lampiran.md#daftar-lampiran)).
 
 ### Untuk Dosen Pengampu
 
 - Setiap bab selaras dengan satu modul mingguan pada `03-modules/`.
-- Latihan Soal dapat dipakai langsung sebagai bank soal kuis.
+- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal kuis, UTS, dan UAS disusun terpisah dari cetak biru butir pada kisi-kisi dan **tidak dipublikasikan**.
 - Bagian AI Corner dapat menjadi bahan diskusi kelas 15 menit.
 - Contoh dan dataset berkonteks Indonesia, dapat diganti sesuai kebutuhan.
 

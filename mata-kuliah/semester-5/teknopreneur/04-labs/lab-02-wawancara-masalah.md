@@ -19,6 +19,15 @@
 
 ---
 
+## Persiapan
+
+- Formulir P-00 yang sudah disetujui: ranah masalah dan daftar akses (siapa yang dapat dihubungi minggu ini).
+- Daftar 8–10 calon narasumber beserta cara menghubunginya; buat janji untuk sedikitnya 5 wawancara sebelum tenggat.
+- Salinan templat [catatan wawancara](../06-buku-ajar/lampiran.md#a2-catatan-wawancara) dan [pemberitahuan privasi singkat](../06-buku-ajar/lampiran.md#a10-pemberitahuan-privasi-singkat), serta daftar periksa [sebelum berangkat wawancara](../06-buku-ajar/lampiran.md#b1-sebelum-berangkat-wawancara).
+- Bab 2 buku ajar sudah dibaca, terutama kaidah *The Mom Test*.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Menyusun Naskah

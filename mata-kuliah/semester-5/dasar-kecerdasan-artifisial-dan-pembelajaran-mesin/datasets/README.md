@@ -8,13 +8,35 @@
 
 ## 1. Prinsip Pemilihan Data
 
+Prinsip berikut berlaku untuk **proyek akhir** dan untuk setiap data nyata yang Anda pilih sendiri:
+
 | Prinsip | Alasan |
 |---------|--------|
-| **Data nyata, bukan sintetis** | Masalah nyata datang berantakan; itulah yang dilatih |
+| **Proyek: data nyata, bukan sintetis** | Masalah nyata datang berantakan; itulah yang dilatih dan dinilai pada proyek |
 | **Berkonteks Indonesia** | Agar masalah yang dikerjakan bermakna bagi lingkungan sendiri |
 | **Lisensi jelas** | Amanah dalam memakai karya orang lain |
 | **Definisi variabel dipahami** | Angka tanpa definisi tidak bermakna |
 | **Ukuran memadai** | Minimal 500 baris untuk proyek |
+
+### 1.1 Data Praktikum dan Data Proyek: Sengaja Berbeda
+
+**Sebagian besar praktikum memakai data sintetis (simulasi) yang meniru pola Indonesia — bukan data resmi BPS atau lembaga mana pun.** Hal itu dinyatakan pada butir **Data** di bagian Persiapan setiap lab, dan butir itulah acuannya bila ringkasan di bawah berbeda.
+
+| Lab | Data | Jenis |
+|-----|------|-------|
+| 01 | Dataset bawaan `scikit-learn` (`load_diabetes`, `load_breast_cancer`) dan contoh struktur tabel IPM provinsi — ganti dengan unduhan resmi <https://www.bps.go.id> bila dipakai di luar latihan | Bawaan pustaka + contoh |
+| 02, 09, 13 | Pengajuan kredit UMKM | Sintetis (simulasi) |
+| 03 | Survei UMKM dengan masalah kualitas yang sengaja disisipkan | Sintetis (simulasi) |
+| 04 | Transaksi *e-commerce* | Sintetis (simulasi) |
+| 05 | Kemacetan ruas jalan Jakarta per jam | Sintetis (simulasi) |
+| 06 | Iklan jual rumah Jabodetabek | Sintetis (simulasi) |
+| 07 | Transaksi pembayaran digital | Sintetis (simulasi) |
+| 10 | Sesi belanja lokapasar | Sintetis (simulasi) |
+| 11 | Indikator sosial-ekonomi 34 provinsi berpola BPS; sumber dan tahun tidak terdokumentasi | Ilustratif (semi-sintetis) |
+| 12 | Tabel klasifikasi generik (`make_classification`) | Sintetis, tidak meniru data Indonesia |
+| 14 | Kredit UMKM dengan ketimpangan representasi wilayah | Sintetis (simulasi) |
+
+**Mengapa berbeda?** Pada praktikum, data sintetis dipilih karena aturan pembangkitnya diketahui: kebocoran, regularisasi, atau *bias* yang ditanam dapat **diukur terhadap "kebenaran"-nya**, sehingga satu konsep dapat dipelajari terpisah dari kerumitan lain. Pada proyek, yang dinilai justru hal yang tidak dapat dilatih dengan data sintetis — menelusuri sumber dan definisi variabel, membersihkan data yang berantakan tanpa kunci jawaban, serta menyatakan keterwakilan dan keterbatasan yang sesungguhnya. Karena itu [panduan proyek](../05-assessments/project-guidelines.md) **melarang** data sintetis sebagai data utama proyek, dan angka hasil lab **tidak boleh** dikutip sebagai fakta tentang Indonesia.
 
 ---
 
@@ -72,7 +94,7 @@ Alamat pencarian: <https://www.kaggle.com/datasets?search=indonesia>
 
 ## 5. Dataset Bawaan `scikit-learn` — untuk Latihan
 
-Dipakai pada praktikum Minggu 1–2, **tidak diperkenankan** sebagai data utama proyek.
+Dipakai pada sebagian praktikum (Lab 1; `make_classification` pada Lab 12; `make_moons`/`make_circles` pada Tantangan Lab 13), **tidak diperkenankan** sebagai data utama proyek.
 
 | Dataset | Jenis *task* | Ukuran |
 |---------|--------------|--------|
@@ -174,9 +196,9 @@ df.to_csv("/content/drive/MyDrive/proyek/data_mentah_2026-10-01.csv", index=Fals
 | Kode nilai hilang | `-`, `...`, `-99`, `999` | Ubah menjadi `NaN` sebelum apa pun |
 | Judul berlapis pada Excel BPS | Header di baris 3–5 | `skiprows` dan `header` disesuaikan |
 | Satuan berbeda antar-terbitan | Ribu vs juta rupiah | Periksa SIRUSA; samakan satuan |
-| Data terpusat di Jawa | 60%+ baris dari Jawa | **Nyatakan sebagai keterbatasan**; audit kinerja per wilayah |
+| Data terpusat di Jawa | Sebagian besar baris berasal dari provinsi di Jawa | **Nyatakan sebagai keterbatasan**; audit kinerja per wilayah |
 
-> Baris terakhir bukan sekadar catatan teknis. Ketimpangan representasi dalam data terbuka Indonesia berarti model yang dilatih darinya cenderung bekerja lebih buruk untuk wilayah yang datanya sedikit — bahasan Minggu 14 dan Lab 14.
+> Baris terakhir bukan sekadar catatan teknis. Ketimpangan representasi dalam data terbuka Indonesia dapat membuat model yang dilatih darinya bekerja lebih buruk untuk wilayah yang datanya sedikit — bahasan Minggu 14. Lab 14 memperagakan gejala ini dengan data **sintetis** yang sengaja dibuat timpang; pada proyek, periksa dan laporkan ketimpangan yang **sesungguhnya** pada data nyata Anda.
 
 ---
 
@@ -197,7 +219,7 @@ df.to_csv("/content/drive/MyDrive/proyek/data_mentah_2026-10-01.csv", index=Fals
 1. [Panduan proyek](../05-assessments/project-guidelines.md) — ketentuan data untuk proyek
 2. [Modul Minggu 3](../03-modules/week-03-data-dan-prapemrosesan.md) — pemeriksaan kualitas data
 3. [Modul Minggu 4](../03-modules/week-04-pembagian-data-dan-kebocoran.md) — kebocoran data
-4. [Lab 14](../04-labs/lab-14-audit-bias-dan-model-card.md) — audit ketimpangan representasi
+4. [Lab 14](../04-labs/lab-14-audit-bias-dan-model-card.md) — audit ketimpangan representasi (data sintetis)
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

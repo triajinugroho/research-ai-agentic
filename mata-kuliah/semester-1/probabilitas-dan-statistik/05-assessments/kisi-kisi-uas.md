@@ -15,9 +15,10 @@
 | Durasi | 120 menit |
 | Sifat | *Closed book* |
 | Cakupan | Komprehensif Minggu 1–15, **penekanan Minggu 9–14** |
-| Alat bantu diizinkan | Kalkulator ilmiah non-programmable, alat tulis |
-| Disediakan pengawas | Tabel Normal baku, tabel-t, tabel chi-square, tabel F |
-| Dilarang | Telepon genggam, jam pintar, laptop, catatan, **AI dalam bentuk apa pun** |
+| Alat bantu diizinkan | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| Disediakan pengawas | Tabel distribusi Normal baku, tabel-t, tabel chi-square, dan tabel F, dibagikan bersama lembar soal |
+| Rumus | **Tidak disediakan** — hafalkan [daftar rumus §8](#8-daftar-rumus-tambahan-di-luar-rumus-uts) beserta [daftar rumus UTS §7](kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
+| Dilarang | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 | Prasyarat mengikuti | Kehadiran minimal 75% |
 
 ---
@@ -198,7 +199,7 @@ UAS menekankan `PS-Sub-CPMK081-1`. Konsep berikut hampir pasti muncul:
 
 ## 8. Daftar Rumus Tambahan (di luar rumus UTS)
 
-Seluruh rumus dari [kisi-kisi UTS](kisi-kisi-uts.md) tetap berlaku, ditambah:
+Tabel distribusi dibagikan pengawas bersama lembar soal; rumus **tidak** disediakan (lihat [§1 Ketentuan Ujian](#1-ketentuan-ujian)). Seluruh rumus dari [kisi-kisi UTS §7](kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) tetap berlaku, ditambah:
 
 | Konsep | Rumus |
 |--------|-------|
@@ -254,9 +255,9 @@ Seluruh rumus dari [kisi-kisi UTS](kisi-kisi-uts.md) tetap berlaku, ditambah:
 
 1. Kerjakan ulang **seluruh soal Kuis 1–4**; UAS bergaya serupa dengan tingkat kesulitan sedikit lebih tinggi.
 2. Kerjakan ulang **soal UTS**, terutama yang Anda salah.
-3. Untuk tiap uji statistik, buat kartu ringkas berisi: kapan dipakai, asumsinya, rumusnya, cara menafsirkannya.
+3. Untuk tiap uji statistik, buat kartu ringkas berisi: kapan dipakai, asumsinya, rumusnya, cara menafsirkannya. Kartu ini alat **belajar** — tidak dibawa ke ruang ujian.
 4. Latih **memilih uji** dari 15 skenario berbeda tanpa menghitung — ini keterampilan yang paling diuji.
-5. Latih membaca keempat tabel distribusi secara manual.
+5. Latih membaca keempat tabel distribusi secara manual memakai [Lampiran A buku ajar](../06-buku-ajar/lampiran.md#lampiran-a-tabel-distribusi).
 6. Tuliskan definisi *p-value* dan tafsir interval kepercayaan dengan kalimat sendiri, lalu bandingkan dengan Bab 10–11 buku ajar.
 
 ---

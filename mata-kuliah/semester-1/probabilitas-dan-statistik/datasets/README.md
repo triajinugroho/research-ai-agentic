@@ -2,13 +2,13 @@
 
 **Semester Ganjil 2026/2027 · Tri Aji Nugroho, S.T., M.T.**
 
-Berkas ini memuat sumber data yang dipakai pada lab, latihan, dan proyek akhir. Seluruhnya berkonteks Indonesia dan dapat diakses tanpa biaya.
+Berkas ini memuat sumber data yang dipakai pada lab, latihan, dan proyek akhir: sumber data publik berkonteks Indonesia yang dapat diakses tanpa biaya (§2), delapan berkas latihan lab yang disiapkan dosen (§3), dan cara memuatnya di Google Colab (§4).
 
 ---
 
 ## 1. Prinsip Pemilihan Data
 
-1. **Nyata, bukan sintetis.** Data sintetis hanya dipakai untuk mendemonstrasikan sifat distribusi (misalnya simulasi Teorema Limit Pusat), bukan untuk menarik kesimpulan substantif.
+1. **Kesimpulan substantif hanya dari data nyata; data sintetis dinyatakan terbuka.** Proyek akhir wajib memakai data nyata ([panduan proyek §2](../05-assessments/project-guidelines.md#2-ketentuan-dasar)). Berkas latihan lab boleh sintetis atau hasil simulasi — misalnya `nilai_mahasiswa_if.csv` — asalkan sifatnya dinyatakan di berkas ini dan di lab yang memakainya, dan hasilnya tidak dipakai untuk menarik kesimpulan tentang dunia nyata.
 2. **Berkonteks Indonesia.** Mahasiswa harus bisa menilai apakah angka yang keluar masuk akal — itu hanya mungkin bila konteksnya dikenal.
 3. **Sumber terbuka dan dapat dirujuk.** Setiap dataset harus punya tautan dan keterangan lisensi.
 4. **Ukuran wajar.** Data proyek cukup 200–50.000 baris; lebih besar tidak menambah nilai pembelajaran statistika dasar.
@@ -70,20 +70,73 @@ Katalog data terbuka lintas kementerian dan pemerintah daerah.
 
 ## 3. Dataset yang Disediakan untuk Lab
 
-Dataset berikut disiapkan dosen dan tersedia di LMS UAI. Seluruhnya berukuran kecil agar lab berjalan cepat.
+Delapan berkas berikut disiapkan dosen untuk lab, modul, dan buku ajar. Kolom **Dipakai pada** sama dengan baris *Berkas data* di header tiap lab; kolom **Juga dipakai di** mencatat modul mingguan dan bab buku ajar yang memuat berkas yang sama. Jumlah baris dan kolom adalah **spesifikasi** — periksa ulang setelah berkas diunggah (§3.2).
 
-| Berkas | Baris | Kolom Utama | Dipakai pada |
-|--------|-------|-------------|--------------|
-| `nilai_mahasiswa_if.csv` | 240 | nim, kelas, nilai_uts, nilai_uas, jam_belajar, asal_sekolah | Lab 01, 02, 03, 07, 11, 12, 14 |
-| `waktu_respons_server.csv` | 1.000 | timestamp, endpoint, waktu_ms, status_code | Lab 02, 07, 09 |
-| `bug_report_harian.csv` | 365 | tanggal, jumlah_bug, modul, prioritas | Lab 06 |
-| `email_spam_indonesia.csv` | 800 | teks, label (spam/ham) | Lab 05 |
-| `transjakarta_koridor.csv` | 1.200 | koridor, hari, jumlah_penumpang, cuaca | Lab 13 |
-| `harga_rumah_jabodetabek.csv` | 600 | luas_tanah, luas_bangunan, kamar, lokasi, harga_juta | Lab 14 |
-| `ab_test_fitur_checkout.csv` | 2.000 | user_id, grup, konversi, durasi_detik | Lab 12 |
-| `ispu_jakarta_2025.csv` | 365 | tanggal, stasiun, pm25, pm10, kategori | Lab 07, 10 |
+| Berkas | Baris | Kolom utama | Dipakai pada (header lab) | Juga dipakai di | Sifat dan sumber |
+|--------|-------|-------------|---------------------------|-----------------|------------------|
+| `nilai_mahasiswa_if.csv` | 240 | nim, kelas, nilai_uts, nilai_uas, jam_belajar, asal_sekolah | Lab 01, 02, 03, 07, 10, 11, 12, 13, 14 | Modul Minggu 1, 2, 3, 5, 7, 10, 11, 12, 13, 14 · Bab 1, 2, 3, 9, 10, 11, 12 | **Sintetis** — dibuat menyerupai sebaran nilai nyata; tidak menggambarkan mahasiswa sesungguhnya (dinyatakan di Lab 01) |
+| `waktu_respons_server.csv` | 1.000 | timestamp, endpoint, waktu_ms, status_code | Lab 02, 03, 07, 09, 11 | Modul Minggu 2 | Belum didokumentasikan |
+| `bug_report_harian.csv` | 365 | tanggal, jumlah_bug, modul, prioritas | Lab 06 | Modul Minggu 6 · Bab 6 | Belum didokumentasikan |
+| `email_spam_indonesia.csv` | 800 | teks, label (spam/ham) | Lab 05 | Bab 5 | Belum didokumentasikan |
+| `transjakarta_koridor.csv` | 1.200 | koridor, hari, jumlah_penumpang, cuaca | Lab 13 | Modul Minggu 13 | Belum didokumentasikan |
+| `harga_rumah_jabodetabek.csv` | 600 | luas_tanah, luas_bangunan, kamar, lokasi, harga_juta | Lab 14 | Modul Minggu 14 · Bab 13 | Belum didokumentasikan |
+| `ab_test_fitur_checkout.csv` | 2.000 | user_id, grup, konversi, durasi_detik | Lab 12 | — | Belum didokumentasikan |
+| `ispu_jakarta_2025.csv` | 365 | tanggal, stasiun, pm25, pm10, kategori | Lab 07, 10 | — | Belum didokumentasikan |
 
-> Seluruh dataset ini disusun dari data publik yang sudah diagregasi dan dianonimkan. Berkas `nilai_mahasiswa_if.csv` bersifat **sintetis** dan dibuat menyerupai sebaran nilai nyata — dipakai untuk latihan, tidak untuk menarik kesimpulan tentang mahasiswa sesungguhnya. Hal ini dinyatakan terbuka agar mahasiswa terbiasa memeriksa asal-usul data.
+Lab 04 tidak memakai berkas data (simulasi Monte Carlo); Lab 03 juga memakai dataset bawaan `seaborn` (`anscombe`).
+
+> **Kejujuran asal-usul data.** Hanya `nilai_mahasiswa_if.csv` yang sifatnya sudah dinyatakan, yaitu **sintetis**. Untuk tujuh berkas lainnya, sumber dan sifatnya (data publik yang diolah, atau sintetis/simulasi) **belum didokumentasikan** di repositori ini, sehingga belum boleh disebut "data nyata". Kolom *Sifat dan sumber* diisi dosen saat mengunggah berkas (§3.2); sampai saat itu, perlakukan hasil analisis atas berkas-berkas ini sebagai latihan prosedur, bukan temuan tentang dunia nyata.
+
+### 3.1 Berkas Contoh yang Disiapkan Mahasiswa Sendiri
+
+| Berkas | Dipakai di | Keterangan |
+|--------|------------|------------|
+| `data_ipm_provinsi_2025.csv` | Bab 14 (contoh alur proyek) | **Tidak disediakan dosen.** Contoh berkas proyek yang diunduh kelompok sendiri dari tabel Indeks Pembangunan Manusia menurut provinsi di BPS (§2.1); kolom yang dipakai contoh: `provinsi`, `ipm` |
+| `ipm_provinsi.xlsx` | §4.4 berkas ini | Contoh berkas Excel BPS mentah, diunduh sendiri |
+
+### 3.2 Lokasi Berkas dan Daftar Berkas yang Diharapkan
+
+1. **Lokasi baku:** kedelapan berkas CSV pada §3 disimpan di **folder ini** (`datasets/`, sejajar dengan README ini) dan **diunggah oleh dosen**. Salinan yang sama dibagikan di LMS UAI, sesuai petunjuk "tersedia di LMS" pada lab.
+2. **Status per 7 Oktober 2026:** folder ini **belum berisi** berkas CSV — hanya README ini. Daftar berkas yang diharapkan (nama harus persis sama, huruf kecil):
+   - [ ] `nilai_mahasiswa_if.csv`
+   - [ ] `waktu_respons_server.csv`
+   - [ ] `bug_report_harian.csv`
+   - [ ] `email_spam_indonesia.csv`
+   - [ ] `transjakarta_koridor.csv`
+   - [ ] `harga_rumah_jabodetabek.csv`
+   - [ ] `ab_test_fitur_checkout.csv`
+   - [ ] `ispu_jakarta_2025.csv`
+3. **Format:** UTF-8, baris pertama berisi nama kolom seperti pada tabel §3, pemisah kolom koma, pemisah desimal **titik** — agar `pd.read_csv("nama_berkas.csv")` tanpa argumen tambahan berjalan seperti di lab.
+4. **Saat mengunggah,** isi kolom *Sifat dan sumber* pada §3 untuk setiap berkas: sumber (tautan, tanggal akses, lisensi) bila berasal dari data publik, atau keterangan "sintetis/simulasi" beserta cara pembuatannya; lalu sesuaikan jumlah baris dengan berkas yang sebenarnya.
+5. **Repositori ini publik.** Berkas tidak boleh memuat data pribadi atau nilai mahasiswa sungguhan. Kolom `nim` pada `nilai_mahasiswa_if.csv` harus berisi nomor fiktif, bukan NIM mahasiswa nyata.
+
+Setelah berkas diunggah, sel berikut memeriksa kelengkapan nama berkas dan kolom. Jalankan di Colab setelah berkas diunggah ke sesi (§4.2) atau di dalam folder ini:
+
+```python
+import os
+import pandas as pd
+
+# Nama berkas dan kolom utama yang diharapkan oleh lab (tabel §3)
+BERKAS_DIHARAPKAN = {
+    "nilai_mahasiswa_if.csv":      ["nim", "kelas", "nilai_uts", "nilai_uas", "jam_belajar", "asal_sekolah"],
+    "waktu_respons_server.csv":    ["timestamp", "endpoint", "waktu_ms", "status_code"],
+    "bug_report_harian.csv":       ["tanggal", "jumlah_bug", "modul", "prioritas"],
+    "email_spam_indonesia.csv":    ["teks", "label"],
+    "transjakarta_koridor.csv":    ["koridor", "hari", "jumlah_penumpang", "cuaca"],
+    "harga_rumah_jabodetabek.csv": ["luas_tanah", "luas_bangunan", "kamar", "lokasi", "harga_juta"],
+    "ab_test_fitur_checkout.csv":  ["user_id", "grup", "konversi", "durasi_detik"],
+    "ispu_jakarta_2025.csv":       ["tanggal", "stasiun", "pm25", "pm10", "kategori"],
+}
+
+for nama, kolom in BERKAS_DIHARAPKAN.items():
+    if not os.path.exists(nama):
+        print(f"[BELUM ADA] {nama}")
+        continue
+    df = pd.read_csv(nama)
+    kurang = [k for k in kolom if k not in df.columns]
+    status = "OK" if not kurang else f"KOLOM KURANG {kurang}"
+    print(f"[{status}] {nama}: {df.shape[0]} baris × {df.shape[1]} kolom")
+```
 
 ---
 
@@ -91,12 +144,15 @@ Dataset berikut disiapkan dosen dan tersedia di LMS UAI. Seluruhnya berukuran ke
 
 ### 4.1 Dari URL langsung
 
+Cara ini berlaku **setelah** berkas diunggah ke folder ini pada cabang `main` (§3.2).
+
 ```python
 import pandas as pd
 
-# Membaca CSV langsung dari tautan
-url = "https://raw.githubusercontent.com/<pengguna>/<repo>/main/nilai_mahasiswa_if.csv"
-df = pd.read_csv(url)
+# Membaca CSV langsung dari folder datasets/ di repositori
+BASE = ("https://raw.githubusercontent.com/triajinugroho/research-ai-agentic/main/"
+        "mata-kuliah/semester-1/probabilitas-dan-statistik/datasets/")
+df = pd.read_csv(BASE + "nilai_mahasiswa_if.csv")
 print(df.shape)
 df.head()
 ```

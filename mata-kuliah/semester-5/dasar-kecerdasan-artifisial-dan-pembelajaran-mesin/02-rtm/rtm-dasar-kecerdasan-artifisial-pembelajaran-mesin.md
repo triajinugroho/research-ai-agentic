@@ -78,7 +78,9 @@
 | Komentar kode | Bahasa Indonesia |
 | Interpretasi | **Setiap keluaran wajib disertai kalimat penafsiran** |
 | AI Usage Log | **Wajib**, di sel terakhir |
+| Data | Dinyatakan pada butir **Data** di bagian Persiapan tiap lab. Sebagian besar lab memakai **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga; proyek wajib data nyata. Lihat [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda) |
 | Tenggat | Awal pertemuan minggu berikutnya |
+| Pengurangan nilai | Satu tabel acuan: [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai) |
 
 ### Rubrik Umum Praktikum (berlaku untuk T-01 s.d. T-14)
 
@@ -118,7 +120,7 @@
 | Minggu | 3 · **Sub-CPMK102-1** · ICM-03 |
 | Tujuan | Menyusun prapemrosesan yang benar dan dapat diulang |
 | Luaran | Notebook berisi `Pipeline` dan `ColumnTransformer` yang berfungsi |
-| Kegiatan | Memeriksa kualitas data BPS yang belum bersih; menangani nilai hilang, kategorik, dan penskalaan **di dalam `Pipeline`**; mendokumentasikan setiap keputusan |
+| Kegiatan | Memeriksa kualitas data survei UMKM **sintetis (simulasi)** yang masalah kualitasnya sengaja disisipkan (bukan data resmi BPS); menangani nilai hilang, kategorik, dan penskalaan **di dalam `Pipeline`**; mendokumentasikan setiap keputusan |
 | Kriteria khusus | Seluruh transformasi berada di dalam `Pipeline` — bukan diterapkan pada data lengkap sebelum pembagian |
 
 ### T-04 — Validasi Silang dan Perburuan Kebocoran
@@ -148,7 +150,7 @@
 | Minggu | 6 · **Sub-CPMK082-1** · ICM-06 |
 | Tujuan | Membangun dan membandingkan model regresi |
 | Luaran | Notebook perbandingan tiga model |
-| Kegiatan | Melatih regresi linear, Ridge, dan Lasso pada data harga properti; melaporkan MAE, RMSE, R², dan MAPE; menjelaskan **mengapa metrik-metrik itu berbeda kesimpulannya** |
+| Kegiatan | Melatih regresi linear, Ridge, dan Lasso pada data **sintetis** yang meniru pola harga properti Jabodetabek; melaporkan MAE, RMSE, R², dan MAPE; menjelaskan **mengapa metrik-metrik itu berbeda kesimpulannya** |
 | Kriteria khusus | Pemilihan metrik dikaitkan dengan konteks masalah; *baseline* disertakan |
 
 ### T-07 — Model Klasifikasi dan Metriknya
@@ -178,7 +180,7 @@
 | Minggu | 10 · **Sub-CPMK082-1** · ICM-09 |
 | Tujuan | Membandingkan model secara adil |
 | Luaran | Notebook perbandingan lima model |
-| Kegiatan | Menyetel hiperparameter dengan `GridSearchCV` pada data latih saja; membandingkan lima model dengan protokol yang sama; menyajikan hasil dalam satu tabel dengan rerata dan simpangan lipatan |
+| Kegiatan | Menyetel hiperparameter dengan `GridSearchCV` pada data latih saja; membandingkan lima model dengan protokol yang sama; menyajikan hasil dalam satu tabel dengan rerata dan simpangan baku sampel antarlipatan (`ddof=1`), serta **selisih berpasangan per lipatan** terhadap model terbaik ($\bar d$, $s_d$, $SE = s_d/\sqrt{k}$) |
 | Kriteria khusus | Penyetelan tidak menyentuh data uji; perbandingan memakai lipatan yang sama untuk seluruh model |
 
 ### T-11 — *Clustering* dan Metriknya
@@ -188,7 +190,7 @@
 | Minggu | 11 · **Sub-CPMK082-1** · ICM-10 |
 | Tujuan | Menerapkan pembelajaran tanpa supervisi dan menafsirkan hasilnya |
 | Luaran | Notebook + penafsiran tiap klaster |
-| Kegiatan | Segmentasi provinsi Indonesia berdasarkan indikator BPS; membandingkan K-Means, *hierarchical*, dan DBSCAN; menentukan jumlah klaster dengan *elbow* dan *silhouette*; **memberi nama dan penafsiran substantif** pada tiap klaster |
+| Kegiatan | Segmentasi provinsi Indonesia pada data **ilustratif (semi-sintetis)** berpola indikator sosial-ekonomi BPS (bukan data resmi BPS); membandingkan K-Means, *hierarchical*, dan DBSCAN; menentukan jumlah klaster dengan *elbow* dan *silhouette*; **memberi nama dan penafsiran substantif** pada tiap klaster |
 | Kriteria khusus | Penafsiran klaster bermakna, bukan sekadar "klaster 0, klaster 1" |
 
 ### T-12 — PCA dan Visualisasi Kinerja Model
@@ -284,7 +286,8 @@ Proyek adalah komponen terbesar (**35%**) dan dikerjakan bertahap sejak Minggu 5
 |-------|-----------|
 | Laporan | PDF 10–15 halaman |
 | Notebook | `.ipynb` yang **dapat dijalankan ulang tanpa galat** |
-| *Model card* | Berkas Markdown terpisah, mengikuti format Mitchell et al. (2019) |
+| *Model card* | Berkas Markdown terpisah, mengikuti format Mitchell et al. (2019) dengan templat Lampiran H buku ajar; **diisi bertahap sejak P-00** ([Panduan Proyek §7.7](../05-assessments/project-guidelines.md#77-model-card-dan-audit-bias-mulai-sejak-awal)) |
+| Audit *bias* | Versi awal wajib ada pada P-03 (Minggu 14). Setelah Lab 14, boleh disempurnakan lewat **adendum** yang dikumpulkan bersama slide P-04; tenggat P-03 tidak berubah |
 | Struktur laporan | 1. Pendahuluan dan formulasi · 2. Data dan prapemrosesan · 3. Metode dan protokol eksperimen · 4. Hasil dan evaluasi · 5. Analisis kesalahan dan *bias* · 6. Kesimpulan dan keterbatasan · Lampiran: AI Usage Log |
 
 ### P-04 — Presentasi dan Tanya Jawab (Minggu 15) — **10%** · `Sub-CPMK082-1`
@@ -298,7 +301,11 @@ Proyek adalah komponen terbesar (**35%**) dan dikerjakan bertahap sejak Minggu 5
 | Keterbatasan dan dampak | 3' | Apa yang tidak dapat dilakukan model ini; siapa yang berisiko dirugikan |
 | **Tanya jawab** | **8'** | Pertanyaan dapat diarahkan kepada anggota mana pun |
 
-**Ketentuan:** slide maksimal 15 halaman; setiap anggota wajib berbicara; seluruh anggota wajib menguasai keseluruhan isi.
+**Ketentuan:** slide maksimal 15 halaman; setiap anggota wajib berbicara; seluruh anggota wajib menguasai keseluruhan isi. Satu pertemuan memuat 5 kelompok; bila lebih, presentasi dibagi ke **sesi tambahan dalam Minggu 15** dengan urutan diundi dan slide seluruh kelompok dikumpulkan sebelum sesi pertama ([Panduan Proyek §8.1](../05-assessments/project-guidelines.md#81-kapasitas-dan-sesi-presentasi-tambahan)).
+
+### Kontribusi Anggota Kelompok
+
+Setiap anggota mengisi **Formulir Kontribusi** secara terpisah dan rahasia: Formulir A bersama P-02 (Minggu 11) dan Formulir B paling lambat akhir Minggu 15. Ketimpangan kontribusi yang nyata menyesuaikan nilai perorangan dengan faktor kontribusi, setelah diverifikasi dosen ([Panduan Proyek §10](../05-assessments/project-guidelines.md#10-kontribusi-anggota-kelompok-dan-nilai-perorangan)).
 
 ---
 
@@ -342,11 +349,11 @@ Proyek adalah komponen terbesar (**35%**) dan dikerjakan bertahap sejak Minggu 5
 | 8 | **U-01 — UTS** | — |
 | 9 | **T-07** | T-09 |
 | 10 | **T-09** · **K-03** (di kelas) | T-10 |
-| 11 | **T-10** · **P-02 milestone 2** | T-11 |
+| 11 | **T-10** · **P-02 milestone 2** · Formulir Kontribusi A | T-11 |
 | 12 | **T-11** | T-12 |
 | 13 | **T-12** · **K-04** (di kelas) | T-13 |
 | 14 | **T-13** · **P-03 laporan + notebook + model card** | T-14 |
-| 15 | **T-14** · **P-04 presentasi** | — |
+| 15 | **T-14** · **P-04 presentasi** (dengan adendum audit *bias*, bila ada) · Formulir Kontribusi B | — |
 | 16 | **U-02 — UAS** | — |
 
 > **Minggu 14 adalah titik tersibuk.** Kelompok yang mengerjakan proyek secara bertahap sejak Minggu 5 akan menghadapinya dengan tenang; yang menunda tidak.
@@ -388,11 +395,15 @@ Disertakan pada sel terakhir setiap notebook praktikum dan sebagai lampiran seti
 |----|--------|------|----------------------|----------|------------|
 | 1  | Sel 4  | Claude | Sintaks ColumnTransformer untuk kolom campuran | Ya, disesuaikan | Dijalankan; keluaran diperiksa terhadap data |
 | 2  | Sel 9  | ChatGPT | Arti peringatan ConvergenceWarning | Ya, penjelasannya | Diperiksa ke dokumentasi scikit-learn |
-| 3  | Sel 12 | —      | Pemilihan metrik: dikerjakan sendiri | — | — |
-| 4  | Analisis | —    | Interpretasi hasil: dikerjakan sendiri | — | — |
+| 3  | L1     | —      | Formulasi masalah menjadi task ML: dikerjakan sendiri | — | — |
+| 4  | L2     | —      | Pemilihan model dan hiperparameter: dikerjakan sendiri | — | — |
+| 5  | L3     | —      | Pemilihan dan penafsiran metrik: dikerjakan sendiri | — | — |
+| 6  | L4     | —      | Analisis kesalahan model: dikerjakan sendiri | — | — |
+| 7  | L5     | —      | Model card dan analisis keterbatasan: dikerjakan sendiri | — | — |
 
-**Pernyataan:** Seluruh keputusan formulasi masalah, pemilihan model, pemilihan
-metrik, dan penafsiran hasil dalam notebook ini dibuat oleh saya sendiri.
+**Pernyataan:** Seluruh keputusan formulasi masalah, pemilihan model dan
+hiperparameter, pemilihan dan penafsiran metrik, analisis kesalahan, serta
+model card dan analisis keterbatasan dalam notebook ini dibuat oleh saya sendiri.
 Bantuan AI terbatas pada hal yang tercatat di atas dan telah saya verifikasi.
 
 Nama: ____________________  NIM: __________  Tanggal: __________
@@ -400,14 +411,18 @@ Nama: ____________________  NIM: __________  Tanggal: __________
 
 ### Yang Wajib Ditulis "Dikerjakan Sendiri"
 
-Empat baris berikut **harus** muncul dalam setiap log, karena keempatnya merupakan inti Sub-CPMK dan tidak boleh diserahkan kepada AI:
+Daftar larangan AI berikut **sama persis** dengan [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md) (bila berbeda, RPS yang berlaku). Butir L1–L5 merupakan inti Sub-CPMK dan **harus** muncul dalam setiap log sebagai "dikerjakan sendiri"; L6 berlaku di ruang kuis dan ujian.
 
-1. Formulasi masalah menjadi *task* ML
-2. Pemilihan model dan hiperparameter
-3. Pemilihan dan penafsiran metrik
-4. Analisis kesalahan dan keterbatasan
+| No | Kegiatan yang **tidak boleh** dibantu AI |
+|----|------------------------------------------|
+| L1 | Memformulasikan masalah menjadi *task* ML |
+| L2 | Memilih model dan hiperparameter |
+| L3 | Memilih dan menafsirkan metrik |
+| L4 | Menganalisis kesalahan model |
+| L5 | Menulis *model card* dan analisis keterbatasan |
+| L6 | Mengerjakan kuis, UTS, dan UAS (tidak boleh sama sekali) |
 
-Log yang mencantumkan AI pada salah satu dari empat baris itu dikembalikan, dan pekerjaannya dinilai ulang sesuai ketentuan integritas akademik pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md).
+Log yang mencantumkan AI pada salah satu butir L1–L5 dikembalikan; konsekuensinya mengikuti tabel acuan [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai). Memakai AI tanpa mencatatnya adalah pelanggaran integritas akademik.
 
 ---
 

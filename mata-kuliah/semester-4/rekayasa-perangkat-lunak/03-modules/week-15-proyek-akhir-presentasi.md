@@ -133,17 +133,9 @@ Common Demo Day Mistakes:
 
 ### 15.3 Rubrik Penilaian Proyek Akhir
 
-Rentang kolom mengelompokkan huruf mutu menurut kategori pada [registri konversi nilai](../../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI): Sangat Baik (A, A−), Baik (B+, B, B−), dan Cukup (C+, C).
+Proyek akhir dinilai dengan **satu rubrik resmi**, yaitu [Rubrik Penilaian pada Panduan Proyek Akhir](../05-assessments/project-guidelines.md#rubrik-penilaian) (delapan komponen, total 100%; bobotnya sama dengan [RTM §G — Rubrik Proyek](../02-rtm/rtm-rekayasa-perangkat-lunak.md#rubrik-proyek-100-poin)). Modul ini tidak memuat rubrik tersendiri; dalam *briefing* Demo Day, dosen menayangkan rubrik resmi tersebut. Nilai akhir dikonversi ke huruf mutu menurut [registri konversi nilai](../../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI).
 
-| Kriteria | Bobot | Deskripsi | A, A− (78-100) | B+, B, B− (65-77,99) | C+, C (55-64,99) |
-|----------|-------|-----------|----------------|----------------------|------------------|
-| **Fungsionalitas** | 25% | Fitur berjalan sesuai requirements | Semua fitur utama berjalan, UX baik | Sebagian besar fitur jalan | Fitur minimal |
-| **Kualitas Kode** | 20% | Clean code, design patterns, testing | Coverage >= 70%, SOLID applied | Coverage >= 50%, kode bersih | Coverage < 50% |
-| **Proses SE** | 20% | Agile/Scrum, Git flow, code review, CI/CD | 4 sprint lengkap, pipeline hijau | 3 sprint, CI/CD ada | Sprint tidak teratur |
-| **Presentasi** | 15% | Komunikasi, demo, Q&A | Demo lancar, Q&A solid | Demo baik, Q&A cukup | Demo bermasalah |
-| **AI Integration** | 10% | Penggunaan AI efektif, bertanggung jawab | AI Usage Log lengkap, reflektif | Log ada, cukup detail | Log minimal |
-| **Dokumentasi** | 10% | README, API docs, SRS, UML | Lengkap dan terstruktur | Ada tapi kurang detail | Minimal |
-| **Total** | **100%** | | | | |
+Saat mempersiapkan demo, petakan setiap butir *Demo Day Checklist* (§15.2) ke komponen rubrik resmi — misalnya *Test Suite* → *Testing*, *CI/CD Pipeline* → *DevOps & Deployment*, *AI Usage Log* → *AI Integration & Usage Log* — agar tidak ada komponen yang terlewat.
 
 ### 15.4 Peer Review Form
 

@@ -940,7 +940,7 @@ software interface, dan communication interface.
 1. Gunakan ChatGPT/Claude untuk generate 10 FR untuk "Sistem Kantin UAI"
 2. Review setiap requirement: apakah memenuhi 6 kriteria (jelas, testable, konsisten, lengkap, feasible, traceable)?
 3. Perbaiki requirements yang tidak memenuhi kriteria
-4. Catat di **AI Usage Log**: prompt yang digunakan, output AI, modifikasi yang dilakukan, refleksi
+4. Catat di **AI Usage Log** ([Lampiran C](lampiran.md#lampiran-c-template-ai-usage-log)): prompt yang digunakan, output AI, evaluasi, modifikasi yang dilakukan, refleksi
 
 ---
 

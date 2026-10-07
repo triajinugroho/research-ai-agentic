@@ -15,9 +15,10 @@
 | Durasi | 100 menit |
 | Sifat | *Closed book* |
 | Cakupan | Minggu 1–7 |
-| Alat bantu diizinkan | Kalkulator ilmiah non-programmable, alat tulis |
-| Disediakan pengawas | Tabel distribusi Normal baku, tabel-t |
-| Dilarang | Telepon genggam, jam pintar, laptop, catatan, **AI dalam bentuk apa pun** |
+| Alat bantu diizinkan | Kalkulator ilmiah *non-programmable* dan alat tulis |
+| Disediakan pengawas | Tabel distribusi Normal baku dan tabel-t, dibagikan bersama lembar soal |
+| Rumus | **Tidak disediakan** — hafalkan [daftar rumus §7](#7-daftar-rumus-yang-harus-dihafal) |
+| Dilarang | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 
 ---
 
@@ -196,7 +197,7 @@ Mengikuti kriteria `PS-Sub-CPMK102-1`: *ketepatan prosedur; kesesuaian grafik; v
 
 ## 7. Daftar Rumus yang Harus Dihafal
 
-Tabel distribusi disediakan; rumus berikut **tidak** disediakan.
+Tabel distribusi Normal baku dan tabel-t dibagikan pengawas bersama lembar soal; rumus berikut **tidak** disediakan (lihat [§1 Ketentuan Ujian](#1-ketentuan-ujian)).
 
 | Konsep | Rumus |
 |--------|-------|
@@ -254,7 +255,7 @@ Tabel distribusi disediakan; rumus berikut **tidak** disediakan.
 
 1. Kerjakan **seluruh Latihan Soal tingkat Dasar** dari Bab 1–7 tanpa melihat kunci.
 2. Kerjakan ulang soal **Kuis 1 dan Kuis 2** — soal UTS bergaya serupa.
-3. Latih **membaca tabel Normal secara manual** minimal 10 soal; ini sering menjadi penentu.
+3. Latih **membaca tabel Normal secara manual** minimal 10 soal memakai [Lampiran A.1 buku ajar](../06-buku-ajar/lampiran.md#a1-tabel-z--distribusi-normal-standar); ini sering menjadi penentu.
 4. Untuk setiap soal probabilitas, biasakan menulis "diketahui–ditanya" dalam notasi.
 5. Kerjakan soal Latihan tingkat Menengah dan Mahir sebagai pemantapan.
 6. **Jangan** hanya membaca; statistika dikuasai dengan mengerjakan.

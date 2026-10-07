@@ -159,30 +159,34 @@ Jaringan 2-2-1, aktivasi sigmoid, satu contoh: $x = [1, 0]$, target $y = 1$.
 | Masukan → tersembunyi | $w_{11}=0{,}5$, $w_{12}=0{,}3$, $w_{21}=0{,}2$, $w_{22}=0{,}4$; bias $b_1 = b_2 = 0$ |
 | Tersembunyi → keluaran | $v_1 = 0{,}6$, $v_2 = 0{,}7$; bias $c = 0$ |
 
+**Konvensi pembulatan:** setiap nilai dihitung dengan presisi penuh dari nilai sebelumnya, lalu **ditampilkan dalam 4 desimal** — sama dengan Bab 12 §12.4.2 dan keluaran kode Lab 13. Bila Anda membulatkan di setiap langkah, digit keempat dapat bergeser ±0,0001.
+
 **Langkah maju:**
 
 $$z_1 = 0{,}5(1) + 0{,}2(0) + 0 = 0{,}5 \qquad h_1 = \sigma(0{,}5) = 0{,}6225$$
 $$z_2 = 0{,}3(1) + 0{,}4(0) + 0 = 0{,}3 \qquad h_2 = \sigma(0{,}3) = 0{,}5744$$
 $$z_{\text{out}} = 0{,}6(0{,}6225) + 0{,}7(0{,}5744) = 0{,}3735 + 0{,}4021 = 0{,}7756$$
-$$\hat{y} = \sigma(0{,}7756) = 0{,}6848$$
+$$\hat{y} = \sigma(0{,}7756) = 0{,}6847$$
 
-**Loss (MSE):** $L = (1 - 0{,}6848)^2 = 0{,}0994$
+**Loss (MSE):** $L = (1 - 0{,}6847)^2 = 0{,}0994$
 
 **Langkah mundur:**
 
-$$\frac{\partial L}{\partial \hat{y}} = -2(y - \hat{y}) = -2(0{,}3152) = -0{,}6304$$
-$$\sigma'(z_{\text{out}}) = \hat{y}(1-\hat{y}) = 0{,}6848(0{,}3152) = 0{,}2158$$
-$$\delta_{\text{out}} = -0{,}6304 \times 0{,}2158 = -0{,}1360$$
+$$\frac{\partial L}{\partial \hat{y}} = -2(y - \hat{y}) = -2(0{,}3153) = -0{,}6305$$
+$$\sigma'(z_{\text{out}}) = \hat{y}(1-\hat{y}) = 0{,}6847(0{,}3153) = 0{,}2159$$
+$$\delta_{\text{out}} = -0{,}6305 \times 0{,}2159 = -0{,}1361$$
 
-$$\frac{\partial L}{\partial v_1} = \delta_{\text{out}} \cdot h_1 = -0{,}1360 \times 0{,}6225 = -0{,}0847$$
-$$\frac{\partial L}{\partial v_2} = \delta_{\text{out}} \cdot h_2 = -0{,}1360 \times 0{,}5744 = -0{,}0781$$
+(Dari angka bulat, $-2 \times 0{,}3153 = -0{,}6306$; presisi penuh $1-\hat{y} = 0{,}31527\ldots$ memberi $-0{,}6305$.)
+
+$$\frac{\partial L}{\partial v_1} = \delta_{\text{out}} \cdot h_1 = -0{,}1361 \times 0{,}6225 = -0{,}0847$$
+$$\frac{\partial L}{\partial v_2} = \delta_{\text{out}} \cdot h_2 = -0{,}1361 \times 0{,}5744 = -0{,}0782$$
 
 **Pembaruan bobot ($\eta = 0{,}1$):**
 
 $$v_1 \leftarrow 0{,}6 - 0{,}1(-0{,}0847) = 0{,}6085$$
-$$v_2 \leftarrow 0{,}7 - 0{,}1(-0{,}0781) = 0{,}7078$$
+$$v_2 \leftarrow 0{,}7 - 0{,}1(-0{,}0782) = 0{,}7078$$
 
-Keduanya naik — tepat sebagaimana diharapkan, karena prediksi (0,6848) masih di bawah target (1).
+Keduanya naik — tepat sebagaimana diharapkan, karena prediksi (0,6847) masih di bawah target (1).
 
 > Perhitungan semacam ini muncul pada UAS. Yang diuji adalah **pemahaman alurnya**, bukan kecepatan berhitung; angka dipilih agar dapat dikerjakan dengan kalkulator biasa.
 
@@ -203,7 +207,7 @@ model = Pipeline([
         alpha=1e-4,                    # regularisasi L2
         learning_rate_init=1e-3,
         max_iter=500,
-        early_stopping=True,           # berhenti bila validasi tidak membaik
+        early_stopping=True,           # berhenti bila AKURASI validasi tidak membaik
         n_iter_no_change=20,
         random_state=42,
     )),
@@ -213,9 +217,9 @@ model = Pipeline([
 | Hiperparameter | Pengaruh |
 |----------------|----------|
 | `hidden_layer_sizes` | Kapasitas model; makin besar makin rawan *overfit* |
-| `alpha` | Regularisasi L2 |
+| `alpha` | Regularisasi L2; nilai lebih besar meredam *overfitting* |
 | `learning_rate_init` | Ukuran langkah; terlalu besar membuat *loss* tidak stabil |
-| `early_stopping` | **Sangat disarankan** — mencegah *overfitting* |
+| `early_stopping` | **Disarankan** bila kelas cukup seimbang — mencegah *overfitting*; pada data tak seimbang, periksa dulu (lihat catatan di bawah) |
 
 #### 13.5.1 Memeriksa Kurva *Loss*
 
@@ -234,7 +238,10 @@ plt.xlabel("Iterasi"); plt.legend()
 | Turun mantap lalu mendatar | Normal |
 | Naik-turun tajam | Laju pembelajaran terlalu besar |
 | Turun sangat lambat | Laju terlalu kecil, atau data belum diskalakan |
-| Latih terus turun, validasi naik | *Overfitting* — aktifkan `early_stopping` |
+| Latih terus turun, validasi naik | *Overfitting* — aktifkan `early_stopping` atau perbesar `alpha` |
+| Akurasi validasi datar di sekitar proporsi kelas mayoritas | `early_stopping` tidak dapat bekerja — lihat catatan di bawah |
+
+> **Catatan — `early_stopping` pada data tak seimbang.** `early_stopping` di `MLPClassifier` memantau **akurasi** pada `validation_fraction`, lalu memulihkan bobot dari iterasi dengan akurasi validasi tertinggi. Bila kelas positif hanya ±11%, menebak kelas mayoritas saja sudah memberi akurasi ±89% sejak iterasi pertama. Akurasi validasi lalu datar: pelatihan berhenti terlalu dini, dan yang dipulihkan bisa bobot iterasi pertama. Menaikkan `n_iter_no_change` tidak selalu menolong. Pilihan yang lebih aman: matikan `early_stopping` dan andalkan `alpha` yang lebih kuat, atau pantau metrik lain (*log-loss*, ROC-AUC). Rinciannya ada di [Bab 12 §12.5.2](../06-buku-ajar/bab-12-pengantar-jaringan-saraf-tiruan.md#1252-catatan-early_stopping-pada-data-tak-seimbang); buktinya ada di Lab 13 Langkah 5, dengan ROC-AUC validasi silang ±0,44 — lebih buruk daripada tebakan acak.
 
 ---
 
@@ -276,7 +283,7 @@ Karena itu Lab 13 secara khusus meminta mahasiswa membandingkan MLP dengan *Rand
 | Demonstrasi | 35' | `MLPClassifier`; membaca kurva *loss*; **membandingkan dengan Random Forest** |
 | Penutup | 25' | Kapan JST tidak diperlukan; kaitan dengan IF52510032; penugasan |
 
-**Demonstrasi yang wajib:** pada data tabular yang sama, tampilkan hasil *Random Forest* dan MLP berdampingan, lengkap dengan waktu pelatihan. Bila RF menang — yang sering terjadi — itulah pelajarannya, bukan kegagalan demonstrasi.
+**Demonstrasi yang wajib:** pada data tabular yang sama, tampilkan hasil *Random Forest*, MLP, dan *baseline* regresi logistik berdampingan, lengkap dengan waktu pelatihan dan **selisih berpasangan per lipatan** ($\bar d$, $s_d$ dengan `ddof=1`, $SE = s_d/\sqrt{k}$; aturan praktis $|\bar d| > 2 \cdot SE$ — [Bab 12 §12.6.2](../06-buku-ajar/bab-12-pengantar-jaringan-saraf-tiruan.md#1262-membandingkan-dua-model-skor-berpasangan)). Apa pun pemenangnya, itulah pelajarannya, bukan kegagalan demonstrasi. Pada data sintetis Lab 13, yang labelnya dibangkitkan dari rumus logistik yang mulus, MLP dan regresi logistik setara dan mengungguli model pohon. Pada data tabular tipikal, model pohon sering menang. Dua kemungkinan itu sama-sama sah. Satu hal yang **bukan** hasil perbandingan: MLP dengan ROC-AUC di bawah 0,5. Itu tanda pelatihannya gagal (periksa `early_stopping`).
 
 ### Setelah Kelas (120 menit)
 
@@ -292,7 +299,7 @@ Karena itu Lab 13 secara khusus meminta mahasiswa membandingkan MLP dengan *Rand
 | Aspek | Ketentuan |
 |-------|-----------|
 | Luaran | Notebook Colab + perhitungan manual |
-| Isi | (a) **Perhitungan manual** satu langkah maju dan mundur jaringan 2-2-1, diverifikasi dengan kode; (b) `MLPClassifier` dengan `early_stopping`; (c) Kurva *loss* beserta diagnosisnya; (d) Pengaruh tiga nilai laju pembelajaran yang berbeda; (e) **Perbandingan MLP dan *Random Forest*** pada data yang sama, dengan waktu pelatihan; (f) Kesimpulan jujur tentang model mana yang lebih sesuai untuk data itu |
+| Isi | (a) **Perhitungan manual** satu langkah maju dan mundur jaringan 2-2-1, diverifikasi dengan kode; (b) `MLPClassifier` dengan pengendalian *overfitting* (`alpha`, `early_stopping`), termasuk pemeriksaan apakah `early_stopping` bekerja pada data tak seimbang; (c) Kurva *loss* beserta diagnosisnya; (d) Pengaruh tiga nilai laju pembelajaran yang berbeda; (e) **Perbandingan MLP dan *Random Forest*** pada data yang sama, dengan waktu pelatihan dan selisih berpasangan per lipatan; (f) Kesimpulan jujur tentang model mana yang lebih sesuai untuk data itu |
 | Tenggat | Awal pertemuan Minggu 14 |
 | Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 
@@ -308,7 +315,7 @@ Karena itu Lab 13 secara khusus meminta mahasiswa membandingkan MLP dengan *Rand
 6. *Backpropagation* menyebarkan gradien mundur dengan aturan rantai.
 7. **Laju pembelajaran terlalu besar** membuat *loss* naik-turun; terlalu kecil membuatnya sangat lambat.
 8. **JST wajib diskalakan** dan sangat peka terhadapnya.
-9. `early_stopping` adalah pertahanan utama terhadap *overfitting*.
+9. `early_stopping` dan regularisasi `alpha` adalah pertahanan utama terhadap *overfitting*. `early_stopping` bawaan memantau **akurasi** validasi, sehingga pada data tak seimbang ia dapat menipu.
 10. **Pada data tabular, metode berbasis pohon masih sering mengungguli JST.** JST unggul pada data tak terstruktur — cakupan mata kuliah lain.
 
 ---
@@ -319,7 +326,7 @@ Karena itu Lab 13 secara khusus meminta mahasiswa membandingkan MLP dengan *Rand
 2. Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*, Bab 6. MIT Press.
 3. Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning Representations by Back-Propagating Errors. *Nature*, 323, 533–536.
 4. Minsky, M., & Papert, S. (1969). *Perceptrons*. MIT Press.
-5. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Tabular Data? *NeurIPS*.
+5. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Typical Tabular Data? *NeurIPS 2022 (Datasets and Benchmarks Track)*.
 6. Dokumentasi scikit-learn — *Neural network models*. <https://scikit-learn.org/stable/modules/neural_networks_supervised.html>
 ---
 

@@ -134,7 +134,7 @@ Usaha yang gagal sering gagal karena mengabaikan lapis kedua dan ketiga sambil t
 |--------|-----------|
 | Badan Pusat Statistik | Data perilaku dan ekonomi |
 | Laporan e-Conomy SEA (Google/Temasek/Bain) | Lanskap ekonomi digital Asia Tenggara |
-| Kementerian Koperasi dan UKM | Kondisi UMKM |
+| Kementerian UMKM (sebelum Oktober 2024: Kementerian Koperasi dan UKM) | Kondisi UMKM |
 | Google Trends Indonesia | Perubahan perhatian publik |
 | Media teknologi lokal | Perkembangan ekosistem |
 | **Percakapan dengan pelaku** | **Yang paling akurat, dan paling jarang dipakai** |
@@ -283,7 +283,7 @@ Nomor ganjil adalah solusi; nomor genap adalah ranah. Diskusi berlanjut: untuk t
 2. Ries, E. (2011). *The Lean Startup*, Bab 1–3. Crown Business.
 3. Google, Temasek, & Bain (terbitan terbaru). *e-Conomy SEA Report*.
 4. Badan Pusat Statistik. *Statistik E-Commerce Indonesia*. <https://www.bps.go.id>
-5. Kementerian Koperasi dan UKM RI. *Statistik UMKM*.
+5. Kementerian Usaha Mikro, Kecil, dan Menengah RI (Kementerian UMKM; sebelum Oktober 2024 bagian dari Kementerian Koperasi dan UKM). *Data UMKM* (terbitan terbaru). <https://umkm.go.id>
 6. Tim Kurikulum Informatika UAI (2026). *AI Curriculum Infusion Matrix*.
 ---
 

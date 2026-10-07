@@ -32,7 +32,7 @@ Mata kuliah ini membekali mahasiswa dengan kemampuan **merumuskan masalah, memba
 
 Cakupannya meliputi lanskap dan batas kemampuan AI; formulasi masalah dan daur hidup ML; prapemrosesan, pembagian data, dan rekayasa fitur; pembelajaran terbimbing untuk regresi dan klasifikasi beserta metriknya; pembelajaran tanpa supervisi; reduksi dimensi dan visualisasi kinerja model; pengantar jaringan saraf tiruan; serta AI generatif dan prinsip AI yang bertanggung jawab.
 
-Pembelajaran berbasis praktik dengan Python dan `scikit-learn` di Google Colab, dengan seluruh kasus memakai **konteks dan data Indonesia**. Mata kuliah berpuncak pada proyek kelompok yang menghasilkan model, dokumentasi (*model card*), dan analisis keterbatasan.
+Pembelajaran berbasis praktik dengan Python dan `scikit-learn` di Google Colab, dengan kasus-kasus **berkonteks Indonesia**. Sebagian besar praktikum memakai **data sintetis (simulasi) yang meniru pola Indonesia** — dinyatakan pada bagian Persiapan setiap lab — karena aturan pembangkitnya diketahui, sehingga dampak setiap konsep (kebocoran, regularisasi, *bias*) dapat diukur terhadap "kebenaran"-nya. Mata kuliah berpuncak pada proyek kelompok yang **wajib memakai data nyata** dan menghasilkan model, dokumentasi (*model card*), dan analisis keterbatasan; di sanalah mahasiswa menghadapi data yang berantakan tanpa kunci jawaban (§L).
 
 ### Yang Tidak Termasuk Cakupan
 
@@ -72,7 +72,7 @@ Pada Kurikulum 2025 Revisi 2026, **CPMK bersifat prodi-level** dan dipakai bersa
 
 ## E. SUB-CPMK
 
-Sub-CPMK adalah **pembeda mata kuliah** — tingkat inilah yang menerjemahkan CPMK prodi menjadi capaian khas mata kuliah ini. Rumusan, indikator, kriteria, dan bobot diambil verbatim dari [pemetaan kurikulum](../../../00-kurikulum-if-2025-revisi-2026/15d-subcpmk-tingkat-3-semester-5-6.md).
+Sub-CPMK adalah **pembeda mata kuliah** — tingkat inilah yang menerjemahkan CPMK prodi menjadi capaian khas mata kuliah ini. Rumusan, level Bloom, dan bobot diambil verbatim dari [pemetaan kurikulum](../../../00-kurikulum-if-2025-revisi-2026/15d-subcpmk-tingkat-3-semester-5-6.md); materi, indikator, dan kriteria **diadaptasi dari registri (diterjemahkan)** — istilah Inggris pada registri (mis. *correctness training*, *leakage*) diterjemahkan tanpa mengubah maknanya.
 
 ### `DAIML-Sub-CPMK082-1` — Bobot **60%**
 
@@ -150,7 +150,7 @@ Kurikulum menetapkan dua Sub-CPMK untuk 16 minggu. Agar dapat dioperasikan per p
 | Sub-CPMK / ICM | `DAIML-Sub-CPMK102-1` / ICM-03 |
 | Bahan kajian | Kualitas data; nilai hilang; pencilan; penyandian kategorik; penskalaan; `Pipeline` dan `ColumnTransformer` |
 | Bentuk pembelajaran | Kuliah · Demonstrasi · Praktikum |
-| Pengalaman belajar | Membangun *pipeline* prapemrosesan utuh atas dataset BPS yang belum bersih |
+| Pengalaman belajar | Membangun *pipeline* prapemrosesan utuh atas data survei UMKM **sintetis (simulasi)** yang masalah kualitasnya sengaja disisipkan — bukan data resmi BPS |
 | Materi | [Modul Minggu 3](../03-modules/week-03-data-dan-prapemrosesan.md) · [Bab 3](../06-buku-ajar/bab-03-data-dan-prapemrosesan.md) · [Lab 3](../04-labs/lab-03-pipeline-prapemrosesan.md) |
 | Penilaian | Observasi (Lab 3) |
 
@@ -183,7 +183,7 @@ Kurikulum menetapkan dua Sub-CPMK untuk 16 minggu. Agar dapat dioperasikan per p
 | Sub-CPMK / ICM | `DAIML-Sub-CPMK082-1` / ICM-06 |
 | Bahan kajian | Regresi linear dan polinomial; regularisasi Ridge/Lasso; MAE, RMSE, R², MAPE; tukar-tambah bias–varians |
 | Bentuk pembelajaran | Kuliah · Turunan manual · Praktikum |
-| Pengalaman belajar | Membandingkan tiga model regresi pada data harga properti Jabodetabek dengan metrik yang tepat |
+| Pengalaman belajar | Membandingkan tiga model regresi pada data **sintetis** yang meniru pola harga properti Jabodetabek, dengan metrik yang tepat |
 | Materi | [Modul Minggu 6](../03-modules/week-06-regresi-dan-metriknya.md) · [Bab 6](../06-buku-ajar/bab-06-regresi-dan-metriknya.md) · [Lab 6](../04-labs/lab-06-model-regresi-dan-metrik.md) |
 | Penilaian | Observasi (Lab 6) |
 
@@ -237,7 +237,7 @@ Kurikulum menetapkan dua Sub-CPMK untuk 16 minggu. Agar dapat dioperasikan per p
 | Sub-CPMK / ICM | `DAIML-Sub-CPMK082-1` / ICM-10 |
 | Bahan kajian | K-Means; *hierarchical clustering*; DBSCAN; metrik *silhouette*, Davies-Bouldin, Calinski-Harabasz; penentuan jumlah klaster; deteksi anomali |
 | Bentuk pembelajaran | Kuliah · Praktikum · Interpretasi kelompok |
-| Pengalaman belajar | Segmentasi wilayah Indonesia berdasarkan indikator sosial-ekonomi BPS, lengkap dengan penafsiran tiap klaster |
+| Pengalaman belajar | Segmentasi provinsi Indonesia pada data **ilustratif (semi-sintetis)** berpola indikator sosial-ekonomi BPS, lengkap dengan penafsiran tiap klaster |
 | Materi | [Modul Minggu 11](../03-modules/week-11-pembelajaran-tanpa-supervisi.md) · [Bab 10](../06-buku-ajar/bab-10-pembelajaran-tanpa-supervisi.md) · [Lab 11](../04-labs/lab-11-clustering-dan-metriknya.md) |
 | Penilaian | Observasi (Lab 11) · **Milestone proyek 2 (P-02)** |
 
@@ -393,8 +393,8 @@ Mahasiswa dinyatakan lulus apabila memenuhi **seluruh** syarat berikut:
 ### Dokumen Kurikulum
 
 12. Tim Kurikulum Informatika UAI (2026). *Kurikulum Informatika 2025 — Revisi 2026*. Universitas Al Azhar Indonesia. → [registri di repositori ini](../../../00-kurikulum-if-2025-revisi-2026/README.md)
-13. ACM/IEEE-CS (2023). *Computer Science Curricula 2023*, Knowledge Area: Artificial Intelligence (AI).
-14. UNESCO (2024). *AI Competency Framework for Students*.
+13. ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023 (CS2023)*, Knowledge Area: Artificial Intelligence (AI). — [REG-10] pada [Pedoman OBE §B.2](../../../00-pedoman-obe/pedoman-obe-konvensi.md#b2-daftar-acuan)
+14. UNESCO (2026). *AI Competency Framework for Students* (pembaruan 16 Januari 2026). — [REG-9] pada [Pedoman OBE §B.2](../../../00-pedoman-obe/pedoman-obe-konvensi.md#b2-daftar-acuan)
 
 ---
 
@@ -410,12 +410,14 @@ Mata kuliah ini berstatus **mode Core** pada AI Curriculum Infusion Matrix. AI b
 | Memperbaiki galat dan menjelaskan dokumentasi | **Boleh** | Bukan yang dinilai |
 | Menyarankan jenis visualisasi | **Boleh** | Bukan yang dinilai |
 | Menyunting bahasa laporan | **Boleh** | Bukan yang dinilai |
-| **Memformulasikan masalah menjadi *task* ML** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
-| **Memilih model dan hiperparameter** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
-| **Memilih dan menafsirkan metrik** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
-| **Menganalisis kesalahan model** | **Tidak boleh** | Inti kedua Sub-CPMK |
-| **Menulis *model card* dan analisis keterbatasan** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
-| **Selama UTS dan UAS** | **Tidak boleh sama sekali** | Ujian *closed book* |
+| **L1. Memformulasikan masalah menjadi *task* ML** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L2. Memilih model dan hiperparameter** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L3. Memilih dan menafsirkan metrik** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L4. Menganalisis kesalahan model** | **Tidak boleh** | Inti kedua Sub-CPMK |
+| **L5. Menulis *model card* dan analisis keterbatasan** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L6. Selama kuis, UTS, dan UAS** | **Tidak boleh sama sekali** | Kuis dan ujian *closed book* |
+
+**Daftar larangan AI (acuan tunggal).** Butir **L1–L6** di atas adalah satu-satunya daftar larangan AI mata kuliah ini; [kerangka asesmen §8](../05-assessments/assessment-framework.md), RTM §I, dan [rubrik tugas §6](../05-assessments/rubrik-tugas.md) memakai daftar yang sama. Butir L1–L5 wajib tercatat "dikerjakan sendiri" pada setiap AI Usage Log; L6 berlaku di ruang kuis dan ujian. Konsekuensi pelanggarannya ada pada [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai).
 
 **AI Usage Log wajib** pada setiap lab dan seluruh tahap proyek. Formatnya ada pada [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md).
 
@@ -430,34 +432,22 @@ Kriteria kurikulum untuk `Sub-CPMK082-1` menyebut **reproduksibilitas eksperimen
 - Versi pustaka dicatat pada sel pertama.
 - Data dimuat dari tautan atau disertakan, bukan dari berkas lokal yang tidak ikut dikumpulkan.
 
-Notebook yang tidak dapat dijalankan ulang dikenai pengurangan nilai sebagaimana diatur pada [panduan proyek](../05-assessments/project-guidelines.md).
+Notebook yang tidak dapat dijalankan ulang dikenai pengurangan nilai menurut tabel acuan tunggal pada [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai).
 
 ### K.3 Kebocoran Data
 
-Kebocoran data pada pekerjaan yang dikumpulkan dikenai sanksi nilai. Ini bukan kekerasan yang berlebihan: kriteria kurikulum untuk `Sub-CPMK102-1` menyebut *"correctness preprocessing dan split"* sebagai kriteria penilaian, dan kebocoran adalah pelanggaran langsung atasnya.
-
-| Temuan | Konsekuensi |
-|--------|-------------|
-| Kebocoran pada lab | Lab dikembalikan untuk diperbaiki; dinilai sebagai terlambat |
-| Kebocoran pada milestone proyek | Wajib diperbaiki sebelum tahap berikutnya |
-| Kebocoran pada laporan akhir | Pengurangan hingga 30% nilai proyek |
+Kebocoran data pada pekerjaan yang dikumpulkan dikenai sanksi nilai. Ini bukan kekerasan yang berlebihan: kriteria kurikulum untuk `Sub-CPMK102-1` menyebut *"correctness preprocessing dan split"* sebagai kriteria penilaian, dan kebocoran adalah pelanggaran langsung atasnya. Konsekuensinya — berbeda untuk lab, milestone proyek, dan laporan akhir — ditetapkan pada tabel acuan tunggal [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai) dan tidak ditulis ulang di sini.
 
 ### K.4 Keterlambatan
 
-| Keterlambatan | Pengurangan |
-|---------------|-------------|
-| ≤ 24 jam | 10% |
-| 24–72 jam | 25% |
-| > 72 jam | Tidak dinilai (nilai 0) |
-
-Kecuali dengan alasan yang dapat diterima dan disampaikan **sebelum** tenggat.
+Pengurangan keterlambatan dan pengecualiannya (alasan yang dapat diterima dan disampaikan **sebelum** tenggat) mengikuti [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai).
 
 ### K.5 Kerja Kelompok
 
 - Proyek dikerjakan berkelompok 3–4 orang.
 - Lab dikerjakan **perorangan**, meski diskusi diperbolehkan.
 - Setiap anggota kelompok wajib memahami keseluruhan proyek; pertanyaan saat presentasi dapat diarahkan kepada siapa saja.
-- Pembagian peran dicatat dan dilaporkan; ketimpangan kontribusi yang nyata memengaruhi nilai perorangan.
+- Pembagian peran dicatat dan dilaporkan; ketimpangan kontribusi yang nyata memengaruhi nilai perorangan. Formulir kontribusi (A pada Minggu 11, B pada Minggu 15), rumus faktor kontribusi, dan verifikasinya ada pada [panduan proyek §10](../05-assessments/project-guidelines.md#10-kontribusi-anggota-kelompok-dan-nilai-perorangan).
 
 ---
 
@@ -468,7 +458,7 @@ Kecuali dengan alasan yang dapat diterima dan disampaikan **sebelum** tenggat.
 | Bentuk | Kelompok 3–4 orang |
 | Bobot | **35%** — komponen terbesar |
 | Luaran | Notebook yang dapat dijalankan ulang · Laporan 10–15 halaman · *Model card* · Presentasi |
-| Data | **Nyata**, berkonteks Indonesia, minimal 500 baris |
+| Data | **Nyata**, berkonteks Indonesia, minimal 500 baris — berbeda dari praktikum yang sebagian besar memakai data sintetis (§B) |
 | Cakupan wajib | Formulasi masalah · Prapemrosesan · *Baseline* · Minimal 3 model dibandingkan · Analisis kesalahan · Analisis *bias* |
 | Tahapan | P-00 (Mg 5) → P-01 (Mg 7) → P-02 (Mg 11) → P-03 (Mg 14) → P-04 (Mg 15) |
 | Rincian | [Panduan Proyek](../05-assessments/project-guidelines.md) |
@@ -527,6 +517,7 @@ Registri kurikulum tidak menetapkan prasyarat formal. Mata kuliah berikut ditemp
 | Versi | Tanggal | Perubahan |
 |-------|---------|-----------|
 | 1.0 | September 2026 | Penyusunan awal mengacu Kurikulum Informatika 2025 Revisi 2026 |
+| 1.1 | 7 Oktober 2026 | Penyelarasan tanpa mengubah bobot, Sub-CPMK, atau syarat lulus: sanksi merujuk satu tabel di kerangka asesmen §7; label data sintetis pada praktikum; formulir kontribusi kelompok; daftar larangan AI L1–L6; "diadaptasi dari registri"; sitasi CS2023 dan UNESCO [REG-9]/[REG-10] |
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

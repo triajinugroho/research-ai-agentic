@@ -2,7 +2,7 @@
 
 | Aspek | Keterangan |
 |-------|------------|
-| Minggu | 10 · Sub-CPMK `UAI22-1` · Bagian dari P-03 (25%) |
+| Minggu | 10 · Sub-CPMK `UAI22-1` · Tahapan P-03 (Unjuk Kerja, 25%) — tanpa bobot sendiri |
 | Durasi | 40' di kelas + pembangunan dan pengujian mandiri |
 | Luaran | MVP + rancangan eksperimen + catatan pengujian ≥ 5 orang |
 
@@ -14,6 +14,15 @@
 2. Memilih jenis MVP paling murah yang masih dapat mengujinya.
 3. Merancang eksperimen dengan ukuran keberhasilan yang ditetapkan lebih dahulu.
 4. Menguji MVP kepada minimal 5 orang di luar tim dan mendokumentasikannya.
+
+---
+
+## Persiapan
+
+- BMC dan VPC dari S-09, dengan asumsi yang belum teruji ditandai.
+- Daftar sedikitnya 5 calon peserta uji **di luar tim** yang sesuai persona, beserta janji waktunya.
+- Templat [kriteria keberhasilan MVP](../06-buku-ajar/lampiran.md#a6-kriteria-keberhasilan-mvp) dan [catatan harian pengujian](../06-buku-ajar/lampiran.md#a7-catatan-harian-pengujian).
+- Akun perkakas *no-code* atau purwarupa yang akan dipakai, bila jenis MVP membutuhkannya ([Lampiran D](../06-buku-ajar/lampiran.md#lampiran-d--perkakas-tanpa-biaya)).
 
 ---
 

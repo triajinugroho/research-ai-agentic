@@ -1,5 +1,7 @@
 # Roadmap Enhancement — Rekayasa Perangkat Lunak (IF2205 + IF2206)
 
+> **Dokumen historis — kurikulum lama (IF2205).** Roadmap ini mencatat peningkatan materi untuk kurikulum sebelumnya. Status "✅ v2.0 Complete" per 12 April 2026 **tidak lagi berlaku** untuk Kurikulum Informatika 2025 Revisi 2026, tempat mata kuliah ini berkode `IF52520011`: materi belum diselaraskan dengan Sub-CPMK dan bobot registri. Status penyelarasan dipantau di [KENDALI-EKSEKUSI](../../00-meta/KENDALI-EKSEKUSI.md), butir **T2-06**. Isi di bawah ini dipertahankan sebagai catatan historis.
+
 **Status:** ✅ v2.0 Complete — Enhancement selesai 12 April 2026
 **Terakhir diperbarui:** 12 April 2026
 

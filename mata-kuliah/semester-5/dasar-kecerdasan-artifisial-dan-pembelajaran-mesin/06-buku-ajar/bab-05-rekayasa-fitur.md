@@ -8,9 +8,9 @@
 
 | Sub-CPMK | Deskripsi Capaian | Level Bloom |
 |----------|-------------------|-------------|
-| `DAIML-Sub-CPMK102-1` | Merancang fitur baru dari data mentah dengan pengetahuan domain | C6 |
+| `DAIML-Sub-CPMK102-1` | Mengolah (C3/P2) data mentah menjadi fitur baru — waktu, rasio, agregat, geografis — dengan menerapkan pengetahuan domain | C3 / P2 |
 | `DAIML-Sub-CPMK102-1` | Menganalisis kontribusi tiap fitur terhadap kinerja validasi | C4 |
-| `DAIML-Sub-CPMK102-1` | Mengevaluasi apakah sebuah fitur menimbulkan kebocoran | C5 |
+| `DAIML-Sub-CPMK102-1` | Menganalisis apakah sebuah fitur menimbulkan kebocoran, dengan menguji ketersediaannya pada saat prediksi dibutuhkan | C4 |
 
 ---
 
@@ -192,7 +192,7 @@ Tiga cara menguranginya:
 
 ---
 
-## AI Corner — Tahap *Understand → Apply*
+## AI Corner — Tahap *Apply*
 
 ### Di Mana AI Berguna dan Di Mana Ia Menyesatkan
 

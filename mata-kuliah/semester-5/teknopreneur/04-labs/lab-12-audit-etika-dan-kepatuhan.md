@@ -2,7 +2,7 @@
 
 | Aspek | Keterangan |
 |-------|------------|
-| Minggu | 12 · Sub-CPMK `UAI22-1` · Bagian dari P-03 |
+| Minggu | 12 · Sub-CPMK `UAI22-1` · **Formatif**, tanpa bobot sendiri — tidak termasuk P-03 (tenggat Minggu 13); temuan ditindaklanjuti sebelum *Demo Day* (P-04) |
 | Durasi | 40' di kelas + 60' mandiri |
 | Luaran | Daftar periksa terisi + laporan temuan + analisis dampak |
 
@@ -14,6 +14,15 @@
 2. Mengenali pola gelap dalam rancangan sendiri.
 3. Menganalisis dampak usaha terhadap pihak yang tidak menjadi pengguna.
 4. Menyusun rencana perbaikan yang konkret.
+
+---
+
+## Persiapan
+
+- Tautan atau berkas MVP dan seluruh alur produk, dari pendaftaran sampai pembatalan.
+- Daftar setiap data yang dikumpulkan — dari formulir produk, spreadsheet, dan catatan wawancara tim.
+- Daftar pustaka perangkat lunak, aset visual, dan nama usaha yang dipakai — bahan audit legalitas.
+- Daftar periksa audit etika [Lampiran B.2–B.4](../06-buku-ajar/lampiran.md#b2-audit-etika--gharar); Bab 11 buku ajar sudah dibaca.
 
 ---
 

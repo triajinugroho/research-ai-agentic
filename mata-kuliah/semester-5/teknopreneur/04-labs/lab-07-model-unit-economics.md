@@ -4,7 +4,7 @@
 |-------|------------|
 | Minggu | 7 · Sub-CPMK `UAI21-1` · Bobot 6,25% (Observasi) |
 | Durasi | 45' di kelas + 90' mandiri |
-| Luaran | Spreadsheet model + daftar risiko + **Milestone 2 (P-02)** |
+| Luaran | Spreadsheet model + daftar risiko (S-07, tenggat awal pertemuan Minggu 9) + **Milestone 2 (P-02, tenggat akhir Minggu 7)** |
 
 ---
 
@@ -14,6 +14,15 @@
 2. Menghitung CAC, LTV, margin kotor, dan *payback period*.
 3. Melakukan analisis sensitivitas pada asumsi utama.
 4. Menyusun daftar risiko dengan tanda awal dan mitigasi.
+
+---
+
+## Persiapan
+
+- Spreadsheet S-05 (SOM, harga kompetitor) dan dokumen kelayakan S-06 (beban operasional per 100 pengguna, biaya pihak ketiga).
+- Kutipan wawancara berkode tentang harga dan kesediaan membayar.
+- Catatan waktu yang dihabiskan tim untuk menjangkau narasumber sejauh ini — dasar menghitung waktu tim dalam CAC.
+- Berkas S-05 dan S-06 yang sudah dikumpulkan — keduanya dihimpun menjadi P-02 pada Langkah 6.
 
 ---
 
@@ -135,6 +144,8 @@ Minimal **8 risiko**, mencakup sekurang-kurangnya lima kategori:
 
 ### LANGKAH 6: Menyusun Milestone 2
 
+P-02 menghimpun **S-05 dan S-06** — keduanya sudah jatuh tempo. Model *unit economics* dan daftar risiko studio ini (S-07) **tidak** termasuk P-02 karena tenggatnya Minggu 9 (Minggu 8 adalah UTS). Kesimpulan kelayakan di bawah bersifat sementara: bila angka S-07 mengubahnya, catat di jurnal keputusan dan nyatakan pada bagian "apa yang berubah sejak Milestone 2" di laporan P-03.
+
 ```markdown
 # Milestone 2 — Bukti Kelayakan
 
@@ -144,9 +155,8 @@ Minimal **8 risiko**, mencakup sekurang-kurangnya lima kategori:
 |-------|-------|
 | Total wawancara sampai titik ini | (minimal 12) |
 | SOM tahun kedua (rentang) | |
-| Margin kotor | |
-| LTV/CAC | |
 | Beban operasional per 100 pengguna | ... jam/bulan |
+| Ketergantungan pihak ketiga yang kritis | |
 
 ## 2. Temuan Kelayakan
 
@@ -156,13 +166,12 @@ Minimal **8 risiko**, mencakup sekurang-kurangnya lima kategori:
 | Kompetitor | | S-05 |
 | Teknologi | | S-06 |
 | Operasional | | S-06 |
-| Finansial | | S-07 |
 
-## 3. Tiga Risiko Terbesar
+## 3. Tiga Titik Kegagalan Terbesar
 
-| Risiko | Mengapa terbesar | Tanda awal | Mitigasi |
-|--------|------------------|------------|----------|
-|        |                  |            |          |
+| Titik kegagalan | Mengapa terbesar | Tanda awal | Mitigasi |
+|-----------------|------------------|------------|----------|
+|                 |                  |            |          |
 
 ## 4. Asumsi yang Paling Tidak Pasti
 
@@ -178,7 +187,7 @@ Minimal **8 risiko**, mencakup sekurang-kurangnya lima kategori:
 
 ## 6. Lampiran
 
-Seluruh berkas S-05, S-06, S-07 + catatan wawancara + AI Usage Log
+Seluruh berkas S-05 dan S-06 + catatan wawancara + AI Usage Log
 ```
 
 ---

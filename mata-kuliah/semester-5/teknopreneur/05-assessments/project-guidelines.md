@@ -43,11 +43,13 @@ Seluruh mata kuliah berpusat pada **satu usaha teknologi** yang dibangun tiap ke
 | Tahap | Kode | Mg | Luaran | Bobot |
 |-------|------|----|--------|-------|
 | Ranah dan tim | P-00 | 1 | Formulir + presentasi 3' | **Prasyarat** |
-| Bukti masalah | P-01 | 4 | ≥ 8 wawancara + persona + matriks | *(dalam Observasi)* |
-| Bukti kelayakan | P-02 | 7 | ≥ 12 wawancara + pasar + kelayakan + *unit economics* | *(dalam Observasi)* |
+| Bukti masalah | P-01 | 4 | ≥ 8 wawancara + persona + peta perjalanan (S-02, S-03) + pernyataan arah | *(dalam Observasi)* |
+| Bukti kelayakan | P-02 | 7 | ≥ 12 wawancara + pasar + kelayakan teknologi dan operasional (S-05, S-06) + kesimpulan kelayakan | *(dalam Observasi)* |
 | **BMC + MVP + GTM** | P-03 | 11 | Laporan + MVP teruji | **25%** |
 | ***Pitch* dan *Demo Day*** | P-04 | 15 | *Deck* + presentasi | **10%** |
 | Bukti kolaborasi | P-05 | 15 | Catatan *sprint* + penilaian sejawat | **5%** |
+
+> **Cakupan tiap tahap.** Sebuah tahap hanya menghimpun studio yang tenggatnya **tidak lebih lambat** dari tenggat tahap itu. Matriks kebutuhan → persyaratan (S-04, tenggat Mg 5) dan model *unit economics* beserta daftar risiko (S-07, tenggat Mg 9 karena Mg 8 UTS) dinilai sebagai studio tersendiri; audit etika (S-12, tenggat Mg 13) bersifat formatif dan ditindaklanjuti sebelum *Demo Day*. Rincian tenggat: [RTM §B](../02-rtm/rtm-teknopreneur.md#b-ringkasan-seluruh-tugas).
 
 ---
 
@@ -93,9 +95,10 @@ Seluruh mata kuliah berpusat pada **satu usaha teknologi** yang dibangun tiap ke
 | Catatan wawancara | **Minimal 8**, dengan kutipan verbatim |
 | Persona dan JTBD | Keterlacakan penuh ke kutipan |
 | Peta perjalanan | Dengan baris bukti |
-| Matriks kebutuhan → persyaratan | Tanpa persyaratan yatim |
 | **Ringkasan "apa yang berbeda"** | 1 halaman — **wajib** |
 | **Pernyataan arah** | Lanjut / persempit / ubah fokus / ganti ranah |
+
+Matriks kebutuhan → persyaratan (S-04, "tanpa persyaratan yatim") dikumpulkan terpisah pada Minggu 5 dan disusun di atas arah yang dinyatakan di sini.
 
 ### 5.2 Tentang Pernyataan Arah
 
@@ -117,16 +120,16 @@ Seluruh mata kuliah berpusat pada **satu usaha teknologi** yang dibangun tiap ke
 | Perhitungan pasar | ***Bottom-up*** dengan sumber; analisis sensitivitas |
 | Peta kompetitor | ≥ 5, termasuk **tidak langsung dan alternatif non-produk** |
 | Penilaian kelayakan | Teknis, operasional, **beban per 100 pengguna** |
-| Model *unit economics* | CAC (termasuk waktu tim), LTV, margin, *payback*, **sensitivitas 3 asumsi** |
-| Daftar risiko | ≥ 8, dengan **tanda awal** dan mitigasi |
 | Catatan wawancara | **Minimal 12** kumulatif |
-| **Kesimpulan kelayakan** | Lanjut / ubah arah / **hentikan** — berbasis angka |
+| **Kesimpulan kelayakan** | Lanjut / ubah arah / **hentikan** — berbasis angka pasar dan beban teknologi-operasional |
+
+Model *unit economics* (CAC termasuk waktu tim, LTV, margin, *payback*, **sensitivitas 3 asumsi**) dan daftar risiko (≥ 8, dengan **tanda awal** dan mitigasi) adalah S-07, yang jatuh tempo Minggu 9. Bila angkanya mengubah kesimpulan kelayakan, perubahan itu dicatat di jurnal keputusan dan dinyatakan di laporan P-03.
 
 ---
 
 ## 7. P-03 — BMC, MVP, dan *Go-to-Market* (Minggu 11) — 25%
 
-Komponen terbesar. Menelusur ke `TEKNO-Sub-CPMKUAI22-1`.
+Komponen terbesar. Menelusur ke `TEKNO-Sub-CPMKUAI22-1`. Menghimpun Studio 9–11; audit etika (Studio 12) jatuh tempo sesudahnya sehingga tidak termasuk P-03.
 
 ### 7.1 Tiga Luaran
 
@@ -156,8 +159,7 @@ Ditambah **laporan ringkas** yang menghubungkan ketiganya dan memeriksa konsiste
 |-------------|-----------|
 | BMC ↔ MVP | Apakah MVP menguji proposisi nilai yang ada di BMC? |
 | MVP ↔ GTM | Apakah segmen awal sama dengan peserta pengujian? |
-| GTM ↔ *unit economics* | Apakah CAC yang direncanakan sesuai perhitungan P-02? |
-| BMC ↔ audit etika | Apakah temuan audit sudah ditindaklanjuti dalam rancangan? |
+| GTM ↔ *unit economics* | Apakah CAC yang direncanakan sesuai perhitungan S-07? |
 
 ### 7.4 Rubrik P-03 (25%)
 
@@ -196,6 +198,8 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS11-1`. Rincian ada pada [Modul Minggu 15](../03-
 | Tanya jawab | 10 menit |
 | Pembicara | **Setiap anggota wajib berbicara** |
 | Penguji | Dosen + minimal 1 praktisi/alumni dari luar |
+| Peran penguji luar | Mengajukan pertanyaan dan memberi umpan balik; **nilai P-04 ditetapkan dosen pengampu** dengan mempertimbangkan masukan itu |
+| Tindak lanjut audit etika | Temuan S-12 yang paling perlu ditangani beserta tindak lanjutnya disiapkan untuk tanya jawab (pertanyaan tentang risiko terbesar) |
 
 ### 8.2 Rubrik P-04 (10%)
 
@@ -304,8 +308,7 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS12-1`.
 - [ ] Ukuran mencakup **retensi**
 
 **Konsistensi dan Integritas**
-- [ ] Empat pemeriksaan konsistensi §7.3
-- [ ] Temuan audit etika ditindaklanjuti
+- [ ] Tiga pemeriksaan konsistensi §7.3
 - [ ] ≥ 12 wawancara terdokumentasi
 - [ ] AI Usage Log lengkap, dengan **empat baris "dikerjakan sendiri"**
 

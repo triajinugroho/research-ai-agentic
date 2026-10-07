@@ -329,7 +329,7 @@ else:
 ### Sebelum Kelas (Mandiri — 60 menit)
 
 1. Membaca [Bab 7 buku ajar](../06-buku-ajar/bab-07-distribusi-kontinu-normal.md).
-2. Menyiapkan tabel distribusi Normal baku (dibagikan di LMS) — akan dipakai saat UTS.
+2. Menyiapkan tabel distribusi Normal baku untuk latihan ([Lampiran A.1 buku ajar](../06-buku-ajar/lampiran.md#a1-tabel-z--distribusi-normal-standar)). Saat UTS, tabel berformat sama **dibagikan pengawas** bersama lembar soal — tabel sendiri tidak dibawa (lihat [ketentuan UTS](../05-assessments/kisi-kisi-uts.md#1-ketentuan-ujian)).
 3. Mencatat: mengapa luas di bawah kurva PDF harus sama dengan 1?
 
 ### Di Kelas (150 menit)

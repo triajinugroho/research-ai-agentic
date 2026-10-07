@@ -474,11 +474,7 @@ Sebelum meninggalkan lab, isi refleksi berikut di file `docs/refleksi-lab-01.md`
 2. **Apa yang masih membingungkan?** (minimal 1 poin)
 3. **Bagaimana ini relevan dengan proyek akhir?**
 
-Jika menggunakan AI (ChatGPT, Copilot, Claude) selama lab, catat di **AI Usage Log**:
-
-| Prompt yang Diberikan | Output AI | Modifikasi yang Dilakukan | Refleksi |
-|----------------------|-----------|--------------------------|----------|
-| (contoh prompt) | (ringkasan output) | (apa yang diubah/ditambah) | (apa yang dipelajari) |
+Jika menggunakan AI (ChatGPT, Copilot, Claude) selama lab, catat di **AI Usage Log** dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Simpan log di bagian akhir berkas refleksi `docs/refleksi-lab-01.md`.
 
 ---
 

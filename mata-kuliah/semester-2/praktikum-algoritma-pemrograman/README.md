@@ -11,6 +11,10 @@
 
 ---
 
+> **Kode resmi dan penyusun materi.** Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini tercatat sebagai **Praktikum Algoritma Pemrograman** berkode `IF52520005` (semester 2, 1 SKS) menurut [registri](../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Seluruh materi — RPS, RTM, pedoman praktikum, modul praktikum, dan asesmen — disusun oleh **Tri Aji Nugroho, S.T., M.T.**, yang juga dosen pengampunya menurut registri. Materi di folder ini disusun untuk kurikulum sebelumnya (kode INF-102, nama "Praktikum Algoritma dan Pemrograman") dan perlu diselaraskan dengan registri — kode, CPMK dan Sub-CPMK, serta bobot penilaian — sebelum dipakai pada kurikulum baru; lihat butir T2-04 di [KENDALI-EKSEKUSI](../../00-meta/KENDALI-EKSEKUSI.md). Nama mata kuliah di materi menunggu keputusan D-11.
+
+---
+
 ## Filosofi
 
 Praktikum ini merupakan komponen hands-on dari MK Algoritma dan Pemrograman. Mahasiswa menerapkan konsep teori ke dalam kode Python di Google Colab.

@@ -9,20 +9,24 @@ Probabilitas dan Statistik (IF52510033) — Program Studi Informatika, Universit
 
 | Lampiran | Judul | Kegunaan |
 |----------|-------|----------|
-| [A](#lampiran-a-tabel-distribusi) | Tabel Distribusi | Dibawa saat UTS dan UAS |
-| [B](#lampiran-b-formularium) | Formularium | Dibawa saat UTS dan UAS |
+| [A](#lampiran-a-tabel-distribusi) | Tabel Distribusi | Latihan membaca tabel — **tidak dibawa** ke ruang ujian (tabel dibagikan pengawas) |
+| [B](#lampiran-b-formularium) | Formularium | Belajar dan menghafal rumus — **tidak dibawa** ke ruang ujian (rumus tidak disediakan) |
 | [C](#lampiran-c-pohon-keputusan-pemilihan-uji) | Pohon Keputusan Pemilihan Uji | Rujukan cepat saat analisis |
 | [D](#lampiran-d-pustaka-python-untuk-statistika) | Pustaka Python untuk Statistika | Rujukan praktikum dan proyek |
 | [E](#lampiran-e-glosarium) | Glosarium Istilah Statistika | Padanan Indonesia–Inggris |
 | [F](#lampiran-f-kesalahan-tafsir-yang-sering-terjadi) | Kesalahan Tafsir yang Sering Terjadi | Pemeriksaan sebelum menulis laporan |
 | [G](#lampiran-g-sumber-data-berkonteks-indonesia) | Sumber Data Berkonteks Indonesia | Bahan proyek |
-| [H](#lampiran-h-peta-bab-modul-praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
+| [H](#lampiran-h-peta-bab--modul--praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
 
-> **Ketentuan ujian:** Lampiran A dan B **boleh dibawa** saat UTS dan UAS dalam bentuk cetak. Lampiran lain tidak. Alat bantu AI **tidak diperkenankan** dalam bentuk apa pun selama ujian.
+> **Ketentuan ujian (UTS dan UAS):** *closed book*. **Alat bantu diizinkan:** kalkulator ilmiah *non-programmable* dan alat tulis. **Disediakan pengawas:** tabel distribusi Normal baku dan tabel-t (UTS), ditambah tabel chi-square dan tabel F (UAS), dibagikan bersama lembar soal. **Rumus:** tidak disediakan — daftar yang harus dihafal ada pada [kisi-kisi UTS §7](../05-assessments/kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) dan [kisi-kisi UAS §8](../05-assessments/kisi-kisi-uas.md#8-daftar-rumus-tambahan-di-luar-rumus-uts). **Dilarang:** catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun**.
+>
+> Karena itu Lampiran A dipakai untuk **berlatih membaca tabel** dan Lampiran B untuk **belajar dan menghafal rumus**; keduanya **tidak dibawa** ke ruang ujian. Tabel yang dibagikan pengawas memakai format yang sama dengan Lampiran A (Tabel Z berupa luas kumulatif $P(Z \le z)$), sehingga latihan dengan Lampiran A langsung terpakai saat ujian.
 
 ---
 
 ## Lampiran A: Tabel Distribusi
+
+> Tabel ini untuk berlatih. Saat UTS dan UAS tabel yang diperlukan **dibagikan pengawas** bersama lembar soal dengan format yang sama; lampiran ini **tidak dibawa** — lihat [ketentuan ujian](#daftar-lampiran).
 
 ### A.1 Tabel Z — Distribusi Normal Standar
 
@@ -282,6 +286,8 @@ Nilai $|r|$ minimum agar korelasi dinyatakan berbeda nyata dari nol (uji dua ara
 ---
 
 ## Lampiran B: Formularium
+
+> Formularium ini untuk belajar. Saat UTS dan UAS rumus **tidak disediakan** dan lampiran ini **tidak dibawa** — lihat [ketentuan ujian](#daftar-lampiran).
 
 ### B.1 Statistika Deskriptif
 
@@ -682,6 +688,7 @@ stats.f.ppf(0.95, 3, 20)      # → 3,10     (Tabel F, α = 0,05)
 ```
 
 Pembulatan: Tabel Z empat angka di belakang koma; Tabel t dan χ² tiga angka; Tabel F dua angka. Pemisah desimal memakai **koma**, sesuai kaidah bahasa Indonesia.
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

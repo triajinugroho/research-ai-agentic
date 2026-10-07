@@ -71,6 +71,8 @@ $$\text{MAE}=\frac{1}{n}\sum|y_i-\hat{y}_i| \qquad \text{RMSE}=\sqrt{\frac{1}{n}
 
 $$\text{MAPE}=\frac{100\%}{n}\sum\left|\frac{y_i-\hat{y}_i}{y_i}\right|$$
 
+$$\bar{x}=\frac{1}{n}\sum x_i \qquad s=\sqrt{\frac{\sum(x_i-\bar{x})^2}{n-1}} \quad \text{(simpangan baku sampel, pembagi } n-1\text{)}$$
+
 ---
 
 ## 6. Contoh Soal
@@ -169,7 +171,7 @@ print(model.score(X_te, y_te))
 | Model A | 0,72 | 0,75 | 0,71 | 0,74 | 0,73 |
 | Model B | 0,60 | 0,88 | 0,65 | 0,91 | 0,71 |
 
-(a) Hitung rerata dan simpangan baku sampel untuk masing-masing.
+(a) Hitung rerata dan simpangan baku sampel (pembagi $n-1$) untuk masing-masing.
 (b) Model mana yang reratanya lebih tinggi?
 (c) Model mana yang sebaiknya dipilih? Jelaskan dengan memperhatikan simpangannya.
 (d) Apa dugaan Anda tentang penyebab simpangan besar pada Model B, dan apa yang akan Anda periksa?

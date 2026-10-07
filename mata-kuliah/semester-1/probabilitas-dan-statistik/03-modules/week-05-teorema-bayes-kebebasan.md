@@ -261,7 +261,7 @@ print(f"  P(A)P(B) = {p_status_200 * p_status_404:.4f}, tetapi P(A∩B) = {p_iri
 print("  → Saling lepas, TETAPI TIDAK bebas.")
 ```
 
-#### 3.3 Menguji Kebebasan pada Data Nyata
+#### 3.3 Menguji Kebebasan pada Data Latihan (`nilai_mahasiswa_if.csv`, sintetis)
 
 ```python
 import pandas as pd

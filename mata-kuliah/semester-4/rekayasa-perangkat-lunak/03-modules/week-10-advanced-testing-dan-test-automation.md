@@ -720,7 +720,7 @@ Sprint 4 (W14):    Coverage >= 70%, fix security issues
 
 - Lanjutkan eksplorasi Playwright untuk proyek kelompok (tambah 1-2 E2E test)
 - Jalankan `pytest --cov` pada modul proyek dan analisis hasilnya -- identifikasi area yang belum ter-cover
-- Catat pengalaman menggunakan AI untuk testing di AI Usage Log
+- Catat pengalaman menggunakan AI untuk testing di AI Usage Log ([format Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log))
 - Lanjutkan pengerjaan tugas T4
 
 ---

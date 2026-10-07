@@ -19,7 +19,7 @@
 
 Setelah mengikuti pertemuan ini, mahasiswa mampu:
 
-1. **Menerapkan** (C3) K-Means, *hierarchical clustering*, dan DBSCAN pada data nyata.
+1. **Menerapkan** (C3) K-Means, *hierarchical clustering*, dan DBSCAN pada data indikator sosial-ekonomi provinsi Indonesia.
 2. **Menentukan** (C5) jumlah klaster dengan metode *elbow* dan *silhouette*.
 3. **Menghitung** (C3) dan **menafsirkan** (C4) metrik *silhouette*, Davies-Bouldin, dan Calinski-Harabasz.
 4. **Menafsirkan** (C4) hasil *clustering* secara substantif, bukan sekadar sebagai nomor klaster.
@@ -198,11 +198,11 @@ Mengelompokkan berdasarkan **kerapatan**, bukan jarak ke pusat.
 from sklearn.cluster import DBSCAN
 
 db = DBSCAN(eps=0.5, min_samples=5)
-label = db.fit_predict(X_scaled)
+label_db = db.fit_predict(X_scaled)
 
 # Label -1 berarti derau/pencilan
-print("Jumlah klaster:", len(set(label)) - (1 if -1 in label else 0))
-print("Titik derau   :", (label == -1).sum())
+print("Jumlah klaster:", len(set(label_db)) - (1 if -1 in label_db else 0))
+print("Titik derau   :", (label_db == -1).sum())
 ```
 
 | Parameter | Makna |
@@ -242,10 +242,16 @@ print("Titik derau   :", (label == -1).sum())
 from sklearn.metrics import (silhouette_score, davies_bouldin_score,
                              calinski_harabasz_score)
 
-print("Silhouette       :", silhouette_score(X_scaled, label).round(3))
-print("Davies-Bouldin   :", davies_bouldin_score(X_scaled, label).round(3))
-print("Calinski-Harabasz:", calinski_harabasz_score(X_scaled, label).round(1))
+# 'label' = hasil clustering dengan >= 2 klaster (di sini: hierarchical di 11.4).
+# Untuk DBSCAN (label_db), buang dulu titik derau (label -1) sebelum menghitung metrik.
+# Ketiga fungsi mengembalikan float Python (scikit-learn >= 1.7), yang TIDAK punya
+# metode .round() -> pakai fungsi bawaan round(x, n).
+print("Silhouette       :", round(silhouette_score(X_scaled, label), 3))
+print("Davies-Bouldin   :", round(davies_bouldin_score(X_scaled, label), 3))
+print("Calinski-Harabasz:", round(calinski_harabasz_score(X_scaled, label), 1))
 ```
+
+Nomor klaster hanyalah nama sembarang: "klaster 0" dari K-Means tidak berhubungan dengan "klaster 0" dari *hierarchical clustering*. Karena itu, membandingkan dua hasil *clustering* dengan mencocokkan nomor mentahnya keliru — gunakan ARI (tidak bergantung pada penomoran), atau selaraskan label lebih dahulu dengan `scipy.optimize.linear_sum_assignment` atas tabel silang (lihat [Lab 11](../04-labs/lab-11-clustering-dan-metriknya.md), Langkah 9).
 
 #### 11.6.2 Bila Label Sebenarnya Tersedia (*External*)
 
@@ -271,6 +277,7 @@ Karena itu evaluasi *clustering* selalu berjalan dua lapis:
 
 ```python
 # Ciri tiap klaster: rata-rata fitur asli (bukan yang sudah diskalakan)
+# X = DataFrame pandas berisi fitur asli; label = hasil clustering (mis. dari 11.4)
 profil = X.assign(klaster=label).groupby("klaster").mean().round(2)
 print(profil.T)
 
@@ -278,7 +285,7 @@ print(profil.T)
 print(pd.Series(label).value_counts().sort_index())
 ```
 
-**Contoh hasil segmentasi provinsi Indonesia berdasarkan indikator BPS:**
+**Contoh ilustratif format tabel interpretasi — segmentasi provinsi Indonesia** (angka rekaan untuk menunjukkan bentuk luaran; bukan hasil olahan data resmi BPS):
 
 | Klaster | n | IPM | Kepadatan | % Pertanian | **Nama yang diberikan** |
 |---------|---|-----|-----------|-------------|-------------------------|
@@ -331,7 +338,7 @@ anomali_lof = lof.fit_predict(X_scaled)
 | Pembuka | 10' | **Pengumpulan P-02**; tinjauan |
 | Konsep | 35' | K-Means; asumsi dan batasnya; penentuan k |
 | Konsep | 25' | *Hierarchical*; DBSCAN; perbandingan ketiganya |
-| Demonstrasi | 35' | Segmentasi provinsi Indonesia dengan data BPS; ketiga metode dibandingkan |
+| Demonstrasi | 35' | Segmentasi provinsi Indonesia dengan data indikator berpola BPS (data ilustratif Lab 11); ketiga metode dibandingkan |
 | **Interpretasi** | 30' | **Kegiatan inti:** berkelompok, memberi nama dan penjelasan pada tiap klaster hasil demonstrasi |
 | Penutup | 15' | Metrik *clustering*; deteksi anomali; penugasan |
 
@@ -351,7 +358,7 @@ anomali_lof = lof.fit_predict(X_scaled)
 | Aspek | Ketentuan |
 |-------|-----------|
 | Luaran | Notebook Colab + tabel interpretasi klaster |
-| Isi | (a) Segmentasi data BPS dengan K-Means, *hierarchical*, dan DBSCAN; (b) Penentuan k dengan *elbow* **dan** *silhouette*; (c) Ketiga metrik internal untuk tiap metode; (d) Dendrogram; (e) **Tabel profil klaster beserta nama dan penjelasan substantif**; (f) Perbandingan hasil ketiga metode dan pembahasan mengapa berbeda |
+| Isi | (a) Segmentasi data indikator provinsi (data ilustratif Lab 11, atau data resmi BPS terbaru 38 provinsi dengan tabel sumber dan tahun dicatat) dengan K-Means, *hierarchical*, dan DBSCAN; (b) Penentuan k dengan *elbow* **dan** *silhouette*; (c) Ketiga metrik internal untuk tiap metode; (d) Dendrogram; (e) **Tabel profil klaster beserta nama dan penjelasan substantif**; (f) Perbandingan hasil ketiga metode dan pembahasan mengapa berbeda |
 | Ketentuan khusus | Notebook tanpa interpretasi substantif dikembalikan |
 | Tenggat | Awal pertemuan Minggu 12 |
 | Bobot | 1,875% (Observasi, Sub-CPMK082-1) |

@@ -11,7 +11,7 @@
 | Bloom | C4 → C5 |
 | Durasi | 150 menit |
 | Metode | Kuliah · Studi kasus · Audit mandiri |
-| Penilaian | Observasi (Studio 12) |
+| Penilaian | Formatif (Studio 12, tanpa bobot) — temuan ditindaklanjuti sebelum *Demo Day* |
 
 ---
 
@@ -257,7 +257,7 @@ Latihan ini sering mengejutkan: banyak praktik yang sudah dianggap normal ternya
 | Isi laporan | Temuan yang tidak terpenuhi · rencana perbaikan · **analisis dampak** (§12.5.1) |
 | Kriteria khusus | **Temuan yang jujur dinilai lebih tinggi** daripada daftar periksa yang seluruhnya tercentang |
 | Tenggat | Awal pertemuan Minggu 13 |
-| Bobot | Bagian dari P-03 |
+| Bobot | Formatif, tanpa bobot sendiri — tidak termasuk P-03 karena tenggatnya sesudah P-03 (Minggu 11) |
 
 > Tim yang mencentang seluruh butir tanpa temuan apa pun akan diminta menelusuri ulang. Hampir tidak ada rancangan tahap awal yang sudah memenuhi seluruhnya.
 
@@ -281,11 +281,11 @@ Latihan ini sering mengejutkan: banyak praktik yang sudah dianggap normal ternya
 ## Referensi
 
 1. Undang-Undang No. 27 Tahun 2022 tentang **Pelindungan Data Pribadi**.
-2. Undang-Undang No. 11 Tahun 2008 jo. No. 19 Tahun 2016 tentang **Informasi dan Transaksi Elektronik**.
+2. Undang-Undang No. 11 Tahun 2008 jo. No. 19 Tahun 2016 jo. No. 1 Tahun 2024 tentang **Informasi dan Transaksi Elektronik**.
 3. Undang-Undang No. 20 Tahun 2016 tentang **Merek dan Indikasi Geografis**.
 4. Undang-Undang No. 28 Tahun 2014 tentang **Hak Cipta**.
 5. Brignull, H. *Deceptive Patterns*. <https://www.deceptive.design>
-6. Dewan Syariah Nasional MUI. *Himpunan Fatwa Muamalah* (terbitan terbaru).
+6. Dewan Syariah Nasional MUI. *Himpunan Fatwa Muamalah* (terbitan terbaru); khususnya Fatwa DSN-MUI No. 110/DSN-MUI/IX/2017 tentang **Akad Jual Beli**.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

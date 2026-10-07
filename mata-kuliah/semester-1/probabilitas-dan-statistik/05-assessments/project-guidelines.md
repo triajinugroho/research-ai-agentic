@@ -199,10 +199,14 @@ Bagian ini **wajib** dan dinilai. Yang harus dibahas:
 - Slide maksimal 12 halaman.
 - **Setiap anggota wajib berbicara.**
 - Seluruh anggota harus menguasai keseluruhan isi; pertanyaan dapat diarahkan kepada siapa saja.
+- Presentasi berlangsung per kelas (IF26A dan IF26H). Satu sesi 150 menit memuat 6 kelompok; bila jumlah kelompok di satu kelas lebih dari 6, dijadwalkan sesi tambahan atau sesi paralel sesuai [modul Minggu 15 — Kapasitas dan Sesi Tambahan](../03-modules/week-15-presentasi-proyek.md#kapasitas-dan-sesi-tambahan).
+- Umpan balik sejawat saat presentasi bersifat formatif dan **tidak dinilai**.
 
 ---
 
 ## 8. Rubrik Penilaian (10% Nilai Akhir)
+
+Bagian ini adalah **satu-satunya rubrik proyek** mata kuliah ini. Rubrik menilai notebook, laporan, dan presentasi sekaligus; [RTM §E.2](../02-rtm/rtm-probabilitas-dan-statistik.md#e2-proyek-analisis-data-statistik-p-01--minggu-1415) dan [modul Minggu 15](../03-modules/week-15-presentasi-proyek.md) merujuk ke sini dan tidak memuat rubrik tersendiri.
 
 ### 8.1 Menelusuri ke `PS-Sub-CPMK081-1` — 5%
 

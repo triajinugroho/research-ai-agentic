@@ -85,7 +85,7 @@ AI BAGUS untuk:                    AI RAWAN SALAH di:
 | Repository | Repository proyek tim (dari Lab 01-11) |
 | AI Tools | Minimal 1: GitHub Copilot (gratis via Student Pack), Claude (claude.ai), atau ChatGPT |
 | Codespace | Aktif dengan Python, Flask, pytest terinstal |
-| Template AI Usage Log | Sudah familiar dari modul sebelumnya |
+| Template AI Usage Log | [Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu-satunya templat, sudah dipakai sejak Lab 01 |
 
 ---
 
@@ -414,32 +414,18 @@ tests/test_extend.py::test_extend_adds_7_days PASSED
 
 **Instruksi:**
 
-Isi AI Usage Log lengkap untuk semua aktivitas AI yang dilakukan hari ini:
+Isi AI Usage Log lengkap untuk semua aktivitas AI yang dilakukan hari ini di berkas `docs/ai-usage-log-lab13.md`, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log): identitas log (Nama / NIM, "Lab 13", tanggal), tabel satu baris per interaksi AI, dan refleksi di akhir log.
 
-```markdown
-# AI Usage Log — Lab 13
+Log minimal memuat **empat entri**, satu untuk setiap langkah yang menggunakan AI. Tabel berikut adalah **panduan isi** (bukan templat) — contoh hal yang dicatat di kolom *Task/Aktivitas*, *Evaluasi*, dan *Modifikasi yang Dilakukan*:
 
-Nama: _______________
-NIM: _______________
-Tanggal: _______________
+| Entri | Langkah | Task/Aktivitas | Contoh Evaluasi (kategori + skor 1–5) | Contoh Modifikasi yang Dilakukan |
+|-------|---------|----------------|----------------------------------------|----------------------------------|
+| 1 | Langkah 2 | Requirements brainstorming (prompt CRIDE: identifikasi 5 user stories terlewat) | Perlu Modifikasi — 4/5: 4 story realistis, 1 terlalu ambisius | Hapus 1 story, perjelas AC yang kurang spesifik |
+| 2 | Langkah 3 | Code generation (prompt CRIDE: PATCH endpoint extend peminjaman) | Perlu Modifikasi — 3/5: lupa autentikasi dan pesan error belum berbahasa Indonesia | Tambah `@login_required`, ubah pesan error ke Bahasa Indonesia |
+| 3 | Langkah 4 | Code review (review kode dari 5 aspek) | Perlu Modifikasi — 4/5: 4 dari 6 saran valid, 2 kurang relevan | Terapkan 4 saran, abaikan 2 |
+| 4 | Langkah 5 | Test generation (5 pytest test case) | Perlu Modifikasi — 3/5: 3 langsung pass, 2 perlu perbaikan mock | Perbaiki fixture dan assertion pada 2 test |
 
-## Log Penggunaan AI
-
-| No | Task | AI Tool | Prompt (ringkas) | Output (ringkas) | Evaluasi (1-5) | Modifikasi yang Dilakukan |
-|----|------|---------|------------------|------------------|-----------------|--------------------------|
-| 1 | Requirements brainstorming | Claude/ChatGPT | CRIDE: identifikasi 5 user stories terlewat | 5 user stories + AC | 4/5 — 4 realistis, 1 terlalu ambisius | Hapus 1 story, ubah AC yang kurang spesifik |
-| 2 | Code generation (extend endpoint) | Copilot/Claude | CRIDE: buat PATCH endpoint extend | Flask route + logic | 3/5 — lupa auth dan error bahasa | Tambah @login_required, ubah pesan ke Indonesia |
-| 3 | Code review | Claude/ChatGPT | Review kode dari 5 aspek | Rating + 6 suggestions | 4/5 — 4 valid, 2 kurang relevan | Apply 4 suggestions, abaikan 2 |
-| 4 | Test generation | Claude/ChatGPT | Buat 5 pytest test cases | 5 test functions | 3/5 — 3 langsung pass, 2 perlu fix mock | Fix fixture dan assertion 2 test |
-
-## Ringkasan Statistik
-- Total prompt: ___
-- Output yang langsung bisa dipakai (tanpa modifikasi): ___ dari ___
-- Output yang perlu modifikasi minor: ___ dari ___
-- Output yang salah/tidak relevan: ___ dari ___
-
-## Refleksi
-```
+Di kolom *Evaluasi*, tulis kategori (Benar/Salah/Perlu Modifikasi) **beserta skor 1–5 dan alasannya**. Isi juga butir *Ringkasan* pada bagian Refleksi Lampiran C: total prompt, output yang langsung bisa dipakai, yang perlu modifikasi minor, dan yang salah/tidak relevan.
 
 **Pertanyaan refleksi (jawab di file yang sama):**
 
@@ -485,7 +471,7 @@ Rancang **panduan penggunaan AI** untuk tim Anda (1 halaman). Tentukan: (1) task
 
 ## Refleksi & AI Usage Log
 
-AI Usage Log sudah diisi di Langkah 6 di atas. Pastikan log Anda mencakup:
+AI Usage Log sudah diisi di Langkah 6 di atas dengan format [Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log). Pastikan log Anda mencakup:
 
 - Minimal **4 entries** (satu per langkah yang menggunakan AI)
 - Evaluasi dengan rating 1-5 per entry

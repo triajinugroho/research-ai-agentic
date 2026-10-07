@@ -32,8 +32,8 @@ Peta mata kuliah semester 5 menurut [registri Kurikulum Informatika 2025 Revisi 
 
 | Folder | Mata Kuliah | Status materi |
 |---|---|---|
-| [`teknopreneur/`](teknopreneur/) | Teknopreneur (`ST52510002`) | Lengkap — disusun untuk Kurikulum 2025 Revisi 2026 |
-| [`dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin (`IF52510031`) | Lengkap — disusun untuk Kurikulum 2025 Revisi 2026 |
+| [`teknopreneur/`](teknopreneur/) | Teknopreneur (`ST52510002`) | Disusun untuk Kurikulum 2025 Revisi 2026. Materi lengkap; asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) |
+| [`dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`](dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | Dasar Kecerdasan Artifisial dan Pembelajaran Mesin (`IF52510031`) | Disusun untuk Kurikulum 2025 Revisi 2026. Materi lengkap; asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) |
 
 ---
 

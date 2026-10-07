@@ -10,7 +10,7 @@
 | **Timeline** | Sprint 1-4 (Minggu 5-15) |
 | **Tech Stack** | Python Flask + HTML/CSS/JS + SQLite/PostgreSQL |
 | **Platform** | GitHub Codespaces |
-| **AI Policy** | AI sebagai partner + wajib AI Usage Log |
+| **AI Policy** | AI sebagai partner + wajib AI Usage Log ([templat Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log); disimpan di `docs/ai-usage-log.md`) |
 
 ## Pembentukan Tim
 

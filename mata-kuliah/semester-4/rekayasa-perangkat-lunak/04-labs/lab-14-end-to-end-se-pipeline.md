@@ -678,11 +678,7 @@ Ini adalah lab terakhir — refleksi kali ini mencakup seluruh semester:
 4. **Bagaimana nilai-nilai amanah dan tanggung jawab (Islamic values) tercermin dalam proses pengembangan software yang Anda jalani?**
 5. **Apa rencana Anda untuk terus mengembangkan skill SE setelah semester ini berakhir?**
 
-Jika menggunakan AI selama lab, catat di **AI Usage Log**:
-
-| Prompt yang Diberikan | Output AI | Modifikasi yang Dilakukan | Refleksi |
-|----------------------|-----------|--------------------------|----------|
-| (contoh prompt) | (ringkasan output) | (apa yang diubah) | (apa yang dipelajari) |
+Jika menggunakan AI selama lab, catat di **AI Usage Log** dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Tambahkan entrinya ke log proyek `docs/ai-usage-log.md`.
 
 ---
 

@@ -8,12 +8,13 @@
 | Durasi | 100 menit |
 | Prasyarat | Lab 10 selesai |
 | Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
+| Diuji pada | scikit-learn 1.6 dan 1.9, pandas 2.2 dan 3.0 (Oktober 2026) |
 
 ---
 
 ## Tujuan Praktikum
 
-1. Menerapkan K-Means, *hierarchical clustering*, dan DBSCAN pada data nyata.
+1. Menerapkan K-Means, *hierarchical clustering*, dan DBSCAN pada data indikator sosial-ekonomi provinsi Indonesia.
 2. Menentukan jumlah klaster dengan *elbow* dan *silhouette*.
 3. Menghitung tiga metrik internal dan menafsirkannya.
 4. **Memberi nama dan penjelasan substantif** pada setiap klaster.
@@ -26,18 +27,31 @@
 
 ---
 
+## Persiapan
+
+1. Buat notebook baru bernama `NIM_Nama_Lab11.ipynb`.
+2. Jalankan **sel pembuka baku** di [Lampiran D](../06-buku-ajar/lampiran.md#lampiran-d-sel-pembuka-baku) — mengimpor pustaka, mencatat versi, dan menetapkan `RANDOM_STATE = 42`. Seluruh langkah di bawah mengandaikan sel itu sudah dijalankan.
+3. **Data:** tabel di Langkah 1 adalah **data ilustratif (semi-sintetis)** yang disusun mengikuti pola dan kisaran indikator sosial-ekonomi BPS (IPM, umur harapan hidup, rata-rata lama sekolah, pengeluaran per kapita, tingkat pengangguran terbuka, persentase penduduk miskin). Sumber tabel dan tahun publikasinya **tidak terdokumentasi**, sehingga angka-angka ini **bukan data resmi BPS** dan tidak boleh dikutip sebagai data BPS. Tabel memakai susunan **34 provinsi** (sebelum pemekaran Papua); sejak 2022 Indonesia memiliki **38 provinsi** (bertambah Papua Selatan, Papua Tengah, Papua Pegunungan, dan Papua Barat Daya). Bila hasil *clustering* hendak dilaporkan di luar latihan ini (mis. untuk proyek), unduh data resmi terbaru 38 provinsi dari <https://www.bps.go.id> dan catat nama tabel serta tahunnya; angka dan pengelompokan di lab ini akan berubah.
+
+---
+
 ## Langkah-langkah
 
-### LANGKAH 1: Data Indikator Provinsi Indonesia
+### LANGKAH 1: Data Indikator Provinsi Indonesia (Ilustratif)
+
+> **Data ilustratif (semi-sintetis)** berpola indikator BPS, 34 provinsi (susunan sebelum 2022); bukan data resmi BPS — lihat Persiapan butir 3.
 
 ```python
 # =============================================
 # LANGKAH 1: Data indikator sosial-ekonomi provinsi
+#            (ILUSTRATIF — berpola indikator BPS, bukan data resmi BPS)
 # =============================================
 import numpy as np, pandas as pd
 
-# Data berdasarkan struktur publikasi BPS. Pada praktikum sebenarnya,
-# unduh data terbaru dari bps.go.id dan unggah ke Colab.
+# Angka ilustratif: mengikuti pola dan kisaran indikator BPS, tetapi sumber dan
+# tahunnya tidak terdokumentasi. Susunan 34 provinsi (sebelum pemekaran Papua);
+# sejak 2022 Indonesia memiliki 38 provinsi. Untuk analisis yang dilaporkan,
+# unduh data resmi terbaru dari bps.go.id dan unggah ke Colab.
 data = {
     "provinsi": ["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi",
                  "Sumatera Selatan","Bengkulu","Lampung","Bangka Belitung",
@@ -70,9 +84,9 @@ data = {
 }
 df = pd.DataFrame(data)
 print("Dimensi:", df.shape)
-display(df.head())
+print(df.head().to_string())
 print("\nRingkasan:")
-display(df.describe().T.round(2))
+print(df.describe().T.round(2).to_string())
 ```
 
 ### LANGKAH 2: Penskalaan — Wajib
@@ -93,11 +107,33 @@ X_skala = scaler.fit_transform(X)
 
 print("Sebelum penskalaan — rentang tiap fitur:")
 print(pd.DataFrame(X, columns=fitur).agg(["min","max"]).round(2).T.to_string())
+
+# Sumbangan rata-rata tiap fitur pada jarak Euclidean KUADRAT sebanding dengan
+# variansnya: fitur bervarians besar "menguasai" jarak bila tidak diskalakan
+porsi_jarak = pd.Series(X.var(axis=0), index=fitur) / X.var(axis=0).sum()
+print("\nPorsi sumbangan pada jarak kuadrat — TANPA penskalaan:")
+print(porsi_jarak.sort_values(ascending=False).map("{:.1%}".format).to_string())
+
 print("\nSetelah penskalaan — rata-rata ~0, simpangan ~1:")
 print(pd.DataFrame(X_skala, columns=fitur).agg(["mean","std"]).round(3).T.to_string())
 ```
 
-> **Tanpa penskalaan**, `pengeluaran_kapita_jt` (rentang 7,6–19,0) dan `ipm` (62–82) akan mendominasi jarak Euclidean semata-mata karena satuannya.
+> **Tanpa penskalaan**, fitur dengan sebaran terbesar menguasai jarak Euclidean semata-mata karena satuan dan sebarannya: pada data ini `persen_penduduk_miskin` (simpangan baku ≈ 5,2; rentang 4,3–26,0) menyumbang ≈ 48% jarak kuadrat dan `ipm` (≈ 3,9; rentang 62,3–82,5) ≈ 27%, sedangkan `rata_lama_sekolah` (≈ 0,9) hanya ≈ 1,4%. Setelah penskalaan, keenam fitur menyumbang sama besar. Simpangan yang tercetak 1,015 — bukan tepat 1 — karena `pandas` membagi dengan n − 1, sedangkan `StandardScaler` membagi dengan n: √(34/33) ≈ 1,015.
+
+**Pemeriksaan otomatis.** Sel berikut harus lulus tanpa `AssertionError`; bila gagal, pesannya menunjukkan apa yang perlu diperiksa.
+
+```python
+# =============================================
+# Pemeriksaan otomatis — Langkah 2 (penskalaan)
+# =============================================
+assert np.allclose(X_skala.mean(axis=0), 0, atol=1e-9), (
+    "Rata-rata tiap fitur terskala harus ≈ 0 — pastikan StandardScaler di-fit pada X")
+assert np.allclose(X_skala.std(axis=0), 1), (
+    "Simpangan baku (pembagi n) tiap fitur terskala harus ≈ 1 — periksa StandardScaler")
+assert porsi_jarak.max() > 2 / len(fitur), (
+    "Tanpa penskalaan, satu fitur seharusnya menyumbang jauh lebih dari porsi adilnya (1/6)")
+print("Pemeriksaan otomatis lulus.")
+```
 
 ### LANGKAH 3: Menentukan Jumlah Klaster
 
@@ -154,6 +190,8 @@ print(df["klaster_kmeans"].value_counts().sort_index().to_string())
 print(f"\nSilhouette: {silhouette_score(X_skala, df['klaster_kmeans']):.4f}")
 print(f"Davies-Bouldin: {davies_bouldin_score(X_skala, df['klaster_kmeans']):.4f}")
 ```
+
+> `K = 4` hanyalah nilai awal agar seluruh sel dapat dijalankan. Pada data ini, k = 4 **tidak** menjadi pilihan terbaik menurut satu pun dari ketiga metrik di Langkah 3 — jadi keputusan Anda harus bersandar pada Langkah 3 **dan** kebermaknaan bagi kebijakan, lalu dijelaskan. Angka-angka pembahasan di Langkah 9 berlaku untuk `K = 4`.
 
 ### LANGKAH 5: *Hierarchical Clustering* dan Dendrogram
 
@@ -239,7 +277,7 @@ for k in sorted(df["klaster_kmeans"].unique()):
 | 3       |   |            |                         |                           |
 ```
 
-Nama yang baik menggambarkan **ciri**, bukan sekadar peringkat. "Perkotaan padat dengan IPM tinggi dan pengangguran tinggi" lebih baik daripada "Klaster terbaik".
+Sesuaikan jumlah baris dengan nilai `K` yang Anda pilih. Nama yang baik menggambarkan **ciri**, bukan sekadar peringkat. "Perkotaan padat dengan IPM tinggi dan pengangguran tinggi" lebih baik daripada "Klaster terbaik".
 
 ### LANGKAH 8: Visualisasi dengan PCA
 
@@ -261,7 +299,7 @@ for i, (kol, judul) in enumerate([("klaster_kmeans", "K-Means"),
                        xytext=(3, 3), textcoords="offset points")
     ax[i].set_xlabel(f"PC1 ({pca.explained_variance_ratio_[0]:.1%} varians)")
     ax[i].set_ylabel(f"PC2 ({pca.explained_variance_ratio_[1]:.1%} varians)")
-    ax[i].set_title(f"{judul} — n={len(df)}, sumber: struktur data BPS")
+    ax[i].set_title(f"{judul} — n={len(df)}, data ilustratif berpola BPS")
 plt.tight_layout(); plt.show()
 
 print("Varians terjelaskan oleh 2 komponen:",
@@ -279,22 +317,74 @@ print(loading.round(3).to_string())
 # =============================================
 # LANGKAH 9: Apakah ketiganya sepakat?
 # =============================================
+from scipy.optimize import linear_sum_assignment
 from sklearn.metrics import adjusted_rand_score
 
-print("Kesepakatan K-Means vs Hierarchical (ARI):",
-      round(adjusted_rand_score(df["klaster_kmeans"], df["klaster_hc"]), 4))
+# ARI tidak bergantung pada penomoran klaster — aman dihitung langsung
+ari = adjusted_rand_score(df["klaster_kmeans"], df["klaster_hc"])
+print(f"Kesepakatan K-Means vs Hierarchical (ARI): {ari:.4f}")
 
 silang = pd.crosstab(df["klaster_kmeans"], df["klaster_hc"],
                      rownames=["K-Means"], colnames=["Hierarchical"])
-print("\nTabel silang:")
+print("\nTabel silang (nomor klaster MENTAH):")
 print(silang.to_string())
 
-beda = df[df["klaster_kmeans"] != df["klaster_hc"]]["provinsi"].tolist()
-print(f"\nProvinsi yang penempatannya berbeda antar metode ({len(beda)}):")
-print(" ", ", ".join(beda) if beda else "  (tidak ada)")
+# PERANGKAP: nomor klaster hanyalah nama sembarang. "Klaster 0" K-Means tidak
+# ada hubungannya dengan "klaster 0" hierarchical, sehingga membandingkan nomor
+# mentah membesar-besarkan perbedaan.
+beda_mentah = int((df["klaster_kmeans"] != df["klaster_hc"]).sum())
+
+# Penyelarasan label (label alignment): pasangkan tiap klaster hierarchical dengan
+# satu klaster K-Means sehingga jumlah provinsi yang cocok MAKSIMUM.
+# linear_sum_assignment (algoritma Hungaria) meminimalkan biaya -> pakai tanda minus.
+idx_baris, idx_kolom = linear_sum_assignment(-silang.values)
+peta = dict(sorted((int(silang.columns[j]), int(silang.index[i]))
+                  for i, j in zip(idx_baris, idx_kolom)))
+df["klaster_hc_selaras"] = df["klaster_hc"].map(peta)
+print("\nPemetaan nomor Hierarchical -> K-Means:", peta)
+
+silang_selaras = pd.crosstab(df["klaster_kmeans"], df["klaster_hc_selaras"],
+                             rownames=["K-Means"],
+                             colnames=["Hierarchical (diselaraskan)"])
+print("\nTabel silang SETELAH penyelarasan (kesepakatan ada di diagonal):")
+print(silang_selaras.to_string())
+
+beda = df.loc[df["klaster_kmeans"] != df["klaster_hc_selaras"], "provinsi"].tolist()
+print(f"\n'Berbeda' bila nomor MENTAH dibandingkan : {beda_mentah} dari {len(df)} provinsi (cara yang KELIRU)")
+print(f"Berbeda SETELAH label diselaraskan        : {len(beda)} dari {len(df)} provinsi")
+print(" ", ", ".join(beda) if beda else "(tidak ada)")
+
+# Kesimpulan DIHITUNG dari hasil — patokan kasar lab ini untuk ARI
+if ari >= 0.9:
+    tingkat = "hampir identik"
+elif ari >= 0.5:
+    tingkat = "sepakat pada struktur besar, tetapi berbeda pada sebagian provinsi"
+else:
+    tingkat = "hanya sepakat lemah — struktur klaster tidak stabil antarmetode"
+print(f"\nKesimpulan: ARI = {ari:.2f} -> kedua metode {tingkat}; "
+      f"{len(beda)} provinsi ({len(beda) / len(df):.0%}) ditempatkan berbeda.")
 ```
 
-**Tulis pembahasan:** provinsi mana yang penempatannya tidak stabil antarmetode? Apa artinya — apakah provinsi itu berada di perbatasan antarkelompok?
+**Pemeriksaan otomatis.** Sel berikut mengunci pelajaran utama langkah ini: perbandingan nomor klaster mentah menyesatkan, sedangkan ARI tidak terpengaruh penomoran.
+
+```python
+# =============================================
+# Pemeriksaan otomatis — Langkah 9 (penyelarasan label)
+# =============================================
+assert len(beda) <= beda_mentah, (
+    "Penyelarasan tidak boleh MENAMBAH jumlah provinsi yang berbeda — periksa pemetaan label")
+if K == 4:   # nilai baku lab ini; pada K lain nomor mentah bisa kebetulan sudah selaras
+    assert len(beda) < beda_mentah, (
+        f"Dengan K = 4, jumlah beda setelah penyelarasan ({len(beda)}) seharusnya lebih kecil "
+        f"daripada perbandingan nomor mentah ({beda_mentah}) — periksa linear_sum_assignment")
+assert np.isclose(adjusted_rand_score(df["klaster_kmeans"], df["klaster_hc_selaras"]), ari), (
+    "ARI seharusnya TIDAK berubah oleh penomoran ulang klaster — periksa kolom klaster_hc_selaras")
+print("Pemeriksaan otomatis lulus.")
+```
+
+> Pada data ini dengan `K = 4` (diuji pada scikit-learn 1.6 dan 1.9), perbandingan nomor mentah mencetak **30 dari 34** provinsi "berbeda", padahal setelah label diselaraskan hanya **6** provinsi yang benar-benar ditempatkan berbeda (ARI ≈ 0,57). Selisih itu sepenuhnya akibat penomoran sembarang — bukan perbedaan pengelompokan.
+
+**Tulis pembahasan:** provinsi mana yang penempatannya tidak stabil antarmetode (daftar **setelah** penyelarasan)? Apa artinya — apakah provinsi itu berada di perbatasan antarkelompok? Mengapa ARI dapat dihitung tanpa penyelarasan, sedangkan daftar provinsi yang berbeda tidak? Untuk DBSCAN, bandingkan secara kualitatif: jalankan ulang dengan `eps` pilihan Anda dari Langkah 6, lalu periksa provinsi mana yang ditandai derau (label −1) — apakah termasuk provinsi yang penempatannya berbeda antara K-Means dan *hierarchical*?
 
 ---
 

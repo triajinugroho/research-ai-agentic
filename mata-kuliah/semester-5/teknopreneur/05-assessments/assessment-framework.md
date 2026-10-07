@@ -55,9 +55,9 @@ Yang dinilai adalah kontribusi nyata dalam kerja tim, dibuktikan dari catatan *s
 | Studio 7 — *unit economics* | S-07 | 7 | 6,25% | UAI21-1 | Observasi |
 | Studio 13 — kelayakan AI | S-13 | 13 | 6,25% | UAI21-1 | Observasi |
 | Persetujuan ranah | P-00 | 1 | prasyarat | — | — |
-| Milestone 1 — bukti masalah | P-01 | 4 | *(dalam S-02..04)* | 091-1 | Observasi |
-| Milestone 2 — bukti kelayakan | P-02 | 7 | *(dalam S-05..07)* | UAI21-1 | Observasi |
-| **Milestone 3 — BMC, MVP, GTM** | P-03 | 11 | **25%** | UAI22-1 | Unjuk Kerja |
+| Milestone 1 — bukti masalah (menghimpun S-02, S-03) | P-01 | 4 | *(tanpa bobot sendiri)* | 091-1 | Observasi |
+| Milestone 2 — bukti kelayakan (menghimpun S-05, S-06) | P-02 | 7 | *(tanpa bobot sendiri)* | UAI21-1 | Observasi |
+| **Milestone 3 — BMC, MVP, GTM** (menghimpun S-09…S-11) | P-03 | 11 | **25%** | UAI22-1 | Unjuk Kerja |
 | ***Pitch deck* dan *Demo Day*** | P-04 | 15 | **10%** | FSTS11-1 | Unjuk Kerja |
 | Bukti kolaborasi tim | P-05 | 15 | **5%** | FSTS12-1 | Unjuk Kerja |
 | Partisipasi kerja tim | — | 1–15 | **5%** | FSTS12-1 | Partisipasi |
@@ -65,7 +65,9 @@ Yang dinilai adalah kontribusi nyata dalam kerja tim, dibuktikan dari catatan *s
 | Ujian Akhir Semester | U-02 | 16 | **10%** | UAI32-1 | Tes Tulis |
 | | | | **100%** | | |
 
-> Studio 9–12 tidak berbobot sendiri; keduanya merupakan tahapan penyusunan **P-03**, yang dinilai sebagai satu kesatuan pada Minggu 11.
+> Studio 9–11 tidak berbobot sendiri; ketiganya merupakan tahapan penyusunan **P-03** (Unjuk Kerja), yang dinilai sebagai satu kesatuan pada Minggu 11. Studio 12 (audit etika) dan Studio 14 (latihan *pitch*) bersifat **formatif** tanpa bobot: temuan S-12 ditindaklanjuti sebelum *Demo Day*, dan S-14 adalah latihan menuju P-04.
+>
+> **Cakupan *milestone*:** setiap *milestone* hanya menghimpun studio yang tenggatnya tidak lebih lambat dari tenggat *milestone* itu. S-04 (tenggat Mg 5) dan S-07 (tenggat Mg 9, karena Mg 8 UTS) dinilai sebagai studio tersendiri; bagian milik P-01 dan P-02 sendiri (ringkasan, pernyataan arah, kesimpulan kelayakan) dinilai bersama S-04 dan S-07. Tenggat rinci: [RTM §B](../02-rtm/rtm-teknopreneur.md#b-ringkasan-seluruh-tugas).
 
 ---
 
@@ -113,8 +115,9 @@ Hal berikut membatasi aspek **Validitas bukti** pada maksimal 2:
 | Model *unit economics* tanpa analisis sensitivitas | S-07 |
 | MVP tidak diuji kepada orang di luar tim | S-10, P-03 |
 | Ukuran keberhasilan ditetapkan **setelah** melihat hasil | S-10 |
-| Daftar periksa etika seluruhnya tercentang tanpa temuan | S-12 |
 | AI Usage Log tidak ada atau tidak lengkap | Seluruhnya |
+
+Pada S-12 yang formatif, daftar periksa etika yang seluruhnya tercentang tanpa temuan **dikembalikan untuk ditelusuri ulang**.
 
 ---
 
@@ -136,7 +139,7 @@ Hal berikut membatasi aspek **Validitas bukti** pada maksimal 2:
 
 ### 8.1 P-03 — BMC, MVP, GTM (25%)
 
-Rincian ada pada [panduan proyek](project-guidelines.md) §F.
+Rincian ada pada [panduan proyek §7](project-guidelines.md#7-p-03--bmc-mvp-dan-go-to-market-minggu-11--25).
 
 | Aspek | Bobot |
 |-------|-------|
@@ -247,6 +250,13 @@ Mata kuliah ini berstatus **mode E (Eksplisit)**, pilar **AI Product**.
 
 > **Peringatan khusus:** model bahasa mahir menghasilkan angka pasar yang meyakinkan tanpa sumber yang dapat ditelusuri. Setiap angka pasar wajib disertai **sumber dan tanggal akses**. Angka yang tidak dapat ditelusuri dianggap tidak ada.
 
+**Alat bantu non-AI selama ujian** — satu aturan untuk seluruh dokumen ujian:
+
+| Ujian | Diperkenankan | Tidak diperkenankan |
+|-------|---------------|---------------------|
+| UTS | **Kalkulator saja** (bukan kalkulator pada ponsel atau laptop); rumus yang dibutuhkan dicetak pada lembar soal | Catatan, buku, ponsel, laptop, alat bantu AI |
+| UAS | **Tidak ada** | Catatan, buku, kalkulator, ponsel, laptop, alat bantu AI |
+
 ---
 
 ## 12. Pengurangan Nilai
@@ -277,16 +287,16 @@ Mata kuliah ini berstatus **mode E (Eksplisit)**, pilar **AI Product**.
 | 6 | S-06 | | | |
 | 7 | S-07 | | | **P-02** |
 | 8 | | | **U-01 UTS** | Penilaian sejawat 1 |
-| 9 | (S-09) | | | |
-| 10 | (S-10) | | | |
-| 11 | (S-11) | **P-03 (25%)** | | |
-| 12 | (S-12) | | | |
+| 9 | | (S-09) | | |
+| 10 | | (S-10) | | |
+| 11 | | (S-11) · **P-03 (25%)** | | |
+| 12 | | | | (S-12) formatif |
 | 13 | S-13 | | | |
-| 14 | (S-14) | | | |
+| 14 | | | | (S-14) formatif |
 | 15 | | **P-04 (10%)** · **P-05 (5%)** | | Penilaian sejawat 2 |
 | 16 | | | **U-02 UAS** | |
 
-Studio dalam kurung merupakan tahapan P-03 dan tidak berbobot sendiri.
+Studio dalam kurung tidak berbobot sendiri: S-09–S-11 adalah tahapan P-03 (Unjuk Kerja); S-12 dan S-14 formatif. P-01 dan P-02 tercantum pada minggu tenggatnya dan hanya menghimpun studio yang sudah jatuh tempo; S-04 dan S-07 tercantum pada minggu studionya (tenggat Mg 5 dan Mg 9).
 
 ---
 

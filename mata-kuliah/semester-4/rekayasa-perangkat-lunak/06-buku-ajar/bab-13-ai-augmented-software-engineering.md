@@ -1020,46 +1020,16 @@ app.run(debug=True, use_reloader=True)
 
 ## 13.6 Responsible AI Usage
 
-### 13.6.1 AI Usage Log Template
+### 13.6.1 AI Usage Log
 
-Setiap penggunaan AI dalam proyek **wajib** didokumentasikan dalam AI Usage Log:
+Setiap penggunaan AI dalam proyek **wajib** didokumentasikan dalam AI Usage Log. Formatnya mengikuti **satu templat resmi** di [Lampiran C — Template AI Usage Log](lampiran.md#lampiran-c-template-ai-usage-log): identitas log, tabel satu baris per interaksi AI, dan refleksi (per sprint untuk proyek akhir). Bab ini tidak memuat templat tersendiri. Contoh berikut memperlihatkan dua baris log Tim Pustaka Digital yang diisi dengan format Lampiran C; setiap anggota mengisi entrinya sendiri, dan fase SDLC ditulis di kolom *Task/Aktivitas*.
 
-```markdown
-# AI Usage Log — Tim Pustaka Digital
+| No | Tanggal | Task/Aktivitas | Tool AI | Prompt yang Digunakan | Output AI (Ringkasan) | Evaluasi (Benar/Salah/Perlu Modifikasi) | Modifikasi yang Dilakukan | Waktu Tanpa AI (estimasi) | Waktu Dengan AI |
+|----|---------|----------------|---------|----------------------|----------------------|----------------------------------------|--------------------------|--------------------------|-----------------|
+| 1 | 2026-03-15 | Code — endpoint `POST /api/peminjaman` (Budi) | Claude Code | (ringkasan) "Implement peminjaman endpoint dengan validasi stok, max 3 buku per anggota, jatuh tempo 14 hari" | Endpoint lengkap dengan validasi (45 baris) | Perlu Modifikasi — ±80% output bisa dipakai langsung; logika bisnis benar, detail perlu disesuaikan | Pesan error dalam Bahasa Indonesia; formula jatuh tempo memakai `timedelta`, bukan string; tambah logging untuk audit trail | ±60 menit | ±30 menit |
+| 2 | 2026-03-16 | Test — unit test model `Peminjaman` (Citra) | GitHub Copilot | (autocomplete saat menulis berkas test) | 8 test case | Perlu Modifikasi — 6/8 benar; 2 assertion tidak sesuai aturan bisnis; edge case "anggota meminjam buku yang sedang ia pinjam" terlewat | Perbaiki 2 assertion; tambah 3 edge case; perbaiki fixture setup | — | — |
 
-## Sprint 2, Minggu 9
-
-### Entry 1
-- **Tanggal:** 2026-03-15
-- **Developer:** Budi
-- **Task:** Implementasi endpoint POST /api/peminjaman
-- **AI Tool:** Claude Code
-- **Prompt:** (ringkasan) "Implement peminjaman endpoint dengan 
-  validasi stok, max 3 buku per anggota, jatuh tempo 14 hari"
-- **Output AI:** Endpoint lengkap dengan validasi (45 baris)
-- **Modifikasi Manusia:**
-  - Tambah error message dalam Bahasa Indonesia
-  - Fix: formula jatuh tempo pakai timedelta bukan string
-  - Tambah logging untuk audit trail
-- **Evaluasi:** 80% output bisa dipakai langsung. Logika bisnis 
-  benar, tapi perlu penyesuaian detail.
-- **Waktu hemat:** ~30 menit (vs tulis dari scratch)
-
-### Entry 2
-- **Tanggal:** 2026-03-16
-- **Developer:** Citra
-- **Task:** Generate unit tests untuk model Peminjaman
-- **AI Tool:** GitHub Copilot
-- **Prompt:** (autocomplete saat menulis test file)
-- **Output AI:** 8 test cases
-- **Modifikasi Manusia:**
-  - 2 test cases salah (assertion tidak sesuai business logic)
-  - Tambah 3 edge cases yang AI miss
-  - Fix fixture setup
-- **Evaluasi:** 6/8 test cases benar. AI miss edge case: 
-  pinjam buku yang sudah dipinjam anggota yang sama.
-- **Pelajaran:** AI kurang paham business rules spesifik.
-```
+**Refleksi (contoh, di akhir log sprint):** AI kurang paham aturan bisnis (*business rules*) yang spesifik — edge case dan validasi domain tetap harus dirancang dan diperiksa oleh manusia.
 
 ### 13.6.2 Prinsip AI Bertanggung Jawab
 
@@ -1289,7 +1259,7 @@ Untuk proyek akhir RPL (web app end-to-end), buatkan:
 6. Tuliskan prompt CRIDE lengkap untuk task berikut: "Generate Flask API endpoint untuk sistem registrasi anggota perpustakaan." Sertakan semua 5 elemen CRIDE.
 7. Gunakan AI untuk generate 5 unit tests untuk endpoint yang Anda buat di proyek. Dokumentasikan: prompt yang digunakan, output AI, evaluasi Anda (berapa yang benar, apa yang dimodifikasi).
 8. Tuliskan 3 prompt dengan teknik berbeda (persona, few-shot, constraint) untuk task yang sama: "Generate Flask API endpoint untuk pengembalian buku." Bandingkan hasilnya.
-9. Isi AI Usage Log untuk 1 minggu penggunaan AI dalam proyek tim. Minimal 5 entries dengan format lengkap.
+9. Isi AI Usage Log untuk 1 minggu penggunaan AI dalam proyek tim. Minimal 5 entri dengan format lengkap [Lampiran C](lampiran.md#lampiran-c-template-ai-usage-log).
 10. Analisis kelebihan dan kekurangan menggunakan AI untuk masing-masing fase SDLC. Buat tabel perbandingan.
 11. Berikan contoh 3 skenario di mana penggunaan AI **tidak tepat** dan jelaskan alasannya.
 

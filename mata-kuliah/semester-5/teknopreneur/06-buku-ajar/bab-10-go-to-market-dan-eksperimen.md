@@ -328,7 +328,7 @@ Kelima versi yang dihasilkan kemudian **diuji di lapangan**, bukan dipilih berda
 3. Croll, A., & Yoskovitz, B. (2013). *Lean Analytics*. O'Reilly Media.
 4. Kohavi, R., Tang, D., & Xu, Y. (2020). *Trustworthy Online Controlled Experiments*. Cambridge University Press.
 5. Moore, G. A. (2014). *Crossing the Chasm* (3rd ed.). HarperBusiness.
-6. Kementerian Komunikasi dan Informatika. (2023). *Panduan Perlindungan Data Pribadi bagi Pelaku Usaha*. Kominfo.
+6. Republik Indonesia. (2022). *Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi*.
 
 ---
 

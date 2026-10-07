@@ -4,7 +4,7 @@
 |-------|------------|
 | Minggu | 4 · Sub-CPMK `091-1` · Bobot 3,4% (Observasi) |
 | Durasi | 45' di kelas + 60' mandiri |
-| Luaran | Matriks keterlacakan + berkas **Milestone 1 (P-01)** |
+| Luaran | Matriks keterlacakan (S-04, tenggat awal pertemuan Minggu 5) + berkas **Milestone 1 (P-01, tenggat akhir Minggu 4)** |
 
 ---
 
@@ -14,6 +14,15 @@
 2. Menyusun matriks yang setiap persyaratannya terlacak ke kutipan.
 3. Memprioritaskan persyaratan berdasarkan bukti dan kendala.
 4. Menyusun Milestone 1 lengkap dengan pernyataan arah.
+
+---
+
+## Persiapan
+
+- Persona, rumusan JTBD, dan peta perjalanan dari S-03.
+- Daftar kutipan berkode dari seluruh wawancara (minimal 8 sampai Minggu 4).
+- Templat [matriks ketertelusuran persyaratan](../06-buku-ajar/lampiran.md#a4-matriks-ketertelusuran-persyaratan).
+- Dugaan awal Minggu 1 (formulir P-00) — bahan bagian "apa yang ternyata berbeda" pada P-01.
 
 ---
 
@@ -123,6 +132,8 @@ Sampaikan temuan kepada tim asal. Bagian ini sering tidak nyaman dan selalu berg
 
 ### LANGKAH 6: Menyusun Milestone 1
 
+P-01 menghimpun **S-02 dan S-03** — keduanya sudah jatuh tempo — ditambah ringkasan dan pernyataan arah. Matriks studio ini (S-04) **tidak** dilampirkan: tenggatnya Minggu 5, dan matriks final disusun di atas arah yang dinyatakan di P-01.
+
 ```markdown
 # Milestone 1 — Bukti Masalah
 
@@ -160,10 +171,9 @@ Pilih salah satu dan jelaskan:
 
 ## 5. Lampiran
 
-- Seluruh catatan wawancara
-- Persona dan JTBD
-- Peta perjalanan
-- Matriks kebutuhan → persyaratan
+- Seluruh catatan wawancara (S-02 dan sesudahnya)
+- Persona dan JTBD (S-03)
+- Peta perjalanan (S-03)
 - AI Usage Log
 ```
 

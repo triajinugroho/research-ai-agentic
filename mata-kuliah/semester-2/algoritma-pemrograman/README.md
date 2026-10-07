@@ -7,7 +7,7 @@ nama_mk: Algoritma dan Pemrograman
 prodi: Informatika
 versi: 2.0
 status: draft
-diperbarui: 2026-09-05
+diperbarui: 2026-10-07
 ---
 
 # Algoritma dan Pemrograman
@@ -20,6 +20,10 @@ diperbarui: 2026-09-05
 **Semester Genap 2025/2026**
 
 *Dosen Pengampu: Tri Aji Nugroho, S.T., M.T.*
+
+---
+
+> **Kode resmi dan penyusun materi.** Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini tercatat sebagai **Algoritma Pemrograman** berkode `IF52520004` (semester 2, 2 SKS) menurut [registri](../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Seluruh materi — RPS, RTM, modul, asesmen, buku ajar, dan dokumen `mutu/` — disusun oleh **Tri Aji Nugroho, S.T., M.T.**, yang juga dosen pengampunya menurut registri. Materi di folder ini disusun untuk kurikulum sebelumnya (kode INF-101, nama "Algoritma dan Pemrograman") dan perlu diselaraskan dengan registri — kode, CPMK dan Sub-CPMK, serta bobot penilaian — sebelum dipakai pada kurikulum baru; lihat butir T2-03 di [KENDALI-EKSEKUSI](../../00-meta/KENDALI-EKSEKUSI.md). Nama mata kuliah di materi menunggu keputusan D-11.
 
 ---
 

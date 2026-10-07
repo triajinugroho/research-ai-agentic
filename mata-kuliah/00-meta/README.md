@@ -27,13 +27,14 @@ Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: berkas
 | Berkas | Tanggal | Cakupan | Status |
 |---|---|---|---|
 | [`AUDIT-MENYELURUH-2026-10.md`](AUDIT-MENYELURUH-2026-10.md) | 7 Oktober 2026 | Seluruh `mata-kuliah/` beserta `tools/validasi-obe.py`: kesiapan tiap MK, skala nilai, referensi formal, dan arah perbaikan bertahap | **Berlaku sebagai rujukan temuan.** Status tindak lanjutnya dilacak di [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md); dokumennya masih berstatus draf untuk telaah dosen |
-| [`AUDIT-KESELARASAN-IF2205-IF2206.md`](AUDIT-KESELARASAN-IF2205-IF2206.md) | 11–12 April 2026 | Keselarasan Rekayasa Perangkat Lunak (IF2205) dan Praktikum Rekayasa Perangkat Lunak (IF2206): 13 inkonsistensi pada berkas fondasi, semuanya sudah diperbaiki | **Historis.** Disimpan sebagai rekam jejak; tidak menjadi acuan |
+| [`AUDIT-KESELARASAN-IF2205-IF2206.md`](AUDIT-KESELARASAN-IF2205-IF2206.md) | 11–12 April 2026 | Keselarasan Rekayasa Perangkat Lunak (IF2205) dan Praktikum Rekayasa Perangkat Lunak (IF2206): 13 inkonsistensi pada berkas fondasi, yang oleh laporan itu dinyatakan sudah diperbaiki semuanya — klaim ini dikoreksi (lihat catatan di bawah) | **Historis.** Disimpan sebagai rekam jejak; tidak menjadi acuan |
 
 Catatan untuk laporan historis:
 
 - Laporan ini disusun untuk **kurikulum lama**. IF2205 kini menjadi Rekayasa Perangkat Lunak `IF52520011` di [`semester-4/rekayasa-perangkat-lunak/`](../semester-4/rekayasa-perangkat-lunak/). IF2206 tidak ada di kurikulum baru, dan materinya disimpan di [`arsip/praktikum-rekayasa-perangkat-lunak/`](../arsip/praktikum-rekayasa-perangkat-lunak/).
 - Jalur berkas di tabel laporan (mis. `rekayasa-perangkat-lunak/02-rtm/...`) mengikuti susunan sebelum penataan per semester. Jalur yang berlaku sekarang ada pada butir di atas.
 - Skala dan aturan kelulusan di dalamnya dipertahankan apa adanya sebagai catatan historis. Validator mengecualikan berkas ini dari aturan V13. Skala yang berlaku hanya yang tercantum di registri konversi nilai.
+- **Koreksi (7 Oktober 2026).** Klaim laporan bahwa ke-13 inkonsistensi "semuanya sudah diperbaiki" tidak sepenuhnya benar. [Audit menyeluruh §6](AUDIT-MENYELURUH-2026-10.md#6-enam-mk-kurikulum-lama) mencatat bahwa templat *AI Usage Log* masih beredar dalam **6 versi** dan masih ada **rubrik proyek ketiga** di modul `week-15` Rekayasa Perangkat Lunak. Isi laporan historis tidak diubah; perbaikannya dilacak di [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md) butir T2-12.
 
 ## Prompt Generator
 
@@ -42,7 +43,7 @@ Catatan untuk laporan historis:
 | [`prompt-algoritma-pemrograman.md`](prompt-algoritma-pemrograman.md) | Prompt lengkap pembangkit paket **Algoritma dan Pemrograman**: analisis strategis, RPS, RTM, 16 modul, 13 lab, buku ajar 14 bab, dan asesmen. Prompt ini asal-usul paket [`semester-2/algoritma-pemrograman/`](../semester-2/algoritma-pemrograman/) (dulu INF-101, kini `IF52520004`) | **Perlu sinkronisasi Fase 2.5** Pedoman OBE |
 | [`prompt-paket-mata-kuliah-informatika.md`](prompt-paket-mata-kuliah-informatika.md) | Prompt generik untuk MK Prodi Informatika lainnya. Prompt ini memuat variabel `[PLACEHOLDER]`, tiga templat tipe MK (A Teori, B Praktikum, C Teori+Lab), spesifikasi tiap berkas, dan urutan pembangkitan per batch | **Perlu sinkronisasi Fase 2.5** Pedoman OBE |
 
-**Arti status "perlu sinkronisasi Fase 2.5".** Kedua prompt membawa spanduk *"Konvensi dalam berkas ini kedaluwarsa"*. Fase 2.5 (*sinkronisasi generator*) pada [Pedoman OBE §J Peta Jalan Pembaruan](../00-pedoman-obe/pedoman-obe-konvensi.md#j-peta-jalan-pembaruan) belum dikerjakan; lihat juga [audit menyeluruh §7.4 dan Tahap 2 butir 2.5](AUDIT-MENYELURUH-2026-10.md#74-dokumen-meta-yang-usang).
+**Arti status "perlu sinkronisasi Fase 2.5".** Kedua prompt membawa spanduk *"Konvensi dalam berkas ini kedaluwarsa"*. Fase 2.5 (*sinkronisasi generator*) pada [Pedoman OBE §J Peta Jalan Pembaruan](../00-pedoman-obe/pedoman-obe-konvensi.md#j-peta-jalan-pembaruan) baru dikerjakan **sebagian** untuk kedua prompt — skala nilai dan lokasi keluaran (lihat tabel di bawah); bagian lainnya belum; lihat juga [audit menyeluruh §7.4 dan Tahap 2 butir 2.5](AUDIT-MENYELURUH-2026-10.md#74-dokumen-meta-yang-usang).
 
 | Aspek | Keadaan di kedua prompt |
 |---|---|

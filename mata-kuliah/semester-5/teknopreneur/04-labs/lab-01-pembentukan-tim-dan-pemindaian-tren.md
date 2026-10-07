@@ -100,7 +100,7 @@ Pilih **tiga tren** — satu dari tiap lapis:
 |-------|------|--------|-------|
 | Teknologi | Biaya API model bahasa | Halaman harga penyedia | Bulanan |
 | Perilaku | Adopsi pembayaran digital UMKM | Laporan BI, BPS | Dua bulanan |
-| Regulasi | Penerapan UU PDP pada usaha kecil | Situs Kominfo, media hukum | Bulanan |
+| Regulasi | Penerapan UU PDP pada usaha kecil | Situs Komdigi (d/h Kominfo), media hukum | Bulanan |
 
 **Ketentuan:**
 

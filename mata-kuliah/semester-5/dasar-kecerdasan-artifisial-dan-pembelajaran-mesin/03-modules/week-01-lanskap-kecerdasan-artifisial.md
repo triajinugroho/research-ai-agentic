@@ -259,8 +259,7 @@ np.random.seed(RANDOM_STATE)
 | `numpy` | Operasi larik dan aljabar linear |
 | `pandas` | Pemuatan dan manipulasi data tabular |
 | `matplotlib`, `seaborn` | Visualisasi |
-| **`scikit-learn`** | **Pustaka ML utama** — dipakai hampir setiap minggu |
-| `tensorflow`/`keras` | Hanya pada Minggu 13 |
+| **`scikit-learn`** | **Pustaka ML utama** — dipakai hampir setiap minggu, termasuk jaringan saraf tiruan (`MLPClassifier`) pada Minggu 13 |
 
 > **Pencatatan versi bukan formalitas.** Kriteria kurikulum untuk `Sub-CPMK082-1` menyebut **reproduksibilitas eksperimen**. Hasil yang tidak dapat diulang bukan hasil.
 
@@ -339,7 +338,7 @@ np.random.seed(RANDOM_STATE)
 2. Mitchell, T. (1997). *Machine Learning*, Bab 1. McGraw-Hill.
 3. Géron, A. (2022). *Hands-On Machine Learning* (3rd ed.), Bab 1. O'Reilly.
 4. Domingos, P. (2012). A Few Useful Things to Know About Machine Learning. *Communications of the ACM*, 55(10), 78–87.
-5. ACM/IEEE-CS (2023). *Computer Science Curricula 2023*, Knowledge Area: Artificial Intelligence.
+5. ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023* (CS2023), Knowledge Area: Artificial Intelligence. ACM, IEEE Computer Society, dan AAAI. — [REG-10]
 6. Tim Kurikulum Informatika UAI (2026). *AI Curriculum Infusion Matrix*.
 ---
 

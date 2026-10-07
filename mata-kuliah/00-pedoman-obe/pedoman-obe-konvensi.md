@@ -7,7 +7,7 @@ fakultas: Sains dan Teknologi
 universitas: Universitas Al Azhar Indonesia
 versi: 2.0
 status: berlaku
-diperbarui: 2026-09-05
+diperbarui: 2026-10-07
 berlaku_untuk: [INF-101, INF-102, TBD-STAT, IF2205, IF2206, IF3XXX]
 ---
 
@@ -290,12 +290,17 @@ diperbarui: 2026-09-05
 | Fase | Keluaran | Status |
 |---|---|---|
 | **0** | Pedoman ini + 6 registri prodi + mitigasi generator | ✅ selesai |
-| **1** | Pilot **INF-101** sebagai *golden template*: tabel migrasi, RPS, 3 artefak mutu, buku ajar, 16 modul, asesmen, validator | 🔄 berjalan |
+| **1** | Pilot **INF-101** sebagai *golden template*: tabel migrasi, RPS, 3 artefak mutu, buku ajar, 16 modul, asesmen, validator | 🔄 berjalan — selesai secara mekanis, belum ditutup formal (catatan 2026-10-07 di bawah) |
 | **2** | Propagasi ke 5 mata kuliah; penanganan khusus IF2206; penyeragaman folder | ⏳ |
-| **2.5** | **Sinkronisasi generator** — `prompt-*.md`, `CLAUDE.md`, `README.md`. **Wajib**; tanpa ini regenerasi konten membatalkan Fase 1–2 | ⏳ |
+| **2.5** | **Sinkronisasi generator** — `prompt-*.md`, `CLAUDE.md`, `README.md`. **Wajib**; tanpa ini regenerasi konten membatalkan Fase 1–2 | 🔄 sebagian (catatan 2026-10-07 di bawah) |
 | **3** | Lapisan program: matriks CPL × MK, pemetaan LAM-INFOKOM 2.0, pemetaan IABEE, SPMI/PPEPP program | ⏳ |
 | **4** | Perbaikan referensi menyeluruh (dapat paralel dengan Fase 2) | ⏳ |
 | **5** | `obe-registry.json` — indeks *machine-readable* sebagai fondasi sistem pendidikan berbantuan AI | ⏳ |
+
+> **Catatan status 2026-10-07.** Teks fase di atas tidak diubah; catatan ini hanya memperbarui statusnya.
+>
+> - **Fase 1.** Pilot INF-101 **selesai secara mekanis** pada commit `7c40783` (5 September 2026): validator 0 pelanggaran untuk INF-101, RPS v2.0, tiga artefak mutu, kode Sub-CPMK kanonik, dan kisi-kisi bertanda. Fase ini **belum ditutup formal** — belum ada telaah sejawat bertanda tangan menurut [checklist-verifikasi](checklist-verifikasi.md) dan belum ada pengesahan. Pilot ini juga **akan digantikan oleh penyelarasan ke registri** `IF52520004`: 7 CPMK lokal dan 55 Sub-CPMK-nya tidak sesuai registri (CPMK032/CPMK033, 2 Sub-CPMK, bobot 5/25/30/20/20). Penutupan dan penyelarasan dilacak di [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) T2-03; peran INF-101 sebagai *golden template* bagi Fase 2 ditinjau dalam Pedoman v3.0 (T2-01).
+> - **Fase 2.5 — sebagian.** `CLAUDE.md` dan `README.md` akar sudah diperbarui pada Oktober 2026 (susunan per semester, kode resmi, rujukan bobot ke registri `15a`, validator). Kedua `prompt-*.md` baru memuat tabel skala nilai resmi dan lokasi keluaran `mata-kuliah/semester-N/`; kode Sub-CPMK, CPMK registri, atribusi akreditasi, penyusun vs pengampu, dan *front-matter* belum (KENDALI T2-07).
 
 ---
 
@@ -310,8 +315,10 @@ diperbarui: 2026-09-05
 | Teks lengkap Permendiktisaintek 39/2025 & 10/2026 | 🟡 kerangka terverifikasi, salinan resmi belum ada |
 | Matriks butir Instrumen LAM-INFOKOM 2.0 | 🔲 menunggu |
 | Penetapan ambang ketercapaian CPL (SK) | 🔲 menunggu — sementara ditandai "usulan" |
-| Penetapan resmi pembebanan BK per mata kuliah | 🔲 menunggu — sementara ditandai [PERLU VALIDASI PRODI] |
+| Penetapan resmi pembebanan BK per mata kuliah | ✅ diterima lewat registri kurikulum, sheet `8. BK-MK` (status *Final*) — dengan catatan 2026-10-07 di bawah |
 | Tabel resmi konversi nilai UAI | ✅ rentang, huruf, dan kategori diterima (7 Oktober 2026) · 🟡 bobot nilai mutu · 🔲 nama/nomor dokumen — lihat `konversi-nilai.md` §B |
+
+> **Catatan status 2026-10-07 — pembebanan BK.** Pembebanan BK per mata kuliah kini tersedia secara resmi di [registri kurikulum, `08-pemetaan-bahan-kajian-mata-kuliah.md`](../00-kurikulum-if-2025-revisi-2026/08-pemetaan-bahan-kajian-mata-kuliah.md) (sheet `8. BK-MK`, status *Final* — disepakati s.d. sheet *Copy of (Ref) 15*). Catatan: (1) registri kurikulum memakai **19 BK dengan kode yang berbeda** dari registri internal §E.3 ([`registri-bahan-kajian.md`](registri-bahan-kajian.md), BK01–BK22) — mis. BK01 = *Artificial Intelligence* di registri kurikulum tetapi *Social Issues and Professional Practice* di registri internal, dan BK14 = *Security* vs *Programming Fundamentals* — sehingga tanda [PERLU VALIDASI PRODI] (di `registri-bahan-kajian.md` dan RPS INF-101) dan kode `bk:` pada materi lama baru dapat diselaraskan setelah urutan otoritas diputuskan (KENDALI D-05, T2-01); (2) salinan Excel resmi belum disimpan di `00-pedoman-obe/sumber/` (KENDALI F-02).
 
 Salinan resmi dapat ditaruh di `00-pedoman-obe/sumber/`.
 

@@ -56,7 +56,7 @@ probabilitas-dan-statistik/
 ├── 04-labs/                        # 13 lab hands-on Python
 ├── 05-assessments/                 # Kerangka asesmen, kisi-kisi, rubrik, panduan proyek
 ├── 06-buku-ajar/                   # Buku ajar 14 bab + pendukung
-└── datasets/                       # Panduan dataset dan sumber data Indonesia
+└── datasets/                       # Panduan dataset, sumber data Indonesia, dan 8 berkas CSV lab (diunggah dosen)
 ```
 
 ---
@@ -175,7 +175,7 @@ Mata kuliah ini berstatus **tahap F (Foundation), mode K (Kontekstual)** — **t
 
 ## Sumber Data
 
-Seluruh contoh dan proyek memakai data berkonteks Indonesia. Panduan lengkap ada di [datasets/README.md](datasets/README.md).
+Seluruh contoh dan proyek memakai data berkonteks Indonesia. Proyek akhir wajib memakai data nyata; berkas latihan lab boleh sintetis asalkan dinyatakan (misalnya `nilai_mahasiswa_if.csv`). Delapan berkas CSV lab disimpan di folder [`datasets/`](datasets/README.md) setelah diunggah dosen — daftar berkas, pemakaiannya per lab, dan sifat datanya ada di [datasets/README.md](datasets/README.md#3-dataset-yang-disediakan-untuk-lab).
 
 ---
 

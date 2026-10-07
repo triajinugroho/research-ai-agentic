@@ -131,13 +131,13 @@ Baris terakhir bukan basa-basi. Empat belas minggu adalah waktu yang panjang unt
    │  PEMODAL      : VC, angel, program akselerasi│
    ├──────────────────────────────────────────────┤
    │  PENDUKUNG    : inkubator kampus, komunitas, │
-   │                 co-working, mentor            │
+   │                 co-working, mentor           │
    ├──────────────────────────────────────────────┤
-   │  REGULATOR    : Kemenkop-UKM, OJK, Kominfo,  │
-   │                 BPOM, Kemenkumham             │
+   │  REGULATOR    : Kementerian UMKM, OJK,       │
+   │                 Komdigi, BPOM, Kemenkum      │
    ├──────────────────────────────────────────────┤
    │  PASAR        : UMKM, konsumen, korporasi,   │
-   │                 pemerintah daerah             │
+   │                 pemerintah daerah            │
    └──────────────────────────────────────────────┘
 ```
 
@@ -324,9 +324,9 @@ Jawaban nomor 3 biasanya yang paling mencerahkan.
 3. CB Insights. (2021). *The Top 12 Reasons Startups Fail*. CB Insights Research Report.
 4. Osterwalder, A., & Pigneur, Y. (2010). *Business Model Generation*. Wiley.
 5. Badan Pusat Statistik. (2024). *Profil Usaha Mikro Kecil dan Menengah Indonesia*. BPS.
-6. Kementerian Koperasi dan UKM Republik Indonesia. (2024). *Laporan Kinerja Pengembangan UMKM*. Kemenkop-UKM.
+6. Kementerian Usaha Mikro, Kecil, dan Menengah Republik Indonesia (Kementerian UMKM; sebelum Oktober 2024 bagian dari Kementerian Koperasi dan UKM). (terbitan terbaru). *Data UMKM*. <https://umkm.go.id>
 7. Antonio, M. S. (2001). *Bank Syariah: Dari Teori ke Praktik*. Gema Insani. (Rujukan prinsip muamalah: `gharar`, `tadlis`, `ghabn`.)
-8. Dewan Syariah Nasional MUI. (2000). *Fatwa DSN-MUI tentang Jual Beli*. DSN-MUI.
+8. Dewan Syariah Nasional–Majelis Ulama Indonesia. (2017). *Fatwa DSN-MUI No. 110/DSN-MUI/IX/2017 tentang Akad Jual Beli*. DSN-MUI.
 
 ---
 

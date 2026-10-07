@@ -40,6 +40,7 @@
 | Pembicara | **Setiap anggota wajib berbicara** |
 | Penguasaan | Seluruh anggota wajib menguasai keseluruhan isi |
 | Penguji | Dosen + **minimal 1 praktisi atau alumni dari luar** |
+| Peran penguji luar | Mengajukan pertanyaan dan memberi umpan balik; **nilai P-04 ditetapkan dosen pengampu** dengan mempertimbangkan masukan itu |
 | Demonstrasi | MVP ditunjukkan, tidak hanya diceritakan |
 | Bahan | *Pitch deck* diserahkan sebelum presentasi dimulai |
 

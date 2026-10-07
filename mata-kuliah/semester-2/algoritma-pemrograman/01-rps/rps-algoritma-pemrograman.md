@@ -23,7 +23,7 @@ cpmk: [CPMK-1, CPMK-2, CPMK-3, CPMK-4, CPMK-5, CPMK-6, CPMK-7]
 cpl_status: resmi
 versi: 2.0
 status: draft
-diperbarui: 2026-09-05
+diperbarui: 2026-10-07
 ---
 
 # RENCANA PEMBELAJARAN SEMESTER (RPS)
@@ -34,6 +34,8 @@ Disusun oleh: **Tri Aji Nugroho, S.T., M.T.**
 Program Studi Informatika, Fakultas Sains dan Teknologi, Universitas Al Azhar Indonesia
 
 > Dokumen ini mengikuti **Pedoman OBE & Konvensi Paket Mata Kuliah** v2.0 ([`../../00-pedoman-obe/pedoman-obe-konvensi.md`](../../../00-pedoman-obe/pedoman-obe-konvensi.md)).
+
+> **Kode resmi dan penyusun materi.** Pada Kurikulum Informatika 2025 Revisi 2026 mata kuliah ini tercatat sebagai **Algoritma Pemrograman** berkode `IF52520004` (semester 2, 2 SKS) menurut [registri](../../../00-kurikulum-if-2025-revisi-2026/11-susunan-mata-kuliah-dan-dosen.md). Seluruh materi mata kuliah ini disusun oleh **Tri Aji Nugroho, S.T., M.T.**, yang juga dosen pengampunya menurut registri. RPS ini disusun untuk kurikulum sebelumnya (kode INF-101, nama "Algoritma dan Pemrograman") dan perlu diselaraskan dengan registri — kode, CPMK dan Sub-CPMK, serta bobot penilaian — sebelum dipakai pada kurikulum baru; lihat butir T2-03 di [KENDALI-EKSEKUSI](../../../00-meta/KENDALI-EKSEKUSI.md). Nama mata kuliah di materi menunggu keputusan D-11.
 
 ---
 

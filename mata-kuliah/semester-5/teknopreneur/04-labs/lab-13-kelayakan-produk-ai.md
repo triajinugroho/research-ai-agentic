@@ -17,6 +17,15 @@
 
 ---
 
+## Persiapan
+
+- Dokumen kelayakan S-06 dan model *unit economics* S-07 — untuk mengukur dampak biaya AI pada margin.
+- Sedikitnya 10 kasus nyata dari data atau wawancara tim untuk uji "aturan sederhana vs AI" (Langkah 1).
+- Halaman harga terkini penyedia model atau API yang dipertimbangkan, dengan tanggal akses.
+- Bab 12 buku ajar sudah dibaca.
+
+---
+
 ## Ketentuan Khusus Studio Ini
 
 > **Menjawab "usaha ini tidak memerlukan AI" dengan alasan yang kuat dinilai setara** dengan menjawab "perlu". Yang dinilai adalah kualitas penalarannya.

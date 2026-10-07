@@ -65,7 +65,7 @@
 | Kelengkapan SRS | 30% | Semua section IEEE 830 lengkap, ≥15 FR, ≥5 NFR | Sebagian besar lengkap, ≥10 FR | Beberapa section hilang, ≥5 FR | Struktur SRS tidak diikuti |
 | Kualitas Requirements | 30% | SMART, tidak ambigu, testable | Sebagian besar SMART | Beberapa ambigu | Mayoritas ambigu |
 | Analisis Stakeholder | 20% | Stakeholder teridentifikasi lengkap dengan power-interest matrix | Stakeholder teridentifikasi | Sebagian stakeholder | Tidak ada analisis |
-| AI Usage Log | 20% | Lengkap 7 kolom: No, Tanggal, Tool AI, Prompt, Output AI, Modifikasi, Refleksi | Mencatat prompt, output, dan modifikasi | Catatan minimal | Tidak ada log |
+| AI Usage Log | 20% | Lengkap sesuai [templat Lampiran C](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log): semua kolom terisi dan ada refleksi | Mencatat prompt, output, dan modifikasi | Catatan minimal | Tidak ada log |
 
 ### T2: User Story Mapping & Acceptance Criteria (Minggu 4)
 
@@ -200,6 +200,8 @@
 
 ### Rubrik Proyek (100 poin)
 
+Bobot di bawah identik dengan [Rubrik Penilaian pada Panduan Proyek Akhir](../05-assessments/project-guidelines.md#rubrik-penilaian), satu-satunya rubrik proyek yang dipakai (kriteria rinci ada di sana).
+
 | Komponen | Bobot | Deskripsi |
 |----------|-------|-----------|
 | Requirements & Design | 15% | SRS, user stories, architecture design |
@@ -238,7 +240,7 @@
 
 | Komponen | AI Diizinkan? | Ketentuan |
 |----------|---------------|-----------|
-| T1-T6 | ✅ Ya | Wajib AI Usage Log (prompt, output, modifikasi, refleksi) |
+| T1-T6 | ✅ Ya | Wajib AI Usage Log (prompt, output, modifikasi, refleksi) — [templat Lampiran C buku ajar](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) |
 | K1-K3 | ❌ Tidak | Closed-book, tanpa akses AI/internet |
 | UTS | ❌ Tidak | Closed-book, tanpa akses AI/internet |
 | Proyek Akhir | ✅ Ya (partner) | AI Usage Log wajib, verifikasi via demo dan oral questioning |

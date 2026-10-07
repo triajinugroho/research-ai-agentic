@@ -9,8 +9,8 @@
 | Sub-CPMK | Deskripsi Capaian | Level Bloom |
 |----------|-------------------|-------------|
 | Seluruh Sub-CPMK | Mengintegrasikan (C6) seluruh capaian mata kuliah ke dalam satu usaha yang dijalankan, diuji, dan dipertanggungjawabkan | C6 |
-| `TEKNO-Sub-CPMKFSTS12-1` | Berkolaborasi (A3/P3) secara efektif sepanjang semester dengan pembagian tanggung jawab yang tercatat | A3, P3 |
-| `TEKNO-Sub-CPMKUAI32-1` | Menunjukkan (A3) pola pikir adaptif melalui perubahan arah yang beralasan dan tercatat | A3 |
+| `TEKNO-Sub-CPMKFSTS12-1` | Berkolaborasi (A4) dan mengelola (P5) kerja tim secara efektif sepanjang semester dengan pembagian tanggung jawab yang tercatat | A4, P5 |
+| `TEKNO-Sub-CPMKUAI32-1` | Mengembangkan (C6) pola pikir adaptif, dibuktikan melalui perubahan arah yang beralasan dan tercatat | C6 |
 
 ---
 
@@ -119,7 +119,7 @@ Diputuskan oleh: seluruh anggota, mufakat
 | Yang akan membatalkan | Menjaga tim tetap dapat berubah |
 | Siapa yang memutuskan | Menunjukkan proses tim |
 
-Jurnal ini adalah bukti utama untuk `TEKNO-Sub-CPMKUAI32-1` dan `TEKNO-Sub-CPMKFSTS12-1`. Keduanya adalah capaian afektif yang tidak dapat dinilai dari hasil akhir — hanya dari jejak yang ditinggalkan selama prosesnya.
+Jurnal ini adalah bukti utama untuk `TEKNO-Sub-CPMKUAI32-1` dan `TEKNO-Sub-CPMKFSTS12-1`. Keduanya memuat dimensi sikap (A4) — `FSTS12-1` secara langsung, `UAI32-1` melalui CPMK induknya — yang tidak dapat dinilai dari hasil akhir, hanya dari jejak yang ditinggalkan selama prosesnya.
 
 ---
 
@@ -318,7 +318,7 @@ Pertanyaan terakhir adalah ujian yang paling sederhana dan paling tegas. Bila sa
 | Yang tidak disyaratkan | Aplikasi jadi, pendapatan, badan usaha, hasil yang positif |
 | Kegagalan terdokumentasi | Dinilai penuh; yang dinilai adalah kualitas penyelidikan |
 | Tonggak paling sering terlewat | Minggu 10 — MVP mulai diuji pada orang nyata |
-| Jurnal keputusan | Bukti utama untuk capaian afektif yang tak terlihat dari hasil akhir |
+| Jurnal keputusan | Bukti utama untuk capaian bermuatan sikap (A4) yang tak terlihat dari hasil akhir |
 | Ciri catatan asli | Mengandung kalimat yang tidak rapi, karena begitulah orang berbicara |
 | Log AI | Yang dinilai bukan sedikitnya pemakaian, melainkan batas dan pemeriksaannya |
 | Ujian terakhir | Dapatkah tim mempertahankan setiap bagian tanpa menyebut AI |

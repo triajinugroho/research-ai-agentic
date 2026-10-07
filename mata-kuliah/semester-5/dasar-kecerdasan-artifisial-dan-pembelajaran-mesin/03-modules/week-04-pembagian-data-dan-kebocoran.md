@@ -31,7 +31,7 @@ Setelah mengikuti pertemuan ini, mahasiswa mampu:
 
 ### 4.1 Mengapa Satu Pertemuan Penuh untuk Ini
 
-Kapoor dan Narayanan (2023) menelaah 294 makalah ilmiah dari 17 bidang yang memakai ML, dan menemukan **kebocoran data pada sebagian besar di antaranya**. Akibatnya: hasil yang dilaporkan tidak dapat diulang, dan sebagian kesimpulan ilmiah yang telah dipublikasikan ternyata keliru.
+Kapoor dan Narayanan (2023) menghimpun bukti dari tinjauan-tinjauan terdahulu di berbagai komunitas riset yang memakai ML: kebocoran data telah ditemukan di **17 bidang** dan memengaruhi **sedikitnya 294 makalah** — dalam sebagian kasus menghasilkan kesimpulan yang jauh terlalu optimistis (*overoptimistic*). Mereka juga menyusun taksonomi delapan jenis kebocoran, dari kesalahan mendasar hingga persoalan yang masih terbuka.
 
 Ini bukan kesalahan pemula. Ini kesalahan yang terjadi pada peneliti terlatih, berulang kali, karena kebocoran **tidak menghasilkan pesan galat**. Ia menghasilkan skor yang bagus.
 
@@ -274,14 +274,14 @@ Wajib dijalankan sebelum mengumpulkan pekerjaan apa pun:
 | Praktik | 40' | Mulai Lab 4: mahasiswa memburu kebocoran sendiri |
 | Penutup | 10' | Daftar periksa kebocoran; penugasan |
 
-**Notebook demonstrasi memuat empat kebocoran:**
+**Notebook demonstrasi** — Langkah 2 pada [Lab 4](../04-labs/lab-04-validasi-silang-deteksi-kebocoran.md), dengan data sintetis transaksi *e-commerce* — **memuat empat kebocoran:**
 
 1. `StandardScaler` di-*fit* sebelum pembagian (prapemrosesan)
 2. Pemilihan fitur berdasarkan korelasi terhadap target pada seluruh data (pemilihan)
 3. Data deret waktu dibagi secara acak (temporal)
 4. Kolom yang merupakan turunan langsung dari target (target)
 
-Skor sebelum perbaikan: 0,97. Setelah keempatnya diperbaiki: 0,71. Selisih inilah pelajarannya.
+ROC-AUC sebelum perbaikan: ≈ 1,00. Setelah keempatnya diperbaiki: ≈ 0,58. Selisih inilah pelajarannya. Penurunan terbesar datang dari pembuangan kolom turunan target (≈ −0,31) dan pembagian temporal (≈ −0,11); memindahkan penskalaan dan seleksi fitur ke dalam `Pipeline` praktis tidak mengubah skor pada data itu — prosedurnya tetap salah, dan Lab 4 memperlihatkan pada data "lebar" tanpa sinyal bahwa seleksi fitur di luar `Pipeline` menghasilkan ≈ 0,93, padahal taksiran jujurnya (seleksi di dalam `Pipeline`) ≈ 0,56 — dekat 0,5. Lab 4 juga mengukur kebocoran kelompok: validasi silang acak ≈ 0,70, sedangkan `GroupKFold` ≈ 0,60–0,61.
 
 ### Setelah Kelas (120 menit)
 
@@ -319,7 +319,7 @@ Skor sebelum perbaikan: 0,97. Setelah keempatnya diperbaiki: 0,71. Selisih inila
 
 ## Referensi
 
-1. Kapoor, S., & Narayanan, A. (2023). Leakage and the Reproducibility Crisis in ML-based Science. *Patterns*, 4(9), 100804.
+1. Kapoor, S., & Narayanan, A. (2023). Leakage and the reproducibility crisis in machine-learning-based science. *Patterns*, 4(9), 100804.
 2. Géron, A. (2022). *Hands-On Machine Learning* (3rd ed.), Bab 2. O'Reilly.
 3. Müller, A. C., & Guido, S. (2016). *Introduction to Machine Learning with Python*, Bab 5. O'Reilly.
 4. Kaufman, S., et al. (2012). Leakage in Data Mining. *ACM TKDD*, 6(4), 1–21.
