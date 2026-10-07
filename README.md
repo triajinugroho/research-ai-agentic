@@ -145,7 +145,7 @@ mata-kuliah/
 
 **Total: 537 dokumen Markdown** — mencakup referensi kurikulum, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dan dataset.
 
-> **Audit kesiapan terbaru:** [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/AUDIT-MENYELURUH-2026-10.md) — peta seluruh repositori, temuan per mata kuliah, dan arah perbaikan. Skala konversi nilai baku: [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
+> **Audit kesiapan terbaru:** [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/AUDIT-MENYELURUH-2026-10.md) — peta seluruh repositori, temuan per mata kuliah, dan arah perbaikan. Skala konversi nilai resmi UAI (A ≥ 81, sembilan huruf, lulus minimal C 55,00): [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
 
 ## Referensi Kurikulum Terbaru
 
