@@ -343,23 +343,23 @@ Dengan kata lain: kehadiran tidak dinilai, tetapi ketidakhadiran tetap berbiaya.
 
 ## I. KONVERSI NILAI
 
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
 | Rentang | Huruf | Bobot | Keterangan |
 |---------|-------|-------|------------|
-| 85,00 – 100 | A | 4,00 | Sangat baik |
-| 80,00 – 84,99 | A− | 3,70 | |
-| 75,00 – 79,99 | B+ | 3,30 | |
-| 70,00 – 74,99 | B | 3,00 | Baik |
-| 65,00 – 69,99 | B− | 2,70 | |
-| 60,00 – 64,99 | C+ | 2,30 | |
-| 55,00 – 59,99 | C | 2,00 | Cukup — **batas lulus** |
-| 45,00 – 54,99 | D | 1,00 | Kurang — mengulang |
-| < 45,00 | E | 0,00 | Tidak lulus |
+| 81,00 – 100 | A | 4,00 | Sangat baik |
+| 75,00 – 80,99 | B+ | 3,50 | Baik sekali |
+| 69,00 – 74,99 | B | 3,00 | Baik |
+| 63,00 – 68,99 | C+ | 2,50 | Cukup baik |
+| 56,00 – 62,99 | C | 2,00 | Cukup — **batas lulus** |
+| 45,00 – 55,99 | D | 1,00 | Kurang |
+| 0 – 44,99 | E | 0,00 | Tidak lulus |
 
 ### Ketentuan Kelulusan Tambahan
 
 Mahasiswa dinyatakan lulus apabila memenuhi **seluruh** syarat berikut:
 
-1. Nilai akhir ≥ 55,00.
+1. Nilai akhir ≥ 56,00.
 2. **Capaian tiap Sub-CPMK ≥ 50%** dari bobotnya. Mahasiswa yang unggul pada satu Sub-CPMK tetapi gagal total pada yang lain tidak dinyatakan lulus, karena keduanya merupakan capaian yang berbeda.
 3. Mengumpulkan proyek akhir dan mengikuti presentasi.
 4. Kehadiran memenuhi ketentuan universitas.

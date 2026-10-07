@@ -348,19 +348,19 @@ Bobot mengikuti penetapan kurikulum pada sheet `Copy of (Ref) 15` — melekat pa
 
 ## I. KONVERSI NILAI
 
-| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
-|---------------------|-------|-------|----------|
-| 85,00 – 100 | A | 4,00 | Sangat Baik |
-| 80,00 – 84,99 | A− | 3,70 | Sangat Baik |
-| 75,00 – 79,99 | B+ | 3,30 | Baik |
-| 70,00 – 74,99 | B | 3,00 | Baik |
-| 65,00 – 69,99 | B− | 2,70 | Cukup Baik |
-| 60,00 – 64,99 | C+ | 2,30 | Cukup |
-| 55,00 – 59,99 | C | 2,00 | Cukup |
-| 45,00 – 54,99 | D | 1,00 | Kurang |
-| 0 – 44,99 | E | 0,00 | Gagal |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
 
-**Syarat kelulusan mata kuliah:** nilai akhir minimal **C (55,00)** dan kehadiran minimal **75%**.
+| Rentang Nilai Akhir | Huruf | Bobot | Keterangan |
+|---------------------|-------|-------|------------|
+| 81,00 – 100 | A | 4,00 | Sangat baik |
+| 75,00 – 80,99 | B+ | 3,50 | Baik sekali |
+| 69,00 – 74,99 | B | 3,00 | Baik |
+| 63,00 – 68,99 | C+ | 2,50 | Cukup baik |
+| 56,00 – 62,99 | C | 2,00 | Cukup — **batas lulus** |
+| 45,00 – 55,99 | D | 1,00 | Kurang |
+| 0 – 44,99 | E | 0,00 | Tidak lulus |
+
+**Syarat kelulusan mata kuliah:** nilai akhir minimal **C (56,00)** dan kehadiran minimal **75%**.
 
 ---
 

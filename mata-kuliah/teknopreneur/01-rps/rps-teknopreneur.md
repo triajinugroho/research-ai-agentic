@@ -369,21 +369,21 @@ Buktinya berasal dari catatan *sprint* kelompok, penilaian sejawat, dan pengamat
 
 ## H. KONVERSI NILAI
 
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
 | Rentang | Huruf | Bobot |
 |---------|-------|-------|
-| 85,00 – 100 | A | 4,00 |
-| 80,00 – 84,99 | A− | 3,70 |
-| 75,00 – 79,99 | B+ | 3,30 |
-| 70,00 – 74,99 | B | 3,00 |
-| 65,00 – 69,99 | B− | 2,70 |
-| 60,00 – 64,99 | C+ | 2,30 |
-| 55,00 – 59,99 | C | 2,00 |
-| 45,00 – 54,99 | D | 1,00 |
-| < 45,00 | E | 0,00 |
+| 81,00 – 100 | A | 4,00 |
+| 75,00 – 80,99 | B+ | 3,50 |
+| 69,00 – 74,99 | B | 3,00 |
+| 63,00 – 68,99 | C+ | 2,50 |
+| 56,00 – 62,99 | C | 2,00 |
+| 45,00 – 55,99 | D | 1,00 |
+| 0 – 44,99 | E | 0,00 |
 
 ### Ketentuan Kelulusan Tambahan
 
-1. Nilai akhir ≥ 55,00.
+1. Nilai akhir ≥ 56,00.
 2. **Capaian tiap Sub-CPMK ≥ 50%** dari bobotnya.
 3. **Minimal 15 wawancara pelanggan terdokumentasi** — tanpa ini, `Sub-CPMK091-1` tidak dapat dinilai.
 4. **MVP diuji kepada sekurang-kurangnya 5 orang di luar tim.**
