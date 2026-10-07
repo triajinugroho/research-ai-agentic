@@ -100,7 +100,7 @@ Seluruh materi di repositori ini — RPS, RTM, modul, lab, asesmen, buku ajar, d
 ## Struktur Repository
 
 ```
-mata-kuliah/                                          # 547 file .md
+mata-kuliah/                                          # 548 file .md
 ├── 00-kurikulum-if-2025-revisi-2026/                 # ★ Registri kurikulum resmi — 26 file
 │                                                     #   Transkripsi Revisi 2026 Kurikulum OBE IF 2025:
 │                                                     #   PL, CPL, BK, susunan MK & dosen, CPMK, Sub-CPMK,
@@ -109,7 +109,7 @@ mata-kuliah/                                          # 547 file .md
 ├── 00-pedoman-obe/                                   # Pedoman & registri OBE internal — 10 file
 │                                                     #   (termasuk konversi-nilai.md dan migrasi/)
 │
-├── 00-meta/                                          # Laporan audit & prompt penyusunan materi — 5 file
+├── 00-meta/                                          # Kendali eksekusi, laporan audit & prompt penyusunan materi — 6 file
 │                                                     #   (README.md: indeks dokumen meta)
 │
 ├── semester-1/                                       # Ganjil — 58 file
@@ -205,8 +205,10 @@ mata-kuliah/                                          # 547 file .md
         └── datasets/                                 # Referensi resource
 ```
 
-**Total: 547 dokumen Markdown** di `mata-kuliah/` — mencakup referensi kurikulum, pedoman OBE, peta mata kuliah per semester, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dataset, dan arsip.
+**Total: 548 dokumen Markdown** di `mata-kuliah/` — mencakup referensi kurikulum, pedoman OBE, peta mata kuliah per semester, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dataset, dan arsip.
 
+> **Kendali eksekusi:** [`KENDALI-EKSEKUSI.md`](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) — ceklis pekerjaan yang masih terbuka, tenggat per minggu perkuliahan, dan keputusan yang ditunggu.
+>
 > **Audit kesiapan terbaru:** [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md) — peta seluruh repositori, temuan per mata kuliah, dan arah perbaikan. Skala konversi nilai resmi UAI (A ≥ 81, sembilan huruf, lulus minimal C 55,00): [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
 
 ## Referensi Kurikulum Terbaru

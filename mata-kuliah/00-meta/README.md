@@ -12,15 +12,21 @@ diperbarui: 2026-10-07
 
 # Dokumen Meta Repositori
 
-Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: dua laporan audit dan dua prompt generator. Isinya tidak dipakai langsung di kelas. Untuk substansi kurikulum, acuannya tetap [registri Kurikulum Informatika 2025 Revisi 2026](../00-kurikulum-if-2025-revisi-2026/README.md). Untuk konvensi repositori, acuannya [Pedoman OBE](../00-pedoman-obe/pedoman-obe-konvensi.md), dan untuk skala nilai, [registri konversi nilai](../00-pedoman-obe/konversi-nilai.md).
+Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: berkas kendali eksekusi, dua laporan audit, dan dua prompt generator. Isinya tidak dipakai langsung di kelas. Untuk substansi kurikulum, acuannya tetap [registri Kurikulum Informatika 2025 Revisi 2026](../00-kurikulum-if-2025-revisi-2026/README.md). Untuk konvensi repositori, acuannya [Pedoman OBE](../00-pedoman-obe/pedoman-obe-konvensi.md), dan untuk skala nilai, [registri konversi nilai](../00-pedoman-obe/konversi-nilai.md).
 
 > **Penyusun materi.** Seluruh materi di repositori ini disusun oleh **Tri Aji Nugroho, S.T., M.T.**, termasuk Rekayasa Perangkat Lunak (`IF52520011`), yang menurut registri kurikulum diampu oleh Dr. Ir. Winangsari Pradani, M.T. Kolom pengampu pada peta semester mengikuti registri dan dapat berbeda dari penyusun materi.
+
+## Kendali Eksekusi
+
+| Berkas | Isi | Status |
+|---|---|---|
+| [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md) | Ceklis eksekusi yang hidup: butir terbuka per tahap (darurat sebelum UTS, akhir Ganjil, sebelum Genap 2026/2027, nilai tinggi), keputusan dosen yang ditunggu (`D-xx`), dokumen formal (`F-xx`), dan bukti commit | **Berlaku — baca pertama.** Satu-satunya tempat status pekerjaan dilacak; diperbarui setiap kali butir selesai |
 
 ## Laporan Audit
 
 | Berkas | Tanggal | Cakupan | Status |
 |---|---|---|---|
-| [`AUDIT-MENYELURUH-2026-10.md`](AUDIT-MENYELURUH-2026-10.md) | 7 Oktober 2026 | Seluruh `mata-kuliah/` beserta `tools/validasi-obe.py`: kesiapan tiap MK, skala nilai, referensi formal, dan arah perbaikan bertahap | **Berlaku.** Ini laporan audit terkini dan acuan arah perbaikan; dokumennya masih berstatus draf untuk telaah dosen |
+| [`AUDIT-MENYELURUH-2026-10.md`](AUDIT-MENYELURUH-2026-10.md) | 7 Oktober 2026 | Seluruh `mata-kuliah/` beserta `tools/validasi-obe.py`: kesiapan tiap MK, skala nilai, referensi formal, dan arah perbaikan bertahap | **Berlaku sebagai rujukan temuan.** Status tindak lanjutnya dilacak di [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md); dokumennya masih berstatus draf untuk telaah dosen |
 | [`AUDIT-KESELARASAN-IF2205-IF2206.md`](AUDIT-KESELARASAN-IF2205-IF2206.md) | 11–12 April 2026 | Keselarasan Rekayasa Perangkat Lunak (IF2205) dan Praktikum Rekayasa Perangkat Lunak (IF2206): 13 inkonsistensi pada berkas fondasi, semuanya sudah diperbaiki | **Historis.** Disimpan sebagai rekam jejak; tidak menjadi acuan |
 
 Catatan untuk laporan historis:
