@@ -5,7 +5,7 @@ judul: Audit Menyeluruh Repositori Materi Kuliah — Oktober 2026
 kode_mk: PRODI-IF
 nama_mk: Seluruh paket mata kuliah
 prodi: Informatika
-versi: 1.0
+versi: 1.1
 status: draft
 diperbarui: 2026-10-07
 kriteria_lam: [1-budaya-mutu, 2-relevansi-pendidikan, 5-akuntabilitas]
@@ -16,6 +16,8 @@ siklus: 2026-2027-ganjil
 # Audit Menyeluruh Repositori — Oktober 2026
 
 **Pemilik:** Tri Aji Nugroho, S.T., M.T. · **Tanggal audit:** 7 Oktober 2026 · **Status:** draf untuk telaah dosen
+
+> **Pembaruan v1.1 (7 Oktober 2026).** Tabel konversi nilai resmi UAI diterima dari dosen pengampu dan sudah diterapkan ke seluruh repositori: A ≥ 81,00; sembilan huruf (A, A−, B+, B, B−, C+, C, D, E); lulus minimal C (55,00). Skala sementara tujuh huruf (A ≥ 81, lulus ≥ 56) yang dipakai pada v1.0 sudah tidak berlaku. Validator kini menegakkannya lewat aturan V13.
 
 > **Cakupan dan metode.** Seluruh 536 berkas di `mata-kuliah/` beserta `tools/validasi-obe.py`: 10 folder mata kuliah dan 2 lapisan rujukan. Audit dikerjakan dalam lima jalur paralel: (1) perencanaan dan asesmen Dasar AI/ML, (2) konten dan uji-jalan kode Dasar AI/ML, (3) tiga MK kurikulum baru lainnya, (4) enam MK kurikulum lama, (5) lapisan tata kelola. Setiap temuan KRITIS diverifikasi ulang secara independen. Kode dijalankan pada scikit-learn 1.5–1.9, pandas 2.3–3.0, SciPy 1.18, dan Matplotlib 3.11.
 >
@@ -28,8 +30,8 @@ siklus: 2026-2027-ganjil
 | Pertanyaan | Jawaban |
 |------------|---------|
 | **Apakah Dasar AI/ML (IF52510031) sudah benar-benar siap?** | **Belum.** Rancangan dan materinya kuat dan setia pada registri: Sub-CPMK, CPMK, CPL, BK, SKS, dan bobot 5/25/35/20/15 cocok. Namun ada empat penghambat: (1) belum ada naskah UTS/UAS/kuis maupun kunci jawabannya, padahal UTS di Minggu 8 tinggal beberapa minggu; (2) enam lab menghasilkan angka yang **berlawanan** dengan pelajaran yang hendak ditunjukkannya; (3) pengaitan asesmen ke Sub-CPMK tidak sesuai materi registri, sehingga angka ketercapaian CPL akan menyimpang; (4) RPS belum disahkan dan belum memiliki bukti mutu (`mutu/`, *front-matter*). |
-| **Skala nilai sudah sesuai standar UAI (A ≥ 81)?** | **Belum — dan masalahnya lintas repositori.** Ditemukan sedikitnya delapan varian skala. Hanya IF2205/IF2206 yang memakai A ≥ 81. Tiga MK Ganjil 2026/2027 yang Bapak ampu (Dasar AI/ML, Probabilitas dan Statistik, Teknopreneur) **sudah diperbaiki** pada audit ini. Skala sekarang ditetapkan di satu tempat ([`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md)): A ≥ 81, tujuh huruf, lulus ≥ 56. |
-| **Apakah semua referensi formal sudah tersedia?** | **Tidak.** Yang ada adalah transkripsi registri kurikulum (final sampai sheet 15c) dan pedoman OBE internal. **Peraturan akademik UAI tentang konversi nilai tidak ada di repositori.** Halaman resmi UAI Helpdesk tentang sistem penilaian juga tidak dapat diakses dari lingkungan audit. Skala A ≥ 81 bersandar pada penetapan Bapak (commit `ab45a38`, April 2026) dan konfirmasi Oktober 2026, sehingga berstatus 🟡. Daftar dokumen yang perlu dikumpulkan ada di §10. |
+| **Skala nilai sudah sesuai standar UAI (A ≥ 81)?** | **Sekarang sudah.** Sebelum audit ditemukan sedikitnya delapan varian skala, dan tidak satu pun sama dengan tabel resmi. Tabel resmi UAI kini ditetapkan di satu tempat ([`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md) v2.0): A ≥ 81,00; sembilan huruf; lulus minimal C (55,00). Tabel itu sudah diterapkan ke RPS, kerangka asesmen, pedoman praktikum, rubrik, soal UTS + kunci, dan contoh kode di **kesepuluh folder MK**. Aturan validator V13 akan menangkap bila skala lain muncul lagi. |
+| **Apakah semua referensi formal sudah tersedia?** | **Belum lengkap.** Yang ada adalah transkripsi registri kurikulum (final sampai sheet 15c), pedoman OBE internal, dan kini **tabel resmi konversi nilai UAI**: rentang, huruf, dan kategori ✅ (urutan B/B− pada tabel yang diterima tertukar dan dibetulkan atas konfirmasi dosen). Yang masih 🟡/🔲: bobot nilai mutu (sementara memakai bobot umum), nama/nomor dokumen resminya, dan aturan pembulatan. Halaman UAI Helpdesk tentang sistem penilaian tidak dapat diakses dari lingkungan audit. Daftar dokumen yang perlu dikumpulkan ada di §10. |
 
 ---
 
@@ -37,11 +39,13 @@ siklus: 2026-2027-ganjil
 
 | Commit | Isi |
 |--------|-----|
-| `2fddc79` | Registri tunggal [`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md); skala 9 huruf (A ≥ 85, A−, B−, lulus ≥ 55) di RPS dan kerangka asesmen **Dasar AI/ML, Probabilitas dan Statistik, Teknopreneur** diganti skala baku (A ≥ 81, 7 huruf, lulus ≥ 56) |
+| `2fddc79` | Registri tunggal [`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md); skala 9 huruf (A ≥ 85, A−, B−, lulus ≥ 55) di RPS dan kerangka asesmen **Dasar AI/ML, Probabilitas dan Statistik, Teknopreneur** diganti skala sementara (A ≥ 81, 7 huruf, lulus ≥ 56) — *digantikan skala resmi pada `8f09bc0`* |
 | `fd1560e` | **Dasar AI/ML:** bobot 13 lab disesuaikan agar tepat 15% / 10% sesuai registri (sebelumnya 15,2% / 9,5%); soal contoh UTS B3 yang mustahil secara aritmetika dibetulkan; aturan alat bantu ujian di Lampiran diselaraskan dengan enam dokumen lain; fakta yang keliru terhadap registri dikoreksi (bukan satu-satunya MK AI wajib, Sains Data semester 4, Basis Data semester 3, nama MK prasyarat, Tugas Akhir semester 8); catatan koordinasi dengan Sains Data ditambahkan |
 | `6a4d789` | **Probabilitas dan Statistik:** total bobot lab 25,08% → 25%; tiga blok kode yang gagal pada SciPy 1.18 / Matplotlib 3.11 diperbaiki (`kstest`, `boxplot(labels=)`, `np.sqrt(2**64)`) |
 | `b37ec23` | Rumusan verbatim CPMK **Teknopreneur** ("Lima CPMK" padahal enam; tiga rumusan terpotong) dan tabel CPL **Metodologi Penelitian** (memuat rumusan CPMK sebagai CPL, ranah salah) dipulihkan dari registri |
-| *(commit laporan ini)* | Pedoman OBE §I butir 10 dan §K menautkan registri konversi nilai; laporan ini |
+| `e5f88e3` | Pedoman OBE §I butir 10 dan §K menautkan registri konversi nilai; laporan ini (v1.0) |
+| `8f09bc0` | Registri [`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md) v2.0: **tabel resmi UAI** (9 huruf, A ≥ 81,00, lulus C 55,00), status sumber per aspek |
+| *(commit penerapan skala resmi)* | Skala resmi diterapkan ke **10 folder MK** (52 berkas): tabel kebijakan, ambang lulus, rubrik yang memetakan skor ke huruf, soal UTS INF-101 no. 11 beserta kunci dan pembahasannya, serta contoh kode konversi nilai di modul, buku ajar, dan lab. Kedua `prompt-*.md` kini menyematkan tabel resmi. Aturan validator **V13** ditambahkan (Pedoman §Q). Laporan ini menjadi v1.1 |
 
 ---
 
@@ -106,7 +110,7 @@ Akibatnya, ketercapaian CPL yang dihitung dari nilai ini tidak sahih. **Pilihan:
 
 | # | Temuan | Lokasi |
 |---|--------|--------|
-| T1 | RPS belum disahkan: tabel pengesahan kosong dan nama Koordinator Rumpun R06 belum diisi. Syarat lulus tambahan (capaian tiap Sub-CPMK ≥ 50%; wajib proyek dan presentasi) dapat membuat mahasiswa dengan nilai ≥ 56 tidak lulus, sehingga **perlu persetujuan prodi** ([`konversi-nilai.md` §C](00-pedoman-obe/konversi-nilai.md)) | RPS §I, §N; kerangka asesmen §6.1 |
+| T1 | RPS belum disahkan: tabel pengesahan kosong dan nama Koordinator Rumpun R06 belum diisi. Syarat lulus tambahan (capaian tiap Sub-CPMK ≥ 50%; wajib proyek dan presentasi) dapat membuat mahasiswa dengan nilai akhir ≥ 55,00 tidak lulus, sehingga **perlu persetujuan prodi** ([`konversi-nilai.md` §C](00-pedoman-obe/konversi-nilai.md)) | RPS §I, §N; kerangka asesmen §6.1 |
 | T2 | Teori *fairness* keliru. Kleinberg dkk. (2016) membuktikan konflik antara **kalibrasi** dan keseimbangan galat, bukan antara *demographic parity*, *equal opportunity*, dan *equalized odds*. Klaim "tidak ada model yang memenuhi semuanya" juga salah, karena pengklasifikasi konstan memenuhi ketiganya. | `bab-13`, `week-14`, `lab-14` |
 | T3 | Lab 4–14 tidak punya bagian **Persiapan** dan tidak meminta mahasiswa menjalankan sel pembuka, sehingga Langkah 1 gagal dengan `NameError: RANDOM_STATE` | `04-labs/lab-04` … `lab-14` |
 | T4 | Klaim "data nyata berkonteks Indonesia" tidak sesuai kenyataan: 10 dari 13 lab memakai data sintetis. Lab 9 ("Data Nyata") dan Lab 13 ("data tabular nyata") dibangkitkan dengan `rng`. RPS Minggu 3 menjanjikan "dataset BPS", tetapi Lab 3 sintetis. Lab 11 memakai 34 provinsi tanpa sumber dan tahun. | RPS, RTM, `datasets/README.md`, `mengapa-buku-ini.md` |
@@ -134,7 +138,7 @@ Akibatnya, ketercapaian CPL yang dihitung dari nilai ini tidak sahih. **Pilihan:
 |----|-----------|-----------------------|
 | **Probabilitas dan Statistik** (sedang berjalan, semester I) | Setia pada registri; bobot 100% konsisten; *footer* lengkap; kode lain berjalan pada pustaka terbaru | Naskah UTS + kunci sebelum Minggu 8. **8 berkas CSV lab tidak ada di repositori** ("tersedia di LMS"), ada 26 pemanggilan `read_csv`, dan peta dataset salah. Pengaitan Sub-CPMK keliru: Kuis 1 berisi deskriptif tetapi dikaitkan ke `081-1`, dan 60% UTS adalah probabilitas tetapi dikaitkan ke `102-1`. Dua rubrik proyek berbeda (5 aspek vs 7 aspek). Bab 13 bukan bab AI. |
 | **Teknopreneur** | Setia pada registri, kecuali rumusan CPMK yang **sudah dipulihkan** | Syarat lulus tambahan (≥ 15 wawancara, MVP diuji ke ≥ 5 orang, *Demo Day*, ≥ 50% per Sub-CPMK) perlu persetujuan prodi. Label teknik di RPS §F keliru (studio 9–12 masuk Unjuk Kerja, bukan Observasi). Tenggat *milestone* lebih awal daripada isinya. **Sitasi hukum usang:** UU 11/2020 → UU 6/2023; UU ITE perlu mencantumkan UU 1/2024; Kominfo → Komdigi (SE Menkominfo 9/2023); fatwa DSN-MUI tanpa nomor. Belum ada pemetaan CPL09 untuk mahasiswa non-IF (statusnya MKF). |
-| **Metodologi Penelitian** (pengampu: AAA) | Sub-CPMK verbatim; bobot 35/40/5/10/10 konsisten; atribusi pengampu ditandai di 29 berkas | **Masih memakai skala nilai lama** (A ≥ 85, D 40–54,99) tanpa ambang lulus. RPS tidak punya bagian Konversi Nilai maupun Pengesahan. T3/T4/T7 (18%) dikaitkan ke Sub-CPMK yang salah. 16% nilai tidak punya rubrik. *README* utama mencantumkan Tri Aji Nugroho sebagai pengampu seluruh repositori tanpa catatan. **Keputusan perbaikan ada pada pengampu.** |
+| **Metodologi Penelitian** (pengampu: AAA) | Sub-CPMK verbatim; bobot 35/40/5/10/10 konsisten; atribusi pengampu ditandai di 29 berkas | Skala nilai **sudah diselaraskan** ke skala resmi UAI (RPS §H.6 baru; kerangka asesmen §J.1–J.2 dengan deskriptor per huruf dipertahankan; lulus C 55,00). RPS belum punya bagian Pengesahan. T3/T4/T7 (18%) dikaitkan ke Sub-CPMK yang salah. 16% nilai tidak punya rubrik. *README* utama mencantumkan Tri Aji Nugroho sebagai pengampu seluruh repositori tanpa catatan. **Keputusan perbaikan ada pada pengampu.** |
 
 **Kesamaan keempat MK baru:**
 
@@ -150,7 +154,7 @@ Akibatnya, ketercapaian CPL yang dihitung dari nilai ini tidak sahih. **Pilihan:
 
 | Temuan | Lokasi | Tingkat |
 |--------|--------|:-------:|
-| Terdapat **delapan varian skala nilai** di MK lama, termasuk tiga skala berbeda di dalam INF-101 sendiri. Soal UTS INF-101 no. 11 menyebut skala tanpa C+ sebagai "standar UAI", padahal itu keliru. | `algoritma-pemrograman/04-assessments/uts-algoritma-pemrograman.md` | TINGGI |
+| ~~Terdapat **delapan varian skala nilai** di MK lama, termasuk tiga skala berbeda di dalam INF-101 sendiri. Soal UTS INF-101 no. 11 menyebut skala tanpa C+ sebagai "standar UAI".~~ **Selesai (Oktober 2026):** semua skala mengikuti tabel resmi; soal no. 11 kini memakai skala resmi, kuncinya `A-`, dan pembahasan distraktornya diperbarui. | `algoritma-pemrograman/04-assessments/uts-algoritma-pemrograman.md` | ~~TINGGI~~ |
 | Bobot di rubrik INF-102 tersalin dari templat teori (15/10/20/25/25/5), berbeda dengan RPS-nya (25/25/35/10/5) | `praktikum-algoritma-pemrograman/04-assessments/rubrik-tugas.md` | KRITIS (bila dipakai lagi) |
 | INF-101 lulus validator dengan 0 pelanggaran, padahal 7 CPMK lokal dan 55 Sub-CPMK-nya **tidak sesuai registri** (resmi: CPMK032/033, 2 Sub-CPMK, bobot 5/25/30/20/20) | `algoritma-pemrograman/01-rps/` | KRITIS (untuk Genap 2026/2027) |
 | Materi Analisis Data Statistik (probabilitas → regresi) kini sebagian besar menjadi isi Probabilitas dan Statistik semester I | `analisis-data-statistik/` | KRITIS (untuk Genap 2026/2027) |
@@ -188,7 +192,7 @@ Hasil saat ini: **851 pelanggaran** dari 536 berkas.
 | V8 | 60 | Pelanggaran konvensi |
 | V10 | 20 | Tautan putus |
 
-Hanya INF-101 yang dikenali sebagai mata kuliah, sehingga pemeriksaan V3/V5/V6/V7 **tidak pernah berjalan** untuk 9 folder lain. Pola *regex*-nya juga tidak mengenali skema registri. Validator perlu membaca kode sah langsung dari registri (`03`, `06`, `11`, `13`, `15b–e`), mencocokkan bobot dengan `15a`, dan memeriksa skala nilai terhadap `konversi-nilai.md`.
+Hanya INF-101 yang dikenali sebagai mata kuliah, sehingga pemeriksaan V3/V5/V6/V7 **tidak pernah berjalan** untuk 9 folder lain. Pola *regex*-nya juga tidak mengenali skema registri. Validator perlu membaca kode sah langsung dari registri (`03`, `06`, `11`, `13`, `15b–e`), dan mencocokkan bobot dengan `15a`. Pemeriksaan skala nilai **sudah ada** lewat aturan baru V13 (cakupan: tabel Markdown; skala yang ditulis dalam prosa atau kode belum diperiksa mesin).
 
 ### 7.3 Ketidakcocokan di dalam registri — laporkan, jangan diubah sendiri
 
@@ -241,7 +245,7 @@ Hanya INF-101 yang dikenali sebagai mata kuliah, sehingga pemeriksaan V3/V5/V6/V
 | # | Pekerjaan |
 |---|-----------|
 | 2.1 | **Pedoman OBE v3.0:** urutan otoritas (Excel resmi > registri > pedoman > `CLAUDE.md`/prompt); ganti registri BK lama dengan BK registri; format kode CPMK/Sub-CPMK/asesmen mengikuti registri |
-| 2.2 | **Validator v3:** baca kode, bobot, dan SKS dari registri; kenali kode `XX-Sub-CPMKnnn-n`; periksa skala nilai; jalankan kode lab |
+| 2.2 | **Validator v3:** baca kode, bobot, dan SKS dari registri; kenali kode `XX-Sub-CPMKnnn-n`; perluas V13 ke skala dalam kode/prosa; jalankan kode lab |
 | 2.3 | **Selaraskan ulang tiga MK semester II** ke registri: Algoritma Pemrograman `IF52520004` (2 Sub-CPMK; bobot 5/25/30/20/20; pisahkan dari Dasar Pemrograman semester I), Praktikum `IF52520005` (bobot 5/5/50/20/10/10), Analisis Data Statistik `IF52520025` (**3 SKS**; bobot 15/25/10/25/25; fokus pada akuisisi, kualitas data, EDA, dan analitik berbantuan AI yang tervalidasi — bukan mengulang Probabilitas dan Statistik) |
 | 2.4 | Arsipkan `kecerdasan-buatan-machine-learning/` dan `praktikum-rekayasa-perangkat-lunak/` (`status: arsip` + spanduk), serahkan `rekayasa-perangkat-lunak/` kepada pengampu baru |
 | 2.5 | **Fase 2.5:** perbarui `CLAUDE.md`, README utama, dan kedua prompt agar regenerasi tidak memasukkan kembali kesalahan lama |
@@ -261,12 +265,12 @@ Hanya INF-101 yang dikenali sebagai mata kuliah, sehingga pemeriksaan V3/V5/V6/V
 
 ## 9. Keputusan yang Dibutuhkan dari Dosen
 
-1. **Konfirmasi skala lengkap.** Batas A ≥ 81 sudah dikonfirmasi; rentang huruf lain menyalin RPS IF2205. Cocokkan dengan peraturan akademik resmi.
+1. **Skala nilai — sisa verifikasi.** Tabel resmi lengkap sudah diterima dan diterapkan (7 Oktober 2026). Yang masih perlu dipastikan dari dokumen resmi: bobot nilai mutu (kini bobot umum 4,00/3,70/3,30/3,00/2,70/2,30/2,00/1,00/0,00), nama/nomor dokumen, dan aturan pembulatan.
 2. **Syarat lulus tambahan** (≥ 50% per Sub-CPMK, wajib presentasi, 15 wawancara): ajukan ke prodi atau cabut?
 3. **Ketidakcocokan teknik ↔ Sub-CPMK:** tandai per butir (dalam kendali dosen) atau usulkan revisi registri?
 4. **Nasib folder** IF2205, IF2206, dan IF3XXX.
 5. **Urutan otoritas** registri vs Pedoman OBE, dan apakah kode asesmen memakai `ASM-*` atau `K-01/T-01/P-01`.
-6. **Metodologi Penelitian:** teruskan ke Andi Arniaty Arsyad, Ph.D. untuk keputusan skala, pengesahan, dan rubrik.
+6. **Metodologi Penelitian:** teruskan ke Andi Arniaty Arsyad, Ph.D. untuk pengesahan dan rubrik; beri tahu juga bahwa skala resmi UAI sudah diterapkan di bahan mata kuliah tersebut.
 
 ## 10. Dokumen Formal yang Perlu Dikumpulkan
 
@@ -274,7 +278,7 @@ Simpan salinannya di `00-pedoman-obe/sumber/`, lalu ubah status 🟡/🔲 terkai
 
 | Dokumen | Untuk apa |
 |---------|-----------|
-| **Peraturan akademik UAI** (konversi nilai, pembulatan, syarat kehadiran) | Memverifikasi [`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md); dasar "kehadiran 75%" |
+| **Dokumen resmi sumber tabel "Kategori Penilaian"** (peraturan akademik UAI: bobot nilai mutu, pembulatan, syarat kehadiran) | Mencatat nomor dokumen dan memverifikasi bobot di [`konversi-nilai.md`](00-pedoman-obe/konversi-nilai.md) §B; dasar "kehadiran 75%" |
 | Berkas Excel resmi `Revisi_2026_Kurikulum_OBE_IF_2025_2.xlsx` | Sumber primer registri; sheet 16–20 (teknik, mekanisme, bobot, rumusan akhir) belum final |
 | SK ambang ketercapaian CPL | Ambang "tuntas" yang kini masih usulan |
 | Matriks butir Instrumen LAM-INFOKOM 2.0 | Pemetaan bukti per butir |

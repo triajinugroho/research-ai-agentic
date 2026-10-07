@@ -380,22 +380,22 @@ Sub-CPMK dijabarkan per minggu praktikum dengan kata kerja operasional yang mene
 
 ## H. Konversi Nilai
 
-Konversi nilai mengikuti pedoman akademik Universitas Al Azhar Indonesia.
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
 
-| Huruf Mutu | Angka Mutu | Rentang Nilai (%) | Predikat |
-|---|---|---|---|
-| **A** | 4.0 | 85 – 100 | Sangat Baik |
-| **A-** | 3.7 | 80 – 84 | Sangat Baik |
-| **B+** | 3.3 | 75 – 79 | Baik |
-| **B** | 3.0 | 70 – 74 | Baik |
-| **B-** | 2.7 | 65 – 69 | Cukup Baik |
-| **C+** | 2.3 | 60 – 64 | Cukup |
-| **C** | 2.0 | 55 – 59 | Cukup |
-| **D** | 1.0 | 40 – 54 | Kurang |
-| **E** | 0.0 | 0 – 39 | Sangat Kurang |
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 **Catatan:**
-- Nilai minimum kelulusan adalah **C** (angka mutu 2.0, rentang 55–59%).
+- Nilai minimum kelulusan adalah **C (55,00)** (bobot 2,00, rentang 55,00–59,99).
 - Mahasiswa dengan nilai **D** atau **E** wajib mengulang mata kuliah.
 - Komponen kehadiran minimum 75% merupakan syarat wajib untuk dapat mengikuti RAS. Mahasiswa yang tidak memenuhi syarat kehadiran akan mendapat nilai **E** secara otomatis.
 

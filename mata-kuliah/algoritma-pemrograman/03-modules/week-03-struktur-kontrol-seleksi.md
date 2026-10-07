@@ -69,7 +69,7 @@ if bilangan > 0:
 ```python
 # Dua kemungkinan: True atau False
 nilai = int(input("Masukkan nilai: "))
-if nilai >= 60:
+if nilai >= 55:  # batas lulus mata kuliah: nilai C (55)
     print("LULUS")
 else:
     print("TIDAK LULUS")
@@ -78,13 +78,21 @@ else:
 #### Struktur if-elif-else
 
 ```python
-# Beberapa kemungkinan kondisi
-nilai = int(input("Masukkan nilai (0-100): "))
+# Beberapa kemungkinan kondisi -- konversi nilai akhir ke huruf mutu (skala resmi UAI)
+nilai = float(input("Masukkan nilai (0-100): "))
 
-if nilai >= 85:
+if nilai >= 81:
     huruf = "A"
+elif nilai >= 78:
+    huruf = "A-"
+elif nilai >= 75:
+    huruf = "B+"
 elif nilai >= 70:
     huruf = "B"
+elif nilai >= 65:
+    huruf = "B-"
+elif nilai >= 60:
+    huruf = "C+"
 elif nilai >= 55:
     huruf = "C"
 elif nilai >= 40:
@@ -97,13 +105,19 @@ print(f"Nilai huruf: {huruf}")
 
 **Tabel keputusan (Decision Table) untuk konversi nilai:**
 
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — skala resmi UAI dengan sembilan huruf mutu; batas lulus mata kuliah adalah C (55,00).
+
 | Rentang Nilai | Nilai Huruf | Keterangan |
 |---------------|-------------|------------|
-| 85 -- 100 | A | Sangat Baik |
-| 70 -- 84 | B | Baik |
-| 55 -- 69 | C | Cukup |
-| 40 -- 54 | D | Kurang |
-| 0 -- 39 | E | Sangat Kurang |
+| 81,00 -- 100,00 | A | Sangat Baik |
+| 78,00 -- 80,99 | A− | Sangat Baik |
+| 75,00 -- 77,99 | B+ | Baik |
+| 70,00 -- 74,99 | B | Baik |
+| 65,00 -- 69,99 | B− | Baik |
+| 60,00 -- 64,99 | C+ | Cukup |
+| 55,00 -- 59,99 | C | Cukup |
+| 40,00 -- 54,99 | D | Kurang |
+| 0,00 -- 39,99 | E | Sangat Kurang |
 
 ### 3. Kondisi Majemuk dan Tabel Kebenaran (Sub-CPMK-3.3)
 

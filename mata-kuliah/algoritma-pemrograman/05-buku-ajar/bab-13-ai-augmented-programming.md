@@ -1185,7 +1185,7 @@ MY AI CODING WORKFLOW
 
 3. **AI Usage Log:** Tulis AI Usage Log lengkap untuk situasi berikut: Anda menggunakan Claude untuk membantu membuat fungsi sorting mahasiswa berdasarkan IPK. Anda memberikan 3 prompt, AI memberikan kode yang Anda modifikasi, dan Anda menemukan satu bug yang Anda perbaiki sendiri.
 
-4. **Code Quality:** Refactor kode berikut menjadi clean code dengan fungsi-fungsi yang modular:
+4. **Code Quality:** Refactor kode berikut menjadi clean code dengan fungsi-fungsi yang modular (skala disederhanakan untuk latihan — skala resmi UAI ada di [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md)):
    ```python
    n = ["Ahmad", "Siti", "Budi", "Dewi"]
    v = [85, 92, 78, 95]

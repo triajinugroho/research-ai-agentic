@@ -196,20 +196,21 @@ Mata kuliah ini mengadopsi pendekatan **"AI-Augmented Learning"** di mana AI dia
 
 ## 6. Konversi Nilai Akhir
 
-Nilai akhir dihitung berdasarkan bobot masing-masing komponen dan dikonversi ke huruf mutu sesuai ketentuan Universitas Al Azhar Indonesia:
+Nilai akhir dihitung berdasarkan bobot masing-masing komponen dan dikonversi ke huruf mutu sesuai ketentuan Universitas Al Azhar Indonesia.
 
-| Nilai Angka | Huruf Mutu | Bobot | Keterangan |
-|---|---|---|---|
-| 85 - 100 | A | 4.00 | Sangat Baik |
-| 80 - 84 | A- | 3.75 | |
-| 75 - 79 | B+ | 3.50 | |
-| 70 - 74 | B | 3.00 | Baik |
-| 65 - 69 | B- | 2.75 | |
-| 60 - 64 | C+ | 2.50 | |
-| 55 - 59 | C | 2.00 | Cukup |
-| 50 - 54 | C- | 1.75 | |
-| 40 - 49 | D | 1.00 | Kurang |
-| 0 - 39 | E | 0.00 | Tidak Lulus |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 **Syarat Kelulusan:**
 - Nilai minimal **C (55)** untuk lulus mata kuliah

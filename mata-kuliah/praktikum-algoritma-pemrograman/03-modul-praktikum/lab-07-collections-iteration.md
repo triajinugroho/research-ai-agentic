@@ -249,11 +249,15 @@ def hitung_nilai_akhir(tugas, uts, uas):
     return tugas * 0.3 + uts * 0.3 + uas * 0.4
 
 def konversi_huruf(na):
-    """Mengonversi nilai akhir ke huruf."""
-    if na >= 85: return "A"
-    elif na >= 75: return "B"
-    elif na >= 60: return "C"
-    elif na >= 45: return "D"
+    """Mengonversi nilai akhir ke huruf (skala resmi UAI)."""
+    if na >= 81: return "A"
+    elif na >= 78: return "A-"
+    elif na >= 75: return "B+"
+    elif na >= 70: return "B"
+    elif na >= 65: return "B-"
+    elif na >= 60: return "C+"
+    elif na >= 55: return "C"
+    elif na >= 40: return "D"
     else: return "E"
 
 def proses_data(data):
@@ -262,7 +266,7 @@ def proses_data(data):
     for nama, nim, tugas, uts, uas in data:
         na = hitung_nilai_akhir(tugas, uts, uas)
         huruf = konversi_huruf(na)
-        status = "Lulus" if huruf in ["A", "B", "C"] else "Tidak Lulus"
+        status = "Lulus" if huruf in ["A", "A-", "B+", "B", "B-", "C+", "C"] else "Tidak Lulus"
         hasil.append((nama, nim, tugas, uts, uas, na, huruf, status))
     return hasil
 

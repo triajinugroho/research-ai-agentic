@@ -140,13 +140,21 @@ def hitung_rata_rata(data):
     """Menghitung rata-rata dari sebuah list angka."""
     return sum(data) / len(data)
 
-# Fungsi untuk menentukan grade
+# Fungsi untuk menentukan grade (skala resmi UAI, lihat registri konversi nilai)
 def tentukan_grade(nilai):
     """Menentukan grade berdasarkan nilai."""
-    if nilai >= 85:
+    if nilai >= 81:
         return "A"
+    elif nilai >= 78:
+        return "A-"
+    elif nilai >= 75:
+        return "B+"
     elif nilai >= 70:
         return "B"
+    elif nilai >= 65:
+        return "B-"
+    elif nilai >= 60:
+        return "C+"
     elif nilai >= 55:
         return "C"
     elif nilai >= 40:

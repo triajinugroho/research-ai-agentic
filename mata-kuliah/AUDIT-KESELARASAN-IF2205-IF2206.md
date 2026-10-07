@@ -70,6 +70,8 @@ Tetapkan **SATU timeline sprint** yang digunakan di semua dokumen. Rekomendasi b
 
 ## ISU #2: Skala Penilaian — 4 Versi Berbeda ⚠️ KRITIS
 
+> **Catatan pembaruan (Oktober 2026):** Sejak Oktober 2026 skala penilaian IF2205 dan IF2206 mengikuti skala resmi UAI (9 huruf mutu, A ≥ 81,00, batas lulus C 55,00) yang ditetapkan di [registri konversi nilai](00-pedoman-obe/konversi-nilai.md). Tabel di bawah dipertahankan apa adanya sebagai catatan historis temuan audit April 2026.
+
 ### IF2205 RPS (7 tingkat, tanpa A- dan B-)
 | Huruf | Rentang |
 |-------|---------|
@@ -256,6 +258,8 @@ Seragamkan. Rekomendasi: gunakan versi IF2206 assessment framework (gradual) unt
 
 ### Rekomendasi
 Pilih satu. "Nilai E" lebih ketat dari "maksimal D". Rekomendasi: **tidak bisa ikut RAS dan nilai maksimal D** (lebih proporsional, karena mahasiswa masih bisa lulus jika komponen lain baik).
+
+> **Catatan pembaruan (Oktober 2026):** Menurut [registri konversi nilai](00-pedoman-obe/konversi-nilai.md), batas lulus adalah C (55,00) dan nilai D tidak lulus; sanksi "nilai maksimal D" berarti mahasiswa tidak lulus mata kuliah. Alasan "masih bisa lulus" di atas dipertahankan sebagai catatan historis dan tidak berlaku.
 
 ---
 

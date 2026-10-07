@@ -205,7 +205,7 @@ Python memakai **short-circuit evaluation**. Pada `x and cek()`: karena `x = Fal
 **Jawaban:** B
 
 **Pembahasan:**
-Evaluasi berurutan: `78 >= 85` salah, `78 >= 80` salah, `78 >= 75` **benar** → `grade = "B+"`. Cabang berikutnya tidak dievaluasi karena `elif` sudah terpicu. Distraktor C (`B`) adalah kesalahan umum yang mengabaikan threshold `>= 75` untuk B+. A (`A-`) mengira 78 ≥ 80.
+Evaluasi berurutan: `78 >= 81` salah, `78 >= 78` **benar** (operator `>=` mencakup nilai batas) → `grade = "A-"`. Kondisi berikutnya (`78 >= 75`, `78 >= 70`, …, `78 >= 40`) sebenarnya juga benar, tetapi tidak dievaluasi karena `elif` sudah terpicu. Distraktor C (`B+`) adalah kesalahan umum yang menganggap `>=` tidak mencakup batas 78. E (`D`) muncul bila setiap `elif` diperlakukan sebagai `if` terpisah sehingga `grade` terus ditimpa hingga kondisi benar terakhir (`78 >= 40`). A (`A`) mengira 78 ≥ 81.
 
 **Rubrik:** Benar = 2 poin | Salah/Kosong = 0 poin
 

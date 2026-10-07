@@ -659,11 +659,19 @@ def hitung_nilai_akhir(tugas, uts, uas):
     return tugas * 0.30 + uts * 0.30 + uas * 0.40
 
 def tentukan_grade(nilai_akhir):
-    """Menentukan grade huruf berdasarkan nilai akhir."""
-    if nilai_akhir >= 85:
+    """Menentukan grade huruf berdasarkan nilai akhir (skala resmi UAI)."""
+    if nilai_akhir >= 81:
         return "A"
+    elif nilai_akhir >= 78:
+        return "A-"
+    elif nilai_akhir >= 75:
+        return "B+"
     elif nilai_akhir >= 70:
         return "B"
+    elif nilai_akhir >= 65:
+        return "B-"
+    elif nilai_akhir >= 60:
+        return "C+"
     elif nilai_akhir >= 55:
         return "C"
     elif nilai_akhir >= 40:
@@ -902,20 +910,24 @@ print(f"2^10 = {pangkat(2, 10)}")       # Output: 2^10 = 1024
 
 ### Studi Kasus 1: Kalkulator IPK Semester
 
+Huruf mutu dan bobotnya mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI).
+
 ```python
 def input_matakuliah():
     """Meminta input data satu mata kuliah."""
     nama = input("Nama Mata Kuliah: ")
     sks = int(input("Jumlah SKS: "))
-    nilai_huruf = input("Nilai Huruf (A/B/C/D/E): ").upper()
+    nilai_huruf = input("Nilai Huruf (A/A-/B+/B/B-/C+/C/D/E): ").upper()
     return nama, sks, nilai_huruf
 
 def konversi_nilai(huruf):
     """Mengkonversi nilai huruf ke angka (bobot).
 
-    Skala: A=4, B=3, C=2, D=1, E=0
+    Skala resmi UAI: A=4.0, A-=3.7, B+=3.3, B=3.0, B-=2.7,
+    C+=2.3, C=2.0, D=1.0, E=0.0
     """
-    konversi = {"A": 4.0, "B": 3.0, "C": 2.0, "D": 1.0, "E": 0.0}
+    konversi = {"A": 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0, "B-": 2.7,
+                "C+": 2.3, "C": 2.0, "D": 1.0, "E": 0.0}
     return konversi.get(huruf, 0.0)
 
 def hitung_ipk(daftar_mk):

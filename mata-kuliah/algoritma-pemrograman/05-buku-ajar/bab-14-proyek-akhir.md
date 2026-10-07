@@ -926,7 +926,9 @@ main()
 
 ### 14.9.2 Contoh Penilaian
 
-**Nilai A (85-100):**
+Rentang huruf mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI). Contoh di bawah mengelompokkan huruf mutu menurut kategorinya: Sangat Baik (A, A−), Baik (B+, B, B−), Cukup (C+, C), serta Kurang dan Sangat Kurang (D, E).
+
+**Nilai A/A− (78,00–100,00):**
 - Program berjalan sempurna tanpa error
 - Minimal 7 fungsi dengan docstrings
 - Menggunakan dict + list + searching + sorting
@@ -934,7 +936,7 @@ main()
 - AI Usage Log detail dan reflektif
 - Presentasi profesional dengan demo lancar
 
-**Nilai B (70-84):**
+**Nilai B+/B/B− (65,00–77,99):**
 - Program berjalan dengan minor bug
 - Minimal 5 fungsi dengan dokumentasi cukup
 - Menggunakan struktur data tepat
@@ -942,7 +944,7 @@ main()
 - AI Usage Log ada tapi kurang detail
 - Presentasi cukup baik
 
-**Nilai C (55-69):**
+**Nilai C+/C (55,00–64,99):**
 - Program berjalan untuk fitur dasar
 - Minimal 3 fungsi
 - Struktur data sederhana (list saja)
@@ -950,7 +952,7 @@ main()
 - AI Usage Log singkat
 - Presentasi cukup
 
-**Nilai D/E (<55):**
+**Nilai D/E (< 55,00):**
 - Program tidak berjalan / banyak error
 - Sedikit/tanpa fungsi
 - Tidak ada AI Usage Log

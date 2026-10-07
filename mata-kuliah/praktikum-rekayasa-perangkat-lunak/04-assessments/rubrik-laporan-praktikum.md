@@ -324,7 +324,7 @@ Praktikum ini berhubungan dengan materi di kelas.
 6. Nilai diinput ke rekap
        │
        ▼
-7. Jika nilai < 56 → eligible remedial
+7. Jika nilai < 55 → eligible remedial
        │                     │
        ▼                     ▼
 8. Nilai final         Revisi & submit ulang

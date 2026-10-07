@@ -328,15 +328,23 @@ print(agg_result.round(2))
 # Hitung nilai akhir: 40% UTS + 60% UAS
 df['nilai_akhir'] = 0.4 * df['nilai_uts'] + 0.6 * df['nilai_uas']
 
-# Tentukan grade berdasarkan nilai akhir
+# Tentukan grade berdasarkan nilai akhir (skala resmi UAI, lihat registri konversi nilai)
 def tentukan_grade(nilai):
-    if nilai >= 85:
+    if nilai >= 81:
         return 'A'
+    elif nilai >= 78:
+        return 'A-'
     elif nilai >= 75:
+        return 'B+'
+    elif nilai >= 70:
         return 'B'
     elif nilai >= 65:
-        return 'C'
+        return 'B-'
+    elif nilai >= 60:
+        return 'C+'
     elif nilai >= 55:
+        return 'C'
+    elif nilai >= 40:
         return 'D'
     else:
         return 'E'

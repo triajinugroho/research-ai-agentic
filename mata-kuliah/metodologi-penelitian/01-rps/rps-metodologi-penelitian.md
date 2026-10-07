@@ -15,7 +15,7 @@
 > RPS ini disusun oleh **Tri Aji Nugroho, S.T., M.T.** sebagai **rujukan
 > penyelarasan kurikulum** dan memerlukan persetujuan dosen pengampu sebelum
 > dipakai. Seluruh rumusan Sub-CPMK, indikator, kriteria, dan bobot pada
-> bagian E dan H diambil **verbatim** dari registri.
+> bagian E dan H.1–H.5 diambil **verbatim** dari registri.
 
 ---
 
@@ -253,6 +253,26 @@ membatalkan penilaian keluaran yang bersangkutan.
 > akademik saat ini. Ketentuan 1 menangkap sitasi yang dikarang; ketentuan 2
 > menangkap teks yang tidak dipahami penulisnya. Keduanya diberlakukan sejak
 > Minggu 1, bukan sebagai sanksi melainkan sebagai cara kerja.
+
+### H.6 Konversi Nilai
+
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
+
+Batas lulus mata kuliah adalah **C (55,00)**. Nilai D dan E dinyatakan tidak
+lulus. Deskripsi capaian per huruf ada pada
+[Kerangka Asesmen §J](../05-assessments/assessment-framework.md).
 
 ---
 

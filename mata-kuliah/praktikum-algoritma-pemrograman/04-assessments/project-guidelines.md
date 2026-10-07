@@ -407,7 +407,7 @@ A: Boleh mengambil inspirasi, tetapi kode harus ditulis sendiri dan disesuaikan 
 A: Kumpulkan dalam format ZIP melalui LMS UAI. Nama file: `ProyekAkhir_NIM_NamaDepan.zip`. Untuk proyek berpasangan: `ProyekAkhir_NIM1_NIM2.zip`. Pastikan file dapat di-extract dan dijalankan langsung.
 
 **Q8: Apakah ada presentasi susulan?**
-A: Presentasi susulan hanya diberikan dengan alasan resmi (surat sakit/izin dari institusi). Presentasi susulan dilakukan paling lambat 1 minggu setelah jadwal asal, dengan nilai maksimal B+ (79).
+A: Presentasi susulan hanya diberikan dengan alasan resmi (surat sakit/izin dari institusi). Presentasi susulan dilakukan paling lambat 1 minggu setelah jadwal asal, dengan nilai maksimal A− (79).
 
 **Q9: Bagaimana jika program saya error saat demo?**
 A: Minor error yang bisa diperbaiki saat demo dimaklumi (pengurangan kecil di komponen presentasi). Jika program tidak bisa berjalan sama sekali, komponen presentasi dan demo akan mendapat skor rendah, tetapi komponen lain tetap dinilai berdasarkan source code.

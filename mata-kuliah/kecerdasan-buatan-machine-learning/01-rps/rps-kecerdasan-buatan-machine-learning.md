@@ -358,17 +358,19 @@ Minggu:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16
 
 ## H. KONVERSI NILAI
 
-| Rentang | Huruf | Bobot | Predikat |
-|---------|-------|-------|----------|
-| 85 - 100 | A | 4.00 | Sangat Baik |
-| 80 - 84 | A- | 3.75 | Sangat Baik |
-| 75 - 79 | B+ | 3.50 | Baik |
-| 70 - 74 | B | 3.00 | Baik |
-| 65 - 69 | B- | 2.75 | Cukup Baik |
-| 60 - 64 | C+ | 2.50 | Cukup |
-| 55 - 59 | C | 2.00 | Cukup |
-| 40 - 54 | D | 1.00 | Kurang |
-| 0 - 39 | E | 0.00 | Sangat Kurang |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 ---
 

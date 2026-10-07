@@ -475,7 +475,24 @@ Harus memiliki SEMUA bagian berikut (mengikuti format SN-Dikti):
 - **E. Sub-CPMK** (tabel lengkap per minggu, 16 minggu)
 - **F. Tabel RPS** (tabel besar per minggu dengan kolom: Minggu, Sub-CPMK, Materi Pembelajaran, Metode/Strategi, Pengalaman Belajar, Indikator Penilaian, Bobot, Referensi)
 - **G. Peta Evaluasi** (ringkasan bobot, matrix CPMK × asesmen, timeline asesmen)
-- **H. Konversi Nilai** (tabel huruf → angka → range, sesuai standar UAI)
+- **H. Konversi Nilai** — salin **apa adanya** tabel konversi di bawah ini, termasuk tanda minus "−" pada A− dan B− serta koma desimal (skala resmi UAI, sama dengan tabel §A registri konversi nilai `mata-kuliah/00-pedoman-obe/konversi-nilai.md` di repositori `research-ai-agentic`): 9 huruf mutu A, A−, B+, B, B−, C+, C, D, E; A ≥ 81,00; batas lulus C ≥ 55,00, D dan E tidak lulus. JANGAN mengarang atau mengubah skala.
+
+  Tepat di atas tabel, tulis kalimat berikut sebagai tautan Markdown biasa (tanpa backtick). Tautan ini hanya berlaku bila paket ditempatkan di `mata-kuliah/algoritma-pemrograman/` dalam repositori `research-ai-agentic` (path dihitung dari `01-rps/`); di repository baru `algoritma-pemrograman-uai/` berkas registri tidak ada dan tautannya akan keluar dari repository lalu putus, jadi salin tabelnya saja tanpa kalimat bertautan tersebut.
+
+  `Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.`
+
+  | Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+  |---------------------|-------|-------|----------|
+  | 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+  | 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+  | 75,00 – 77,99 | B+ | 3,30 | Baik |
+  | 70,00 – 74,99 | B | 3,00 | Baik |
+  | 65,00 – 69,99 | B− | 2,70 | Baik |
+  | 60,00 – 64,99 | C+ | 2,30 | Cukup |
+  | 55,00 – 59,99 | C | 2,00 | Cukup |
+  | 40,00 – 54,99 | D | 1,00 | Kurang |
+  | 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
+
 - **I. Referensi** (utama + pendukung + online, minimal 10 sumber)
 - **J. Kebijakan Khusus** (AI policy yang jelas, kehadiran, keterlambatan, academic integrity)
 - **K. Profil Proyek Akhir** (ringkasan)
@@ -526,7 +543,7 @@ Semua kode harus **Google Colab-compatible** dan menggunakan konteks Indonesia.
 
 - Lab 01: Setup Colab + Hello World + input/output dasar
 - Lab 02: Kalkulator sederhana, konversi suhu, hitung diskon
-- Lab 03: Grade calculator, BMI checker, penentuan tarif TransJakarta
+- Lab 03: Grade calculator, BMI checker, penentuan tarif TransJakarta (grade calculator yang menyebut dirinya memakai skala UAI wajib memakai skala resmi pada tabel konversi K.2 bagian H; skala yang disederhanakan untuk latihan wajib diberi label "skala disederhanakan untuk latihan — skala resmi UAI ada di registri konversi nilai"; bila paket berada di repository baru `algoritma-pemrograman-uai/` (tanpa registri), lanjutkan label dengan "(lihat tabel Konversi Nilai pada RPS bagian H)")
 - Lab 04: Pattern printing (segitiga, piramida), tabel perkalian, game tebak angka
 - Lab 05: Refactoring program "spageti" menjadi fungsi-fungsi modular
 - Lab 06: Word counter, Caesar cipher, palindrome checker, text formatter
@@ -680,6 +697,7 @@ CHECKLIST VERIFIKASI:
 [ ] Setiap lab memiliki: Tujuan, Persiapan, Langkah-langkah, Tantangan, Checklist
 [ ] Nomor CPMK konsisten di seluruh RPS, RTM, buku ajar, dan asesmen
 [ ] Bobot asesmen = 100% (15+10+20+25+25+5)
+[ ] Tabel konversi nilai = salinan persis tabel konversi pada K.2 bagian H (A ≥ 81, 9 huruf, lulus C ≥ 55)
 [ ] Semua kode Python kompatibel Google Colab
 [ ] Nilai-nilai Islami terintegrasi natural
 [ ] Progresi AI Corner mencakup Bab 1-14

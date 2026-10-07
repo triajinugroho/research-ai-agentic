@@ -1,7 +1,33 @@
 #!/usr/bin/env python3
 """Validator konsistensi OBE untuk paket mata kuliah Prodi Informatika UAI.
 
-Menegakkan aturan V1-V12 pada Pedoman OBE & Konvensi (00-pedoman-obe) sec. Q.
+Menegakkan aturan V1-V13 pada Pedoman OBE & Konvensi (00-pedoman-obe) sec. Q;
+skala acuan V13 dibaca dari registri 00-pedoman-obe/konversi-nilai.md:
+
+    V1  Metadata front-matter          V8  Konvensi (footer tagline)
+    V2  Keunikan id                    V9  Sitasi regulasi yang dicabut
+    V3  Integritas referensial         V10 Tautan relatif
+    V4  Pola kode lama                 V11 Pagu ukuran
+    V5  Cakupan (constructive align.)  V12 Pengesahan (cpl_status)
+    V6  Bobot asesmen = 100%           V13 Skala konversi nilai
+    V7  Data induk
+
+V13 membaca tabel §A konversi-nilai.md (rentang, huruf, bobot) saat dijalankan,
+lalu memeriksa setiap tabel Markdown di luar blok kode yang memuat >= 3 baris
+berisi sel huruf mutu tersendiri (A, A−/A-, B+, ...) bersama sel rentang 0-100
+("81,00 – 100,00", "85-100", "≥ 85", "Nilai Akhir < 40", "75 ≤ N < 78",
+"80,99 < N ≤ 100"); operator tegas > dan < digeser satu langkah presisi
+registri (0,01), sehingga "> 80" dibaca ≥ 80,01. Setiap baris seperti itu harus
+cocok dengan registri: batas bawah dan atas bertoleransi 0,005 (batas atas yang
+ditulis dengan presisi lebih rendah, mis. "78-80", dibandingkan dengan batas
+resmi yang dipotong ke presisi itu), koma atau titik desimal, "−" atau "-".
+Huruf di luar registri (AB, BC, C−, A+, ...) dan huruf resmi yang tidak ada di
+tabel (tabel tidak lengkap) juga dilaporkan. Bila tabel punya kolom Bobot/Mutu,
+nilainya ikut dicocokkan. Bila registri tidak ditemukan atau tabel §A-nya tidak
+terbaca, V13 dilaporkan pada registri. Dikecualikan: konversi-nilai.md,
+AUDIT-KESELARASAN-IF2205-IF2206.md (dokumen historis), dan tabel yang dalam lima
+baris di atasnya diberi label "skala disederhanakan" (contoh latihan).
+
 Python murni, tanpa dependensi eksternal. Jalankan dari akar repositori:
 
     python3 tools/validasi-obe.py [--mk INF-101]
@@ -219,10 +245,161 @@ for p, d in dok.items():
         if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(p), target))):
             lapor("V10", p, f"tautan relatif putus: {target}")
 
+# --------------------------------------------------------------------- V13
+# Skala konversi nilai: tabel huruf mutu ↔ rentang 0-100 harus sama dengan
+# tabel §A registri konversi-nilai.md (satu-satunya sumber skala).
+FKONVERSI   = os.path.join(PEDOMAN, "konversi-nilai.md")
+V13_KECUALI = {FKONVERSI, os.path.join(MK, "AUDIT-KESELARASAN-IF2205-IF2206.md")}
+_ANGKA      = r'(\d{1,3}(?:[.,]\d+)?)'
+RE_V13_HURUF   = re.compile(r'^[A-F](?:[A-F]|[+\-−])?$')     # kandidat sel huruf mutu
+RE_V13_RENTANG = re.compile(rf'^{_ANGKA}\s*(?:-{{1,2}}|[–—−]|s\.\s?d\.?|s/d|sampai)\s*{_ANGKA}$', re.I)
+_V13_NAMA      = r'[A-Za-z_]+(?:\s+[A-Za-z_]+)*'              # "N", "NA", "Nilai Akhir"
+RE_V13_BATAS   = re.compile(rf'^(?:{_V13_NAMA}\s*)?(≥|>=|>|≤|<=|<)\s*{_ANGKA}$')
+RE_V13_APIT    = re.compile(rf'^{_ANGKA}\s*(?:(<|≤|<=)\s*{_V13_NAMA}\s*|[-–—−]\s*)(<|≤|<=)\s*{_ANGKA}$')
+RE_V13_KOLBOBOT = re.compile(r'bobot|mutu|grade point|indeks', re.I)
+V13_LANGKAH    = 0.01      # langkah presisi registri (dua desimal) untuk operator > dan <
+
+def v13_angka(s):
+    """'80,99' -> (80.99, 2): nilai dan jumlah desimal yang ditulis."""
+    s = s.replace(",", ".")
+    return float(s), (len(s.split(".")[1]) if "." in s else 0)
+
+def v13_sel(baris):
+    sel = baris.strip().strip("|").split("|")
+    return [re.sub(r'\*\*|__|`', "", c).strip() for c in sel]
+
+def v13_rentang(sel):
+    """Sel rentang -> (bawah, atas, desimal_atas) atau None.
+    Batas yang hanya tersirat ("≥ 85" tanpa atas, "< 40" tanpa bawah) bernilai None
+    dan tidak dicocokkan; tabel ambang bawah saja tetap diperiksa batas bawahnya.
+    Operator tegas ("> 80", "< 78", "85 < N") digeser satu langkah presisi registri
+    (0,01), bukan presisi yang ditulis: "> 80" = ≥ 80,01, "< 78" = ≤ 77,99."""
+    m = RE_V13_RENTANG.match(sel)
+    if m:
+        (a, ka), (b, kb) = v13_angka(m.group(1)), v13_angka(m.group(2))
+        return (a, b, kb) if a <= b else (b, a, ka)
+    m = RE_V13_APIT.match(sel)
+    if m:
+        (a, _), (b, kb) = v13_angka(m.group(1)), v13_angka(m.group(4))
+        if m.group(2) == "<": a += V13_LANGKAH
+        return (a, b - V13_LANGKAH, 2) if m.group(3) == "<" else (a, b, kb)
+    m = RE_V13_BATAS.match(sel)
+    if m:
+        op, (x, k) = m.group(1), v13_angka(m.group(2))
+        if op in ("≥", ">="): return (x, None, None)
+        if op == ">":         return (x + V13_LANGKAH, None, None)
+        if op in ("≤", "<="): return (None, x, k)
+        return (None, x - V13_LANGKAH, 2)
+    return None
+
+def v13_norm(h):
+    return h.replace("−", "-")
+
+def v13_fmt(x):
+    return f"{x:.2f}".replace(".", ",")
+
+# registri: huruf -> (bawah, atas, bobot)
+skala_resmi, huruf_resmi = {}, []
+if os.path.exists(FKONVERSI):
+    teks_k = open(FKONVERSI, encoding="utf-8").read()
+    bagian = re.search(r'^## A\..*?(?=^## |\Z)', teks_k, re.S | re.M)
+    kol = None
+    for baris in (bagian.group(0).split("\n") if bagian else []):
+        if not baris.lstrip().startswith("|"): continue
+        sel = v13_sel(baris)
+        if kol is None:
+            idx = lambda pola: next((i for i, c in enumerate(sel) if re.search(pola, c, re.I)), None)
+            kol = (idx("rentang"), idx("huruf"), idx("bobot"))
+            if None in kol[:2]: kol = None
+            continue
+        if len(sel) <= max(i for i in kol if i is not None): continue
+        r = v13_rentang(sel[kol[0]])
+        if not r or None in r[:2] or not RE_V13_HURUF.match(sel[kol[1]]): continue
+        bobot = v13_angka(sel[kol[2]])[0] if kol[2] is not None and re.match(r'^\d+(?:[.,]\d+)?$', sel[kol[2]]) else None
+        skala_resmi[v13_norm(sel[kol[1]])] = (r[0], r[1], bobot)
+        huruf_resmi.append(sel[kol[1]])
+    if not skala_resmi:
+        lapor("V13", FKONVERSI, "tabel §A tidak dapat dibaca (kolom Rentang/Huruf/Bobot)")
+else:
+    lapor("V13", FKONVERSI, "registri konversi-nilai.md tidak ditemukan; skala nilai tidak dapat diperiksa")
+
+def v13_cocok(bawah, atas, desimal, resmi):
+    # toleransi setengah satuan desimal kedua: batas yang meleset 0,01 (mis. 80,99 untuk A,
+    # 75,00 sebagai batas atas B) tetap dilaporkan
+    if bawah is not None and abs(bawah - resmi[0]) > 0.005: return False
+    if atas is None or abs(atas - resmi[1]) <= 0.005: return True
+    # batas atas yang ditulis dengan presisi lebih rendah (mis. "78-80" untuk 80,99)
+    return desimal < 2 and abs(atas - int(resmi[1] * 10 ** desimal + 1e-9) / 10 ** desimal) <= 1e-9
+
+def v13_teks(bawah, atas):
+    if bawah is None: return f"≤ {v13_fmt(atas)}"
+    if atas is None:  return f"≥ {v13_fmt(bawah)}"
+    return f"{v13_fmt(bawah)} – {v13_fmt(atas)}"
+
+def v13_periksa_tabel(p, tabel):
+    """tabel = [(nomor_baris, [sel, ...]), ...] termasuk baris judul."""
+    kol_bobot = None
+    pemisah = "|".join(tabel[1][1]) if len(tabel) >= 2 else ""
+    if re.match(r'^[\s|:\-]*-[\s|:\-]*$', pemisah):     # baris ke-2 = pemisah judul tabel
+        kol_bobot = next((i for i, c in enumerate(tabel[0][1])
+                          if RE_V13_KOLBOBOT.search(c) and not re.search(r'huruf', c, re.I)), None)
+    # baris yang punya sel huruf mutu, lalu pilih SATU kolom rentang 0-100 per tabel
+    # (kolom lain, mis. "Total Skor (max 16)" atau IPK 0-4, tidak ikut dicocokkan)
+    baris_huruf, kolom = [], {}
+    for no, sel in tabel:
+        ih = next((i for i, c in enumerate(sel) if RE_V13_HURUF.match(c)), None)
+        if ih is None: continue
+        baris_huruf.append((no, sel, sel[ih]))
+        for i, c in enumerate(sel):
+            r = v13_rentang(c) if i != ih else None
+            if r and all(0 <= x <= 100 for x in r[:2] if x is not None):
+                kolom.setdefault(i, {})[no] = r
+    puncak = lambda v: max(x for r in v.values() for x in r[:2] if x is not None)
+    calon_kolom = [(len(v), puncak(v), i) for i, v in kolom.items() if puncak(v) >= 50]
+    if not calon_kolom: return
+    jumlah, _, kr = max(calon_kolom)
+    if jumlah < 3: return
+    ada = {v13_norm(h) for no, s, h in baris_huruf if no in kolom[kr]}
+    hilang = [h for h in huruf_resmi if v13_norm(h) not in ada]
+    if hilang:
+        lapor("V13", p, f"baris {tabel[0][0]}: tabel konversi tidak lengkap, tanpa {', '.join(hilang)}")
+    for no, sel, huruf in baris_huruf:
+        if no not in kolom[kr]: continue
+        bawah, atas, desimal = kolom[kr][no]
+        resmi = skala_resmi.get(v13_norm(huruf))
+        if resmi is None:
+            lapor("V13", p, f"baris {no}: huruf mutu tidak dikenal '{huruf}' (skala resmi: "
+                            f"{', '.join(huruf_resmi)})"); continue
+        if not v13_cocok(bawah, atas, desimal, resmi):
+            lapor("V13", p, f"baris {no}: {huruf} {v13_teks(bawah, atas)} ≠ resmi "
+                            f"{v13_teks(resmi[0], resmi[1])}")
+        if kol_bobot is not None and resmi[2] is not None and kol_bobot < len(sel) \
+                and re.match(r'^\d(?:[.,]\d+)?$', sel[kol_bobot]):
+            b = v13_angka(sel[kol_bobot])[0]
+            if b <= 4 and abs(b - resmi[2]) > 0.005:
+                lapor("V13", p, f"baris {no}: bobot {huruf} = {sel[kol_bobot]} ≠ resmi {v13_fmt(resmi[2])}")
+
+if skala_resmi:
+    for p, d in dok.items():
+        if p in V13_KECUALI: continue
+        semua, tabel, pagar = d["teks"].split("\n"), [], False
+        for no, baris in enumerate(semua + [""], 1):
+            if re.match(r'^\s*(```|~~~)', baris): pagar = not pagar
+            if not pagar and baris.lstrip().startswith("|"):
+                tabel.append((no, v13_sel(baris))); continue
+            if tabel:
+                # skala yang sengaja disederhanakan untuk latihan dan diberi label eksplisit
+                # (mis. "skala disederhanakan untuk latihan ...") tidak diperiksa
+                awal = tabel[0][0] - 1
+                if "skala disederhanakan" not in " ".join(semua[max(0, awal - 5):awal]).lower():
+                    v13_periksa_tabel(p, tabel)
+                tabel = []
+
 # ------------------------------------------------------------------- laporan
 ATURAN = {"V1":"Metadata","V2":"Keunikan id","V3":"Integritas referensial","V4":"Pola kode lama",
           "V5":"Cakupan (constructive alignment)","V6":"Bobot asesmen","V7":"Data induk",
-          "V8":"Konvensi","V9":"Sitasi","V10":"Tautan","V11":"Pagu ukuran","V12":"Pengesahan"}
+          "V8":"Konvensi","V9":"Sitasi","V10":"Tautan","V11":"Pagu ukuran","V12":"Pengesahan",
+          "V13":"Skala konversi nilai"}
 print(f"# Laporan Validasi OBE\n\nBerkas diperiksa: {len(dok)}  |  Mata kuliah: {len(mk_daftar)}\n")
 if not masalah:
     print("**Hasil: 0 pelanggaran.**"); sys.exit(0)

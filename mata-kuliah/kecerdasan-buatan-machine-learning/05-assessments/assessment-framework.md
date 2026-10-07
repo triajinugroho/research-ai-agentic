@@ -144,26 +144,30 @@ Penilaian pada mata kuliah ini dirancang berdasarkan prinsip **Authentic Assessm
 
 ### 4.1 Konversi Nilai Akhir
 
-| Nilai Huruf | Rentang Nilai | Bobot |
-|-------------|---------------|-------|
-| **A** | 85 - 100 | 4.00 |
-| **B+** | 77 - 84 | 3.50 |
-| **B** | 70 - 76 | 3.00 |
-| **C+** | 63 - 69 | 2.50 |
-| **C** | 55 - 62 | 2.00 |
-| **D** | 45 - 54 | 1.00 |
-| **E** | 0 - 44 | 0.00 |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 ### 4.2 Rubrik Universal (4-Point Scale)
 
-Semua tugas menggunakan skala 4 poin yang dikonversi ke persentase:
+Semua tugas menggunakan skala 4 poin yang dikonversi ke persentase secara proporsional (skor/4 × 100%), sesuai formula `Nilai = (Skor Tertimbang / 4.00) x 100` di [rubrik tugas](rubrik-tugas.md#konversi-skor-ke-nilai). Predikat skor 1–4 adalah pita deskriptor rubrik, bukan huruf mutu ([registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) §C). Huruf mutu ditentukan dari nilai tugas (0-100) hasil formula tersebut menurut tabel 4.1; misalnya skor 2 di semua dimensi menghasilkan Skor Tertimbang 2.00 dan nilai 50 (D).
 
 | Skor | Predikat | Deskripsi | Konversi |
 |------|----------|-----------|----------|
-| 4 | **Sangat Baik (A)** | Melebihi ekspektasi, menunjukkan pemahaman mendalam dan kemampuan kritis | 85-100% |
-| 3 | **Baik (B)** | Memenuhi ekspektasi, pemahaman solid dengan minor gaps | 70-84% |
-| 2 | **Cukup (C)** | Memenuhi sebagian ekspektasi, pemahaman dasar ada tapi banyak gap | 55-69% |
-| 1 | **Kurang (D/E)** | Tidak memenuhi ekspektasi minimum, pemahaman sangat terbatas | 0-54% |
+| 4 | **Sangat Baik** | Melebihi ekspektasi, menunjukkan pemahaman mendalam dan kemampuan kritis | 100% |
+| 3 | **Baik** | Memenuhi ekspektasi, pemahaman solid dengan minor gaps | 75% |
+| 2 | **Cukup** | Memenuhi sebagian ekspektasi, pemahaman dasar ada tapi banyak gap | 50% |
+| 1 | **Kurang** | Tidak memenuhi ekspektasi minimum, pemahaman sangat terbatas | 25% |
 
 ---
 

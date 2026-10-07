@@ -118,12 +118,12 @@ print(f"Nilai UAS      : {nilai_uas}")
 print(f"Nilai Akhir    : {nilai_akhir:.1f}")
 print(f"Kehadiran      : {kehadiran}%")
 
-# Syarat lulus: nilai >= 60 DAN kehadiran >= 75%
-if nilai_akhir >= 60 and kehadiran >= 75:
+# Syarat lulus: nilai >= 55 (batas lulus C) DAN kehadiran >= 75%
+if nilai_akhir >= 55 and kehadiran >= 75:
     print("Status         : LULUS")
-elif nilai_akhir >= 60 and kehadiran < 75:
+elif nilai_akhir >= 55 and kehadiran < 75:
     print("Status         : TIDAK LULUS (kehadiran kurang)")
-elif nilai_akhir < 60 and kehadiran >= 75:
+elif nilai_akhir < 55 and kehadiran >= 75:
     print("Status         : TIDAK LULUS (nilai kurang)")
 else:
     print("Status         : TIDAK LULUS (nilai dan kehadiran kurang)")
@@ -244,11 +244,11 @@ uas = float(input("Nilai UAS      (0-100): "))
 # Bobot: Tugas 30%, UTS 30%, UAS 40%
 nilai_akhir = (tugas * 0.30) + (uts * 0.30) + (uas * 0.40)
 
-# Konversi ke huruf
-if nilai_akhir >= 85:
+# Konversi ke huruf (skala resmi UAI)
+if nilai_akhir >= 81:
     huruf = "A"
     bobot = 4.0
-elif nilai_akhir >= 80:
+elif nilai_akhir >= 78:
     huruf = "A-"
     bobot = 3.7
 elif nilai_akhir >= 75:

@@ -602,6 +602,8 @@ if "Dewi" in mahasiswa:
 
 ## 7.7 Studi Kasus: Sistem Nilai Mahasiswa
 
+Konversi huruf dan batas lulus pada studi kasus ini mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI, lulus minimal C = 55,00).
+
 ```python
 # ============================================================
 # SISTEM PENGELOLAAN NILAI MAHASISWA
@@ -626,8 +628,9 @@ def hitung_statistik(data):
         'rata_rata': sum(semua_nilai) / len(semua_nilai),
         'tertinggi': max(semua_nilai),
         'terendah': min(semua_nilai),
-        'jumlah_lulus': sum(1 for n in semua_nilai if n >= 60),
-        'jumlah_tidak_lulus': sum(1 for n in semua_nilai if n < 60),
+        # Lulus minimal C (nilai akhir >= 55)
+        'jumlah_lulus': sum(1 for n in semua_nilai if n >= 55),
+        'jumlah_tidak_lulus': sum(1 for n in semua_nilai if n < 55),
     }
 
 def urutkan_nilai(data, descending=True):
@@ -635,15 +638,15 @@ def urutkan_nilai(data, descending=True):
     return sorted(data, key=lambda x: x[2], reverse=descending)
 
 def konversi_huruf(nilai):
-    """Konversi nilai angka ke huruf."""
-    if nilai >= 85: return "A"
-    elif nilai >= 80: return "A-"
+    """Konversi nilai angka ke huruf (skala resmi UAI)."""
+    if nilai >= 81: return "A"
+    elif nilai >= 78: return "A-"
     elif nilai >= 75: return "B+"
     elif nilai >= 70: return "B"
     elif nilai >= 65: return "B-"
     elif nilai >= 60: return "C+"
     elif nilai >= 55: return "C"
-    elif nilai >= 50: return "D"
+    elif nilai >= 40: return "D"
     else: return "E"
 
 def tampilkan_tabel(data):
@@ -691,7 +694,7 @@ def main():
     tampilkan_statistik(stat)
 
     # Filter: mahasiswa dengan predikat A
-    top_students = [(n, nim, v) for n, nim, v in data if v >= 85]
+    top_students = [(n, nim, v) for n, nim, v in data if v >= 81]
     print(f"\nMahasiswa predikat A: {[m[0] for m in top_students]}")
 
 main()

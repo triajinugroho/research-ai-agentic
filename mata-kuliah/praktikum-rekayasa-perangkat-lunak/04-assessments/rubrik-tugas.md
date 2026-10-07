@@ -488,7 +488,7 @@ Untuk TP3-TP6, AI boleh digunakan sebagai **pair programmer** dengan ketentuan:
 
 ### Remedial
 
-- Mahasiswa dengan nilai TP < 56 dapat mengajukan remedial (maksimal 2 TP per semester).
+- Mahasiswa dengan nilai TP < 55 dapat mengajukan remedial (maksimal 2 TP per semester).
 - Remedial: revisi tugas sesuai feedback dosen, deadline 7 hari.
 - Nilai remedial maksimal **70** (setara B).
 - Pengajuan remedial paling lambat 1 minggu setelah nilai diumumkan.
@@ -522,7 +522,7 @@ Nilai TP3 = (3.50 / 4) × 100 = 87.5 → A
 | **Total** | **100%** | | **1.75** |
 
 ```
-Nilai TP3 = (1.75 / 4) × 100 = 43.75 → E (eligible untuk remedial)
+Nilai TP3 = (1.75 / 4) × 100 = 43.75 → D (eligible untuk remedial)
 ```
 
 ---

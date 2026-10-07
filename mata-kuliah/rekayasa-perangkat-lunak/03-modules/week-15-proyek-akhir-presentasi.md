@@ -132,8 +132,10 @@ Common Demo Day Mistakes:
 
 ### 15.3 Rubrik Penilaian Proyek Akhir
 
-| Kriteria | Bobot | Deskripsi | A (85-100) | B (70-84) | C (55-69) |
-|----------|-------|-----------|-----------|-----------|-----------|
+Rentang kolom mengelompokkan huruf mutu menurut kategori pada [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI): Sangat Baik (A, A−), Baik (B+, B, B−), dan Cukup (C+, C).
+
+| Kriteria | Bobot | Deskripsi | A, A− (78-100) | B+, B, B− (65-77,99) | C+, C (55-64,99) |
+|----------|-------|-----------|----------------|----------------------|------------------|
 | **Fungsionalitas** | 25% | Fitur berjalan sesuai requirements | Semua fitur utama berjalan, UX baik | Sebagian besar fitur jalan | Fitur minimal |
 | **Kualitas Kode** | 20% | Clean code, design patterns, testing | Coverage >= 70%, SOLID applied | Coverage >= 50%, kode bersih | Coverage < 50% |
 | **Proses SE** | 20% | Agile/Scrum, Git flow, code review, CI/CD | 4 sprint lengkap, pipeline hijau | 3 sprint, CI/CD ada | Sprint tidak teratur |

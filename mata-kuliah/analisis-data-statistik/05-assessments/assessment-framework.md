@@ -114,14 +114,14 @@ Penilaian pada mata kuliah ini dirancang berdasarkan prinsip **Authentic Assessm
 
 ## 4. Rubrik Universal (4-Point Scale)
 
-Semua tugas menggunakan skala 4 poin yang dikonversi ke persentase:
+Semua tugas menggunakan skala 4 poin yang dikonversi ke persentase secara proporsional (skor/4 × 100%), sesuai formula `Nilai = (Total Skor / 16) × 100` di [rubrik tugas](rubrik-tugas.md#konversi-skor-ke-nilai). Predikat skor 1–4 adalah pita deskriptor rubrik, bukan huruf mutu ([registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) §C). Huruf mutu ditentukan dari nilai tugas (0-100) hasil formula tersebut menurut skala resmi UAI pada registri; misalnya skor 2 di semua dimensi menghasilkan nilai 50 (D).
 
 | Skor | Predikat | Deskripsi | Konversi |
 |------|----------|-----------|----------|
-| 4 | **Sangat Baik (A)** | Melebihi ekspektasi, menunjukkan pemahaman mendalam dan kemampuan kritis | 85-100% |
-| 3 | **Baik (B)** | Memenuhi ekspektasi, pemahaman solid dengan minor gaps | 70-84% |
-| 2 | **Cukup (C)** | Memenuhi sebagian ekspektasi, pemahaman dasar ada tapi banyak gap | 55-69% |
-| 1 | **Kurang (D/E)** | Tidak memenuhi ekspektasi minimum, pemahaman sangat terbatas | 0-54% |
+| 4 | **Sangat Baik** | Melebihi ekspektasi, menunjukkan pemahaman mendalam dan kemampuan kritis | 100% |
+| 3 | **Baik** | Memenuhi ekspektasi, pemahaman solid dengan minor gaps | 75% |
+| 2 | **Cukup** | Memenuhi sebagian ekspektasi, pemahaman dasar ada tapi banyak gap | 50% |
+| 1 | **Kurang** | Tidak memenuhi ekspektasi minimum, pemahaman sangat terbatas | 25% |
 
 ---
 

@@ -166,7 +166,7 @@ Visualisasi Alur Eksekusi if:
 # Cek kelulusan berdasarkan nilai
 nilai = int(input("Masukkan nilai akhir: "))
 
-if nilai >= 60:
+if nilai >= 55:  # batas lulus mata kuliah: nilai C (55)
     print("Selamat! Anda lulus mata kuliah ini.")
     print("Silakan mengambil sertifikat di bagian akademik.")
 
@@ -176,7 +176,7 @@ print("Terima kasih telah mengikuti ujian.")  # Baris ini SELALU dijalankan
 Perhatikan bahwa baris terakhir (`print("Terima kasih...")`) **tidak terindentasi** di dalam blok `if`, sehingga akan **selalu dijalankan** tanpa memandang nilai kondisi.
 
 **Contoh uji coba:**
-| Input | Kondisi `nilai >= 60` | Output |
+| Input | Kondisi `nilai >= 55` | Output |
 |:-----:|:---------------------:|--------|
 | 85 | `True` | "Selamat! Anda lulus..." + "Silakan mengambil..." + "Terima kasih..." |
 | 50 | `False` | "Terima kasih..." |
@@ -366,6 +366,8 @@ Visualisasi Alur if-elif-else:
 
 ### 3.4.2 Contoh Lengkap: Konversi Nilai ke Huruf (Sistem Penilaian UAI)
 
+Skala pada contoh ini mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — skala resmi UAI dengan sembilan huruf mutu (A, A−, B+, B, B−, C+, C, D, E) dan batas lulus C (55,00).
+
 ```python
 # ============================================
 # Sistem Konversi Nilai - Universitas Al Azhar Indonesia
@@ -377,12 +379,12 @@ nilai = float(input("Masukkan nilai akhir (0-100): "))
 if nilai < 0 or nilai > 100:
     print("Error: Nilai harus antara 0-100!")
 else:
-    # Konversi nilai angka ke huruf berdasarkan pedoman UAI
-    if nilai >= 85:
+    # Konversi nilai angka ke huruf berdasarkan skala resmi UAI
+    if nilai >= 81:
         huruf = "A"
         angka = 4.0
         keterangan = "Sangat Baik"
-    elif nilai >= 80:
+    elif nilai >= 78:
         huruf = "A-"
         angka = 3.7
         keterangan = "Sangat Baik"
@@ -397,7 +399,7 @@ else:
     elif nilai >= 65:
         huruf = "B-"
         angka = 2.7
-        keterangan = "Cukup Baik"
+        keterangan = "Baik"
     elif nilai >= 60:
         huruf = "C+"
         angka = 2.3
@@ -425,7 +427,7 @@ else:
     print(f"  Keterangan   : {keterangan}")
     print("=" * 40)
 
-    # Tentukan status kelulusan
+    # Tentukan status kelulusan (lulus minimal C, bobot 2.0)
     if angka >= 2.0:
         print("  Status       : LULUS")
     else:
@@ -930,6 +932,7 @@ status = "Lulus" if nilai >= 60 else "Tidak Lulus"
 
 # BURUK: Terlalu kompleks untuk satu baris
 # Hindari chained ternary yang sulit dibaca
+# (skala disederhanakan untuk latihan — skala resmi UAI ada di registri konversi nilai)
 grade = "A" if n >= 85 else "B" if n >= 70 else "C" if n >= 55 else "D"
 # Lebih baik gunakan if-elif-else biasa untuk kasus ini
 ```
@@ -1339,6 +1342,7 @@ Ketika Anda memiliki kode percabangan yang tidak berperilaku sesuai harapan, And
 
 ```python
 # Kode yang ingin di-trace
+# (skala disederhanakan untuk latihan — skala resmi UAI ada di registri konversi nilai)
 nilai = 75
 if nilai >= 85:
     grade = "A"
@@ -1439,6 +1443,8 @@ Buat program konversi nilai angka (0-100) ke nilai huruf dengan ketentuan:
 - C: 55-69
 - D: 40-54
 - E: 0-39
+
+*Catatan: skala disederhanakan untuk latihan — skala resmi UAI ada di [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) dan diterapkan pada Subbab 3.4.2.*
 
 Program harus menampilkan pesan error jika nilai di luar rentang 0-100.
 
@@ -1609,7 +1615,7 @@ Output: nomor antrian dengan format: `[KATEGORI]-[NOMOR]` (contoh: `IGD-001`, `L
 
 **Soal 13: Tantangan --- Grade Tanpa `if-elif-else`**
 
-Tanpa menggunakan `if-elif-else`, buat program yang menentukan grade nilai (A, B, C, D, E) menggunakan **dictionary mapping** dan operasi matematika.
+Tanpa menggunakan `if-elif-else`, buat program yang menentukan grade nilai (A, B, C, D, E) dengan rentang Soal 2 menggunakan **dictionary mapping** dan operasi matematika. *(Skala disederhanakan untuk latihan — skala resmi UAI ada di registri konversi nilai.)*
 
 *Petunjuk:* Manfaatkan pembagian integer (`//`) untuk memetakan rentang nilai ke index, kemudian gunakan dictionary atau list untuk mendapatkan grade-nya.
 

@@ -252,9 +252,9 @@ E. `Wajib zakat: 22500.0`
 ```python
 nilai = 78
 
-if nilai >= 85:
+if nilai >= 81:
     grade = "A"
-elif nilai >= 80:
+elif nilai >= 78:
     grade = "A-"
 elif nilai >= 75:
     grade = "B+"
@@ -262,9 +262,11 @@ elif nilai >= 70:
     grade = "B"
 elif nilai >= 65:
     grade = "B-"
+elif nilai >= 60:
+    grade = "C+"
 elif nilai >= 55:
     grade = "C"
-elif nilai >= 45:
+elif nilai >= 40:
     grade = "D"
 else:
     grade = "E"
@@ -273,11 +275,11 @@ print(grade)
 
 Huruf mutu yang dicetak untuk `nilai = 78` adalah ...
 
-A. `A-`
-B. `B+`
-C. `B`
-D. `B-`
-E. `C`
+A. `A`
+B. `A-`
+C. `B+`
+D. `B`
+E. `D`
 
 ---
 

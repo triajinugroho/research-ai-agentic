@@ -307,7 +307,7 @@ Mahasiswa E membangun sistem perpustakaan dengan fitur CRUD buku, pencarian deng
 | AI Usage Log & Refleksi | 10% | 78 | 7.80 |
 | **Total** | **100%** | | **83.40** |
 
-Nilai Proyek Mahasiswa E: **83.40** (Huruf: **B+**)
+Nilai Proyek Mahasiswa E: **83.40** (Huruf: **A**)
 
 **Skenario B: Mahasiswa F — Proyek "Aplikasi Kasir Warung Sederhana"**
 
@@ -539,19 +539,21 @@ Skor AI Usage Log (skala 100) = (1.55 / 4) x 100 = 38.75
 
 ### 7.1 Skala Konversi Nilai Huruf
 
-Konversi nilai akhir numerik ke huruf mengikuti ketentuan Universitas Al Azhar Indonesia:
+Konversi nilai akhir numerik ke huruf mengikuti ketentuan Universitas Al Azhar Indonesia.
 
-| Rentang Nilai | Huruf | Bobot | Predikat |
-|---|---|---|---|
-| 86–100 | A | 4.00 | Sangat Baik |
-| 81–85 | A- | 3.75 | Sangat Baik |
-| 76–80 | B+ | 3.50 | Baik |
-| 71–75 | B | 3.00 | Baik |
-| 66–70 | B- | 2.75 | Cukup Baik |
-| 61–65 | C+ | 2.25 | Cukup |
-| 56–60 | C | 2.00 | Cukup |
-| 41–55 | D | 1.00 | Kurang |
-| 0–40 | E | 0.00 | Gagal |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 ### 7.2 Ringkasan Bobot dan Formula Nilai Akhir
 
@@ -586,9 +588,9 @@ Nilai Akhir = (Tugas x 0.15) + (Kuis x 0.10) + (UTS x 0.20) +
 | Partisipasi | 82.50 | 5% | 4.13 |
 | **Nilai Akhir** | | **100%** | **80.34** |
 
-Nilai Akhir Mahasiswa I: **80.34** --> Huruf: **B+** (Bobot: 3.50, Predikat: Baik)
+Nilai Akhir Mahasiswa I: **80.34** --> Huruf: **A−** (Bobot: 3.70, Predikat: Sangat Baik)
 
-**Skenario B: Mahasiswa J — Performa Kurang**
+**Skenario B: Mahasiswa J — Performa Cukup (Batas Lulus)**
 
 | Komponen | Nilai (0–100) | Bobot | Kontribusi |
 |---|---|---|---|
@@ -600,7 +602,7 @@ Nilai Akhir Mahasiswa I: **80.34** --> Huruf: **B+** (Bobot: 3.50, Predikat: Bai
 | Partisipasi | 60.00 | 5% | 3.00 |
 | **Nilai Akhir** | | **100%** | **55.10** |
 
-Nilai Akhir Mahasiswa J: **55.10** --> Huruf: **D** (Bobot: 1.00, Predikat: Kurang)
+Nilai Akhir Mahasiswa J: **55.10** --> Huruf: **C** (Bobot: 2.00, Predikat: Cukup)
 
 **Skenario C: Mahasiswa L — Performa Sangat Baik**
 
@@ -617,7 +619,7 @@ Nilai Akhir Mahasiswa J: **55.10** --> Huruf: **D** (Bobot: 1.00, Predikat: Kura
 Nilai Akhir Mahasiswa L: **88.73** --> Huruf: **A** (Bobot: 4.00, Predikat: Sangat Baik)
 
 > **Catatan:**
-> - Mahasiswa dengan nilai D diperbolehkan mengulang mata kuliah pada semester berikutnya untuk perbaikan nilai.
+> - Batas lulus mata kuliah adalah **C (55.00)**. Mahasiswa dengan nilai D dinyatakan **tidak lulus** dan **wajib** mengulang mata kuliah.
 > - Mahasiswa dengan nilai E dinyatakan **gagal** dan **wajib** mengulang mata kuliah.
 > - Mahasiswa dengan kehadiran di bawah 60% **tidak lulus** mata kuliah terlepas dari nilai komponen lain.
 
@@ -647,10 +649,10 @@ Mahasiswa berhak mengajukan keberatan atas nilai yang diterima dengan prosedur b
 
 ### 8.3 Remedial
 
-Mahasiswa yang memperoleh nilai akhir di bawah 56 (huruf D atau E) pada komponen tertentu dapat mengikuti remedial sesuai ketentuan dalam *Assessment Framework* mata kuliah. Ketentuan remedial:
+Mahasiswa yang memperoleh nilai akhir di bawah 55.00 (huruf D atau E) pada komponen tertentu dapat mengikuti remedial sesuai ketentuan dalam *Assessment Framework* mata kuliah. Ketentuan remedial:
 
 - Remedial hanya berlaku untuk tugas pemrograman (T1–T6) dan proyek akhir.
-- Nilai maksimal remedial adalah **70** (huruf B-).
+- Nilai maksimal remedial adalah **70** (huruf B).
 - Remedial harus dikerjakan ulang secara mandiri dan memenuhi seluruh kriteria rubrik.
 
 ---

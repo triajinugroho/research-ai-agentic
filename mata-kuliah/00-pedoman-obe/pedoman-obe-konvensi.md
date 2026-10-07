@@ -398,6 +398,7 @@ Ditegakkan oleh `tools/validasi-obe.py` dan `checklist-verifikasi.md`.
 | **V10** | Tautan relatif antar-berkas tidak putus | Tautan mati |
 | **V11** | **Pagu ukuran** — RPS ≤550 baris; tiap berkas `mutu/` ≤180 baris | Pembengkakan dokumen |
 | **V12** | RPS `status: berlaku` ditolak selama `cpl_status: interim` | Pengesahan prematur |
+| **V13** | **Skala konversi nilai** — setiap tabel huruf mutu ↔ rentang 0–100 wajib sama persis dengan tabel §A `konversi-nilai.md` (rentang, huruf, bobot) dan memuat kesembilan huruf | Kambuhnya skala nilai yang tidak resmi |
 
 **Yang tetap memerlukan manusia:** mutu rumusan Sub-CPMK (kata kerja operasional dan terukur), kesesuaian level taksonomi dengan bentuk asesmen, keselarasan isi materi dengan Sub-CPMK, dan kebenaran substansi regulasi. Ditangani `checklist-verifikasi.md` **dengan tanda tangan penelaah sejawat** — telaah sejawat itu sendiri adalah bukti kriteria 1 (Budaya Mutu).
 

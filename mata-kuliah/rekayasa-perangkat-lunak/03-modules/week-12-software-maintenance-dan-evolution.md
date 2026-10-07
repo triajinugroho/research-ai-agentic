@@ -585,28 +585,37 @@ Hubungan Coupling dan Cohesion:
 ```python
 # Cyclomatic Complexity = Jumlah keputusan (if/elif/for/while/and/or) + 1
 
-# CC = 5 (4 keputusan + 1)
+# CC = 9 (8 keputusan + 1)
 def kategorisasi_nilai(skor: int) -> str:
     """Kategorisasi nilai mahasiswa UAI."""
-    if skor >= 85:              # +1
+    if skor >= 81:              # +1
         return 'A'
+    elif skor >= 78:            # +1
+        return 'A-'
     elif skor >= 75:            # +1
         return 'B+'
+    elif skor >= 70:            # +1
+        return 'B'
     elif skor >= 65:            # +1
+        return 'B-'
+    elif skor >= 60:            # +1
         return 'C+'
     elif skor >= 55:            # +1
         return 'C'
-    else:
+    elif skor >= 40:            # +1
         return 'D'
+    else:
+        return 'E'
 
 # CC = 2 (refactored -- minim branch)
 def kategorisasi_nilai_v2(skor: int) -> str:
     """Versi refactored menggunakan lookup table."""
-    BATAS = [(85, 'A'), (75, 'B+'), (65, 'C+'), (55, 'C')]
+    BATAS = [(81, 'A'), (78, 'A-'), (75, 'B+'), (70, 'B'),
+             (65, 'B-'), (60, 'C+'), (55, 'C'), (40, 'D')]
     for batas, grade in BATAS:
         if skor >= batas:
             return grade
-    return 'D'
+    return 'E'
 ```
 
 ```bash

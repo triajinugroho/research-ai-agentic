@@ -408,12 +408,16 @@ def generate_student_report(student_id):
     for grade in grades:
         if grade.letter == "A":
             quality = 4.0
+        elif grade.letter == "A-":
+            quality = 3.7
         elif grade.letter == "B+":
-            quality = 3.5
+            quality = 3.3
         elif grade.letter == "B":
             quality = 3.0
+        elif grade.letter == "B-":
+            quality = 2.7
         elif grade.letter == "C+":
-            quality = 2.5
+            quality = 2.3
         elif grade.letter == "C":
             quality = 2.0
         elif grade.letter == "D":
@@ -436,9 +440,9 @@ def generate_student_report(student_id):
 
 
 # SESUDAH (BAIK) — Dipecah menjadi fungsi-fungsi kecil
-GRADE_POINTS = {
-    "A": 4.0, "B+": 3.5, "B": 3.0, "C+": 2.5,
-    "C": 2.0, "D": 1.0, "E": 0.0,
+GRADE_POINTS = {  # Bobot huruf mutu sesuai skala resmi UAI
+    "A": 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0, "B-": 2.7,
+    "C+": 2.3, "C": 2.0, "D": 1.0, "E": 0.0,
 }
 
 def generate_student_report(student_id: str) -> str | None:

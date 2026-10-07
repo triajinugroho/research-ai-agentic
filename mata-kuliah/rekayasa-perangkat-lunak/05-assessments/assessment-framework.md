@@ -40,15 +40,19 @@ Asesmen dirancang berdasarkan **Outcome-Based Education (OBE)** — setiap kompo
 
 ## Skala Penilaian
 
-| Huruf | Rentang | Bobot |
-|-------|---------|-------|
-| A | 81-100 | 4.00 |
-| B+ | 75-80 | 3.50 |
-| B | 69-74 | 3.00 |
-| C+ | 63-68 | 2.50 |
-| C | 56-62 | 2.00 |
-| D | 45-55 | 1.00 |
-| E | 0-44 | 0.00 |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 ## Kebijakan Integritas Akademik
 

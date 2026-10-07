@@ -768,42 +768,50 @@ Cell 23 : [Markdown] Referensi
 
 ### 14.9.2 Rubrik Detail
 
+Rentang huruf mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI). Rubrik di bawah mengelompokkan huruf mutu menurut kategorinya: Sangat Baik (A, A−), Baik (B+, B, B−), Cukup (C+, C), serta Kurang dan Sangat Kurang (D, E).
+
 #### Komponen 3: Model Training & Selection (20%)
 
 | Skor | Kriteria |
 |------|----------|
-| **A (86-100)** | Minimal 3 model berbeda dengan justifikasi pemilihan; cross-validation yang benar; perbandingan fair dan komprehensif; hyperparameter tuning pada model terbaik; metrik evaluasi sesuai dengan tipe masalah |
-| **B (71-85)** | 3 model dicoba; cross-validation ada; perbandingan cukup lengkap; ada tuning sederhana |
-| **C (56-70)** | 2 model dicoba; cross-validation ada tapi kurang tepat; perbandingan minimal |
-| **D (< 56)** | Hanya 1 model; tidak ada cross-validation; tidak ada perbandingan |
+| **A/A− (78,00–100,00)** | Minimal 3 model berbeda dengan justifikasi pemilihan; cross-validation yang benar; perbandingan fair dan komprehensif; hyperparameter tuning pada model terbaik; metrik evaluasi sesuai dengan tipe masalah |
+| **B+/B/B− (65,00–77,99)** | 3 model dicoba; cross-validation ada; perbandingan cukup lengkap; ada tuning sederhana |
+| **C+/C (55,00–64,99)** | 2 model dicoba; cross-validation ada tapi kurang tepat; perbandingan minimal |
+| **D/E (< 55,00)** | Hanya 1 model; tidak ada cross-validation; tidak ada perbandingan |
 
 #### Komponen 5: Deployment (10%)
 
 | Skor | Kriteria |
 |------|----------|
-| **A (86-100)** | Flask API atau Streamlit berfungsi dengan baik; input validation; output informatif; dokumentasi cara menjalankan; UI/UX yang bersih |
-| **B (71-85)** | Deployment berfungsi; input/output dasar ada; dokumentasi minimal |
-| **C (56-70)** | Deployment ada tapi tidak lengkap atau bermasalah |
-| **D (< 56)** | Tidak ada deployment; atau hanya kode tanpa bisa dijalankan |
+| **A/A− (78,00–100,00)** | Flask API atau Streamlit berfungsi dengan baik; input validation; output informatif; dokumentasi cara menjalankan; UI/UX yang bersih |
+| **B+/B/B− (65,00–77,99)** | Deployment berfungsi; input/output dasar ada; dokumentasi minimal |
+| **C+/C (55,00–64,99)** | Deployment ada tapi tidak lengkap atau bermasalah |
+| **D/E (< 55,00)** | Tidak ada deployment; atau hanya kode tanpa bisa dijalankan |
 
 #### Komponen 6: Dokumentasi AI Usage (10%)
 
 | Skor | Kriteria |
 |------|----------|
-| **A (86-100)** | AI Usage Log lengkap untuk setiap interaksi signifikan; prompt didokumentasikan; validasi independen dilakukan; refleksi kritis tentang kontribusi AI vs mahasiswa |
-| **B (71-85)** | Log ada dan cukup lengkap; sebagian prompt didokumentasikan; ada validasi |
-| **C (56-70)** | Log ada tetapi tidak lengkap; tidak ada validasi |
-| **D (< 56)** | Tidak ada log; atau log sangat generik |
+| **A/A− (78,00–100,00)** | AI Usage Log lengkap untuk setiap interaksi signifikan; prompt didokumentasikan; validasi independen dilakukan; refleksi kritis tentang kontribusi AI vs mahasiswa |
+| **B+/B/B− (65,00–77,99)** | Log ada dan cukup lengkap; sebagian prompt didokumentasikan; ada validasi |
+| **C+/C (55,00–64,99)** | Log ada tetapi tidak lengkap; tidak ada validasi |
+| **D/E (< 55,00)** | Tidak ada log; atau log sangat generik |
 
 ### 14.9.3 Konversi Skor ke Nilai
 
-| Rentang Skor | Nilai Huruf | Predikat |
-|--------------|-------------|----------|
-| 86 - 100 | A | Sangat Baik |
-| 71 - 85 | B | Baik |
-| 56 - 70 | C | Cukup |
-| 41 - 55 | D | Kurang |
-| 0 - 40 | E | Sangat Kurang |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 ---
 

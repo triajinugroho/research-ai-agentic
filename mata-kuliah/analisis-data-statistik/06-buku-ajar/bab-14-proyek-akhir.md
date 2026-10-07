@@ -623,42 +623,50 @@ print("AI Usage Log tersimpan: ai_usage_log.csv")
 
 ### 14.5.2 Rubrik Detail
 
+Rentang huruf mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) (skala resmi UAI). Rubrik di bawah mengelompokkan huruf mutu menurut kategorinya: Sangat Baik (A, A−), Baik (B+, B, B−), Cukup (C+, C), serta Kurang dan Sangat Kurang (D, E).
+
 #### Komponen 1: Rumusan Masalah & Hipotesis (10%)
 
 | Skor | Kriteria |
 |------|----------|
-| **A (86–100)** | Masalah dirumuskan dengan sangat jelas dan spesifik; hipotesis formal (H₀, H₁) lengkap; relevansi konteks Indonesia kuat; pertanyaan penelitian tajam dan dapat dijawab dengan data |
-| **B (71–85)** | Masalah cukup jelas; hipotesis ada tetapi kurang formal; konteks Indonesia ada; pertanyaan penelitian bisa dijawab |
-| **C (56–70)** | Masalah kurang spesifik; hipotesis tidak formal; konteks Indonesia lemah; pertanyaan terlalu luas |
-| **D (< 56)** | Tidak ada rumusan masalah yang jelas; tidak ada hipotesis; tidak relevan |
+| **A/A− (78,00–100,00)** | Masalah dirumuskan dengan sangat jelas dan spesifik; hipotesis formal (H₀, H₁) lengkap; relevansi konteks Indonesia kuat; pertanyaan penelitian tajam dan dapat dijawab dengan data |
+| **B+/B/B− (65,00–77,99)** | Masalah cukup jelas; hipotesis ada tetapi kurang formal; konteks Indonesia ada; pertanyaan penelitian bisa dijawab |
+| **C+/C (55,00–64,99)** | Masalah kurang spesifik; hipotesis tidak formal; konteks Indonesia lemah; pertanyaan terlalu luas |
+| **D/E (< 55,00)** | Tidak ada rumusan masalah yang jelas; tidak ada hipotesis; tidak relevan |
 
 #### Komponen 3: Analisis Statistik (20%)
 
 | Skor | Kriteria |
 |------|----------|
-| **A (86–100)** | Minimal 3 metode dari bab berbeda diterapkan dengan benar; semua asumsi diuji dan dilaporkan; interpretasi statistik tepat; effect size dan confidence interval dilaporkan |
-| **B (71–85)** | 3 metode diterapkan; sebagian asumsi diuji; interpretasi sebagian besar tepat |
-| **C (56–70)** | 2 metode diterapkan; asumsi tidak diuji; interpretasi kurang tepat |
-| **D (< 56)** | < 2 metode; metode tidak tepat untuk data; interpretasi salah |
+| **A/A− (78,00–100,00)** | Minimal 3 metode dari bab berbeda diterapkan dengan benar; semua asumsi diuji dan dilaporkan; interpretasi statistik tepat; effect size dan confidence interval dilaporkan |
+| **B+/B/B− (65,00–77,99)** | 3 metode diterapkan; sebagian asumsi diuji; interpretasi sebagian besar tepat |
+| **C+/C (55,00–64,99)** | 2 metode diterapkan; asumsi tidak diuji; interpretasi kurang tepat |
+| **D/E (< 55,00)** | < 2 metode; metode tidak tepat untuk data; interpretasi salah |
 
 #### Komponen 6: Dokumentasi AI Usage (15%)
 
 | Skor | Kriteria |
 |------|----------|
-| **A (86–100)** | AI Usage Log lengkap untuk setiap interaksi signifikan; prompt didokumentasikan; validasi independen dilakukan; refleksi kritis tentang kontribusi AI vs mahasiswa; modifikasi output AI terlihat jelas |
-| **B (71–85)** | Log ada dan cukup lengkap; sebagian prompt didokumentasikan; ada validasi; ada refleksi |
-| **C (56–70)** | Log ada tetapi tidak lengkap; prompt tidak detail; validasi minimal |
-| **D (< 56)** | Tidak ada log; atau log sangat generik ("dibantu AI"); tidak ada validasi |
+| **A/A− (78,00–100,00)** | AI Usage Log lengkap untuk setiap interaksi signifikan; prompt didokumentasikan; validasi independen dilakukan; refleksi kritis tentang kontribusi AI vs mahasiswa; modifikasi output AI terlihat jelas |
+| **B+/B/B− (65,00–77,99)** | Log ada dan cukup lengkap; sebagian prompt didokumentasikan; ada validasi; ada refleksi |
+| **C+/C (55,00–64,99)** | Log ada tetapi tidak lengkap; prompt tidak detail; validasi minimal |
+| **D/E (< 55,00)** | Tidak ada log; atau log sangat generik ("dibantu AI"); tidak ada validasi |
 
 ### 14.5.3 Konversi Skor ke Nilai
 
-| Rentang Skor | Nilai Huruf | Predikat |
-|--------------|-------------|----------|
-| 86 – 100 | A | Sangat Baik |
-| 71 – 85 | B | Baik |
-| 56 – 70 | C | Cukup |
-| 41 – 55 | D | Kurang |
-| 0 – 40 | E | Sangat Kurang |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 ---
 

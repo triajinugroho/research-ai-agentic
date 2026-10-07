@@ -61,17 +61,23 @@ Semua tugas dinilai menggunakan skala 4 poin pada 4 dimensi utama:
 
 ## Konversi Skor ke Nilai
 
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
 | Total Skor (max 16) | Nilai (0-100) | Huruf |
 |---------------------|---------------|-------|
-| 15-16 | 90-100 | A |
-| 13-14 | 80-89 | A-/B+ |
-| 11-12 | 70-79 | B+/B |
-| 9-10 | 60-69 | B-/C+ |
-| 7-8 | 50-59 | C |
-| 5-6 | 40-49 | D |
-| ≤4 | <40 | E |
+| 12,96 – 16,00 | 81,00 – 100,00 | A |
+| 12,48 – < 12,96 | 78,00 – 80,99 | A− |
+| 12,00 – < 12,48 | 75,00 – 77,99 | B+ |
+| 11,20 – < 12,00 | 70,00 – 74,99 | B |
+| 10,40 – < 11,20 | 65,00 – 69,99 | B− |
+| 9,60 – < 10,40 | 60,00 – 64,99 | C+ |
+| 8,80 – < 9,60 | 55,00 – 59,99 | C |
+| 6,40 – < 8,80 | 40,00 – 54,99 | D |
+| < 6,40 | 0,00 – 39,99 | E |
 
 **Formula:** `Nilai = (Total Skor / 16) × 100`
+
+Huruf ditentukan dari Nilai (0-100) hasil formula di atas; kolom Total Skor adalah padanan proporsionalnya (Total Skor = Nilai × 16 / 100).
 
 ---
 

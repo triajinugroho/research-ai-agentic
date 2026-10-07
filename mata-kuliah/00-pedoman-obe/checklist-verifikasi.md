@@ -12,7 +12,7 @@ berlaku_untuk: [INF-101, INF-102, TBD-STAT, IF2205, IF2206, IF3XXX]
 
 # Checklist Verifikasi Manual
 
-> **Pembagian tugas.** `tools/validasi-obe.py` memeriksa yang dapat dimekanisasi (V1–V12). Checklist ini memeriksa yang **tidak dapat diskripkan**: mutu rumusan, ketepatan pedagogis, dan kebenaran substansi. Keduanya wajib dijalankan.
+> **Pembagian tugas.** `tools/validasi-obe.py` memeriksa yang dapat dimekanisasi (V1–V13). Checklist ini memeriksa yang **tidak dapat diskripkan**: mutu rumusan, ketepatan pedagogis, dan kebenaran substansi. Keduanya wajib dijalankan.
 >
 > **Tanda tangan penelaah sejawat pada bagian akhir bukan formalitas** — telaah sejawat adalah bukti langsung kriteria 1 (Budaya Mutu) Instrumen LAM-INFOKOM 2.0.
 

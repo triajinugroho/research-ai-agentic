@@ -71,19 +71,25 @@ Semua tugas dinilai menggunakan skala 4 poin pada 5 dimensi utama:
 
 ## Konversi Skor ke Nilai
 
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
 | Total Skor Tertimbang | Nilai (0-100) | Huruf |
 |-----------------------|---------------|-------|
-| 3.60 - 4.00 | 90-100 | A |
-| 3.20 - 3.59 | 80-89 | A-/B+ |
-| 2.80 - 3.19 | 70-79 | B+/B |
-| 2.40 - 2.79 | 60-69 | B-/C+ |
-| 2.00 - 2.39 | 50-59 | C |
-| 1.60 - 1.99 | 40-49 | D |
-| < 1.60 | <40 | E |
+| 3.24 – 4.00 | 81.00 – 100.00 | A |
+| 3.12 – < 3.24 | 78.00 – 80.99 | A− |
+| 3.00 – < 3.12 | 75.00 – 77.99 | B+ |
+| 2.80 – < 3.00 | 70.00 – 74.99 | B |
+| 2.60 – < 2.80 | 65.00 – 69.99 | B− |
+| 2.40 – < 2.60 | 60.00 – 64.99 | C+ |
+| 2.20 – < 2.40 | 55.00 – 59.99 | C |
+| 1.60 – < 2.20 | 40.00 – 54.99 | D |
+| < 1.60 | 0.00 – 39.99 | E |
 
 **Formula:** `Nilai = (Skor Tertimbang / 4.00) x 100`
 
 **Skor Tertimbang** = (Kebenaran Kode x 0.30) + (Analisis x 0.25) + (Kualitas Kode x 0.20) + (Dokumentasi x 0.15) + (AI Log x 0.10)
+
+Huruf ditentukan dari Nilai (0-100) hasil formula di atas; kolom Total Skor Tertimbang adalah padanan proporsionalnya (Skor Tertimbang = Nilai x 4 / 100).
 
 ---
 

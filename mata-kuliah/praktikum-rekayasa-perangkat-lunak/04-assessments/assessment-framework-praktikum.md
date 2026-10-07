@@ -97,21 +97,25 @@ Nilai Akhir = (Rata-rata Laporan × 0.25)
 
 ---
 
-## C. Skala Penilaian (7 Tingkat)
+## C. Skala Penilaian (9 Tingkat)
 
-| Huruf | Rentang Nilai | Bobot | Predikat |
-|-------|--------------|-------|----------|
-| A | 81-100 | 4.00 | Sangat Baik |
-| B+ | 75-80 | 3.50 | Baik Sekali |
-| B | 69-74 | 3.00 | Baik |
-| C+ | 63-68 | 2.50 | Cukup Baik |
-| C | 56-62 | 2.00 | Cukup |
-| D | 45-55 | 1.00 | Kurang |
-| E | 0-44 | 0.00 | Tidak Lulus |
+Skala mengikuti [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md) — satu-satunya sumber skala di repositori ini.
+
+| Rentang Nilai Akhir | Huruf | Bobot | Kategori |
+|---------------------|-------|-------|----------|
+| 81,00 – 100,00 | A | 4,00 | Sangat Baik |
+| 78,00 – 80,99 | A− | 3,70 | Sangat Baik |
+| 75,00 – 77,99 | B+ | 3,30 | Baik |
+| 70,00 – 74,99 | B | 3,00 | Baik |
+| 65,00 – 69,99 | B− | 2,70 | Baik |
+| 60,00 – 64,99 | C+ | 2,30 | Cukup |
+| 55,00 – 59,99 | C | 2,00 | Cukup |
+| 40,00 – 54,99 | D | 1,00 | Kurang |
+| 0,00 – 39,99 | E | 0,00 | Sangat Kurang |
 
 ### Persyaratan Kelulusan
 
-1. Nilai akhir minimal **C (56)** untuk lulus mata kuliah.
+1. Nilai akhir minimal **C (55)** untuk lulus mata kuliah.
 2. Kehadiran minimal **75%** dari total pertemuan.
 3. Wajib mengikuti **RTS dan RAS** (kecuali ada izin resmi).
 4. Wajib menyelesaikan **minimal 4 dari 6 TP** dan **minimal 10 dari 13 laporan**.
@@ -278,7 +282,7 @@ Sebagai institusi dengan nilai Islam, UAI menekankan prinsip **amanah** (kejujur
 
 ### I.1 Syarat Mengikuti Remedial
 
-1. Mahasiswa dengan nilai komponen < 56 (di bawah C) berhak mengajukan remedial.
+1. Mahasiswa dengan nilai komponen < 55 (di bawah C) berhak mengajukan remedial.
 2. Remedial hanya tersedia untuk **Tugas Pemrograman (TP)** dan **Laporan Praktikum**.
 3. Proyek akhir dan responsi **tidak dapat di-remedial**.
 4. Maksimal **2 TP** dan **3 laporan** yang dapat di-remedial per semester.
@@ -298,7 +302,7 @@ Sebagai institusi dengan nilai Islam, UAI menekankan prinsip **amanah** (kejujur
 1. Mahasiswa mengajukan remedial melalui email ke dosen dengan menyebutkan komponen yang ingin di-remedial.
 2. Dosen memberikan feedback spesifik tentang apa yang perlu diperbaiki.
 3. Mahasiswa merevisi dan mengumpulkan ulang dalam **7 hari kalender**.
-4. Nilai remedial maksimal **70** (setara B), tidak bisa mendapat A atau B+.
+4. Nilai remedial maksimal **70** (setara B), tidak bisa mendapat A, A−, atau B+.
 
 ---
 
@@ -408,7 +412,7 @@ Setiap praktikum IF2206 selaras dengan materi teori IF2205 minggu yang sama:
                  │
                  ▼
   ┌──────────────┐     Ya      ┌──────────────┐
-  │  Nilai < 56  │────────────▶│  Eligible     │
+  │  Nilai < 55  │────────────▶│  Eligible     │
   │  (di bawah C)│             │  Remedial?    │
   └──────┬───────┘             └──────┬───────┘
          │ Tidak                      │ Ya

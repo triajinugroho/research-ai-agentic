@@ -186,6 +186,8 @@ print(f"\nDokumentasi fungsi:\n{analisis_bilangan.__doc__}")
 
 Berikut adalah kode *spaghetti* yang perlu di-refactor menjadi fungsi-fungsi terpisah:
 
+> **Catatan:** skala disederhanakan untuk latihan — skala resmi UAI ada di [registri konversi nilai](../../00-pedoman-obe/konversi-nilai.md).
+
 **Kode SEBELUM refactoring (jangan dijalankan, hanya untuk dibaca):**
 ```python
 # KODE SPAGHETTI - JANGAN DITIRU
@@ -218,7 +220,7 @@ def hitung_rata_rata(n1, n2, n3):
     return (n1 + n2 + n3) / 3
 
 def konversi_ke_huruf(rata_rata):
-    """Mengonversi nilai rata-rata ke nilai huruf."""
+    """Mengonversi nilai rata-rata ke nilai huruf (skala disederhanakan untuk latihan)."""
     if rata_rata >= 85:
         return "A"
     elif rata_rata >= 70:

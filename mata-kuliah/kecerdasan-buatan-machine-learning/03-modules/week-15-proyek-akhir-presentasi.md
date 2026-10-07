@@ -107,7 +107,7 @@ Total: 20 menit per kelompok
 
 ### 3. Rubrik Penilaian Presentasi
 
-| Kriteria | Bobot | Sangat Baik (A) | Baik (B) | Cukup (C) | Kurang (D) |
+| Kriteria | Bobot | Sangat Baik (A/A−) | Baik (B+/B/B−) | Cukup (C+/C) | Kurang/Sangat Kurang (D/E) |
 |---|---|---|---|---|---|
 | **Problem Statement** | 10% | Jelas, relevan, konteks Indonesia kuat | Jelas, cukup relevan | Kurang jelas | Tidak ada atau sangat lemah |
 | **Dataset & EDA** | 15% | Lengkap, visualisasi informatif, insight mendalam | Cukup lengkap, visualisasi baik | Minimal, visualisasi dasar | Tidak ada EDA yang bermakna |
