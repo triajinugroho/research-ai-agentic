@@ -135,6 +135,8 @@ Kisi-kisi rinci beserta contoh soal ada pada [kisi-kisi UTS](../05-assessments/k
 
 Baris terakhir yang paling sering dilewati dan paling menentukan. Perhitungan metrik pada ujian dikerjakan dengan kalkulator, bukan dengan `scikit-learn`.
 
+Sebagai gladi, kerjakan [Latihan UTS](../05-assessments/latihan-uts.md) — simulasi lengkap 120 menit — tanpa AI dan tanpa membuka pembahasan, lalu cocokkan dengan [pembahasan dan pedoman skornya](../05-assessments/latihan-uts-pembahasan.md). Naskah UTS sebenarnya adalah varian latihan itu: cetak biru butirnya sama, tetapi konteks, data, dan angkanya berbeda.
+
 ---
 
 ## Setelah Ujian

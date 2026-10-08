@@ -127,7 +127,7 @@ AI hadir dalam **dua peran** yang berbeda:
 ### Untuk Dosen Pengampu
 
 - Setiap bab selaras dengan satu modul mingguan dan satu studio.
-- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal ujian: soal UTS dan UAS disusun terpisah dengan mengacu pada kisi-kisi, dan **tidak dipublikasikan**.
+- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal ujian: soal UTS dan UAS disusun terpisah dengan mengacu pada kisi-kisi, dan **tidak dipublikasikan**. Untuk persiapan UTS tersedia [Latihan UTS](../05-assessments/latihan-uts.md) — simulasi dengan [pembahasan](../05-assessments/latihan-uts-pembahasan.md); naskah UTS sebenarnya adalah varian darinya dan tidak dipublikasikan.
 - AI Corner dapat menjadi bahan diskusi 15 menit.
 - Seluruh contoh berkonteks Indonesia dan dapat diganti.
 

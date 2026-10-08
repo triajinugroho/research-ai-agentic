@@ -75,6 +75,8 @@ Dikerjakan bersama sebelum ujian:
 3. Diberikan kutipan wawancara, rumuskan kebutuhan di baliknya. *(4 kasus)*
 4. Diberikan perhitungan pasar, temukan asumsi yang bermasalah. *(2 kasus)*
 
+**Persiapan mandiri sebelum pertemuan ini:** kerjakan [Latihan UTS](../05-assessments/latihan-uts.md) — simulasi lengkap dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UTS — dalam 90 menit, *closed book*, tanpa AI dan tanpa membuka pembahasan. Sesudahnya cocokkan dengan [pembahasan dan pedoman skor](../05-assessments/latihan-uts-pembahasan.md) dan jadikan butir yang skornya rendah bahan pertanyaan pada sesi tinjauan. Naskah UTS sebenarnya adalah varian dari latihan ini (cetak biru sama; konteks, data, dan angka berbeda) dan tidak dipublikasikan.
+
 ---
 
 ## Bagian II — Ujian Tengah Semester (90 menit)
@@ -155,7 +157,8 @@ Dilaksanakan setelah ujian, dikumpulkan pada hari yang sama.
 
 1. Seluruh referensi Minggu 1–7.
 2. [Kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md).
-3. [Kerangka asesmen](../05-assessments/assessment-framework.md).
+3. [Latihan UTS (simulasi)](../05-assessments/latihan-uts.md) dan [pembahasannya](../05-assessments/latihan-uts-pembahasan.md).
+4. [Kerangka asesmen](../05-assessments/assessment-framework.md).
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

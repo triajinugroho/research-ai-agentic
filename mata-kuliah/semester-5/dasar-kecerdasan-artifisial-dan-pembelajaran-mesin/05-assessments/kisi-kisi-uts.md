@@ -190,6 +190,10 @@ print(model.score(X_te, y_te))
 
 Baris terakhir yang paling sering dilewati dan paling menentukan pada Bagian C.
 
+### 7.1 Latihan UTS
+
+Simulasi lengkap UTS — 13 soal, 120 menit, komposisi dan aturan alat bantu sama dengan ketentuan di atas — tersedia untuk berlatih: [Latihan UTS](latihan-uts.md) · [pembahasan dan pedoman skor](latihan-uts-pembahasan.md) · [cetak biru butir dan panduan varian](latihan-uts-cetak-biru.md). Kerjakan dalam 120 menit tanpa AI dan tanpa membuka pembahasan, baru sesudahnya cocokkan. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+
 ---
 
 ## 8. Kaidah Penilaian

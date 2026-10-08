@@ -335,6 +335,7 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS12-1`.
 | Cakupan | Minggu 1–7, penekanan pada penemuan pelanggan dan perumusan kebutuhan |
 | Komposisi | 30% konsep · 50% analisis kasus · 20% perancangan naskah wawancara |
 | Kisi-kisi | [kisi-kisi-uts.md](../05-assessments/kisi-kisi-uts.md) |
+| Latihan | [Latihan UTS](../05-assessments/latihan-uts.md) (simulasi) beserta [pembahasannya](../05-assessments/latihan-uts-pembahasan.md); naskah UTS sebenarnya adalah varian dari latihan itu dan tidak dipublikasikan |
 
 ### U-02 — Ujian Akhir Semester (Minggu 16) — 10% · `Sub-CPMKUAI32-1`
 

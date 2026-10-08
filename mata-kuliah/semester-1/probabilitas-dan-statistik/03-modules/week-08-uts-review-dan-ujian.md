@@ -115,6 +115,10 @@ Tandai konsep yang sudah Anda kuasai. Konsep yang belum tercentang adalah priori
 | 4 | Salah arah pada tabel Normal (melihat P(Z > z) padahal tabel memberi P(Z < z)) | Selalu gambar kurva dan arsir daerah yang dicari |
 | 5 | Menghitung rata-rata pada data ordinal atau nominal | Tentukan skala data sebelum memilih operasi |
 
+### 1.4 Simulasi: Latihan UTS
+
+Sebelum pertemuan ini, kerjakan [Latihan UTS](../05-assessments/latihan-uts.md) — simulasi lengkap dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UTS — dalam 100 menit, *closed book*, tanpa AI dan tanpa membuka pembahasan, dengan tabel dari Lampiran A.1–A.2 buku ajar. Sesudahnya cocokkan dengan [pembahasan dan pedoman skor](../05-assessments/latihan-uts-pembahasan.md) dan jadikan butir yang salah prioritas belajar. Naskah UTS sebenarnya adalah varian dari latihan ini (cetak biru sama; konteks, data, dan angka berbeda) dan tidak dipublikasikan.
+
 ---
 
 ## Bagian 2: Pelaksanaan Ujian (100 menit)
@@ -206,9 +210,10 @@ Minggu depan kita memasuki **fase inferensial** — bagian paling penting dari m
 ## Referensi
 
 1. [Kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md)
-2. [Kerangka asesmen](../05-assessments/assessment-framework.md)
-3. Buku ajar Bab 1–7
-4. Walpole, R. E., et al. (2016). *Probability and Statistics for Engineers and Scientists* (9th ed.), Bab 1–6. Pearson.
+2. [Latihan UTS (simulasi)](../05-assessments/latihan-uts.md) dan [pembahasannya](../05-assessments/latihan-uts-pembahasan.md)
+3. [Kerangka asesmen](../05-assessments/assessment-framework.md)
+4. Buku ajar Bab 1–7
+5. Walpole, R. E., et al. (2016). *Probability and Statistics for Engineers and Scientists* (9th ed.), Bab 1–6. Pearson.
 
 ---
 

@@ -134,7 +134,7 @@ Setiap bab memuat bagian **AI Corner**. Karena mata kuliah ini berstatus **tahap
 ### Untuk Dosen Pengampu
 
 - Setiap bab selaras dengan satu modul mingguan pada `03-modules/`.
-- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal UTS dan UAS disusun dari cetak biru butir pada [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) dan [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md), soal kuis dari cakupan kuis K-01–K-04 pada [RTM §D](../02-rtm/rtm-probabilitas-dan-statistik.md#d-rincian-kuis-k-01-sd-k-04); seluruhnya disusun terpisah dan **tidak dipublikasikan**.
+- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal UTS dan UAS disusun dari cetak biru butir pada [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) dan [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md), soal kuis dari cakupan kuis K-01–K-04 pada [RTM §D](../02-rtm/rtm-probabilitas-dan-statistik.md#d-rincian-kuis-k-01-sd-k-04); seluruhnya disusun terpisah dan **tidak dipublikasikan**. Untuk persiapan UTS tersedia [Latihan UTS](../05-assessments/latihan-uts.md) — simulasi dengan [pembahasan](../05-assessments/latihan-uts-pembahasan.md); naskah UTS sebenarnya adalah varian darinya dan tidak dipublikasikan.
 - Bagian AI Corner dapat menjadi bahan diskusi kelas 15 menit.
 - Contoh dan dataset berkonteks Indonesia, dapat diganti sesuai kebutuhan.
 

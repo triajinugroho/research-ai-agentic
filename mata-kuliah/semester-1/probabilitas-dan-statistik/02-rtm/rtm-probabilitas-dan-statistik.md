@@ -209,7 +209,7 @@ Kuis menilai `PS-Sub-CPMK081-1` pada tingkat C3–C4: kemampuan menerapkan rumus
 | **Rumus** | **Tidak disediakan** — hafalkan [daftar rumus kisi-kisi UTS §7](../05-assessments/kisi-kisi-uts.md#7-daftar-rumus-yang-harus-dihafal) |
 | **Dilarang** | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 
-Komposisi soal dan bobot per pokok bahasan ada pada [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md).
+Komposisi soal dan bobot per pokok bahasan ada pada [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md). Untuk berlatih tersedia [Latihan UTS](../05-assessments/latihan-uts.md) beserta [pembahasannya](../05-assessments/latihan-uts-pembahasan.md); naskah UTS sebenarnya adalah varian dari latihan itu dan tidak dipublikasikan.
 
 ### F.2 Ujian Akhir Semester (U-02)
 

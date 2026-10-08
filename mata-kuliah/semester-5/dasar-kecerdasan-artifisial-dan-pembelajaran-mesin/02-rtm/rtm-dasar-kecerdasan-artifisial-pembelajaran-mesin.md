@@ -321,6 +321,7 @@ Setiap anggota mengisi **Formulir Kontribusi** secara terpisah dan rahasia: Form
 | Penekanan | Kualitas data, prapemrosesan, kebocoran, rekayasa fitur, metrik regresi dan klasifikasi |
 | Komposisi | 30% konsep · 40% analisis kasus · 30% perhitungan manual |
 | Kisi-kisi | [kisi-kisi-uts.md](../05-assessments/kisi-kisi-uts.md) |
+| Latihan | [Latihan UTS](../05-assessments/latihan-uts.md) (simulasi 120 menit) dengan [pembahasan](../05-assessments/latihan-uts-pembahasan.md); naskah UTS sebenarnya adalah varian latihan ini dan tidak dipublikasikan |
 
 ### U-02 — Ujian Akhir Semester (Minggu 16) — **15%** · `Sub-CPMK082-1`
 

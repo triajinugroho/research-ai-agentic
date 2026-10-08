@@ -288,4 +288,16 @@ Tabel distribusi Normal baku dan tabel-t dibagikan pengawas bersama lembar soal;
 
 ---
 
+## 11. Latihan UTS (Simulasi)
+
+Untuk berlatih tersedia simulasi lengkap UTS dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UTS:
+
+- [Latihan UTS](latihan-uts.md) — kerjakan dalam 100 menit, *closed book*, tanpa AI dan tanpa membuka pembahasan;
+- [Pembahasan dan pedoman skor](latihan-uts-pembahasan.md) — jawaban langkah demi langkah, skor parsial, dan kesalahan umum;
+- [Cetak biru butir dan panduan varian](latihan-uts-cetak-biru.md) — untuk dosen.
+
+Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+
+---
+
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

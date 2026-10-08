@@ -64,9 +64,11 @@ Pada AI Curriculum Infusion Matrix ia berstatus **mode E (Eksplisit)** dengan pi
 | [`02-rtm/`](02-rtm/) | Rencana Tugas Mahasiswa | 1 |
 | [`03-modules/`](03-modules/) | Modul kuliah mingguan (Minggu 1–16) | 16 |
 | [`04-labs/`](04-labs/) | Studio kerja (Studio 1–7, 9–14) | 13 |
-| [`05-assessments/`](05-assessments/) | Kerangka asesmen, kisi-kisi UTS/UAS, rubrik, panduan proyek | 5 |
+| [`05-assessments/`](05-assessments/) | Kerangka asesmen, kisi-kisi UTS/UAS, Latihan UTS (naskah, pembahasan, cetak biru), rubrik, panduan proyek | 8 |
 | [`06-buku-ajar/`](06-buku-ajar/) | Buku ajar: 14 bab + halaman depan + lampiran + penutup | 18 |
 | [`datasets/`](datasets/) | Panduan sumber data pasar dan riset pelanggan Indonesia | 1 |
+
+**Isi `05-assessments/`:** [kerangka asesmen](05-assessments/assessment-framework.md) · [kisi-kisi UTS](05-assessments/kisi-kisi-uts.md) · [Latihan UTS](05-assessments/latihan-uts.md) dengan [pembahasan](05-assessments/latihan-uts-pembahasan.md) dan [cetak biru butir](05-assessments/latihan-uts-cetak-biru.md) · [kisi-kisi UAS](05-assessments/kisi-kisi-uas.md) · [rubrik tugas](05-assessments/rubrik-tugas.md) · [panduan proyek](05-assessments/project-guidelines.md). Latihan UTS adalah simulasi terbuka; naskah UTS sebenarnya adalah variannya dan tidak dipublikasikan.
 
 > Folder `04-labs/` memuat **studio kerja**, bukan praktikum pemrograman. Setiap studio menghasilkan artefak nyata untuk usaha yang sedang dibangun kelompok: catatan wawancara, *business model canvas*, perhitungan *unit economics*, prototipe, dan *pitch deck*.
 

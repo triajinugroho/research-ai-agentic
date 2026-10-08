@@ -70,7 +70,7 @@ Posisinya pada jalur **AI Core & Advanced**:
 | [`02-rtm/`](02-rtm/) | Rencana Tugas Mahasiswa | 1 |
 | [`03-modules/`](03-modules/) | Modul kuliah mingguan (Minggu 1–16) | 16 |
 | [`04-labs/`](04-labs/) | Praktikum Python (Lab 1–7, 9–14) | 13 |
-| [`05-assessments/`](05-assessments/) | Kerangka asesmen, kisi-kisi UTS/UAS, rubrik, panduan proyek | 5 |
+| [`05-assessments/`](05-assessments/) | Kerangka asesmen, kisi-kisi UTS/UAS, [Latihan UTS](05-assessments/latihan-uts.md) (soal, [pembahasan](05-assessments/latihan-uts-pembahasan.md), [cetak biru](05-assessments/latihan-uts-cetak-biru.md)), rubrik, panduan proyek | 8 |
 | [`06-buku-ajar/`](06-buku-ajar/) | Buku ajar: 14 bab + halaman depan + lampiran + penutup | 18 |
 | [`datasets/`](datasets/) | Panduan dataset berkonteks Indonesia | 1 |
 

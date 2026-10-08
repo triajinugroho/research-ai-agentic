@@ -167,6 +167,19 @@ Baris terakhir sering paling berguna: soal Bagian B menuntut kemampuan menilai b
 1. [Modul Minggu 8](../03-modules/week-08-uts-review-dan-ujian.md)
 2. [Kerangka asesmen](assessment-framework.md)
 3. Bab 1–7 [buku ajar](../06-buku-ajar/00-halaman-depan.md)
+
+---
+
+## 9. Latihan UTS (Simulasi)
+
+Untuk berlatih tersedia simulasi lengkap UTS dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UTS:
+
+- [Latihan UTS](latihan-uts.md) — kerjakan dalam 90 menit, *closed book*, tanpa AI dan tanpa membuka pembahasan;
+- [Pembahasan dan pedoman skor](latihan-uts-pembahasan.md) — jawaban langkah demi langkah, skor parsial, contoh jawaban, dan kesalahan umum;
+- [Cetak biru butir dan panduan varian](latihan-uts-cetak-biru.md) — untuk dosen.
+
+Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

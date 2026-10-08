@@ -32,7 +32,7 @@ Peta mata kuliah semester 1 menurut [registri Kurikulum Informatika 2025 Revisi 
 
 | Folder | Mata Kuliah | Status materi |
 |---|---|---|
-| [`probabilitas-dan-statistik/`](probabilitas-dan-statistik/) | Probabilitas dan Statistik (`IF52510033`) | Disusun untuk Kurikulum 2025 Revisi 2026. Materi lengkap; asesmen (naskah ujian) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) |
+| [`probabilitas-dan-statistik/`](probabilitas-dan-statistik/) | Probabilitas dan Statistik (`IF52510033`) | Disusun untuk Kurikulum 2025 Revisi 2026. Materi lengkap; [Latihan UTS](probabilitas-dan-statistik/05-assessments/latihan-uts.md) publik; naskah ujian (varian, privat) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](../00-meta/KENDALI-EKSEKUSI.md) |
 
 ---
 

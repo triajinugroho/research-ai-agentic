@@ -8,7 +8,7 @@
 
 This is an **educational materials repository** for courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. The materials are organized **per curriculum semester** following the **Kurikulum Informatika 2025 Revisi 2026**, whose official registry is transcribed in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`.
 
-- **549 Markdown documents** under `mata-kuliah/` (count as of 8 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
+- **558 Markdown documents** under `mata-kuliah/` (count as of 8 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
 - **10 course folders:** 8 active courses in `mata-kuliah/semester-N/` (placed by their registry semester) and 2 old-curriculum courses in `mata-kuliah/arsip/`.
 - **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: execution checklist, lecturer review list, audits, and generation prompts).
 
@@ -34,7 +34,7 @@ In every session:
 1. **Read the control file before starting.** If the request matches an item, cite its ID (e.g., `T0-09`). Without a specific request, propose the open item with the nearest deadline that is not ⏸.
 2. **Respect dependencies.** Do not carry out an item whose "Butuh" column names an undecided `D-xx`; ask the lecturer, or do only the part that does not depend on the decision.
 3. **Close the loop.** After finishing, set the status to ☑ with the short commit hash or date, update `diperbarui:`, and record a decision (date + content) in §1 when the lecturer makes one. Add newly found open items with the next free ID in the right stage — never renumber. Keep the file ≤ 180 lines (`tipe: mutu`, validator V11); summarize finished batches in §7, one line each.
-4. **The repository is public.** Until decision `D-08` is made, never commit exam papers, answer keys, question banks, or per-student grades; only kisi-kisi, item blueprints, and aggregate numbers belong here. The three UTS + answer-key pairs already committed for Genap 2025/2026 await `D-08`.
+4. **The repository is public.** Decision `D-08` (8 October 2026, partial): **practice papers** may be published — `05-assessments/latihan-uts.md`, `latihan-uts-pembahasan.md` (worked solutions and scoring guide) and `latihan-uts-cetak-biru.md` (item blueprint and variant guide). The **real** UTS/UAS papers are generated separately as **variants** of the practice paper (same blueprint: Sub-CPMK, Bloom level, points, duration; new context, data and numbers) and, like quiz papers, answer keys, question banks and per-student grades, are **never committed**. The rest of `D-08` (private storage location, quizzes, the three UTS + answer-key pairs already committed for Genap 2025/2026) is still open.
 
 ---
 
