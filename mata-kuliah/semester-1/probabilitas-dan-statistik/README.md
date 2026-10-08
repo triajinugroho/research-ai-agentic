@@ -59,7 +59,7 @@ probabilitas-dan-statistik/
 └── datasets/                       # Panduan dataset dan sumber data Indonesia; 8 berkas CSV lab akan diunggah dosen (daftar: datasets/README §3.2)
 ```
 
-**Isi `05-assessments/`:** [kerangka asesmen](05-assessments/assessment-framework.md) · [kisi-kisi UTS](05-assessments/kisi-kisi-uts.md) · [Latihan UTS](05-assessments/latihan-uts.md) dengan [pembahasan](05-assessments/latihan-uts-pembahasan.md) dan [cetak biru butir](05-assessments/latihan-uts-cetak-biru.md) · [kisi-kisi UAS](05-assessments/kisi-kisi-uas.md) · [rubrik tugas](05-assessments/rubrik-tugas.md) · [panduan proyek](05-assessments/project-guidelines.md). Latihan UTS adalah simulasi terbuka; naskah UTS sebenarnya adalah variannya dan tidak dipublikasikan.
+**Isi `05-assessments/`:** [kerangka asesmen](05-assessments/assessment-framework.md) · [kisi-kisi UTS](05-assessments/kisi-kisi-uts.md) · Latihan UTS ([soal](05-assessments/latihan-uts.md), [pembahasan](05-assessments/latihan-uts-pembahasan.md), [cetak biru butir](05-assessments/latihan-uts-cetak-biru.md)) · [kisi-kisi UAS](05-assessments/kisi-kisi-uas.md) · [rubrik tugas](05-assessments/rubrik-tugas.md) · [panduan proyek](05-assessments/project-guidelines.md). Latihan UTS adalah simulasi terbuka; naskah UTS sebenarnya adalah variannya dan tidak dipublikasikan.
 
 ---
 

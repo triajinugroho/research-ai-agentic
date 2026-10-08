@@ -215,6 +215,8 @@ Simulasi lengkap UTS — 13 soal, 120 menit, komposisi dan aturan alat bantu sam
 1. [Modul Minggu 8 — tinjauan dan ujian](../03-modules/week-08-uts-review-dan-ujian.md)
 2. [Kerangka asesmen](assessment-framework.md)
 3. Bab 1–7 [buku ajar](../06-buku-ajar/00-halaman-depan.md)
+4. Latihan UTS (§7.1): [soal](latihan-uts.md) · [pembahasan dan pedoman skor](latihan-uts-pembahasan.md) · [cetak biru butir dan panduan varian](latihan-uts-cetak-biru.md)
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

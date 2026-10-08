@@ -10,11 +10,13 @@ status: draft
 diperbarui: 2026-10-08
 ---
 
-# Latihan UTS — Pembahasan dan Pedoman Skor
+# Pembahasan dan Pedoman Skor — Latihan UTS Dasar Kecerdasan Artifisial dan Pembelajaran Mesin
 
-> **Latihan UTS — bukan naskah UTS.** Pembahasan ini menyertai simulasi lengkap UTS Dasar Kecerdasan Artifisial dan Pembelajaran Mesin Ganjil 2026/2027: komposisi, durasi (120 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+## Dasar Kecerdasan Artifisial dan Pembelajaran Mesin — IF52510031
 
-## Dasar Kecerdasan Artifisial dan Pembelajaran Mesin — `IF52510031`
+> **Latihan UTS — bukan naskah UTS.** Pembahasan ini menyertai simulasi lengkap UTS Dasar Kecerdasan Artifisial dan Pembelajaran Mesin Ganjil 2026/2027 untuk berlatih: komposisi, durasi (120 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+>
+> **Kerjakan dulu [latihan UTS](latihan-uts.md) dalam 120 menit tanpa AI dan tanpa membuka berkas ini.** Sesudahnya, nilai jawaban Anda dengan pedoman skor, lalu bandingkan dengan contoh jawaban *Kurang*, *Cukup*, dan *Baik*. Untuk butir yang skornya di bawah separuh, baca ulang bagian buku ajar pada baris **Rujukan** butir itu. Contoh jawaban *Baik* — tersedia untuk setiap soal Bagian A dan B serta setiap sub-soal analisis Bagian C — menunjukkan unsur yang dinilai, bukan satu-satunya rumusan yang benar, dan sengaja ditulis **seringkas jawaban bernilai penuh**: nilai penuh hanya menuntut unsur yang dinilai, sedangkan menulis lebih panjang tidak menambah skor dan menghabiskan waktu butir lain. Untuk sub-soal hitung, langkah pada pembahasan sudah merupakan jawaban lengkap. Tabel *jawaban model* memuat penjelasan untuk belajar, sehingga lebih panjang daripada yang perlu ditulis di ujian. Menghafal jawaban di sini tidak membantu: naskah UTS memakai konteks dan angka lain, jadi yang perlu dikuasai adalah **langkah dan alasannya**.
 
 | Aspek | Keterangan |
 |-------|------------|
@@ -23,8 +25,6 @@ diperbarui: 2026-10-08
 | Penandaan | Judul tiap butir mencantumkan Sub-CPMK (kode registri), level Bloom, dan skor. Sub-CPMK ditetapkan **menurut isi butir** untuk analisis ketercapaian; bobot Tes Tulis UTS (20%) tetap tercatat pada `DAIML-Sub-CPMK102-1` sesuai registri ([cetak biru §1](latihan-uts-cetak-biru.md#1-prinsip-penandaan)) |
 | Penyusun | Tri Aji Nugroho, S.T., M.T. |
 | Verifikasi angka | Seluruh angka Bagian C, B2(b), dan A3 dihitung ulang dengan Python; perilaku potongan kode B1 dan B3 serta kode rujukan diperiksa pada scikit-learn 1.6 dan 1.9 (§5) |
-
-**Cara memakai.** Buka pembahasan ini **sesudah** mengerjakan latihan dalam 120 menit. Nilai jawaban Anda dengan pedoman skor, lalu bandingkan dengan contoh jawaban *Kurang*, *Cukup*, dan *Baik*. Untuk butir yang skornya di bawah separuh, baca ulang bagian buku ajar pada baris **Rujukan** butir itu. Contoh jawaban *Baik* menunjukkan unsur yang dinilai, bukan satu-satunya rumusan yang benar.
 
 ---
 
@@ -45,6 +45,8 @@ Mengikuti kaidah penilaian [kisi-kisi UTS §8](kisi-kisi-uts.md#8-kaidah-penilai
 
 **Satuan skor terkecil: 0,25 poin.** Skor dicatat per baris: satu baris = satu soal Bagian A (bagian berlabel di dalamnya tidak dipisah) atau satu sub-soal Bagian B/C — 33 baris skor ([cetak biru §2](latihan-uts-cetak-biru.md#2-tabel-cetak-biru-per-butir)).
 
+Pada A3, A4, dan A5 soal hanya mencetak skor total. Rincian poin per baris pada pedoman skor di bawah sengaja tidak dicetak pada soal, agar bobot baris tidak menandai baris yang "tepat", "bukan masalah", atau "pertahankan".
+
 Singkatan Sub-CPMK pada tabel: `082-1` = `DAIML-Sub-CPMK082-1`; `102-1` = `DAIML-Sub-CPMK102-1`.
 
 ---
@@ -64,7 +66,7 @@ Singkatan Sub-CPMK pada tabel: `082-1` = `DAIML-Sub-CPMK082-1`; `102-1` = `DAIML
 
 | Bagian | Poin | Rincian |
 |--------|------|---------|
-| (i) | 2,5 | Kesimpulan "layak" 0,5 · alasan memakai ≥ 2 pertanyaan uji kelayakan atau keadaan 1,0 (satu pertanyaan saja 0,5) · pendekatan: regresi atau perkiraan deret waktu 0,25 + pembagian/evaluasi temporal 0,25 · *baseline* yang harus dikalahkan 0,5 — dinilai sebagai rujukan ke pertanyaan 5 uji kelayakan ("pembanding sederhana"), boleh muncul pada alasan maupun pendekatan |
+| (i) | 2,5 | Kesimpulan "layak" 0,5 · alasan memakai ≥ 2 pertanyaan uji kelayakan atau keadaan 1,0 (satu pertanyaan saja 0,5) · pendekatan: regresi atau perkiraan deret waktu 0,25 + pembagian/evaluasi temporal 0,25 · pembanding (*baseline*) yang harus dikalahkan, yang diminta soal (pertanyaan 5 uji kelayakan, "pembanding sederhana") 0,5 — boleh muncul pada alasan maupun pendekatan |
 | (ii) | 2,5 | Kesimpulan "tidak (ML prediktif)" 0,5 · kausal vs korelasi 0,75 · masalah seleksi non-acak 0,5 · pendekatan eksperimen/inferensi kausal 0,75 |
 
 Alternatif yang diterima: pada (i), "layak, **dengan syarat**" (data hari libur lengkap, mengalahkan *baseline*) dinilai penuh. Pada (ii), "ML boleh dipakai sebagai alat eksplorasi, tetapi tidak untuk menjawab 'menyebabkan'" dinilai penuh bila pendekatan kausalnya disebut.
@@ -74,8 +76,8 @@ Alternatif yang diterima: pada (i), "layak, **dengan syarat**" (data hari libur 
 | Tingkat | Contoh | Skor |
 |---------|--------|------|
 | Kurang | "(i) Pakai ML. (ii) Pakai ML regresi untuk melihat pengaruh program." | 0,5 (hanya kesimpulan i) |
-| Cukup | "(i) Perlu ML karena datanya banyak. (ii) Tidak, karena ML hanya korelasi." | 2,25 (i 1,0 — alasan hanya satu pertanyaan, tanpa pendekatan · ii 1,25 — seleksi non-acak dan pendekatan tidak disebut) |
-| Baik | "(i) Layak — ada pola libur/hujan yang tidak dapat ditulis sebagai aturan, data 3 tahun tersedia, salah perkiraan masih dapat ditutup truk cadangan; regresi dengan pembagian temporal yang harus mengalahkan *baseline* 'tonase hari yang sama minggu lalu'. (ii) Tidak — pertanyaannya sebab-akibat, ML hanya menangkap korelasi, dan sekolah peserta dipilih dari usulan sehingga tidak sebanding; perlu uji coba acak atau pembanding dengan sekolah bukan peserta yang sebanding." | 5 |
+| Cukup | "(i) Perlu ML karena datanya banyak. (ii) Tidak, karena ML hanya korelasi." | 2,25 (i 1,0 — alasan hanya satu pertanyaan; pendekatan dan pembanding tidak ada · ii 1,25 — seleksi non-acak dan pendekatan tidak disebut) |
+| Baik | "(i) Layak — ada pola libur/hujan yang tidak dapat ditulis sebagai aturan dan data 3 tahun tersedia; regresi dengan evaluasi temporal yang harus mengalahkan *baseline* 'tonase hari yang sama minggu lalu'. (ii) Tidak — pertanyaannya sebab-akibat, sedangkan ML hanya menangkap korelasi, dan sekolah peserta dipilih dari usulan (tidak acak); perlu uji coba acak." | 5 |
 
 **Rujukan:** [Bab 1](../06-buku-ajar/bab-01-lanskap-kecerdasan-artifisial.md) §1.4.1 (lima keadaan), §1.4.2 (uji kelayakan enam pertanyaan).
 
@@ -113,7 +115,7 @@ Alternatif yang diterima (buku ajar memberi dua rujukan: diagram §2.5 menggamba
 |---------|--------|------|
 | Kurang | "(i) Evaluasi. (ii) Model, ganti algoritma yang lebih kuat." | 0 |
 | Cukup | "(i) Data — pola lalu lintas berubah sejak ruas baru; latih ulang. (ii) Eksplorasi dan penyiapan — model tidak lebih baik daripada aturan, jadi fiturnya kurang; cari fitur baru." | 3,25 (i 2,0 — tindakan tanpa pengumpulan data baru 0,5 · ii 1,25 — tindakan bagi manajemen tidak ada) |
-| Baik | "(i) Data — MAE naik terus sejak ruas baru: *drift*; kumpulkan data sesudah ruas baru, latih ulang, dan perketat pemantauan. (ii) Eksplorasi/penyiapan — model sama dengan *baseline* berarti fitur tidak menambah sinyal; sementara itu manajemen sebaiknya memakai aturan saja karena lebih murah dan mudah dijelaskan, dan model baru dipertimbangkan bila kelak unggul dengan selisih yang bermakna." | 5 |
+| Baik | "(i) Data — MAE naik terus sejak ruas baru tersambung: *drift*; kumpulkan data sesudah ruas baru, lalu latih ulang. (ii) Eksplorasi dan penyiapan — F1 model sama dengan aturan, jadi fitur tidak menambah sinyal; manajemen sebaiknya memakai aturan sekarang karena lebih murah, dan model baru dipakai bila kelak unggul dengan selisih bermakna." | 5 |
 
 **Rujukan:** [Bab 2](../06-buku-ajar/bab-02-formulasi-masalah-daur-hidup-ml.md) §2.4.2 (membaca selisih terhadap *baseline*), §2.5 dan §2.5.2 (daur hidup dan pemicunya).
 
@@ -139,7 +141,7 @@ Alternatif yang diterima (buku ajar memberi dua rujukan: diagram §2.5 menggamba
 |---------|--------|------|
 | Kurang | "T1 hapus barisnya. T2 usia 0 salah, hapus. T3 bagus, fitur kuat." | 0,25 (T1 penilaian) |
 | Cukup | "T1 −99 kode hilang, ganti NaN. T2 tidak masalah. T3 korelasi tinggi, mungkin bocor." | 2,0 (T1 1,25 — urutan tidak disebut · T2 0,25 — tanpa alasan · T3 0,5 — penilaian 0,25 + penyebab sebagian 0,25 karena mekanisme kebocoran tidak disebut; tindakan tidak ada) |
-| Baik | Seperti jawaban model, termasuk urutan "ubah ke NaN sebelum imputasi", alasan T2 dari berat badan bayi, dan pengganti fitur T3 | 5 |
+| Baik | "T1 masalah: −99 adalah kode nilai hilang; ubah ke NaN sebelum menghitung statistik dan imputasi. T2 bukan masalah: berat 2,5–9,8 kg berarti bayi, jadi usia 0 tahun wajar. T3 masalah: jumlah kunjungan tahun ini ikut menghitung kunjungan ulang yang hendak diprediksi (informasi masa depan); ganti dengan jumlah kunjungan 12 bulan sebelum kunjungan ini." | 5 |
 
 **Rujukan:** [Bab 3](../06-buku-ajar/bab-03-data-dan-prapemrosesan.md) §3.2.2 (tanda bahaya dan penyebabnya); [Bab 4](../06-buku-ajar/bab-04-pembagian-data-dan-kebocoran.md) §4.5.5 (kebocoran target).
 
@@ -161,7 +163,7 @@ Alternatif yang diterima (buku ajar memberi dua rujukan: diagram §2.5 menggamba
 |---------|--------|------|
 | Kurang | "1 benar karena kategori. 2 benar, k-NN butuh penskalaan. 3 benar." | 0,5 (hanya penilaian baris 3) |
 | Cukup | "1 salah, nyeri itu angka berurutan. 2 pakai RobustScaler karena pencilan. 3 tepat." | 2,5 (baris 1 0,75 — akibat pada dimensi dan perbaikan tidak ada · baris 2 1,25 — akibat hanya disinggung · baris 3 0,5 — tanpa alasan) |
-| Baik | Menjelaskan hilangnya urutan + bertambahnya dimensi, pemampatan mayoritas oleh pencilan, perbaikan masing-masing, dan alasan baris 3 tepat | 5 |
+| Baik | "1 tidak tepat: nyeri 0–10 berurutan; *one-hot* membuang urutan dan menambah 11 kolom, sehingga jarak k-NN kurang bermakna; perlakukan sebagai numerik lalu skala. 2 kurang tepat: pencilan menarik rerata dan simpangan baku, mayoritas pasien termampatkan sehingga tidak terbedakan; log(x+1) lalu skala, atau `RobustScaler`. 3 tepat: nominal dengan sedikit kategori; `handle_unknown` mencegah prediksi gagal pada cara bayar baru." | 5 |
 
 **Rujukan:** [Bab 3](../06-buku-ajar/bab-03-data-dan-prapemrosesan.md) §3.4 (penyandian kategori, termasuk §3.4.3 `handle_unknown`) dan §3.5.2 (tiga penskala).
 
@@ -187,7 +189,7 @@ Alternatif yang diterima (buku ajar memberi dua rujukan: diagram §2.5 menggamba
 |---------|--------|------|
 | Kurang | "Semua dipertahankan karena makin banyak fitur makin bagus." | 0 (keputusan menyeluruh tanpa menimbang tiap fitur; alasan keliru) |
 | Cukup | "1 ubah, tambah fitur jarak × hujan. 2 buang karena bocor. 3 tetap karena informatif." | 2,75 (fitur 1 1,25 — tanpa alasan · fitur 2 0,75 — keputusan 0,5 + "bocor" tanpa mekanisme 0,25; tidak disebut bahwa nilainya belum ada saat kurir menerima tugas · fitur 3 0,75 — ketersediaan saat prediksi tidak disinggung) |
-| Baik | Seperti jawaban model, termasuk alasan interaksi dan alasan ketersediaan saat prediksi pada fitur 2 dan 3 | 5 |
+| Baik | "1 ubah: model linear tanpa interaksi menganggap efek hujan sama untuk semua jarak; tambah `jarak_km` × `hujan` dan pertahankan kedua fitur asal. 2 buang: nilainya belum ada saat kurir menerima tugas (informasi masa depan). 3 pertahankan: informatif dan tersedia saat prediksi karena dihitung dari 30 hari sebelum pesanan." | 5 |
 
 **Rujukan:** [Bab 5](../06-buku-ajar/bab-05-rekayasa-fitur.md) §5.2.2 (fitur rasio dan interaksi), §5.2.3 (fitur agregat dan bahayanya); [Bab 4](../06-buku-ajar/bab-04-pembagian-data-dan-kebocoran.md) §4.5.2 (kebocoran temporal).
 
@@ -205,7 +207,7 @@ Alternatif yang diterima (buku ajar memberi dua rujukan: diagram §2.5 menggamba
 |---------|--------|------|
 | Kurang | "(a) α kecil bagus karena RMSE latih paling kecil; α besar jelek. (b) α = 0,001." | 0 |
 | Cukup | "(a) 0,001 *overfit*, 100.000 *underfit*. (b) α = 10 karena validasi terkecil." | 2,0 (a 1,0 — tanpa bukti · b 1,0 — tanpa alasan "bukan latih") |
-| Baik | Diagnosis dua ujung dengan bukti angka, α = 10 dengan alasan validasi terendah dan selisih kecil, serta penjelasan mengapa RMSE latih selalu memilih α terkecil | 5 |
+| Baik | "(a) α = 0,001 *overfit*: RMSE latih 21 jauh di bawah validasi 69. α = 100.000 *underfit*: latih 97 dan validasi 99 sama-sama tinggi dan berdekatan. (b) α = 10: RMSE validasi terendah (34) dan selisih latih–validasi kecil. RMSE latih selalu turun ketika α mengecil, sehingga selalu memilih α terkecil yang *overfit*; pilih dengan data validasi." | 5 |
 
 **Rujukan:** [Bab 6](../06-buku-ajar/bab-06-regresi-dan-metriknya.md) §6.3.3 (pengaruh α), §6.5.2 (mengenali kondisi model).
 
@@ -225,15 +227,17 @@ Alternatif yang diterima (buku ajar memberi dua rujukan: diagram §2.5 menggamba
 
 Penamaan sebagian: baris 5–6 yang dinamai **"kebocoran duplikat"** = baris 0,5 · jenis **0,25**. Bab 4 §4.5.3 mendefinisikan duplikat sebagai baris yang sama atau nyaris sama di latih dan uji; di sini yang tersebar adalah satu **entitas** (pasien) dengan kunjungan berbeda, yaitu kebocoran kelompok (§4.5.4).
 
+Nama jenis boleh diganti uraian mekanisme yang tepat dan menunjuk satu jenis, mis. "baris 13 memilih `k` dengan F1 data uji" (= pemilihan berulang) atau "baris 5 acak padahal satu pasien punya banyak baris" (= kelompok): jenis 0,5. Menyebut operasinya saja tanpa alasan kebocorannya, mis. "baris 2 `fillna`", bukan nama jenis: jenis 0.
+
 Tidak diberi poin: "`StandardScaler` bocor" — penskala sudah di dalam `Pipeline` dan di-*fit* hanya pada `X_tr` (pengecoh). Soal meminta persoalan pembagian temporal diabaikan, sehingga "kebocoran temporal" tidak menggantikan salah satu dari tiga di atas; bila ditulis sebagai tambahan, tidak dikurangi.
 
 **(b) Arah skor, kebocoran terbesar, dan mekanismenya** — `DAIML-Sub-CPMK102-1` · C4 · 4 poin
 
 - **Arah** *(0,5)*: F1 yang dicetak **lebih tinggi** (terlalu optimistis) daripada kinerja pada pasien baru.
-- **Kebocoran terbesar** *(1,5)*: **kebocoran kelompok**. Rata-rata enam baris per pasien dan ciri yang tetap per pasien (jenis kelamin, tinggi badan, usia saat terdaftar) membuat k-NN — yang berbasis jarak — dapat menemukan kunjungan lain pasien yang sama di antara tetangganya; makin banyak baris dan ciri tetap per entitas, makin besar kebocorannya (Bab 4 §4.3.2). Memilih kebocoran kelompok tanpa alasan yang khas data ini (banyak baris per pasien, ciri tetap, k-NN berbasis jarak) = 0,75. Imputasi median hanya membocorkan satu angka statistik (kecil); pemilihan dari enam nilai `k` menambah optimisme kecil–sedang.
+- **Kebocoran terbesar** *(1,5)*: **kebocoran kelompok**. Rata-rata enam baris per pasien dan ciri yang tetap per pasien (jenis kelamin, tinggi badan, usia saat terdaftar) membuat k-NN — yang berbasis jarak — dapat menemukan kunjungan lain pasien yang sama di antara tetangganya (Bab 4 §4.3.2: makin banyak baris per entitas, makin besar kebocorannya); ciri yang tetap per pasien memperkuatnya karena pada k-NN kunjungan lain pasien yang sama berjarak dekat. Penuh bila alasannya memakai sekurang-kurangnya satu ciri khas data ini — banyak baris per pasien, ciri tetap per pasien, atau k-NN berbasis jarak yang menemukan kunjungan lain pasien yang sama; memilih kebocoran kelompok tanpa alasan khas data ini = 0,75. Imputasi median hanya membocorkan satu angka statistik (kecil); pemilihan dari enam nilai `k` menambah optimisme kecil–sedang.
 - **Mekanisme** *(2,0 = alur informasi 1,0 · akibat 1,0)*: rata-rata ±4 dari 5 kunjungan lain pasien yang sama berada di data latih (pembagian acak 80/20 per baris). Saat memprediksi satu kunjungan uji, sebagian tetangga yang ditemukan k-NN adalah kunjungan lain **pasien itu sendiri**, sehingga label pasien itu ikut terbawa ke prediksi. Sebagian keberhasilan model berasal dari mengenali pasien, bukan dari pola yang berlaku umum; pada pasien baru tetangga semacam itu tidak ada, sehingga F1 uji melebih-lebihkan kinerja saat penerapan.
 
-Perlakuan pilihan lain: memilih **pemilihan berulang** sebagai yang terbesar dengan alasan masuk akal (banyak kandidat, data uji dipakai berkali-kali) tetapi mengabaikan ciri tetap per pasien → poin kebocoran terbesar 0,75; memilih **imputasi** → 0,25. Mekanisme selalu dinilai menurut kebocoran yang dipilih mahasiswa, asalkan kebocoran itu benar ada pada kode:
+Perlakuan pilihan lain: memilih **pemilihan berulang** sebagai yang terbesar dengan alasan masuk akal (banyak kandidat, data uji dipakai berkali-kali) → poin kebocoran terbesar paling banyak 0,75, karena struktur data per pasien (±6 kunjungan, ciri tetap) diabaikan; memilih **imputasi** → 0,25. Mekanisme selalu dinilai menurut kebocoran yang dipilih mahasiswa, asalkan kebocoran itu benar ada pada kode:
 
 - *Pemilihan berulang:* enam model dibandingkan pada data uji dan yang terbaik dipilih; F1 tertinggi dari enam percobaan memuat keberuntungan pada data uji tertentu, dan data uji ikut membentuk keputusan, sehingga skornya bukan lagi taksiran kinerja pada data baru.
 - *Prapemrosesan:* median `gula_puasa` dihitung dari seluruh 9.600 baris, termasuk ±20% baris yang kemudian menjadi data uji; nilai pengisi pada baris latih memuat informasi sebaran data uji. Dampaknya kecil karena yang bocor hanya satu statistik, tetapi prinsipnya sama dengan penskala yang di-*fit* sebelum pembagian.
@@ -298,15 +302,15 @@ Alternatif sah: pembagian tiga bagian latih/validasi/uji **per pasien** dengan `
 
 | Tingkat | Contoh | Skor |
 |---------|--------|------|
-| Kurang | "(a) Baris 10 scaler bocor, baris 2 fillna. (b) Lebih tinggi; data uji masuk ke latih. (c) Pakai Pipeline." | 1,5 (a 0,5 — baris 2 tanpa nama jenis · b 0,5 — arah saja · c 0,5 — imputasi di `Pipeline`) |
+| Kurang | "(a) Baris 10 scaler bocor, baris 2 fillna. (b) Lebih tinggi; data uji masuk ke latih. (c) Pakai Pipeline." | 1,0 (a 0,5 — baris 2 tanpa nama jenis · b 0,5 — arah saja · c 0 — imputasi tidak disebut, padahal kode soal sudah memakai `Pipeline` untuk penskala) |
 | Cukup | "(a) Baris 2 prapemrosesan; baris 5 acak padahal satu pasien banyak baris (kelompok); baris 13 memilih k pakai data uji. (b) Lebih tinggi. Terbesar kelompok: pasien yang sama ada di latih dan uji sehingga model hafal. (c) 1. Pipeline dengan imputer, scaler, kNN. 2. GridSearchCV dengan GroupKFold untuk memilih k. 3. Uji di data uji." | 8,0 (a 3 · b 2,5 — pilihan tanpa alasan khas data 0,75, alur 0,75, akibat 0,5 · c 2,5 — data uji tidak dipisah per pasien: 0,5 dari 1) |
-| Baik | Tiga kebocoran dengan baris dan jenis; arah lebih tinggi; kebocoran kelompok terbesar karena ±6 baris/pasien dan ciri tetap yang membuat k-NN menemukan pasien yang sama, beserta akibatnya bagi pasien baru; empat langkah seperti kunci | 10 |
+| Baik | "(a) Baris 2: kebocoran prapemrosesan. Baris 5–6: kebocoran kelompok. Baris 13–15: kebocoran melalui pemilihan berulang. (b) Lebih tinggi. Terbesar: kelompok, karena ±6 kunjungan per pasien dan ciri tetap membuat k-NN menemukan kunjungan lain pasien itu. Mekanisme: kunjungan lain pasien uji ada di data latih dan labelnya terbawa ke prediksi; model mengenali pasien, bukan pola, padahal pada pasien baru tetangga semacam itu tidak ada. (c) 1. Bagi per pasien: 80% pasien latih, 20% uji. 2. `Pipeline` imputasi median → skala → k-NN, di-*fit* pada latih. 3. Pilih `k` dengan CV berkelompok per pasien pada data latih. 4. Latih ulang dengan `k` terpilih; hitung F1 uji sekali." | 10 |
 
 **Rujukan:** [Bab 4](../06-buku-ajar/bab-04-pembagian-data-dan-kebocoran.md) §4.3.2 (pembagian berkelompok), §4.5 (enam jenis kebocoran); [Bab 3](../06-buku-ajar/bab-03-data-dan-prapemrosesan.md) §3.6 (`Pipeline`).
 
 ---
 
-### B2. Patroli Kebakaran Lahan Gambut — `DAIML-Sub-CPMK082-1` (a, d) dan `DAIML-Sub-CPMK102-1` (b, c) · 10 poin
+### B2. Patroli Kebakaran Lahan Gambut — `DAIML-Sub-CPMK082-1` (a, d) dan `DAIML-Sub-CPMK102-1` (b, c) · C6 (a), C4 (b, c), dan C5 (d) · 10 poin
 
 **(a) Target dan jenis *task*** — `DAIML-Sub-CPMK082-1` · C6 · 2 poin
 
@@ -346,7 +350,7 @@ Nilai tambah (tidak wajib): satu ukuran dampak di samping metrik teknis, mis. lu
 |---------|--------|------|
 | Kurang | "(a) Target: sel terbakar atau tidak. (b) 60 sel. (c) Pakai F1 karena tidak seimbang. (d) *Baseline* kelas terbanyak." | 1,0 (a 0,5 · b 0,5) |
 | Cukup | "(a) Kebakaran ≥ 1 titik api dalam 7 hari sejak Senin; klasifikasi biner. (b) 60, recall maks 0,667. (c) Akurasi menyesatkan karena tidak seimbang; pakai PR-AUC. (d) *Baseline*: titik panas minggu lalu." | 4,75 (a 2 · b 1 — arti tidak ada · c 0,75 — akurasi tidak dikaitkan dengan 0,97, tanpa ambang dari kapasitas · d 1 — tanpa argumentasi) |
-| Baik | Target empat unsur selaras Senin 07.00; 60 sel dan 0,667 dengan artinya bagi target kinerja; akurasi = *baseline* 0,97, ambang dari kapasitas, *precision*/*recall* 40 teratas per minggu; *baseline* aturan titik panas atau pilihan kepala balai, dengan argumentasi dan syarat dibandingkan pada metrik 40 teratas yang sama | 10 |
+| Baik | "(a) 1 bila sel terbakar (titik api terverifikasi, ≥ 0,5 ha) dalam 7 hari sejak Senin 07.00; selain itu 0. Klasifikasi biner untuk memeringkat sel. (b) Kejadian 2.000 × 3% = 60 sel; *recall* maks 40/60 = 0,667. Sepertiga kebakaran pasti tak terpatroli walau model sempurna, jadi target kinerja harus relatif terhadap kapasitas. (c) Akurasi 0,97 = akurasi model yang selalu menjawab 'tidak terbakar' (1 − 0,03), jadi tidak informatif. Ambang dari kapasitas: urutkan probabilitas, ambil 40 teratas. Metrik: *precision* dan *recall* 40 teratas per minggu. (d) *Baseline*: 40 sel dengan titik panas terbanyak minggu lalu. Alasan: dapat dijalankan Senin pagi tanpa model; *baseline* kelas terbanyak tidak memilih sel apa pun; model dipakai hanya bila unggul pada metrik 40 teratas yang sama." | 10 |
 
 **Rujukan:** [Bab 2](../06-buku-ajar/bab-02-formulasi-masalah-daur-hidup-ml.md) §2.1–§2.4 (unsur target, metrik dan ukuran dampak, *baseline*); [Bab 7](../06-buku-ajar/bab-07-klasifikasi-dan-metriknya.md) §7.3.2 (akurasi menyesatkan), §7.4 (ambang keputusan).
 
@@ -432,17 +436,17 @@ X_te = X_te.assign(harga_khas_kec=fitur_te)
 |---------|--------|------|
 | Kurang | "(a) Baris 3 benar. Baris 4 fitur bagus. Baris 5 benar. (b) MCAR; dropna membersihkan data. (c) Normalisasi bulan. (d) Pakai rata-rata seluruh data." | 0 |
 | Cukup | "(a) 3 bocor karena pakai seluruh data; 4 bocor karena dari harga; 5 harus one-hot. (b) MAR karena tergantung pengiklan; dropna menghapus banyak data; harus diimputasi. (c) Pakai sin/cos. (d) Hitung dari data latih setelah split; kecamatan yang sedikit iklannya digabung jadi 'lainnya'." | 5,25 (a 2,5 — baris 5 tanpa nama jenis/alasan urutan · b 1,25 — pola 0,5; masalah baris 6 0,25 karena tanpa "tidak acak"; akibat pada saran harga 0; penanganan 0,5 karena tanpa imputasi bersyarat/penanda · c 0,5 — alasan tidak ada; sin/cos tanpa menyebut keterbatasannya 0,5 · d 1,0 — baris latih tidak ditangani; penggabungan tanpa alasan 0,5) |
-| Baik | Tiga masalah dengan nama jenis; MAR, `dropna` membuang baris tidak acak, arah bias saran harga perorangan, imputasi bersyarat + penanda di `Pipeline`; alasan satu koefisien + `musim_ajaran_baru`; harga khas dari data latih dengan *cross-fitting* untuk baris latih dan penghalusan/penggabungan untuk kecamatan sedikit iklan | 10 |
+| Baik | "(a) 3: rata-rata kecamatan dari seluruh data, memuat harga baris itu sendiri — kebocoran target. 4: `harga_per_m2` dihitung dari target — kebocoran target. 5: nominal diberi nomor 0/1/2, regresi menganggap ada urutan — penyandian keliru (pakai *one-hot*). (b) MAR: hilangnya bergantung pada `jenis_pengiklan`. `dropna` membuang 30% baris yang hilangnya tidak acak, sampel bias; iklan perorangan yang murah banyak terbuang, sehingga saran harga perorangan terlalu tinggi. Imputasi median luas per `jenis_pengiklan` di `Pipeline` dengan penanda hilang. (c) Satu koefisien: harga berubah lurus dari bulan 1 ke 12, tak bisa naik pada Juli–Agustus lalu turun. Pakai fitur biner `musim_ajaran_baru` (Juli–Agustus = 1). (d) Hitung dari data latih saja, juga untuk data uji. (i) Baris latih: *cross-fitting* 5 lipatan — nilai tiap baris dari lipatan lain agar tidak memuat harganya sendiri. (ii) Kecamatan sedikit iklan: haluskan ke rerata global karena rerata 1–3 iklan tidak stabil." | 10 |
 
 **Rujukan:** [Bab 3](../06-buku-ajar/bab-03-data-dan-prapemrosesan.md) §3.3 (nilai hilang), §3.4.2 (kardinalitas tinggi); [Bab 5](../06-buku-ajar/bab-05-rekayasa-fitur.md) §5.2.1 (fitur waktu), §5.2.3 (fitur agregat dan bahayanya); [Lab 03](../04-labs/lab-03-pipeline-prapemrosesan.md) Langkah 6.
 
 ---
 
-### B4. "Sistem AI" Penetapan Penerima Bantuan Sosial — `DAIML-Sub-CPMK082-1` (a, c) dan `DAIML-Sub-CPMK102-1` (b, d) · 10 poin
+### B4. "Sistem AI" Penetapan Penerima Bantuan Sosial — `DAIML-Sub-CPMK082-1` (a, c) dan `DAIML-Sub-CPMK102-1` (b, d) · C4 (a, b, d) dan C6 (c) · 10 poin
 
-**(a) Uji kelayakan** — `DAIML-Sub-CPMK082-1` · C4 · 3 poin *(per pertanyaan 1,5 = pertanyaan tepat 0,5 · bukti 0,5 · batas AI 0,5)*
+**(a) Uji kelayakan** — `DAIML-Sub-CPMK082-1` · C4 · 3 poin *(pertanyaan yang tepat 1 · bukti dari skenario 1 · batas kemampuan AI yang dikaitkan 1)*
 
-Dua pasangan yang paling kuat (cukup memilih dua):
+Pilihan yang paling kuat (cukup memilih **satu**):
 
 | Pertanyaan | Bukti dari skenario | Batas kemampuan AI |
 |------------|---------------------|--------------------|
@@ -450,9 +454,9 @@ Dua pasangan yang paling kuat (cukup memilih dua):
 | P2 — data memadai dan bermutu? | Data **2019** dipakai untuk keputusan tahun depan; label dari usulan kepala desa yang terbukti dipengaruhi kedekatan keluarga | **Bergantung mutlak pada data latih** — bias dalam label menjadi bias dalam keputusan; **rapuh di luar distribusi latih** — kondisi rumah tangga telah berubah |
 | P5 — pembanding sederhana? (diterima) | Tidak ada pembanding: tidak disebut kinerja proses verifikasi yang berlaku | Yang sah: **bergantung mutlak pada data latih** — tanpa pembanding, "akurasi 90%" terhadap label usulan kepala desa hanya mengukur seberapa baik model meniru label, termasuk biasnya |
 
-Pasangan P5 bernilai paling banyak **1,0 dari 1,5** bila batas kemampuan AI tidak disebut atau tidak dikaitkan seperti pada tabel.
+Pada P5, batas kemampuan AI yang sah adalah yang tercantum pada tabel; batas lain yang tidak dikaitkan dengan ketiadaan pembanding = 0 pada unsur batas AI (paling banyak **2 dari 3**).
 
-P3 dan P6 yang dipilih sebagai **dua pertanyaan terpisah** dihitung dua pasangan bila buktinya berbeda — P3: keputusan final tanpa verifikasi dan tanpa jalan koreksi; P6: siapa yang dirugikan, yaitu rumah tangga miskin atau berpenghasilan tidak tetap yang tertolak — dan masing-masing dikaitkan dengan batas kemampuan AI. Bila buktinya sama, keduanya dihitung satu pasangan.
+P3 dan P6 sama-sama diterima, masing-masing dengan buktinya — P3: keputusan final tanpa verifikasi dan tanpa jalan koreksi; P6: siapa yang dirugikan, yaitu rumah tangga miskin atau berpenghasilan tidak tetap yang tertolak. Bila mahasiswa menulis lebih dari satu pertanyaan, yang dinilai adalah pertanyaan terbaik; tidak ada poin tambahan.
 
 **(b) Arah pergeseran akibat imputasi median** — `DAIML-Sub-CPMK102-1` · C4 · 2 poin
 
@@ -480,8 +484,8 @@ Nilai tambah: akurasi terhadap label 2023 mengukur **kesamaan dengan keputusan l
 | Tingkat | Contoh | Skor |
 |---------|--------|------|
 | Kurang | "(a) Datanya banyak jadi layak ML. (b) Isi median sudah benar. (c) Pakai model yang lebih akurat seperti Random Forest. (d) Akurasi 90% sudah bagus." | 0 |
-| Cukup | "(a) P2: data 2019 sudah lama dan label dari kepala desa bias; P6: kesalahan merugikan warga miskin. (b) Median membuat penghasilan terlalu tinggi sehingga dianggap tidak layak. Median per pekerjaan lebih baik. (c) Model hanya membantu, keputusan tetap manusia. (d) Eksklusi lebih berbahaya; pakai recall." | 5,0 (a 2,0 — batas AI tidak disebut · b 1,0 — arah 0,75 + menilai median per pekerjaan tanpa alasan 0,25 · c 1,0 — label dan pengawasan tidak ada · d 1,0 — perbandingan tanpa alasan 0,5 + *recall* tanpa kelas/batas 0,5) |
-| Baik | Dua pertanyaan dengan bukti dan batas AI; arah bias + mekanisme + alasan median per pekerjaan belum cukup (sisa MNAR) beserta penanganan; tiga unsur rancangan ulang; perbandingan dampak dengan alasan dan *recall* "layak" dengan batas *precision* per kelompok terhadap label verifikasi | 10 |
+| Cukup | "(a) P2: data 2019 sudah lama dan label dari kepala desa bias. (b) Median membuat penghasilan terlalu tinggi sehingga dianggap tidak layak. Median per pekerjaan lebih baik. (c) Model hanya membantu, keputusan tetap manusia. (d) Eksklusi lebih berbahaya; pakai recall." | 5,0 (a 2,0 — pertanyaan dan bukti tepat, batas AI tidak disebut · b 1,0 — arah 0,75 + menilai median per pekerjaan tanpa alasan 0,25 · c 1,0 — label dan pengawasan tidak ada · d 1,0 — perbandingan tanpa alasan 0,5 + *recall* tanpa kelas/batas 0,5) |
+| Baik | "(a) P2 (data memadai dan bermutu?): data 2019 dipakai untuk keputusan tahun depan, dan labelnya usulan kepala desa yang terbukti dipengaruhi kedekatan keluarga. Batas AI: bergantung mutlak pada data latih — bias label menjadi bias keputusan. (b) Median dari yang dapat menyebut angka (berpenghasilan tetap, lebih tinggi), jadi rumah tangga berpenghasilan tak tetap tampak lebih sejahtera dan dinilai tidak layak. Median per pekerjaan mengurangi, tetapi belum menyelesaikan: dalam satu pekerjaan pun, yang tak dapat menyebut angka cenderung paling miskin (MNAR). (c) (i) Model memeringkat rumah tangga untuk diprioritaskan dalam verifikasi lapangan; keputusan oleh petugas. (ii) Label: hasil verifikasi lapangan independen terbaru dengan kriteria tertulis. (iii) Sanggahan warga dan audit eksklusi per desa. (d) Eksklusi lebih berat: kebutuhan dasar keluarga miskin tak terpenuhi dan sulit dipulihkan; inklusi hanya membocorkan anggaran dan dapat dikoreksi lewat sanggahan. Metrik: *recall* kelas 'layak' dengan batas *precision* minimum." | 10 |
 
 **Rujukan:** [Bab 1](../06-buku-ajar/bab-01-lanskap-kecerdasan-artifisial.md) §1.4.1 (lima keadaan), §1.4.2 (uji kelayakan enam pertanyaan), §1.5 (batas kemampuan AI); [Bab 2](../06-buku-ajar/bab-02-formulasi-masalah-daur-hidup-ml.md) §2.1 (unsur target); [Bab 3](../06-buku-ajar/bab-03-data-dan-prapemrosesan.md) §3.3.1 dan §3.3.3 (pola nilai hilang dan penanganannya).
 
@@ -491,11 +495,11 @@ Nilai tambah: akurasi terhadap label 2023 mengukur **kesamaan dengan keputusan l
 
 ### C1. Dua Model Kunjungan Dokter Hewan — `DAIML-Sub-CPMK102-1` · C3 (a–c) dan C4 (d) · 10 poin
 
-**(a) Metrik Model A** — C3 · 4 poin *(akurasi 0,5 · precision 1 · recall 1 · F1 1,5 — tiap metrik separuh langkah, separuh hasil)*
+**(a) Metrik Model A** — C3 · 4 poin *(precision 1,25 = langkah 0,5 + hasil 0,75 · recall 1,25 = langkah 0,5 + hasil 0,75 · F1 1,5 = langkah 0,75 + hasil 0,75)*
 
 | Metrik | Model A (TP 48, FN 32, FP 40, TN 880) | Model B (TP 64, FN 16, FP 150, TN 770) — diberikan pada soal |
 |--------|---------------------------------------|---------------------------------------------------------------|
-| Akurasi | (48 + 880) / 1.000 = **0,928** | (64 + 770) / 1.000 = 0,834 |
+| Akurasi (diberikan pada soal) | (48 + 880) / 1.000 = 0,928 | (64 + 770) / 1.000 = 0,834 |
 | *Precision* | 48 / (48 + 40) = 48/88 = **0,545** | 64 / (64 + 150) = 64/214 = 0,299 |
 | *Recall* | 48 / (48 + 32) = 48/80 = **0,600** | 64 / (64 + 16) = 64/80 = 0,800 |
 | F1 | 2 · 0,545 · 0,600 / (0,545 + 0,600) = **0,571** | 2 · 0,299 · 0,800 / (0,299 + 0,800) = 0,435 |
@@ -516,7 +520,7 @@ Tafsir alternatif yang diterima penuh: biaya kunjungan dikenakan pada **semua** 
 **(d) Pilihan dan alasannya** — C4 · 2 poin
 
 - Berdasarkan biaya, **Model B** lebih murah (Rp41,7 vs Rp44,4 juta) walaupun akurasi dan F1-nya lebih rendah *(0,75)*.
-- Mengapa berlawanan: akurasi dan F1 memperlakukan FN dan FP **setara** (F1 = 2TP/(2TP + FP + FN)), sedangkan biaya satu FN delapan kali biaya satu FP. B menukar 110 FP tambahan (Rp16,5 juta) dengan 16 FN lebih sedikit (Rp19,2 juta). Akurasi juga didominasi kelas mayoritas *(1,25)*.
+- Mengapa berlawanan *(1,25)*: akurasi dan F1 memperlakukan FN dan FP **setara** (F1 = 2TP/(2TP + FP + FN)) *(0,5)*, sedangkan biaya satu FN delapan kali biaya satu FP, sehingga selisih jumlah FN lebih menentukan biaya *(0,75)*. Rinciannya — B menukar 110 FP tambahan (Rp16,5 juta) dengan 16 FN lebih sedikit (Rp19,2 juta), dan akurasi didominasi kelas mayoritas — adalah nilai tambah.
 
 Nilai tambah: sebelum memilih B, koperasi perlu memastikan **kapasitas dokter hewan** — B menuntut 214 kunjungan, A hanya 88; selisih total biaya juga kecil sehingga keputusan peka terhadap taksiran biaya per kasus terlewat.
 
@@ -526,7 +530,7 @@ Nilai tambah: sebelum memilih B, koperasi perlu memastikan **kapasitas dokter he
 |---------|--------|------|
 | Kurang | "Model A karena akurasi dan F1 lebih tinggi." | 0 |
 | Cukup | "Model B karena biayanya paling kecil." | 0,75 |
-| Baik | "Model B: biayanya Rp41,7 juta, lebih rendah dari A (Rp44,4 juta), karena biaya melewatkan satu kasus mastitis 8× biaya satu kunjungan sia-sia, sedangkan akurasi dan F1 menghitung kedua kesalahan setara; B menukar 110 kunjungan sia-sia (Rp16,5 juta) dengan 16 kasus terlewat lebih sedikit (Rp19,2 juta)." | 2 |
+| Baik | "Model B (Rp41,7 juta < Rp44,4 juta). Akurasi dan F1 menghitung FN dan FP setara, padahal biaya satu FN 8× biaya satu FP." | 2 |
 
 **Rujukan:** [Bab 7](../06-buku-ajar/bab-07-klasifikasi-dan-metriknya.md) §7.3.1 (perhitungan manual), §7.3.2 (akurasi menyesatkan), §7.4.1 (ambang dari biaya).
 
@@ -559,6 +563,8 @@ $$R^2_P = 1-\frac{SS_{res}}{SS_{tot}} = 1-\frac{203}{958}=1-0{,}212=0{,}788 \qqu
 
 P: $6{,}372/3{,}8 = 1{,}677$ (Q pada soal: 1,006) *(0,75)*. Rasio P jauh di atas 1 (dan di atas 1,5): sedikit galat besar mendominasi RMSE. Penyebabnya **hari ke-5** — galat +14 (perkiraan terlalu rendah) menyumbang 196 dari 203, atau 96,6% $SS_{res}$; tanpa hari ke-5, MAE P = 1,25 dan RMSE P = 1,32. Rasio Q ≈ 1 menunjukkan galatnya tersebar merata *(1,25)*.
 
+Contoh *Baik* (2 poin): "Rasio 6,372/3,8 = 1,677. Hari ke-5 (galat 14) menyumbang 196 dari 203 kuadrat galat; satu galat besar mendominasi RMSE."
+
 **(d) Ukuran yang membedakan arah galat dan pilihan model** — C4 · 3 poin
 
 Galat $e = y - \hat{y}$ positif berarti perkiraan **terlalu rendah** → kapal kurang (kerugian besar); negatif berarti terlalu tinggi → kelebihan kapal (hanya biaya operasional).
@@ -567,7 +573,7 @@ Galat $e = y - \hat{y}$ positif berarti perkiraan **terlalu rendah** → kapal k
 
 | Unsur | Poin |
 |-------|------|
-| **Ukuran** — membedakan arah galat dan dikaitkan dengan kerugian (terlalu rendah = kapal kurang) = 1; ukuran simetris (RMSE, galat maksimum) yang dikaitkan dengan galat besar pada hari puncak = 0,5; ukuran simetris tanpa kaitan dengan hari puncak, termasuk MAE/MAPE = 0 | 1 |
+| **Ukuran** — membedakan arah galat dan dikaitkan dengan kerugian (terlalu rendah = kapal kurang) = 1; ukuran simetris (RMSE, galat maksimum tanpa arah) yang dikaitkan dengan galat besar pada hari puncak = 0,5; ukuran simetris tanpa kaitan dengan hari puncak, termasuk MAE/MAPE = 0 | 1 |
 | **Hitung** — ukuran dihitung benar untuk kedua model = 1; hanya mengutip angka yang sudah ada pada (a) dan soal (mis. RMSE) = 0,5 | 1 |
 | **Pilihan** — Q dengan alasan yang menimbang **kedua** jenis kerugian: kekurangan pada hari puncak (mahal) dan harga yang dibayar Q berupa kelebihan perkiraan pada hari biasa (murah) atau kalah MAE = 1; ukuran kerugian asimetris yang dihitung sudah memenuhi unsur ini. Q dengan alasan satu sisi saja = 0,5; P = 0 (kecuali baris bobot ≤ 2 pada tabel berikut) | 1 |
 
@@ -579,8 +585,8 @@ Ukuran lain yang diterima (diperiksa dengan Python, §5):
 | Jumlah perkiraan terlalu rendah pada semua hari | P 1 + 2 + 14 = 17; Q 5 + 5 + 4 = 14 → Q | **Penuh** |
 | Kerugian linear asimetris: galat terlalu rendah × $w$, galat terlalu tinggi × 1 | P = $17w + 2$; Q = $14w + 8$; **seri pada $w = 2$** | **Penuh** bila $w > 2$ dinyatakan dan dikaitkan dengan "antrean berjam-jam vs hanya biaya" → Q (mis. $w = 3$: P 53, Q 50). Bobot ringan ($w \le 2$) tidak mengunggulkan Q ($w = 1{,}5$: P 27,5 vs Q 29). Memakai $w \le 2$ dan memilih P dengan hitungan benar = **2,0** (ukuran 0,5 · hitung 1 · pilihan 0,5); penuh bila titik seri $w = 2$ ditunjukkan dan diargumentasikan bahwa kerugian sebenarnya melampauinya |
 | Kerugian kuadrat asimetris (galat kuadrat terlalu rendah × $w$) | P = $201w + 2$; Q = $66w + 32$; Q unggul untuk setiap $w > 0{,}22$ | **Penuh** bila $w \ge 1$ → Q |
-| Galat maksimum | P 14 (hari ke-5, terlalu rendah); Q 5 → Q | **Penuh** bila arahnya disebut; tanpa arah, ukuran 0,5 → paling banyak 2,5 |
-| RMSE | P 6,372; Q 4,427 → Q | Simetris. **Penuh** bila disertai arah galat hari puncak (14 vs 4 terlalu rendah) dan pengakuan bahwa RMSE ikut menghukum kelebihan Q; tanpa arah → paling banyak 2,5 |
+| Galat maksimum | P 14 (hari ke-5, terlalu rendah); Q 5 → Q | Tanpa arah: ukuran simetris → unsur ukuran 0,5 bila dikaitkan dengan galat besar pada hari puncak, 0 bila tidak (paling banyak 2,5; tanpa kaitan 2,0). Bila dinyatakan sebagai **galat terlalu rendah terbesar** (P 14, Q 5; keduanya perkiraan terlalu rendah), itu ukuran berarah → unsur ukuran 1; **penuh** bila unsur pilihan terpenuhi |
+| RMSE | P 6,372; Q 4,427 → Q | Simetris — RMSE ikut menghukum kelebihan perkiraan Q — sehingga unsur ukuran **0,5 bila dikaitkan dengan galat besar pada hari puncak, 0 bila tidak** (lihat contoh *Cukup*); paling banyak 2,5, tanpa kaitan 2,0. Bila keputusan didasarkan pada galat **terlalu rendah** hari puncak yang dihitung untuk kedua model (P 14, Q 4) dan dinyatakan sebagai ukurannya, sedangkan RMSE hanya pendukung, yang dinilai adalah ukuran berarah itu (baris pertama tabel ini): **penuh** bila unsur pilihan terpenuhi |
 | MAE atau MAPE → P | P 3,8 / 7,2%; Q 4,4 / 12,1% | 0 |
 
 **Contoh jawaban C2(d)**
@@ -590,7 +596,7 @@ Ukuran lain yang diterima (diperiksa dengan Python, §5):
 | Kurang | "Model P karena MAE-nya lebih kecil." | 0 |
 | Cukup | "Model Q karena RMSE-nya lebih kecil (4,427 vs 6,372)." | 1,0 (ukuran 0 · hitung 0,5 · pilihan 0,5) |
 | Cukup (hafalan) | "Model Q berdasarkan RMSE: kesalahan besar pada hari puncak paling merugikan dan RMSE menghukum galat besar; P meleset 14 ribu pada hari ke-5, Q hanya 4 ribu." | 2,0 (ukuran simetris yang dikaitkan dengan hari puncak 0,5 · hitung 1 · pilihan 0,5 — arah galat dan harga yang dibayar Q tidak dibahas) |
-| Baik | "Ukuran: berapa perkiraan terlalu rendah pada hari puncak, karena perkiraan terlalu rendah berarti kapal kurang. Hari ke-5: P 65 − 51 = 14 ribu terlalu rendah, Q 65 − 61 = 4 ribu. Pilih Q. Harganya: Q terlalu tinggi 4 ribu pada hari ke-2 dan ke-4 (kelebihan kapal, hanya biaya) dan MAE-nya kalah dari P." | 3 |
+| Baik | "Ukuran: perkiraan terlalu rendah pada hari puncak (berarti kapal kurang). P: 65 − 51 = 14 ribu; Q: 65 − 61 = 4 ribu. Pilih Q; harganya hanya kelebihan 4 ribu pada hari ke-2 dan ke-4 (biaya operasional)." | 3 |
 
 **Rujukan:** [Bab 6](../06-buku-ajar/bab-06-regresi-dan-metriknya.md) §6.4.2 (perhitungan manual), §6.4.3 (rasio RMSE/MAE), §6.4.4 (memilih metrik).
 
@@ -598,9 +604,9 @@ Ukuran lain yang diterima (diperiksa dengan Python, §5):
 
 ### C3. Validasi Silang Acak dan Berkelompok — `DAIML-Sub-CPMK102-1` · C3 (a) dan C4 (b–d) · 10 poin
 
-**(a) Rerata dan simpangan baku sampel skema berkelompok** — C3 · 4 poin *(rerata 1 · simpangan dan kuadratnya 1,5 · $s$ 1,5)*
+**(a) Simpangan baku sampel skema berkelompok** — C3 · 4 poin *(simpangan dan kuadratnya 2 · $s$ 2 = langkah 1 + hasil 1)*
 
-$\bar x = 3{,}50/5 = 0{,}70$; simpangan: +0,04; −0,01; +0,07; −0,12; +0,02; kuadrat: 0,0016; 0,0001; 0,0049; 0,0144; 0,0004 → jumlah 0,0214;
+Rerata diberikan pada soal: $\bar x = 0{,}70$ (= 3,50/5); simpangan: +0,04; −0,01; +0,07; −0,12; +0,02; kuadrat: 0,0016; 0,0001; 0,0049; 0,0144; 0,0004 → jumlah 0,0214;
 
 $$s=\sqrt{\frac{0{,}0214}{4}}=\sqrt{0{,}00535}\approx 0{,}073$$
 
@@ -632,7 +638,7 @@ Jawaban dua kalimat yang memuat unsur yang sama tidak dikurangi.
 |---------|--------|---------------------|
 | Kurang | "(b) Acak lebih bagus jadi pakai acak. (c) L4 kurang beruntung. (d) Kinerja model 0,87." | 0 |
 | Cukup | "(b) Acak bocor karena sekolah sama di latih dan uji; laporkan 0,70. (c) Sekolah pulau kecil berbeda, model kurang bagus di sana. (d) Sekitar 0,70." | 4,0 (b 2 · c 1 — tanpa yang harus diperiksa · d 1 — tanpa ketidakpastian dan peringatan: angka 0,5 + bahasa jujur 0,5) |
-| Baik | Kebocoran kelompok + laporkan 0,70 ± 0,073; L4 menunjukkan kinerja rendah di pulau kecil + periksa per kelompok; satu kalimat jujur dengan rentang dan batas pemakaian | 6 |
+| Baik | "(b) Skema acak: siswa sekolah yang sama ada di lipatan latih dan validasi — kebocoran kelompok, terlalu optimistis. Laporkan skema berkelompok: 0,70 ± 0,073. (c) L4 rendah (0,58) dan memuat sebagian besar sekolah pulau kecil: model kurang andal di sana. Periksa kinerja per kelompok sekolah dan keterwakilannya di data latih sebelum dipakai. (d) 'Di sekolah baru, F1 sekitar 0,70 (0,58–0,77 antarlipatan), bukan 0,87, dan bisa lebih rendah di sekolah pulau kecil.'" | 6 |
 
 **Rujukan:** [Bab 4](../06-buku-ajar/bab-04-pembagian-data-dan-kebocoran.md) §4.3.2 (pembagian berkelompok), §4.5.4 (kebocoran kelompok).
 
@@ -652,17 +658,20 @@ Jawaban dua kalimat yang memuat unsur yang sama tidak dikurangi.
 | C1 (a) | Menukar baris/kolom (FP ↔ FN) | Kesalahan terbawa; potong 0,5 sekali pada (a) |
 | C2 (a) | RMSE dihitung sebagai rerata \|galat\| lalu diakarkan | 0 pada hasil RMSE |
 | C2 (a) | Tanda galat $\hat{y}-y$ (kebalikan lembar rumus) | Tidak dikurangi; nilai mutlak dan kuadratnya sama — tetapi pada (d) arah "terlalu rendah" harus ditafsirkan dengan benar |
-| C3 (a) | Pembagi $n$ (hasil 0,065) | 0,75 dari 1,5 pada $s$ |
+| C3 (a) | Pembagi $n$ (hasil 0,065) | 1 dari 2 pada $s$ |
 
 ---
 
 ## 5. Memeriksa Angka dengan Python
 
-Blok berikut dapat dijalankan apa adanya di Google Colab untuk memeriksa angka Bagian C dan B2(b). Jalankan **sesudah** Anda menghitung sendiri dengan kalkulator — di UTS tidak ada komputer.
+Blok berikut dapat dijalankan apa adanya di Google Colab untuk memeriksa angka Bagian C, B2(b), dan A3. Jalankan **sesudah** Anda menghitung sendiri dengan kalkulator — di UTS tidak ada komputer.
 
 ```python
-# Memeriksa angka Latihan UTS Dasar AI/ML (Bagian C dan B2b)
+# Memeriksa angka Latihan UTS Dasar AI/ML (Bagian C, B2b, dan A3)
 import numpy as np
+
+# A3 (T2): proporsi baris usia 0 dari seluruh data kunjungan
+print("A3 baris usia 0:", round(100 * 412 / 12480, 1), "%")
 
 # B2(b): batas recall akibat kapasitas 40 sel
 kejadian = 2000 * 0.03
@@ -699,7 +708,7 @@ for nama, v in (("acak", acak), ("kelompok", kelompok)):
     print(f"C3 {nama}: rerata {v.mean():.3f} s {v.std(ddof=1):.3f} (pembagi n: {v.std(ddof=0):.3f})")
 ```
 
-Keluaran yang diharapkan: B2 60 dan 0,667; C1 A [0,928; 0,545; 0,6; 0,571], B [0,834; 0,299; 0,8; 0,435], tanpa kunjungan 0,92, biaya 44,4 dan 41,7; C2 P: MAE 3,800, RMSE 6,372, R² 0,788, rasio 1,677, terlalu rendah 17, terlalu tinggi 2, hari ke-5 14; Q: 4,400, 4,427, 0,898, 1,006, 14, 8, 4; $SS_{tot}$ 958; C3 acak 0,870 dan 0,016, kelompok 0,700 dan 0,073 (pembagi $n$: 0,065).
+Keluaran yang diharapkan: A3 3,3%; B2 60 dan 0,667; C1 A [0,928; 0,545; 0,6; 0,571], B [0,834; 0,299; 0,8; 0,435], tanpa kunjungan 0,92, biaya 44,4 dan 41,7; C2 P: MAE 3,800, RMSE 6,372, R² 0,788, rasio 1,677, terlalu rendah 17, terlalu tinggi 2, hari ke-5 14; Q: 4,400, 4,427, 0,898, 1,006, 14, 8, 4; $SS_{tot}$ 958; C3 acak 0,870 dan 0,016, kelompok 0,700 dan 0,073 (pembagi $n$: 0,065).
 
 Perilaku kode yang menjadi dasar kunci B1 dan B3 juga diperiksa pada data sintetis (scikit-learn 1.6 dan 1.9): kode soal B1 dan kode rujukan B1(c) berjalan, dan kode rujukan tidak menempatkan satu pasien pun di latih dan uji sekaligus. Arah pada B1(b) adalah arah yang **diharapkan**, bukan jaminan untuk setiap pembagian: pada data sintetis dengan sifat laten per pasien (kecenderungan tak teramati yang memengaruhi gula darah dan status terkontrol pasien di setiap kunjungannya; dua pembangkit, masing-masing 10 ulangan), F1 yang dicetak kode soal lebih tinggi daripada F1 model terpilihnya pada pasien baru di 8–9 dari 10 ulangan, dengan selisih rata-rata hanya ±0,02, dan perbandingannya dengan F1 alur yang benar pada satu pembagian dapat berbalik karena keragaman acak. Bila Anda mencoba dengan `df` sintetis sendiri dan memperoleh hasil yang berbalik, ulangi dengan beberapa `random_state` sebelum menyimpulkan. Pemeriksaan lain: `cat.codes` memberi campur = 0, putra = 1, putri = 2; kode rujukan B3(d) berjalan tanpa nilai kosong, dan kecamatan baru mendapat rerata global data latih; `TargetEncoder` bawaan memakai `smooth="auto"` dan `cv=5`.
 

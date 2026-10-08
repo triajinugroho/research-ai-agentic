@@ -12,6 +12,8 @@ diperbarui: 2026-10-08
 
 # Pembahasan dan Pedoman Skor — Latihan UTS Probabilitas dan Statistik
 
+## Probabilitas dan Statistik — IF52510033
+
 > **Latihan UTS — bukan naskah UTS.** Pembahasan ini menyertai simulasi lengkap UTS Probabilitas dan Statistik Ganjil 2026/2027 untuk berlatih: komposisi, durasi (100 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
 >
 > **Kerjakan dulu [latihan UTS](latihan-uts.md) dalam 100 menit tanpa membuka berkas ini.** Sesudahnya, cocokkan jawaban per butir, beri skor sendiri dengan pedoman skor parsial, lalu pelajari bagian *Kesalahan umum*. Menghafal jawaban di sini tidak membantu: naskah UTS memakai konteks dan angka lain, jadi yang perlu dikuasai adalah **langkah dan alasannya**. Judul setiap butir mencantumkan Sub-CPMK registri · level Bloom · skor; cetak biru lengkap ada di [latihan-uts-cetak-biru.md](latihan-uts-cetak-biru.md). Sub-CPMK per butir ditandai menurut isi (bawaan sementara D-03(a)) untuk menghitung ketercapaian; bobot nilai akhir UTS tetap mengikuti RPS dan kisi-kisi (`PS-Sub-CPMK102-1`) — lihat [cetak biru, Identitas dan Dasar Penyusunan](latihan-uts-cetak-biru.md#identitas-dan-dasar-penyusunan).
@@ -370,8 +372,8 @@ Gedung B              ├──[=====|=====]──┤
 
 | Tingkat | Contoh ringkas | Skor |
 |---|---|---|
-| Kurang | "Mean A = 7, s = 4,83 (dibagi 9). Mean B juga 7, jadi klaim benar, kinerja setara." Boxplot A kumis sampai 20. (d) "Boxplot sudah cukup karena sudah ada median." | 1,5–3 |
-| Cukup | (a) benar kecuali Q3 = 7,5. (b) "CV A 73% > CV B 36%, jadi A kurang konsisten dan klaim salah" — tidak menyadari peran pencilan dan tidak membahas median. (c) benar. (d) "Pakai histogram," tanpa alasan. | 5–7 |
+| Kurang | (a) hanya mean 7, median 6, dan s = 4,83 (dibagi 9); kuartil dan pagar tidak dihitung. (b) "Mean B juga 7, jadi klaim benar, kinerja setara." (c) kotak 4–7 dan median 6 benar, tetapi kumis ditarik sampai 20 dan titik pencilan tidak digambar. (d) "Boxplot sudah cukup karena sudah ada median." | 2 |
+| Cukup | (a) benar kecuali Q3 = 7,5 (metode (n + 1)p). (b) "CV A 73% > CV B 36%, jadi A kurang konsisten dan klaim salah" — tidak menyadari peran pencilan dan tidak membahas median. (c) benar. (d) "Pakai histogram," tanpa alasan. | 6,25–6,75 |
 | Baik | Seluruh (a) benar. (b) membedakan pengalaman tipikal (median 6 vs 7; IQR 3 vs 4) dari ekor (satu tiket 20 jam) dan menyimpulkan tidak setara tanpa melampaui data. (c) lengkap. (d) "Ada dua kelompok 4–5 dan 9–10 jam; median 7 hanya diwakili satu tiket dan tidak mewakili keduanya; usul *dot plot* diwarnai per jenis tiket." | 9–10 |
 
 ### C2. Kegagalan Transaksi Marketplace `[PS-Sub-CPMK081-1 · C3–C4 · 10]`
@@ -423,8 +425,8 @@ Cara lain: 3 × (36/96)(35/95)(60/94) = 0,2646 (aturan perkalian berurutan; fakt
 
 | Tingkat | Contoh ringkas | Skor |
 |---|---|---|
-| Kurang | (a) "P(gagal \| COD) = 36/96 = 0,375 dan P(COD \| gagal) = 36/216 = 0,167"; P(COD ∪ gagal) = 312/1.200 (irisan tidak dikurangi). (b) P(96,3) = 857.280, peluang tidak dihitung. (c) "Manajer benar, COD paling banyak gagal." | 1,5–3,5 |
-| Cukup | (a) benar; (b) C(96,3) benar tetapi peluang memakai pengembalian (0,2637); (c) "COD paling sering gagal per transaksi, tetapi QRIS juga banyak gagal," tanpa angka porsi dan tanpa catatan kausalitas. | 5,5–7 |
+| Kurang | (a) "P(gagal \| COD) = 36/96 = 0,375 dan P(COD \| gagal) = 36/216 = 0,167"; P(COD ∪ gagal) = 312/1.200 (irisan tidak dikurangi). (b) C(96,3) = 142.880 benar, tetapi peluang tidak dihitung dan aturan pencacahan tidak dijelaskan. (c) "Manajer benar, COD paling banyak gagal" — keliru, karena QRIS juga menyumbang 36 kegagalan. | 1,5 |
+| Cukup | (a) benar; (b) C(96,3) benar dengan alasan urutan tidak bermakna, tetapi peluang memakai pengembalian (0,2637); (c) "COD paling sering gagal per transaksi, tetapi QRIS juga banyak gagal," tanpa angka porsi dan tanpa catatan kausalitas. | 6,25–6,75 |
 | Baik | Seluruh angka benar dengan langkah dan penjelasan pencacahan. (c) membedakan laju (16,67% vs 6,25%) dan porsi (37,5%), menghitung dampak maksimal penghapusan COD, dan menegaskan data observasional tidak membuktikan sebab. | 9–10 |
 
 ### C3. Detektor Teks-AI dan Prinsip *Tabayyun* `[PS-Sub-CPMK081-1 · C3–C4 · 10]`
@@ -491,8 +493,8 @@ Seluruh poin asumsi dan interpretasi C3 terkait perintah yang tertulis di soal: 
 
 | Tingkat | Contoh ringkas | Skor |
 |---|---|---|
-| Kurang | "P(AI \| ditandai) = 90% karena sensitivitasnya 90%." Tabel tidak lengkap. (c) "0,90 × 0,85 = 0,765." (d) "Setuju, detektor sudah akurat 90%." | 0,5–3 |
-| Cukup | (a) angka benar tetapi asumsi prior yang diminta tidak disebut; (b) benar; (c) 0,9853 benar, tetapi asumsi bebas bersyarat yang diminta tidak dianalisis; (d) "Tidak setuju karena detektor bisa salah; sebaiknya mahasiswa ditanya dulu," tanpa angka dan tanpa keterbatasan angka uji. | 5,5–7 |
+| Kurang | (a) "P(AI \| ditandai) = 90% karena sensitivitasnya 90%." (b) hanya baris AI terisi (90, 10, 100); baris lain dan total kosong. (c) "0,90 × 0,85 = 0,765." (d) "Setuju, detektor sudah akurat 90%." | 0,25–0,75 |
+| Cukup | (a) angka benar tetapi asumsi prior yang diminta tidak disebut; (b) benar; (c) 0,9853 benar, tetapi asumsi bebas bersyarat yang diminta tidak dianalisis; (d) "Tidak setuju karena detektor bisa salah; sebaiknya mahasiswa ditanya dulu," tanpa angka, tanpa *tabayyun*, dan tanpa keterbatasan angka uji. | 6,5–6,75 |
 | Baik | Seluruh angka benar dengan notasi. (c) menyebut bahwa kedua detektor mungkin memakai ciri yang sama sehingga 0,9853 terlalu optimistis. (d) "57 dari 147 laporan yang ditandai (39%) ditulis sendiri; bahkan setelah detektor kedua masih ±1–2 dari 100 yang ditandai itu jujur, dan angka uji berasal dari uji internal semester lalu. Menghukum langsung melanggar *tabayyun*. Usul: klarifikasi lisan dan AI Usage Log sebelum keputusan." | 9–10 |
 
 ### C4. Server Replika LMS `[PS-Sub-CPMK081-1 · C3–C4 · 10]`
@@ -549,8 +551,8 @@ Perlakuan jawaban syarat S (agar penilaian seragam). Data (a) juga menunjukkan p
 
 | Tingkat | Contoh ringkas | Skor |
 |---|---|---|
-| Kurang | "S1 dan S2 saling lepas karena servernya berbeda, jadi juga bebas." (b) replika dihitung seri: 0,99 × 0,96³ = 0,8759, dan "batas 100% bila replika cukup banyak". (c) hanya 4 × 0,96³ × 0,04 = 0,1416. (d) "Terlalu pesimistis." | 0,5–3 |
-| Cukup | (a) menghitung 0,018 vs 0,002 dan menyimpulkan tidak bebas, tetapi tidak membahas saling lepas atau penyebab bersama. (b) benar. (c) 0,9909 benar tanpa memeriksa BINS. (d) "Syarat I tidak terpenuhi," tanpa arah dampak. | 5–7 |
+| Kurang | (a) "S1 dan S2 saling lepas karena servernya berbeda, jadi juga bebas." (b) replika dihitung seri: 0,99 × 0,96³ = 0,8759, dan "batas 100% bila replika cukup banyak". (c) hanya 4 × 0,96³ × 0,04 = 0,1416. (d) "Terlalu pesimistis." | 0,75 |
+| Cukup | (a) menghitung 0,018 vs 0,002 dan menyimpulkan tidak bebas, tetapi tidak membahas saling lepas atau penyebab bersama. (b) struktur seri–paralel dan 0,9899 benar, tetapi batas 0,99 tidak disebut. (c) 0,9909 dan 3,84 benar tanpa memeriksa BINS. (d) "Syarat I tidak terpenuhi," tanpa arah dampak. | 6,75–7 |
 | Baik | Seluruh angka benar. (a) menyatakan tidak bebas dan tidak saling lepas, dengan contoh penyebab bersama. (c) memeriksa BINS dan menandai I serta S sebagai asumsi. (d) menjelaskan bahwa kegagalan berkelompok menaikkan P(≥ 2 mati) sehingga 0,9909 terlalu optimistis, lalu memberi saran. | 9–10 |
 
 ---
@@ -606,9 +608,9 @@ Keputusan: dua model Poisson terpisah, **λ ≈ 3,6/jam** (07.00–10.00) dan **
 
 **Jalur bila rumus ekor Eksponensial tidak dihafal** (daftar kisi-kisi §7 hanya memuat E[X] = 1/λ untuk Eksponensial): pakai rumus Poisson dari daftar. Kejadian "T > 0,75 jam" sama dengan "tidak ada galat dalam 0,75 jam", dan N ~ Poisson(1,5 × 0,75 = 1,125), sehingga P(N = 0) = e^(−1,125) · 1,125⁰/0! = e^(−1,125) = 0,3247. Jalur ini diterima penuh untuk (ii).
 
-**Pedoman skor.** (i) 1 · (ii) 1 (konversi menit → jam wajib; tanpa konversi, e^(−67,5) ≈ 0 → 0,25) · (iii) 0,5 menyebut N ~ Poisson(λt = 1,125) atau P(N = 0) = e^(−λt) + 0,5 alasan kesetaraan kejadian.
+**Pedoman skor.** (i) 1 · (ii) 1 (konversi satuan wajib — menit → jam, atau laju per jam → per menit: 1,5/60 = 0,025 galat per menit × 45 menit; keduanya memberi λt = 1,125; tanpa konversi, e^(−67,5) ≈ 0 → 0,25) · (iii) 0,5 menyebut N ~ Poisson(λt = 1,125) atau P(N = 0) = e^(−λt) + 0,5 alasan kesetaraan kejadian.
 
-**Kesalahan umum.** Memakai λ = 1,77 (laju gabungan) padahal soal menetapkan 1,5 untuk jam di luar 07.00–10.00 → e^(−1,77 × 0,75) = e^(−1,3275) = 0,2651.
+**Kesalahan umum.** Memakai λ = 1,77 (laju gabungan) padahal soal menetapkan 1,5 untuk jam di luar 07.00–10.00 → e^(−1,77 × 0,75) = e^(−1,3275) = 0,2651; (i) dan (ii) masing-masing paling banyak 0,5 (konversi dan rumus benar, laju keliru).
 
 ### D5. Galat 504 `[PS-Sub-CPMK081-1 · C3 · 3]`
 
@@ -635,8 +637,8 @@ Keputusan: dua model Poisson terpisah, **λ ≈ 3,6/jam** (07.00–10.00) dan **
 
 | Tingkat | Contoh ringkas | Skor |
 |---|---|---|
-| Kurang | D1: rating "interval", dilaporkan mean. D2: "Laporkan mean 47 menit; usul staf baik supaya data bersih." D3: "Poisson λ = 1,77," tanpa asumsi. D4: memakai λ = 1,77 → e^(−1,77 × 0,75) = e^(−1,3275) = 0,2651, tanpa (iii). D5: "P(jaringan) = 0,8." D6: "Data sudah cukup untuk semua kesimpulan." | 2–5 |
-| Cukup | D1 benar. D2: melaporkan median dan menghitung pagar 103 menit, tetapi menyetujui pembuangan. D3: Poisson dengan dua asumsi tertulis, tanpa memakai informasi jam sibuk. D4 benar. D5: 0,9492 benar, probabilitas keliru tidak dihitung. D6: "Tidak bisa digeneralisasi," tanpa alasan. | 8–11 |
+| Kurang | D1: waktu tunggu rasio dan `jam_daftar` interval benar, tetapi rating "interval" dan dilaporkan mean. D2: "Laporkan mean 47 menit; usul staf baik supaya data bersih." D3: "Poisson λ = 1,77," tanpa asumsi dan tanpa pemeriksaan. D4: memakai λ = 1,77 → 33,90 menit dan e^(−1,77 × 0,75) = e^(−1,3275) = 0,2651, tanpa (iii). D5: "P(jaringan) = 0,8." D6: "Data sudah cukup untuk semua kesimpulan." | 2,75–3 |
+| Cukup | D1 benar. D2: melaporkan median 31 menit tanpa alasan bentuk sebaran dan menghitung pagar 103 menit, tetapi menyetujui pembuangan. D3: Poisson λ = 1,77 dengan dua asumsi tertulis, tanpa pemeriksaan dengan tabel; satu model untuk seluruh jam. D4 benar. D5: 0,59 dan 0,9492 benar, tetapi keputusan dan probabilitas keliru tidak ditulis. D6: "Tidak bisa digeneralisasi," tanpa alasan. | 9,5–10 |
 | Baik | Seluruh sub-butir benar. D2 menolak pembuangan dengan argumen p95 > pagar. D3 menyimpulkan dua laju terpisah dari perbedaan mean antarperiode dan rasio varians/mean per periode. D5 memberi keputusan berbasis angka. D6: "Kepuasan seluruh pasien tidak dapat disimpulkan karena hanya 18% yang mengisi secara sukarela dan hanya yang sudah dilayani." | 13,5–15 |
 
 ---

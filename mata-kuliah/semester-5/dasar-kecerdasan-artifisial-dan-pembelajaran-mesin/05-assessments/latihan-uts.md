@@ -12,10 +12,16 @@ diperbarui: 2026-10-08
 
 # LATIHAN UJIAN TENGAH SEMESTER (SIMULASI)
 
-> **Latihan UTS — bukan naskah UTS.** Simulasi lengkap UTS Dasar Kecerdasan Artifisial dan Pembelajaran Mesin Ganjil 2026/2027 untuk berlatih: komposisi, durasi (120 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+## Dasar Kecerdasan Artifisial dan Pembelajaran Mesin — IF52510031
 
-## UNIVERSITAS AL AZHAR INDONESIA
-### FAKULTAS SAINS DAN TEKNOLOGI — PROGRAM STUDI INFORMATIKA
+> **Latihan UTS — bukan naskah UTS.** Simulasi lengkap UTS Dasar Kecerdasan Artifisial dan Pembelajaran Mesin Ganjil 2026/2027 untuk berlatih: komposisi, durasi (120 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+>
+> **Cara memakai latihan ini.** Kerjakan dalam satu kali duduk dengan batas waktu **120 menit**, *closed book*, hanya dengan kalkulator dan lembar jawaban kosong, **tanpa AI**, tanpa catatan, dan **tanpa membuka pembahasan** — sesuai aturan UTS ([kisi-kisi UTS §1](kisi-kisi-uts.md#1-ketentuan)). Baru **sesudah** waktu habis, cocokkan jawaban Anda dengan [pembahasan dan pedoman skor](latihan-uts-pembahasan.md), nilai sendiri dengan pedoman skornya, lalu baca ulang bab buku ajar yang dirujuk pembahasan untuk butir yang skornya rendah. Jangan menghafal jawaban: UTS sebenarnya memakai kasus, data, dan angka lain, jadi yang terbawa ke ujian hanyalah **cara bernalar** pada setiap jenis butir. Penandaan Sub-CPMK per butir ada di pembahasan dan di [cetak biru butir](latihan-uts-cetak-biru.md).
+
+---
+
+**UNIVERSITAS AL AZHAR INDONESIA**
+Fakultas Sains dan Teknologi — Program Studi Informatika
 
 | Aspek | Keterangan |
 |-------|------------|
@@ -33,17 +39,6 @@ diperbarui: 2026-10-08
 
 ---
 
-## Cara Memakai Latihan Ini
-
-Baca bagian ini **sebelum** mulai menghitung waktu.
-
-1. **Kerjakan seperti UTS sungguhan:** sediakan 120 menit tanpa jeda, kalkulator, dan lembar jawaban kosong. Kerjakan **tanpa alat bantu AI, tanpa catatan, dan tanpa membuka pembahasan** — aturannya sama dengan UTS.
-2. Baru **sesudah** waktu habis, cocokkan jawaban Anda dengan [pembahasan](latihan-uts-pembahasan.md) dan nilai sendiri memakai pedoman skornya.
-3. Catat butir yang skornya rendah, lalu baca ulang bab buku ajar yang dirujuk pembahasan untuk butir itu.
-4. Jangan menghafal jawaban latihan ini. UTS sebenarnya memakai kasus, data, dan angka lain; yang terbawa ke ujian hanyalah **cara bernalar** pada setiap jenis butir.
-
----
-
 ## Petunjuk
 
 1. Latihan terdiri atas **tiga bagian, 13 soal, total 100 poin**: A. Konsep (6 soal, 30 poin) · B. Analisis kasus (4 soal, 40 poin) · C. Perhitungan (3 soal, 30 poin). Bobot tiap soal dan sub-soal tertera di sampingnya.
@@ -56,7 +51,7 @@ Baca bagian ini **sebelum** mulai menghitung waktu.
 8. Setiap soal atau sub-soal diberi tanda level Bloom dan poin, misalnya **[C4 · 5 poin]**.
 9. Pembagian waktu yang disarankan: ±5 menit di awal untuk membaca petunjuk dan lembar rumus; Bagian A ±28 menit, B ±50 menit, C ±32 menit (jumlah ±110 menit, termasuk membaca soal); paling sedikit 5 menit di akhir untuk memeriksa jawaban.
 
-> **Pernyataan amanah.** Lembar jawaban UTS memuat pernyataan berikut; biasakan sejak latihan: *"Dengan menuliskan nama dan NIM pada lembar jawaban, saya menyatakan mengerjakan ujian ini sendiri, tanpa bantuan orang lain maupun alat bantu yang tidak diperkenankan."*
+> **Pernyataan amanah.** Naskah UTS mencetak pernyataan berikut; menuliskan nama dan NIM pada lembar jawaban berarti menyetujuinya, sehingga pernyataan itu tidak perlu disalin. Biasakan sejak latihan membacanya sebelum mulai: *"Dengan menuliskan nama dan NIM pada lembar jawaban, saya menyatakan mengerjakan ujian ini sendiri, tanpa bantuan orang lain maupun alat bantu yang tidak diperkenankan."*
 
 ---
 
@@ -78,7 +73,7 @@ $$\bar{x}=\frac{1}{n}\sum x_i \qquad s=\sqrt{\frac{\sum(x_i-\bar{x})^2}{n-1}} \q
 
 ### A1. Layak Tidaknya Pembelajaran Mesin — **[C4 · 5 poin]**
 
-Untuk **masing-masing** usulan kepada pemerintah kota berikut, analisislah apakah pembelajaran mesin (ML) layak dipakai dengan merujuk keadaan atau pertanyaan uji kelayakan yang relevan, lalu tentukan pendekatan yang sesuai. *(2,5 poin per usulan)*
+Untuk **masing-masing** usulan kepada pemerintah kota berikut, analisislah apakah pembelajaran mesin (ML) layak dipakai dengan merujuk keadaan atau pertanyaan uji kelayakan yang relevan, lalu tentukan pendekatan yang sesuai — bila ML layak, termasuk pembanding (*baseline*) yang harus dikalahkan. *(2,5 poin per usulan)*
 
 - **(i)** Perkiraan tonase sampah harian yang masuk ke tempat pengolahan sampah terpadu (TPST) kota, dari catatan jembatan timbang tiga tahun terakhir, kalender hari libur, dan curah hujan, untuk menjadwalkan jumlah truk esok hari.
 - **(ii)** Wali kota bertanya apakah program sarapan sehat di 40 SD **menyebabkan** kenaikan nilai rata-rata siswa. Tersedia data nilai seluruh SD di kota itu (peserta dan bukan peserta) selama dua tahun. Sekolah peserta dipilih dinas dari usulan kepala sekolah.
@@ -100,7 +95,7 @@ Data kunjungan pasien sebuah puskesmas (12.480 baris, 2024–2025) akan dipakai 
 | T2 | `usia_tahun`: min = 0; ada 412 baris (3,3%) bernilai 0, seluruhnya tercatat di poli KIA (kesehatan ibu dan anak); `berat_badan_kg` pada 412 baris itu 2,5–9,8 kg |
 | T3 | `jumlah_kunjungan_tahun_ini` berkorelasi 0,96 dengan target |
 
-Untuk **setiap** temuan, analisislah apakah itu masalah. Bila ya, tentukan kemungkinan penyebabnya dan tindakan yang tepat; bila tidak, jelaskan mengapa. *(T1: 1,5 poin; T2 dan T3: masing-masing 1,75 poin)*
+Untuk **setiap** temuan, analisislah apakah itu masalah. Bila ya, tentukan kemungkinan penyebabnya dan tindakan yang tepat; bila tidak, jelaskan mengapa.
 
 ### A4. Menganalisis Keputusan Prapemrosesan — **[C4 · 5 poin]**
 
@@ -112,7 +107,7 @@ Sebuah RSUD membangun model **k-NN** untuk memprediksi pasien rawat jalan yang t
 | 2 | `biaya_rawat_sebelumnya` | Sangat menceng kanan; segelintir pasien bernilai ratusan juta rupiah, mayoritas di bawah Rp2 juta | `StandardScaler()` |
 | 3 | `cara_bayar` | BPJS, umum, asuransi swasta | `OneHotEncoder(handle_unknown="ignore")` |
 
-Untuk **setiap** baris, analisislah apakah keputusan itu tepat. Bila tidak, jelaskan akibatnya pada model k-NN dan tuliskan perbaikannya. *(Baris 1 dan 2: masing-masing 1,75 poin; baris 3: 1,5 poin)*
+Untuk **setiap** baris, analisislah apakah keputusan itu tepat. Bila tidak, jelaskan akibatnya pada model k-NN dan tuliskan perbaikannya.
 
 ### A5. Merekayasa Fitur Waktu Antar — **[C4 · 5 poin]**
 
@@ -124,7 +119,7 @@ Sebuah layanan pesan-antar makanan di Surabaya memperkirakan **waktu antar (meni
 | 2 | `lama_masak_aktual_menit` | Diisi restoran ketika makanan siap diambil |
 | 3 | `kecepatan_rata_kurir_30hari` | Rata-rata kecepatan kurir itu (km/jam) pada 30 hari sebelum pesanan ini |
 
-Untuk **setiap** calon fitur, analisislah lalu tentukan: **pertahankan**, **ubah**, atau **buang**, beserta alasannya; bila diubah, tuliskan bentuk perubahannya. *(Fitur 1 dan 2: masing-masing 1,75 poin; fitur 3: 1,5 poin)*
+Untuk **setiap** calon fitur, analisislah lalu tentukan: **pertahankan**, **ubah**, atau **buang**, beserta alasannya; bila diubah, tuliskan bentuk perubahannya.
 
 ### A6. Mendiagnosis dari Tabel α — **[C4 · 5 poin]**
 
@@ -135,7 +130,7 @@ Model Ridge (dengan `StandardScaler` di dalam `Pipeline`) memperkirakan konsumsi
 | RMSE latih (kWh) | 21 | 24 | 30 | 58 | 97 |
 | RMSE validasi, rerata 5 lipatan (kWh) | 69 | 48 | 34 | 61 | 99 |
 
-- **(a)** Diagnosis kondisi model pada α = 0,001 dan pada α = 100.000. Tunjukkan bukti dari tabel. *(2,5 poin)*
+- **(a)** Analisislah RMSE latih dan validasi pada α = 0,001 dan α = 100.000 untuk mendiagnosis kondisi model di kedua ujung itu; tunjukkan buktinya dari tabel. *(2,5 poin)*
 - **(b)** Nilai α mana yang Anda pilih? Jelaskan mengapa pemilihan tidak didasarkan pada RMSE latih. *(2,5 poin)*
 
 ---
@@ -214,7 +209,7 @@ Pemerintah sebuah kabupaten mengusulkan "sistem AI" yang **secara otomatis dan f
 - **Nilai hilang:** `penghasilan_bulanan` kosong pada 15% rumah tangga, paling sering pada rumah tangga berpenghasilan tidak tetap (buruh harian, nelayan kecil) yang tidak dapat menyebut angkanya. Tim berencana mengisinya dengan median.
 - **Ukuran keberhasilan:** akurasi ≥ 90% terhadap label tahun 2023.
 
-- **(a)** Analisislah usulan ini dengan **uji kelayakan enam pertanyaan**: pilih dua pertanyaan yang jawabannya paling bermasalah, tunjukkan buktinya dari skenario, dan kaitkan masing-masing dengan satu **batas kemampuan AI** yang relevan. **[C4 · 3 poin]**
+- **(a)** Analisislah usulan ini dengan **uji kelayakan enam pertanyaan**: pilih **satu** pertanyaan yang jawabannya paling bermasalah, tunjukkan buktinya dari skenario, dan kaitkan dengan satu **batas kemampuan AI** yang relevan. **[C4 · 3 poin]**
 - **(b)** Analisislah ke arah mana rencana imputasi median menggeser keputusan bagi rumah tangga berpenghasilan tidak tetap. Apakah mengganti median keseluruhan dengan median per jenis pekerjaan sudah menyelesaikan masalah itu? Beri alasan. **[C4 · 2 poin]**
 - **(c)** Rancang ulang usulan ini dengan menetapkan: (i) peran model, (ii) definisi label yang lebih tepat, dan (iii) satu mekanisme pengawasan. **[C6 · 3 poin]**
 - **(d)** Bandingkan dampak dua jenis kesalahan — rumah tangga layak yang tidak menerima dan rumah tangga tidak layak yang menerima — lalu tentukan metrik pengganti "akurasi ≥ 90%" yang sesuai dengan perbandingan itu. **[C4 · 2 poin]**
@@ -235,11 +230,11 @@ Sebuah koperasi susu di Jawa Timur memakai model untuk memilih peternak anggota 
  Mastitis          32        48         Mastitis            16        64
 ```
 
-Untuk Model B telah dihitung: akurasi 0,834; *precision* 0,299; *recall* 0,800; F1 0,435.
+Telah dihitung: akurasi Model A 0,928; untuk Model B akurasi 0,834, *precision* 0,299, *recall* 0,800, dan F1 0,435.
 
 Taksiran biaya: setiap kasus mastitis yang **terlewat** merugikan peternak **Rp1.200.000**; setiap kunjungan dokter hewan ke peternak yang ternyata sehat menghabiskan **Rp150.000**.
 
-- **(a)** Hitung akurasi, *precision*, *recall*, dan F1 untuk **Model A**. Tunjukkan langkahnya. **[C3 · 4 poin]**
+- **(a)** Hitung *precision*, *recall*, dan F1 untuk **Model A**. Tunjukkan langkahnya. **[C3 · 4 poin]**
 - **(b)** Kebijakan "tidak ada kunjungan sama sekali" setara dengan model yang memprediksi setiap peternak "sehat". Hitung akurasi kebijakan itu. **[C3 · 1 poin]**
 - **(c)** Hitung total biaya kesalahan Model A dan Model B. **[C3 · 3 poin]**
 - **(d)** Tentukan model yang dipilih, lalu analisislah mengapa akurasi dan F1 memberi peringkat yang berlawanan dengan total biaya. **[C4 · 2 poin]**
@@ -272,7 +267,7 @@ Dinas pendidikan sebuah provinsi kepulauan membangun model untuk memprediksi sis
 
 Lipatan **L4** pada skema berkelompok memuat 7 dari 12 sekolah yang terletak di **pulau-pulau kecil**; setiap lipatan lain memuat paling banyak 2 sekolah semacam itu.
 
-- **(a)** Hitung rerata dan simpangan baku sampel (pembagi $n-1$) skema **berkelompok**. Untuk skema acak telah dihitung: rerata 0,870; simpangan baku sampel 0,016. **[C3 · 4 poin]**
+- **(a)** Rerata skema **berkelompok** adalah 0,700. Hitung simpangan baku sampel (pembagi $n-1$) skema itu. Untuk skema acak telah dihitung: rerata 0,870; simpangan baku sampel 0,016. **[C3 · 4 poin]**
 - **(b)** Analisislah mengapa rerata skema acak jauh lebih tinggi, dan tentukan taksiran mana yang harus dilaporkan untuk penerapan di 30 sekolah baru. **[C4 · 2 poin]**
 - **(c)** Analisislah apa yang ditunjukkan skor L4 tentang kinerja model di sekolah-sekolah pulau kecil, dan apa yang harus diperiksa sebelum model dipakai di sana. **[C4 · 2 poin]**
 - **(d)** Kepala dinas bertanya, "Berapa kinerja yang dapat kami harapkan di sekolah baru?" Hubungkan hasil (a)–(c) menjadi jawaban **satu kalimat** yang jujur dan dapat dipertanggungjawabkan. **[C4 · 2 poin]**

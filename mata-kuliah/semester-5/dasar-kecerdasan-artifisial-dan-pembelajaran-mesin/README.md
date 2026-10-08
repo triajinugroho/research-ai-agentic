@@ -74,6 +74,8 @@ Posisinya pada jalur **AI Core & Advanced**:
 | [`06-buku-ajar/`](06-buku-ajar/) | Buku ajar: 14 bab + halaman depan + lampiran + penutup | 18 |
 | [`datasets/`](datasets/) | Panduan dataset berkonteks Indonesia | 1 |
 
+**Latihan UTS.** [Latihan UTS](05-assessments/latihan-uts.md) adalah simulasi terbuka UTS — tiga berkas: soal, [pembahasan](05-assessments/latihan-uts-pembahasan.md), dan [cetak biru](05-assessments/latihan-uts-cetak-biru.md) — dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UTS. Naskah UTS sebenarnya adalah **varian** latihan ini (cetak biru butir sama; konteks, data, dan angka berbeda) dan tidak dipublikasikan.
+
 ---
 
 ## Sub-CPMK

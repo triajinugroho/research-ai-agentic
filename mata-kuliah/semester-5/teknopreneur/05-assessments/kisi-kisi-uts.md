@@ -167,6 +167,7 @@ Baris terakhir sering paling berguna: soal Bagian B menuntut kemampuan menilai b
 1. [Modul Minggu 8](../03-modules/week-08-uts-review-dan-ujian.md)
 2. [Kerangka asesmen](assessment-framework.md)
 3. Bab 1–7 [buku ajar](../06-buku-ajar/00-halaman-depan.md)
+4. Latihan UTS (simulasi, [§9](#9-latihan-uts-simulasi)): [soal](latihan-uts.md), [pembahasan dan pedoman skor](latihan-uts-pembahasan.md), [cetak biru butir dan panduan varian](latihan-uts-cetak-biru.md)
 
 ---
 

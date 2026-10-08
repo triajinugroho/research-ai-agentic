@@ -135,7 +135,7 @@ Kisi-kisi rinci beserta contoh soal ada pada [kisi-kisi UTS](../05-assessments/k
 
 Baris terakhir yang paling sering dilewati dan paling menentukan. Perhitungan metrik pada ujian dikerjakan dengan kalkulator, bukan dengan `scikit-learn`.
 
-Sebagai gladi, kerjakan [Latihan UTS](../05-assessments/latihan-uts.md) — simulasi lengkap 120 menit — tanpa AI dan tanpa membuka pembahasan, lalu cocokkan dengan [pembahasan dan pedoman skornya](../05-assessments/latihan-uts-pembahasan.md). Naskah UTS sebenarnya adalah varian latihan itu: cetak biru butirnya sama, tetapi konteks, data, dan angkanya berbeda.
+Sebagai gladi, kerjakan [Latihan UTS](../05-assessments/latihan-uts.md) — simulasi lengkap 120 menit — tanpa AI dan tanpa membuka pembahasan, lalu cocokkan dengan [pembahasan dan pedoman skornya](../05-assessments/latihan-uts-pembahasan.md). Naskah UTS sebenarnya adalah varian latihan itu — cetak biru butirnya sama, tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
 
 ---
 
@@ -161,7 +161,9 @@ Sebagai gladi, kerjakan [Latihan UTS](../05-assessments/latihan-uts.md) — simu
 
 1. Seluruh referensi Minggu 1–7.
 2. [Kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md).
-3. [Kerangka asesmen](../05-assessments/assessment-framework.md).
+3. [Latihan UTS (simulasi)](../05-assessments/latihan-uts.md) dan [pembahasannya](../05-assessments/latihan-uts-pembahasan.md).
+4. [Kerangka asesmen](../05-assessments/assessment-framework.md).
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

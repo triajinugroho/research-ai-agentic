@@ -264,7 +264,7 @@ Sebuah tim menawarkan langganan perawatan motor bagi pengemudi ojek daring di Ko
 
 **(b)** [5 · C4] Hitung ulang **CAC** dengan seluruh komponen yang sah, dan **margin kontribusi** per pelanggan per bulan termasuk dukungan manual (dinilai dengan upah pembanding yang sama). Lalu hitung **LTV** dan **rasio LTV/CAC** untuk bertahan 10 bulan. Apa arti hasilnya bagi usaha ini, dan apa pengaruh D5 terhadap arti itu?
 
-**(c)** [3 · C5] Sebutkan sekurang-kurangnya **dua asumsi tim yang terbantah** oleh hasil (a)–(b), lalu putuskan: **lanjut**, **ubah**, atau **hentikan** — beserta alasannya.
+**(c)** [3 · C5] Sebutkan sekurang-kurangnya **dua asumsi tim yang terbantah** (angka lama → baru), lalu putuskan: **lanjut**, **ubah**, atau **hentikan** — beserta alasannya.
 
 ---
 

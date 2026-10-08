@@ -12,12 +12,13 @@ diperbarui: 2026-10-08
 
 # Pembahasan dan Pedoman Skor — Latihan UTS Teknopreneur
 
-**`ST52510002` · Semester Ganjil 2026/2027 · persiapan UTS Minggu 8 · Skor total 100**
-**Penyusun:** Tri Aji Nugroho, S.T., M.T.
+## Teknopreneur — ST52510002
 
-> **Latihan UTS — bukan naskah UTS.** Simulasi lengkap UTS Teknopreneur Ganjil 2026/2027 untuk berlatih: komposisi, durasi (90 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+> **Latihan UTS — bukan naskah UTS.** Pembahasan ini menyertai simulasi lengkap UTS Teknopreneur Ganjil 2026/2027 untuk berlatih: komposisi, durasi (90 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
 >
-> **Buka berkas ini sesudah** Anda mengerjakan [latihan UTS](latihan-uts.md) selama 90 menit tanpa melihat pembahasan. Pasangan berkas untuk dosen: [cetak biru butir dan panduan varian](latihan-uts-cetak-biru.md).
+> **Kerjakan dulu [latihan UTS](latihan-uts.md) dalam 90 menit tanpa AI dan tanpa membuka berkas ini.** Sesudahnya, nilai jawaban Anda per sub-butir dengan pedoman skor, bandingkan dengan contoh jawaban *Kurang*, *Cukup*, dan *Baik*, lalu pelajari bagian *Kesalahan umum*. Menghafal jawaban di sini tidak membantu: naskah UTS memakai kasus, data, dan angka lain, jadi yang perlu dikuasai adalah **cara bernalar dan alasannya**. Judul setiap butir mencantumkan skor · level Bloom · Sub-CPMK registri (penandaan sementara, lihat [§1.4](#14-penandaan-butir)); cetak biru lengkap untuk dosen ada di [cetak biru butir dan panduan varian](latihan-uts-cetak-biru.md).
+>
+> Mata kuliah ST52510002 · Semester Ganjil 2026/2027 · persiapan UTS Minggu 8 · Skor total 100 · Penyusun: Tri Aji Nugroho, S.T., M.T.
 
 ---
 
@@ -187,21 +188,21 @@ Sebabnya: "Pak Joko" adalah **persona rata-rata** dari dua kelompok yang tujuan 
 | Sub | Maks | Rincian |
 |-----|:----:|---------|
 | (a) | 3 | Per dimensi (maks tiga): dimensi tepat = 0,5 — **nama dimensi atau uraian setara** (§1.3 butir 4; mis. "bak gelap dan tergenang" = fisik, "pemilik tidak ada sehingga tanda tangan mustahil" = sosial; O5 boleh dinamai perangkat, infrastruktur, atau kendala); bukti (nomor pengamatan) cocok = 0,5. Dua dimensi dengan bukti yang sama dihitung satu. O2 dan O3 sama-sama dimensi **fisik** ([Modul 3 §3.4](../03-modules/week-03-persona-jtbd-konteks-penggunaan.md#34-konteks-penggunaan): di mana dipakai, tangan bebas) — dihitung satu walaupun dinamai berbeda (mis. "lingkungan" untuk O2 dan "tangan" untuk O3) |
-| (b) | 3 | Usulan berupa **perubahan konsep** — mengubah apa yang dikerjakan petugas di lapangan, bukan menambah fitur = 1,5 (fitur tambahan, termasuk OCR atau mode gelap, = 0; perbaikan teknis pada alur yang sama, mis. "dibuat luring" saja, = 0,5). Dua pengamatan yang benar-benar dihormati usulan, dengan nomornya = 1,5 (satu pengamatan = 0,5) |
+| (b) | 3 | Usulan berupa **perubahan konsep** — mengubah apa yang dikerjakan petugas di lapangan, bukan menambah fitur = 1,5 (fitur tambahan, termasuk OCR atau mode gelap, = 0; perbaikan teknis pada alur yang sama — petugas tetap memotret, mengisi lima kolom, dan meminta tanda tangan — mis. "dibuat luring" atau "tombol besar", = 0,5). Dua pengamatan yang benar-benar dihormati usulan, dengan nomornya = 1,5 (satu pengamatan = 0,5) |
 
 #### Contoh jawaban
 
 | Tingkat | Jawaban | Skor |
 |---------|---------|:----:|
 | Kurang | (a) "Waktu: aplikasinya terlalu lama diisi; petugas juga tidak terbiasa teknologi." (b) "Tambah fitur OCR dan mode gelap." | 0,5 + 0 = **0,5** *((a) satu dimensi tanpa nomor pengamatan)* |
-| Cukup | (a) Waktu (O1), fisik (O2), perangkat (O5). (b) "Aplikasi dibuat luring dan tombolnya besar (O3, O5)." | 3 + 2 = **5** *((b) masih alur yang sama, belum perubahan konsep)* |
+| Cukup | (a) Waktu (O1), fisik (O2), perangkat (O5). (b) "Aplikasi dibuat luring dan tombolnya besar (O3, O5)." | 3 + 2 = **5** *((b) luring dan tombol besar adalah perbaikan teknis pada alur yang sama, belum perubahan konsep (0,5); dua pengamatan bernomor yang dihormati (1,5))* |
 | Baik | (a) Waktu O1 (±2 menit per meter), fisik O2–O3, sosial O4. (b) "Di lapangan cukup catat angka + kode rumah, luring; tanda tangan diganti verifikasi lewat tagihan; sinkron di kantor — menghormati O4 dan O5." | **6** |
 
 #### Kesalahan umum
 
 - Menyebut dimensi tanpa nomor pengamatan, atau memakai O2 dan O3 sebagai bukti untuk dua dimensi berbeda padahal keduanya fisik (dihitung satu).
 - Menambahkan alasan yang tidak ada di bahan ("petugas tidak melek teknologi") — kutipan atau fakta karangan tidak dihitung (K2).
-- Mengusulkan fitur (OCR, mode gelap, tombol besar) alih-alih mengubah **apa yang dikerjakan petugas** di depan meter.
+- Mengusulkan fitur (OCR, mode gelap) atau perbaikan teknis pada alur yang sama (luring, tombol besar) alih-alih mengubah **apa yang dikerjakan petugas** di depan meter. Fitur tidak mendapat poin perubahan konsep; perbaikan teknis mendapat sebagian kecil.
 
 *Pelajari ulang:* [Modul 3 §3.4 (konteks penggunaan)](../03-modules/week-03-persona-jtbd-konteks-penggunaan.md#34-konteks-penggunaan)
 
@@ -213,7 +214,7 @@ Sebabnya: "Pak Joko" adalah **persona rata-rata** dari dua kelompok yang tujuan 
 
 | Kutipan | Jenis | Keras / lunak | Alasan |
 |---------|-------|---------------|--------|
-| F1 | Waktu (dan fisik: tangan terikat pada mesin) | **Keras pada jam 07.00–09.00** | Pada jendela itu memang tidak mungkin memegang hal lain; solusi apa pun tidak boleh menuntut perhatian di jam sibuk. Jawaban "belum dapat dipastikan" diterima bila mempertanyakan apakah keadaan itu terjadi setiap hari |
+| F1 | Waktu atau fisik (tangan terikat pada mesin) — keduanya tepat | **Keras pada jam 07.00–09.00** | Pada jendela itu memang tidak mungkin memegang hal lain; solusi apa pun tidak boleh menuntut perhatian di jam sibuk. Jawaban "belum dapat dipastikan" diterima bila mempertanyakan apakah keadaan itu terjadi setiap hari |
 | F2 | Biaya | **Belum dapat dipastikan / cenderung lunak** | Berupa pendapat tentang harga di masa depan ("berat"), bukan peristiwa membayar; batas Rp100.000 dapat bergeser bila nilai yang diterima jelas. Yang dapat memastikannya adalah peristiwa — kapan terakhir membayar langganan atau alat untuk usaha, berapa, dan mengapa (tidak dituntut pada butir ini) |
 | F3 | Regulasi/kebijakan pihak lain dan privasi data | **Keras** | Didukung peristiwa nyata (teguran kampus) dan perilaku yang sudah berubah (menghapus file tiap tutup toko); solusi tidak boleh menyimpan file pelanggan melewati hari itu. Juga soal **amanah** atas data orang lain |
 
@@ -221,7 +222,7 @@ Sebabnya: "Pak Joko" adalah **persona rata-rata** dari dua kelompok yang tujuan 
 
 | Sub | Maks | Rincian |
 |-----|:----:|---------|
-| — | 6 | Per kutipan (F1, F2, F3): jenis tepat = 1 — **nama jenis atau uraian setara** (§1.3 butir 4; mis. "tidak sempat di jam sibuk" = waktu, "tidak sanggup bayar di atas 100 ribu" = biaya, "dilarang menyimpan file sejak ditegur kampus" = regulasi/aturan pihak lain; F3 sebagai privasi data atau amanah juga tepat). Keras/lunak/belum pasti **dengan alasan** yang konsisten dan merujuk isi kutipan = 1 (alasan umum yang tidak merujuk isi kutipan, mis. "karena dikatakan pemiliknya", = 0,5; tanpa alasan = 0). Penilaian sifat yang berbeda dari kunci dinilai dengan K1–K4 (mis. F2 "keras" yang mengakui bahwa "berat" baru pendapat, tetapi menunjuk "listrik sejuta lebih" sebagai tekanan biaya nyata) |
+| — | 6 | Per kutipan (F1, F2, F3): jenis tepat = 1 — **nama jenis atau uraian setara** (§1.3 butir 4; mis. "tidak sempat di jam sibuk" = waktu, "tidak sanggup bayar di atas 100 ribu" = biaya, "dilarang menyimpan file sejak ditegur kampus" = regulasi/aturan pihak lain). Jenis alternatif yang sama-sama tepat: F1 waktu **atau fisik** (tangan tidak lepas dari mesin, [Modul 4 §4.2](../03-modules/week-04-dari-kebutuhan-ke-persyaratan.md#42-constraint-batas-yang-tidak-dapat-ditawar)); F3 regulasi, privasi data, atau amanah. Keras/lunak/belum pasti **dengan alasan** yang konsisten dan merujuk isi kutipan = 1 (alasan umum yang tidak merujuk isi kutipan, mis. "karena dikatakan pemiliknya", = 0,5; tanpa alasan = 0). Penilaian sifat yang berbeda dari kunci dinilai dengan K1–K4 (mis. F2 "keras" yang mengakui bahwa "berat" baru pendapat, tetapi menunjuk "listrik sejuta lebih" sebagai tekanan biaya nyata) |
 
 #### Contoh jawaban
 
@@ -254,19 +255,19 @@ Urutan kunci: **(i) > (iii) > (ii) > (iv)** — sejalan dengan Bab 6 §6.3.1: as
 | 3 | (ii) Layanan pesan berbayar | Sedang — memengaruhi biaya per pesan dan margin, tetapi ada alternatif (pesan manual, grup) | Kuat — tarif terbuka |
 | 4 | (iv) Komputasi awan gratis | Kecil — mudah dipindah, alternatif banyak | Kuat — sudah dipakai |
 
-Alasan hanya diminta untuk butir **teratas**; tabel di atas (termasuk baris 2–4) adalah pegangan penilai, bukan jawaban yang dituntut. (ii) dan (iv) boleh bertukar di dua posisi terbawah karena buktinya sama-sama kuat. Urutan lain **konsisten** bila alasan butir teratasnya memakai kedua pertimbangan. Contoh yang dinilai penuh: menempatkan (iii) teratas dengan alasan bahwa jadwal dapat dicatat manual oleh tim dari papan pengumuman dermaga sehingga dampak (i) lebih kecil, sedangkan bukti (iii) hanya satu minggu dengan bantuan tim. Menempatkan (iv) teratas tanpa alasan dari kedua sumbu tidak konsisten.
+Alasan hanya diminta untuk butir **teratas**; tabel di atas (termasuk baris 2–4) adalah pegangan penilai, bukan jawaban yang dituntut. (ii) dan (iv) boleh bertukar di dua posisi terbawah karena buktinya sama-sama kuat. Urutan lain **konsisten** bila alasan butir teratasnya memakai kedua pertimbangan **dan** memenuhi K1–K4 (§1.2) — termasuk K4: bukti (ii) dan (iv) sudah kuat (tarif terbuka; sudah dipakai untuk purwarupa). Dalam praktik, selain (i) hanya (iii) yang dapat dipertahankan sebagai butir teratas. Contoh yang dinilai penuh: menempatkan (iii) teratas dengan alasan bahwa jadwal dapat dicatat manual oleh tim dari papan pengumuman dermaga sehingga dampak (i) lebih kecil, sedangkan bukti (iii) hanya satu minggu dengan bantuan tim. Menempatkan (ii) atau (iv) teratas tidak konsisten, walaupun alasannya memakai kedua sumbu, karena mengabaikan bukti kuat yang sudah ada (K4).
 
 #### Pedoman skor
 
 | Sub | Maks | Rincian |
 |-----|:----:|---------|
-| — | 3 | Urutan = 1: butir teratas (i) — atau (iii) dengan alasan yang memenuhi K1–K4 — = 0,5; dua posisi terbawah ditempati (ii) dan (iv), dalam urutan mana pun = 0,5 (hanya salah satunya = 0). Alasan butir teratas dengan **kedua** pertimbangan (dampak bila salah, kekuatan bukti) = 2; satu pertimbangan = 1; satu pertimbangan yang bertentangan dengan bahan (mis. dampak besar bagi (iv), padahal sudah dipakai dan mudah dipindah) = 0,5. Alasan untuk butir lain tidak dituntut dan tidak menambah skor |
+| — | 3 | Urutan = 1: butir teratas (i) — atau (iii) dengan alasan yang memenuhi K1–K4 — = 0,5; dua posisi terbawah ditempati (ii) dan (iv), dalam urutan mana pun = 0,5 (hanya salah satunya = 0). Alasan butir teratas dengan **kedua** pertimbangan (dampak bila salah, kekuatan bukti) = 2; satu pertimbangan = 1; satu pertimbangan yang lemah atau tidak didukung bahan (mis. dampak besar bagi (iv) tanpa menimbang bahwa (iv) sudah dipakai untuk purwarupa) = 0,5. Alasan untuk butir lain tidak dituntut dan tidak menambah skor |
 
 #### Contoh jawaban
 
 | Tingkat | Jawaban | Skor |
 |---------|---------|:----:|
-| Kurang | "(iv) paling berisiko karena server gratis bisa mati, lalu (ii), (i), (iii)." | **0,5** *(urutan: teratas dan dua posisi terbawah tidak sesuai (0); alasan teratas hanya memakai sumbu dampak dan bertentangan dengan bukti bahwa (iv) sudah dipakai (0,5))* |
+| Kurang | "(iv) paling berisiko karena server gratis bisa mati, lalu (ii), (i), (iii)." | **0,5** *(urutan: teratas dan dua posisi terbawah tidak sesuai (0); alasan teratas hanya memakai sumbu dampak, tanpa menimbang bahwa (iv) sudah dipakai untuk purwarupa (0,5))* |
 | Cukup | "(i) paling berisiko karena belum ada kontak sama sekali. Lalu (iii), (ii), (iv)." | **2** *(urutan 1; alasan teratas hanya memakai sumbu bukti (1))* |
 | Baik | Urutan seperti kunci; (i) dampak terbesar (tanpa jadwal tidak ada layanan) dan bukti terlemah (belum ada kontak). | **3** |
 
@@ -421,14 +422,14 @@ Menurut definisi Bab 3 §3.3.3 ("berapa kali sehari/seminggu terjadi?"), **freku
 | Sub | Maks | Rincian |
 |-----|:----:|---------|
 | (a) | 5 | R2 (S02-1) dan R5 (S01-2): kode induk tepat = 1 masing-masing; menambahkan S06-1 sebagai *constraint* boleh, tidak menambah skor. R1, R3, R4: "tidak ada" beserta kode kutipan penunjuk yang tepat (R1: S04-1; R3: S07-2; R4: S05-2 atau S07-2) = 1 masing-masing ("tidak ada" tanpa kutipan penunjuk = 0,5). Menandai persyaratan lain (mis. R5) juga tanpa induk **tidak membatalkan** poin baris lain — baris itu sendiri dinilai dengan K1–K4. Bentuk tabel sudah cukup |
-| (b) | 7 | Per persyaratan (R1, R4) = 3,5: jenis Kano **atau uraian hubungan kepuasan yang setara** (mis. "penyewa justru terganggu bila ada" untuk terbalik; "tidak berpengaruh pada kepuasan" untuk acuh) = 1 — label tidak wajib; alasan yang menautkan isi kutipan (S04-1 untuk R1; S05-2 untuk R4) dengan reaksi penyewa = 1 (kode saja tanpa isi = 0,5); tindakan prioritas *Won't* = 0,5; alasan *Won't* dicatat — dan, bila persyaratan itu dinilai **terbalik** (R4; juga R1 pada varian terbalik), dicatat sebagai **larangan** = 1. Kapan R1 ditinjau ulang tidak diminta soal dan tidak dinilai |
+| (b) | 7 | Per persyaratan (R1, R4) = 3,5: jenis Kano **atau uraian hubungan kepuasan yang setara** (mis. "penyewa justru terganggu bila ada" untuk terbalik; "tidak berpengaruh pada kepuasan" untuk acuh) = 1 — label tidak wajib; uraian kabur yang tidak menyatakan hubungan dengan kepuasan penyewa (mis. "tidak penting", "kurang perlu") = 0,5; alasan yang menautkan isi kutipan (S04-1 untuk R1; S05-2 untuk R4) dengan reaksi penyewa = 1 (kode saja tanpa isi = 0,5); tindakan prioritas *Won't* = 0,5; alasan *Won't* dicatat — dan, bila persyaratan itu dinilai **terbalik** (R4; juga R1 pada varian terbalik), dicatat sebagai **larangan** = 1. Kapan R1 ditinjau ulang tidak diminta soal dan tidak dinilai |
 
 #### Contoh jawaban
 
 | Tingkat | Jawaban (ringkas) | Skor |
 |---------|-------------------|:----:|
 | Kurang | (a) "Semua persyaratan berguna." (b) "R1 penggoda, R4 dasar." | 0 + 0 = **0** |
-| Cukup | (a) R2 → S02-1, R5 → S01-2, R1 dan R4 "tidak ada"; R3 tidak dibahas. (b) "R4: penyewa justru tersinggung bila ditagih lewat HP (S05-2) → hapus. R1 tidak penting." | 3 + 3 = **6** *((a) R1 dan R4 tanpa kutipan penunjuk (0,5 + 0,5); (b) R4 tanpa catatan larangan (2,5); R1 hanya "tidak penting" tanpa bukti dan tindakan (0,5))* |
+| Cukup | (a) R2 → S02-1, R5 → S01-2, R1 dan R4 "tidak ada"; R3 tidak dibahas. (b) "R4: penyewa justru tersinggung bila ditagih lewat HP (S05-2) → hapus. R1 tidak penting." | 3 + 3 = **6** *((a) R1 dan R4 tanpa kutipan penunjuk (0,5 + 0,5); (b) R4: terbalik dalam uraian setara "justru tersinggung" (1), alasan dari isi S05-2 (1), "hapus" setara *Won't* (0,5), tanpa catatan larangan (0) = 2,5; R1: "tidak penting" adalah uraian kabur (0,5), tanpa alasan dari kutipan dan tanpa tindakan (0) = 0,5)* |
 | Baik | Seperti kunci: R2 dan R5 dengan induknya; R1, R3, R4 "tidak ada" dengan kutipan penunjuk; R1 acuh dan R4 terbalik (atau uraian setara) dengan alasan dari kutipan, *Won't*, dan larangan untuk R4. | **12** |
 
 #### Kesalahan umum
@@ -512,7 +513,7 @@ Kesimpulannya sama (rugi per pelanggan; biaya akuisisi + voucer baru pulih setel
 |-----|:----:|---------|
 | (a) | 4 | Kapasitas 960 dengan langkah = 1. Proporsi 3/16 dipakai = 0,5. SOM akhir dengan langkah = 0,5 (kesalahan bawaan berlaku). Alasan dua pengali yang diganti (10%: tanpa dasar kapasitas; 75%: "mau" ≠ membayar) = 0,5 masing-masing. Satu pengali lain yang bermasalah dengan alasan (60.000, 20%, **atau × 12 bulan**) = 1. *Varian:* hanya proporsi dikoreksi (1.200 × 3/16 = 225 → Rp94.500.000) atau hanya kapasitas dikoreksi (960 × 75% = 720 → Rp302.400.000) → bagian yang benar tetap dinilai. SOM yang disesuaikan untuk akuisisi bertahap/churn → K1–K4 (penuh bila konsisten) |
 | (b) | 5 | **Langkah CAC = 1,5:** waktu tim dinilai dengan upah pembanding dan dimasukkan = 0,5; voucer dimasukkan — **atau** dibebankan sebagai biaya layanan/pengurang LTV dengan alasan — = 0,5; nilai CAC = 0,5. **Langkah margin = 1:** biaya dukungan = 0,5; margin kontribusi = 0,5. CAC dan margin dinilai **pada nilainya**: CAC yang dihitung dari komponen tidak lengkap, atau margin tanpa dukungan, mendapat 0 untuk nilai itu, karena kelengkapan komponen adalah bagian dari langkah tersebut — kesalahannya dikurangi sekali, di langkah CAC atau margin. **Kesalahan bawaan berlaku mulai LTV/rasio:** LTV dan rasio pada 10 bulan = 1. Arti (rasio < 1 → rugi per pelanggan, tidak layak ekspansi) = 1 (0,5 bila hanya "belum sehat", atau bila arti konsisten dengan angkanya sendiri yang keliru). Pengaruh D5 — masa bertahan ±7 bulan menurunkan LTV sehingga rasio lebih rendah/kerugian lebih besar, dengan atau tanpa hitungan = 0,5 |
-| (c) | 3 | ≥ 2 asumsi tim yang terbantah, dengan angka lama → baru = 1,5 (satu asumsi = 0,5). Keputusan konsisten dengan hasil (a)–(b), dengan alasan = 1,5 (keputusan tanpa alasan = 0,5; "lanjut ekspansi" = 0, juga bila bertumpu pada angka keliru, karena mengabaikan bukti D2 dan D5). Uji berikutnya tidak diminta dan tidak menambah skor |
+| (c) | 3 | ≥ 2 asumsi tim yang terbantah, masing-masing dengan angka lama → baru = 1,5 (≥ 2 asumsi tepat, tetapi tidak semuanya dengan angka lama → baru = 1; satu asumsi = 0,5). Keputusan konsisten dengan hasil (a)–(b), dengan alasan = 1,5 (keputusan tanpa alasan = 0,5; "lanjut ekspansi" = 0, juga bila bertumpu pada angka keliru, karena mengabaikan bukti D2 dan D5). Uji berikutnya tidak diminta dan tidak menambah skor |
 
 Kesalahan bawaan berlaku: angka keliru di (a), atau CAC/margin keliru di (b), yang dipakai dengan benar pada langkah berikutnya tidak dikurangi lagi. Pada (c) kesalahan bawaan tidak membenarkan keputusan yang bertentangan dengan bukti eksplisit dalam soal.
 
@@ -549,6 +550,8 @@ Dugaan tim adalah dugaan **sebab**: pemesanan ganda terjadi karena **jumlah pene
 - **beberapa penerima, tetapi tidak pernah terjadi pemesanan ganda** (seperti H03) → penerima ganda bukan penyebab yang cukup; atau
 - pemesanan ganda karena **sebab lain** (mis. situs pemesanan daring mengonfirmasi otomatis tanpa dicek).
 
+Sebaliknya, bukti yang **mendukung** dugaan secara berarti harus memisahkan penerima dari jalur: pemesanan ganda terjadi di antara **beberapa penerima pada jalur yang sama** (mis. satu nomor WhatsApp dibuka di dua ponsel, atau satu telepon rumah diangkat bergantian) atau karena **serah-terima antar-orang** yang gagal (setiap orang mencatat sendiri, tidak saling memberi tahu). Pola H01 — setiap penerima memegang jalurnya sendiri — belum membedakan kedua sebab.
+
 Bab 2 §2.3.3: satu temuan yang membantah dugaan adalah alasan untuk **mengubah pertanyaan pada wawancara berikutnya**; Modul 2: bila semua wawancara mengonfirmasi dugaan, kemungkinan besar pertanyaannya yang memimpin.
 
 #### Rubrik analitik
@@ -556,8 +559,8 @@ Bab 2 §2.3.3: satu temuan yang membantah dugaan adalah alasan untuk **mengubah 
 | Komponen | Maks | Penuh | Sebagian | Rendah |
 |----------|:----:|-------|----------|--------|
 | **(a)** Narasumber yang dapat membantah dugaan | 5 | **Kriteria 2,5** — kasus pembanding (lihat "Logika butir"), dikaitkan dengan temuan H01–H03. **Alasan 1,5** — mengapa kasus itu menguji dugaan (hasilnya dapat menunjukkan dugaan salah). **Cara 1** — satu cara konkret menemuinya minggu ini (mis. rujukan dari H02/H03 atau pengelola desa wisata; daftar homestay di situs pemesanan daring atau papan informasi desa; datang langsung akhir pekan) | Kriteria **1,5**: kasus pembanding tanpa kaitan dengan temuan. Alasan **0,5**: kurang jelas. Cara **0,5**: generik ("lewat internet", "datang langsung" tanpa tujuan) | Kriteria **0,5**: hanya mencari pengelola yang "pernah mengalami pemesanan ganda" atau "punya banyak penerima" tanpa alasan pembanding — itu mencari pembenaran. **0**: tidak ada |
-| **(b)** Empat pertanyaan inti | 9 | **Per pertanyaan (maks 4): 1,5** — tentang peristiwa yang sudah terjadi dan terbuka (1) serta tidak memimpin dan tidak menyebut dugaan/"pemesanan ganda"/solusi (0,5). **Cakupan 3** — aspek yang tercakup: penerima dan jalur; di mana dan sedang apa penerima (konteks penggunaan); pencatatan dan penerusan; kali terakhir tamu dipindahkan/dibatalkan. 4 aspek = 3; 3 aspek = 2; 2 aspek = 1; 1 aspek = 0,5 | Pertanyaan tentang kebiasaan umum ("biasanya siapa yang…") atau berbentuk ya/tidak ("pernah ada tamu yang dipindahkan?") **0,5 + 0,5**. Pertanyaan terbuka tentang peristiwa yang **menyiratkan** dugaan (mis. "Ceritakan kali terakhir ada tamu yang kamarnya ternyata sudah terisi.") **1 + 0** | Pertanyaan yang menyebut dugaan langsung, hipotetis ("kalau ada…, mau?"), atau menawarkan solusi: **0** untuk pertanyaan itu |
-| **(c)** Jawaban pendukung vs pelemah (**satu** pertanyaan) | 6 | Jawaban **pendukung** yang terkait jumlah penerima atau jalur — mis. beberapa orang menerima pesanan untuk kamar yang sama lewat jalur masing-masing (**2,5**). Jawaban **pelemah** yang **benar-benar melemahkan dugaan sebab** — satu penerima tetapi tetap ganda; banyak penerima tetapi tidak pernah ganda; sebab lain (**3,5**). Kedua sisi dinilai dengan syarat yang sama: harus **membedakan kedua sebab** (jumlah penerima vs jumlah jalur) | Pendukung yang hanya menunjukkan bahwa masalah ada (mis. "ya, sering") tanpa kaitan dengan penerima atau jalur: pendukung **0,5**. Pelemah yang sekadar "tidak pernah ada masalah" tanpa keterangan jumlah penerima: pelemah **0,5** | **0**: tidak ada, atau jawaban "pendukung" justru melemahkan / jawaban "pelemah" justru cocok dengan dugaan. Bila dua pertanyaan dijawab, dinilai yang lebih baik |
+| **(b)** Empat pertanyaan inti | 9 | **Per pertanyaan (maks 4): 1,5** — tentang peristiwa yang sudah terjadi dan terbuka (1) serta tidak memimpin (0,5); pertanyaan yang menyebut dugaan, kata "pemesanan ganda", atau solusi dinilai 0 seluruhnya (kolom Rendah). **Cakupan 3** — aspek yang tercakup: penerima dan jalur; di mana dan sedang apa penerima (konteks penggunaan); pencatatan dan penerusan; kali terakhir tamu dipindahkan/dibatalkan. 4 aspek = 3; 3 aspek = 2; 2 aspek = 1; 1 aspek = 0,5 | Pertanyaan tentang kebiasaan umum ("biasanya siapa yang…") atau berbentuk ya/tidak ("pernah ada tamu yang dipindahkan?") **0,5 + 0,5**. Pertanyaan terbuka tentang peristiwa yang **menyiratkan** pemesanan ganda tanpa menyebut katanya (mis. "Ceritakan kali terakhir ada tamu yang kamarnya ternyata sudah terisi.") **1 + 0** | Pertanyaan yang menyebut dugaan langsung atau kata "pemesanan ganda" (keduanya dilarang batang soal), hipotetis tentang keadaan atau produk yang dibayangkan ("kalau ada…, mau?"), atau menawarkan solusi: **0** untuk pertanyaan itu |
+| **(c)** Jawaban pendukung vs pelemah (**satu** pertanyaan) | 6 | Jawaban **pendukung** yang menunjukkan pemesanan ganda bersumber dari **penerima atau serah-terima antar-orang, bukan dari jalur** — mis. satu nomor WhatsApp dibuka di dua ponsel, atau satu telepon rumah diangkat bergantian, lalu dua orang menjanjikan kamar yang sama; atau setiap penerima mencatat di bukunya sendiri tanpa saling memberi tahu (**2,5**). Jawaban **pelemah** yang **benar-benar melemahkan dugaan sebab** — satu penerima tetapi tetap ganda; banyak penerima tetapi tidak pernah ganda; pemesanan ganda karena sebab lain, mis. situs daring mengonfirmasi tamu otomatis tanpa dicek (**3,5**). Kedua sisi dinilai dengan syarat yang sama: harus **membedakan kedua sebab** (jumlah penerima vs jumlah jalur) | Pendukung berpola H01 — setiap penerima memegang jalurnya sendiri (mis. "suami terima telepon, saya terima WA, untuk kamar yang sama") — cocok dengan dugaan, tetapi juga dengan "banyak jalur": pendukung **1,5**; **2,5** bila jawaban itu sendiri mengakui keterbatasan ini dan menyebut keterangan yang akan membedakannya (mis. "kalau keduanya membalas dari nomor WA yang sama, baru jelas penyebabnya orang"). Pendukung yang hanya menunjukkan bahwa masalah ada (mis. "ya, sering") tanpa kaitan dengan penerima atau jalur: pendukung **0,5**. Pelemah yang sekadar "tidak pernah ada masalah" tanpa keterangan jumlah penerima, atau pemindahan/pembatalan yang **bukan** karena pemesanan ganda (mis. kamar bocor, tamu batal sendiri): pelemah **0,5** | **0**: tidak ada, atau jawaban "pendukung" justru melemahkan / jawaban "pelemah" justru cocok dengan dugaan. Bila lebih dari satu pertanyaan dijawab, yang dinilai yang pertama (sama dengan kaidah B1(a)) |
 
 **Konsistensi:** pertanyaan yang berbeda dari contoh kunci dinilai dari sifatnya (peristiwa nyata, terbuka, tidak memimpin), bukan dari kemiripan kata. Pada (c), jawaban yang dipilih harus cocok dengan pertanyaan yang ditulis di (b); kesalahan pada (b) tidak dikurangi lagi di (c). Pembuka tidak diminta; pembuka yang tetap ditulis tidak dinilai, kecuali ia menyebut dugaan tim — maka pertanyaan (b) yang menyusul dinilai seolah memimpin (bagian "tidak memimpin" = 0).
 
@@ -565,28 +568,30 @@ Bab 2 §2.3.3: satu temuan yang membantah dugaan adalah alasan untuk **mengubah 
 
 - **(a):** *"Pengelola yang menerima sendiri semua pesanan dari tiga jalur atau lebih, termasuk situs pemesanan daring — seperti H02, tetapi lebih ramai. Bila di rumah seperti itu tetap pernah ada tamu yang dipindahkan, penyebabnya bukan banyaknya penerima, dan dugaan kami salah. Cara: minta H02 atau pengelola desa wisata menyebutkan homestay yang terdaftar di situs pemesanan daring, lalu datang Sabtu ini."*
 - **(b) Pertanyaan inti (contoh):**
-  1. "Coba ceritakan pesanan terakhir yang masuk: siapa yang menerimanya, lewat apa, dan apa yang dilakukan sesudahnya?" *(penerima dan jalur)*
+  1. "Coba ceritakan pesanan terakhir yang masuk: siapa yang menerimanya, lewat apa, dan apa yang dilakukan sesudahnya?" *(penerima dan jalur; bagian "apa yang dilakukan sesudahnya" juga membuka pencatatan dan penerusan)*
   2. "Waktu pesanan itu masuk, Bapak/Ibu sedang di mana dan sedang mengerjakan apa?" *(konteks penggunaan)*
   3. "Setelah pesanan itu diterima, bagaimana anggota keluarga yang lain tahu kamar itu sudah terisi? Boleh saya lihat catatannya?" *(pencatatan dan penerusan)*
   4. "Kapan terakhir kali Bapak/Ibu harus memindahkan atau membatalkan tamu? Ceritakan dari awal." *(peristiwa terakhir — mengungkap pemesanan ganda tanpa menyebutnya)*
 - **(c) Contoh** (cukup **satu** pertanyaan):
   - Pertanyaan 3 — *mendukung:* "Kalau suami yang terima, ditulis di bukunya sendiri; saya baru tahu kalau tamunya datang." *Melemahkan:* "Siapa pun yang menerima langsung menulis di buku yang sama di meja depan, dan selama ini tidak pernah salah kamar walaupun yang menerima bertiga."
-  - Pertanyaan 4 — *mendukung:* "Waktu itu anak saya terima WhatsApp, saya terima telepon, untuk kamar yang sama." *Melemahkan:* "Saya sendiri yang menerima semuanya; tamu dari situs daring ternyata masuk ke kamar yang sudah saya janjikan lewat WhatsApp" (satu penerima, banyak jalur) — atau "tamunya batal sendiri; kamarnya bocor" (sebab lain).
+  - Pertanyaan 4 — *mendukung:* "Nomor WhatsApp rumah kami terpasang di HP saya dan HP anak saya. Waktu itu anak saya membalas satu tamu untuk kamar 2, saya membalas tamu lain untuk kamar 2 juga — kami tidak saling tahu." (jalurnya satu, penerimanya dua). *Melemahkan:* "Saya sendiri yang menerima semuanya; tamu yang menelepon saya catat di kamar yang ternyata sudah saya janjikan lewat WhatsApp" (satu penerima, banyak jalur) — atau "Situs pemesanan daring mengonfirmasi tamu itu otomatis tanpa saya cek, padahal kamarnya sudah terisi" (sebab lain).
+  - *Bukan contoh yang baik:* pendukung "anak saya terima WhatsApp, saya terima telepon, untuk kamar yang sama" berpola H01 — cocok dengan dugaan, tetapi juga dengan "banyak jalur" (1,5); pelemah "tamunya batal sendiri" atau "kamarnya bocor" bukan pemesanan ganda, jadi tidak menguji dugaan sebab (0,5).
 
 #### Contoh jawaban
 
 | Tingkat | Ringkasan jawaban | Skor |
 |---------|------------------|:----:|
-| **Kurang** | (a) "Pengelola yang sering mengalami pemesanan ganda; cari di internet." (b) "Apakah Ibu sering mengalami pemesanan ganda?", "Biasanya siapa yang menerima pesanan?", "Kalau ada aplikasi yang menggabungkan semua pesanan, Ibu mau pakai?", "Berapa kerugian Ibu kalau tamu dipindah?" (c) Pertanyaan 1: mendukung "ya, sering"; melemahkan "tidak pernah". | (a) 0,5 + 0 + 0,5 · (b) 0 + 1 + 0 + 1 + cakupan 1 · (c) 0,5 + 0,5 = **5** *((b) dua aspek tercakup — penerima, tamu dipindah; (c) kedua sisi tidak membedakan kedua sebab)* |
-| **Cukup** | (a) "Pengelola yang menerima sendiri pesanan dari banyak jalur, sebagai pembanding"; akses "datang langsung". (b) Pertanyaan 1 dan 4 seperti kunci; "Biasanya siapa yang menerima pesanan?"; "Ceritakan kali terakhir ada tamu yang kamarnya ternyata sudah terisi."; aspek "di mana dan sedang apa" tidak tercakup. (c) Pertanyaan 1: mendukung "suami terima telepon, saya terima WA, untuk kamar yang sama"; melemahkan "tidak pernah ada masalah". | (a) 1,5 + 0,5 + 0,5 · (b) 1,5 + 1,5 + 1 + 1 + cakupan 2 · (c) 2,5 + 0,5 = **12,5** |
+| **Kurang** | (a) "Pengelola yang sering mengalami pemesanan ganda; cari di internet." (b) "Apakah Ibu sering mengalami pemesanan ganda?", "Biasanya siapa yang menerima pesanan?", "Kalau ada aplikasi yang menggabungkan semua pesanan, Ibu mau pakai?", "Berapa kerugian Ibu kalau tamu dipindah?" (c) Pertanyaan 1: mendukung "ya, sering"; melemahkan "tidak pernah". | (a) 0,5 + 0 + 0,5 · (b) 0 + 1 + 0 + 1 + cakupan 1 · (c) 0,5 + 0,5 = **5** *((b) pertanyaan 1 menyebut kata "pemesanan ganda" (0); "Biasanya siapa…" kebiasaan umum (0,5 + 0,5); pertanyaan aplikasi hipotetis dan menawarkan solusi (0); "kalau tamu dipindah" dibaca sebagai pertanyaan kebiasaan umum ("setiap kali tamu dipindah"), bukan hipotetis tentang produk atau keadaan yang dibayangkan (0,5 + 0,5); dua aspek tercakup — penerima, tamu dipindah; (c) kedua sisi tidak membedakan kedua sebab)* |
+| **Cukup** | (a) "Pengelola yang menerima sendiri pesanan dari banyak jalur, sebagai pembanding"; akses "datang langsung". (b) Pertanyaan 1 dan 4 seperti kunci; "Biasanya siapa yang menerima pesanan?"; "Ceritakan kali terakhir ada tamu yang kamarnya ternyata sudah terisi."; aspek "di mana dan sedang apa" tidak tercakup. (c) Pertanyaan 1: mendukung "suami terima telepon, saya terima WA, untuk kamar yang sama"; melemahkan "tidak pernah ada masalah". | (a) 1,5 + 0,5 + 0,5 · (b) 1,5 + 1,5 + 1 + 1 + cakupan 2 · (c) 1,5 + 0,5 = **11,5** *((a) kasus pembanding tanpa kaitan dengan H01–H03; alasan kurang jelas; cara generik. (b) "Biasanya…" kebiasaan umum (0,5 + 0,5); "kamarnya ternyata sudah terisi" menyiratkan pemesanan ganda (1 + 0); cakupan 3 aspek — penerima dan jalur, pencatatan dan penerusan lewat bagian akhir pertanyaan 1, kali terakhir tamu dipindah; "di mana dan sedang apa" tidak tercakup. (c) pendukung berpola H01, belum membedakan kedua sebab (1,5); pelemah tanpa keterangan jumlah penerima (0,5))* |
 | **Baik** | Seperti contoh unsur kunci: kasus pembanding dengan alasan dan cara konkret; empat pertanyaan peristiwa yang mencakup keempat aspek; satu pasang jawaban pendukung/pelemah yang membedakan kedua sebab. | **20** |
 
 #### Kesalahan umum
 
 - Mencari narasumber yang "pernah mengalami pemesanan ganda" saja — itu mencari pembenaran, bukan kasus yang dapat membantah dugaan.
-- Pertanyaan yang menyebut "pemesanan ganda", menyiratkan dugaan ("ceritakan kali terakhir kamarnya ternyata sudah terisi"), berbentuk ya/tidak ("pernah ada tamu yang dipindahkan?"), atau hipotetis ("kalau ada aplikasi…, mau?").
+- Pertanyaan yang menyebut "pemesanan ganda", menyiratkannya ("ceritakan kali terakhir kamarnya ternyata sudah terisi"), berbentuk ya/tidak ("pernah ada tamu yang dipindahkan?"), atau hipotetis ("kalau ada aplikasi…, mau?").
 - Pertanyaan kebiasaan umum ("biasanya…") alih-alih peristiwa terakhir ("ceritakan pesanan terakhir…").
 - Jawaban pendukung dan pelemah yang hanya "ya, sering" / "tidak pernah" — keduanya tidak membedakan **jumlah penerima** dari **jumlah jalur**, padahal itulah yang diuji.
+- Jawaban pendukung yang mengulang pola H01 ("suami lewat telepon, istri lewat WA"): penerimanya berbeda **dan** jalurnya berbeda, sehingga belum dapat dibedakan sebabnya. Pendukung yang kuat menahan jalurnya tetap (satu nomor WA di dua ponsel) atau menunjuk serah-terima antar-orang. Pelemah "kamarnya bocor" juga keliru arah: itu bukan pemesanan ganda.
 
 *Pelajari ulang:* [Bab 2 §2.2.3 (pertanyaan inti)](../06-buku-ajar/bab-02-penemuan-masalah-dan-pelanggan.md#223-pertanyaan-inti-yang-selalu-dipakai) · [Bab 2 §2.3.3 (ketika dugaan terbantah)](../06-buku-ajar/bab-02-penemuan-masalah-dan-pelanggan.md#233-ketika-dugaan-terbantah) · [Modul Minggu 2](../03-modules/week-02-penemuan-masalah-dan-pelanggan.md)
 
@@ -623,7 +628,7 @@ Salin tabel ini, isi skor Anda per butir, lalu hitung capaian (skor ÷ maks × 1
 
 ## 6. Verifikasi Angka dengan Python
 
-Seluruh angka B4 pada pembahasan ini dapat Anda periksa ulang. Salin kode berikut ke satu sel Google Colab (atau Python 3.8 ke atas) lalu jalankan; tidak diperlukan pustaka tambahan. *Pemeriksaan ini dilakukan sesudah latihan — selama UTS tidak ada perangkat selain kalkulator.*
+Seluruh angka B4 pada pembahasan ini — kunci, varian voucer, angka varian pada pedoman skor, angka pada contoh jawaban, dan pengayaan uji berikutnya — dapat Anda periksa ulang. Salin kode berikut ke satu sel Google Colab (atau Python 3.8 ke atas) lalu jalankan; tidak diperlukan pustaka tambahan. *Pemeriksaan ini dilakukan sesudah latihan — selama UTS tidak ada perangkat selain kalkulator.*
 
 ```python
 # Verifikasi angka butir B4 — Latihan UTS Teknopreneur
@@ -645,7 +650,8 @@ jangkau = 3 * 4 * (60 / 30) * 40                # D1: 3 orang x 4 jam x 2 pengem
 pelanggan = jangkau * 3 / 16                    # D2: hanya yang PERNAH membayar
 som = pelanggan * harga * 12
 print(f"SOM tim        : {pelanggan_tim:.0f} pelanggan -> {rp(som_tim)}")
-print(f"SOM terkoreksi : {jangkau:.0f} x 3/16 = {pelanggan:.0f} pelanggan -> {rp(som)}")
+print(f"SOM terkoreksi : {jangkau:.0f} x 3/16 = {pelanggan:.0f} pelanggan -> {rp(som)}"
+      f" (seperlima versi tim: {som / som_tim:.2f})")
 
 # ---- (b) CAC, margin kontribusi, LTV, rasio -----------------------------
 nilai_waktu = 42 * 25_000                       # 42 jam x upah pembanding
@@ -655,7 +661,8 @@ cac_tim = (380_000 + 220_000) / 12              # versi tim: tanpa waktu dan vou
 dukungan = (12 / 60) * 25_000                   # 12 menit per pelanggan per bulan
 margin = harga - (1_500 + 14_000 + dukungan)
 margin_tim = harga - (1_500 + 14_000)
-print(f"CAC            : {rp(biaya_akuisisi)} / 12 = {rp(cac)} (versi tim {rp(cac_tim)})")
+print(f"CAC            : {rp(biaya_akuisisi)} / 12 = {rp(cac)} (versi tim {rp(cac_tim)});"
+      f" porsi waktu tim {nilai_waktu / biaya_akuisisi:.0%}")
 print(f"Margin         : {rp(margin)} per bulan ({margin / harga:.1%}); versi tim {rp(margin_tim)}")
 for bulan in (10, 7):                           # asumsi tim vs laju berhenti pada uji coba (D5)
     ltv = margin * bulan
@@ -663,24 +670,57 @@ for bulan in (10, 7):                           # asumsi tim vs laju berhenti pa
           f"selisih per pelanggan {rp(ltv - cac)}")
 print(f"Rasio versi tim: {margin_tim * 10 / cac_tim:.1f}")
 
+# ---- (b) varian voucer: voucer dibebankan sebagai pengurang LTV ---------
+voucer = 300_000 / 12                           # Rp25.000 per pelanggan
+cac_tv = (380_000 + 220_000 + nilai_waktu) / 12 # CAC tanpa voucer
+rasio_tv = {b: (margin * b - voucer) / cac_tv for b in (10, 7)}
+pulih = (cac_tv + voucer) / margin              # bulan sampai biaya akuisisi + voucer kembali
+print(f"Varian voucer  : CAC {rp(cac_tv)}; rasio 10 bulan {rasio_tv[10]:.2f}, 7 bulan {rasio_tv[7]:.2f};"
+      f" pulih {pulih:.1f} bulan; rasio tampak bila voucer hilang {margin * 10 / cac_tv:.2f}")
+
 # ---- (c) pegangan HENTIKAN: ambang CAC agar rasio = 3 -----------------
 for bulan in (10, 7):
     print(f"CAC maksimum agar rasio 3 ({bulan} bulan): {rp(margin * bulan / 3)}")
 
-# ---- (c) pengayaan: kriteria kedua uji berikutnya (>= 8 dari 9 aktif setelah 3 minggu)
-# Laju berhenti bulanan dianggap tetap = 1 / rata-rata bulan bertahan;
-# 3 minggu = 3 x 12/52 bulan. Peluang lolos = P(8 atau 9 dari 9 bertahan).
+# ---- (c) pengayaan: uji berikutnya ------------------------------------
+cac_uji = 45_000                                # ambang CAC kriteria pertama
+biaya_uji = 8 * 25_000 + 8 * 10_000             # 8 jam-orang + insentif 8 pelanggan, sebelum transport
+print(f"Pengayaan      : LTV/CAC pada CAC {rp(cac_uji)} = {margin * 10 / cac_uji:.1f} (10 bulan),"
+      f" {margin * 7 / cac_uji:.1f} (7 bulan); biaya uji {rp(biaya_uji)} = {rp(biaya_uji / 8)} per pelanggan;"
+      f" sisa untuk transport {rp(8 * cac_uji - biaya_uji)}")
+# Kriteria kedua (>= 8 dari 9 aktif setelah 3 minggu): laju berhenti bulanan dianggap tetap
+# = 1 / rata-rata bulan bertahan; 3 minggu = 3 x 12/52 bulan. Peluang lolos = P(8 atau 9 dari 9 bertahan).
 lolos = {}
 for bulan in (10, 7):
     p = (1 - 1 / bulan) ** (3 * 12 / 52)        # peluang satu pelanggan bertahan 3 minggu
     lolos[bulan] = sum(comb(9, j) * p**j * (1 - p)**(9 - j) for j in (8, 9))
-    print(f"Peluang lolos kriteria kedua ({bulan} bulan): {lolos[bulan]:.2f}")
+    print(f"Peluang lolos kriteria kedua ({bulan} bulan, laju berhenti {1 / bulan:.0%}/bulan): {lolos[bulan]:.2f}")
+
+# ---- pedoman skor dan contoh jawaban: angka varian dan angka keliru ------
+som_6bulan = pelanggan * harga * 6              # varian (a): rata-rata 6 bulan berbayar
+som_proporsi = 1_200 * 3 / 16 * harga * 12      # hanya proporsi dikoreksi
+som_kapasitas = jangkau * 0.75 * harga * 12     # hanya kapasitas dikoreksi
+print(f"Varian SOM     : 6 bulan {rp(som_6bulan)}; hanya proporsi {rp(som_proporsi)};"
+      f" hanya kapasitas {rp(som_kapasitas)}")
+print(f"Contoh Kurang  : rasio 7 bulan versi tim {margin_tim * 7 / cac_tim:.2f}")
+print(f"Contoh Cukup   : rasio tanpa dukungan {margin_tim * 10 / cac:.1f} (10 bulan), {margin_tim * 7 / cac:.2f} (7 bulan)")
 
 # Pemeriksaan otomatis: bila salah satu angka berubah, assert akan gagal
-assert (jangkau, pelanggan, som) == (960, 180, 75_600_000)
-assert (cac, margin) == (162_500, 14_500)
+assert 3 / 16 == 0.1875 and 60_000 * 0.20 == 12_000 > jangkau        # kapasitas tim yang mengikat
+assert (jangkau, pelanggan, som) == (960, 180, 75_600_000) and som * 5 == som_tim
+assert (cac, cac_tim, nilai_waktu) == (162_500, 50_000, 1_050_000)
+assert (dukungan, margin, margin_tim) == (5_000, 14_500, 19_500)
+assert round(nilai_waktu / biaya_akuisisi, 2) == 0.54
 assert round(margin * 10 / cac, 2) == 0.89 and round(margin * 7 / cac, 2) == 0.62
+assert (voucer, cac_tv) == (25_000, 137_500)
+assert (round(rasio_tv[10], 2), round(rasio_tv[7], 2)) == (0.87, 0.56)
+assert round(pulih, 1) == 11.2 and round(margin * 10 / cac_tv, 2) == 1.05
+assert (round(margin * 10 / cac_uji, 1), round(margin * 7 / cac_uji, 1)) == (3.2, 2.3)
+assert (biaya_uji, biaya_uji / 8, 8 * cac_uji - biaya_uji) == (280_000, 35_000, 80_000)
 assert round(lolos[10], 1) == 0.9 and round(lolos[7], 1) == 0.8   # hampir sama: kriteria tidak membedakan
+assert (som_6bulan, som_proporsi, som_kapasitas) == (37_800_000, 94_500_000, 302_400_000)
+assert round(margin_tim * 7 / cac_tim, 2) == 2.73
+assert round(margin_tim * 10 / cac, 1) == 1.2 and round(margin_tim * 7 / cac, 2) == 0.84
 print("Semua angka cocok dengan pembahasan.")
 ```
 
@@ -688,16 +728,21 @@ Keluaran yang diharapkan (Python memakai titik desimal):
 
 ```
 SOM tim        : 900 pelanggan -> Rp378.000.000
-SOM terkoreksi : 960 x 3/16 = 180 pelanggan -> Rp75.600.000
-CAC            : Rp1.950.000 / 12 = Rp162.500 (versi tim Rp50.000)
+SOM terkoreksi : 960 x 3/16 = 180 pelanggan -> Rp75.600.000 (seperlima versi tim: 0.20)
+CAC            : Rp1.950.000 / 12 = Rp162.500 (versi tim Rp50.000); porsi waktu tim 54%
 Margin         : Rp14.500 per bulan (41.4%); versi tim Rp19.500
 LTV 10 bulan   : Rp145.000 -> LTV/CAC = 0.89; selisih per pelanggan −Rp17.500
 LTV  7 bulan   : Rp101.500 -> LTV/CAC = 0.62; selisih per pelanggan −Rp61.000
 Rasio versi tim: 3.9
+Varian voucer  : CAC Rp137.500; rasio 10 bulan 0.87, 7 bulan 0.56; pulih 11.2 bulan; rasio tampak bila voucer hilang 1.05
 CAC maksimum agar rasio 3 (10 bulan): Rp48.333
 CAC maksimum agar rasio 3 (7 bulan): Rp33.833
-Peluang lolos kriteria kedua (10 bulan): 0.87
-Peluang lolos kriteria kedua (7 bulan): 0.77
+Pengayaan      : LTV/CAC pada CAC Rp45.000 = 3.2 (10 bulan), 2.3 (7 bulan); biaya uji Rp280.000 = Rp35.000 per pelanggan; sisa untuk transport Rp80.000
+Peluang lolos kriteria kedua (10 bulan, laju berhenti 10%/bulan): 0.87
+Peluang lolos kriteria kedua (7 bulan, laju berhenti 14%/bulan): 0.77
+Varian SOM     : 6 bulan Rp37.800.000; hanya proporsi Rp94.500.000; hanya kapasitas Rp302.400.000
+Contoh Kurang  : rasio 7 bulan versi tim 2.73
+Contoh Cukup   : rasio tanpa dukungan 1.2 (10 bulan), 0.84 (7 bulan)
 Semua angka cocok dengan pembahasan.
 ```
 

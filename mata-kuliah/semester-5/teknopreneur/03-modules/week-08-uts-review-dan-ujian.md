@@ -159,6 +159,7 @@ Dilaksanakan setelah ujian, dikumpulkan pada hari yang sama.
 2. [Kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md).
 3. [Latihan UTS (simulasi)](../05-assessments/latihan-uts.md) dan [pembahasannya](../05-assessments/latihan-uts-pembahasan.md).
 4. [Kerangka asesmen](../05-assessments/assessment-framework.md).
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
