@@ -490,7 +490,7 @@ Pegangan untuk D5 (tidak wajib dihitung):
 LTV (7 bulan)        = 14.500 × 7  = Rp101.500   → LTV/CAC = 101.500 ÷ 162.500 = 0,62
 ```
 
-**Arti:** rasio **di bawah 1** — setiap pelanggan baru merugikan sekitar Rp17.500 selama 10 bulan masa bertahannya; biaya memperoleh pelanggan tidak pernah kembali, dan ekspansi justru memperbesar kerugian. **Pengaruh D5:** asumsi 10 bulan pun belum didukung data; laju berhenti pada uji coba menyiratkan ±7 bulan, sehingga LTV lebih kecil dan kerugian per pelanggan lebih besar (±Rp61.000; rasio ±0,62) — kesimpulan "tidak layak ekspansi" makin kuat. Pernyataan kualitatif ini sudah cukup; hitungan 7 bulan tidak dituntut. Angka "3,9" pada D6 muncul karena waktu tim (±54% biaya akuisisi), voucer, dan dukungan manual tidak dihitung.
+**Arti:** rasio **di bawah 1** — setiap pelanggan baru merugikan sekitar Rp17.500 selama 10 bulan masa bertahannya; biaya memperoleh pelanggan tidak pernah tertutup seluruhnya (LTV Rp145.000 < CAC Rp162.500; impas baru setelah ±11,2 bulan, lebih lama daripada masa bertahan), dan ekspansi justru memperbesar kerugian. **Pengaruh D5:** asumsi 10 bulan pun belum didukung data; laju berhenti pada uji coba menyiratkan ±7 bulan, sehingga LTV lebih kecil dan kerugian per pelanggan lebih besar (±Rp61.000; rasio ±0,62) — kesimpulan "tidak layak ekspansi" makin kuat. Pernyataan kualitatif ini sudah cukup; hitungan 7 bulan tidak dituntut. Angka "3,9" pada D6 muncul karena waktu tim (±54% biaya akuisisi), voucer, dan dukungan manual tidak dihitung.
 
 *Varian voucer.* Voucer boleh **dikeluarkan dari CAC hanya bila dibebankan di tempat lain** — mis. sebagai biaya layanan bulan pertama atau pengurang LTV, Rp300.000 ÷ 12 = **Rp25.000 per pelanggan**:
 ```
@@ -669,6 +669,8 @@ for bulan in (10, 7):                           # asumsi tim vs laju berhenti pa
     print(f"LTV {bulan:>2} bulan   : {rp(ltv)} -> LTV/CAC = {ltv / cac:.2f}; "
           f"selisih per pelanggan {rp(ltv - cac)}")
 print(f"Rasio versi tim: {margin_tim * 10 / cac_tim:.1f}")
+impas = cac / margin                            # bulan sampai margin menutup CAC
+print(f"Impas          : CAC / margin = {impas:.1f} bulan (lebih lama daripada 10 bulan masa bertahan)")
 
 # ---- (b) varian voucer: voucer dibebankan sebagai pengurang LTV ---------
 voucer = 300_000 / 12                           # Rp25.000 per pelanggan
@@ -712,6 +714,7 @@ assert (cac, cac_tim, nilai_waktu) == (162_500, 50_000, 1_050_000)
 assert (dukungan, margin, margin_tim) == (5_000, 14_500, 19_500)
 assert round(nilai_waktu / biaya_akuisisi, 2) == 0.54
 assert round(margin * 10 / cac, 2) == 0.89 and round(margin * 7 / cac, 2) == 0.62
+assert round(impas, 1) == 11.2 and impas > 10                    # CAC tidak tertutup selama masa bertahan
 assert (voucer, cac_tv) == (25_000, 137_500)
 assert (round(rasio_tv[10], 2), round(rasio_tv[7], 2)) == (0.87, 0.56)
 assert round(pulih, 1) == 11.2 and round(margin * 10 / cac_tv, 2) == 1.05
@@ -734,6 +737,7 @@ Margin         : Rp14.500 per bulan (41.4%); versi tim Rp19.500
 LTV 10 bulan   : Rp145.000 -> LTV/CAC = 0.89; selisih per pelanggan −Rp17.500
 LTV  7 bulan   : Rp101.500 -> LTV/CAC = 0.62; selisih per pelanggan −Rp61.000
 Rasio versi tim: 3.9
+Impas          : CAC / margin = 11.2 bulan (lebih lama daripada 10 bulan masa bertahan)
 Varian voucer  : CAC Rp137.500; rasio 10 bulan 0.87, 7 bulan 0.56; pulih 11.2 bulan; rasio tampak bila voucer hilang 1.05
 CAC maksimum agar rasio 3 (10 bulan): Rp48.333
 CAC maksimum agar rasio 3 (7 bulan): Rp33.833

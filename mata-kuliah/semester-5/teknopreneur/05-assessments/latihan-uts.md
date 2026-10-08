@@ -16,7 +16,7 @@ diperbarui: 2026-10-08
 
 > **Latihan UTS — bukan naskah UTS.** Simulasi lengkap UTS Teknopreneur Ganjil 2026/2027 untuk berlatih: komposisi, durasi (90 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
 >
-> **Cara memakai latihan ini.** Kerjakan dalam satu kali duduk dengan batas waktu **90 menit**, *closed book*, **tanpa AI** dan **tanpa membuka pembahasan** — sesuai aturan UTS ([kisi-kisi UTS §1](kisi-kisi-uts.md#1-ketentuan)). Siapkan kalkulator biasa (bukan kalkulator pada ponsel atau laptop) dan alat tulis, dan tulis jawaban di kertas; rumus yang dibutuhkan ada pada Lembar Rumus di akhir latihan ini. **Sebaiknya cetak latihan ini** (sampai Lembar Rumus), seperti lembar soal UTS. Bila Anda membacanya di layar, pakai ponsel atau laptop itu **hanya untuk menampilkan soal**: tutup tab dan aplikasi lain, matikan notifikasi, dan jangan menggulir melewati Lembar Rumus. Baru **sesudah** waktu habis, cocokkan jawaban Anda dengan [pembahasan dan pedoman skor](latihan-uts-pembahasan.md), lalu hitung skor Anda sendiri. Penandaan Sub-CPMK per butir ada di pembahasan dan di [cetak biru butir](latihan-uts-cetak-biru.md).
+> **Cara memakai latihan ini.** Kerjakan dalam satu kali duduk dengan batas waktu **90 menit**, *closed book*, **tanpa AI** dan **tanpa membuka pembahasan** — sesuai aturan UTS ([kisi-kisi UTS §1](kisi-kisi-uts.md#1-ketentuan)). Siapkan kalkulator biasa (bukan kalkulator pada ponsel atau laptop) dan alat tulis, dan tulis jawaban di kertas; rumus yang dibutuhkan ada pada Lembar Rumus di akhir latihan ini. Catat menit yang Anda pakai per bagian (A, B, C). **Sebaiknya cetak latihan ini** (sampai Lembar Rumus), seperti lembar soal UTS. Bila Anda membacanya di layar, pakai ponsel atau laptop itu **hanya untuk menampilkan soal**: tutup tab dan aplikasi lain, matikan notifikasi, dan jangan menggulir melewati Lembar Rumus. Baru **sesudah** waktu habis, cocokkan jawaban Anda dengan [pembahasan dan pedoman skor](latihan-uts-pembahasan.md), lalu hitung skor Anda sendiri. Penandaan Sub-CPMK per butir ada di pembahasan dan di [cetak biru butir](latihan-uts-cetak-biru.md).
 
 ---
 
@@ -29,7 +29,7 @@ diperbarui: 2026-10-08
 |-------|------------|
 | Mata Kuliah | Teknopreneur |
 | Kode MK | `ST52510002` |
-| Dosen | Tri Aji Nugroho, S.T., M.T. |
+| Penyusun | Tri Aji Nugroho, S.T., M.T. |
 | Asesmen | Latihan UTS (simulasi) — persiapan UTS Semester Ganjil 2026/2027, Minggu 8 |
 | Waktu | 90 menit |
 | Sifat | ***Closed book*** |
@@ -316,7 +316,7 @@ Susun **naskah wawancara lanjutan** untuk menguji dugaan itu pada pengelola yang
 
 1. Buka [pembahasan dan pedoman skor](latihan-uts-pembahasan.md). Nilai setiap sub-butir dengan pedoman skornya — termasuk kaidah "kesimpulan berbeda tetapi konsisten" ([pembahasan §1.2](latihan-uts-pembahasan.md#12-uji-berbeda-tetapi-konsisten-k1k4)).
 2. Catat skor Anda pada [tabel rekap dan diagnosis diri](latihan-uts-pembahasan.md#5-rekap-skor-dan-diagnosis-diri); butir dengan capaian rendah menunjukkan bab yang perlu dibaca ulang.
-3. Catat juga **berapa menit** yang Anda perlukan per bagian. Bila lebih dari 90 menit, latih menulis jawaban ringkas (Petunjuk 5) dan rujukan langsung ke bahan (Petunjuk 6). Bila dosen memintanya, serahkan catatan menit itu tanpa nama — catatan itu membantu memastikan waktu UTS cukup.
+3. Catat juga **berapa menit** yang Anda perlukan per bagian. Bila lebih dari 90 menit, latih menulis jawaban ringkas (Petunjuk 5) dan rujukan langsung ke bahan (Petunjuk 6). Bila dosen memintanya, serahkan catatan menit itu tanpa nama — yang dipakai hanya rekap agregatnya, untuk memastikan waktu UTS cukup.
 4. UTS memakai bentuk, aturan, dan tingkat kesulitan yang sama dengan latihan ini, tetapi dengan kasus, data, dan angka lain. Menghafal jawaban latihan ini **tidak membantu**; yang membantu adalah cara bernalarnya.
 
 Dokumen terkait: [kisi-kisi UTS](kisi-kisi-uts.md) · [Modul Minggu 8](../03-modules/week-08-uts-review-dan-ujian.md) · [buku ajar Bab 1–7](../06-buku-ajar/00-halaman-depan.md)

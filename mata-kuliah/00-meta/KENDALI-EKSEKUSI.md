@@ -50,7 +50,7 @@ Nomor D-01 … D-06 sama dengan [audit §9](AUDIT-MENYELURUH-2026-10.md#9-keputu
 | D-09 | Dasar AI/ML: lab dikerjakan di kelas atau dilanjutkan di rumah (dasar Partisipasi 0%) | sem 5 | sebelum Mg 7 | ☐ |
 | D-10 | RPL: siapa menyelaraskan ke `IF52520011` dan apakah materi dipakai oleh pengampu registri, Dr. Ir. Winangsari Pradani, M.T. | sem 4 | sebelum Mg 17 | ☐ |
 | D-11 | Nama MK di materi `IF52520004/05`: "Algoritma Pemrograman" (registri) atau "Algoritma dan Pemrograman" (CLAUDE.md aturan 2, Pedoman §I.2) | sem 2 | sebelum Genap | ☐ |
-| D-12 | Tinjau 56 pilihan agen di [TINJAUAN-DOSEN-2026-10](TINJAUAN-DOSEN-2026-10.md): setujui atau ubah, catat di sini dengan nomor TD | semua | baris ▲: **Mg 6**; lainnya Mg 10 | ☐ |
+| D-12 | Tinjau 66 pilihan agen di [TINJAUAN-DOSEN-2026-10](TINJAUAN-DOSEN-2026-10.md): setujui atau ubah, catat di sini dengan nomor TD | semua | baris ▲: **Mg 6**; lainnya Mg 10 | ☐ |
 
 ## 2. Tahap 0 — Darurat, sebelum UTS (Mg 5–8)
 

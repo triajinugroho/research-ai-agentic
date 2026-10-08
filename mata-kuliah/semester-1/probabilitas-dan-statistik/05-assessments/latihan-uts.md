@@ -28,7 +28,7 @@ Fakultas Sains dan Teknologi — Program Studi Informatika
 | **Mata kuliah** | Probabilitas dan Statistik (IF52510033) |
 | **Asesmen** | Latihan UTS (simulasi) — persiapan UTS Semester Ganjil 2026/2027, Minggu 8 |
 | **Kelas** | IF26A, IF26H |
-| **Dosen pengampu** | Tri Aji Nugroho, S.T., M.T. |
+| **Penyusun** | Tri Aji Nugroho, S.T., M.T. |
 | **Durasi** | 100 menit |
 | **Sifat** | *Closed book* |
 | **Cakupan** | Minggu 1–7 |

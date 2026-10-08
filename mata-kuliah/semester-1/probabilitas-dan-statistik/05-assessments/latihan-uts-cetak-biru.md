@@ -16,7 +16,7 @@ diperbarui: 2026-10-08
 
 > **Latihan UTS — bukan naskah UTS.** Cetak biru ini menyertai simulasi lengkap UTS Probabilitas dan Statistik Ganjil 2026/2027 untuk berlatih: komposisi, durasi (100 menit), aturan alat bantu, dan tingkat kesulitannya sama dengan UTS. Naskah UTS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
 >
-> Berkas ini untuk dosen dan penelaah: tabel butir, ringkasan per Sub-CPMK/Bloom/bagian, dan [panduan menyusun varian](#panduan-menyusun-varian-naskah-uts-sebenarnya). Pasangan berkas: [latihan UTS](latihan-uts.md) dan [pembahasan dan pedoman skor](latihan-uts-pembahasan.md).
+> Berkas ini untuk dosen dan penelaah: tabel butir, ringkasan per Sub-CPMK/Bloom/bagian, model waktu dan uji coba berwaktu, serta [panduan menyusun varian](#panduan-menyusun-varian-naskah-uts-sebenarnya). Pasangan berkas: [latihan UTS](latihan-uts.md) dan [pembahasan dan pedoman skor](latihan-uts-pembahasan.md).
 
 ---
 
@@ -76,9 +76,9 @@ Dipakai menurut hasil uji coba berwaktu ([prosedur mutu varian](#4-prosedur-mutu
 | 9 | D4: tanpa (iii) — melepas indikator "hubungan Poisson–Eksponensial" (kisi-kisi §4.7) | (i) 1,5 · (ii) 1,5 | 0,25–0,5 |
 | | **Total** | | **±2,5–4,25** |
 
-Hemat cadangan pertama lebih kecil daripada lebar rentang bersyarat (setara sampai ±12 menit kerja mahasiswa), sehingga pilihan pemangkasan lanjutan sebaiknya ditetapkan dosen sebelum uji coba.
+Cadangan pertama hanya cukup untuk median uji coba sampai **±68–69,5 menit** ([prosedur mutu varian](#4-prosedur-mutu-varian) no. 3); di atasnya dosen juga menetapkan pemangkasan lanjutan, lalu uji ulang. Karena itu pilihan pemangkasan lanjutan sebaiknya ditetapkan dosen sebelum uji coba.
 
-**Pemangkasan lanjutan** — bila median > 75 menit; ditetapkan dosen, lalu uji ulang. Pilihannya: pemangkasan yang mengubah peta skor atau Bloom sub-butir — mis. C3(c) cukup analisis asumsi dengan posterior berantai tercetak (1,5 poin C3 dipindah ke C3(a) dan C3(b); hemat ±1,5–2 menit), mencetak hasil antara lain pada butir hitung B/C, atau menghapus satu sub-butir — yang diterapkan sama pada latihan, pembahasan, dan cetak biru; atau pengurangan butir lewat revisi kisi-kisi (`T0-18`).
+**Pemangkasan lanjutan** — bila median > 75 menit, atau bila hasil bersyarat melampaui cakupan cadangan pertama (median > ±68–69,5 menit); ditetapkan dosen, lalu uji ulang. Pilihannya: pemangkasan yang mengubah peta skor atau Bloom sub-butir — mis. C3(c) cukup analisis asumsi dengan posterior berantai tercetak (1,5 poin C3 dipindah ke C3(a) dan C3(b); hemat ±1,5–2 menit), mencetak hasil antara lain pada butir hitung B/C, atau menghapus satu sub-butir — yang diterapkan sama pada latihan, pembahasan, dan cetak biru; atau pengurangan butir lewat revisi kisi-kisi (`T0-18`).
 
 ### Sebaran materi (kisi-kisi §3)
 
@@ -224,10 +224,12 @@ Sumber yang diperiksa: Latihan Soal Bab 1–7 buku ajar (tingkat Dasar, Menengah
 | A4 | Bab 2 L9 (klaim SLA p50/p95/p99) | Dua versi dengan mean sama dan p95 berbeda; tanpa klaim SLA |
 | A6 | Bab 2 L8 (CV tiga layanan) | Harga pangan di dua pasar; PG |
 | A7 | Bab 2 §2.4.1 dan modul Minggu 2 (tabel makna kuartil — materi, bukan latihan) | Menghitung banyaknya hari dari makna kuartil |
+| A10 | Bab 3 L1(b)–(c) (memilih grafik per pertanyaan analisis) | Pertanyaan majemuk: hubungan dua variabel kuantitatif **dan** beda kelompok sekaligus; PG |
 | A11 | Bab 3 §3.6.1(c) dan modul Minggu 3 §6.1(c) (materi, bukan latihan: tren tiga bulan naik, setahun turun); Bab 3 L9 (sumbu-y terpotong) | Lima bulan ditampilkan; stem memuat angka pembanding Januari (72 ribu) dan tren Januari–Agustus; angka sendiri; PG dengan pengecoh "sumbu dari nol, angka benar" |
 | A12 | Bab 3 L6 (5 vs 30 bin) | Hanya risiko bin terlalu lebar; tanpa aturan Freedman–Diaconis |
 | A13 | Bab 3 L3 (jelaskan boxplot) | Membaca boxplot berangka dan menguji pagar pencilan |
 | A14 | Bab 3 L2 ("sebutkan lima unsur wajib") | Menjelaskan dampak unsur yang hilang |
+| A15 | Bab 3 §3.6.1(d) (tujuh bahasa: *pie* → batang terurut) dan L5 (kelemahan *pie chart*) | Kategori aduan berproporsi berdekatan 12–17%; PG; varian memakai banyak kategori ≠ 7 |
 | B1 | Bab 1 L2a (NIM), L7 (rata-rata prioritas ordinal) | Kode pos; menghitung ringkasan yang sah |
 | B3 | Bab 4 L5 (P(8,3), C(8,3)), L7 (3 penelaah dari 12) | P(9,3) dan C(7,2) digabung dengan aturan perkalian |
 | B4 | Bab 4 L2 (tuliskan aksioma) | Menerapkan aksioma pada keluaran model klasifikasi |
@@ -309,7 +311,7 @@ Pada setiap butir: **konteks/kasus**, **data dan angka**, **urutan dan isi pilih
 | A9 | Konteks lain (mis. durasi panggilan dua *shift*) dengan n tidak sama; boleh tiga kelompok |
 | A10 | Pertanyaan analisis lain dengan grafik jawaban lain (mis. sebaran waktu respons empat server → boxplot berdampingan; tren bulanan dua layanan → diagram garis) |
 | A11 | Hanya teknik dari [Bab 3 §3.6.1](../06-buku-ajar/bab-03-visualisasi-data-statistik.md#361-empat-teknik-menyesatkan-yang-paling-umum): sumbu tidak dari nol pada diagram batang atau skala ganda, atau pemotongan rentang dengan konteks dan angka baru (pie beririsan banyak sudah dipakai A15); stem tetap memuat angka yang membuat kesan salah dapat dihitung; hindari angka contoh §3.6.1(a) (98 vs 100) dan Bab 3 L9 (10.200 → 10.450) |
-| A12 | Kasus kebalikan: bin terlalu sempit sehingga derau tampak seperti pola |
+| A12 | Konteks dan banyak data baru; risiko yang ditanyakan boleh bin terlalu sempit (derau tampak sebagai pola) atau tetap bin terlalu lebar dengan struktur lain yang tersembunyi (mis. ekor panjang); urutan dan isi opsi diacak |
 | A13 | Boxplot baru; pernyataan benar boleh tentang pagar bawah, arah kemencengan, atau proporsi data di atas Q3; titik terpisah boleh di bawah |
 | A14 | Unsur lain yang hilang (mis. label sumbu-x dan sumber, atau keterangan skala logaritmik) pada grafik berkonteks lain |
 | A15 | Banyak kategori dan rentang lain (mis. enam metode pembayaran 13–20%) |
@@ -317,7 +319,7 @@ Pada setiap butir: **konteks/kasus**, **data dan angka**, **urutan dan isi pilih
 | B2 | Populasi kecil lain yang diukur seluruhnya (mis. lama pengisian daya kelima mobil listrik operasional kampus); tetap populasi (s sampel diuji di C1(a)) |
 | B3 | Konteks lain dengan satu bagian berurutan dan satu tidak (mis. urutan pembicara seminar, lalu panitia cadangan); n dan r baru; hindari P(8,3)/C(8,3) Bab 4 L5 |
 | B4 | Keluaran model lain (mis. prakiraan cuaca empat kategori); jumlah boleh kurang dari 1; kategori yang keliru dan pasangan gabungan berbeda |
-| B5 | Proses bertahap lain (mis. rekrutmen asisten laboratorium); peluang baru; (b) tetap tentang gugur di tahap pertama |
+| B5 | Proses bertahap lain (mis. rekrutmen asisten laboratorium); peluang baru; (b) tetap peluang bersyarat pada komplemen "tidak diterima" untuk kejadian yang termasuk di dalamnya (mis. gugur di tahap pertama), dengan banyak langkah yang sama |
 | B6 | Proses ulang-sampai-berhasil lain (mis. pengiriman kode OTP); p baru (0,6–0,8) dan ambang baru (0,95 atau 0,999); pilih **pasangan** p dan ambang sehingga k antara 3 dan 6 (mis. p = 0,6 & 0,95 → k = 4; p = 0,65 & 0,95 → k = 3; p = 0,75 atau 0,8 & 0,999 → k = 5); hindari p = 0,6 & 0,999 (k = 8), p = 0,65 & 0,999 (k = 7), dan p = 0,8 & 0,95 (k = 2); banyak kegagalan awal dan tambahan di (c) baru |
 | B7 | Proses mutu lain (mis. volume botol air minum); μ dan σ baru dengan z dua desimal; satu batas di bawah μ, satu di atas |
 | B8 | Ekor dan persentil lain (mis. 4% teratas); aturan empiris dengan ±1σ atau ±3σ; hindari N(100, 15), N(45, 8), N(52, 9) dan 2,5% dari sumber |
@@ -338,9 +340,9 @@ Pada setiap butir: **konteks/kasus**, **data dan angka**, **urutan dan isi pilih
 
 ### 4. Prosedur mutu varian
 
-1. **Selesaikan ulang setiap butir dengan Python** (pola blok kode di [pembahasan §5](latihan-uts-pembahasan.md#5-memeriksa-angka-dengan-python)) dan cocokkan dengan kunci varian. Periksa dengan `assert`: setiap angka kunci, rasio varians/mean tabel galat D dari angka tabel yang dibulatkan (gabungan ±1,10–1,25; jam sibuk dan jam lain masing-masing 0,8–1,25), k butir B6 antara 3 dan 6, skor per bagian 20/25/40/15, sebaran per minggu 8/20/12/20/18/12/10, Sub-CPMK 40/60, dan Bloom C2/C3/C4 = 5/73/22.
+1. **Selesaikan ulang setiap butir dengan Python** (pola blok kode di [pembahasan §5](latihan-uts-pembahasan.md#5-memeriksa-angka-dengan-python)) dan cocokkan dengan kunci varian. Periksa dengan `assert`: setiap angka kunci, rasio varians/mean tabel galat D (varians sampel, `ddof=1`) dari angka tabel yang dibulatkan (gabungan ±1,10–1,25; jam sibuk dan jam lain masing-masing 0,8–1,25), k butir B6 antara 3 dan 6, skor per bagian 20/25/40/15, sebaran per minggu 8/20/12/20/18/12/10, Sub-CPMK 40/60, dan Bloom C2/C3/C4 = 5/73/22.
 2. **Pilihan ganda:** penelaah menjawab tanpa kunci untuk memastikan **tepat satu** jawaban benar per butir; letak kunci diacak ulang (sebaran huruf seimbang dan berbeda dari urutan kunci latihan); panjang opsi diperiksa agar kunci tidak menonjol.
-3. **Cek waktu — uji coba berwaktu** (KENDALI `T0-15`). Penguji coba: 2–3 asisten atau mahasiswa senior yang belum melihat pembahasan maupun varian — untuk uji coba latihan ini, juga **belum membaca atau mengerjakan latihan ini** (latihan publik sejak 8 Oktober 2026) — dalam kondisi ujian (100 menit, *closed book*, kalkulator ilmiah dan tabel saja, tanpa AI); catat waktu per bagian. Uji coba dilakukan pada latihan ini sebelum varian ditetapkan, dan pada varian bila tersedia penguji coba yang belum melihatnya. Keputusan menurut **median** waktu penguji coba: **≤ 67 menit** (≤ 2/3 durasi) → lolos; **> 67 dan ≤ 75 menit** (≤ 3/4 durasi) → bersyarat: terapkan [cadangan pemangkasan pertama](#cadangan-pemangkasan-waktu); **> 75 menit** → dosen menetapkan [pemangkasan lanjutan](#cadangan-pemangkasan-waktu), lalu uji ulang. Dasar ambang: penguji coba yang menguasai materi bekerja ±1,5× lebih cepat daripada rerata mahasiswa, sehingga 2/3 durasi bagi penguji coba setara dengan seluruh durasi bagi rerata mahasiswa. Data kalibrasi tambahan (bila dosen memintanya): catatan waktu per bagian dari mahasiswa yang mengerjakan latihan ini, diserahkan tanpa nama; yang dipakai dan dicatat hanya rekap agregat (median dan sebaran waktu per bagian).
+3. **Cek waktu — uji coba berwaktu** (KENDALI `T0-15`). Penguji coba: 2–3 asisten atau mahasiswa senior yang belum melihat pembahasan maupun varian — untuk uji coba latihan ini, juga **belum membaca atau mengerjakan latihan ini** (latihan publik sejak 8 Oktober 2026) — dalam kondisi ujian (100 menit, *closed book*, tulisan tangan, alat bantu sesuai kisi-kisi, tanpa AI); catat waktu per bagian. Uji coba dilakukan pada latihan ini sebelum varian ditetapkan, **dan** pada varian sebelum difinalkan (wajib, `T0-15`) oleh 2–3 penguji coba yang belum melihat varian maupun kuncinya, dengan ambang yang sama. Keputusan menurut **median** waktu penguji coba: **≤ 66,7 menit** (≤ 2/3 durasi) → lolos; **> 66,7 dan ≤ 75 menit** (≤ 3/4 durasi) → bersyarat: terapkan [cadangan pemangkasan pertama](#cadangan-pemangkasan-waktu), yang hanya cukup untuk median sampai **±68–69,5 menit**; di atasnya dosen juga menetapkan [pemangkasan lanjutan](#cadangan-pemangkasan-waktu), lalu uji ulang; **> 75 menit** (> 3/4 durasi) → dosen menetapkan pemangkasan lanjutan, lalu uji ulang. Dasar ambang: penguji coba yang menguasai materi bekerja ±1,5× lebih cepat daripada rerata mahasiswa, sehingga 2/3 durasi bagi penguji coba setara dengan seluruh durasi bagi rerata mahasiswa; hemat cadangan pertama ±2,5–4,25 menit kerja mahasiswa setara ±1,7–2,8 menit penguji coba, sehingga cakupannya berakhir di ±68–69,5 menit. Data kalibrasi tambahan (bila dosen memintanya): catatan waktu per bagian dari mahasiswa yang mengerjakan latihan ini, diserahkan tanpa nama; yang dipakai dan dicatat hanya rekap agregat (median dan sebaran waktu per bagian).
 4. **Telaah sejawat** memakai [checklist-verifikasi §C](../../../00-pedoman-obe/checklist-verifikasi.md#c-lembar-telaah-sejawat) (KENDALI `T0-15`).
 5. **Simpan** varian, kunci, dan skrip verifikasinya di penyimpanan privat, tidak di repositori. Untuk `mutu/02`, catat hanya angka agregat.
 
@@ -356,8 +358,8 @@ Pada setiap butir: **konteks/kasus**, **data dan angka**, **urutan dan isi pilih
 6. **Konvensi kuartil** (n − 1)p + 1 dinyatakan di Petunjuk 9 karena buku ajar memakai `numpy.percentile` tanpa aturan manual eksplisit; n = 9 membuat posisi kuartil bulat, dan pembahasan memberi toleransi untuk metode (n + 1)p.
 7. **D3.** Rasio varians/mean gabungan 1,25 tepat di batas heuristik 0,8–1,25 buku ajar; pembahasan menjadikan perbedaan mean antarperiode sebagai bukti penentu dan menerima kedua tafsiran rasio. Varian menjaga sifat ini, termasuk rasio per periode di dalam 0,8–1,25 ([Arah variasi D](#2-yang-wajib-diubah-per-butir)); rasio gabungan yang jelas di luar rentang menambah isyarat kedua dan membuat D3 lebih mudah.
 8. **C3(d)** merujuk prinsip *tabayyun* (QS Al-Hujurat [49]: 6) secara ringkas tanpa kutipan ayat — konfirmasi ketepatan rujukan saat telaah.
-9. **Waktu — putuskan sebelum varian ditetapkan.** Batas kalimat pada sepuluh perintah uraian perlu konfirmasi dosen; ambang uji coba berwaktu ada di [prosedur mutu varian](#4-prosedur-mutu-varian) no. 3. [Cadangan pertama](#cadangan-pemangkasan-waktu) memuat sembilan pemangkasan yang menjaga Sub-CPMK, Bloom, dan skor setiap baris (hemat total ±2,5–4,25 menit kerja mahasiswa) dan perlu disetujui dosen **sebelum** uji coba. Pilihan pemangkasan lanjutan, termasuk opsi pengurangan butir lewat revisi kisi-kisi (`T0-18`), sebaiknya disiapkan sekarang, bukan sesudah uji coba.
-10. **Data rekaan.** Seluruh angka rekaan; tidak ada merek atau lembaga nyata. Data galat per jam Bagian D dibangkitkan dengan `numpy.random.default_rng(2035)` (Poisson 3,6 untuk 21 jam sibuk; 1,5 untuk 147 jam lain; total 298 galat).
+9. **Waktu — putuskan sebelum uji coba.** Batas kalimat pada sepuluh perintah uraian dan [cadangan pertama](#cadangan-pemangkasan-waktu) (sembilan pemangkasan yang menjaga Sub-CPMK, Bloom, dan skor setiap baris; hemat ±2,5–4,25 menit kerja mahasiswa) perlu disetujui dosen **sebelum** uji coba; ambang dan batas cakupannya ada di [prosedur mutu varian](#4-prosedur-mutu-varian) no. 3. Karena cadangan pertama hanya menutup sebagian rentang bersyarat, pilihan pemangkasan lanjutan — termasuk pengurangan butir lewat revisi kisi-kisi (`T0-18`) — sebaiknya disiapkan sekarang, bukan sesudah uji coba.
+10. **Data rekaan.** Seluruh angka rekaan; tidak ada merek atau lembaga nyata. Data galat per jam Bagian D dibangkitkan dengan `numpy.random.default_rng(2035)` (Poisson 3,6 untuk 21 jam sibuk; 1,5 untuk 147 jam lain; total 298 galat); varians pada tabel adalah varians sampel (`ddof=1`).
 
 ---
 

@@ -318,7 +318,7 @@ Contoh: *"Sel bernilai 1 bila **terjadi kebakaran** (titik api terverifikasi reg
 
 | Unsur | Poin |
 |-------|------|
-| Peristiwa + ambang (luas/verifikasi) | 0,5 |
+| Peristiwa + ambang (luas/verifikasi); peristiwa tanpa ambang ("sel terbakar") = 0,25 | 0,5 |
 | Jendela waktu (7 hari / satu minggu patroli) | 0,5 |
 | Titik awal selaras keputusan (Senin 07.00) | 0,5 |
 | Jenis *task* (klasifikasi biner untuk pemeringkatan; "*ranking*" saja juga benar) | 0,5 |
@@ -335,7 +335,7 @@ Artinya: dengan kapasitas 40 sel, sepertiga kejadian **pasti** tidak terpatroli 
 
 - Akurasi 0,97 **sama dengan** akurasi model yang selalu menjawab "tidak terbakar" (1 − 0,03 = 0,97) → tidak memberi informasi apa pun *(1)*. "Menyesatkan karena data tidak seimbang" tanpa kaitan dengan angka 0,97 = 0,5.
 - Ambang ditentukan **oleh kapasitas**, bukan ambang baku 0,5: urutkan sel menurut probabilitas tiap minggu dan ambil 40 teratas (ambang = probabilitas sel ke-40) *(1)*.
-- Metrik: ***precision* pada 40 teratas** (berapa dari 40 sel yang benar terbakar) dan ***recall* pada 40 teratas** (dibandingkan batas 0,667), dirata-ratakan per minggu pada periode uji yang lebih akhir *(1)*. PR-AUC saja tanpa evaluasi 40 teratas = 0,25.
+- Metrik: ***precision* pada 40 teratas** (berapa dari 40 sel yang benar terbakar) dan ***recall* pada 40 teratas** (dibandingkan batas 0,667), dirata-ratakan per minggu pada periode uji yang lebih akhir *(1)*. PR-AUC saja tanpa evaluasi 40 teratas = 0,25; F1 atau metrik lain pada ambang baku tanpa evaluasi 40 teratas = 0.
 
 **(d) *Baseline* dan argumentasinya** — `DAIML-Sub-CPMK082-1` · C5 · 3 poin
 
@@ -348,7 +348,7 @@ Nilai tambah (tidak wajib): satu ukuran dampak di samping metrik teknis, mis. lu
 
 | Tingkat | Contoh | Skor |
 |---------|--------|------|
-| Kurang | "(a) Target: sel terbakar atau tidak. (b) 60 sel. (c) Pakai F1 karena tidak seimbang. (d) *Baseline* kelas terbanyak." | 1,0 (a 0,5 · b 0,5) |
+| Kurang | "(a) Target: sel terbakar atau tidak. (b) 60 sel. (c) Pakai F1 karena tidak seimbang. (d) *Baseline* kelas terbanyak." | 0,75 (a 0,25 — peristiwa tanpa ambang; jendela waktu, titik awal, dan jenis *task* tidak ada · b 0,5 — 60 sel saja · c 0 — tidak menjelaskan mengapa akurasi 0,97 gagal, dan F1 pada ambang baku bukan evaluasi 40 teratas · d 0 — kelas terbanyak tidak memilih sel apa pun) |
 | Cukup | "(a) Kebakaran ≥ 1 titik api dalam 7 hari sejak Senin; klasifikasi biner. (b) 60, recall maks 0,667. (c) Akurasi menyesatkan karena tidak seimbang; pakai PR-AUC. (d) *Baseline*: titik panas minggu lalu." | 4,75 (a 2 · b 1 — arti tidak ada · c 0,75 — akurasi tidak dikaitkan dengan 0,97, tanpa ambang dari kapasitas · d 1 — tanpa argumentasi) |
 | Baik | "(a) 1 bila sel terbakar (titik api terverifikasi, ≥ 0,5 ha) dalam 7 hari sejak Senin 07.00; selain itu 0. Klasifikasi biner untuk memeringkat sel. (b) Kejadian 2.000 × 3% = 60 sel; *recall* maks 40/60 = 0,667. Sepertiga kebakaran pasti tak terpatroli walau model sempurna, jadi target kinerja harus relatif terhadap kapasitas. (c) Akurasi 0,97 = akurasi model yang selalu menjawab 'tidak terbakar' (1 − 0,03), jadi tidak informatif. Ambang dari kapasitas: urutkan probabilitas, ambil 40 teratas. Metrik: *precision* dan *recall* 40 teratas per minggu. (d) *Baseline*: 40 sel dengan titik panas terbanyak minggu lalu. Alasan: dapat dijalankan Senin pagi tanpa model; *baseline* kelas terbanyak tidak memilih sel apa pun; model dipakai hanya bila unggul pada metrik 40 teratas yang sama." | 10 |
 
@@ -370,7 +370,7 @@ Nilai tambah (tidak wajib): satu ukuran dampak di samping metrik teknis, mis. lu
 
 - Pola: **MAR** — hilangnya luas bergantung pada `jenis_pengiklan` yang teramati *(0,5)*.
 - Masalah baris 6: `dropna()` membuang ±30% baris yang hilangnya **tidak acak**, tanpa analisis pola → sampel latih tidak lagi mewakili populasi iklan (sampel bias) *(0,75)*.
-- Akibat: sebagian besar iklan perorangan (yang lebih murah) terbuang; model dilatih terutama pada iklan agen → saran harga untuk iklan perorangan cenderung **terlalu tinggi**, dan iklan baru tanpa luas tidak dapat diberi saran *(0,75)*.
+- Akibat: banyak iklan perorangan (yang lebih murah) terbuang, sehingga porsi iklan agen di data latih membesar → saran harga untuk iklan perorangan cenderung **terlalu tinggi**, dan iklan baru tanpa luas tidak dapat diberi saran *(0,75)*.
 - Penanganan: jangan hapus baris; imputasi bersyarat (median luas per `jenis_pengiklan`) **di dalam `Pipeline`** dengan penanda hilang (`add_indicator=True`); masukkan `jenis_pengiklan` sebagai fitur; catat sebagai keterbatasan *(1)*.
 
 Alternatif: argumen **MNAR** ("pemilik kamar sempit enggan menulis luas") dinilai penuh bila konsisten — penanganannya penanda hilang dan pernyataan keterbatasan, karena MNAR tidak dapat diperbaiki secara statistik.

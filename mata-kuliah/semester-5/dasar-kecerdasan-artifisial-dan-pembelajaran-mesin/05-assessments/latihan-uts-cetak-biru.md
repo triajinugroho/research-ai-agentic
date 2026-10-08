@@ -25,7 +25,7 @@ diperbarui: 2026-10-08
 | Komposisi | A. Konsep 30% (6 soal) · B. Analisis kasus 40% (4 soal) · C. Perhitungan 30% (3 soal) | Kisi-kisi §3 |
 | Bobot nilai akhir | 20% (Tes Tulis UTS; registri: seluruhnya `DAIML-Sub-CPMK102-1`) | [RPS §H.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#h1-bobot-per-teknik-dan-sub-cpmk); registri 15d |
 | Penandaan | Per butir menurut isinya (§1) | KENDALI-EKSEKUSI D-03 |
-| Perkiraan waktu | Membaca petunjuk dan lembar rumus ±5 menit · membaca soal + menjawab ±92–109,4 menit · memeriksa ≥ 5 menit (§4); belum diuji coba — aturan uji coba berwaktu §4.2 | — |
+| Perkiraan waktu | Membaca petunjuk dan lembar rumus ±5 menit · membaca soal + menjawab ±92–109,1 menit · memeriksa ≥ 5 menit (§4); belum diuji coba — aturan uji coba berwaktu §4.2 | — |
 | Berkas | [Latihan UTS](latihan-uts.md) · [pembahasan dan pedoman skor](latihan-uts-pembahasan.md) | — |
 | Butir kendali | T0-01 (varian naskah + kunci) · T0-15 (telaah sejawat dan uji coba berwaktu) · T1-16 (lembar skor per butir) | [KENDALI-EKSEKUSI](../../../00-meta/KENDALI-EKSEKUSI.md) |
 | Penyusun | Tri Aji Nugroho, S.T., M.T. | — |
@@ -133,8 +133,8 @@ diperbarui: 2026-10-08
 |--------|------------------|---------|---------|----------------------|------------------|-------------------------|
 | A. Konsep | 30 (30%) | 15 | 15 | 4,4–5,5 | 19,75–22,25 | ±28 menit |
 | B. Analisis kasus | 40 (40%) | 11 | 29 | 6,9–8,6 | 35,25–41,25 | ±50 menit |
-| C. Perhitungan | 30 (30%) | 0 | 30 | 4,2–5,2 | 21,75–26,5 | ±32 menit |
-| **Jumlah** | **100** | **26** | **74** | **15,5–19,4** | **76,75–90** | **±110 menit** |
+| C. Perhitungan | 30 (30%) | 0 | 30 | 4,0–5,0 | 21,75–26,5 | ±32 menit |
+| **Jumlah** | **100** | **26** | **74** | **15,3–19,1** | **76,75–90** | **±110 menit** |
 
 ### 3.5 Per minggu — terhadap porsi perkiraan kisi-kisi §2
 
@@ -179,12 +179,12 @@ Waktu ujian 120 menit = **±5 menit** membaca petunjuk dan lembar rumus di awal 
 | B4 | 237 | 1,6–2,0 | 7,75–10 | 9,3–12,0 | 137 | 6,9 | 3,2 |
 | C1 | 186 | 1,2–1,6 | 6,25–7,5 | 7,5–9,1 | 67 | 3,4 | 4,2 |
 | C2 | 199 | 1,3–1,7 | 7,5–9,25 | 8,8–10,9 | 89 | 4,5 | 4,8 |
-| C3 | 236 | 1,6–2,0 | 8–9,75 | 9,6–11,7 | 85 | 4,3 | 5,5 |
-| **Jumlah** (termasuk kepala bagian, 25 kata) | **2.322** | **15,5–19,4** | **76,75–90** | **92,2–109,4** | **1.043** | **52,2** | **37,9** |
+| C3 | 210 | 1,4–1,8 | 8–9,75 | 9,4–11,5 | 85 | 4,3 | 5,5 |
+| **Jumlah** (termasuk kepala bagian, 25 kata) | **2.296** | **15,3–19,1** | **76,75–90** | **92,1–109,1** | **1.043** | **52,2** | **37,9** |
 
-**Kesimpulan:** 5 + ±92–109,4 + ≥ 5 ≤ 120 menit. Pada taksiran realistis sisa memeriksa ±5,7 menit, dan petunjuk biasanya terbaca dalam ±4 dari 5 menit. Jawaban minimal bernilai penuh (±1.040 kata; kolom ini = contoh *Baik* literal pada pembahasan, dan langkah minimal untuk sub-soal hitung) memerlukan ±52 menit menulis; sisanya ±38 menit untuk berpikir dan menghitung — rata-rata ±1,1 menit per soal Bagian A dan ±1,1 menit per sub-soal Bagian B, paling sedikit ±0,5 menit (B2(d)). Batas itu hanya berlaku bila jawaban seringkas contoh *Baik*; karena itu pembahasan menyatakan bahwa nilai penuh hanya menuntut unsur yang dinilai. Taksiran ini **belum diuji coba**; penentunya uji coba berwaktu berikut.
+**Kesimpulan:** 5 + ±92–109,1 + ≥ 5 ≤ 120 menit. Pada taksiran realistis sisa memeriksa ±5,9 menit, dan petunjuk biasanya terbaca dalam ±4 dari 5 menit. Jawaban minimal bernilai penuh (±1.040 kata; kolom ini = contoh *Baik* literal pada pembahasan, dan langkah minimal untuk sub-soal hitung) memerlukan ±52 menit menulis; sisanya ±38 menit untuk berpikir dan menghitung — rata-rata ±1,1 menit per soal Bagian A dan ±1,1 menit per sub-soal Bagian B, paling sedikit ±0,5 menit (B2(d) dan B3(d)). Batas itu hanya berlaku bila jawaban seringkas contoh *Baik*; karena itu pembahasan menyatakan bahwa nilai penuh hanya menuntut unsur yang dinilai. Taksiran ini **belum diuji coba**; penentunya uji coba berwaktu berikut.
 
-**Uji coba berwaktu.** Latihan ini diuji coba **sebelum varian disusun**, dan varian diuji coba lagi sebelum difinalkan (T0-15, §6.4 butir 3), dengan aturan yang sama: 2–3 asisten atau mahasiswa senior yang belum melihat pembahasan maupun varian mengerjakannya dalam kondisi ujian (120 menit, *closed book*, tulisan tangan, kalkulator saja) dan mencatat menit per bagian; yang disimpan hanya angka agregat (median dan rentang). Untuk uji coba latihan ini, penguji coba juga **belum membaca atau mengerjakan latihan ini** (latihan publik sejak 8 Oktober 2026), karena penguji coba yang sudah mengenal soalnya bekerja lebih cepat dan membuat taksiran waktu terlalu rendah. Penguji coba yang menguasai materi bekerja ±1,5× lebih cepat daripada rerata mahasiswa, sehingga batasnya 2/3 dan 3/4 durasi; satu menit penguji coba di atas 80 menit setara ±1,5 menit kerja mahasiswa yang harus dipangkas:
+**Uji coba berwaktu.** Latihan ini diuji coba **sebelum varian disusun**, dan varian diuji coba lagi sebelum difinalkan (T0-15, §6.4 butir 3), dengan aturan yang sama: 2–3 asisten atau mahasiswa senior yang belum melihat pembahasan maupun varian mengerjakannya dalam kondisi ujian — 120 menit, *closed book*, tulisan tangan, alat bantu sesuai kisi-kisi (kalkulator saja), tanpa AI — dan mencatat menit per bagian; yang disimpan hanya angka agregat (median dan rentang). Untuk uji coba latihan ini, penguji coba juga **belum membaca atau mengerjakan latihan ini** (latihan publik sejak 8 Oktober 2026), karena penguji coba yang sudah mengenal soalnya bekerja lebih cepat dan membuat taksiran waktu terlalu rendah. Penguji coba yang menguasai materi bekerja ±1,5× lebih cepat daripada rerata mahasiswa, sehingga batasnya 2/3 dan 3/4 durasi; satu menit penguji coba di atas 80 menit setara ±1,5 menit kerja mahasiswa yang harus dipangkas:
 
 | Median waktu penguji coba | Keputusan |
 |---------------------------|-----------|
@@ -193,6 +193,8 @@ Waktu ujian 120 menit = **±5 menit** membaca petunjuk dan lembar rumus di awal 
 | > 90 menit (> 3/4 durasi) | Dosen menetapkan pemangkasan lanjutan (§4.4), lalu uji ulang |
 
 Pemangkasan diterapkan pada latihan, pembahasan, dan cetak biru sekaligus, lalu pada varian, sehingga cetak biru keduanya tetap sama.
+
+Data pelengkap (bila dosen memintanya): catatan menit per bagian dari mahasiswa yang mengerjakan latihan ini — termasuk waktu tambahan yang dicatat terpisah bila 120 menit tidak cukup (latihan, "Cara memakai latihan ini") — diserahkan tanpa nama; yang dipakai dan dicatat hanya rekap agregat (median dan rentang per bagian). Angka itu hanya data pelengkap; keputusan pemangkasan mengikuti median penguji coba pada tabel di atas.
 
 ### 4.3 Pemangkasan dari rancangan awal
 
@@ -226,7 +228,7 @@ Rancangan awal butir (sebelum diterbitkan sebagai latihan), dengan model yang sa
 
 Pemangkasan kedua tidak menghapus konsep yang diuji: angka antara C1(a) dan C3(a) bukan keterampilan baru, dan B4(a) tetap menguji uji kelayakan dan batas kemampuan AI.
 
-**Telaah sebelum terbit (8 Oktober 2026).** Stem A1 kini meminta pembanding (*baseline*) yang harus dikalahkan secara eksplisit, karena pedoman skornya memberi 0,5 untuk itu. A3–A5 hanya mencetak skor total, karena rincian per baris menandai baris yang "tepat", "bukan masalah", atau "pertahankan" (§6.2). A6(a) memakai kata kerja C4 ("analisislah"). Pernyataan amanah tidak lagi disalin mahasiswa (§4.1). Audit tulis kini memakai contoh *Baik* literal pada pembahasan, yang ditulis untuk setiap soal Bagian A dan B serta setiap sub-soal analisis Bagian C; contoh B3(d) dan B4(b) dipersingkat agar setiap baris menyisakan ≥ 0,5 menit berpikir. Anggaran jawab per baris tidak berubah. Hasil: kata soal 2.335 → 2.322; kerja realistis 109,5 → 109,4 menit; jawaban minimal 964 → 1.043 kata.
+**Telaah sebelum terbit (8 Oktober 2026).** Stem A1 kini meminta pembanding (*baseline*) yang harus dikalahkan secara eksplisit, karena pedoman skornya memberi 0,5 untuk itu. A3–A5 hanya mencetak skor total, karena rincian per baris menandai baris yang "tepat", "bukan masalah", atau "pertahankan" (§6.2). A6(a) memakai kata kerja C4 ("analisislah"). Pernyataan amanah tidak lagi disalin mahasiswa (§4.1). Audit tulis kini memakai contoh *Baik* literal pada pembahasan, yang ditulis untuk setiap soal Bagian A dan B serta setiap sub-soal analisis Bagian C; contoh B3(d) dan B4(b) dipersingkat agar setiap baris menyisakan ≥ 0,5 menit berpikir. Anggaran jawab per baris tidak berubah. Hasil: kata soal 2.335 → 2.296 (termasuk koreksi hitung: baris penutup naskah dan *tagline* tidak lagi terhitung sebagai kata soal C3); kerja realistis 109,5 → 109,1 menit; jawaban minimal 964 → 1.043 kata.
 
 ### 4.4 Cadangan pemangkasan
 
@@ -294,11 +296,11 @@ Tabel berikut **hanya menunjukkan arah variasi**. Dokumen ini publik, sehingga n
 
 | Butir | Contoh arah variasi (arah saja — konteks, nama, dan angkanya tidak dipakai pada varian) |
 |-------|------------------------------------------------------------------|
-| A1 | Kasus layak: perkiraan kebutuhan kantong darah harian di UTD PMI, perkiraan penumpang KRL per jam. Kasus kausal: "apakah pelatihan digital **menyebabkan** omzet UMKM naik" dengan peserta yang mendaftar sendiri; "apakah aplikasi antrean menyebabkan waktu tunggu puskesmas turun" dengan puskesmas percontohan yang dipilih dinas. Urutan kedua kasus boleh dibalik |
-| A2 | *Drift*: model permintaan ojek daring di sekitar stasiun yang MAE-nya naik sejak LRT beroperasi; model penjualan toko yang memburuk sejak pesaing baru dibuka. Model ≈ *baseline*: model penunggakan cicilan koperasi yang F1-nya sama dengan aturan "terlambat bayar ≥ 2 bulan" |
-| A3 | Kode hilang: `tekanan_sistolik` = 999 atau `jumlah_anak` = −1. Nilai ekstrem yang sah: `jam_kerja_per_minggu` = 0 pada responden berusia ≥ 60 yang berstatus pensiun; `jumlah_tanggungan` = 0 pada mahasiswa. Korelasi mencurigakan: `total_klaim_tahun_ini` terhadap target klaim bulan depan |
-| A4 | Model tetap k-NN (cakupan Minggu 3), dengan kasus baru (mis. prediksi pembatalan pesanan katering). Ordinal di-*one-hot*: tingkat kepuasan 1–5, jenjang pendidikan. Data menceng: jumlah transaksi per bulan, luas lahan. Keputusan tepat: `OneHotEncoder(handle_unknown="ignore")` pada provinsi, atau `StandardScaler` pada usia yang hampir simetris |
-| A5 | Waktu tunggu servis bengkel atau durasi bongkar muat di pelabuhan. Interaksi: jumlah kendaraan × hari Sabtu. Belum tersedia saat prediksi: `durasi_pengerjaan_aktual`. Agregat masa lalu sah: rata-rata durasi mekanik itu 30 hari sebelumnya |
+| A1 | Kasus layak, mis. perkiraan kebutuhan kantong darah harian di UTD PMI atau perkiraan penumpang KRL per jam. Kasus kausal, mis. "apakah pelatihan digital **menyebabkan** omzet UMKM naik" dengan peserta yang mendaftar sendiri; "apakah aplikasi antrean menyebabkan waktu tunggu puskesmas turun" dengan puskesmas percontohan yang dipilih dinas. Urutan kedua kasus boleh dibalik |
+| A2 | *Drift*, mis. model permintaan ojek daring di sekitar stasiun yang MAE-nya naik sejak LRT beroperasi, atau model penjualan toko yang memburuk sejak pesaing baru dibuka. Model ≈ *baseline*, mis. model penunggakan cicilan koperasi yang F1-nya sama dengan aturan "terlambat bayar ≥ 2 bulan", atau model keluhan pelanggan yang setara aturan sederhana berbasis riwayat |
+| A3 | Kode hilang, mis. `tekanan_sistolik` = 999 atau `jumlah_anak` = −1. Nilai ekstrem yang sah, mis. `jam_kerja_per_minggu` = 0 pada responden berusia ≥ 60 yang berstatus pensiun, atau `jumlah_tanggungan` = 0 pada mahasiswa. Korelasi mencurigakan, mis. fitur yang memuat informasi sesudah saat prediksi — `total_klaim_tahun_ini` terhadap klaim bulan depan, atau status yang baru tercatat sesudah kejadian target |
+| A4 | Model berbasis jarak dalam cakupan Minggu 1–7 (mis. k-NN) dengan kasus baru (mis. prediksi pembatalan pesanan katering). Ordinal di-*one-hot*, mis. tingkat kepuasan 1–5 atau jenjang pendidikan. Data menceng, mis. jumlah transaksi per bulan atau luas lahan. Keputusan tepat, mis. `OneHotEncoder(handle_unknown="ignore")` pada provinsi, atau `StandardScaler` pada usia yang hampir simetris |
+| A5 | Konteks, mis. waktu tunggu servis bengkel atau durasi bongkar muat di pelabuhan. Interaksi, mis. jumlah kendaraan × hari Sabtu. Belum tersedia saat prediksi, mis. durasi pengerjaan aktual. Agregat masa lalu yang sah, mis. rata-rata durasi petugas itu pada periode sebelum saat prediksi |
 | A6 | Lasso atau Ridge pada harga mobil bekas atau konsumsi BBM armada; lima nilai α dengan titik terbaik **di tengah** (bukan di tepi rentang), angka baru, pola *overfit* di α kecil dan *underfit* di α besar tetap |
 | B1 | Entitas berulang lain: sesi belajar per mahasiswa di LMS, transaksi per pelanggan koperasi, pemeriksaan per ibu hamil di posyandu. Rotasi jenis kebocoran: mis. penskala di-*fit* sebelum pembagian (pengecoh berganti menjadi imputer yang sudah di dalam `Pipeline`), pemilihan fitur atau ambang pada data uji. Satu kebocoran tetap dominan karena struktur data dan dapat dijelaskan mekanismenya |
 | B2 | Inspeksi 50 dari 1.500 kapal ikan per minggu; pemeriksaan 30 dari 900 SPBU per bulan; kunjungan 25 dari 500 posyandu. Prevalensi dan kapasitas baru dengan batas *recall* < 1 yang bersih; saat keputusan lain |
@@ -357,7 +359,7 @@ Seluruh konteks, angka, dan dataset adalah ilustrasi; petunjuk latihan menyataka
 | # | Butir | Status |
 |---|-------|--------|
 | 1 | Komposisi A/B/C = 30/40/30, jumlah soal 6/4/3, total 100, 33 baris skor | ☑ dihitung skrip |
-| 2 | Taksiran kerja ≤ 110 menit (5 + kerja + ≥ 5 ≤ 120) | ☑ ±92–109,4 menit dengan audit tulis memakai contoh *Baik* literal (§4) · ☐ uji coba berwaktu latihan oleh penguji coba yang belum membaca latihan ini, median ≤ 80 menit (§4.2) · ☐ uji coba berwaktu varian, aturan sama (wajib, T0-15) |
+| 2 | Taksiran kerja ≤ 110 menit (5 + kerja + ≥ 5 ≤ 120) | ☑ ±92–109,1 menit dengan audit tulis memakai contoh *Baik* literal (§4) · ☐ uji coba berwaktu latihan oleh penguji coba yang belum membaca latihan ini, median ≤ 80 menit (§4.2) · ☐ uji coba berwaktu varian, aturan sama (wajib, T0-15) |
 | 3 | Setiap baris skor bertanda Sub-CPMK, indikator, Bloom; tidak ada C1–C2; kata kerja perintah sesuai Bloom | ☑ |
 | 4 | Latihan mencetak Bloom dan skor; pembahasan mencantumkan Sub-CPMK, Bloom, dan skor per butir | ☑ — A3–A5 mencetak skor total saja (§6.2) |
 | 5 | Lembar rumus latihan = kisi-kisi §5 | ☑ sama persis; $\bar{y}$ dan $SS_{tot}$ C2 dicetak pada stem |
@@ -372,7 +374,7 @@ Seluruh konteks, angka, dan dataset adalah ilustrasi; petunjuk latihan menyataka
 ## Catatan untuk Dosen
 
 1. **Penandaan dan cakupan.** Penandaan Sub-CPMK per butir mengikuti bawaan sementara D-03(a); bila D-03 diputuskan lain, hanya kolom Sub-CPMK pada §2–§3 dan judul butir pembahasan yang diubah. Butir C5–C6 bertanda `082-1` (B2(a), B2(d), B4(c); 8 poin) berada di luar pernyataan kisi-kisi/RPS (UTS mengukur `102-1`, C3–C4) dan modul Minggu 8 (C2–C4); penyelarasannya menunggu D-03 (T0-19).
-2. **Waktu.** Pemangkasan §4.3 — termasuk cadangan pertama yang semula direncanakan (C1(a), C3(a), B4(a)) — sudah diterapkan, dan anggaran per baris disusun ulang dengan audit tulis: taksiran realistis 5 + 109,4 menit, dengan ±5,7 menit untuk memeriksa. Penentunya uji coba berwaktu §4.2 pada latihan ini sebelum varian disusun. Cadangan pertama pengganti (§4.4: C1(c), C2(a)) disetujui dosen sebelum uji coba, lalu diterapkan langsung bila median 80–81 menit. Cadangan itu hanya cukup sampai ±81 menit dan seluruh pilihan §4.4 hanya sampai ±83 menit, sehingga pilihan lanjutan sebaiknya ditetapkan sebelum uji coba.
+2. **Waktu.** Pemangkasan §4.3 — termasuk cadangan pertama yang semula direncanakan (C1(a), C3(a), B4(a)) — sudah diterapkan, dan anggaran per baris disusun ulang dengan audit tulis: taksiran realistis 5 + 109,1 menit, dengan ±5,9 menit untuk memeriksa. Penentunya uji coba berwaktu §4.2 pada latihan ini sebelum varian disusun. Cadangan pertama pengganti (§4.4: C1(c), C2(a)) disetujui dosen sebelum uji coba, lalu diterapkan langsung bila median 80–81 menit. Cadangan itu hanya cukup sampai ±81 menit dan seluruh pilihan §4.4 hanya sampai ±83 menit, sehingga pilihan lanjutan sebaiknya ditetapkan sebelum uji coba.
 3. **Irisan konsep.** Dua irisan yang disengaja (§7: B3(a) baris 3 dan C2(c), ±2 poin) dipertahankan karena menguji konsep inti kisi-kisi dengan konteks baru.
 4. **Lembar rumus** sama persis dengan kisi-kisi §5. $\bar{y}$, $SS_{tot}$, dan definisi $SS_{res}$ untuk C2 dicetak pada stem soal, bukan pada lembar rumus.
 
