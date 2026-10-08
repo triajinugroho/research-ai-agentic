@@ -8,7 +8,7 @@
 | **Prasyarat** | Lab 13 selesai; materi Minggu 14 |
 | **Sub-CPMK** | `PS-Sub-CPMK102-1` |
 | **Bobot** | 1,96% |
-| **Berkas data** | `harga_rumah_jabodetabek.csv`, `nilai_mahasiswa_if.csv` |
+| **Berkas data** | `harga_rumah_jabodetabek.csv`, `nilai_mahasiswa_if.csv` — `nilai_mahasiswa_if.csv` bersifat **sintetis** (latihan; tidak menggambarkan mahasiswa sesungguhnya), lihat [Panduan Dataset §3](../datasets/README.md#3-dataset-yang-disediakan-untuk-lab) |
 
 ---
 

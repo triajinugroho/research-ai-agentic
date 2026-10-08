@@ -7,7 +7,7 @@ fakultas: Sains dan Teknologi
 universitas: Universitas Al Azhar Indonesia
 versi: 2.0
 status: berlaku
-diperbarui: 2026-10-07
+diperbarui: 2026-10-08
 berlaku_untuk: [INF-101, INF-102, TBD-STAT, IF2205, IF2206, IF3XXX]
 ---
 
@@ -21,6 +21,7 @@ berlaku_untuk: [INF-101, INF-102, TBD-STAT, IF2205, IF2206, IF3XXX]
 |---|---|---|
 | 0.1-draft | 2026-07 | Kerangka awal; usulan kode CPL format KKNI (**dibatalkan di v0.2**) |
 | **2.0** | 2026-09-05 | CPL resmi prodi; taksonomi C/A/P; aturan resolusi tabrakan kode Sub-CPMK; pemetaan LAM-INFOKOM 2.0; PPEPP; IABEE; UNESCO Jan 2026; skema metadata Satu Data; aturan validasi |
+| 2.0 (pembaruan) | 2026-10-07/08 | Lokasi paket per semester (§D); catatan status §J/§K; §Q: V13 skala nilai, V10 mengabaikan blok kode, kode keluar dan *baseline* validator. Isi konvensi lain tidak berubah; revisi menyeluruh = v3.0 (KENDALI T2-01) |
 
 ---
 
@@ -404,7 +405,7 @@ Label lokal Dasar/Menengah/Lanjut/Mahir boleh dipertahankan sebagai padanan, tet
 
 ## Q. Aturan Validasi
 
-Ditegakkan oleh `tools/validasi-obe.py` dan `checklist-verifikasi.md`.
+Ditegakkan oleh `tools/validasi-obe.py` dan `checklist-verifikasi.md`. Validator keluar dengan kode 0 (bersih), 1 (ada pelanggaran), atau 2 (galat pemakaian); `--help` mencetak daftar aturan. Karena repositori belum bersih, pelanggaran warisan dicatat di `tools/validasi-obe-baseline.json`; perubahan baru diperiksa dengan `--baseline tools/validasi-obe-baseline.json` dan harus menghasilkan **0 pelanggaran baru** (pencocokan per aturan + berkas + pesan, nomor baris diabaikan). Berkas *baseline* dibuat ulang dengan `--baseline-tulis` hanya ketika pelanggaran warisan diperbaiki, tidak untuk menyerap pelanggaran baru.
 
 | # | Validasi | Menangkap |
 |---|---|---|
@@ -417,7 +418,7 @@ Ditegakkan oleh `tools/validasi-obe.py` dan `checklist-verifikasi.md`.
 | **V7** | **Data induk konsisten** — `nama_mk`, `kode_mk`, `tahun_akademik`, dosen seragam; **`sks` hanya di RPS** | Konflik SKS |
 | **V8** | Konvensi — footer tagline; Bab 13 = AI; Bab 14 = Proyek Akhir; tahun 2026 | Regresi konvensi |
 | **V9** | Sitasi — nol rujukan "Nomor 3 Tahun 2020"; tiap `[REG-*]` yang dirujuk terdefinisi | Sitasi usang |
-| **V10** | Tautan relatif antar-berkas tidak putus | Tautan mati |
+| **V10** | Tautan relatif antar-berkas tidak putus (tautan di dalam blok kode berpagar dan kode *inline* diabaikan; *anchor* `#…` belum diperiksa) | Tautan mati |
 | **V11** | **Pagu ukuran** — RPS ≤550 baris; tiap berkas `mutu/` ≤180 baris | Pembengkakan dokumen |
 | **V12** | RPS `status: berlaku` ditolak selama `cpl_status: interim` | Pengesahan prematur |
 | **V13** | **Skala konversi nilai** — setiap tabel huruf mutu ↔ rentang 0–100 wajib sama persis dengan tabel §A `konversi-nilai.md` (rentang, huruf, bobot) dan memuat kesembilan huruf | Kambuhnya skala nilai yang tidak resmi |

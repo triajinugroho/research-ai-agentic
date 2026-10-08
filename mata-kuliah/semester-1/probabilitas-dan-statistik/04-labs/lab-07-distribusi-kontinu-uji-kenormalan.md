@@ -8,7 +8,7 @@
 | **Prasyarat** | Lab 06 selesai; materi Minggu 7 |
 | **Sub-CPMK** | `PS-Sub-CPMK102-1` |
 | **Bobot** | 1,92% |
-| **Berkas data** | `nilai_mahasiswa_if.csv`, `waktu_respons_server.csv`, `ispu_jakarta_2025.csv` |
+| **Berkas data** | `nilai_mahasiswa_if.csv`, `waktu_respons_server.csv`, `ispu_jakarta_2025.csv` — `nilai_mahasiswa_if.csv` bersifat **sintetis** (latihan; tidak menggambarkan mahasiswa sesungguhnya), lihat [Panduan Dataset §3](../datasets/README.md#3-dataset-yang-disediakan-untuk-lab) |
 
 ---
 

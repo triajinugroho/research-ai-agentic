@@ -47,7 +47,8 @@ research-ai-agentic/
 ├── README.md                                 # Root overview: course list, structure, total file count
 ├── CLAUDE.md                                 # This file
 ├── tools/
-│   └── validasi-obe.py                       # OBE consistency validator (rules V1–V13), pure Python
+│   ├── validasi-obe.py                       # OBE consistency validator (rules V1–V13), pure Python
+│   └── validasi-obe-baseline.json            # Accepted legacy violations (for --baseline)
 └── mata-kuliah/
     ├── 00-kurikulum-if-2025-revisi-2026/     # Official curriculum registry (Markdown transcription of
     │                                         #   Revisi_2026_Kurikulum_OBE_IF_2025_2.xlsx): profil lulusan,
@@ -345,15 +346,18 @@ Run from the repository root:
 ```
 python3 tools/validasi-obe.py                # whole repository
 python3 tools/validasi-obe.py --mk INF-101   # one course, by kode_mk in its RPS front-matter
+python3 tools/validasi-obe.py --baseline tools/validasi-obe-baseline.json   # only violations NOT in the baseline
+python3 tools/validasi-obe.py --help         # usage, rule list V1–V13, exit codes
 ```
 
-- Checks every `mata-kuliah/**/*.md` against rules V1–V13 (Pedoman OBE §Q): V1 front-matter, V2 unique `id`, V3 referential integrity, V4 old code patterns, V5 coverage, V6 weights = 100%, V7 master data (SKS only in RPS), V8 footer tagline, V9 revoked regulation citations, V10 relative links, V11 size caps, V12 approval status, V13 grade scale vs. `konversi-nilai.md`.
-- Exits with code 1 when any violation exists. The baseline is **not clean**:
+- Checks every `mata-kuliah/**/*.md` against rules V1–V13 (Pedoman OBE §Q): V1 front-matter, V2 unique `id`, V3 referential integrity, V4 old code patterns, V5 coverage, V6 weights = 100%, V7 master data (SKS only in RPS), V8 footer tagline, V9 revoked regulation citations, V10 relative links (links inside fenced code blocks and inline code are ignored; `#anchor` fragments are **not** checked), V11 size caps, V12 approval status, V13 grade scale vs. `konversi-nilai.md`.
+- Exit codes: 0 = no violation (with `--baseline`: no *new* violation), 1 = violations found, 2 = usage error (unknown option, missing value, unreadable or malformed baseline).
+- The baseline is **not clean** — 832 violations as of 8 October 2026 (V1 518, V4 253, V8 60, V10 1):
   - **V1 (no front-matter):** most files outside `mata-kuliah/semester-2/algoritma-pemrograman/` and `mata-kuliah/00-pedoman-obe/` have none — including the **new-curriculum course folders** under `mata-kuliah/` (`semester-1/probabilitas-dan-statistik/`, `semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`, `semester-5/teknopreneur/`, `semester-7/metodologi-penelitian/`; about 228 V1 findings as of 7 October 2026) and the registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`, 26 files). A V1 finding on these files is baseline, not a new violation — and these folders are **not** validator-clean.
-  - **V4/V8/V10:** old-curriculum folders also carry these legacy findings (the outdated prompts in `mata-kuliah/00-meta/` carry V4 as well).
+  - **V4/V8/V10:** old-curriculum folders also carry these legacy findings (the outdated prompts in `mata-kuliah/00-meta/` carry V4 as well). The single V10 left is a real broken link in `mata-kuliah/arsip/praktikum-rekayasa-perangkat-lunak/04-assessments/rubrik-laporan-praktikum.md`.
   - Only courses whose RPS has front-matter `tipe: rps` (currently INF-101) are recognized for V3/V5/V6/V7.
-- Run it before and after your change and make sure you introduce **no new** violations — especially V8 (footer), V10 (relative links) and V13 (grade scale).
-- The validator does not scan files outside `mata-kuliah/` (e.g., this file or the root README); check their relative links manually with `test -e`.
+- **Committed baseline:** `tools/validasi-obe-baseline.json` lists the accepted legacy violations (matched by rule + file + message; line numbers are ignored, so shifted lines do not count as new). After your change, `--baseline tools/validasi-obe-baseline.json` must report **0 new** — especially V8 (footer), V10 (relative links) and V13 (grade scale). When you fix legacy violations, regenerate it in the same commit with `--baseline-tulis tools/validasi-obe-baseline.json`; never regenerate it to absorb a new violation.
+- The validator does not scan files outside `mata-kuliah/` (e.g., this file or the root README) and does not check anchors; check those links manually (`test -e`, GitHub heading slugs).
 
 ### What This Repository Does NOT Have
 

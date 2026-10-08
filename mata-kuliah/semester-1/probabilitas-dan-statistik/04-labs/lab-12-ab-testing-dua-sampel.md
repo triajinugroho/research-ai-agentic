@@ -8,7 +8,7 @@
 | **Prasyarat** | Lab 11 selesai; materi Minggu 12 |
 | **Sub-CPMK** | `PS-Sub-CPMK102-1` |
 | **Bobot** | 1,92% |
-| **Berkas data** | `ab_test_fitur_checkout.csv`, `nilai_mahasiswa_if.csv` |
+| **Berkas data** | `ab_test_fitur_checkout.csv`, `nilai_mahasiswa_if.csv` — `nilai_mahasiswa_if.csv` bersifat **sintetis** (latihan; tidak menggambarkan mahasiswa sesungguhnya), lihat [Panduan Dataset §3](../datasets/README.md#3-dataset-yang-disediakan-untuk-lab) |
 
 ---
 
