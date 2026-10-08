@@ -56,7 +56,7 @@ probabilitas-dan-statistik/
 ├── 04-labs/                        # 13 lab hands-on Python
 ├── 05-assessments/                 # Kerangka asesmen, kisi-kisi, rubrik, panduan proyek
 ├── 06-buku-ajar/                   # Buku ajar 14 bab + pendukung
-└── datasets/                       # Panduan dataset, sumber data Indonesia, dan 8 berkas CSV lab (diunggah dosen)
+└── datasets/                       # Panduan dataset dan sumber data Indonesia; 8 berkas CSV lab akan diunggah dosen (daftar: datasets/README §3.2)
 ```
 
 ---

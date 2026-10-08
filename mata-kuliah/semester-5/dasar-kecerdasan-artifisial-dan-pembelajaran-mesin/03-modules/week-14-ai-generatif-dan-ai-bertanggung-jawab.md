@@ -120,7 +120,7 @@ Ketika angka kejadian dasar (*base rate*) berbeda antarkelompok, ukuran-ukuran d
 - **Chouldechova (2017):** bila *base rate* berbeda, pengklasifikasi yang tidak sempurna tidak dapat sekaligus memiliki PPV yang sama dan FPR serta FNR yang sama.
 - **Barocas, Hardt, & Narayanan (2023):** *independence* (*demographic parity*) dan *separation* (*equalized odds*) umumnya tidak dapat dipenuhi bersamaan bila *base rate* berbeda, **kecuali** pada pengklasifikasi trivial — mis. yang memberi keputusan sama untuk semua orang: memenuhi keduanya, tetapi tidak berguna.
 
-Jadi bukan "tidak ada model yang dapat memenuhi semuanya" — pengklasifikasi konstan memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus. Yang benar: **bila *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.**
+Jadi bukan "tidak ada model yang dapat memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus" — pengklasifikasi konstan memenuhi ketiganya, tetapi tidak berguna (dan tidak memenuhi *predictive parity*: bila semua diprediksi positif, *precision* tiap kelompok sama dengan *base rate*-nya; bila tidak ada yang diprediksi positif, *precision*-nya tidak terdefinisi). Yang benar: **bila *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.**
 
 > **Konsekuensinya bagi praktik:** *fairness* bukan kotak centang yang dapat dipenuhi, melainkan **pilihan yang harus dinyatakan dan dipertanggungjawabkan**. Insinyur wajib menyatakan ukuran mana yang dipilih dan mengapa — dan mengakui apa yang dikorbankan.
 

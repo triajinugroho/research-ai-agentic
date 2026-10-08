@@ -607,7 +607,7 @@ on:
 
 ## Refleksi & AI Usage Log
 
-Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log.
+Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Simpan log di bagian akhir berkas refleksi `docs/refleksi-lab-11.md`, bersama jawaban pertanyaan refleksi berikut.
 
 **Pertanyaan refleksi:**
 1. Apa manfaat utama CI/CD yang Anda rasakan setelah lab ini?
@@ -625,7 +625,7 @@ Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, 
 - [ ] Pernah debug pipeline gagal dan memperbaikinya (minimal 1x)
 - [ ] Secrets dikonfigurasi (tidak ada hardcoded token)
 - [ ] Status badge ditampilkan di README.md
-- [ ] Refleksi dan AI Usage Log diisi
+- [ ] Refleksi dan AI Usage Log diisi di `docs/refleksi-lab-11.md`
 
 ---
 

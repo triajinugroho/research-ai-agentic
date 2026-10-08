@@ -67,6 +67,9 @@ model = Pipeline([
     ("kmeans", KMeans(n_clusters=4, n_init=10, random_state=42)),
 ])
 label = model.fit_predict(X)
+
+# Contoh 11.3.2–11.8 memakai matriks fitur terskala secara eksplisit
+X_scaled = StandardScaler().fit_transform(X)
 ```
 
 | Parameter | Peran |

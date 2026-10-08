@@ -271,7 +271,7 @@ assert diag["PAS: Random Forest"].startswith("Pas"), (
 print("Pemeriksaan otomatis lulus.")
 ```
 
-> Pada data ini (diuji pada scikit-learn 1.6 dan 1.9): pohon kedalaman 1 ≈ 0,60 (latih) vs ≈ 0,60 (validasi); pohon tanpa batas 1,00 vs ≈ 0,79 — selisih ≈ 0,21 yang menetap; *Random Forest* ≈ 1,00 vs ≈ 0,95 — selisih ≈ 0,05 dan validasinya hanya naik < 0,01 pada 30% data latih terakhir. Perhatikan bahwa validasi pohon tanpa batas **masih naik**: menambah data membantu sedikit, tetapi tidak menutup selisihnya.
+> Pada data ini (diuji pada scikit-learn 1.6 dan 1.9): pohon kedalaman 1 ≈ 0,60 (latih) vs ≈ 0,60 (validasi); pohon tanpa batas 1,00 vs ≈ 0,79 — selisih masih ≈ 0,21, menyempit perlahan dari ≈ 0,34 pada 10% data latih tetapi tetap besar; *Random Forest* ≈ 1,00 vs ≈ 0,95 — selisih ≈ 0,05 dan validasinya hanya naik < 0,01 pada 30% data latih terakhir. Perhatikan bahwa validasi pohon tanpa batas **masih naik** (≈ +0,02 pada 30% data latih terakhir): menambah data membantu sedikit, tetapi tidak menutup selisihnya. Kurva ini sebenarnya juga menunjukkan tanda **kurang data** (selisih mengecil, validasi belum mendatar); `diagnosis_kurva` tetap memberinya label *Overfit* karena aturan selisih ≥ 0,10 diperiksa lebih dahulu — selisih yang besar mendominasi diagnosis. Dalam diagnosis tertulis Anda, sebutkan kedua tanda itu.
 
 ### LANGKAH 6: Kurva Validasi
 

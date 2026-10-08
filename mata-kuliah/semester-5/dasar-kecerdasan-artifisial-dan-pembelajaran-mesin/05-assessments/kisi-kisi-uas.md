@@ -71,9 +71,11 @@ $$\sigma(z)=\frac{1}{1+e^{-z}} \qquad \sigma'(z)=\sigma(z)\bigl(1-\sigma(z)\bigr
 
 $$s(i)=\frac{b(i)-a(i)}{\max\{a(i),b(i)\}} \qquad \text{Precision}=\frac{TP}{TP+FP} \qquad \text{Recall}=\frac{TP}{TP+FN}$$
 
-$$\bar{s}=\frac{1}{k}\sum_i s_i \qquad s=\sqrt{\frac{\sum_i(s_i-\bar{s})^2}{k-1}} \quad \text{(simpangan baku sampel skor lipatan, pembagi } k-1\text{)}$$
+$$\bar{x}=\frac{1}{k}\sum_i x_i \qquad s=\sqrt{\frac{\sum_i(x_i-\bar{x})^2}{k-1}} \quad \text{(}x_i\text{ = skor lipatan ke-}i\text{; simpangan baku sampel, pembagi } k-1\text{)}$$
 
 $$d_i=\text{skor}_{A,i}-\text{skor}_{B,i} \qquad \bar d=\frac{1}{k}\sum_i d_i \qquad s_d=\sqrt{\frac{\sum_i(d_i-\bar d)^2}{k-1}} \qquad SE=\frac{s_d}{\sqrt{k}}$$
+
+Notasi: $s(i)$ = *silhouette* titik $i$; $x_i$ = skor lipatan ke-$i$ dengan rerata $\bar{x}$ (sama dengan lembar rumus UTS); $s$ dan $s_d$ = simpangan baku sampel (skor lipatan dan selisih berpasangan).
 
 Nilai $\log_2$ yang sering dipakai juga disediakan dalam tabel kecil.
 

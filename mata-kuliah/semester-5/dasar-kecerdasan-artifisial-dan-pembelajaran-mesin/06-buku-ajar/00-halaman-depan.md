@@ -104,7 +104,7 @@ Level progresinya mengikuti *AI Competency Framework for Students* dari UNESCO �
 | 5–11 | **Apply** | *AI techniques and applications*; *Ethics of AI* | Memakai AI untuk kode sambil mempertahankan rekayasa fitur, pemilihan model, dan pemilihan metrik sebagai keputusan sendiri; memverifikasi keluaran AI dan mengenali kekeliruan khas yang diulangnya |
 | 12–14 | **Create** | *AI system design*; *Ethics of AI* | Tanggung jawab penuh atas sistem yang dibangun; dokumentasi dan pelaporan yang jujur |
 
-> Judul AI Corner tiap bab mencantumkan levelnya; bila berbeda, **tabel inilah acuannya**. Label lokal Dasar/Menengah/Lanjut/Mahir hanya padanan — level UNESCO yang menjadi acuan.
+> Judul AI Corner tiap bab mencantumkan levelnya; bila berbeda, **tabel inilah acuannya**. Label **Tingkat Dasar/Menengah/Mahir** pada Latihan Soal adalah jenjang kesukaran soal, **bukan** level AI Corner — level AI Corner hanya mengikuti tabel UNESCO di atas.
 
 ---
 
@@ -123,7 +123,7 @@ Level progresinya mengikuti *AI Competency Framework for Students* dari UNESCO �
 ### Untuk Dosen Pengampu
 
 - Setiap bab selaras dengan satu modul mingguan pada `03-modules/` dan satu praktikum pada `04-labs/`.
-- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal kuis, UTS, dan UAS disusun terpisah dari cetak biru butir pada kisi-kisi dan **tidak dipublikasikan**.
+- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal UTS dan UAS disusun dari cetak biru butir pada [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) dan [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md), soal kuis dari cakupan kuis K-01–K-04 pada [RTM §D](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#d-rincian-kuis-k-01-sd-k-04); seluruhnya disusun terpisah dan **tidak dipublikasikan**.
 - AI Corner dapat menjadi bahan diskusi kelas 15 menit.
 - Seluruh contoh dan data berkonteks Indonesia, dapat diganti sesuai kebutuhan.
 

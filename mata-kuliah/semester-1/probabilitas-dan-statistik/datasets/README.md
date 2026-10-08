@@ -9,6 +9,7 @@ Berkas ini memuat sumber data yang dipakai pada lab, latihan, dan proyek akhir: 
 ## 1. Prinsip Pemilihan Data
 
 1. **Kesimpulan substantif hanya dari data nyata; data sintetis dinyatakan terbuka.** Proyek akhir wajib memakai data nyata ([panduan proyek §2](../05-assessments/project-guidelines.md#2-ketentuan-dasar)). Berkas latihan lab boleh sintetis atau hasil simulasi — misalnya `nilai_mahasiswa_if.csv` — asalkan sifatnya dinyatakan di berkas ini dan di lab yang memakainya, dan hasilnya tidak dipakai untuk menarik kesimpulan tentang dunia nyata.
+   > **Status per 7 Oktober 2026 — belum terpenuhi penuh.** Sifat sintetis `nilai_mahasiswa_if.csv` baru dinyatakan di berkas ini (§3) dan pada pemakaian pertamanya, [Lab 01](../04-labs/lab-01-setup-colab-eksplorasi-data.md). Delapan lab lain yang memakai berkas yang sama — Lab 02, 03, 07, 10, 11, 12, 13, dan 14 — belum memuat pernyataan itu; pernyataan perlu ditambahkan pada revisi lab berikutnya. Sampai saat itu, anggap pernyataan di Lab 01 dan di sini berlaku untuk semua lab.
 2. **Berkonteks Indonesia.** Mahasiswa harus bisa menilai apakah angka yang keluar masuk akal — itu hanya mungkin bila konteksnya dikenal.
 3. **Sumber terbuka dan dapat dirujuk.** Setiap dataset harus punya tautan dan keterangan lisensi.
 4. **Ukuran wajar.** Data proyek cukup 200–50.000 baris; lebih besar tidak menambah nilai pembelajaran statistika dasar.

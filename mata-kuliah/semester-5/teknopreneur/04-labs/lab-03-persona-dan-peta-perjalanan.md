@@ -21,7 +21,7 @@
 
 - Seluruh catatan wawancara S-02 (≥ 5; targetkan 8 sebelum P-01) dengan kutipan verbatim yang diberi kode wawancara (W01, W02, …).
 - Kartu kosong atau spreadsheet untuk menuliskan setiap kutipan pada satu kartu atau baris (Langkah 1).
-- Dugaan awal tim pada formulir P-00 — dipakai untuk menandai kelompok temuan yang bertentangan dengan dugaan.
+- Gambaran awal tim tentang masalah pada formulir P-00 (§2 Ranah Masalah dan §4 Mengapa Ranah Ini), kolom "Dugaan tim sebelum wawancara" dan bagian "Yang Mengejutkan" pada [catatan wawancara](../06-buku-ajar/lampiran.md#a2-catatan-wawancara) S-02, serta tabel tinjauan antarwawancara S-02 ([Langkah 6](lab-02-wawancara-masalah.md#langkah-6-tinjauan-antarwawancara)) — dipakai untuk menandai kelompok temuan yang bertentangan dengan dugaan awal (tahap 6).
 - Bab 3 buku ajar sudah dibaca.
 
 ---

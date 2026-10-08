@@ -311,7 +311,7 @@ Perintah terakhir penting. Yang perlu diperbaiki bukan drafnya, melainkan salah 
 1. Republik Indonesia. (2022). *Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi*.
 2. Republik Indonesia. (2023). *Undang-Undang Nomor 6 Tahun 2023 tentang Penetapan Peraturan Pemerintah Pengganti Undang-Undang Nomor 2 Tahun 2022 tentang Cipta Kerja menjadi Undang-Undang*. (Menggantikan UU No. 11 Tahun 2020 tentang Cipta Kerja.)
 3. Republik Indonesia. (2008, 2016, 2024). *Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik* jo. UU No. 19 Tahun 2016 jo. UU No. 1 Tahun 2024.
-4. Kementerian Investasi/BKPM. (2024). *Panduan Perizinan Berusaha Berbasis Risiko (OSS)*. BKPM.
+4. Republik Indonesia. (2025). *Peraturan Pemerintah Nomor 28 Tahun 2025 tentang Penyelenggaraan Perizinan Berusaha Berbasis Risiko*. (Mencabut PP No. 5 Tahun 2021; NIB diterbitkan melalui sistem OSS yang dikelola Kementerian Investasi dan Hilirisasi/BKPM, d/h Kementerian Investasi/BKPM.)
 5. Otoritas Jasa Keuangan. (2023). *Peraturan OJK No. 22 Tahun 2023 tentang Pelindungan Konsumen dan Masyarakat di Sektor Jasa Keuangan*. OJK.
 6. Antonio, M. S. (2001). *Bank Syariah: Dari Teori ke Praktik*. Gema Insani.
 7. Dewan Syariah Nasional–Majelis Ulama Indonesia. (2017). *Fatwa DSN-MUI No. 110/DSN-MUI/IX/2017 tentang Akad Jual Beli*. DSN-MUI.

@@ -150,15 +150,15 @@ Kriteria kurikulum: *ketepatan rumus dan hitung; kecocokan asumsi; kualitas inte
 
 ## 4. Rubrik Penilaian Sejawat (Presentasi Proyek)
 
-Umpan balik **formatif**: **tidak dinilai** dan tidak masuk komponen nilai mana pun (mata kuliah ini tidak memiliki komponen Partisipasi). Diisi setiap mahasiswa untuk kelompok lain yang tampil di sesinya, dikumpulkan kepada dosen, lalu diteruskan kepada kelompok yang dinilai sebagai bahan refleksi. Lembar yang sama ada pada [modul Minggu 15](../03-modules/week-15-presentasi-proyek.md).
+Umpan balik **formatif**: **tidak dinilai** dan tidak masuk komponen nilai mana pun (mata kuliah ini tidak memiliki komponen Partisipasi). Diisi setiap mahasiswa untuk kelompok lain yang tampil di sesinya, dikumpulkan kepada dosen, lalu diteruskan kepada kelompok yang dinilai sebagai bahan refleksi. Bagian ini adalah **satu-satunya versi** lembar umpan balik sejawat; [modul Minggu 15](../03-modules/week-15-presentasi-proyek.md#umpan-balik-sejawat-peer-review) merujuk ke sini dan tidak memuat salinannya.
 
-| Aspek | 1 | 2 | 3 | 4 | 5 |
-|-------|---|---|---|---|---|
-| Kejelasan pertanyaan penelitian | | | | | |
-| Kualitas dan kejujuran visualisasi | | | | | |
-| Ketepatan metode statistik | | | | | |
-| Kejujuran menyampaikan keterbatasan | | | | | |
-| Penguasaan saat tanya jawab | | | | | |
+| Aspek | 1 | 2 | 3 | 4 | 5 | Catatan |
+|-------|---|---|---|---|---|---------|
+| Kejelasan pertanyaan penelitian | | | | | | |
+| Kualitas dan kejujuran visualisasi | | | | | | |
+| Ketepatan metode statistik | | | | | | |
+| Kejujuran menyampaikan keterbatasan | | | | | | |
+| Penguasaan saat tanya jawab | | | | | | |
 
 **Satu hal yang paling saya pelajari dari presentasi ini:**
 

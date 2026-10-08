@@ -29,8 +29,21 @@ semacam itu tetap diperiksa; contoh bersarang perlu pagar luar ````markdown.
 Pagar yang tidak tertutup berlaku sampai akhir berkas (atau akhir
 kutipannya). Kode inline: deretan n backtick sampai deretan n backtick
 berikutnya pada baris yang sama (kode inline lintas baris dan blok kode
-berindentasi 4 spasi tanpa pagar tidak dikenali). Pesan V10 memuat nomor
-baris target tautan.
+berindentasi 4 spasi tanpa pagar tidak dikenali). Indentasi pagar tidak
+dibatasi dan butir daftar tidak dilacak, sehingga deteksi pagar dapat
+menyimpang dari GitHub dalam dua pola. (a) ``` berindentasi >= 4 spasi (di
+dalam butir daftar: >= 4 spasi lebih dalam dari isi butir) tetap dianggap
+pagar, padahal GitHub merendernya sebagai teks biasa bila tepat sesudah baris
+paragraf dan sebagai blok kode berindentasi bila tidak (mis. sesudah baris
+kosong atau judul). Sebagai pembuka, tautan sesudahnya tidak diperiksa sampai
+pagar penutup atau akhir berkas; sebagai penutup, tautan sesudahnya diperiksa
+walaupun GitHub masih menganggapnya kode. (b) Baris tak-kosong yang
+indentasinya kurang dari isi butir daftar mengakhiri butir itu beserta
+pagarnya di GitHub, tetapi tidak di validator: ``` polos (mis. di kolom 0)
+dianggap penutup sehingga tautan sesudahnya tetap diperiksa, padahal GitHub
+membuka pagar baru; baris teks biasa tetap dianggap kode sehingga tautan di
+baris itu (dan sesudahnya sampai pagar penutup) tidak diperiksa, padahal
+GitHub merendernya. Pesan V10 memuat nomor baris target tautan.
 
 V13 membaca tabel §A konversi-nilai.md (rentang, huruf, bobot) saat dijalankan,
 lalu memeriksa setiap tabel Markdown di luar blok kode yang memuat >= 3 baris
@@ -249,7 +262,7 @@ FILTER = ARG.get("--mk")
 BASELINE = baca_baseline(ARG["--baseline"]) if "--baseline" in ARG else None
 
 # ---------------------------------------------------------------- muat berkas
-berkas =[p for p in kumpulkan("**/*.md") if "/sumber/" not in p]
+berkas = [p for p in kumpulkan("**/*.md") if "/sumber/" not in p]
 dok = {}
 for p in berkas:
     teks = open(p, encoding="utf-8").read()
@@ -415,7 +428,8 @@ def tanpa_kode(teks):
     pagar backtick tidak boleh memuat backtick); penutup = karakter yang sama, minimal
     sepanjang pembuka, tanpa info string, pada kedalaman kutipan '>' yang sama. Blok di
     dalam kutipan berakhir bersama kutipannya; pagar tak tertutup berlaku sampai akhir
-    berkas. Indentasi pagar tidak dibatasi (pagar di dalam butir daftar)."""
+    berkas. Indentasi pagar tidak dibatasi (pagar di dalam butir daftar) dan butir
+    daftar tidak dilacak; akibatnya dicatat pada docstring modul (paragraf V10)."""
     hasil, pagar = [], None               # pagar = (karakter, panjang, kedalaman kutipan)
     for baris in teks.split("\n"):
         m = RE_PAGAR.match(baris)
@@ -623,8 +637,12 @@ def kunci_baseline(a, f, m):
             RE_ANGKA_BARIS.sub(lambda x: re.sub(r'\d+', '#', x.group(0)), m))
 
 def urut_alami(s):
-    """'baris 9' < 'baris 34': bagian angka dibandingkan sebagai bilangan."""
-    return [int(t) if t.isdigit() else t for t in re.split(r'(\d+)', s)]
+    """'baris 9' < 'baris 34': bagian angka dibandingkan sebagai bilangan.
+    Bagian berindeks ganjil hasil re.split dengan grup (\\d+) selalu digit desimal, jadi
+    paritas indeks (bukan str.isdigit, yang juga benar untuk '²' dan gagal di int())
+    menentukan bagian angka; teks dan angka selalu berselang-seling sehingga tidak pernah
+    dibandingkan satu sama lain."""
+    return [int(t) if i % 2 else t for i, t in enumerate(re.split(r'(\d+)', s))]
 
 print(f"# Laporan Validasi OBE\n\nBerkas diperiksa: {len(dok)}  |  Mata kuliah: {len(mk_daftar)}\n")
 

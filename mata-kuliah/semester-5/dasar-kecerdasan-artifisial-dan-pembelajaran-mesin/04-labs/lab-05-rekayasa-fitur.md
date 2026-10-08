@@ -33,7 +33,7 @@
 
 1. Buat notebook baru bernama `NIM_Nama_Lab05.ipynb`.
 2. Jalankan **sel pembuka baku** di [Lampiran D](../06-buku-ajar/lampiran.md#lampiran-d-sel-pembuka-baku) — mengimpor pustaka, mencatat versi, dan menetapkan `RANDOM_STATE = 42`. Seluruh langkah di bawah mengandaikan sel itu sudah dijalankan.
-3. **Data:** data kemacetan lab ini adalah **data sintetis (simulasi)** yang meniru pola kemacetan ruas jalan Jakarta — jam sibuk pagi dan sore, hari kerja vs. akhir pekan; **bukan data resmi BPS/lembaga** mana pun (termasuk dinas perhubungan). Data dibangkitkan pada Langkah 1: 6.000 baris per jam, 1 Januari s.d. 7 September 2026. Karena sintetis, aturan pembangkitnya dapat dibaca langsung di kode — manfaatkan itu saat menjawab pertanyaan Langkah 8 tentang fitur yang **tidak** membantu.
+3. **Data:** data kemacetan lab ini adalah **data sintetis (simulasi)** yang meniru pola kemacetan ruas jalan Jakarta — jam sibuk pagi dan sore, hari kerja vs. akhir pekan; **bukan data resmi BPS/lembaga** mana pun (termasuk dinas perhubungan). Data dibangkitkan pada Langkah 1: 6.000 baris — satu baris per jam, 250 hari pengamatan — dari 1 Januari 2026 pukul 00.00 s.d. 7 September 2026 pukul 23.00. Karena sintetis, aturan pembangkitnya dapat dibaca langsung di kode — manfaatkan itu saat menjawab pertanyaan Langkah 8 tentang fitur yang **tidak** membantu.
 
 ---
 

@@ -111,7 +111,7 @@ $$\text{Nilai aspek} = \frac{\text{skor}}{4} \times \text{bobot aspek}$$
 
 | Aspek | Bobot | 4 (Sangat Baik) | 3 (Baik) | 2 (Cukup) | 1 (Kurang) |
 |-------|-------|-----------------|----------|-----------|------------|
-| Kebenaran teknis | 40% | Seluruh langkah benar; tanpa kebocoran | Benar dengan kekeliruan kecil | Ada kekeliruan yang memengaruhi hasil | Langkah pokok salah |
+| Kebenaran teknis | 40% | Seluruh langkah benar; tanpa kebocoran | Benar dengan kekeliruan kecil | Ada kekeliruan yang memengaruhi hasil | Langkah pokok salah atau ada kebocoran |
 | Kesesuaian metode/metrik | 25% | Tepat dan beralasan tertulis | Tepat, alasan kurang | Dapat diterima tetapi bukan yang optimal | Tidak sesuai |
 | Kualitas interpretasi | 25% | Tajam, sebatas data, menyebut keterbatasan | Tepat, keterbatasan kurang dibahas | Ada klaim melampaui data | Tidak ada interpretasi |
 | Reproduksibilitas | 10% | Berjalan ulang mulus; versi tercatat; `random_state` ditetapkan | Berjalan dengan penyesuaian kecil | Perlu perbaikan agar berjalan | Tidak dapat dijalankan |
@@ -206,7 +206,7 @@ Mahasiswa dinyatakan lulus apabila memenuhi **seluruh** syarat:
 
 ### 7.2 Cara Menerapkan
 
-a. **Satu temuan, satu baris.** Setiap temuan dikenai satu baris tabel saja per komponen. Rubrik tetap mengukur mutu tiap aspek menurut deskriptornya, tetapi **tidak membatasi skor aspek lain** karena temuan yang sama — ketentuan lama "skor maksimum 2 pada Kebenaran teknis" di rubrik tugas tidak berlaku lagi.
+a. **Satu temuan, satu konsekuensi.** Setiap temuan dikenai satu baris tabel saja per komponen. **Tanpa sanksi ganda.** Bila satu temuan dikenai pengurangan persentase dari tabel pengurangan, aspek rubrik yang deskriptornya menyebut temuan yang sama dinilai tanpa memperhitungkan temuan itu — mis. notebook yang tidak berjalan ulang dikenai −20%, dan skor Reproduksibilitasnya tidak memperhitungkan kegagalan berjalan ulang itu. Contoh lain: P-01 tanpa *baseline* dikenai −10%, dan aspek Kejujuran pelaporan dinilai dari unsur lainnya (pemeriksaan kebocoran yang ditunjukkan); kebocoran pada P-03 dikenai pengurangan hingga −30% nilai proyek, dan aspek P-03 yang deskriptornya menyebut kebocoran (Kebenaran proses pelatihan; Kebenaran prapemrosesan dan pembagian) dinilai tanpa memperhitungkan kebocoran itu. Sebaliknya, bila baris tabel **bukan** pengurangan persentase — kebocoran pada P-01/P-02 ("dinilai menurut rubrik"), atau pekerjaan "dikembalikan" yang tidak dikumpulkan ulang (butir d) — skor rubrik itulah satu-satunya konsekuensinya. Jadi kebocoran memakai prinsip yang sama di setiap tahap: rubrik **atau** pengurangan, tidak keduanya. Temuan itu **tidak membatasi skor aspek lain** — ketentuan lama "skor maksimum 2 pada Kebenaran teknis" di rubrik tugas tidak berlaku lagi. Hal yang diukur rubrik tetapi **tidak tercantum** pada tabel §7.1 (mis. dokumentasi keputusan data, [panduan proyek §7.4](project-guidelines.md#74-dokumentasi-keputusan-data)) hanya dinilai lewat rubrik, tanpa pengurangan tambahan.
 
 b. **Cara menghitung.** Persentase pengurangan dihitung terhadap nilai maksimum komponen (skala 0–100) lalu dikurangkan dari skor rubrik: $\text{nilai komponen} = \max(0;\ \text{skor rubrik} - \sum \text{pengurangan})$. "Komponen bersangkutan" = satu lab atau satu tahap proyek. "Nilai proyek" = gabungan P-01–P-04 (bobot 35%). Contoh: lab dengan skor rubrik 80 yang terlambat ≤ 24 jam bernilai 80 − 10 = 70.
 

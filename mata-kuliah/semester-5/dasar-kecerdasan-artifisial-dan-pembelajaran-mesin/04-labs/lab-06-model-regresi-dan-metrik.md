@@ -275,7 +275,7 @@ tabel_hasil = pd.DataFrame(hasil)
 print(tabel_hasil.round(3).to_string(index=False))
 ```
 
-> **Dari mana `ConvergenceWarning` pada Lasso?** Lasso dilatih dengan *coordinate descent*, yang lambat konvergen bila (1) ada kolom yang kembar sempurna — misalnya enam dummy kota bersama intersep (*dummy variable trap*), terutama ketika α sangat kecil — atau (2) skala kolom sangat timpang. Menaikkan `max_iter` saja sering **tidak** cukup; hilangkan penyebabnya dengan `drop="first"` dan penskalaan di dalam `Pipeline`, lalu biarkan `max_iter` yang longgar sebagai pengaman. **Jangan membungkam peringatan** — perbaiki penyebabnya.
+> **Dari mana `ConvergenceWarning` pada Lasso?** Lasso dilatih dengan *coordinate descent*, yang lambat konvergen bila (1) ada kolom yang kembar sempurna — misalnya enam dummy kota bersama intersep (*dummy variable trap*), terutama ketika α sangat kecil — atau (2) skala kolom sangat timpang. Menaikkan `max_iter` mungkin menghilangkan peringatannya, tetapi **tidak** menghilangkan penyebabnya. Pada versi awal lab ini (2.500 baris, enam dummy kota tanpa `drop="first"`), peringatan baru hilang pada `max_iter` = 100.000, namun α terpilih tetap di tepi bawah grid (0,001) dan Lasso menolkan satu dummy kota (`kota_Tangerang`) secara sembarang — bukan karena kota itu tidak berpengaruh, melainkan karena salah satu dari enam dummy selalu dapat dihitung dari intersep dan lima dummy lainnya, sehingga dummy mana pun boleh dibuang. Dengan `drop="first"` saja, peringatan sudah hilang pada `max_iter` = 20.000 dan α terpilih ≈ 0,068. Jadi, hilangkan penyebabnya dengan `drop="first"` dan penskalaan di dalam `Pipeline`, lalu biarkan `max_iter` yang longgar sebagai pengaman. **Jangan membungkam peringatan** — perbaiki penyebabnya.
 
 ### LANGKAH 6: α yang Terpilih dan Koefisien
 
@@ -339,9 +339,23 @@ if len(derau_lolos):
     print(f"Kolom derau yang lolos ({len(derau_lolos)}) hanya berkoefisien kecil: "
           f"|koef| maks {derau_lolos['Lasso'].abs().max():.1f}, bandingkan dengan "
           f"luas_bangunan {koef.set_index('Fitur').loc['luas_bangunan', 'Lasso']:.1f}")
+
+# --- Fitur INTI yang ikut dinolkan: alasannya dihitung per fitur, bukan ditulis tangan ---
 if inti_nol:
-    print(f"Lasso juga menolkan fitur inti {inti_nol} — informasinya sudah "
-          f"terwakili pasangan kolinearnya.")
+    Z = pd.DataFrame(pipa_terlatih["Lasso (alpha via CV)"].named_steps["pra"]
+                     .transform(X_train), columns=nama_fitur)   # data latih terskala
+    aktif = koef.loc[~koef["Dinolkan Lasso"], "Fitur"].tolist()
+    for f in inti_nol:
+        r = Z[aktif].corrwith(Z[f])         # korelasi f dengan tiap fitur yang tetap aktif
+        mitra = r.abs().idxmax()
+        if abs(r[mitra]) >= 0.5:
+            print(f"Lasso menolkan fitur inti {f}: informasinya tumpang tindih dengan "
+                  f"{mitra} (r = {r[mitra]:.2f}), yang tetap aktif.")
+        else:
+            print(f"Lasso menolkan fitur inti {f}: tidak ada fitur aktif yang berkorelasi "
+                  f"kuat dengannya (|r| maks {abs(r[mitra]):.2f}, dengan {mitra}) — "
+                  f"sumbangannya terlalu kecil untuk melewati denda α.")
+    print("→ Fitur di atas DIPAKAI rumus harga: 'dinolkan Lasso' ≠ 'tidak berpengaruh'.")
 
 # --- Pasangan kolinear: siapa yang membagi bobot, siapa yang memilih? ---
 print("\nPasangan kolinear:")
@@ -370,7 +384,7 @@ assert n_aktif_lasso < len(koef), (
 print("Pemeriksaan otomatis lulus.")
 ```
 
-Pada data lab ini (`RANDOM_STATE = 42`; diuji pada scikit-learn 1.6 dan 1.9, hasilnya identik), validasi silang memilih α ≈ 5,8 untuk Ridge dan α ≈ 7,3 untuk Lasso — jauh dari kedua ujung grid (0,001 dan 1000). Lasso menolkan 5 dari 23 koefisien: 4 kolom derau (`nomor_rt`, `jumlah_foto_iklan`, `panjang_judul_iklan`, `digit_akhir_telepon`) dan kolom kolinear `daya_listrik_va`. Enam kolom derau lainnya lolos dengan koefisien kecil (|koef| ≤ 16,5 juta, dibandingkan ≈ 600 juta untuk `luas_bangunan`). Dengan `RANDOM_STATE` lain, kolom yang dinolkan bisa berbeda — lihat Tantangan 4.
+Pada data lab ini (`RANDOM_STATE = 42`; diuji pada scikit-learn 1.6 dan 1.9, hasilnya identik), validasi silang memilih α ≈ 5,8 untuk Ridge dan α ≈ 7,3 untuk Lasso — jauh dari kedua ujung grid (0,001 dan 1000). Lasso menolkan 5 dari 23 koefisien: 4 kolom derau (`nomor_rt`, `jumlah_foto_iklan`, `panjang_judul_iklan`, `digit_akhir_telepon`) dan kolom kolinear `daya_listrik_va`. Enam kolom derau lainnya lolos dengan koefisien kecil (|koef| ≤ 16,5 juta, dibandingkan ≈ 600 juta untuk `luas_bangunan`). Tidak ada fitur inti yang dinolkan pada seed ini. Dengan `RANDOM_STATE` lain, kolom yang dinolkan bisa berbeda, termasuk fitur inti; bila itu terjadi, sel Langkah 6 mencetak alasannya per fitur — dihitung dari korelasinya dengan fitur yang tetap aktif — lihat Tantangan 4.
 
 **Tulis tafsiran:**
 - Fitur apa yang dinolkan Lasso? Apakah masuk akal secara domain — misalnya, mungkinkah `nomor_rt` atau `digit_akhir_telepon` memengaruhi harga rumah?
@@ -424,7 +438,7 @@ else:
 
 > **Rasio RMSE/MAE adalah petunjuk.** Rasio mendekati 1 berarti galat tersebar merata; rasio besar berarti ada sedikit galat yang sangat besar dan mendominasi RMSE.
 
-> **Regularisasi tidak selalu menaikkan akurasi secara besar.** Bila baris latih jauh lebih banyak daripada kolom (di sini 800 berbanding 23), regresi linear biasa jarang *overfitting* parah, sehingga Ridge dan Lasso hanya sedikit lebih baik — pada data lab ini selisih MAE ketiganya ≈ 2%, dan urutannya bergantung pada metrik (MAE dan MAPE memilih Lasso, RMSE memilih Ridge). Manfaat yang jelas di sini adalah **model yang lebih sederhana** (Lasso membuang kolom yang tidak berguna) dan **koefisien yang lebih stabil** pada fitur kolinear (Ridge). Bila akurasinya setara, model dengan lebih sedikit fitur lebih murah datanya dan lebih mudah dijelaskan.
+> **Regularisasi tidak selalu menaikkan akurasi secara besar.** Bila baris latih jauh lebih banyak daripada kolom (di sini 800 berbanding 23), regresi linear biasa jarang *overfitting* parah, sehingga Ridge dan Lasso hanya berbeda tipis dari regresi linear — pada data lab ini selisih MAE ketiganya ≈ 2%. Ridge sedikit lebih baik daripada regresi linear pada keempat metrik (pada RMSE dan R² nyaris sama), sedangkan Lasso unggul menurut MAE dan MAPE tetapi sedikit lebih buruk menurut RMSE (471,4 lawan 468,6) dan R² (0,817 lawan 0,819). Karena itu urutannya bergantung pada metrik: MAE dan MAPE memilih Lasso, RMSE memilih Ridge. Manfaat yang jelas di sini adalah **model yang lebih sederhana** (Lasso membuang kolom yang tidak berguna) dan **koefisien yang lebih stabil** pada fitur kolinear (Ridge). Bila akurasinya setara, model dengan lebih sedikit fitur lebih murah datanya dan lebih mudah dijelaskan.
 
 **Tulis penjelasan:** mengapa sebuah model dapat unggul menurut MAE tetapi kalah menurut RMSE? Kaitkan dengan rasio RMSE/MAE tiap model.
 
@@ -481,7 +495,7 @@ Tambahkan `PolynomialFeatures(degree=2)` sebelum regresi. Bandingkan R² latih d
 
 ### Tantangan 4 — Stabilitas Pemilihan Lasso
 
-Ulangi Langkah 1–6 dengan `RANDOM_STATE` 1 sampai 5. Apakah kolom derau yang dinolkan Lasso selalu sama? Apakah Lasso selalu memilih anggota pasangan kolinear yang sama (`jarak_pusat_km` atau `waktu_tempuh_menit`)? Adakah fitur **inti** yang ikut dinolkan? Apa artinya bagi tafsiran "fitur yang dibuang Lasso tidak penting"?
+Ulangi Langkah 1–6 dengan `RANDOM_STATE` 1 sampai 5. Apakah kolom derau yang dinolkan Lasso selalu sama? Apakah Lasso selalu memilih anggota pasangan kolinear yang sama (`jarak_pusat_km` atau `waktu_tempuh_menit`)? Adakah fitur **inti** yang ikut dinolkan? Bila ada, cocokkan alasan yang dicetak Langkah 6 dengan rumus pembangkit di Langkah 1: seberapa besar efek sebenarnya fitur itu, dan dengan fitur apa ia berkorelasi? Apa artinya bagi tafsiran "fitur yang dibuang Lasso tidak penting"?
 
 *Catatan:* sel Pemeriksaan otomatis disetel untuk `RANDOM_STATE = 42`. Pada uji kami dengan 40 nilai seed, kira-kira 1 dari 10 seed membuat Lasso tidak menolkan satu pun kolom derau sehingga pemeriksaan itu gagal — temuan yang juga layak dibahas.
 

@@ -576,14 +576,14 @@ Setiap mahasiswa **wajib** mencatat penggunaan AI dalam tugas dan proyek sebagai
 
 Untuk proyek akhir, perhatikan tiga hal berikut:
 
-- Tulis **fase SDLC** (requirements, design, code, test, deploy) di kolom *Task/Aktivitas*, misalnya "Testing — generate pytest untuk checkout"
+- Tulis **fase SDLC** (requirements, design, code, test, deploy) **dan nama anggota** yang melakukan interaksi di kolom *Task/Aktivitas*, misalnya "Testing — generate pytest untuk checkout (Citra)"
 - Isi kolom *Modifikasi* secara rinci — misalnya "fix 2 assertion", "tambah error handling" — bukan sekadar "sudah dicek"
-- Tulis refleksi per sprint: kapan AI paling membantu (biasanya *boilerplate code* dan test case) dan kapan kurang baik (misalnya keputusan arsitektur yang butuh pemahaman bisnis)
+- Tulis refleksi di akhir log (boleh dikelompokkan per sprint): kapan AI paling membantu (biasanya *boilerplate code* dan test case) dan kapan kurang baik (misalnya keputusan arsitektur yang butuh pemahaman bisnis)
 
-Script berikut membuat berkas log kosong `docs/ai-usage-log.md` dengan kolom yang sama persis dengan Lampiran C, sehingga setiap anggota tim mulai dari format yang sama:
+Script berikut menghasilkan templat **log tim** dengan kolom yang sama persis dengan Lampiran C: identitas berisi nama tim dan nama setiap anggota, lalu tabel dan refleksi. Cukup **satu anggota** (misalnya Scrum Master) yang menjalankannya **sekali** untuk membuat `docs/ai-usage-log.md` (aktifkan baris opsional di akhir script), lalu meng-*commit* berkas itu. Anggota lain **tidak** menjalankan ulang script; mereka menambahkan barisnya sendiri ke berkas yang sama (lanjutkan nomor urut, tulis nama di kolom *Task/Aktivitas*).
 
 ```python
-# Script untuk membuat berkas AI Usage Log kosong sesuai Lampiran C buku ajar
+# Script untuk menghasilkan templat AI Usage Log tim sesuai Lampiran C buku ajar
 from datetime import datetime
 
 # Kolom tabel mengikuti Lampiran C (satu-satunya templat resmi)
@@ -597,12 +597,13 @@ KOLOM_LAMPIRAN_C = [
 BULAN = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
          "Agustus", "September", "Oktober", "November", "Desember"]
 
-def generate_ai_log_template(nama_mahasiswa: str, nama_proyek: str, jumlah_baris: int = 2) -> str:
-    """Membuat templat AI Usage Log (format Lampiran C) dalam Markdown."""
+def generate_ai_log_template(nama_tim: str, anggota: list, nama_proyek: str,
+                             jumlah_baris: int = 2) -> str:
+    """Membuat templat AI Usage Log tim (format Lampiran C) dalam Markdown."""
     header = "| " + " | ".join(KOLOM_LAMPIRAN_C) + " |"
     pemisah = "|" + "|".join("---" for _ in KOLOM_LAMPIRAN_C) + "|"
     sekarang = datetime.now()
-    # Baris kosong bernomor untuk diisi mahasiswa
+    # Baris kosong bernomor; setiap anggota menambahkan barisnya sendiri
     baris = [
         "| " + str(i) + " |" + " |" * (len(KOLOM_LAMPIRAN_C) - 1)
         for i in range(1, jumlah_baris + 1)
@@ -610,9 +611,14 @@ def generate_ai_log_template(nama_mahasiswa: str, nama_proyek: str, jumlah_baris
     return "\n".join([
         "# AI Usage Log",
         "",
-        f"- **Nama / NIM:** {nama_mahasiswa}",
+        # Identitas proyek akhir: nama tim dan nama setiap anggota (Lampiran C)
+        f"- **Nama / NIM:** {nama_tim} — " + "; ".join(anggota),
         f"- **Tugas / Lab / Proyek:** {nama_proyek}",
         f"- **Periode:** Sprint 1-4 ({BULAN[sekarang.month - 1]} {sekarang.year})",
+        "",
+        "> Satu log untuk seluruh tim: setiap anggota menambahkan barisnya sendiri",
+        "> (lanjutkan nomor urut). Tulis fase SDLC dan nama anggota di kolom",
+        "> Task/Aktivitas, mis. \"Code — endpoint POST /api/peminjaman (Budi)\".",
         "",
         header,
         pemisah,
@@ -626,15 +632,24 @@ def generate_ai_log_template(nama_mahasiswa: str, nama_proyek: str, jumlah_baris
         "  kode dan dokumen yang saya kumpulkan, termasuk yang dibantu oleh AI.",
     ])
 
-# Membuat templat dan menampilkannya
-log = generate_ai_log_template("Ahmad Fauzi", "Proyek Akhir: Toko Batik Online")
+# Membuat templat log tim dan menampilkannya
+log = generate_ai_log_template(
+    "Tim Pustaka Digital",
+    ["Ahmad Fauzi (NIM ___)", "Budi (NIM ___)", "Citra (NIM ___)"],
+    "Proyek Akhir: Sistem Perpustakaan UAI",
+)
 print(log)
 
-# Opsional: simpan ke repositori proyek
+# Opsional — cukup SATU anggota, SEKALI saja: simpan sebagai log tim
 # import os
 # os.makedirs("docs", exist_ok=True)
-# with open("docs/ai-usage-log.md", "w", encoding="utf-8") as f:
-#     f.write(log)
+# path_log = "docs/ai-usage-log.md"
+# if os.path.exists(path_log):
+#     # Jangan menimpa log tim yang sudah berisi entri anggota lain
+#     print(f"{path_log} sudah ada — tambahkan baris Anda ke berkas itu.")
+# else:
+#     with open(path_log, "w", encoding="utf-8") as f:
+#         f.write(log)
 ```
 
 > **Nilai Islami -- Amanah dan Kejujuran:** Mencatat penggunaan AI adalah bentuk amanah akademik. Islam mengajarkan bahwa kejujuran (*shidq*) adalah fondasi karakter yang baik. Rasulullah SAW bersabda: "Sesungguhnya kejujuran itu menunjukkan kepada kebaikan" (HR. Bukhari-Muslim). Mengklaim kode AI sebagai karya sendiri tanpa transparansi adalah bentuk ketidakjujuran yang bertentangan dengan prinsip ini. Sebaliknya, mendokumentasikan penggunaan AI dengan jujur menunjukkan integritas dan profesionalisme -- kualitas yang dihargai baik dalam Islam maupun di dunia industri.

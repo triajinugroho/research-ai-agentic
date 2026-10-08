@@ -538,7 +538,7 @@ Jalankan mutation testing pada seluruh `app/services/`. Untuk setiap surviving m
 
 ## Refleksi & AI Usage Log
 
-Setelah menyelesaikan lab ini, isi AI Usage Log dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Di kolom *Evaluasi*, sertakan skor 1–5 beserta alasannya untuk setiap test case yang dihasilkan AI (misalnya "Perlu Modifikasi — 3/5: assertion terlalu longgar").
+Setelah menyelesaikan lab ini, isi AI Usage Log dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Di kolom *Evaluasi*, sertakan skor 1–5 beserta alasannya untuk setiap entri (misalnya "Perlu Modifikasi — 3/5: assertion terlalu longgar"). Simpan log di bagian akhir berkas refleksi `docs/refleksi-lab-10.md`, bersama jawaban pertanyaan refleksi berikut.
 
 **Pertanyaan refleksi:**
 1. Apa kelebihan dan kekurangan E2E test dibanding unit test?
@@ -554,7 +554,7 @@ Setelah menyelesaikan lab ini, isi AI Usage Log dengan format [Lampiran C buku a
 - [ ] Tabel perbandingan AI vs manual tests terisi
 - [ ] Security test minimal 1 skenario (SQL injection atau XSS)
 - [ ] Mutation testing dijalankan dan hasilnya dianalisis
-- [ ] Refleksi dan AI Usage Log diisi
+- [ ] Refleksi dan AI Usage Log diisi di `docs/refleksi-lab-10.md`
 
 ---
 

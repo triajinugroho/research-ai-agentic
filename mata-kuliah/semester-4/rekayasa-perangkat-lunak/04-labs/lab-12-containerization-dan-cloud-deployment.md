@@ -659,7 +659,7 @@ Tambahkan container monitoring (cAdvisor atau Prometheus) di docker-compose.yml.
 
 ## Refleksi & AI Usage Log
 
-Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log.
+Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Simpan log di bagian akhir berkas refleksi `docs/refleksi-lab-12.md`, bersama jawaban pertanyaan refleksi berikut.
 
 **Pertanyaan refleksi:**
 1. Apa perbedaan utama menjalankan aplikasi dengan `flask run` vs Docker container?
@@ -677,7 +677,7 @@ Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, 
 - [ ] Environment variables dikonfigurasi (tidak ada hardcoded secrets)
 - [ ] Aplikasi berhasil di-deploy ke Railway/Render
 - [ ] URL production bisa diakses dan fitur berjalan
-- [ ] Refleksi dan AI Usage Log diisi
+- [ ] Refleksi dan AI Usage Log diisi di `docs/refleksi-lab-12.md`
 
 ---
 

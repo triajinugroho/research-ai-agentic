@@ -95,9 +95,9 @@ Mata kuliah ini berstatus **mode Core**: AI adalah objek utama pembelajaran, buk
 
 Pembagiannya dinyatakan berulang kali sepanjang buku ini: **AI untuk kode dan bahasa; manusia untuk formulasi, pemilihan, penafsiran, dan tanggung jawab.**
 
-Empat hal di kolom kedua bukan dipilih karena sulit. Keempatnya dipilih karena menuntut pengetahuan yang tidak ada dalam prompt: kapan data setiap kolom tersedia, berapa biaya nyata tiap jenis kesalahan, bagaimana data dikumpulkan, siapa yang tidak tercakup di dalamnya.
+Daftar larangan AI mata kuliah ini ([Mengapa Buku Ini](mengapa-buku-ini.md#tentang-ai-generatif); [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial)) memuat lima larangan inti, L1–L5: formulasi masalah, pemilihan model dan hiperparameter, pemilihan dan penafsiran metrik, analisis kesalahan model, serta *model card* dan analisis keterbatasan. Kelimanya bukan dipilih karena sulit. Kelimanya dipilih karena menuntut pengetahuan yang tidak ada dalam prompt: kapan data setiap kolom tersedia, berapa biaya nyata tiap jenis kesalahan, bagaimana data dikumpulkan, siapa yang tidak tercakup di dalamnya.
 
-Dan karena keempatnya justru merupakan **Sub-CPMK mata kuliah ini**. Menyerahkannya kepada alat sama dengan tidak mengikuti mata kuliah.
+Dan karena kelimanya justru merupakan **inti Sub-CPMK mata kuliah ini**. Menyerahkannya kepada alat sama dengan tidak mengikuti mata kuliah. Larangan keenam (L6) — tanpa AI sama sekali selama kuis, UTS, dan UAS — berlaku karena kuis dan ujian bersifat *closed book*.
 
 Pembagian ini bukan penolakan terhadap teknologi. Justru sebaliknya — ia adalah syarat agar teknologi itu dapat dipakai dengan bertanggung jawab. Seorang lulusan yang memahami pembelajaran mesin akan memakai AI jauh lebih efektif daripada yang tidak, **karena ia tahu kapan keluarannya keliru.**
 

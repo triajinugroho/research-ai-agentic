@@ -142,7 +142,7 @@ Seluruh studio dan penilaian berpusat pada **satu usaha teknologi** yang dibangu
 | Tahap | Minggu | Luaran |
 |-------|--------|--------|
 | Pembentukan tim dan pemilihan ranah | 1 | Kesepakatan tim, peran, dan ranah masalah |
-| Bukti masalah | 2–4 | **Minimal 15 wawancara pelanggan** + persona + persyaratan |
+| Bukti masalah | 2–4 | **≥ 8 wawancara pelanggan sampai Minggu 4** (15 sepanjang semester) + persona + persyaratan |
 | Bukti kelayakan | 5–7 | Ukuran pasar, peta kompetitor, *unit economics*, daftar risiko |
 | Bukti solusi | 9–11 | *Business model canvas*, MVP yang diuji, rencana *go-to-market* |
 | Bukti tanggung jawab | 12–13 | Audit etika, kepatuhan, dan kelayakan AI bila relevan |

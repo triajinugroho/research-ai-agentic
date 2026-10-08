@@ -71,8 +71,9 @@ Hal berikut membatasi aspek **Validitas bukti** pada maksimal 2:
 | Keputusan "ubah arah" atau "hentikan" | Sah bila didukung analisis |
 | Angka kelayakan yang mengecewakan | Yang dinilai adalah kebenaran perhitungannya |
 | Keputusan "tidak memakai AI" | **Dinilai setara** dengan memakainya, bila beralasan |
-| Temuan audit etika yang banyak | **Kejujuran dinilai lebih tinggi** daripada daftar yang tercentang semua |
 | Narasumber yang menolak diwawancarai | Informasi itu sendiri berguna bila dicatat |
+
+> **Audit etika S-12 tidak tercantum pada tabel ini karena formatif dan tidak berbobot** — banyaknya temuan tidak mengurangi nilai apa pun. Temuan yang jujur lebih dihargai dalam umpan balik; daftar periksa yang seluruhnya tercentang tanpa temuan dikembalikan untuk ditelusuri ulang ([AF §6](assessment-framework.md#6-yang-menggugurkan-nilai-penuh)).
 
 ---
 

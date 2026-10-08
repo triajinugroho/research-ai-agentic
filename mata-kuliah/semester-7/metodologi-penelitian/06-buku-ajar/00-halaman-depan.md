@@ -155,7 +155,7 @@ AI hadir dalam **dua peran**:
 ### Untuk Dosen Pengampu
 
 - Setiap bab selaras dengan satu modul mingguan dan satu lokakarya.
-- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal kuis, UTS, dan UAS disusun terpisah dari cetak biru butir pada kisi-kisi dan **tidak dipublikasikan**.
+- Latihan Soal adalah **latihan terbuka untuk belajar mandiri** — terbit bersama buku ini dan dapat dibaca siapa saja. Karena itu Latihan Soal **tidak dipakai** sebagai soal kuis atau ujian: soal UTS dan UAS disusun dari cetak biru butir pada [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) dan [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md), soal kuis dari cakupan kuis K1–K3 pada [kerangka asesmen §F](../05-assessments/assessment-framework.md#f-kuis-5); seluruhnya disusun tersendiri dan **tidak dipublikasikan**.
 - AI Corner dapat menjadi bahan diskusi 15 menit.
 - Seluruh contoh dapat diganti sesuai bidang dan konteks.
 

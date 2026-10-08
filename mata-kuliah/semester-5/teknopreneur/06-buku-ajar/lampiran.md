@@ -288,7 +288,7 @@ Layanan ini berjalan sampai: [tanggal]
 |---------|----------------------|------------|
 | **Badan Pusat Statistik (BPS)** | *Statistik Usaha Mikro dan Kecil*; *Survei Sosial Ekonomi Nasional (Susenas)*; *Statistik Telekomunikasi Indonesia* | Definisi UMKM mengikuti kriteria omzet/aset — periksa kesesuaiannya |
 | **Kementerian UMKM** (sebelum Oktober 2024: Kementerian Koperasi dan UKM) | *Data UMKM*; laporan kinerja tahunan | Jumlah pelaku usaha per sektor |
-| **Kementerian Investasi/BKPM** | *Data Perizinan Berusaha (OSS)* | Jumlah NIB terbit per wilayah dan sektor |
+| **Kementerian Investasi dan Hilirisasi/BKPM** (sebelum Oktober 2024: Kementerian Investasi/BKPM) | *Data Perizinan Berusaha (OSS)* | Jumlah NIB terbit per wilayah dan sektor |
 | **Bank Indonesia** | *Survei Penjualan Eceran*; *Laporan Sistem Pembayaran* | Kecenderungan konsumsi dan pembayaran |
 | **Otoritas Jasa Keuangan** | *Survei Nasional Literasi dan Inklusi Keuangan* | Akses keuangan per kelompok |
 | **Komdigi** (d/h Kominfo) | *Survei Penggunaan TIK*; panduan pelindungan data | Kepemilikan perangkat dan akses internet |

@@ -28,9 +28,9 @@
 
 ## Ketentuan Khusus Studio Ini
 
-> **Temuan yang jujur dinilai lebih tinggi daripada daftar periksa yang seluruhnya tercentang.**
+> **Studio ini formatif (tanpa nilai). Temuan yang jujur lebih dihargai dalam umpan balik daripada daftar periksa yang seluruhnya tercentang.**
 >
-> Hampir tidak ada rancangan tahap awal yang sudah memenuhi seluruh butir. Tim yang mencentang semuanya tanpa temuan akan diminta menelusuri ulang.
+> Hampir tidak ada rancangan tahap awal yang sudah memenuhi seluruh butir. Daftar periksa yang seluruhnya tercentang tanpa temuan dikembalikan untuk ditelusuri ulang.
 
 ---
 

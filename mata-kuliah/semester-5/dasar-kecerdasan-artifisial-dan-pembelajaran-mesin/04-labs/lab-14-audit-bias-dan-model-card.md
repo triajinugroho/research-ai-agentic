@@ -94,7 +94,7 @@ print(df.groupby("wilayah")[["gagal_bayar", "jarak_ibukota_km",
                              "skor_akses_internet"]].mean().round(3).to_string())
 ```
 
-> **Perhatikan:** angka kejadian dasar (*base rate*) gagal bayar berbeda antarwilayah (dari ±0,12 di Jawa sampai ±0,3 di Papua), dan rerata kedua proksi juga sangat berbeda antarwilayah. *Base rate* yang berbeda adalah kondisi yang membuat ukuran-ukuran *fairness* **tidak dapat dipenuhi sekaligus oleh pengklasifikasi yang berguna** — dibuktikan dengan angka pada Langkah 4.
+> **Perhatikan:** angka kejadian dasar (*base rate*) gagal bayar berbeda antarwilayah (dari ±0,12 di Jawa sampai ±0,3 di Papua), dan rerata kedua proksi juga sangat berbeda antarwilayah. *Base rate* yang berbeda adalah kondisi yang membuat ukuran-ukuran *fairness* **tidak dapat dipenuhi sekaligus oleh pengklasifikasi yang berguna** — diperlihatkan dengan angka pada Langkah 4 (buktinya: Kleinberg et al., 2017; Chouldechova, 2017; Barocas, Hardt & Narayanan, 2023).
 
 ### LANGKAH 2: Melatih Model
 
@@ -254,9 +254,24 @@ print("-> nol HANYA bila r = f (model tak lebih baik dari tebakan) "
 pred_konstan = np.zeros(len(y_test), dtype=int)
 tabel_k = audit_kelompok(y_test, pred_konstan, np.zeros(len(y_test)),
                          X_test["wilayah"], "Wilayah")
-print(f"\nModel KONSTAN — selisih prop. positif {selisih(tabel_k, 'Prop. prediksi positif'):.1f}, "
+print(f"\nModel KONSTAN 'lancar semua' — selisih prop. positif {selisih(tabel_k, 'Prop. prediksi positif'):.1f}, "
       f"selisih recall {selisih(tabel_k, 'Recall'):.1f}, selisih FPR {selisih(tabel_k, 'FPR'):.1f}, "
       f"tetapi recall keseluruhan {recall_score(y_test, pred_konstan):.1f}")
+# Precision model ini TIDAK TERDEFINISI (tidak ada prediksi positif, 0/0);
+# angka 0 di tabel_k hanyalah konvensi zero_division=0, bukan predictive parity.
+
+# Kebalikannya: menandai SEMUA pemohon "gagal bayar" — juga memenuhi ketiga
+# ukuran di atas, tetapi precision tiap wilayah = base rate wilayah itu
+pred_semua = np.ones(len(y_test), dtype=int)
+tabel_s = audit_kelompok(y_test, pred_semua, np.ones(len(y_test)),
+                         X_test["wilayah"], "Wilayah")
+sel_prec_s = selisih(tabel_s, "Precision")
+print(f"Model KONSTAN 'gagal bayar semua' — selisih prop. positif "
+      f"{selisih(tabel_s, 'Prop. prediksi positif'):.1f}, selisih recall "
+      f"{selisih(tabel_s, 'Recall'):.1f}, selisih FPR {selisih(tabel_s, 'FPR'):.1f}, "
+      f"tetapi selisih precision {sel_prec_s:.3f} (= selisih base rate "
+      f"{selisih(tabel_s, 'Base rate'):.3f}) -> predictive parity "
+      f"{'TIDAK terpenuhi' if sel_prec_s > 0.02 else 'kira-kira terpenuhi'}")
 
 # (c) Kesimpulan DIHITUNG dari hasil, bukan teks tetap
 if selisih_br > 0.02:
@@ -272,9 +287,9 @@ else:
           "pertentangan antarukuran pada data ini lemah.")
 ```
 
-> **Perhatikan polanya.** Pada data ini *precision* antarwilayah hampir sama (selisih ±0,03–0,04), sedangkan selisih *recall* dan FPR sekitar 0,3. Inilah yang diramalkan Chouldechova (2017): bila *base rate* berbeda dan *precision* dibuat setara, galatnya (FPR/FNR) tidak dapat setara. Sebaliknya, andaikan *equalized odds* tercapai sempurna, selisih proporsi prediksi positif masih sekitar 0,02 — tidak nol, karena *base rate* berbeda.
+> **Perhatikan polanya.** Pada data ini *precision* antarwilayah hampir sama (selisih ±0,03–0,04), sedangkan selisih *recall* dan FPR sekitar 0,3. Inilah yang diramalkan Chouldechova (2017): bila *base rate* berbeda dan *precision* setara — seperti kira-kira terjadi di sini — galatnya (FPR/FNR) tidak dapat setara. Sebaliknya, andaikan *equalized odds* tercapai sempurna, selisih proporsi prediksi positif masih sekitar 0,02 — tidak nol, karena *base rate* berbeda.
 >
-> **Yang benar dan yang keliru.** Pernyataan "tidak ada model yang dapat memenuhi semua ukuran *fairness*" **keliru**: model konstan di atas memenuhi *demographic parity* dan *equalized odds* sekaligus — dan tidak berguna. Pernyataan yang tepat: **ketika *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.** Kleinberg et al. (2017) membuktikan hal serupa untuk skor risiko: kalibrasi dalam kelompok dan keseimbangan galat untuk kelas positif maupun negatif tidak dapat dipenuhi bersamaan, kecuali *base rate* antarkelompok sama atau prediksinya sempurna.
+> **Yang benar dan yang keliru.** Pernyataan "tidak ada model yang dapat memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus" **keliru**: kedua model konstan di atas memenuhi ketiganya — dan tidak berguna. Keduanya tidak memenuhi *predictive parity*: pada model "gagal bayar semua", *precision* tiap wilayah sama dengan *base rate*-nya; pada model "lancar semua", *precision* tidak terdefinisi (angka 0 di tabelnya hanyalah konvensi `zero_division=0`). Pernyataan yang tepat: **ketika *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.** Kleinberg et al. (2017) membuktikan hal serupa untuk skor risiko: kalibrasi dalam kelompok dan keseimbangan galat untuk kelas positif maupun negatif tidak dapat dipenuhi bersamaan, kecuali *base rate* antarkelompok sama atau prediksinya sempurna.
 
 **Pemeriksaan otomatis.**
 
@@ -291,6 +306,13 @@ assert max(selisih(tabel_k, c) for c in ["Prop. prediksi positif", "Recall", "FP
     "Model konstan seharusnya memenuhi ketiga ukuran dengan selisih nol")
 assert recall_score(y_test, pred_konstan) == 0, (
     "Model konstan 'lancar semua' seharusnya tidak mendeteksi satu pun gagal bayar")
+assert max(selisih(tabel_s, c) for c in ["Prop. prediksi positif", "Recall", "FPR"]) == 0, (
+    "Model konstan 'gagal bayar semua' seharusnya juga memenuhi ketiga ukuran")
+assert np.allclose(tabel_s["Precision"], tabel_s["Base rate"]), (
+    "Bila semua diprediksi positif, precision tiap wilayah harus sama dengan base rate-nya")
+assert sel_prec_s > 0.02, (
+    "Model konstan seharusnya TIDAK memenuhi predictive parity karena base rate "
+    "antarwilayah berbeda — periksa efek_wilayah di Langkah 1")
 print("Pemeriksaan otomatis lulus.")
 ```
 
@@ -611,7 +633,7 @@ Latih ulang model tanpa kolom wilayah **dan** tanpa kedua proksi. Apa yang terja
 - [ ] Audit kinerja **model proyek sendiri**, terpisah per minimal dua kelompok
 - [ ] Selisih *recall*, *precision*, dan FPR antarkelompok dilaporkan, beserta jumlah kasus positif per kelompok
 - [ ] Ketiga ukuran *fairness* dihitung
-- [ ] **Pertentangan antarukuran ditunjukkan** dengan bukti *base rate* berbeda, dan dijelaskan mengapa hanya pengklasifikasi trivial yang dapat memenuhi semuanya
+- [ ] **Pertentangan antarukuran ditunjukkan** dengan bukti *base rate* berbeda, dan dijelaskan mengapa hanya pengklasifikasi trivial yang dapat memenuhi ketiganya (dan mengapa ia pun tidak memenuhi *predictive parity*)
 - [ ] Diperiksa apakah membuang atribut sensitif menghapus ketimpangan, dan **fitur proksinya diidentifikasi**
 - [ ] Representasi data dan ketidakpastian kinerja per kelompok divisualisasikan
 - [ ] **Ukuran *fairness* yang dipilih dinyatakan beserta alasan dan pengorbanannya**

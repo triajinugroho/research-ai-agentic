@@ -214,9 +214,9 @@ else:
 ```
 
 **Yang harus ditulis di sel Markdown:**
-- Fitur numerik mana yang rasio odds-nya paling jauh dari 1? Cocokkan dengan aturan pembangkit di Langkah 1.
+- Fitur numerik mana yang efeknya paling kuat? Bandingkan **|koefisien|**, yaitu jarak rasio odds dari 1 pada skala log — bukan selisih biasa: rasio odds 0,25 sama kuatnya dengan 4 ke arah sebaliknya, karena |ln 0,25| = |ln 4|. Cocokkan dengan aturan pembangkit di Langkah 1 **setelah** koefisien pembangkitnya dikalikan simpangan baku fitur (`X_train[kol_num].std()`): koefisien pembangkit berlaku per satu satuan asli, sedangkan koefisien model per satu simpangan baku.
 - Mengapa rasio odds `jam_transaksi` tidak menggambarkan risiko dini hari, dan fitur apa yang akan Anda rancang untuk menangkapnya (bandingkan dengan Lab 5)?
-- Untuk `jenis_perangkat`, bandingkan rasio odds **antarkategori**, bukan terhadap 1: ketiga kolom *one-hot* berbagi intersep yang sama, sehingga hanya selisih antarkategori yang bermakna. Apakah selisihnya besar?
+- Untuk `jenis_perangkat`, bandingkan rasio odds **antarkategori**, bukan terhadap 1: ketiga kolom *one-hot* selalu berjumlah 1 — sama persis dengan kolom intersep (kolinearitas sempurna) — sehingga sebuah konstanta dapat berpindah antara intersep dan ketiga koefisien tanpa mengubah prediksi. Karena itu tingkat absolut rasio odds-nya (misalnya semuanya < 1) tidak bermakna; hanya selisih antarkategori yang bermakna. Apakah selisihnya besar?
 
 ### LANGKAH 5: k-NN sebagai Pembanding
 
@@ -406,7 +406,7 @@ print("Pemeriksaan otomatis lulus.")
 
 ### Tantangan 1 — Pengaruh `class_weight`
 
-Latih regresi logistik dengan dan tanpa `class_weight="balanced"`. Bandingkan *precision*, *recall*, dan ambang optimumnya. Apa yang sebenarnya dilakukan `class_weight`?
+Latih regresi logistik dengan dan tanpa `class_weight="balanced"`. Bandingkan *precision*, *recall*, dan ambang optimumnya. Apa yang sebenarnya dilakukan `class_weight`? Tanpa `class_weight`, probabilitas prediksi bergeser ke bawah, sehingga ambang biaya terendah bisa jatuh tepat di tepi grid (0,05); bila demikian, perluas grid ke bawah (mis. `np.arange(0.01, 0.96, 0.01)`) sebelum menyebutnya "optimum".
 
 ### Tantangan 2 — Biaya yang Berbeda
 

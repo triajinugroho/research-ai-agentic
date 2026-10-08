@@ -24,7 +24,7 @@ Setelah mengikuti perkuliahan minggu ini, mahasiswa mampu:
 2. **Menghitung** (C3) range, varians, simpangan baku, dan koefisien variasi, serta **menjelaskan** (C2) perbedaan rumus populasi dan sampel.
 3. **Menghitung** (C3) kuartil, persentil, dan IQR, serta **mengidentifikasi** (C3) pencilan dengan aturan 1,5×IQR.
 4. **Menafsirkan** (C4) kemencengan sebuah sebaran dan kaitannya dengan pemilihan ukuran pemusatan.
-5. **Menerapkan** (C3) seluruh ukuran tersebut pada dataset nyata berkonteks Informatika.
+5. **Menerapkan** (C3) seluruh ukuran tersebut pada dataset latihan berkonteks Informatika (sifat tiap berkas: [panduan dataset §3](../datasets/README.md#3-dataset-yang-disediakan-untuk-lab)).
 
 ---
 

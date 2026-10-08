@@ -54,7 +54,7 @@ Satu sesi hanya cukup untuk 6 kelompok, sedangkan jumlah kelompok ditentukan ole
 
 1. Daftar kelompok per kelas dan jumlah sesi yang diperlukan ditetapkan paling lambat **Minggu 13**; jadwal sesi tambahan (hari, jam, ruang) dan urutan tampil hasil undian diumumkan di LMS paling lambat **Minggu 14**.
 2. Format 15 menit + 5 menit **berlaku sama di semua sesi** — durasi tidak dipersingkat untuk mengejar jumlah kelompok.
-3. Seluruh kelompok dinilai dengan **satu rubrik yang sama** ([panduan proyek §8](../05-assessments/project-guidelines.md#8-rubrik-penilaian-10-nilai-akhir)) oleh dosen pengampu. Pada sesi paralel, penilai kedua harus dosen, memakai rubrik yang sama, dan **dikalibrasi lebih dulu**: kedua penilai menilai satu presentasi yang sama (langsung atau rekaman), lalu membahas setiap aspek yang skornya berselisih lebih dari satu tingkat sebelum menilai kelompok lain.
+3. Seluruh kelompok dinilai dengan **satu rubrik yang sama** ([panduan proyek §8](../05-assessments/project-guidelines.md#8-rubrik-penilaian-10-nilai-akhir)). Penilainya dosen pengampu; pada sesi paralel, kelompok di ruang kedua dinilai **dosen penilai kedua** yang memakai rubrik yang sama dan sudah **dikalibrasi lebih dulu**: kedua penilai menilai satu presentasi yang sama (langsung atau rekaman), lalu membahas setiap aspek yang skornya berselisih lebih dari satu tingkat sebelum menilai kelompok lain.
 4. Setiap mahasiswa wajib hadir pada sesi tempat kelompoknya tampil, dan mengisi lembar umpan balik sejawat untuk kelompok lain di sesi itu.
 5. Refleksi kelas dan pengarahan UAS (140–150') dilakukan pada sesi **terakhir** setiap kelas.
 
@@ -112,19 +112,9 @@ Siapkan jawaban untuk pertanyaan-pertanyaan berikut. Semuanya menyangkut hal yan
 
 Setiap mahasiswa mengisi lembar umpan balik untuk kelompok lain yang tampil di sesinya. *Peer review* ini bersifat **formatif**: **tidak dinilai** dan tidak masuk komponen nilai mana pun — mata kuliah ini tidak memiliki komponen Partisipasi (lihat [kerangka asesmen §2](../05-assessments/assessment-framework.md#2-peta-bobot-resmi)), dan skor sejawat tidak dipakai dalam rubrik proyek. Lembar dikumpulkan kepada dosen, lalu diteruskan kepada kelompok yang dinilai sebagai bahan refleksi. Tujuannya melatih kemampuan menilai pekerjaan orang lain secara konstruktif (tujuan 4 minggu ini).
 
+**Lembar yang dipakai:** [rubrik tugas §4](../05-assessments/rubrik-tugas.md#4-rubrik-penilaian-sejawat-presentasi-proyek) — satu-satunya versi lembar ini: lima aspek berskala 1–5 dengan kolom catatan, ditambah dua isian terbuka (satu hal yang paling dipelajari dan satu saran perbaikan yang konstruktif). Lembar itu dibagikan pada pengarahan teknis (0–10').
+
 > Lembar ini berbeda dari **formulir kontribusi anggota kelompok** ([rubrik tugas §5](../05-assessments/rubrik-tugas.md#5-rubrik-penilaian-kontribusi-anggota-kelompok)), yang diisi setiap anggota untuk rekan sekelompoknya dan dikumpulkan bersama laporan.
-
-| Aspek | Skala 1–5 | Catatan |
-|-------|-----------|---------|
-| Kejelasan pertanyaan penelitian | | |
-| Kualitas visualisasi | | |
-| Ketepatan metode statistik | | |
-| Kejujuran dalam menyampaikan keterbatasan | | |
-| Penguasaan saat tanya jawab | | |
-
-**Satu hal yang paling saya pelajari dari presentasi ini:**
-
-**Satu saran perbaikan yang konstruktif:**
 
 ---
 

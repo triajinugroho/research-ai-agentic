@@ -336,7 +336,9 @@ beda_mentah = int((df["klaster_kmeans"] != df["klaster_hc"]).sum())
 
 # Penyelarasan label (label alignment): pasangkan tiap klaster hierarchical dengan
 # satu klaster K-Means sehingga jumlah provinsi yang cocok MAKSIMUM.
-# linear_sum_assignment (algoritma Hungaria) meminimalkan biaya -> pakai tanda minus.
+# linear_sum_assignment memecahkan masalah penugasan (assignment problem; metode
+# klasiknya algoritma Hungaria, SciPy memakai varian Jonker-Volgenant) dan
+# MEMINIMALKAN biaya -> pakai tanda minus.
 idx_baris, idx_kolom = linear_sum_assignment(-silang.values)
 peta = dict(sorted((int(silang.columns[j]), int(silang.index[i]))
                   for i, j in zip(idx_baris, idx_kolom)))

@@ -118,14 +118,14 @@ Tulis di bagian atas berkas log:
 
 ### Contoh Pengisian
 
-| No | Tanggal | Task | Tool | Prompt | Output | Evaluasi | Modifikasi | Tanpa AI | Dengan AI |
-|----|---------|------|------|--------|--------|----------|------------|----------|-----------|
-| 1 | 2026-03-15 | Buat unit test | Claude | "Buatkan pytest untuk class BukuService" | 5 test functions | 4/5 benar | Fix assertion test_stok_kosong | 45 min | 15 min |
-| 2 | 2026-03-16 | Refactor route | Copilot | Autocomplete | Extract method | Sesuai | Minor rename | 20 min | 5 min |
+| No | Tanggal | Task/Aktivitas | Tool AI | Prompt yang Digunakan | Output AI (Ringkasan) | Evaluasi (Benar/Salah/Perlu Modifikasi) | Modifikasi yang Dilakukan | Waktu Tanpa AI (estimasi) | Waktu Dengan AI |
+|----|---------|----------------|---------|----------------------|----------------------|----------------------------------------|--------------------------|--------------------------|-----------------|
+| 1 | 2026-03-15 | Buat unit test | Claude | "Buatkan pytest untuk class BukuService" | 5 test functions | Perlu Modifikasi — 4/5 benar; assertion test_stok_kosong salah | Fix assertion test_stok_kosong | 45 min | 15 min |
+| 2 | 2026-03-16 | Refactor route | Copilot | Autocomplete | Extract method | Benar — extract method sesuai | Minor rename | 20 min | 5 min |
 
 ### Refleksi (wajib, di akhir log)
 
-Untuk tugas dan lab, tulis refleksi sekali di akhir log; untuk proyek akhir, tulis per sprint.
+Tulis refleksi di akhir log (untuk proyek akhir boleh dikelompokkan per sprint).
 
 - **AI paling membantu untuk:** ___
 - **AI kurang baik / menyesatkan untuk:** ___ (sertakan contoh output yang "terlihat benar tapi salah", bila ada)
@@ -136,10 +136,10 @@ Untuk tugas dan lab, tulis refleksi sekali di akhir log; untuk proyek akhir, tul
 ### Panduan Pengisian
 1. **Isi setiap kali menggunakan AI** untuk tugas akademik
 2. **Jujur** — catat juga ketika AI memberikan output yang salah
-3. **Evaluasi kritis** — jangan hanya "Benar" tanpa verifikasi; tulis alasan singkat di kolom Evaluasi (misalnya "6/8 test case benar; edge case pinjam buku yang sama terlewat")
+3. **Evaluasi kritis** — jangan hanya "Benar" tanpa verifikasi; tulis kategori beserta alasan singkat di kolom Evaluasi (misalnya "Perlu Modifikasi — 6/8 test case benar; edge case pinjam buku yang sama terlewat")
 4. **Rinci modifikasi** — sebutkan apa yang Anda ubah dari output AI dan mengapa
-5. **Proyek akhir** — sebutkan fase SDLC (requirements, design, code, test, deploy) di kolom Task/Aktivitas, dan simpan log di `docs/ai-usage-log.md` repositori tim
-6. **Submit** bersama tugas/laporan yang relevan; untuk lab, simpan di berkas yang diminta modul lab
+5. **Proyek akhir** — satu log untuk seluruh tim, disimpan di `docs/ai-usage-log.md` repositori tim. Berkas ini dibuat **sekali** oleh satu anggota; anggota lain menambahkan barisnya sendiri ke berkas yang sama (lanjutkan nomor urut, jangan menimpa atau membuat ulang berkas). Di kolom Task/Aktivitas, sebutkan fase SDLC (requirements, design, code, test, deploy) **dan nama anggota** yang melakukan interaksi, misalnya "Code — endpoint `POST /api/peminjaman` (Budi)", sehingga jumlah entri per anggota bisa dihitung
+6. **Submit** bersama tugas/laporan yang relevan; untuk lab, simpan di berkas yang diminta modul lab — bila modul lab tidak menyebut berkas, simpan di bagian akhir berkas refleksi lab `docs/refleksi-lab-NN.md` (NN = nomor lab)
 
 ---
 

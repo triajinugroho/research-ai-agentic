@@ -300,7 +300,19 @@ hasil_es = cross_validate(mlp_es, X_train, y_train, cv=CV, scoring="roc_auc",
 skor_mlp_cv = cross_val_score(mlp, X_train, y_train, cv=CV,
                               scoring="roc_auc", n_jobs=-1)   # konfigurasi Langkah 4
 
-proporsi_mayoritas = 1 - y_train.mean()   # akurasi bila selalu menebak "lancar"
+proporsi_mayoritas = 1 - y_train.mean()   # proporsi "lancar" di SELURUH data latih
+
+# Pembanding yang tepat untuk akurasi validasi: akurasi "selalu menebak lancar" pada
+# SUBSET VALIDASI yang disisihkan early_stopping. MLPClassifier menyisihkannya secara
+# berstrata (stratify=y) dari bagian latih tiap lipatan, sehingga proporsinya dapat
+# dihitung ulang dengan pembagian berstrata yang sama.
+frac_val = mlp_es.get_params()["clf__validation_fraction"]   # 0.15
+akurasi_lancar_val = []
+for idx_latih, _ in CV.split(X_train, y_train):
+    y_lipatan = y_train.iloc[idx_latih]
+    _, y_val = train_test_split(y_lipatan, test_size=frac_val, stratify=y_lipatan,
+                                random_state=RANDOM_STATE)
+    akurasi_lancar_val.append(1 - y_val.mean())
 
 fig, ax = plt.subplots(1, 2, figsize=(13, 4.5))
 ax[0].plot(clf.loss_curve_)
@@ -308,19 +320,22 @@ ax[0].set_xlabel("Iterasi"); ax[0].set_ylabel("Loss latih (termasuk penalti L2)"
 ax[0].set_title(f"Kurva loss MLP Langkah 4 ({clf.n_iter_} iterasi)")
 
 rekap = []
-for i, (est, auc_es, auc_l4) in enumerate(
-        zip(hasil_es["estimator"], hasil_es["test_score"], skor_mlp_cv), start=1):
+for i, (est, auc_es, auc_l4, acc_lancar) in enumerate(
+        zip(hasil_es["estimator"], hasil_es["test_score"], skor_mlp_cv,
+            akurasi_lancar_val), start=1):
     akurasi_val = np.asarray(est.named_steps["clf"].validation_scores_)
     ax[1].plot(akurasi_val, label=f"Lipatan {i}")
     rekap.append({"Lipatan": i,
                   "Iterasi": len(akurasi_val),
                   "Bobot dari iterasi": int(akurasi_val.argmax()) + 1,
                   "Akurasi val. maks": akurasi_val.max(),
+                  "Akurasi 'lancar' val.": acc_lancar,
                   "Rentang akurasi val.": akurasi_val.max() - akurasi_val.min(),
                   "ROC-AUC early_stopping": auc_es,
                   "ROC-AUC Langkah 4": auc_l4})
-ax[1].axhline(proporsi_mayoritas, color="black", ls="--",
-              label="Selalu menebak 'lancar'")
+for j, acc_lancar in enumerate(sorted(set(np.round(akurasi_lancar_val, 6)))):
+    ax[1].axhline(acc_lancar, color="black", ls="--",
+                  label="Selalu menebak 'lancar' (subset validasi)" if j == 0 else None)
 ax[1].set_xlabel("Iterasi"); ax[1].set_ylabel("Akurasi validasi")
 ax[1].set_title("early_stopping=True: akurasi validasi per lipatan")
 ax[1].legend(fontsize=8)
@@ -332,16 +347,24 @@ print(rekap.round(4).to_string(index=False))
 # --- Kesimpulan dihitung dari hasil ---
 n_iter1 = int((rekap["Bobot dari iterasi"] == 1).sum())
 n_bawah = int((rekap["ROC-AUC early_stopping"] < 0.5).sum())
-print(f"\nAkurasi bila selalu menebak 'lancar': {proporsi_mayoritas:.4f}")
+selisih_lancar = rekap["Akurasi val. maks"] - rekap["Akurasi 'lancar' val."]
+n_tak_lebih = int((selisih_lancar < 1e-9).sum())   # akurasi val. maks <= menebak 'lancar'
+lancar_min, lancar_maks = min(akurasi_lancar_val), max(akurasi_lancar_val)
+teks_lancar = (f"{lancar_min:.4f}" if np.isclose(lancar_min, lancar_maks)
+               else f"{lancar_min:.4f}–{lancar_maks:.4f}")
+print(f"\nAkurasi bila selalu menebak 'lancar': subset validasi {teks_lancar} "
+      f"| seluruh data latih {proporsi_mayoritas:.4f}")
+print(f"Akurasi validasi tertinggi tidak melampaui akurasi menebak 'lancar' "
+      f"pada {n_tak_lebih} dari {len(rekap)} lipatan")
 print(f"early_stopping=True : ROC-AUC CV {rekap['ROC-AUC early_stopping'].mean():.4f}; "
       f"{n_bawah} dari {len(rekap)} lipatan di bawah 0,5; "
       f"bobot iterasi 1 dipulihkan pada {n_iter1} lipatan")
 print(f"Konfigurasi Langkah 4: ROC-AUC CV {skor_mlp_cv.mean():.4f} "
       f"(lipatan terendah {skor_mlp_cv.min():.4f})")
 if n_iter1 > 0:
-    print("Kesimpulan: akurasi validasi (nyaris) datar di sekitar proporsi kelas mayoritas, "
-          "sehingga early_stopping tidak dapat membedakan model yang belajar dari yang "
-          f"tidak; pada {n_iter1} dari {len(rekap)} lipatan yang dipulihkan adalah bobot "
+    print("Kesimpulan: akurasi validasi (nyaris) datar di sekitar akurasi menebak kelas "
+          "mayoritas, sehingga early_stopping tidak dapat membedakan model yang belajar "
+          f"dari yang tidak; pada {n_iter1} dari {len(rekap)} lipatan yang dipulihkan adalah bobot "
           "iterasi PERTAMA.")
 else:
     print("Kesimpulan: tidak ada lipatan yang memulihkan bobot iterasi pertama; tetap "
@@ -356,7 +379,7 @@ else:
 | Latih terus turun, validasi naik | *Overfitting* |
 | Akurasi validasi datar di sekitar proporsi kelas mayoritas | `early_stopping` "buta" — matikan dan andalkan regularisasi `alpha`, atau pantau metrik lain (*log-loss*, ROC-AUC) |
 
-> **Yang terjadi pada data lab ini** (hasil sama pada scikit-learn 1.6 dan 1.9): pada **kelima** lipatan, akurasi validasi benar-benar datar di 0,8875 sejak iterasi pertama — persis akurasi menebak "lancar" untuk semua pengajuan. Karena akurasi itu tidak pernah melampaui nilai iterasi pertama, pelatihan berhenti setelah 22 iterasi dan bobot yang dipulihkan adalah **bobot iterasi 1** — model yang hampir belum belajar. ROC-AUC kelima lipatan **di bawah 0,5** (rerata ≈ 0,443, lebih buruk daripada tebakan acak), sedangkan konfigurasi Langkah 4 memperoleh ≈ 0,680. Menaikkan `n_iter_no_change` tidak menolong: sampai 100 pun hasilnya sama, karena akurasinya memang tidak pernah bergerak. Dengan regularisasi lemah (`alpha=1e-4`) akurasi validasi sesekali naik sedikit, tetapi tetap tidak dapat diandalkan: dengan `n_iter_no_change=20`, tiga dari lima lipatan masih di bawah 0,5; dengan 50 atau 100, dua dari lima.
+> **Yang terjadi pada data lab ini** (hasil sama pada scikit-learn 1.6 dan 1.9): pada **kelima** lipatan, akurasi validasi benar-benar datar di 0,8875 sejak iterasi pertama — persis akurasi menebak "lancar" untuk semua pengajuan **pada subset validasinya** (426 dari 480 baris; kolom `Akurasi 'lancar' val.`). Proporsi "lancar" pada seluruh data latih (0,8878) sedikit berbeda: 480 baris hanya dapat memuat bilangan bulat pengajuan gagal bayar (54 baris = 11,25%, sedangkan di data latih 449 dari 4.000 = 11,225%). Karena itu garis putus-putus pada grafik dihitung dari subset validasi. Akurasi validasi tidak pernah melampaui nilai iterasi pertama, sehingga pelatihan berhenti setelah 22 iterasi dan bobot yang dipulihkan adalah **bobot iterasi 1** — model yang hampir belum belajar. ROC-AUC kelima lipatan **di bawah 0,5** (rerata ≈ 0,443, lebih buruk daripada tebakan acak), sedangkan konfigurasi Langkah 4 memperoleh ≈ 0,680. Menaikkan `n_iter_no_change` tidak menolong: sampai 100 pun hasilnya sama, karena akurasinya memang tidak pernah bergerak. Dengan regularisasi lemah (`alpha=1e-4`) akurasi validasi sesekali naik sedikit, tetapi tetap tidak dapat diandalkan: dengan `n_iter_no_change=20`, tiga dari lima lipatan masih di bawah 0,5; dengan 50 atau 100, dua dari lima.
 
 **Tulis pembahasan:** (a) mengapa akurasi validasi hampir tidak bergerak pada data 11% positif? (b) Mengapa ROC-AUC tetap dapat membedakan model yang belajar dari yang tidak, sedangkan akurasi tidak?
 
@@ -441,7 +464,8 @@ if b_skala["bermakna"] and b_skala["d_bar"] > 0:
 elif b_skala["bermakna"]:
     print("Kesimpulan: tanpa penskalaan justru lebih baik secara bermakna — periksa pra().")
 else:
-    print("Kesimpulan: selisih belum bermakna menurut aturan |d̄| > 2·SE.")
+    print("Kesimpulan: selisih belum bermakna menurut aturan |d̄| > 2·SE "
+          "dan searah di sebagian besar lipatan.")
 ```
 
 > **Pada data lab ini** (hasil sama pada scikit-learn 1.6 dan 1.9): tanpa penskalaan, MLP butuh ±404 iterasi (dengan penskalaan ±136) dan ROC-AUC-nya lebih rendah di **kelima** lipatan (d̄ ≈ +0,024; SE ≈ 0,004). Selisih itu tidak dramatis, tetapi konsisten — dan dibayar dengan pelatihan tiga kali lebih lama.
@@ -459,6 +483,10 @@ assert skor_mlp_cv.mean() > 0.60 and skor_mlp_cv.min() > 0.55, (
 assert skor_mlp_cv.mean() - rekap["ROC-AUC early_stopping"].mean() > 0.05, (
     "Konfigurasi Langkah 4 seharusnya jelas lebih baik daripada varian early_stopping=True "
     "pada data tak seimbang ini — periksa set_params pada mlp_es")
+assert selisih_lancar.max() < 0.01, (
+    "Akurasi validasi early_stopping seharusnya tidak jauh melampaui akurasi menebak "
+    "'lancar' pada subset validasi — itulah sebabnya early_stopping 'buta' di sini; "
+    "periksa mlp_es dan perhitungan akurasi_lancar_val di Langkah 5")
 assert lr_goyang == 0.1 and hasil_lr.loc[0.1, "Kenaikan > 0,005"] >= 3, (
     "Laju 0,1 seharusnya paling sering naik-turun — periksa learning_rate_init di Langkah 6")
 assert lr_lambat == 1e-4, (

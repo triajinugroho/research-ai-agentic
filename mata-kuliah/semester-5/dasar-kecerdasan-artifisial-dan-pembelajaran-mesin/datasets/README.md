@@ -20,7 +20,7 @@ Prinsip berikut berlaku untuk **proyek akhir** dan untuk setiap data nyata yang 
 
 ### 1.1 Data Praktikum dan Data Proyek: Sengaja Berbeda
 
-**Sebagian besar praktikum memakai data sintetis (simulasi) yang meniru pola Indonesia — bukan data resmi BPS atau lembaga mana pun.** Hal itu dinyatakan pada butir **Data** di bagian Persiapan setiap lab, dan butir itulah acuannya bila ringkasan di bawah berbeda.
+**Sebagian besar praktikum memakai data sintetis (simulasi) yang meniru pola Indonesia — bukan data resmi BPS atau lembaga mana pun.** Pada Lab 03–14 hal itu dinyatakan pada butir **Data** di bagian Persiapan, dan butir itulah acuannya bila ringkasan di bawah berbeda. Lab 01 dan Lab 02 tidak memuat butir Data di bagian Persiapan, sehingga acuannya tabel di bawah: Lab 01 memakai dataset bawaan `scikit-learn` dan sebuah tabel contoh — Langkah 4 lab itu berjudul "Data Nyata", tetapi kodenya sendiri menyebut tabel itu "contoh struktur data" tanpa sumber dan tahun (angkanya tampak mencampur tahun/terbitan), sehingga **tidak boleh dikutip** sebagai data BPS; Lab 02 memakai data simulasi yang dinyatakan pada komentar kode Langkah 4.
 
 | Lab | Data | Jenis |
 |-----|------|-------|

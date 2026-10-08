@@ -363,15 +363,16 @@ med = df["nilai_uas"].median()
 ax.axvline(med, color="#c0392b", linestyle="--", linewidth=2,
            label=f"Median = {med:.1f}")
 
-ax.set_title("Sebaran Nilai UAS Probabilitas dan Statistik\n"
-             "Prodi Informatika UAI, Semester Ganjil 2026/2027",
+ax.set_title("Sebaran Nilai UAS — Data Latihan\n"
+             "Kelas IF26A dan IF26H (data sintetis, bukan nilai sesungguhnya)",
              fontsize=12, pad=12)
 ax.set_xlabel("Nilai UAS (skala 0–100)")
 ax.set_ylabel("Jumlah mahasiswa")
 ax.legend()
 
+# Keterangan sumber dan ukuran sampel — sifat data (sintetis) ikut disebut
 ax.text(0.99, -0.13,
-        f"n = {len(df)} mahasiswa · {n_bin} bin · Sumber: kelas IF26A dan IF26H",
+        f"n = {len(df)} mahasiswa · {n_bin} bin · Sumber: nilai_mahasiswa_if.csv (sintetis)",
         transform=ax.transAxes, ha="right", fontsize=8, color="gray")
 
 plt.tight_layout()

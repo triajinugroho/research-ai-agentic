@@ -119,7 +119,7 @@ Ketika angka kejadian dasar (*base rate*) berbeda antarkelompok, ukuran-ukuran d
 | Chouldechova (2017) | Bila *base rate* berbeda, pengklasifikasi yang tidak sempurna tidak dapat sekaligus memiliki **PPV yang sama** dan **FPR serta FNR yang sama** | *Base rate* sama |
 | Barocas, Hardt, & Narayanan (2023) | **Independence** (*demographic parity*) dan **separation** (*equalized odds*) umumnya tidak dapat dipenuhi bersamaan bila *base rate* berbeda | Pengklasifikasi **trivial** — mis. yang memberi keputusan sama untuk semua orang: memenuhi keduanya, tetapi tidak berguna |
 
-Karena itu pernyataan "tidak ada model yang dapat memenuhi semuanya" **keliru**: pengklasifikasi konstan — menyetujui semua atau menolak semua — memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus, hanya saja ia tidak berguna. Pernyataan yang tepat: **bila *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.** Hambatannya bukan model yang kurang canggih, melainkan matematika.
+Karena itu pernyataan "tidak ada model yang dapat memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus" **keliru**: pengklasifikasi konstan — menyetujui semua atau menolak semua — memenuhi ketiganya, hanya saja ia tidak berguna (dan tidak memenuhi *predictive parity*: bila semua diprediksi positif, *precision* tiap kelompok sama dengan *base rate*-nya; bila tidak ada yang diprediksi positif, *precision*-nya tidak terdefinisi). Pernyataan yang tepat: **bila *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.** Hambatannya bukan model yang kurang canggih, melainkan matematika.
 
 > **Konsekuensinya bagi praktik:** *fairness* bukan kotak centang yang dapat dipenuhi, melainkan **pilihan yang harus dinyatakan dan dipertanggungjawabkan**. Insinyur wajib menyatakan ukuran mana yang dipilih, mengapa, dan **apa yang dikorbankan**.
 
@@ -321,7 +321,7 @@ Alasannya sama sepanjang buku ini, dan di sini paling tajam: **yang dituntut buk
    (a) Latih model pada data nyata dengan kelompok yang timpang representasinya.
    (b) Ukur kinerja terpisah per kelompok.
    (c) Hitung ketiga ukuran *fairness* pertama pada §13.3.1, ditambah *precision* per kelompok.
-   (d) Tunjukkan dengan angka dari data Anda bahwa *base rate* antarkelompok berbeda. Lalu tetapkan ambang per kelompok sampai *recall*-nya setara, dan catat apa yang terjadi pada proporsi prediksi positif, FPR, dan *precision*. Jelaskan hasilnya dengan §13.3.2: mengapa pengklasifikasi yang berguna tidak dapat memenuhi semua ukuran, sedangkan pengklasifikasi konstan dapat — dan mengapa yang terakhir itu tidak menolong siapa pun.
+   (d) Tunjukkan dengan angka dari data Anda bahwa *base rate* antarkelompok berbeda. Lalu tetapkan ambang per kelompok sampai *recall*-nya setara, dan catat apa yang terjadi pada proporsi prediksi positif, FPR, dan *precision*. Jelaskan hasilnya dengan §13.3.2: mengapa pengklasifikasi yang berguna tidak dapat memenuhi semua ukuran, sedangkan pengklasifikasi konstan dapat memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* (tetapi tidak *predictive parity*) — dan mengapa pengklasifikasi konstan itu tidak menolong siapa pun.
    (e) Pilih satu ukuran, nyatakan alasannya, dan sebutkan apa yang dikorbankan.
    (f) Susun *model card* lengkap.
 

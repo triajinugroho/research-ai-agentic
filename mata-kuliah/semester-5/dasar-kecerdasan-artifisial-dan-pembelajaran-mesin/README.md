@@ -157,7 +157,7 @@ Rincian lengkap ada pada [kerangka asesmen](05-assessments/assessment-framework.
 
 | Kegiatan | Data |
 |----------|------|
-| Praktikum | Sebagian besar **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga — dinyatakan pada bagian Persiapan setiap lab. Aturan pembangkitnya diketahui, sehingga dampak kebocoran, regularisasi, atau *bias* dapat diukur |
+| Praktikum | Sebagian besar **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga — dinyatakan pada butir Data di bagian Persiapan Lab 03–14 (Lab 01–02: lihat [panduan dataset §1.1](datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda)). Aturan pembangkitnya diketahui, sehingga dampak kebocoran, regularisasi, atau *bias* dapat diukur |
 | Proyek akhir | **Wajib data nyata** berkonteks Indonesia (BPS, Satu Data Indonesia, portal daerah, Kaggle berkonteks Indonesia, atau data primer), minimal 500 baris |
 
 Rincian per lab dan alasannya: [panduan dataset §1.1](datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda).

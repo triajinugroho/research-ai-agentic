@@ -255,11 +255,11 @@ Latihan ini sering mengejutkan: banyak praktik yang sudah dianggap normal ternya
 |-------|-----------|
 | Luaran | Daftar periksa §12.6 terisi + laporan temuan |
 | Isi laporan | Temuan yang tidak terpenuhi · rencana perbaikan · **analisis dampak** (§12.5.1) |
-| Kriteria khusus | **Temuan yang jujur dinilai lebih tinggi** daripada daftar periksa yang seluruhnya tercentang |
+| Kriteria khusus | **Temuan yang jujur lebih dihargai dalam umpan balik** daripada daftar periksa yang seluruhnya tercentang; daftar periksa yang seluruhnya tercentang tanpa temuan dikembalikan untuk ditelusuri ulang |
 | Tenggat | Awal pertemuan Minggu 13 |
 | Bobot | Formatif, tanpa bobot sendiri — tidak termasuk P-03 karena tenggatnya sesudah P-03 (Minggu 11) |
 
-> Tim yang mencentang seluruh butir tanpa temuan apa pun akan diminta menelusuri ulang. Hampir tidak ada rancangan tahap awal yang sudah memenuhi seluruhnya.
+> Karena S-12 formatif, tidak ada nilai yang bertambah atau berkurang karena banyak-sedikitnya temuan. Hampir tidak ada rancangan tahap awal yang sudah memenuhi seluruh butir — temuan itulah bahan perbaikan sebelum *Demo Day*.
 
 ---
 

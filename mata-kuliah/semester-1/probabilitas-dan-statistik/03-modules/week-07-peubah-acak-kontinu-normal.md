@@ -342,7 +342,7 @@ else:
 | 55–65' | Istirahat |
 | 65–100' | Kuliah + latihan: distribusi Normal, aturan empiris, standardisasi skor-z |
 | 100–120' | **Latihan terbimbing:** membaca tabel Normal secara manual (persiapan UTS) |
-| 120–140' | Studio: memeriksa kenormalan data nyata dengan Q-Q plot dan Shapiro-Wilk |
+| 120–140' | Studio: memeriksa kenormalan data latihan dengan Q-Q plot dan Shapiro-Wilk (kode §5 memakai `nilai_mahasiswa_if.csv`, data sintetis) |
 | 140–150' | **Kisi-kisi UTS** dan strategi belajar |
 
 #### Latihan Terbimbing: Membaca Tabel Normal

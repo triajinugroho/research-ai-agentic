@@ -214,6 +214,12 @@ if d_waktu >= 0.03:
           "masa lalu dan masa depan.")
 else:
     print(f"Selisih acak vs temporal kecil ({d_waktu:+.4f}).")
+
+# Jejak drift di data: arah hubungan durasi_sesi–beli sebelum vs sesudah pembaruan
+r_sebelum = df.loc[~setelah, "durasi_sesi"].corr(df.loc[~setelah, "beli"])
+r_sesudah = df.loc[setelah, "durasi_sesi"].corr(df.loc[setelah, "beli"])
+print(f"Korelasi durasi_sesi–beli: sebelum pembaruan {r_sebelum:+.3f}, "
+      f"sesudah pembaruan {r_sesudah:+.3f}")
 ```
 
 **Pemeriksaan otomatis.** Sel berikut harus lulus tanpa `AssertionError`; bila gagal, pesannya menunjukkan apa yang perlu diperiksa.
@@ -228,13 +234,20 @@ assert auc_salah > 0.95, (
     f"Dengan nomor_invoice, ROC-AUC seharusnya nyaris sempurna (sekarang {auc_salah:.4f})")
 assert auc_salah - auc_tanpa_invoice > 0.2, (
     "Membuang nomor_invoice seharusnya menurunkan skor secara tajam — periksa Langkah 2")
-assert auc_acak - auc_temporal >= 0.03, (
-    f"Pembagian acak seharusnya minimal 0,03 lebih optimistis daripada pembagian "
-    f"temporal (sekarang {auc_acak - auc_temporal:+.4f}) — periksa drift di Langkah 1")
+assert df["tanggal"].iloc[batas] >= TGL_PEMBARUAN, (
+    "Data uji temporal seharusnya seluruhnya berasal dari periode SETELAH pembaruan "
+    "aplikasi — periksa batas pembagian temporal di Langkah 3")
+assert r_sebelum > 0.1 and r_sesudah < -0.05, (
+    f"Arah hubungan durasi_sesi–beli seharusnya berbalik setelah pembaruan (sekarang "
+    f"{r_sebelum:+.3f} -> {r_sesudah:+.3f}) — periksa drift (efek_durasi) di Langkah 1")
+assert auc_acak - auc_temporal >= 0.07, (
+    f"Pembagian acak seharusnya minimal 0,07 lebih optimistis daripada pembagian "
+    f"temporal (sekarang {auc_acak - auc_temporal:+.4f}); tanpa drift selisihnya "
+    f"hanya ≈ 0,04 — periksa drift di Langkah 1")
 print("Pemeriksaan otomatis lulus.")
 ```
 
-Pada data lab ini (diuji pada scikit-learn 1.6 dan 1.9), ROC-AUC turun dari ≈ 1,00 (seluruh kebocoran) ke ≈ 0,69 setelah `nomor_invoice` dibuang, praktis tidak berubah (selisih < 0,001) ketika penskalaan dan seleksi dipindahkan ke dalam `Pipeline`, lalu turun lagi ke ≈ 0,58 dengan pembagian temporal — selisih acak vs temporal ≈ 0,11.
+Pada data lab ini (diuji pada scikit-learn 1.6 dan 1.9), ROC-AUC turun dari ≈ 1,00 (seluruh kebocoran) ke ≈ 0,69 setelah `nomor_invoice` dibuang, praktis tidak berubah (selisih < 0,001) ketika penskalaan dan seleksi dipindahkan ke dalam `Pipeline`, lalu turun lagi ke ≈ 0,58 dengan pembagian temporal — selisih acak vs temporal ≈ 0,11. Drift itu tampak langsung di data: korelasi `durasi_sesi`–`beli` ≈ +0,25 sebelum pembaruan aplikasi dan ≈ −0,13 sesudahnya. Bila drift dihapus (`efek_durasi` dibuat tetap 0,08 di Langkah 1), selisih acak vs temporal menyusut ke ≈ 0,04 — sebagian besar selisih memang berasal dari drift, dan karena itu pemeriksaan otomatis memakai ambang 0,07.
 
 **Tulis kesimpulan:**
 
@@ -443,7 +456,10 @@ Jalankan validasi silang dengan `n_splits` 3, 5, dan 10. Bandingkan rerata dan s
 
 ### Tantangan 3 — Sidik Jari Pelanggan
 
-Ulangi Langkah 4 tiga kali: tanpa `jarak_gudang_km`, tanpa `umur`, lalu tanpa keduanya (turunkan `k` pada `SelectKBest` sesuai jumlah fitur). Apa yang terjadi pada selisih `StratifiedKFold` − `GroupKFold`? Mengapa `umur` — yang sama sekali tidak memengaruhi target pada Langkah 1 — tetap dapat memperbesar selisih itu?
+Ulangi Langkah 4 dengan empat himpunan fitur: semua `kol_bersih`, tanpa `jarak_gudang_km`, tanpa `umur`, dan tanpa keduanya. Pada keempat percobaan pakai `SelectKBest(f_classif, k="all")` — artinya **tanpa seleksi** (ubah `buat_pipa()` agar menerima argumen `k`) — sehingga yang dibandingkan hanya keberadaan kolom, bukan pilihan `SelectKBest`.
+
+1. Bagaimana selisih `StratifiedKFold` − `GroupKFold` berubah antarpercobaan? Bandingkan terutama *tanpa `jarak_gudang_km`* dengan *tanpa keduanya*: apakah `umur` — yang sama sekali tidak memengaruhi target pada Langkah 1 — ikut memperbesar selisih? Mengapa bisa demikian? *Petunjuk:* rata-rata berapa pelanggan berbagi satu nilai `umur`?
+2. Periksa apakah `SelectKBest(k=5)` di Langkah 4 memilih `umur` pada setiap lipatan (pakai `cross_validate(..., return_estimator=True)`, lalu `get_support()` pada langkah `"pilih"`). Mengapa percobaan nomor 1 sulit ditafsirkan bila `k` sekadar diturunkan satu setiap kali sebuah kolom dibuang?
 
 ### Tantangan 4 — Menelusuri Lipatan yang Menyimpang
 

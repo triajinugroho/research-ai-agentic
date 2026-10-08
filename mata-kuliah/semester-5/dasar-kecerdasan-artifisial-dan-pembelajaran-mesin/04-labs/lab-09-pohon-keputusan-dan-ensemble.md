@@ -274,11 +274,28 @@ if n_daun_gagal == 0:
     print("Semua daun memprediksi 'Lancar' (F1 = 0): pohon ini mudah dijelaskan, tetapi "
           "tidak menyaring satu pun pengajuan berisiko. Periksa proporsi gagal bayar "
           "atau coba class_weight='balanced' (Lab 7).")
+elif n_daun_gagal == len(tabel_daun):
+    print("Semua daun memprediksi 'Gagal bayar': pohon ini menandai setiap pengajuan "
+          "sebagai berisiko sehingga tidak membedakan nasabah sama sekali. Periksa "
+          "class_weight dan proporsi gagal bayar di Langkah 3.")
 else:
     lancar_terburuk = tabel_daun.loc[tabel_daun["Prediksi"] == "Lancar", "% gagal"].max()
     print(f"Pohon menghasilkan aturan untuk kedua kelas. Namun daun 'Lancar' yang paling "
           f"berisiko masih memuat {lancar_terburuk:.0f}% gagal bayar —")
-    print("label daun hanyalah suara mayoritas (> 50%), bukan jaminan bahwa nasabahnya aman.")
+    if clf_dangkal.class_weight is None:
+        # Tanpa pembobotan: label daun = kelas mayoritas (> 50%) data latih di daun itu
+        print("label daun hanyalah suara mayoritas (> 50%), bukan jaminan bahwa nasabahnya aman.")
+    else:
+        # Dengan class_weight (Tantangan 4): label daun = mayoritas BERBOBOT, sehingga
+        # daun "Gagal bayar" dapat memuat kurang dari separuh pengajuan gagal bayar
+        gagal_terendah = tabel_daun.loc[tabel_daun["Prediksi"] == "Gagal bayar",
+                                        "% gagal"].min()
+        rincian = (f"daun 'Gagal bayar' bisa memuat kurang dari separuh gagal bayar "
+                   f"(terendah {gagal_terendah:.0f}%)" if gagal_terendah < 50 else
+                   f"pada pohon ini setiap daun 'Gagal bayar' masih memuat ≥ "
+                   f"{gagal_terendah:.0f}% gagal bayar, tetapi itu tidak dijamin")
+        print(f"dengan class_weight={clf_dangkal.class_weight!r}, label daun adalah suara "
+              f"mayoritas BERBOBOT, bukan mayoritas > 50%: {rincian}.")
 ```
 
 > **Inilah kelebihan pohon yang hilang pada *ensemble*:** keputusan untuk satu nasabah dapat ditelusuri sebagai rangkaian pertanyaan yang dapat dijelaskan. Pada bidang yang menuntut keterjelasan, ini bernilai tinggi — **asalkan** pohonnya memang memprediksi kedua kelas. Pohon dangkal yang semua daunnya berlabel "Lancar" tetap mudah dijelaskan, tetapi tidak berguna (F1 = 0).
@@ -468,7 +485,7 @@ Buang `kode_cabang` dari data, lalu latih ulang ketiga model. Apakah kinerjanya 
 
 ### Tantangan 4 — Pohon Dangkal dengan `class_weight`
 
-Latih ulang pohon dangkal Langkah 5 dengan `class_weight="balanced"` (Lab 7), lalu jalankan ulang kode tabel aturan daun. Apakah struktur pohon dan jumlah daun berlabel "Gagal bayar" berubah? Bandingkan F1 dan *recall* ujinya dengan pohon tanpa pembobotan. Ubah pula intersep logit Langkah 3 dari −0,8 menjadi −2,3 (proporsi gagal bayar turun ke ±13%): apa yang terjadi pada pohon dangkal tanpa pembobotan, dan apakah `class_weight="balanced"` menolongnya? Pada percobaan ini pemeriksaan otomatis Langkah 3–5 memang akan gagal (proporsi di luar 25–45%); kembalikan intersep ke −0,8 setelah selesai.
+Latih ulang pohon dangkal Langkah 5 dengan `class_weight="balanced"` (Lab 7), lalu jalankan ulang kode tabel aturan daun. Apakah struktur pohon dan jumlah daun berlabel "Gagal bayar" berubah? Apakah setiap daun "Gagal bayar" masih memuat lebih dari 50% gagal bayar? Baca kalimat kesimpulan yang dicetak, lalu jelaskan arti "mayoritas berbobot". Bandingkan F1 dan *recall* ujinya dengan pohon tanpa pembobotan. Ubah pula intersep logit Langkah 3 dari −0,8 menjadi −2,3 (proporsi gagal bayar turun ke ±13%): apa yang terjadi pada pohon dangkal tanpa pembobotan, dan apakah `class_weight="balanced"` menolongnya? Pada percobaan ini pemeriksaan otomatis Langkah 3–5 memang akan gagal (proporsi di luar 25–45%); kembalikan intersep ke −0,8 setelah selesai.
 
 ---
 

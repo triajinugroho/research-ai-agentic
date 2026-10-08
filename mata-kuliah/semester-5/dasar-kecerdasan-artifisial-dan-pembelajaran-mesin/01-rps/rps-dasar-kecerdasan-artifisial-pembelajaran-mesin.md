@@ -32,7 +32,7 @@ Mata kuliah ini membekali mahasiswa dengan kemampuan **merumuskan masalah, memba
 
 Cakupannya meliputi lanskap dan batas kemampuan AI; formulasi masalah dan daur hidup ML; prapemrosesan, pembagian data, dan rekayasa fitur; pembelajaran terbimbing untuk regresi dan klasifikasi beserta metriknya; pembelajaran tanpa supervisi; reduksi dimensi dan visualisasi kinerja model; pengantar jaringan saraf tiruan; serta AI generatif dan prinsip AI yang bertanggung jawab.
 
-Pembelajaran berbasis praktik dengan Python dan `scikit-learn` di Google Colab, dengan kasus-kasus **berkonteks Indonesia**. Sebagian besar praktikum memakai **data sintetis (simulasi) yang meniru pola Indonesia** — dinyatakan pada bagian Persiapan setiap lab — karena aturan pembangkitnya diketahui, sehingga dampak setiap konsep (kebocoran, regularisasi, *bias*) dapat diukur terhadap "kebenaran"-nya. Mata kuliah berpuncak pada proyek kelompok yang **wajib memakai data nyata** dan menghasilkan model, dokumentasi (*model card*), dan analisis keterbatasan; di sanalah mahasiswa menghadapi data yang berantakan tanpa kunci jawaban (§L).
+Pembelajaran berbasis praktik dengan Python dan `scikit-learn` di Google Colab, dengan kasus-kasus **berkonteks Indonesia**. Sebagian besar praktikum memakai **data sintetis (simulasi) yang meniru pola Indonesia** — dinyatakan pada butir Data di bagian Persiapan Lab 03–14; rincian seluruh lab, termasuk Lab 01–02, ada pada [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda) — karena aturan pembangkitnya diketahui, sehingga dampak setiap konsep (kebocoran, regularisasi, *bias*) dapat diukur terhadap "kebenaran"-nya. Mata kuliah berpuncak pada proyek kelompok yang **wajib memakai data nyata** dan menghasilkan model, dokumentasi (*model card*), dan analisis keterbatasan; di sanalah mahasiswa menghadapi data yang berantakan tanpa kunci jawaban (§L).
 
 ### Yang Tidak Termasuk Cakupan
 
@@ -72,7 +72,7 @@ Pada Kurikulum 2025 Revisi 2026, **CPMK bersifat prodi-level** dan dipakai bersa
 
 ## E. SUB-CPMK
 
-Sub-CPMK adalah **pembeda mata kuliah** — tingkat inilah yang menerjemahkan CPMK prodi menjadi capaian khas mata kuliah ini. Rumusan, level Bloom, dan bobot diambil verbatim dari [pemetaan kurikulum](../../../00-kurikulum-if-2025-revisi-2026/15d-subcpmk-tingkat-3-semester-5-6.md); materi, indikator, dan kriteria **diadaptasi dari registri (diterjemahkan)** — istilah Inggris pada registri (mis. *correctness training*, *leakage*) diterjemahkan tanpa mengubah maknanya.
+Sub-CPMK adalah **pembeda mata kuliah** — tingkat inilah yang menerjemahkan CPMK prodi menjadi capaian khas mata kuliah ini. Rumusan, level Bloom, dan bobot diambil verbatim (hanya ditambah huruf miring untuk istilah asing) dari [pemetaan kurikulum](../../../00-kurikulum-if-2025-revisi-2026/15d-subcpmk-tingkat-3-semester-5-6.md); materi, indikator, dan kriteria **diadaptasi dari registri (diterjemahkan)** — istilah Inggris pada registri (mis. *correctness training*, *leakage*) diterjemahkan tanpa mengubah maknanya.
 
 ### `DAIML-Sub-CPMK082-1` — Bobot **60%**
 
@@ -394,7 +394,7 @@ Mahasiswa dinyatakan lulus apabila memenuhi **seluruh** syarat berikut:
 
 12. Tim Kurikulum Informatika UAI (2026). *Kurikulum Informatika 2025 — Revisi 2026*. Universitas Al Azhar Indonesia. → [registri di repositori ini](../../../00-kurikulum-if-2025-revisi-2026/README.md)
 13. ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023 (CS2023)*, Knowledge Area: Artificial Intelligence (AI). — [REG-10] pada [Pedoman OBE §B.2](../../../00-pedoman-obe/pedoman-obe-konvensi.md#b2-daftar-acuan)
-14. UNESCO (2026). *AI Competency Framework for Students* (pembaruan 16 Januari 2026). — [REG-9] pada [Pedoman OBE §B.2](../../../00-pedoman-obe/pedoman-obe-konvensi.md#b2-daftar-acuan)
+14. UNESCO (2024, diperbarui 16 Januari 2026 [perlu verifikasi]). *AI Competency Framework for Students*. Paris: UNESCO. — [REG-9] pada [Pedoman OBE §B.2](../../../00-pedoman-obe/pedoman-obe-konvensi.md#b2-daftar-acuan)
 
 ---
 

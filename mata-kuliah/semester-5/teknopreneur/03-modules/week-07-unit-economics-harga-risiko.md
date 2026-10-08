@@ -11,7 +11,7 @@
 | Bloom | C4 → C5 |
 | Durasi | 150 menit |
 | Metode | Kuliah · Studio perhitungan · Presentasi silang |
-| Penilaian | Observasi (Studio 7) · **Milestone 2 (P-02)** |
+| Penilaian | Observasi (Studio 7) · **Milestone 2 (P-02)** — menghimpun S-05 dan S-06 |
 
 ---
 
@@ -192,16 +192,16 @@ Karena itu, mitigasi yang paling penting bukan teknis melainkan: **terus menguji
 
 ### 7.7 Milestone 2 — Bukti Kelayakan
 
-Yang dikumpulkan pada Minggu 7:
+Yang dikumpulkan sebagai P-02 (tenggat akhir Minggu 7) — menghimpun S-05 dan S-06, ditambah bagian milik *milestone* sendiri:
 
 | Berkas | Isi |
 |--------|-----|
 | Perhitungan pasar (S-05) | *Bottom-up*, bersumber |
 | Penilaian kelayakan (S-06) | Teknis dan operasional |
-| Model *unit economics* (S-07) | Dengan analisis sensitivitas |
-| Daftar risiko | Minimal 8, dengan tanda awal dan mitigasi |
 | Catatan wawancara | **Minimal 12** terdokumentasi |
-| **Kesimpulan kelayakan** | **Lanjut, ubah arah, atau hentikan** — berbasis angka |
+| **Kesimpulan kelayakan** | **Lanjut, ubah arah, atau hentikan** — berbasis angka pasar (S-05) serta beban teknologi dan operasional (S-06) |
+
+Model *unit economics* dan daftar risiko (S-07) jatuh tempo awal pertemuan Minggu 9 (Minggu 8 UTS) dan tidak termasuk P-02. Bila angka S-07 mengubah kesimpulan kelayakan, perubahan itu dicatat di jurnal keputusan dan dinyatakan pada bagian "apa yang berubah sejak Milestone 2" di laporan P-03.
 
 ---
 

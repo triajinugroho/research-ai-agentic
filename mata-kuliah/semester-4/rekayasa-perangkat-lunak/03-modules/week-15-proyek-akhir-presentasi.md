@@ -87,7 +87,7 @@ Demo Day Checklist:
 |
 +-- [5] Dokumentasi
 |   +-- README.md lengkap (setup, API, architecture)
-|   +-- AI Usage Log (per anggota)
+|   +-- AI Usage Log tim: docs/ai-usage-log.md (entri setiap anggota)
 |   +-- docs/ folder: SRS, UML, CI/CD docs
 |
 +-- [6] Proses Agile/Scrum
@@ -191,7 +191,7 @@ Sprint 4 Checklist (sebelum Demo Day):
 |
 +-- Documentation
 |   +-- README.md (setup instructions, API docs)
-|   +-- AI Usage Log (setiap anggota)
+|   +-- AI Usage Log tim: docs/ai-usage-log.md (entri setiap anggota)
 |   +-- SRS, UML diagrams (updated)
 |   +-- Sprint retrospective notes
 |

@@ -32,7 +32,7 @@ Proyek adalah **tulang punggung mata kuliah ini**, bukan pelengkap akhir semeste
 | Perangkat | Python di Google Colab; `scikit-learn` |
 | Penelusuran versi | Repositori GitHub (disarankan) |
 
-> **Mengapa praktikum memakai data sintetis, tetapi proyek wajib data nyata?** Sebagian besar lab memakai **data sintetis (simulasi) yang meniru pola Indonesia** — dinyatakan pada bagian Persiapan setiap lab. Itu disengaja: karena aturan pembangkitnya diketahui, dampak setiap konsep (kebocoran, regularisasi, *bias*) dapat **diukur terhadap "kebenaran"-nya**, bukan sekadar diduga. Proyek menilai hal yang tidak dapat dilatih dengan data sintetis: menelusuri sumber dan definisi variabel, menghadapi data yang berantakan tanpa kunci jawaban, dan menyatakan keterwakilan serta keterbatasan data yang sesungguhnya. Karena itu data sintetis sebagai data utama proyek dikenai pengurangan ([kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai)). Panduan sumber data: [datasets/README.md](../datasets/README.md).
+> **Mengapa praktikum memakai data sintetis, tetapi proyek wajib data nyata?** Sebagian besar lab memakai **data sintetis (simulasi) yang meniru pola Indonesia** — dinyatakan pada butir Data di bagian Persiapan Lab 03–14 (Lab 01–02: [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda)). Itu disengaja: karena aturan pembangkitnya diketahui, dampak setiap konsep (kebocoran, regularisasi, *bias*) dapat **diukur terhadap "kebenaran"-nya**, bukan sekadar diduga. Proyek menilai hal yang tidak dapat dilatih dengan data sintetis: menelusuri sumber dan definisi variabel, menghadapi data yang berantakan tanpa kunci jawaban, dan menyatakan keterwakilan serta keterbatasan data yang sesungguhnya. Karena itu data sintetis sebagai data utama proyek dikenai pengurangan ([kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai)). Panduan sumber data: [datasets/README.md](../datasets/README.md).
 
 ---
 
@@ -48,7 +48,7 @@ Proyek dikerjakan **bertahap sejak Minggu 5**, bukan menumpuk di Minggu 14.
 | Laporan, notebook, *model card* | P-03 | **14** | PDF + `.ipynb` + `.md` | **15%** |
 | Presentasi dan tanya jawab | P-04 | **15** | Slide + presentasi 20' | **10%** |
 
-> Tanpa proposal yang disetujui pada Minggu 5, **tahap berikutnya tidak dinilai**.
+> Selama proposal P-00 belum disetujui, **tahap berikutnya tidak dinilai sampai proposal disetujui** ([kerangka asesmen §7.1](assessment-framework.md#71-tabel-pengurangan)).
 >
 > Dua hal berjalan sepanjang tahap: *model card* diisi bertahap sejak P-00 dengan templat Lampiran H (§7.7), dan setiap anggota mengisi Formulir Kontribusi A (Minggu 11) dan B (Minggu 15) (§10).
 
@@ -206,7 +206,7 @@ Yang harus dibahas:
 4. **Batas kesimpulan** — mengapa hubungan yang ditemukan **bukan** sebab-akibat?
 5. **Kondisi ketika model tidak dapat diandalkan** — sebutkan secara konkret.
 
-> Bagian Keterbatasan yang kosong, atau hanya menyatakan "penelitian ini tidak memiliki keterbatasan", **dikembalikan untuk dilengkapi** — satu-satunya konsekuensinya, menurut [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Setelah dilengkapi, mutunya dinilai pada aspek **Validitas interpretasi** (§7.6).
+> Bagian Keterbatasan yang kosong, atau hanya menyatakan "penelitian ini tidak memiliki keterbatasan", **dikembalikan untuk dilengkapi** menurut [kerangka asesmen §7.1–§7.2](assessment-framework.md#7-pengurangan-nilai) (bila tidak dilengkapi dalam 3 hari, dinilai apa adanya pada rubrik). Mutunya dinilai pada aspek **Validitas interpretasi** (§7.6).
 
 ### 7.6 Rubrik P-03 — 15%
 
@@ -228,7 +228,7 @@ Yang harus dibahas:
 | Kesesuaian metrik dan visualisasi | 1,5% | Metrik tepat beralasan; grafik diagnostik lengkap dan jujur | Tepat dan terbaca | Kurang sesuai | Menyesatkan atau tanpa label |
 | Validitas interpretasi | 1,5% | Kesimpulan sebatas data; **audit *bias* dan keterbatasan jujur** | Tepat, keterbatasan kurang dibahas | Ada klaim melampaui data | Klaim sebab-akibat; keterbatasan kosong |
 
-> Dokumentasi keputusan data (§7.4) dinilai pada aspek **Kebenaran prapemrosesan dan pembagian** (skor 2 = "dilakukan tanpa penjelasan"); tidak ada pengurangan tambahan untuk hal yang sama.
+> Dokumentasi keputusan data (§7.4) dinilai pada aspek **Kebenaran prapemrosesan dan pembagian** (skor 2 = "dilakukan tanpa penjelasan"). Karena tidak tercantum pada tabel pengurangan [kerangka asesmen §7.1](assessment-framework.md#71-tabel-pengurangan), tidak ada pengurangan tambahan untuk hal ini. Untuk temuan yang tercantum pada tabel itu berlaku [kerangka asesmen §7.2 butir a](assessment-framework.md#72-cara-menerapkan) (§9). **Tanpa sanksi ganda.** Bila satu temuan dikenai pengurangan persentase dari tabel pengurangan, aspek rubrik yang deskriptornya menyebut temuan yang sama dinilai tanpa memperhitungkan temuan itu — mis. notebook yang tidak berjalan ulang dikenai −20%, dan skor Reproduksibilitasnya tidak memperhitungkan kegagalan berjalan ulang itu. Pada P-03 ini berarti kebocoran dikenai pengurangan menurut tabel itu saja, sedangkan aspek **Kebenaran proses pelatihan** dan **Kebenaran prapemrosesan dan pembagian** dinilai tanpa memperhitungkan kebocoran tersebut.
 
 ### 7.7 *Model Card* dan Audit *Bias*: Mulai Sejak Awal
 
@@ -266,7 +266,7 @@ Satu pertemuan Minggu 15 (150 menit) memuat **5 kelompok**: 10 menit pengantar, 
 
 ## 9. Pengurangan Nilai
 
-Seluruh pengurangan nilai proyek — kebocoran, notebook yang tidak berjalan ulang, *baseline* yang tidak ada, data sintetis sebagai data utama, bagian Keterbatasan atau Etis yang kosong, AI Usage Log, dan keterlambatan — mengikuti **satu tabel acuan** pada [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Tabel itu tidak ditulis ulang di sini agar tidak ada dua versi. Prinsipnya: satu temuan dikenai satu baris tabel saja; hal yang sudah diukur rubrik (mis. dokumentasi keputusan data) tidak dikenai pengurangan tambahan.
+Seluruh pengurangan nilai proyek — kebocoran, notebook yang tidak berjalan ulang, *baseline* yang tidak ada, data sintetis sebagai data utama, bagian Keterbatasan atau Etis yang kosong, AI Usage Log, dan keterlambatan — mengikuti **satu tabel acuan** pada [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Tabel itu tidak ditulis ulang di sini agar tidak ada dua versi. Prinsipnya ([kerangka asesmen §7.2 butir a](assessment-framework.md#72-cara-menerapkan)): satu temuan dikenai satu baris tabel saja, dan hal yang diukur rubrik tetapi **tidak tercantum** pada tabel itu (mis. dokumentasi keputusan data, §7.4) tidak dikenai pengurangan tambahan. **Tanpa sanksi ganda.** Bila satu temuan dikenai pengurangan persentase dari tabel pengurangan, aspek rubrik yang deskriptornya menyebut temuan yang sama dinilai tanpa memperhitungkan temuan itu — mis. notebook yang tidak berjalan ulang dikenai −20%, dan skor Reproduksibilitasnya tidak memperhitungkan kegagalan berjalan ulang itu.
 
 ---
 

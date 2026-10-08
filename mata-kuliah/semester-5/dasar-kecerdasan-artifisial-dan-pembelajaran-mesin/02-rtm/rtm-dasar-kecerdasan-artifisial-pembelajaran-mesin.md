@@ -78,7 +78,7 @@
 | Komentar kode | Bahasa Indonesia |
 | Interpretasi | **Setiap keluaran wajib disertai kalimat penafsiran** |
 | AI Usage Log | **Wajib**, di sel terakhir |
-| Data | Dinyatakan pada butir **Data** di bagian Persiapan tiap lab. Sebagian besar lab memakai **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga; proyek wajib data nyata. Lihat [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda) |
+| Data | Lab 03–14: dinyatakan pada butir **Data** di bagian Persiapan lab. Lab 01 (dataset bawaan `scikit-learn` dan tabel contoh) dan Lab 02 (data simulasi, dinyatakan pada Langkah 4): lihat panduan dataset §1.1. Sebagian besar lab memakai **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga; proyek wajib data nyata. Lihat [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda) |
 | Tenggat | Awal pertemuan minggu berikutnya |
 | Pengurangan nilai | Satu tabel acuan: [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai) |
 
@@ -86,7 +86,7 @@
 
 | Aspek | Bobot | 4 | 3 | 2 | 1 |
 |-------|-------|---|---|---|---|
-| Kebenaran teknis | 40% | Seluruh langkah benar; tanpa kebocoran | Benar dengan kekeliruan kecil | Ada kekeliruan yang memengaruhi hasil | Langkah pokok salah |
+| Kebenaran teknis | 40% | Seluruh langkah benar; tanpa kebocoran | Benar dengan kekeliruan kecil | Ada kekeliruan yang memengaruhi hasil | Langkah pokok salah atau ada kebocoran |
 | Kesesuaian metrik/metode | 25% | Tepat dan beralasan | Tepat, alasan kurang | Dapat diterima tetapi bukan yang optimal | Tidak sesuai |
 | Kualitas interpretasi | 25% | Tajam, sebatas data, menyebut keterbatasan | Tepat, keterbatasan kurang dibahas | Ada klaim melampaui data | Tidak ada interpretasi |
 | Reproduksibilitas dan kerapian | 10% | Berjalan ulang mulus; terstruktur | Berjalan dengan penyesuaian kecil | Perlu perbaikan agar berjalan | Tidak dapat dijalankan |
@@ -257,7 +257,7 @@ Proyek adalah komponen terbesar (**35%**) dan dikerjakan bertahap sejak Minggu 5
 | Luaran | PDF maksimal 2 halaman |
 | Isi wajib | Anggota dan pembagian peran · Masalah dan mengapa penting · **Formulasi *task* ML** (target, fitur, jenis *task*) · Sumber data dengan dimensi yang sudah diperiksa · Metrik keberhasilan **beserta alasan** · Dampak bila model salah · Risiko yang sudah dapat diperkirakan |
 | Syarat persetujuan | Data **sudah diunduh dan dibuka**; masalah dapat diselesaikan dengan metode sampai Minggu 14; ukuran data memadai (≥ 500 baris) |
-| Konsekuensi | Tanpa proposal yang disetujui, milestone berikutnya tidak dinilai |
+| Konsekuensi | Selama proposal P-00 belum disetujui, tahap berikutnya tidak dinilai sampai proposal disetujui ([kerangka asesmen §7.1](../05-assessments/assessment-framework.md#71-tabel-pengurangan)) |
 
 ### P-01 — Milestone 1: *Baseline* (Minggu 7) — **5%** · `Sub-CPMK082-1`
 
@@ -411,16 +411,16 @@ Nama: ____________________  NIM: __________  Tanggal: __________
 
 ### Yang Wajib Ditulis "Dikerjakan Sendiri"
 
-Daftar larangan AI berikut **sama persis** dengan [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md) (bila berbeda, RPS yang berlaku). Butir L1–L5 merupakan inti Sub-CPMK dan **harus** muncul dalam setiap log sebagai "dikerjakan sendiri"; L6 berlaku di ruang kuis dan ujian.
+Daftar larangan AI berikut **dikutip dari** [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md) dengan rumusan yang sama (bila berbeda, RPS yang berlaku). Butir L1–L5 merupakan inti Sub-CPMK dan **harus** muncul dalam setiap log sebagai "dikerjakan sendiri"; L6 berlaku di ruang kuis dan ujian.
 
-| No | Kegiatan yang **tidak boleh** dibantu AI |
-|----|------------------------------------------|
-| L1 | Memformulasikan masalah menjadi *task* ML |
-| L2 | Memilih model dan hiperparameter |
-| L3 | Memilih dan menafsirkan metrik |
-| L4 | Menganalisis kesalahan model |
-| L5 | Menulis *model card* dan analisis keterbatasan |
-| L6 | Mengerjakan kuis, UTS, dan UAS (tidak boleh sama sekali) |
+| No | Kegiatan | Status |
+|----|----------|--------|
+| L1 | Memformulasikan masalah menjadi *task* ML | Tidak boleh |
+| L2 | Memilih model dan hiperparameter | Tidak boleh |
+| L3 | Memilih dan menafsirkan metrik | Tidak boleh |
+| L4 | Menganalisis kesalahan model | Tidak boleh |
+| L5 | Menulis *model card* dan analisis keterbatasan | Tidak boleh |
+| L6 | Selama kuis, UTS, dan UAS | Tidak boleh sama sekali |
 
 Log yang mencantumkan AI pada salah satu butir L1–L5 dikembalikan; konsekuensinya mengikuti tabel acuan [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai). Memakai AI tanpa mencatatnya adalah pelanggaran integritas akademik.
 

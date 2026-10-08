@@ -86,7 +86,7 @@ Inilah alasan strategis keberadaan mata kuliah ini pada semester 1, bukan semest
 | No | Peluang | Rencana Pemanfaatan |
 |----|---------|---------------------|
 | O1 | **Ledakan kebutuhan talenta data dan AI di Indonesia** | Dijadikan pembuka Minggu 1 untuk membangun motivasi |
-| O2 | **Ketersediaan data terbuka pemerintah** yang makin baik (Satu Data Indonesia) | Seluruh contoh dan proyek memakai data nyata Indonesia |
+| O2 | **Ketersediaan data terbuka pemerintah** yang makin baik (Satu Data Indonesia) | Proyek akhir wajib memakai data nyata Indonesia; contoh dan lab memakai berkas latihan berkonteks Indonesia yang sebagian sintetis ([panduan dataset §1](../datasets/README.md#1-prinsip-pemilihan-data)) |
 | O3 | **Google Colab gratis** dengan pustaka statistik lengkap | Nol biaya perangkat lunak bagi mahasiswa |
 | O4 | **AI generatif sebagai tutor 24 jam** untuk penjelasan alternatif | Diizinkan untuk memahami konsep, dengan batas tegas untuk penilaian |
 | O5 | **Literasi statistik menjadi isu publik** (hoaks berbasis angka, survei politik) | Bahan diskusi etika yang sangat kontekstual dan menarik |

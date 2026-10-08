@@ -1022,14 +1022,14 @@ app.run(debug=True, use_reloader=True)
 
 ### 13.6.1 AI Usage Log
 
-Setiap penggunaan AI dalam proyek **wajib** didokumentasikan dalam AI Usage Log. Formatnya mengikuti **satu templat resmi** di [Lampiran C — Template AI Usage Log](lampiran.md#lampiran-c-template-ai-usage-log): identitas log, tabel satu baris per interaksi AI, dan refleksi (per sprint untuk proyek akhir). Bab ini tidak memuat templat tersendiri. Contoh berikut memperlihatkan dua baris log Tim Pustaka Digital yang diisi dengan format Lampiran C; setiap anggota mengisi entrinya sendiri, dan fase SDLC ditulis di kolom *Task/Aktivitas*.
+Setiap penggunaan AI dalam proyek **wajib** didokumentasikan dalam AI Usage Log. Formatnya mengikuti **satu templat resmi** di [Lampiran C — Template AI Usage Log](lampiran.md#lampiran-c-template-ai-usage-log): identitas log, tabel satu baris per interaksi AI, dan refleksi di akhir log (untuk proyek akhir boleh dikelompokkan per sprint). Bab ini tidak memuat templat tersendiri. Contoh berikut memperlihatkan dua baris log Tim Pustaka Digital yang diisi dengan format Lampiran C; setiap anggota mengisi entrinya sendiri di log tim yang sama, dan fase SDLC serta nama anggota (dalam kurung) ditulis di kolom *Task/Aktivitas* (Panduan Pengisian #5 Lampiran C).
 
 | No | Tanggal | Task/Aktivitas | Tool AI | Prompt yang Digunakan | Output AI (Ringkasan) | Evaluasi (Benar/Salah/Perlu Modifikasi) | Modifikasi yang Dilakukan | Waktu Tanpa AI (estimasi) | Waktu Dengan AI |
 |----|---------|----------------|---------|----------------------|----------------------|----------------------------------------|--------------------------|--------------------------|-----------------|
 | 1 | 2026-03-15 | Code — endpoint `POST /api/peminjaman` (Budi) | Claude Code | (ringkasan) "Implement peminjaman endpoint dengan validasi stok, max 3 buku per anggota, jatuh tempo 14 hari" | Endpoint lengkap dengan validasi (45 baris) | Perlu Modifikasi — ±80% output bisa dipakai langsung; logika bisnis benar, detail perlu disesuaikan | Pesan error dalam Bahasa Indonesia; formula jatuh tempo memakai `timedelta`, bukan string; tambah logging untuk audit trail | ±60 menit | ±30 menit |
 | 2 | 2026-03-16 | Test — unit test model `Peminjaman` (Citra) | GitHub Copilot | (autocomplete saat menulis berkas test) | 8 test case | Perlu Modifikasi — 6/8 benar; 2 assertion tidak sesuai aturan bisnis; edge case "anggota meminjam buku yang sedang ia pinjam" terlewat | Perbaiki 2 assertion; tambah 3 edge case; perbaiki fixture setup | — | — |
 
-**Refleksi (contoh, di akhir log sprint):** AI kurang paham aturan bisnis (*business rules*) yang spesifik — edge case dan validasi domain tetap harus dirancang dan diperiksa oleh manusia.
+**Refleksi (contoh, di akhir log):** AI kurang paham aturan bisnis (*business rules*) yang spesifik — edge case dan validasi domain tetap harus dirancang dan diperiksa oleh manusia.
 
 ### 13.6.2 Prinsip AI Bertanggung Jawab
 

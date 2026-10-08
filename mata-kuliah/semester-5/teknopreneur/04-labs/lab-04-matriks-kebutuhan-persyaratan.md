@@ -22,7 +22,7 @@
 - Persona, rumusan JTBD, dan peta perjalanan dari S-03.
 - Daftar kutipan berkode dari seluruh wawancara (minimal 8 sampai Minggu 4).
 - Templat [matriks ketertelusuran persyaratan](../06-buku-ajar/lampiran.md#a4-matriks-ketertelusuran-persyaratan).
-- Dugaan awal Minggu 1 (formulir P-00) — bahan bagian "apa yang ternyata berbeda" pada P-01.
+- Gambaran awal tim tentang masalah pada formulir P-00 Minggu 1 (§2 Ranah Masalah dan §4 Mengapa Ranah Ini), kolom "Dugaan tim sebelum wawancara" dan bagian "Yang Mengejutkan" pada [catatan wawancara](../06-buku-ajar/lampiran.md#a2-catatan-wawancara), serta tabel tinjauan antarwawancara S-02 ([Langkah 6](lab-02-wawancara-masalah.md#langkah-6-tinjauan-antarwawancara)) — bahan bagian 3 "Apa yang Ternyata Berbeda dari Dugaan Awal" pada P-01.
 
 ---
 

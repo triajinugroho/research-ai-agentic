@@ -60,7 +60,7 @@ Selain rubrik umum, tiap praktikum memiliki satu kriteria khusus yang menjadi pe
 
 ## 4. Temuan yang Dikenai Pengurangan
 
-Temuan berikut dikenai konsekuensi menurut **satu tabel acuan**, yaitu [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Besarnya tidak ditulis ulang di sini agar tidak ada dua versi. Setiap temuan dikenai satu baris tabel saja, dan **tidak** membatasi skor aspek rubrik yang lain.
+Temuan berikut dikenai konsekuensi menurut **satu tabel acuan**, yaitu [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Besarnya tidak ditulis ulang di sini agar tidak ada dua versi. Setiap temuan dikenai satu baris tabel saja dan **tidak** membatasi skor aspek rubrik yang lain ([kerangka asesmen §7.2 butir a](assessment-framework.md#72-cara-menerapkan)). **Tanpa sanksi ganda.** Bila satu temuan dikenai pengurangan persentase dari tabel pengurangan, aspek rubrik yang deskriptornya menyebut temuan yang sama dinilai tanpa memperhitungkan temuan itu — mis. notebook yang tidak berjalan ulang dikenai −20%, dan skor Reproduksibilitasnya tidak memperhitungkan kegagalan berjalan ulang itu.
 
 | Temuan | Mengapa penting |
 |--------|-----------------|
@@ -90,16 +90,16 @@ Agar tidak salah paham, berikut hal-hal yang **tidak** mengurangi nilai:
 
 ## 6. AI Usage Log — Wajib
 
-Setiap notebook wajib memuat AI Usage Log pada sel terakhir. Daftar larangan AI berikut **sama persis** dengan [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md) (bila berbeda, RPS yang berlaku):
+Setiap notebook wajib memuat AI Usage Log pada sel terakhir. Daftar larangan AI berikut **dikutip dari** [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md) dengan rumusan yang sama (bila berbeda, RPS yang berlaku):
 
-| No | Kegiatan yang **tidak boleh** dibantu AI |
-|----|------------------------------------------|
-| L1 | Memformulasikan masalah menjadi *task* ML |
-| L2 | Memilih model dan hiperparameter |
-| L3 | Memilih dan menafsirkan metrik |
-| L4 | Menganalisis kesalahan model |
-| L5 | Menulis *model card* dan analisis keterbatasan |
-| L6 | Mengerjakan kuis, UTS, dan UAS (tidak boleh sama sekali) |
+| No | Kegiatan | Status |
+|----|----------|--------|
+| L1 | Memformulasikan masalah menjadi *task* ML | Tidak boleh |
+| L2 | Memilih model dan hiperparameter | Tidak boleh |
+| L3 | Memilih dan menafsirkan metrik | Tidak boleh |
+| L4 | Menganalisis kesalahan model | Tidak boleh |
+| L5 | Menulis *model card* dan analisis keterbatasan | Tidak boleh |
+| L6 | Selama kuis, UTS, dan UAS | Tidak boleh sama sekali |
 
 Butir **L1–L5** wajib muncul di setiap log sebagai "dikerjakan sendiri". Log yang mencantumkan AI pada salah satu butir L1–L5 **dikembalikan**; konsekuensinya mengikuti [kerangka asesmen §7](assessment-framework.md#7-pengurangan-nilai). Butir L6 berlaku di ruang kuis dan ujian.
 

@@ -124,7 +124,7 @@ Di sinilah amanah bekerja — bukan sebagai aturan yang ditegakkan pengawas, mel
 
 ## Siapa yang Buku Ini Tujukan
 
-Mahasiswa semester 5 Fakultas Sains dan Teknologi UAI yang telah menempuh Kreativitas dan Entrepreneurship.
+Mahasiswa semester 5 Fakultas Sains dan Teknologi UAI, idealnya telah menempuh Kreativitas dan Entrepreneurship — bukan prasyarat formal; lihat [RPS §J.6](../01-rps/rps-teknopreneur.md#j6-pengetahuan-awal-yang-diandalkan).
 
 Buku ini **tidak mengandaikan kemampuan pemrograman**. Mahasiswa dari program studi mana pun dapat mengikutinya, dan tim lintas program studi justru disarankan — karena itulah yang dituntut CPL fakultas.
 

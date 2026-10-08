@@ -326,7 +326,7 @@ Tiga pertanyaan yang dijawabnya:
 
 **Integritas**
 - [ ] AI Usage Log lengkap dan ditandatangani
-- [ ] Empat baris yang wajib "dikerjakan sendiri" terisi demikian
+- [ ] Lima baris (L1–L5) yang wajib "dikerjakan sendiri" terisi demikian
 - [ ] Pembagian peran tiap anggota dicatat
 
 ---
@@ -341,16 +341,16 @@ Keenam larangan di kolom kanan sama dengan kebijakan AI pada [RPS §K.1](../01-r
 
 | Boleh | Tidak boleh |
 |-------|-------------|
-| Menulis kode `scikit-learn` rutin (wajib dicatat) | Memformulasikan masalah menjadi *task* ML |
-| Memperbaiki galat; menjelaskan dokumentasi | Memilih model dan hiperparameter |
-| Menyarankan jenis visualisasi | Memilih dan menafsirkan metrik |
-| Menyunting bahasa laporan | Menganalisis kesalahan model |
-| Memeriksa apakah ada bagian laporan yang kosong | Menulis *model card* dan analisis keterbatasan, termasuk bagian etis |
-| | **Memakai AI dalam bentuk apa pun selama UTS dan UAS** (*closed book*) |
+| Menulis kode `scikit-learn` rutin (wajib dicatat) | **L1.** Memformulasikan masalah menjadi *task* ML |
+| Memperbaiki galat; menjelaskan dokumentasi | **L2.** Memilih model dan hiperparameter |
+| Menyarankan jenis visualisasi | **L3.** Memilih dan menafsirkan metrik |
+| Menyunting bahasa laporan | **L4.** Menganalisis kesalahan model |
+| Memeriksa apakah ada bagian laporan yang kosong | **L5.** Menulis *model card* dan analisis keterbatasan, termasuk bagian etis |
+| | **L6. Memakai AI dalam bentuk apa pun selama kuis, UTS, dan UAS** (*closed book*) |
 
 ### Mengapa Kolom Kanan Dilarang
 
-Bukan karena sulit, dan bukan karena terlarang secara prinsip. Lima larangan pertama ada karena **kelimanya adalah inti Sub-CPMK mata kuliah ini**, dan karena kelimanya menuntut pengetahuan yang tidak ada dalam prompt. Larangan keenam berlaku karena UTS dan UAS bersifat *closed book*.
+Bukan karena sulit, dan bukan karena terlarang secara prinsip. Lima larangan pertama (L1–L5) ada karena **kelimanya adalah inti Sub-CPMK mata kuliah ini**, dan karena kelimanya menuntut pengetahuan yang tidak ada dalam prompt. Larangan keenam (L6) berlaku karena kuis dan ujian bersifat *closed book*.
 
 | Keputusan | Pengetahuan yang dibutuhkan |
 |-----------|----------------------------|
@@ -362,7 +362,7 @@ Bukan karena sulit, dan bukan karena terlarang secara prinsip. Lima larangan per
 
 ### AI Usage Log
 
-Setiap tahap proyek wajib melampirkan catatan pemakaian AI, dengan **empat baris yang wajib ditulis "dikerjakan sendiri"** (format [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md)): formulasi, pemilihan model dan hiperparameter, pemilihan dan penafsiran metrik, serta analisis kesalahan dan keterbatasan — baris terakhir ini mencakup *model card*. Keempat baris itu meliputi lima larangan pertama di atas.
+Setiap tahap proyek wajib melampirkan catatan pemakaian AI, dengan **lima baris (L1–L5) yang wajib ditulis "dikerjakan sendiri"** (format [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#i-ai-usage-log--format-wajib)): formulasi; pemilihan model dan hiperparameter; pemilihan dan penafsiran metrik; analisis kesalahan model; *model card* dan analisis keterbatasan.
 
 > Mencatat pemakaian AI **tidak mengurangi nilai**. Tidak mencatatnya, padahal memakainya, adalah pelanggaran integritas akademik — dan inilah **amanah** dalam bentuknya yang paling sehari-hari: menyatakan apa adanya tentang bagaimana sebuah pekerjaan dikerjakan, ketika tidak ada yang akan mengetahuinya bila disembunyikan.
 

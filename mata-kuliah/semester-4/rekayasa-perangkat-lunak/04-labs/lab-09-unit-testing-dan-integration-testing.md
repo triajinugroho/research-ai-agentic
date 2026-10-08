@@ -720,7 +720,7 @@ Analisis coverage report, identifikasi semua baris yang belum tercakup (`Missing
 
 ## Refleksi & AI Usage Log
 
-Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log.
+Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, dengan format [Lampiran C buku ajar — Template AI Usage Log](../06-buku-ajar/lampiran.md#lampiran-c-template-ai-usage-log) — satu baris per interaksi AI (prompt, output, evaluasi, modifikasi) dan refleksi singkat di akhir log. Simpan log di bagian akhir berkas refleksi `docs/refleksi-lab-09.md`, bersama jawaban pertanyaan refleksi berikut.
 
 **Pertanyaan refleksi:**
 1. Apa perbedaan utama yang Anda rasakan antara menulis unit test vs integration test?
@@ -735,7 +735,7 @@ Setelah menyelesaikan lab ini, isi AI Usage Log jika Anda menggunakan AI tools, 
 - [ ] TDD: bukti 3 commit (RED → GREEN → REFACTOR)
 - [ ] 5+ integration tests untuk API endpoints
 - [ ] Coverage report dihasilkan dan dipahami (target >= 70%)
-- [ ] Refleksi dan AI Usage Log diisi
+- [ ] Refleksi dan AI Usage Log diisi di `docs/refleksi-lab-09.md`
 
 ---
 

@@ -11,7 +11,7 @@
 | Bloom | C4 (Menganalisis) |
 | Durasi | 150 menit |
 | Metode | Kuliah · Studio · Presentasi silang |
-| Penilaian | Observasi (Studio 4) · **Milestone 1 (P-01)** |
+| Penilaian | Observasi (Studio 4) · **Milestone 1 (P-01)** — menghimpun S-02 dan S-03 |
 
 ---
 
@@ -133,16 +133,17 @@ Prioritas tertinggi: **tinggi pada empat kolom pertama, rendah pada kolom kelima
 
 ### 4.5 Milestone 1 — Bukti Masalah
 
-Minggu ini menandai titik pemeriksaan pertama. Yang dikumpulkan:
+Minggu ini menandai titik pemeriksaan pertama. Yang dikumpulkan sebagai P-01 (tenggat akhir Minggu 4) — menghimpun S-02 dan S-03, ditambah bagian milik *milestone* sendiri:
 
 | Berkas | Isi |
 |--------|-----|
-| Catatan wawancara | **Minimal 8**, sesuai format Minggu 2 |
-| Persona dan JTBD | Dengan keterlacakan penuh |
-| Peta perjalanan | Dengan baris bukti |
-| Matriks kebutuhan → persyaratan | Dengan keterlacakan penuh |
-| **Ringkasan 1 halaman** | **Apa yang ternyata berbeda dari dugaan awal** |
-| Pernyataan arah | Melanjutkan ranah yang sama, atau mengubahnya — dengan alasan |
+| Catatan wawancara (S-02 dan wawancara lanjutan) | **Minimal 8** sampai titik ini, sesuai format Minggu 2 |
+| Persona dan JTBD (S-03) | Dengan keterlacakan penuh |
+| Peta perjalanan (S-03) | Dengan baris bukti |
+| **Ringkasan 1 halaman** (bagian P-01) | **Apa yang ternyata berbeda dari dugaan awal** |
+| Pernyataan arah (bagian P-01) | Melanjutkan ranah yang sama, atau mengubahnya — dengan alasan |
+
+Matriks kebutuhan → persyaratan (S-04) dikumpulkan awal pertemuan Minggu 5 dan tidak termasuk P-01.
 
 #### 4.5.1 Tentang Ringkasan "Apa yang Berbeda"
 

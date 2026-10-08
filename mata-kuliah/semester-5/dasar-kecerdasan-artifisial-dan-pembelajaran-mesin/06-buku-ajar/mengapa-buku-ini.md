@@ -70,18 +70,18 @@ Menutup mata terhadap kenyataan itu akan membuat buku ini tidak berguna. Melaran
 
 | Boleh dibantu AI | Tidak boleh dibantu AI |
 |------------------|------------------------|
-| Menulis kode `scikit-learn` rutin (wajib dicatat) | Memformulasikan masalah menjadi *task* ML |
-| Memperbaiki galat; menjelaskan dokumentasi | Memilih model dan hiperparameter |
-| Menyarankan jenis visualisasi | Memilih dan menafsirkan metrik |
-| Menyunting bahasa laporan | Menganalisis kesalahan model |
-| | Menulis *model card* dan analisis keterbatasan |
-| | **Apa pun selama UTS dan UAS** — ujian bersifat *closed book* |
+| Menulis kode `scikit-learn` rutin (wajib dicatat) | **L1.** Memformulasikan masalah menjadi *task* ML |
+| Memperbaiki galat; menjelaskan dokumentasi | **L2.** Memilih model dan hiperparameter |
+| Menyarankan jenis visualisasi | **L3.** Memilih dan menafsirkan metrik |
+| Menyunting bahasa laporan | **L4.** Menganalisis kesalahan model |
+| | **L5.** Menulis *model card* dan analisis keterbatasan |
+| | **L6. Apa pun selama kuis, UTS, dan UAS** — kuis dan ujian bersifat *closed book* |
 
 Daftar ini sama dengan kebijakan AI pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial); bila kelak berbeda, RPS yang berlaku.
 
-Lima larangan pertama di kolom kanan tidak lahir dari kekhawatiran akan kecurangan. Alasannya teknis dan dapat diperiksa: **model bahasa tidak mengetahui konteks data Anda**. Ia tidak tahu bagaimana data dikumpulkan, siapa yang tercakup dan siapa yang tidak, atau apa arti sebenarnya sebuah kolom pada instansi penerbitnya. Seluruh keputusan itu bergantung pada pengetahuan tersebut.
+Lima larangan pertama di kolom kanan (L1–L5) tidak lahir dari kekhawatiran akan kecurangan. Alasannya teknis dan dapat diperiksa: **model bahasa tidak mengetahui konteks data Anda**. Ia tidak tahu bagaimana data dikumpulkan, siapa yang tercakup dan siapa yang tidak, atau apa arti sebenarnya sebuah kolom pada instansi penerbitnya. Seluruh keputusan itu bergantung pada pengetahuan tersebut.
 
-Lebih jauh lagi: kelima hal itu **justru merupakan inti Sub-CPMK mata kuliah ini**. Menyerahkannya kepada alat sama dengan tidak mengikuti mata kuliah. Larangan keenam berlaku karena ujian mengukur pemahaman Anda sendiri, tanpa alat bantu selain kalkulator.
+Lebih jauh lagi: kelima hal itu **justru merupakan inti Sub-CPMK mata kuliah ini**. Menyerahkannya kepada alat sama dengan tidak mengikuti mata kuliah. Larangan keenam (L6) berlaku karena kuis dan ujian mengukur pemahaman Anda sendiri, tanpa alat bantu selain kalkulator.
 
 ---
 

@@ -266,7 +266,7 @@ print("  → IDENTIK.")
 
 ---
 
-## 6.7 Memeriksa Kecocokan pada Data Nyata
+## 6.7 Memeriksa Kecocokan Distribusi pada Data Pengamatan
 
 ```python
 import pandas as pd
