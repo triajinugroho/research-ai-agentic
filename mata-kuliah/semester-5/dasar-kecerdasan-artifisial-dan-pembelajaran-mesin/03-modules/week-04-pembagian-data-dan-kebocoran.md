@@ -162,7 +162,7 @@ cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 # Dengan begitu prapemrosesan di-fit ulang pada tiap lipatan.
 skor = cross_val_score(pipeline, X_train, y_train, cv=cv, scoring="f1")
 
-print(f"F1 = {skor.mean():.3f} ± {skor.std():.3f}")
+print(f"F1 = {skor.mean():.3f} ± {skor.std(ddof=1):.3f}")   # simpangan baku SAMPEL (ddof=1)
 print("Per lipatan:", np.round(skor, 3))
 ```
 
@@ -171,7 +171,8 @@ print("Per lipatan:", np.round(skor, 3))
 | Keadaan | Tafsir | Tindakan |
 |---------|--------|----------|
 | Simpangan kecil (< 0,02) | Kinerja stabil | Dapat dipercaya |
-| Simpangan sedang (0,02–0,05) | Wajar pada data terbatas | Laporkan rerata **dan** simpangannya |
+| Simpangan sedang (0,02 sampai < 0,05) | Wajar pada data terbatas | Laporkan rerata **dan** simpangannya |
+| Simpangan cukup besar (0,05 sampai 0,10) | Data terbatas, atau lipatan tidak seragam | Periksa skor per lipatan; selisih rerata yang kecil antarmodel belum dapat dipercaya |
 | Simpangan besar (> 0,10) | Data sedikit, atau ada lipatan yang sangat berbeda | Selidiki lipatan yang menyimpang |
 | Satu lipatan jauh lebih rendah | Kemungkinan ada kelompok/periode yang berbeda sifat | Periksa apakah strategi pembagian sudah tepat |
 

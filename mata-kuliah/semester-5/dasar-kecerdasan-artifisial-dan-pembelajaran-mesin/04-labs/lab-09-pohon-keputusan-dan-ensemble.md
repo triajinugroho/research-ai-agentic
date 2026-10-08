@@ -341,14 +341,30 @@ print("Pemeriksaan otomatis lulus.")
 
 ```python
 # =============================================
-# LANGKAH 6: Random Forest dan Gradient Boosting
+# LANGKAH 6: Random Forest dan Gradient Boosting — pada lipatan yang SAMA
 # =============================================
 from sklearn.ensemble import (RandomForestClassifier,
                               HistGradientBoostingClassifier)
 from sklearn.model_selection import cross_val_score, StratifiedKFold
 import time
 
+# Satu objek lipatan untuk SEMUA perbandingan: setiap model dinilai pada lipatan yang sama
 CV = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
+
+def banding_berpasangan(skor_a, skor_b):
+    # Membandingkan dua model yang dinilai pada lipatan YANG SAMA (skor berpasangan).
+    # d_i = skor_A,i - skor_B,i ; simpangan baku sampel s_d (ddof=1) ; SE = s_d / akar(k)
+    # Aturan praktis mata kuliah: selisih BERMAKNA bila |d̄| > 2·SE DAN arah selisih
+    # sama dengan d̄ pada sebagian besar lipatan (di sini: >= 80%, yaitu 4 dari 5).
+    d = np.asarray(skor_a) - np.asarray(skor_b)
+    k = len(d)
+    d_bar = d.mean()
+    s_d = d.std(ddof=1)
+    se = s_d / np.sqrt(k)
+    searah = int((np.sign(d) == np.sign(d_bar)).sum())
+    bermakna = bool(abs(d_bar) > 2 * se and searah >= 0.8 * k)
+    return {"d": d, "k": k, "d_bar": d_bar, "s_d": s_d, "SE": se,
+            "searah": searah, "bermakna": bermakna}
 
 kandidat = {
     "Pohon (max_depth=5)": DecisionTreeClassifier(max_depth=5,
@@ -360,22 +376,80 @@ kandidat = {
         random_state=RANDOM_STATE),
 }
 
-baris = []
+baris, skor_lipatan = [], {}
 for nama, clf in kandidat.items():
     pipa = Pipeline([("pra", pra), ("clf", clf)])
     t0 = time.time()
-    skor = cross_val_score(pipa, X_train, y_train, cv=CV,
+    skor = cross_val_score(pipa, X_train, y_train, cv=CV,      # CV yang SAMA
                            scoring="roc_auc", n_jobs=-1)
     durasi = time.time() - t0
+    skor_lipatan[nama] = skor                                   # disimpan untuk uji berpasangan
     baris.append({"Model": nama, "ROC-AUC": skor.mean(),
-                  "Simpangan": skor.std(), "Min": skor.min(),
+                  "Simpangan": skor.std(ddof=1), "Min": skor.min(),
                   "Maks": skor.max(), "Waktu (s)": durasi})
 
-tabel = pd.DataFrame(baris).sort_values("ROC-AUC", ascending=False)
+tabel = (pd.DataFrame(baris).sort_values("ROC-AUC", ascending=False)
+           .reset_index(drop=True))
 print(tabel.round(4).to_string(index=False))
+
+# Setiap model dibandingkan dengan peringkat 1 secara BERPASANGAN per lipatan
+juara = tabel.loc[0, "Model"]
+banding = []
+for nama in tabel["Model"][1:]:
+    b = banding_berpasangan(skor_lipatan[juara], skor_lipatan[nama])
+    banding.append({"Dibandingkan dengan": nama, "d̄": b["d_bar"], "s_d": b["s_d"],
+                    "SE": b["SE"], "Searah": f"{b['searah']}/{b['k']}",
+                    "Bermakna?": "ya" if b["bermakna"] else "tidak"})
+print(f"\nSelisih berpasangan: '{juara}' dikurangi model lain (per lipatan)")
+print(pd.DataFrame(banding).round(4).to_string(index=False))
+
+# --- Random Forest vs Gradient Boosting: kesimpulan dihitung dari hasil ---
+b_ens = banding_berpasangan(skor_lipatan["Gradient Boosting"],
+                            skor_lipatan["Random Forest"])
+print("\nGradient Boosting − Random Forest")
+print("  selisih per lipatan:", np.round(b_ens["d"], 4))
+print(f"  d̄ = {b_ens['d_bar']:+.4f} | s_d = {b_ens['s_d']:.4f} | SE = {b_ens['SE']:.4f} "
+      f"| batas 2·SE = {2 * b_ens['SE']:.4f} | searah {b_ens['searah']}/{b_ens['k']}")
+if b_ens["bermakna"]:
+    unggul, lawan = (("Gradient Boosting", "Random Forest") if b_ens["d_bar"] > 0
+                     else ("Random Forest", "Gradient Boosting"))
+    print(f"Kesimpulan: {unggul} lebih baik daripada {lawan} secara bermakna "
+          f"(|d̄| > 2·SE dan searah di sebagian besar lipatan).")
+else:
+    print("Kesimpulan: TIDAK DAPAT DISIMPULKAN mana yang lebih baik antara Gradient "
+          "Boosting dan Random Forest;\n  selisihnya masih dalam jangkauan variasi "
+          "antarlipatan.")
 ```
 
-**Tulis analisis:** apakah selisih antarmodel lebih besar daripada simpangan antarlipatan? Bila tidak, apa kesimpulan yang sah?
+> **Mengapa berpasangan, dan mengapa SE?** Karena ketiga model dinilai pada lipatan yang **sama** (satu objek `CV`), sebagian variasi skor berasal dari lipatannya sendiri (ada lipatan yang "mudah", ada yang "sulit") dan dialami semua model bersama-sama. Selisih per lipatan $d_i = \text{skor}_{A,i} - \text{skor}_{B,i}$ menghapus variasi bersama itu. Laporkan rerata $\bar d$, simpangan baku sampel $s_d$ (`ddof=1`), dan galat baku $SE = s_d/\sqrt{k}$ — ketidakpastian **rerata** selisih diukur oleh $SE$, bukan oleh simpangan baku skor masing-masing model. Rumus "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$ **tidak dipakai**: rumus itu memperlakukan skor kedua model seolah-olah tidak berpasangan dan memakai simpangan baku (SD) alih-alih galat baku (SE). Inilah cara yang ditetapkan [Bab 8 §8.3.4](../06-buku-ajar/bab-08-pohon-keputusan-dan-ensemble.md#834-perbandingan); rinciannya di [Bab 9 §9.4.2](../06-buku-ajar/bab-09-svm-naive-bayes-pemilihan-model.md#942-membaca-hasil-perbandingan) dan [Lampiran A.10](../06-buku-ajar/lampiran.md#a10-perbandingan-model).
+>
+> **Aturan praktis mata kuliah:** selisih dianggap bermakna bila $|\bar d| > 2 \cdot SE$ **dan** arahnya konsisten di sebagian besar lipatan (di lab ini: minimal 4 dari 5). Aturan ini hanya penyaring kasar: skor antarlipatan tidak benar-benar saling bebas (data latihnya tumpang-tindih), sehingga $SE$ cenderung terlalu kecil. Untuk analisis formal, gunakan *corrected resampled t-test* (Nadeau & Bengio, 2003). Seluruh simpangan baku skor lipatan di lab ini memakai **`ddof=1`** (simpangan baku sampel), sama dengan `pd.Series.std()`.
+
+**Membaca hasil pada data lab ini** (scikit-learn 1.6 dan 1.9; hanya angka *Gradient Boosting* yang sedikit bergeser antarversi): *Gradient Boosting* (ROC-AUC ≈ 0,777–0,778) unggul atas *Random Forest* (≈ 0,768) dengan $\bar d \approx +0{,}009$ sampai $+0{,}011$ dan $SE \approx 0{,}003$ (batas $2 \cdot SE \approx 0{,}006$), searah di 4–5 dari 5 lipatan — **bermakna** menurut aturan praktis. Kedua *ensemble* juga unggul bermakna atas pohon tunggal (≈ 0,736; searah di 5 dari 5 lipatan). Perhatikan apa yang terjadi bila dipakai kaidah lama yang kini ditinggalkan — selisih rerata baru dianggap nyata bila **jauh melampaui** "simpangan gabungan" $\sqrt{s_1^2+s_2^2}$ dari kolom Simpangan, dan selisih yang hanya setara atau lebih kecil berarti **tidak dapat disimpulkan**. Simpangan gabungan kedua *ensemble* ≈ 0,011 pada scikit-learn 1.6 (**setara** dengan $\bar d$) dan ≈ 0,013 pada 1.9 (**lebih besar** daripada $\bar d$), sehingga kaidah lama itu pada kedua versi berujung "tidak dapat disimpulkan" — padahal *Gradient Boosting* unggul di 4–5 dari 5 lipatan.
+
+**Tulis analisis:** (a) Hitung sendiri "simpangan gabungan" kedua *ensemble* dari kolom Simpangan, lalu bandingkan dengan $\bar d$ dan $2 \cdot SE$. Apa kesimpulan kaidah lama (selisih harus **jauh melampaui** simpangan gabungan) pada versi pustaka Anda, dan mengapa kesimpulan itu dapat berbeda dari kesimpulan uji berpasangan? Jelaskan dengan dua alasan: skor yang **berpasangan** per lipatan, dan perbedaan SD dengan SE. (b) Bila kesimpulan yang dicetak "tidak dapat disimpulkan", model mana yang Anda pilih, dan dengan alasan apa (waktu, kepekaan hiperparameter, keterjelasan — lihat tabel Bab 8 §8.3.4)? (c) Apakah selisih yang bermakna menurut aturan praktis juga bermakna **secara praktis** bagi bank yang menyaring pengajuan kredit?
+
+**Pemeriksaan otomatis.**
+
+```python
+# =============================================
+# Pemeriksaan otomatis — Langkah 6
+# =============================================
+pohon5 = skor_lipatan["Pohon (max_depth=5)"]
+for m in ["Random Forest", "Gradient Boosting"]:
+    b_m = banding_berpasangan(skor_lipatan[m], pohon5)
+    assert b_m["bermakna"] and b_m["d_bar"] > 0, (
+        f"{m} seharusnya mengungguli pohon tunggal secara bermakna pada lipatan yang sama "
+        f"(sekarang d̄ = {b_m['d_bar']:+.4f}, SE = {b_m['SE']:.4f}) — periksa kandidat")
+d_uji = skor_lipatan["Gradient Boosting"] - skor_lipatan["Random Forest"]
+assert np.isclose(b_ens["s_d"], pd.Series(d_uji).std()) and np.isclose(
+    b_ens["SE"], pd.Series(d_uji).std() / np.sqrt(len(d_uji))), (
+    "SE harus = s_d/√k dengan s_d simpangan baku SAMPEL (ddof=1) dari selisih per lipatan")
+assert np.isclose(tabel.set_index("Model").loc["Random Forest", "Simpangan"],
+                  pd.Series(skor_lipatan["Random Forest"]).std()), (
+    "Kolom Simpangan harus memakai simpangan baku sampel (ddof=1), sama dengan pd.Series.std()")
+print("Pemeriksaan otomatis lulus.")
+```
 
 ### LANGKAH 7: Kepentingan Fitur dan Biasnya
 
@@ -481,7 +555,7 @@ Buat grafik ROC-AUC terhadap `n_estimators` pada rentang 10–500 untuk *Random 
 
 ### Tantangan 3 — Menghapus Fitur Tak Berguna
 
-Buang `kode_cabang` dari data, lalu latih ulang ketiga model. Apakah kinerjanya berubah? Jelaskan hubungannya dengan temuan Langkah 7.
+Buang `kode_cabang` dari data, lalu latih ulang ketiga model dengan objek `CV` yang sama. Apakah kinerjanya berubah secara bermakna? Ukur dengan `banding_berpasangan` (skor dengan vs tanpa `kode_cabang`, per lipatan). Jelaskan hubungannya dengan temuan Langkah 7.
 
 ### Tantangan 4 — Pohon Dangkal dengan `class_weight`
 
@@ -496,13 +570,13 @@ Latih ulang pohon dangkal Langkah 5 dengan `class_weight="balanced"` (Lab 7), la
 - [ ] *Overfitting* pohon tanpa batas ditunjukkan dengan selisih F1 latih dan uji
 - [ ] Struktur pohon dangkal ditampilkan dan dibaca; pohon memprediksi **kedua kelas** (F1 uji > 0)
 - [ ] Satu aturan daun "Gagal bayar" dijelaskan dengan bahasa nasabah
-- [ ] Tiga model dibandingkan dengan **lipatan yang sama**
-- [ ] Rerata, simpangan, min, maks, dan waktu dilaporkan
-- [ ] **Kesimpulan memperhatikan simpangan**, bukan hanya rerata
+- [ ] Tiga model dibandingkan dengan **lipatan yang sama** (satu objek `CV`; skor per lipatan disimpan)
+- [ ] Rerata, simpangan (`ddof=1`), min, maks, dan waktu dilaporkan
+- [ ] **Kesimpulan memakai selisih berpasangan per lipatan** ($\bar d$, $s_d$ dengan `ddof=1`, $SE = s_d/\sqrt{k}$), bukan hanya rerata
 - [ ] Kepentingan bawaan **dan** permutasi dibandingkan
 - [ ] Bias terhadap fitur berkardinalitas tinggi ditunjukkan pada `kode_cabang`
 - [ ] Stabilitas peringkat kepentingan diperiksa lintas *seed*
-- [ ] Ketiga sel **Pemeriksaan otomatis** lulus
+- [ ] Keempat sel **Pemeriksaan otomatis** lulus
 - [ ] Notebook berjalan ulang tanpa galat
 - [ ] AI Usage Log lengkap
 
@@ -514,6 +588,7 @@ Latih ulang pohon dangkal Langkah 5 dengan `class_weight="balanced"` (Lab 7), la
 2. [Bab 8 buku ajar](../06-buku-ajar/bab-08-pohon-keputusan-dan-ensemble.md)
 3. Strobl, C., et al. (2007). Bias in Random Forest Variable Importance Measures. *BMC Bioinformatics*, 8(25).
 4. Dokumentasi scikit-learn — *Ensemble methods*. <https://scikit-learn.org/stable/modules/ensemble.html>
+5. Nadeau, C., & Bengio, Y. (2003). Inference for the Generalization Error. *Machine Learning*, 52(3), 239–281.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

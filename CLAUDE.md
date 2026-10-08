@@ -8,9 +8,9 @@
 
 This is an **educational materials repository** for courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. The materials are organized **per curriculum semester** following the **Kurikulum Informatika 2025 Revisi 2026**, whose official registry is transcribed in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`.
 
-- **548 Markdown documents** under `mata-kuliah/` (count as of 7 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
+- **549 Markdown documents** under `mata-kuliah/` (count as of 8 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
 - **10 course folders:** 8 active courses in `mata-kuliah/semester-N/` (placed by their registry semester) and 2 old-curriculum courses in `mata-kuliah/arsip/`.
-- **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: execution checklist, audits, and generation prompts).
+- **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: execution checklist, lecturer review list, audits, and generation prompts).
 
 **Author of all materials (*penyusun materi*):** Tri Aji Nugroho, S.T., M.T. — for **every** course in this repository, including courses whose registry instructor (*pengampu*) is someone else:
 
@@ -61,6 +61,7 @@ research-ai-agentic/
     ├── 00-meta/
     │   ├── README.md                         # Index of the meta documents and their status
     │   ├── KENDALI-EKSEKUSI.md               # Living execution checklist (status, deadlines, decisions) — read first
+    │   ├── TINJAUAN-DOSEN-2026-10.md         # Agent choices awaiting lecturer approval (TD-01 …), Oct 2026
     │   ├── AUDIT-MENYELURUH-2026-10.md       # Full repository audit, October 2026 (findings reference)
     │   ├── AUDIT-KESELARASAN-IF2205-IF2206.md    # Historical IF2205 × IF2206 alignment audit
     │   ├── prompt-algoritma-pemrograman.md       # Master prompt (Algoritma dan Pemrograman) — flagged outdated
@@ -426,6 +427,7 @@ Both carry a banner marking their conventions **outdated** (as of 5 September 20
 | `mata-kuliah/00-pedoman-obe/konversi-nilai.md` | Official UAI grade conversion scale (single source) |
 | `mata-kuliah/00-pedoman-obe/checklist-verifikasi.md` | Manual verification checklist |
 | `mata-kuliah/00-meta/KENDALI-EKSEKUSI.md` | **Execution checklist** — open items, deadlines, pending decisions, evidence (read first) |
+| `mata-kuliah/00-meta/TINJAUAN-DOSEN-2026-10.md` | Choices made when documents conflicted (TD-xx), awaiting lecturer approval; decisions go to KENDALI §1 |
 | `mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md` | Latest full audit: readiness per course, findings reference |
 | `mata-kuliah/00-meta/prompt-algoritma-pemrograman.md` | Master prompt for Algoritma dan Pemrograman (outdated) |
 | `mata-kuliah/semester-2/algoritma-pemrograman/01-rps/rps-algoritma-pemrograman.md` | Algoritma dan Pemrograman (INF-101 → `IF52520004`) semester learning plan |

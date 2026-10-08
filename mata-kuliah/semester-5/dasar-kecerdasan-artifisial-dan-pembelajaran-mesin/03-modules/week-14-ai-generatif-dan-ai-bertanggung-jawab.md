@@ -117,7 +117,7 @@ Angka keseluruhan (0,86) tampak baik. Bagi penduduk Papua, model ini melewatkan 
 Ketika angka kejadian dasar (*base rate*) berbeda antarkelompok, ukuran-ukuran di atas tidak dapat dipenuhi bersamaan **oleh pengklasifikasi yang berguna**:
 
 - **Kleinberg, Mullainathan, & Raghavan (2017):** kalibrasi dalam kelompok dan keseimbangan galat untuk kelas positif maupun kelas negatif tidak dapat dipenuhi bersamaan, **kecuali** *base rate* antarkelompok sama atau prediksinya sempurna.
-- **Chouldechova (2017):** bila *base rate* berbeda, pengklasifikasi yang tidak sempurna tidak dapat sekaligus memiliki PPV yang sama dan FPR serta FNR yang sama.
+- **Chouldechova (2017):** bila *base rate* berbeda, pengklasifikasi yang tidak sempurna (0 < PPV < 1) tidak dapat sekaligus memiliki PPV yang sama serta FPR dan FNR yang sama.
 - **Barocas, Hardt, & Narayanan (2023):** *independence* (*demographic parity*) dan *separation* (*equalized odds*) umumnya tidak dapat dipenuhi bersamaan bila *base rate* berbeda, **kecuali** pada pengklasifikasi trivial — mis. yang memberi keputusan sama untuk semua orang: memenuhi keduanya, tetapi tidak berguna.
 
 Jadi bukan "tidak ada model yang dapat memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus" — pengklasifikasi konstan memenuhi ketiganya, tetapi tidak berguna (dan tidak memenuhi *predictive parity*: bila semua diprediksi positif, *precision* tiap kelompok sama dengan *base rate*-nya; bila tidak ada yang diprediksi positif, *precision*-nya tidak terdefinisi). Yang benar: **bila *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.**
@@ -242,7 +242,7 @@ Baseline: [skor DummyClassifier]
 - Penanggung jawab
 ```
 
-> ***Model card* wajib disertakan pada laporan proyek (P-03).** Bagian 5 dan 6 dinilai paling ketat: *model card* yang menyatakan "tidak ada keterbatasan" atau mengosongkan pertimbangan etis dikembalikan.
+> ***Model card* wajib disertakan pada laporan proyek (P-03).** Bagian 5 dan 6 dinilai paling ketat: *model card* yang menyatakan "tidak ada keterbatasan" atau mengosongkan pertimbangan etis dikembalikan untuk dilengkapi — menurut tabel acuan [kerangka asesmen §7.1](../05-assessments/assessment-framework.md#71-tabel-pengurangan).
 
 ---
 

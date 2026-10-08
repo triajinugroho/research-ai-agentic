@@ -216,6 +216,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)              # ← seluruh data, termasuk uji
 X_tr, X_te, y_tr, y_te = train_test_split(X_scaled, y)
 # Rata-rata dan simpangan data uji sudah "bocor" ke penskala.
+# Prosedurnya salah, walaupun selisih skornya sering kecil.
 
 # ══════════ BENAR ══════════
 X_tr, X_te, y_tr, y_te = train_test_split(X, y, random_state=42)
@@ -224,7 +225,9 @@ X_tr = scaler.fit_transform(X_tr)               # fit HANYA pada latih
 X_te = scaler.transform(X_te)                   # transform saja pada uji
 ```
 
-Kebocoran semacam ini mudah terjadi, tidak menghasilkan galat, dan sulit terlihat. `Pipeline` mencegahnya **secara struktural** — kesalahan itu menjadi tidak mungkin dilakukan.
+Kebocoran semacam ini mudah terjadi, tidak menghasilkan galat, dan sulit terlihat — bahkan pada skornya. Untuk penskalaan dan imputasi, efeknya **sering kecil**: pada data berukuran sedang, rata-rata, median, dan simpangan baku seluruh data hampir sama dengan milik data latih, sehingga skor yang bocor bisa praktis sama dengan skor yang benar. Itu tidak membuat prosedurnya benar; pada data kecil, data berpencilan, atau transformasi lain, informasi yang bocor dapat berarti. Kebocoran yang membawa **informasi target** — *target encoding* atau seleksi fitur yang memakai target, di luar `Pipeline` — dapat menggelembungkan skor jauh lebih besar. [Lab 3 Langkah 6](../04-labs/lab-03-pipeline-prapemrosesan.md#langkah-6-demonstrasi-kebocoran) memperlihatkan keduanya pada data yang sama: imputasi dan penskalaan di luar `Pipeline` praktis tidak mengubah skor, sedangkan *target encoding* kolom acak di luar `Pipeline` menaikkan ROC-AUC validasi silang dari sekitar 0,56 menjadi sekitar 0,80.
+
+`Pipeline` mencegah kedua jenis kebocoran itu **secara struktural** — kesalahan itu menjadi tidak mungkin dilakukan.
 
 ### 3.6.2 `Pipeline` dan `ColumnTransformer`
 
@@ -281,11 +284,11 @@ model.fit(X_train, y_train)       # seluruh langkah di-fit pada latih saja
 | **Penyetelan menyeluruh** | `GridSearchCV` dapat menyetel parameter prapemrosesan sekaligus model |
 | **Penerapan yang aman** | Data baru diproses persis seperti data latih |
 
-> **Ketentuan yang berlaku sejak bab ini:** seluruh prapemrosesan wajib berada di dalam `Pipeline`. Transformasi yang diterapkan pada data lengkap sebelum pembagian dikenai pengurangan nilai, sekalipun hasilnya tampak benar.
+> **Ketentuan yang berlaku sejak bab ini:** seluruh prapemrosesan wajib berada di dalam `Pipeline`. Transformasi yang di-*fit* pada data lengkap sebelum pembagian termasuk kebocoran ([kerangka asesmen §7.2 butir c](../05-assessments/assessment-framework.md#72-cara-menerapkan)) dan dikenai konsekuensi menurut tabel acuan [kerangka asesmen §7.1](../05-assessments/assessment-framework.md#71-tabel-pengurangan), sekalipun skornya tampak tidak berubah. Transformasi di luar `Pipeline` yang tidak menimbulkan kebocoran dinilai melalui aspek Kebenaran teknis, tanpa pengurangan.
 
 ---
 
-## AI Corner — Tahap *Understand → Apply*
+## AI Corner — Tahap *Understand*
 
 ### Mengapa AI Tidak Dapat Memutuskan Penanganan Data
 
@@ -361,8 +364,8 @@ Prompt ini menunjukkan tiga hal: pemeriksaan sudah dilakukan, keputusan sudah di
 
 8. Sebuah tim menerapkan `StandardScaler().fit_transform(X)` lalu membagi data.
    (a) Informasi apa yang bocor, dan dari mana ke mana?
-   (b) Apakah skornya akan lebih tinggi atau lebih rendah daripada kinerja sebenarnya?
-   (c) Dalam keadaan apa selisihnya besar, dan dalam keadaan apa kecil?
+   (b) Ke arah mana skornya cenderung bergeser dibanding kinerja sebenarnya, dan apakah pergeseran itu selalu terlihat?
+   (c) Dalam keadaan apa selisihnya besar, dan dalam keadaan apa kecil? Bandingkan dengan skenario A dan B pada [Lab 3 Langkah 6](../04-labs/lab-03-pipeline-prapemrosesan.md#langkah-6-demonstrasi-kebocoran).
    (d) Tuliskan versi yang benar dengan `Pipeline`.
 
 ### Tingkat Mahir
@@ -373,7 +376,7 @@ Prompt ini menunjukkan tiga hal: pemeriksaan sudah dilakukan, keputusan sudah di
    (c) Analisis pola nilai hilang pada setiap kolom yang memilikinya.
    (d) Bangun `ColumnTransformer` yang menangani numerik, nominal, dan ordinal secara terpisah.
    (e) Dokumentasikan setiap keputusan dengan format: apa, berapa banyak, mengapa.
-   (f) Tunjukkan selisih skor dengan dan tanpa `Pipeline`.
+   (f) Tunjukkan selisih skor dengan dan tanpa `Pipeline`. Bila selisihnya kecil, jelaskan mengapa prosedur tanpa `Pipeline` tetap salah.
 
 10. Bandingkan strategi imputasi secara empiris.
     (a) Ambil dataset lengkap tanpa nilai hilang.

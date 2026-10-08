@@ -149,9 +149,26 @@ print(loading["PC1"].abs().nlargest(5).round(3).to_string())
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score, StratifiedKFold
 
+# Satu objek lipatan untuk SEMUA konfigurasi: setiap konfigurasi dinilai pada lipatan yang sama
 CV = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
 
-baris = []
+def banding_berpasangan(skor_a, skor_b):
+    # Membandingkan dua model yang dinilai pada lipatan YANG SAMA (skor berpasangan).
+    # d_i = skor_A,i - skor_B,i ; simpangan baku sampel s_d (ddof=1) ; SE = s_d / akar(k)
+    # Aturan praktis mata kuliah: selisih BERMAKNA bila |d̄| > 2·SE DAN arah selisih
+    # sama dengan d̄ pada sebagian besar lipatan (di sini: >= 80%, yaitu 4 dari 5).
+    d = np.asarray(skor_a) - np.asarray(skor_b)
+    k = len(d)
+    d_bar = d.mean()
+    s_d = d.std(ddof=1)
+    se = s_d / np.sqrt(k)
+    searah = int((np.sign(d) == np.sign(d_bar)).sum())
+    bermakna = bool(abs(d_bar) > 2 * se and searah >= 0.8 * k)
+    return {"d": d, "k": k, "d_bar": d_bar, "s_d": s_d, "SE": se,
+            "searah": searah, "bermakna": bermakna}
+
+TANPA = "Tanpa PCA (24)"
+baris, skor_lipatan = [], {}
 for n_komp in [2, 5, 10, 15, 20, None]:
     langkah = [("skala", StandardScaler())]
     if n_komp is not None:
@@ -160,25 +177,69 @@ for n_komp in [2, 5, 10, 15, 20, None]:
                                               class_weight="balanced",
                                               random_state=RANDOM_STATE)))
     skor = cross_val_score(Pipeline(langkah), X_train, y_train,
-                           cv=CV, scoring="roc_auc", n_jobs=-1)
-    baris.append({"Komponen": n_komp if n_komp else "Tanpa PCA (24)",
-                  "ROC-AUC": skor.mean(), "Simpangan": skor.std()})
+                           cv=CV, scoring="roc_auc", n_jobs=-1)   # CV yang SAMA
+    label = n_komp if n_komp else TANPA
+    skor_lipatan[label] = skor                 # disimpan untuk perbandingan berpasangan
+    baris.append({"Komponen": label, "ROC-AUC": skor.mean(),
+                  "Simpangan": skor.std(ddof=1)})
 
 tabel_pca = pd.DataFrame(baris)
 print(tabel_pca.round(4).to_string(index=False))
 
-# Kesimpulan DIHITUNG dari hasil — bukan teks tetap
-auc_tanpa, simp_tanpa = tabel_pca["ROC-AUC"].iloc[-1], tabel_pca["Simpangan"].iloc[-1]
+# Setiap konfigurasi PCA dibandingkan dengan "tanpa PCA" secara BERPASANGAN per lipatan
+banding = []
+for label in tabel_pca["Komponen"].iloc[:-1]:
+    b = banding_berpasangan(skor_lipatan[label], skor_lipatan[TANPA])
+    banding.append({"PCA (komponen)": label, "d̄ (PCA − tanpa)": b["d_bar"],
+                    "s_d": b["s_d"], "SE": b["SE"],
+                    "Searah": f"{b['searah']}/{b['k']}",
+                    "Bermakna?": "ya" if b["bermakna"] else "tidak"})
+print("\nSelisih berpasangan per lipatan: konfigurasi PCA dikurangi tanpa PCA")
+print(pd.DataFrame(banding).round(4).to_string(index=False))
+
+# Kesimpulan DIHITUNG dari hasil — konfigurasi PCA terbaik vs tanpa PCA
 dengan_pca = tabel_pca.iloc[:-1]
-terbaik = dengan_pca.loc[dengan_pca["ROC-AUC"].idxmax()]
-selisih = terbaik["ROC-AUC"] - auc_tanpa
-if selisih > simp_tanpa:
-    print(f"\nPCA {terbaik['Komponen']} komponen MENINGKATKAN ROC-AUC sebesar {selisih:+.4f}.")
+terbaik = dengan_pca.loc[dengan_pca["ROC-AUC"].idxmax(), "Komponen"]
+b_pca = banding_berpasangan(skor_lipatan[terbaik], skor_lipatan[TANPA])
+print(f"\nPCA {terbaik} komponen − tanpa PCA, per lipatan: {np.round(b_pca['d'], 4)}")
+print(f"  d̄ = {b_pca['d_bar']:+.4f} | s_d = {b_pca['s_d']:.4f} | SE = {b_pca['SE']:.4f} "
+      f"| batas 2·SE = {2 * b_pca['SE']:.4f} | searah {b_pca['searah']}/{b_pca['k']}")
+if b_pca["bermakna"] and b_pca["d_bar"] > 0:
+    print(f"Kesimpulan: PCA {terbaik} komponen MENINGKATKAN ROC-AUC secara bermakna "
+          f"(|d̄| > 2·SE dan searah di sebagian besar lipatan).")
+elif b_pca["bermakna"]:
+    print(f"Kesimpulan: bahkan konfigurasi PCA terbaik ({terbaik} komponen) MENURUNKAN "
+          f"ROC-AUC secara bermakna — PCA tidak membantu di sini.")
 else:
-    print(f"\nPCA tidak meningkatkan ROC-AUC secara berarti: terbaik {terbaik['Komponen']} "
-          f"komponen = {terbaik['ROC-AUC']:.4f} vs tanpa PCA = {auc_tanpa:.4f} "
-          f"(selisih {selisih:+.4f}; simpangan antarlipatan ±{simp_tanpa:.4f}).")
+    print(f"Kesimpulan: PCA tidak meningkatkan ROC-AUC secara bermakna — konfigurasi terbaik "
+          f"({terbaik} komponen) = {skor_lipatan[terbaik].mean():.4f} vs tanpa PCA = "
+          f"{skor_lipatan[TANPA].mean():.4f}; selisihnya belum lolos aturan |d̄| > 2·SE "
+          f"dan searah di sebagian besar lipatan.")
 ```
+
+> Karena semua konfigurasi dinilai dengan objek `CV` yang **sama**, skornya berpasangan per lipatan; keputusan "PCA meningkatkan atau tidak" diambil dari selisih per lipatan ($\bar d$, $s_d$ dengan `ddof=1`, $SE = s_d/\sqrt{k}$), bukan dengan membandingkan selisih rerata pada simpangan satu model. Aturannya dijelaskan di [Bab 9 §9.4.2](../06-buku-ajar/bab-09-svm-naive-bayes-pemilihan-model.md#942-membaca-hasil-perbandingan) dan [Lampiran A.10](../06-buku-ajar/lampiran.md#a10-perbandingan-model). Aturan ini hanya penyaring kasar: skor antarlipatan tidak benar-benar saling bebas (data latihnya tumpang-tindih), sehingga $SE$ cenderung terlalu kecil. Untuk analisis formal, gunakan *corrected resampled t-test* (Nadeau & Bengio, 2003). Seluruh simpangan baku skor lipatan di lab ini memakai **`ddof=1`**, sama dengan `pd.Series.std()`.
+
+**Pemeriksaan otomatis.** Sel berikut harus lulus tanpa `AssertionError`; bila gagal, pesannya menunjukkan apa yang perlu diperiksa.
+
+```python
+# =============================================
+# Pemeriksaan otomatis — Langkah 4 (PCA vs tanpa PCA, berpasangan)
+# =============================================
+assert not (b_pca["bermakna"] and b_pca["d_bar"] > 0), (
+    "Pada data ini PCA seharusnya TIDAK meningkatkan ROC-AUC secara bermakna — PCA hanya "
+    "memutar dan memangkas ruang fitur, tidak menambah informasi; periksa apakah PCA "
+    "di-fit di luar Pipeline (kebocoran)")
+b_dua = banding_berpasangan(skor_lipatan[2], skor_lipatan[TANPA])
+assert b_dua["bermakna"] and b_dua["d_bar"] < 0, (
+    f"PCA 2 komponen seharusnya jauh lebih buruk daripada tanpa PCA (sekarang d̄ = "
+    f"{b_dua['d_bar']:+.4f}) — komponen bervarians terbesar belum tentu paling berguna "
+    f"untuk memprediksi target; periksa n_components")
+assert np.isclose(b_pca["SE"], pd.Series(b_pca["d"]).std() / np.sqrt(b_pca["k"])), (
+    "SE harus = s_d/√k dengan s_d simpangan baku SAMPEL (ddof=1) dari selisih per lipatan")
+print("Pemeriksaan otomatis lulus.")
+```
+
+> **Pada data ini** (hasil sama pada scikit-learn 1.6 dan 1.9): konfigurasi PCA terbaik adalah 20 komponen (ROC-AUC ≈ 0,783) — praktis identik dengan tanpa PCA (≈ 0,783; selisihnya nol di 4 dari 5 lipatan), karena 20 komponen sudah memuat seluruh 16 dimensi bebas. Makin sedikit komponen, makin buruk: 15 komponen $\bar d \approx -0{,}008$ (belum bermakna; $2 \cdot SE \approx 0{,}010$), 10 komponen $\bar d \approx -0{,}024$ dan 5 komponen $\bar d \approx -0{,}058$ (keduanya lebih buruk secara bermakna, searah di 5 dari 5 lipatan).
 
 **Tulis kesimpulan:** apakah PCA meningkatkan kinerja? Apa yang **hilang** dengan memakainya? Pada data ini 2 komponen (≈35% varians) hanya memberi ROC-AUC ≈ 0,55 — apa artinya bagi anggapan bahwa komponen dengan varians terbesar pasti paling berguna untuk memprediksi target?
 
@@ -198,8 +259,9 @@ def gambar_kurva_belajar(model, nama, ax):
         cv=CV, scoring="roc_auc", n_jobs=-1, random_state=RANDOM_STATE)
     ax.plot(ukuran, s_latih.mean(axis=1), "o-", label="Latih")
     ax.plot(ukuran, s_val.mean(axis=1), "s-", label="Validasi")
-    ax.fill_between(ukuran, s_val.mean(axis=1)-s_val.std(axis=1),
-                    s_val.mean(axis=1)+s_val.std(axis=1), alpha=0.15)
+    sd_val = s_val.std(axis=1, ddof=1)        # simpangan baku antarlipatan (ddof=1)
+    ax.fill_between(ukuran, s_val.mean(axis=1)-sd_val,
+                    s_val.mean(axis=1)+sd_val, alpha=0.15)
     ax.set_xlabel("Jumlah data latih"); ax.set_ylabel("ROC-AUC")
     ax.set_title(nama); ax.legend(); ax.set_ylim(0.5, 1.02)
     return s_latih.mean(axis=1), s_val.mean(axis=1)   # rerata per ukuran data latih
@@ -294,8 +356,9 @@ s_latih, s_val = validation_curve(
 fig, ax = plt.subplots(figsize=(9, 4.5))
 ax.plot(rentang_num, s_latih.mean(axis=1), "o-", label="Latih")
 ax.plot(rentang_num, s_val.mean(axis=1), "s-", label="Validasi")
-ax.fill_between(rentang_num, s_val.mean(axis=1)-s_val.std(axis=1),
-                s_val.mean(axis=1)+s_val.std(axis=1), alpha=0.15)
+sd_val = s_val.std(axis=1, ddof=1)            # simpangan baku antarlipatan (ddof=1)
+ax.fill_between(rentang_num, s_val.mean(axis=1)-sd_val,
+                s_val.mean(axis=1)+sd_val, alpha=0.15)
 optimum = rentang_num[int(np.argmax(s_val.mean(axis=1)))]
 ax.axvline(optimum, color="red", ls="--", label=f"Optimum: max_depth={optimum}")
 ax.set_xlabel("max_depth"); ax.set_ylabel("ROC-AUC")
@@ -415,6 +478,7 @@ Buat dua versi grafik perbandingan model: satu dengan sumbu-y mulai dari 0, satu
 - [ ] *Explained variance* dan varians kumulatif dilaporkan
 - [ ] *Scree plot* dan tabel *loading* ditampilkan dan ditafsirkan
 - [ ] Pengaruh jumlah komponen terhadap kinerja diuji
+- [ ] **Keputusan "PCA membantu atau tidak" memakai selisih berpasangan per lipatan** ($\bar d$, $s_d$ dengan `ddof=1`, $SE = s_d/\sqrt{k}$) pada objek CV yang sama, bukan hanya rerata
 - [ ] **Apa yang hilang dengan memakai PCA** dijelaskan
 - [ ] Tiga kurva pembelajaran (*underfit*, *overfit*, pas) dibuat
 - [ ] **Diagnosis tertulis** untuk tiap kurva
@@ -433,6 +497,7 @@ Buat dua versi grafik perbandingan model: satu dengan sumbu-y mulai dari 0, satu
 2. [Bab 11 buku ajar](../06-buku-ajar/bab-11-reduksi-dimensi-dan-visualisasi.md)
 3. Wattenberg, M., Viégas, F., & Johnson, I. (2016). How to Use t-SNE Effectively. *Distill*.
 4. Dokumentasi scikit-learn — *Validation curves*. <https://scikit-learn.org/stable/modules/learning_curve.html>
+5. Nadeau, C., & Bengio, Y. (2003). Inference for the Generalization Error. *Machine Learning*, 52(3), 239–281.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -7,12 +7,12 @@ nama_mk: Dokumen meta repositori
 prodi: Informatika
 versi: 1.0
 status: berlaku
-diperbarui: 2026-10-07
+diperbarui: 2026-10-08
 ---
 
 # Dokumen Meta Repositori
 
-Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: berkas kendali eksekusi, dua laporan audit, dan dua prompt generator. Isinya tidak dipakai langsung di kelas. Untuk substansi kurikulum, acuannya tetap [registri Kurikulum Informatika 2025 Revisi 2026](../00-kurikulum-if-2025-revisi-2026/README.md). Untuk konvensi repositori, acuannya [Pedoman OBE](../00-pedoman-obe/pedoman-obe-konvensi.md), dan untuk skala nilai, [registri konversi nilai](../00-pedoman-obe/konversi-nilai.md).
+Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: berkas kendali eksekusi beserta daftar tinjauan dosen, dua laporan audit, dan dua prompt generator. Isinya tidak dipakai langsung di kelas. Untuk substansi kurikulum, acuannya tetap [registri Kurikulum Informatika 2025 Revisi 2026](../00-kurikulum-if-2025-revisi-2026/README.md). Untuk konvensi repositori, acuannya [Pedoman OBE](../00-pedoman-obe/pedoman-obe-konvensi.md), dan untuk skala nilai, [registri konversi nilai](../00-pedoman-obe/konversi-nilai.md).
 
 > **Penyusun materi.** Seluruh materi di repositori ini disusun oleh **Tri Aji Nugroho, S.T., M.T.**, termasuk Rekayasa Perangkat Lunak (`IF52520011`), yang menurut registri kurikulum diampu oleh Dr. Ir. Winangsari Pradani, M.T. Kolom pengampu pada peta semester mengikuti registri dan dapat berbeda dari penyusun materi.
 
@@ -21,6 +21,7 @@ Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: berkas
 | Berkas | Isi | Status |
 |---|---|---|
 | [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md) | Ceklis eksekusi yang hidup: butir terbuka per tahap (darurat sebelum UTS, akhir Ganjil, sebelum Genap 2026/2027, nilai tinggi), keputusan dosen yang ditunggu (`D-xx`), dokumen formal (`F-xx`), dan bukti commit | **Berlaku — baca pertama.** Satu-satunya tempat status pekerjaan dilacak; diperbarui setiap kali butir selesai |
+| [`TINJAUAN-DOSEN-2026-10.md`](TINJAUAN-DOSEN-2026-10.md) | Daftar ringkas pilihan yang diambil agen saat dokumen bertentangan atau tugasnya ambigu (putaran eksekusi 7–8 Oktober 2026), per mata kuliah: pilihan, alternatif, dan dampak bila diubah; nomor `TD-xx`, baris ▲ menyentuh mahasiswa Mg 6–8 atau mengubah bobot/aturan | **Draf — perlu ditinjau dosen.** Keputusan dicatat di [`KENDALI-EKSEKUSI.md`](KENDALI-EKSEKUSI.md) §1; berkas ini tidak melacak status |
 
 ## Laporan Audit
 

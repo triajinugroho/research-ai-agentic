@@ -34,7 +34,7 @@ $$\widehat{\text{harga}} = 120 + 8{,}5\cdot\text{luas} + 45\cdot\text{kamar} - 1
 | $\beta_{\text{jarak}}=-12$ | Setiap penambahan 1 km jarak, dikaitkan dengan penurunan 12 juta |
 | $\beta_0=120$ | Nilai ketika seluruh fitur nol — **sering tanpa makna nyata** |
 
-> **Kata "dikaitkan dengan", bukan "menyebabkan".** Ini bukan kehati-hatian berlebihan: data observasional tidak mendukung klaim sebab-akibat, sebagaimana sudah dipelajari pada Probabilitas dan Statistik. Pada penilaian mata kuliah ini, menulis interpretasi dengan bahasa sebab-akibat pada data observasional dikenai pengurangan nilai.
+> **Kata "dikaitkan dengan", bukan "menyebabkan".** Ini bukan kehati-hatian berlebihan: data observasional tidak mendukung klaim sebab-akibat, sebagaimana sudah dipelajari pada Probabilitas dan Statistik. Pada penilaian mata kuliah ini, menulis interpretasi dengan bahasa sebab-akibat pada data observasional dinilai pada aspek **Kualitas interpretasi** ([rubrik tugas §2](../05-assessments/rubrik-tugas.md#2-rubrik-umum-berlaku-untuk-seluruh-praktikum): "ada klaim yang melampaui data") — lihat [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai).
 
 ### 6.1.3 Asumsi dan Pemeriksaannya
 

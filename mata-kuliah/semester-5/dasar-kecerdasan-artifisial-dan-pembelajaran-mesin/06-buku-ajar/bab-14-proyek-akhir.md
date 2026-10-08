@@ -337,18 +337,22 @@ Tiga pertanyaan yang dijawabnya:
 
 Sepanjang buku ini, pembatasan pemakaian AI dinyatakan berulang kali. Pada proyek, pembatasan itu menjadi nyata — karena di sinilah godaan terbesarnya.
 
-Keenam larangan di kolom kanan sama dengan kebijakan AI pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial):
+Tabel berikut disalin dari kebijakan AI pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial) dengan rumusan yang sama (bila berbeda, RPS yang berlaku):
 
-| Boleh | Tidak boleh |
-|-------|-------------|
-| Menulis kode `scikit-learn` rutin (wajib dicatat) | **L1.** Memformulasikan masalah menjadi *task* ML |
-| Memperbaiki galat; menjelaskan dokumentasi | **L2.** Memilih model dan hiperparameter |
-| Menyarankan jenis visualisasi | **L3.** Memilih dan menafsirkan metrik |
-| Menyunting bahasa laporan | **L4.** Menganalisis kesalahan model |
-| Memeriksa apakah ada bagian laporan yang kosong | **L5.** Menulis *model card* dan analisis keterbatasan, termasuk bagian etis |
-| | **L6. Memakai AI dalam bentuk apa pun selama kuis, UTS, dan UAS** (*closed book*) |
+| Kegiatan | Status | Alasan |
+|----------|--------|--------|
+| Menulis kode `scikit-learn` rutin | **Boleh**, wajib dicatat | Bukan yang dinilai |
+| Memperbaiki galat dan menjelaskan dokumentasi | **Boleh** | Bukan yang dinilai |
+| Menyarankan jenis visualisasi | **Boleh** | Bukan yang dinilai |
+| Menyunting bahasa laporan | **Boleh** | Bukan yang dinilai |
+| **L1. Memformulasikan masalah menjadi *task* ML** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L2. Memilih model dan hiperparameter** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L3. Memilih dan menafsirkan metrik** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L4. Menganalisis kesalahan model** | **Tidak boleh** | Inti kedua Sub-CPMK |
+| **L5. Menulis *model card* dan analisis keterbatasan** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L6. Selama kuis, UTS, dan UAS** | **Tidak boleh sama sekali** | Kuis dan ujian *closed book* |
 
-### Mengapa Kolom Kanan Dilarang
+### Mengapa L1–L6 Dilarang
 
 Bukan karena sulit, dan bukan karena terlarang secara prinsip. Lima larangan pertama (L1–L5) ada karena **kelimanya adalah inti Sub-CPMK mata kuliah ini**, dan karena kelimanya menuntut pengetahuan yang tidak ada dalam prompt. Larangan keenam (L6) berlaku karena kuis dan ujian bersifat *closed book*.
 

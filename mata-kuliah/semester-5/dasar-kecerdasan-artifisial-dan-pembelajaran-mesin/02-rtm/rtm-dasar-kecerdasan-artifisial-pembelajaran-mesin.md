@@ -78,7 +78,7 @@
 | Komentar kode | Bahasa Indonesia |
 | Interpretasi | **Setiap keluaran wajib disertai kalimat penafsiran** |
 | AI Usage Log | **Wajib**, di sel terakhir |
-| Data | Lab 03–14: dinyatakan pada butir **Data** di bagian Persiapan lab. Lab 01 (dataset bawaan `scikit-learn` dan tabel contoh) dan Lab 02 (data simulasi, dinyatakan pada Langkah 4): lihat panduan dataset §1.1. Sebagian besar lab memakai **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga; proyek wajib data nyata. Lihat [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda) |
+| Data | Lab 01 dan Lab 03–14: dinyatakan pada butir **Data** di bagian Persiapan lab. Lab 02 (data simulasi, dinyatakan pada Langkah 4): lihat panduan dataset §1.1. Sebagian besar lab memakai **data sintetis (simulasi) yang meniru pola Indonesia** — bukan data resmi BPS/lembaga; proyek wajib data nyata. Lihat [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda) |
 | Tenggat | Awal pertemuan minggu berikutnya |
 | Pengurangan nilai | Satu tabel acuan: [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai) |
 

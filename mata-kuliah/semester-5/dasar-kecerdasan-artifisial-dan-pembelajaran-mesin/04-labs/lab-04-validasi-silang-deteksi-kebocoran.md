@@ -275,8 +275,9 @@ gkf = GroupKFold(n_splits=5)
 skor_grup = cross_val_score(pipa, X, y, cv=gkf, groups=grup,
                             scoring="roc_auc", n_jobs=-1)
 
-print(f"StratifiedKFold : {skor_biasa.mean():.4f} ± {skor_biasa.std():.4f}")
-print(f"GroupKFold      : {skor_grup.mean():.4f} ± {skor_grup.std():.4f}")
+# Simpangan baku antarlipatan = simpangan baku SAMPEL (ddof=1), sama dengan pd.Series.std()
+print(f"StratifiedKFold : {skor_biasa.mean():.4f} ± {skor_biasa.std(ddof=1):.4f}")
+print(f"GroupKFold      : {skor_grup.mean():.4f} ± {skor_grup.std(ddof=1):.4f}")
 d_grup = skor_biasa.mean() - skor_grup.mean()
 print(f"Selisih         : {d_grup:+.4f}")
 
@@ -340,8 +341,8 @@ pipa_dalam = Pipeline([("skala", StandardScaler()),
                        ("clf", LogisticRegression(solver="liblinear"))])
 skor_dalam = cross_val_score(pipa_dalam, X_lebar, y_lebar, cv=cv5, scoring="roc_auc")
 
-print(f"Seleksi di LUAR Pipeline : {skor_luar.mean():.4f} ± {skor_luar.std():.4f}")
-print(f"Seleksi di DALAM Pipeline: {skor_dalam.mean():.4f} ± {skor_dalam.std():.4f}")
+print(f"Seleksi di LUAR Pipeline : {skor_luar.mean():.4f} ± {skor_luar.std(ddof=1):.4f}")
+print(f"Seleksi di DALAM Pipeline: {skor_dalam.mean():.4f} ± {skor_dalam.std(ddof=1):.4f}")
 d_seleksi = skor_luar.mean() - skor_dalam.mean()
 print(f"Selisih                  : {d_seleksi:+.4f}")
 if d_seleksi >= 0.2:
@@ -363,7 +364,7 @@ assert abs(skor_dalam.mean() - 0.5) < 0.15, (
 print("Pemeriksaan otomatis lulus.")
 ```
 
-Pada data lab ini (diuji pada scikit-learn 1.6 dan 1.9), seleksi di luar `Pipeline` menghasilkan ROC-AUC ≈ 0,93 pada data yang **sama sekali tidak mengandung sinyal**, sedangkan seleksi di dalam `Pipeline` memberi ≈ 0,56 ± 0,08 — tidak jauh dari 0,5, taksiran yang jujur untuk data tanpa sinyal.
+Pada data lab ini (diuji pada scikit-learn 1.6 dan 1.9), seleksi di luar `Pipeline` menghasilkan ROC-AUC ≈ 0,93 pada data yang **sama sekali tidak mengandung sinyal**, sedangkan seleksi di dalam `Pipeline` memberi ≈ 0,56 ± 0,09 (simpangan baku sampel, `ddof=1`) — tidak jauh dari 0,5, taksiran yang jujur untuk data tanpa sinyal.
 
 **Tulis penjelasan:** mengapa seleksi di luar `Pipeline` tetap bocor meskipun model dilatih ulang pada setiap lipatan? Mengapa dampaknya jauh lebih besar di sini daripada di Langkah 3?
 
@@ -383,7 +384,7 @@ for i, ((i_tr, i_te), s) in enumerate(zip(tscv.split(X), skor_ts), 1):
     awal, akhir = df["tanggal"].iloc[i_te[0]], df["tanggal"].iloc[i_te[-1]]
     print(f"  Lipatan {i}: latih=[0:{i_tr[-1]+1}]  uji=[{i_te[0]}:{i_te[-1]+1}]  "
           f"({awal.date()} s.d. {akhir.date()})  ROC-AUC={s:.4f}")
-print(f"\nRerata: {skor_ts.mean():.4f} ± {skor_ts.std():.4f}")
+print(f"\nRerata: {skor_ts.mean():.4f} ± {skor_ts.std(ddof=1):.4f}")
 
 # Lipatan terendah — kesimpulan dihitung dari hasil
 i_min = int(np.argmin(skor_ts))
@@ -409,7 +410,26 @@ perbandingan = pd.DataFrame({
     "TimeSeriesSplit": skor_ts,
 })
 
+# describe() dan DataFrame.std() pandas memakai ddof=1 — sama dengan .std(ddof=1)
+# pada Langkah 4–6, sehingga angka simpangan di seluruh lab ini dapat dibandingkan
 print(perbandingan.describe().T[["mean", "std", "min", "max"]].round(4))
+
+def tafsir_simpangan(s):
+    # Ambang mengikuti tabel di bawah (simpangan baku sampel; metrik berskala 0–1)
+    if s < 0.02:
+        return "kinerja stabil"
+    elif s < 0.05:
+        return "wajar pada data terbatas"
+    elif s <= 0.10:
+        return "cukup besar — periksa skor per lipatan"
+    return "besar — selidiki lipatan yang menyimpang"
+
+# Tafsir DIHITUNG dari simpangan, bukan ditulis tetap
+print()
+for nama, s in perbandingan.std().items():
+    print(f"{nama:16s}: simpangan {s:.4f} -> {tafsir_simpangan(s)}")
+print(f"{'Seleksi (L5)':16s}: simpangan {skor_dalam.std(ddof=1):.4f} -> "
+      f"{tafsir_simpangan(skor_dalam.std(ddof=1))}  (150 baris saja)")
 
 perbandingan.plot(kind="box", figsize=(8, 4.5))
 plt.ylabel("ROC-AUC")
@@ -417,11 +437,16 @@ plt.title(f"Sebaran skor antarlipatan menurut strategi pembagian (n={len(df)})")
 plt.tight_layout(); plt.show()
 ```
 
-| Simpangan | Tafsir |
-|-----------|--------|
+Ambang di bawah adalah **aturan praktis** untuk simpangan baku sampel (`ddof=1`) dari metrik berskala 0–1 seperti ROC-AUC, F1, atau akurasi. Rentangnya bersambung tanpa celah.
+
+| Simpangan baku antarlipatan | Tafsir |
+|-----------------------------|--------|
 | < 0,02 | Kinerja stabil |
-| 0,02–0,05 | Wajar pada data terbatas |
-| > 0,10 | Selidiki lipatan yang menyimpang |
+| 0,02 sampai < 0,05 | Wajar pada data terbatas — laporkan rerata **dan** simpangannya |
+| 0,05 sampai 0,10 | Cukup besar — periksa skor per lipatan; selisih rerata yang kecil antarmodel belum dapat dipercaya |
+| > 0,10 | Besar — selidiki lipatan yang menyimpang |
+
+Pada data lab ini, simpangan ketiga strategi pembagian berada pada rentang 0,02 sampai < 0,05, sedangkan seleksi di dalam `Pipeline` pada data lebar Langkah 5 (hanya 150 baris) masuk rentang 0,05 sampai 0,10. Satu lipatan yang jauh lebih rendah daripada yang lain — seperti lipatan 5 `TimeSeriesSplit` — patut diselidiki **apa pun** besar simpangannya.
 
 ### LANGKAH 8: Daftar Periksa Kebocoran
 
@@ -446,13 +471,20 @@ plt.tight_layout(); plt.show()
 
 ## Tantangan Tambahan
 
-### Tantangan 1 — Menyusun Kebocoran Sendiri
+### Tantangan 1 — Menyusun Kebocoran Sendiri: *Oversampling* sebelum Pembagian
 
-Buat satu jenis kebocoran baru yang belum ada pada lab ini — misalnya fitur "rata-rata pembelian pelanggan" yang dihitung dari **seluruh** riwayat pelanggan, termasuk transaksi sesudah baris yang diprediksi. Tunjukkan dampaknya, lalu perbaiki (hanya memakai transaksi **sebelum** baris itu).
+Kebocoran berbasis target (*target encoding* di luar `Pipeline`) sudah didemonstrasikan di [Lab 3 Langkah 6](lab-03-pipeline-prapemrosesan.md#langkah-6-demonstrasi-kebocoran). Tantangan ini menyusun jenis yang belum ada di Lab 3 maupun lab ini: **menggandakan kelas minoritas sebelum validasi silang** (*random oversampling* — teknik penyeimbangan kelas yang paling sederhana; SMOTE membangkitkan contoh sintetis, bukan salinan, tetapi kebocorannya serupa bila diterapkan sebelum pembagian). Cukup dengan scikit-learn; `imbalanced-learn` tidak diperlukan.
+
+1. **Buat data timpang.** Data Langkah 1 hampir seimbang, jadi ambil seluruh baris `beli = 0` dan hanya 20% baris `beli = 1`, misalnya `minor = df[df["beli"] == 1].sample(frac=0.2, random_state=RANDOM_STATE)`, lalu gabungkan dengan `timpang = pd.concat([df[df["beli"] == 0], minor]).sort_index()` — `.sort_index()` mengembalikan urutan waktu asli sehingga lipatan `skf` dapat direproduksi. Hitung proporsi kelas minoritasnya (≈ 0,15).
+2. **Cara salah.** Gandakan baris minoritas secara acak dengan `sklearn.utils.resample(..., replace=True, n_samples=<jumlah baris mayoritas>, random_state=RANDOM_STATE)` hingga kedua kelas seimbang, gabungkan, **baru** jalankan `cross_val_score(buat_pipa(), ..., cv=skf, scoring="roc_auc")`.
+3. **Cara benar.** Tulis perulangan manual atas `skf.split(X_timpang, y_timpang)`: gandakan kelas minoritas **hanya pada indeks latih** lipatan itu, latih `buat_pipa()`, lalu nilai pada lipatan validasi yang **asli** (tanpa salinan). Bandingkan pula dengan tanpa *oversampling* sama sekali.
+4. **Jelaskan mekanismenya.** Salinan baris yang sama dapat jatuh di data latih **dan** data validasi sekaligus, sehingga model cukup "mengenali" baris yang sudah dihafalnya — mirip sidik jari pelanggan di Langkah 4, tetapi kali ini salinannya identik. Mengapa `class_weight="balanced"` (Lab 7) tidak menimbulkan masalah ini?
+
+Yang perlu tampak: skor cara salah melonjak mendekati 1, sedangkan skor cara benar kembali ke kisaran skor tanpa *oversampling*. Dengan pengaturan di atas (diuji pada scikit-learn 1.6 dan 1.9; hasilnya sama), ROC-AUC cara salah ≈ 0,99, cara benar ≈ 0,69, dan tanpa *oversampling* ≈ 0,70. Dua angka terakhir bergantung pada urutan baris, karena `skf` membagi lipatan menurut posisi baris: tanpa `.sort_index()` keduanya menjadi ≈ 0,68 dan ≈ 0,69, dan cara penggandaan yang sedikit berbeda juga dapat menggeser angka persisnya. Selisih ≈ 0,3 antara cara salah dan cara benar tetap. Menggandakan baris tidak menambah informasi baru; efeknya kurang lebih sama dengan memberi bobot lebih pada kelas minoritas. SMOTE di dalam `imblearn.pipeline.Pipeline` dibahas di Lab 7 Tantangan 3.
 
 ### Tantangan 2 — Berapa Banyak Data yang Dibutuhkan
 
-Jalankan validasi silang dengan `n_splits` 3, 5, dan 10. Bandingkan rerata dan simpangannya. Apa yang terjadi pada simpangan seiring bertambahnya lipatan, dan mengapa?
+Jalankan validasi silang dengan `n_splits` 3, 5, dan 10. Bandingkan rerata dan simpangannya (`ddof=1`). Apa yang terjadi pada simpangan seiring bertambahnya lipatan, dan mengapa?
 
 ### Tantangan 3 — Sidik Jari Pelanggan
 

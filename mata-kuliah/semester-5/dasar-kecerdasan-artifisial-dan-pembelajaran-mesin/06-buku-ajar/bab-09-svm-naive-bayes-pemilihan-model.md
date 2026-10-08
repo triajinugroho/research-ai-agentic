@@ -138,7 +138,7 @@ pencarian.fit(X_train, y_train)      # HANYA data latih
 | Menyetel pada data uji | Skor uji menjadi optimistis; kebocoran pemilihan |
 | Melaporkan `best_score_` sebagai kinerja akhir | Skor itu **sudah dioptimalkan**, sehingga bias ke atas |
 | Ruang pencarian terlalu sempit | Nilai optimum berada di tepi ruang — harus diperluas |
-| Mengabaikan simpangan antarlipatan | Perbedaan yang dilaporkan bisa tidak bermakna |
+| Hanya melaporkan rerata, tanpa memeriksa selisih per lipatan | Perbedaan yang dilaporkan bisa tidak bermakna (§9.4.2) |
 
 Yang benar: setel pada data latih dengan validasi silang; laporkan kinerja akhir pada data uji yang disentuh **sekali**.
 

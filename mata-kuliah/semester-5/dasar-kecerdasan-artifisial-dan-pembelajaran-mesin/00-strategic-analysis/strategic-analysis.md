@@ -109,7 +109,7 @@ Pembagian ini menuntut disiplin: mata kuliah ini **tidak** mendalami *deep learn
 | T3 | Kecepatan perubahan teknologi membuat materi cepat usang | Menekankan prinsip yang stabil (bias-varians, evaluasi), bukan versi pustaka |
 | T4 | Kursus daring gratis yang tampak lebih menarik | Pembeda: umpan balik personal, kasus lokal, dan penekanan tanggung jawab |
 | T5 | Ilusi kompetensi — merasa mahir karena model berjalan | Penekanan pada *error analysis* dan keterbatasan model |
-| T6 | *Leakage* dan *overfitting* yang tidak disadari menghasilkan hasil palsu | Minggu 4 dikhususkan untuk ini; pengurangan nilai bila terjadi di proyek |
+| T6 | *Leakage* dan *overfitting* yang tidak disadari menghasilkan hasil palsu | Minggu 4 dikhususkan untuk ini; konsekuensi kebocoran mengikuti [kerangka asesmen §7.1](../05-assessments/assessment-framework.md#71-tabel-pengurangan) — pengurangan hingga −30% nilai proyek hanya bila terjadi pada laporan akhir P-03 |
 
 ---
 
@@ -172,18 +172,22 @@ Keempatnya dapat diuji tanpa komputer, dan karena itu menjadi inti UTS dan UAS.
 
 ### 4.3 Posisi terhadap AI Generatif
 
-Mata kuliah ini **tidak melarang** AI generatif dan juga **tidak memujanya**. Kebijakannya:
+Mata kuliah ini **tidak melarang** AI generatif dan juga **tidak memujanya**. Kebijakannya adalah daftar larangan AI acuan tunggal pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial), disalin di sini dengan rumusan yang sama (bila berbeda, RPS yang berlaku):
 
-| Kegiatan | Status |
-|----------|--------|
-| Menulis kode `scikit-learn` rutin | **Boleh**, dengan pencatatan |
-| Menjelaskan galat dan dokumentasi | **Boleh** |
-| Memilih model dan metrik | **Tidak boleh** — ini yang dinilai |
-| Menafsirkan hasil evaluasi | **Tidak boleh** — ini yang dinilai |
-| Menulis analisis keterbatasan dan *model card* | **Tidak boleh** — ini yang dinilai |
-| Selama UTS dan UAS | **Tidak boleh sama sekali** |
+| Kegiatan | Status | Alasan |
+|----------|--------|--------|
+| Menulis kode `scikit-learn` rutin | **Boleh**, wajib dicatat | Bukan yang dinilai |
+| Memperbaiki galat dan menjelaskan dokumentasi | **Boleh** | Bukan yang dinilai |
+| Menyarankan jenis visualisasi | **Boleh** | Bukan yang dinilai |
+| Menyunting bahasa laporan | **Boleh** | Bukan yang dinilai |
+| **L1. Memformulasikan masalah menjadi *task* ML** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L2. Memilih model dan hiperparameter** | **Tidak boleh** | Inti `Sub-CPMK082-1` |
+| **L3. Memilih dan menafsirkan metrik** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L4. Menganalisis kesalahan model** | **Tidak boleh** | Inti kedua Sub-CPMK |
+| **L5. Menulis *model card* dan analisis keterbatasan** | **Tidak boleh** | Inti `Sub-CPMK102-1` |
+| **L6. Selama kuis, UTS, dan UAS** | **Tidak boleh sama sekali** | Kuis dan ujian *closed book* |
 
-Alasannya bukan kekhawatiran akan kecurangan, melainkan bahwa ketiga hal di kolom "tidak boleh" **justru merupakan Sub-CPMK mata kuliah ini**.
+Alasannya bukan kekhawatiran akan kecurangan, melainkan bahwa kelima kegiatan L1–L5 **justru merupakan inti Sub-CPMK mata kuliah ini**; L6 berlaku karena kuis dan ujian bersifat *closed book*. Butir L1–L5 wajib tercatat "dikerjakan sendiri" pada setiap AI Usage Log, dan konsekuensi pelanggarannya ada pada [kerangka asesmen §7](../05-assessments/assessment-framework.md#7-pengurangan-nilai).
 
 ---
 

@@ -8,6 +8,7 @@
 | Durasi | 100 menit (45' di kelas + 55' mandiri) |
 | Prasyarat | Akun Google; dasar Python |
 | Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
+| Diuji pada | scikit-learn 1.6 dan 1.9, pandas 2.2 dan 3.0 (Oktober 2026) |
 
 ---
 
@@ -27,6 +28,7 @@ Setelah menyelesaikan praktikum ini, mahasiswa mampu:
 1. Buka <https://colab.research.google.com> dan buat notebook baru.
 2. Beri nama `NIM_Nama_Lab01.ipynb`.
 3. Pastikan dapat menjalankan sel dengan `Shift+Enter`.
+4. **Data:** Langkah 2–3 memakai dataset bawaan `scikit-learn` (`load_diabetes`, `load_breast_cancer`). Tabel IPM provinsi pada Langkah 4 adalah **contoh ilustratif** untuk mempelajari struktur data: angkanya sebagian menyerupai rilis IPM BPS dari tahun yang berbeda-beda, **bukan kutipan resmi BPS**, sehingga tidak boleh dikutip sebagai data BPS. Untuk analisis yang dilaporkan (mis. Tantangan 1 atau proyek), unduh tabel IPM dari <https://www.bps.go.id> dan catat nama tabel serta tahunnya — lihat [panduan dataset §1.1](../datasets/README.md#11-data-praktikum-dan-data-proyek-sengaja-berbeda).
 
 ---
 
@@ -115,17 +117,18 @@ print("\nNama kelas:", data2.target_names)
 
 **Yang perlu diperhatikan:** periksa apakah kelasnya seimbang. Ketidakseimbangan menentukan metrik yang akan dipakai — bahasan Minggu 7.
 
-### LANGKAH 4: Memuat Data Nyata dari Sumber Indonesia
+### LANGKAH 4: Contoh Struktur Data IPM Provinsi (ilustratif)
+
+> **Contoh ilustratif**, bukan kutipan resmi BPS — lihat Persiapan butir 4.
 
 ```python
 # =============================================
-# LANGKAH 4: Data nyata berkonteks Indonesia
+# LANGKAH 4: Contoh struktur data IPM provinsi (ILUSTRATIF)
 # =============================================
-# Data IPM provinsi Indonesia. Bila tautan tidak tersedia,
-# gunakan berkas CSV yang diunduh sendiri dari bps.go.id
-# dan unggah melalui panel Files di Colab.
-
-# Contoh struktur data yang diharapkan:
+# Angka ilustratif: sebagian menyerupai rilis IPM BPS dari tahun yang
+# berbeda-beda; BUKAN kutipan resmi BPS. Untuk analisis yang dilaporkan,
+# unduh tabel IPM dari bps.go.id (catat nama tabel dan tahunnya),
+# lalu unggah melalui panel Files di Colab.
 data_ipm = pd.DataFrame({
     "provinsi": ["DKI Jakarta", "Jawa Barat", "Jawa Tengah", "DI Yogyakarta",
                  "Jawa Timur", "Sumatera Utara", "Sulawesi Selatan",
@@ -171,16 +174,44 @@ print(data_ipm.duplicated().sum())
 # | Jenis task         | Regresi                                      |
 # | Jumlah baris       | 10                                           |
 # | Apakah perlu ML?   | TIDAK — IPM dihitung dengan RUMUS BAKU BPS   |
-#                        dari ketiga komponen itu. Rumusnya diketahui
+#                        dari komponennya: umur harapan hidup, harapan
+#                        lama sekolah, rata-rata lama sekolah, dan
+#                        pengeluaran per kapita. Rumusnya diketahui
 #                        dan pasti. Membangun model ML untuk ini
 #                        menghasilkan hampiran yang lebih buruk
 #                        daripada rumus aslinya.
 
-# Verifikasi dugaan tersebut: apakah ketiga fitur benar-benar
-# menentukan IPM secara hampir sempurna?
+# Periksa dugaan tersebut: seberapa erat tiap komponen berkaitan dengan IPM?
 korelasi = data_ipm.select_dtypes(include="number").corr()["ipm"].sort_values(ascending=False)
 print("Korelasi terhadap IPM:")
 print(korelasi.round(3))
+
+# Kesimpulan DIHITUNG dari hasil, bukan teks tetap
+komponen = korelasi.drop("ipm")
+print(f"\nKorelasi ketiga komponen dengan IPM: {komponen.min():.2f}–{komponen.max():.2f}.")
+if komponen.min() >= 0.7:
+    print("Semuanya tinggi: IPM memang dibangun dari komponen-komponen ini. "
+          "Tidak satu pun sempurna, karena IPM menggabungkan beberapa komponen —\n"
+          "dan tabel ilustratif ini tidak memuat harapan lama sekolah.")
+else:
+    print("Ada komponen yang korelasinya rendah — periksa kembali isi data_ipm.")
+```
+
+**Pemeriksaan otomatis.** Sel berikut harus lulus tanpa `AssertionError`; bila gagal, pesannya menunjukkan apa yang perlu diperiksa.
+
+```python
+# =============================================
+# Pemeriksaan otomatis — Langkah 2 sampai 5
+# =============================================
+assert df_diabetes.shape == (442, 11), (
+    "Dataset diabetes seharusnya 442 baris x 11 kolom (10 fitur + target)")
+assert set(df_kanker["target"].unique()) == {0, 1}, (
+    "Dataset breast cancer seharusnya berlabel biner 0/1")
+assert data_ipm.isna().sum().sum() == 0, "Tabel contoh IPM seharusnya tanpa nilai hilang"
+assert komponen.min() >= 0.7, (
+    "Ketiga komponen seharusnya berkorelasi tinggi (>= 0,7) dengan IPM — "
+    "periksa angka pada data_ipm di Langkah 4")
+print("Pemeriksaan otomatis lulus.")
 ```
 
 > **Ini adalah pelajaran utama Lab 1.** Korelasi yang sangat tinggi antara fitur dan target dapat berarti dua hal: (a) fitur memang sangat informatif, atau (b) **target adalah turunan langsung dari fitur** — yaitu kasus ketika ML tidak diperlukan sama sekali, atau bahkan merupakan bentuk kebocoran.
@@ -245,15 +276,22 @@ plt.show()
 # |----|--------|------|------------|----------|------------|
 # | 1  |        |      |            |          |            |
 #
-# Empat baris berikut WAJIB ditulis "dikerjakan sendiri":
-# 1. Formulasi masalah menjadi task ML
-# 2. Pemilihan model dan hiperparameter
-# 3. Pemilihan dan penafsiran metrik
-# 4. Analisis kesalahan dan keterbatasan
+# Daftar larangan AI (RPS §K.1) — kegiatan yang TIDAK BOLEH dibantu AI:
+# L1. Memformulasikan masalah menjadi task ML
+# L2. Memilih model dan hiperparameter
+# L3. Memilih dan menafsirkan metrik
+# L4. Menganalisis kesalahan model
+# L5. Menulis model card dan analisis keterbatasan
+# L6. Selama kuis, UTS, dan UAS (tidak boleh sama sekali)
+#
+# Butir L1–L5 WAJIB muncul di log sebagai "dikerjakan sendiri",
+# satu baris per butir; L6 berlaku di ruang kuis dan ujian.
 #
 # **Pernyataan:** ...
 # Nama: __________  NIM: __________  Tanggal: __________
 ```
+
+Butir L1–L6 di atas adalah daftar larangan AI pada [RPS §K.1](../01-rps/rps-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#k1-kebijakan-kecerdasan-artifisial), dengan rumusan yang sama (bila berbeda, RPS yang berlaku). Contoh log lengkap — termasuk lima baris L1–L5 dan teks pernyataannya — ada pada [RTM §I](../02-rtm/rtm-dasar-kecerdasan-artifisial-pembelajaran-mesin.md#i-ai-usage-log--format-wajib).
 
 ---
 
@@ -283,7 +321,7 @@ Jalankan ulang seluruh notebook dari sel pertama (`Runtime → Restart and run a
 - [ ] **Alasan tertulis** mengapa data IPM tidak memerlukan ML
 - [ ] Minimal dua grafik dengan judul, label sumbu, dan n
 - [ ] Setiap keluaran disertai kalimat penafsiran
-- [ ] Notebook berjalan ulang dari sel pertama tanpa galat
+- [ ] Notebook berjalan ulang dari sel pertama tanpa galat dan pemeriksaan otomatis lulus
 - [ ] AI Usage Log lengkap dan ditandatangani
 - [ ] Berkas dinamai `NIM_Nama_Lab01.ipynb`
 

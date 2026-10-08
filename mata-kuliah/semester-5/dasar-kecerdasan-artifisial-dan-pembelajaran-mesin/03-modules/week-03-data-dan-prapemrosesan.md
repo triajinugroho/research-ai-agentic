@@ -139,7 +139,7 @@ Perbedaan ini menentukan penyandian yang benar.
 **Kekeliruan yang paling sering:** memberi nomor pada data nominal.
 
 ```python
-# SALAH — model akan menganggap Papua (33) "sepuluh kali" Aceh (3)
+# SALAH — model akan menganggap Papua (33) "sebelas kali" Aceh (3)
 df["provinsi_kode"] = df["provinsi"].astype("category").cat.codes
 
 # BENAR — nominal disandikan one-hot
@@ -219,7 +219,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)          # ← seluruh data, termasuk uji
 X_tr, X_te, y_tr, y_te = train_test_split(X_scaled, y)
 # Rata-rata dan simpangan baku data uji sudah "bocor" ke penskala.
-# Skor yang dihasilkan terlalu optimistis.
+# Prosedurnya salah, walaupun selisih skornya sering kecil.
 
 # ══════════ BENAR ══════════
 X_tr, X_te, y_tr, y_te = train_test_split(X, y, random_state=42)
@@ -228,7 +228,7 @@ X_tr = scaler.fit_transform(X_tr)           # fit HANYA pada data latih
 X_te = scaler.transform(X_te)               # transform saja pada data uji
 ```
 
-Kebocoran semacam ini mudah terjadi dan sulit terlihat. `Pipeline` mencegahnya **secara struktural** — kesalahan itu menjadi tidak mungkin dilakukan.
+Kebocoran semacam ini mudah terjadi dan sulit terlihat. Untuk penskalaan dan imputasi, efeknya pada skor **sering kecil**: pada data berukuran sedang, rata-rata, median, dan simpangan baku seluruh data hampir sama dengan milik data latih, sehingga skornya bisa praktis tidak berubah. Itu tidak membuat prosedurnya benar — pada data kecil, data berpencilan, atau transformasi lain, informasi yang bocor dapat berarti. Kebocoran yang membawa **informasi target** (*target encoding* atau seleksi fitur yang memakai target, di luar `Pipeline`) dapat menggelembungkan skor jauh lebih besar — demonstrasinya ada pada [Lab 3 Langkah 6](../04-labs/lab-03-pipeline-prapemrosesan.md#langkah-6-demonstrasi-kebocoran). `Pipeline` mencegah kedua jenis kebocoran itu **secara struktural** — kesalahan itu menjadi tidak mungkin dilakukan.
 
 #### 3.6.2 `Pipeline` dan `ColumnTransformer`
 
@@ -279,7 +279,7 @@ skor = model.score(X_test, y_test)   # data uji hanya ditransformasi
 | **Penyetelan menyeluruh** | `GridSearchCV` dapat menyetel parameter prapemrosesan sekaligus model |
 | **Penerapan yang aman** | Data baru diproses persis seperti data latih |
 
-> **Ketentuan mata kuliah ini:** mulai Lab 3, seluruh prapemrosesan wajib berada di dalam `Pipeline`. Transformasi yang diterapkan pada data lengkap sebelum pembagian dikenai pengurangan nilai, sekalipun hasilnya tampak benar.
+> **Ketentuan mata kuliah ini:** mulai Lab 3, seluruh prapemrosesan wajib berada di dalam `Pipeline`. Transformasi yang di-*fit* pada data lengkap sebelum pembagian termasuk kebocoran ([kerangka asesmen §7.2 butir c](../05-assessments/assessment-framework.md#72-cara-menerapkan)) dan dikenai konsekuensi menurut tabel acuan [kerangka asesmen §7.1](../05-assessments/assessment-framework.md#71-tabel-pengurangan), sekalipun skornya tampak tidak berubah. Transformasi di luar `Pipeline` yang tidak menimbulkan kebocoran dinilai melalui aspek Kebenaran teknis, tanpa pengurangan.
 
 ---
 
@@ -298,10 +298,15 @@ skor = model.score(X_test, y_test)   # data uji hanya ditransformasi
 | Konsep | 35' | Pemeriksaan kualitas data; pola nilai hilang |
 | Demonstrasi | 25' | Membedah dataset BPS yang belum bersih, langsung di kelas |
 | Konsep | 30' | Penyandian kategorik; penskalaan |
-| Demonstrasi | 30' | **Kegiatan inti:** membangun `Pipeline` + `ColumnTransformer` dari nol; menunjukkan selisih skor dengan dan tanpa kebocoran |
+| Demonstrasi | 30' | **Kegiatan inti:** membangun `Pipeline` + `ColumnTransformer` dari nol; membandingkan skor dengan dan tanpa kebocoran ([Lab 3 Langkah 6](../04-labs/lab-03-pipeline-prapemrosesan.md#langkah-6-demonstrasi-kebocoran)) |
 | Penutup | 20' | Rangkuman; memulai Lab 3 |
 
-**Demonstrasi kegagalan yang wajib ditunjukkan:** jalankan penskalaan sebelum pembagian data, catat skornya; lalu jalankan dengan `Pipeline`, catat skornya. Selisihnya membuat konsep kebocoran menjadi konkret sebelum dibahas formal pada Minggu 4.
+**Demonstrasi kegagalan yang wajib ditunjukkan** (memakai [Lab 3 Langkah 6](../04-labs/lab-03-pipeline-prapemrosesan.md#langkah-6-demonstrasi-kebocoran)):
+
+1. **Imputasi dan penskalaan di luar `Pipeline`** vs di dalam `Pipeline` — catat bahwa pada data lab ini selisih skornya praktis nol. Ini kebocoran secara prinsip, tetapi efeknya sering kecil; "skor tidak berubah" bukan bukti bahwa prosedurnya benar.
+2. ***Target encoding* `kode_kelurahan` di luar `Pipeline`** vs `TargetEncoder` di dalam `Pipeline` — skor validasi silang melonjak dari sekitar 0,56 menjadi sekitar 0,80, padahal `kode_kelurahan` diundi acak.
+
+Demonstrasi kedua inilah yang membuat konsep kebocoran menjadi konkret sebelum dibahas formal pada Minggu 4; demonstrasi pertama menunjukkan mengapa kebocoran dinilai dari **prosedurnya**, bukan dari besarnya selisih skor.
 
 ### Setelah Kelas (120 menit)
 

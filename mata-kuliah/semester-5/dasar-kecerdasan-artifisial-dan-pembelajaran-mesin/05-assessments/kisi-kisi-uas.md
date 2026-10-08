@@ -75,7 +75,7 @@ $$\bar{x}=\frac{1}{k}\sum_i x_i \qquad s=\sqrt{\frac{\sum_i(x_i-\bar{x})^2}{k-1}
 
 $$d_i=\text{skor}_{A,i}-\text{skor}_{B,i} \qquad \bar d=\frac{1}{k}\sum_i d_i \qquad s_d=\sqrt{\frac{\sum_i(d_i-\bar d)^2}{k-1}} \qquad SE=\frac{s_d}{\sqrt{k}}$$
 
-Notasi: $s(i)$ = *silhouette* titik $i$; $x_i$ = skor lipatan ke-$i$ dengan rerata $\bar{x}$ (sama dengan lembar rumus UTS); $s$ dan $s_d$ = simpangan baku sampel (skor lipatan dan selisih berpasangan).
+Notasi: $s(i)$ = *silhouette* titik $i$; $x_i$ = skor lipatan ke-$i$ dengan rerata $\bar{x}$ (setara dengan lembar rumus UTS, dengan $k$ (banyak lipatan) menggantikan $n$); $s$ dan $s_d$ = simpangan baku sampel (skor lipatan dan selisih berpasangan).
 
 Nilai $\log_2$ yang sering dipakai juga disediakan dalam tabel kecil.
 

@@ -40,7 +40,7 @@ Pada pembelajaran terbimbing, ada jawaban benar untuk dibandingkan. Di sini tida
 | Jumlah klaster harus ditentukan | Biasanya tidak diketahui sebelumnya |
 | Klaster yang ditemukan mungkin tidak bermakna | **Interpretasi substantif wajib** |
 
-> **Kaidah mata kuliah ini:** hasil *clustering* yang hanya dilaporkan sebagai "klaster 0, klaster 1, klaster 2" tanpa penafsiran substantif dinilai belum selesai. Pekerjaan *clustering* baru selesai ketika setiap klaster dapat diberi nama dan dijelaskan artinya.
+> **Kaidah mata kuliah ini:** hasil *clustering* yang hanya dilaporkan sebagai "klaster 0, klaster 1, klaster 2" tanpa penafsiran substantif **belum selesai** sebagai analisis. Pekerjaan *clustering* baru selesai ketika setiap klaster dapat diberi nama dan dijelaskan artinya. Dalam penilaian Lab 11, kekurangan ini dinilai pada aspek Kualitas interpretasi ([rubrik tugas §2](../05-assessments/rubrik-tugas.md#2-rubrik-umum-berlaku-untuk-seluruh-praktikum)), tanpa pengurangan tambahan ([kerangka asesmen §7.2 butir a](../05-assessments/assessment-framework.md#72-cara-menerapkan)).
 
 ---
 
@@ -362,7 +362,7 @@ anomali_lof = lof.fit_predict(X_scaled)
 |-------|-----------|
 | Luaran | Notebook Colab + tabel interpretasi klaster |
 | Isi | (a) Segmentasi data indikator provinsi (data ilustratif Lab 11, atau data resmi BPS terbaru 38 provinsi dengan tabel sumber dan tahun dicatat) dengan K-Means, *hierarchical*, dan DBSCAN; (b) Penentuan k dengan *elbow* **dan** *silhouette*; (c) Ketiga metrik internal untuk tiap metode; (d) Dendrogram; (e) **Tabel profil klaster beserta nama dan penjelasan substantif**; (f) Perbandingan hasil ketiga metode dan pembahasan mengapa berbeda |
-| Ketentuan khusus | Notebook tanpa interpretasi substantif dikembalikan |
+| Ketentuan khusus | Notebook tanpa interpretasi substantif dinilai pada aspek Kualitas interpretasi ([rubrik tugas §2](../05-assessments/rubrik-tugas.md#2-rubrik-umum-berlaku-untuk-seluruh-praktikum)) dan kriteria khusus Lab 11, tanpa pengurangan tambahan ([kerangka asesmen §7.2 butir a](../05-assessments/assessment-framework.md#72-cara-menerapkan)) |
 | Tenggat | Awal pertemuan Minggu 12 |
 | Bobot | 1,875% (Observasi, Sub-CPMK082-1) |
 

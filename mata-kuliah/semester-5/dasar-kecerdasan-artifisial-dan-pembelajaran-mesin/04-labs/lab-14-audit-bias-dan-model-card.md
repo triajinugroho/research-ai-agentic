@@ -279,15 +279,16 @@ if selisih_br > 0.02:
     print("- demographic parity dan equalized odds tidak dapat dipenuhi bersamaan,")
     print("  kecuali oleh pengklasifikasi trivial seperti model konstan di atas")
     print("  (Barocas, Hardt & Narayanan, 2023);")
-    print("- precision (PPV) yang sama dan FPR/FNR yang sama tidak dapat dicapai")
-    print("  bersamaan (Chouldechova, 2017; lihat juga Kleinberg et al., 2017).")
+    print("- bila base rate berbeda, pengklasifikasi yang tidak sempurna (0 < PPV < 1)")
+    print("  tidak dapat sekaligus memiliki PPV yang sama serta FPR dan FNR yang sama")
+    print("  (Chouldechova, 2017; lihat juga Kleinberg et al., 2017).")
     print("Insinyur harus MEMILIH ukuran yang diprioritaskan dan menyatakan alasannya.")
 else:
     print(f"\nBase rate antarwilayah hampir sama (selisih {selisih_br:.3f}) — "
           "pertentangan antarukuran pada data ini lemah.")
 ```
 
-> **Perhatikan polanya.** Pada data ini *precision* antarwilayah hampir sama (selisih ±0,03–0,04), sedangkan selisih *recall* dan FPR sekitar 0,3. Inilah yang diramalkan Chouldechova (2017): bila *base rate* berbeda dan *precision* setara — seperti kira-kira terjadi di sini — galatnya (FPR/FNR) tidak dapat setara. Sebaliknya, andaikan *equalized odds* tercapai sempurna, selisih proporsi prediksi positif masih sekitar 0,02 — tidak nol, karena *base rate* berbeda.
+> **Perhatikan polanya.** Pada data ini *precision* antarwilayah hampir sama (selisih ±0,03–0,04), sedangkan selisih *recall* dan FPR sekitar 0,3. Inilah yang diramalkan Chouldechova (2017): bila *base rate* berbeda, pengklasifikasi yang tidak sempurna (0 < PPV < 1) tidak dapat sekaligus memiliki PPV yang sama serta FPR dan FNR yang sama. Di sini PPV (*precision*) kira-kira setara, sehingga galatnya (FPR dan FNR) tidak setara. Sebaliknya, andaikan *equalized odds* tercapai sempurna, selisih proporsi prediksi positif masih sekitar 0,02 — tidak nol, karena *base rate* berbeda.
 >
 > **Yang benar dan yang keliru.** Pernyataan "tidak ada model yang dapat memenuhi *demographic parity*, *equal opportunity*, dan *equalized odds* sekaligus" **keliru**: kedua model konstan di atas memenuhi ketiganya — dan tidak berguna. Keduanya tidak memenuhi *predictive parity*: pada model "gagal bayar semua", *precision* tiap wilayah sama dengan *base rate*-nya; pada model "lancar semua", *precision* tidak terdefinisi (angka 0 di tabelnya hanyalah konvensi `zero_division=0`). Pernyataan yang tepat: **ketika *base rate* berbeda, tidak ada pengklasifikasi yang berguna (non-trivial) yang dapat memenuhi semuanya.** Kleinberg et al. (2017) membuktikan hal serupa untuk skor risiko: kalibrasi dalam kelompok dan keseimbangan galat untuk kelas positif maupun negatif tidak dapat dipenuhi bersamaan, kecuali *base rate* antarkelompok sama atau prediksinya sempurna.
 
@@ -302,6 +303,10 @@ assert np.allclose(prop_hitung, tabel["Prop. prediksi positif"]), (
     "periksa perhitungan FPR dan Recall di audit_kelompok")
 assert selisih_br > 0.02, (
     "Base rate antarwilayah hampir sama — periksa efek_wilayah di Langkah 1")
+ppv_cukup = tabel.loc[tabel["Positif"] >= MIN_POSITIF, "Precision"]
+assert ppv_cukup.between(0.05, 0.95).all(), (
+    "Model seharusnya tidak sempurna (0 < PPV < 1) di setiap wilayah yang dihitung — "
+    "syarat pernyataan Chouldechova (2017); periksa model di Langkah 2")
 assert max(selisih(tabel_k, c) for c in ["Prop. prediksi positif", "Recall", "FPR"]) == 0, (
     "Model konstan seharusnya memenuhi ketiga ukuran dengan selisih nol")
 assert recall_score(y_test, pred_konstan) == 0, (

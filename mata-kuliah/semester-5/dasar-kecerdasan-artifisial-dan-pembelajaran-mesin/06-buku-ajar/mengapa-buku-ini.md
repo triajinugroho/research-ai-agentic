@@ -49,7 +49,7 @@ Sepanjang buku ini, setiap kali sebuah model dievaluasi, **skor *baseline* diser
 
 Seluruh contoh dalam buku ini memakai persoalan Indonesia: IPM provinsi, kelayakan kredit UMKM, kepadatan TransJakarta, keluhan layanan publik, harga properti Jabodetabek.
 
-Datanya perlu dibedakan dengan jujur. Sebagian besar praktikum memakai **data sintetis (simulasi) yang berpola Indonesia** — dibangkitkan dengan kode agar setiap orang memperoleh angka yang sama dan pola yang hendak diajarkan dapat dikendalikan. Data itu dinyatakan sebagai data sintetis pada lab yang memakainya dan **bukan data resmi BPS atau lembaga mana pun**. Data nyata dari sumbernya — BPS, Satu Data Indonesia, portal data daerah — diunduh sendiri oleh mahasiswa sejak Lab 1, dan **wajib** menjadi data utama proyek akhir.
+Datanya perlu dibedakan dengan jujur. Sebagian besar praktikum memakai **data sintetis (simulasi) yang berpola Indonesia** — dibangkitkan dengan kode agar setiap orang memperoleh angka yang sama dan pola yang hendak diajarkan dapat dikendalikan. Data itu dinyatakan sebagai data sintetis pada lab yang memakainya dan **bukan data resmi BPS atau lembaga mana pun**. Data nyata dari sumbernya — BPS, Satu Data Indonesia, portal data daerah — diunduh sendiri oleh mahasiswa sejak Tantangan Lab 1, dan **wajib** menjadi data utama proyek akhir.
 
 Ini bukan sekadar pilihan gaya. Data nyata Indonesia — yang akan Anda hadapi pada proyek — memiliki ciri yang tidak muncul pada dataset latihan internasional:
 

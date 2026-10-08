@@ -23,7 +23,7 @@
 
 ## Ketentuan Khusus Lab Ini
 
-> **Notebook tanpa interpretasi substantif dikembalikan.** Hasil yang hanya dilaporkan sebagai "klaster 0, klaster 1, klaster 2" dinilai belum selesai. Setiap klaster wajib diberi nama, dijelaskan cirinya, dan dikaitkan dengan tindakan yang berbeda.
+> **Interpretasi substantif adalah luaran utama lab ini.** Hasil yang hanya dilaporkan sebagai "klaster 0, klaster 1, klaster 2" belum memenuhi luaran itu. Setiap klaster wajib diberi nama, dijelaskan cirinya, dan dikaitkan dengan tindakan yang berbeda. Notebook tanpa interpretasi substantif dinilai pada aspek **Kualitas interpretasi** ([rubrik tugas §2](../05-assessments/rubrik-tugas.md#2-rubrik-umum-berlaku-untuk-seluruh-praktikum)) dan kriteria khusus Lab 11 ([rubrik tugas §3](../05-assessments/rubrik-tugas.md#3-kriteria-khusus-per-praktikum)), tanpa pengurangan tambahan ([kerangka asesmen §7.2 butir a](../05-assessments/assessment-framework.md#72-cara-menerapkan)).
 
 ---
 

@@ -67,7 +67,7 @@ Use Case adalah teknik untuk menangkap **requirements fungsional** dari perspekt
 | **Association** | Garis lurus | Hubungan aktor dengan use case | Mahasiswa --- Daftar MK |
 | **Include** | `<<include>>` | Use case yang WAJIB dipanggil | Login <<include>> Validasi |
 | **Extend** | `<<extend>>` | Use case OPSIONAL | Bayar <<extend>> Cetak Kwitansi |
-| **Generalization** | Panah segitiga | Pewarisan antar aktor/use case | Admin --|> User |
+| **Generalization** | Panah segitiga | Pewarisan antar aktor/use case | `Admin --\|> User` |
 
 #### 4.1.3 Relasi dalam Use Case Diagram
 

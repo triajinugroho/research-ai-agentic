@@ -300,7 +300,7 @@ kepentingan_perm = pd.Series(hasil.importances_mean, index=X_test.columns)
 1. Géron, A. (2022). *Hands-On Machine Learning* (3rd ed.), Bab 6–7. O'Reilly.
 2. James, G., et al. (2023). *An Introduction to Statistical Learning with Python*, Bab 8. Springer.
 3. Breiman, L. (2001). Random Forests. *Machine Learning*, 45(1), 5–32.
-4. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Tabular Data? *NeurIPS*.
+4. Grinsztajn, L., Oyallon, E., & Varoquaux, G. (2022). Why Do Tree-Based Models Still Outperform Deep Learning on Typical Tabular Data? *NeurIPS 2022 (Datasets and Benchmarks Track)*.
 5. Strobl, C., et al. (2007). Bias in Random Forest Variable Importance Measures. *BMC Bioinformatics*, 8(25).
 6. Dokumentasi scikit-learn — *Ensemble methods*. <https://scikit-learn.org/stable/modules/ensemble.html>
 ---

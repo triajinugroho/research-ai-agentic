@@ -115,9 +115,24 @@ def evaluasi(X, y, nama):
     ])
     pipa = Pipeline([("pra", pra), ("clf", MODEL_TERKUNCI)])
     skor = cross_val_score(pipa, X, y, cv=CV, scoring="f1", n_jobs=-1)
-    print(f"{nama:38s} F1 = {skor.mean():.4f} ± {skor.std():.4f}  "
+    print(f"{nama:38s} F1 = {skor.mean():.4f} ± {skor.std(ddof=1):.4f}  "
           f"({X.shape[1]} fitur)")
     return skor            # skor per lipatan (urutan lipatan selalu sama)
+
+def banding_berpasangan(skor_a, skor_b):
+    # Membandingkan dua model yang dinilai pada lipatan YANG SAMA (skor berpasangan).
+    # d_i = skor_A,i - skor_B,i ; simpangan baku sampel s_d (ddof=1) ; SE = s_d / akar(k)
+    # Aturan praktis mata kuliah: selisih BERMAKNA bila |d̄| > 2·SE DAN arah selisih
+    # sama dengan d̄ pada sebagian besar lipatan (di sini: >= 80%, yaitu 4 dari 5).
+    d = np.asarray(skor_a) - np.asarray(skor_b)
+    k = len(d)
+    d_bar = d.mean()
+    s_d = d.std(ddof=1)
+    se = s_d / np.sqrt(k)
+    searah = int((np.sign(d) == np.sign(d_bar)).sum())
+    bermakna = bool(abs(d_bar) > 2 * se and searah >= 0.8 * k)
+    return {"d": d, "k": k, "d_bar": d_bar, "s_d": s_d, "SE": se,
+            "searah": searah, "bermakna": bermakna}
 
 y = df["macet"]
 hasil = []
@@ -125,6 +140,8 @@ lipatan = {}               # skor per lipatan untuk perbandingan berpasangan
 ```
 
 > Dengan `TimeSeriesSplit(n_splits=5)`, lipatan pertama hanya berlatih pada 1.000 jam pertama (±6 minggu) dan lipatan terakhir pada 5.000 jam; setiap lipatan diuji pada 1.000 jam berikutnya. Karena data latih lipatan awal sedikit, wajar bila skor antarlipatan lebih bergejolak daripada lipatan acak.
+>
+> Fungsi `banding_berpasangan` dipakai di Langkah 8 untuk menilai sumbangan tiap tahap. Karena semua tahap dinilai dengan objek `CV` yang **sama**, skor dua tahap pada lipatan ke-$i$ berpasangan; aturannya dijelaskan di [Bab 9 §9.4.2](../06-buku-ajar/bab-09-svm-naive-bayes-pemilihan-model.md#942-membaca-hasil-perbandingan) dan [Lampiran A.10](../06-buku-ajar/lampiran.md#a10-perbandingan-model). Seluruh simpangan baku skor lipatan di lab ini memakai **`ddof=1`** (simpangan baku sampel), sama dengan `pd.Series.std()`.
 
 ### LANGKAH 3: *Baseline* — Waktu sebagai Angka Mentah
 
@@ -141,7 +158,7 @@ X0 = pd.DataFrame({
     "ruas": df["ruas"],
 })
 skor = evaluasi(X0, y, "0. Baseline (timestamp mentah)")
-hasil.append({"Tahap": "0. Baseline", "F1": skor.mean(), "Simpangan": skor.std(),
+hasil.append({"Tahap": "0. Baseline", "F1": skor.mean(), "Simpangan": skor.std(ddof=1),
               "Fitur": X0.shape[1]})
 lipatan["0. Baseline"] = skor
 print("F1 per lipatan:", skor.round(3))
@@ -162,7 +179,7 @@ X1["bulan"] = df["waktu"].dt.month
 X1["akhir_pekan"] = (df["waktu"].dt.dayofweek >= 5).astype(int)
 
 skor = evaluasi(X1, y, "1. + fitur waktu terurai")
-hasil.append({"Tahap": "1. + waktu terurai", "F1": skor.mean(), "Simpangan": skor.std(),
+hasil.append({"Tahap": "1. + waktu terurai", "F1": skor.mean(), "Simpangan": skor.std(ddof=1),
               "Fitur": X1.shape[1]})
 lipatan["1. + waktu terurai"] = skor
 ```
@@ -181,7 +198,7 @@ X2["hari_sin"] = np.sin(2 * np.pi * X2["hari_minggu"] / 7)
 X2["hari_cos"] = np.cos(2 * np.pi * X2["hari_minggu"] / 7)
 
 skor = evaluasi(X2, y, "2. + penyandian siklik")
-hasil.append({"Tahap": "2. + siklik", "F1": skor.mean(), "Simpangan": skor.std(),
+hasil.append({"Tahap": "2. + siklik", "F1": skor.mean(), "Simpangan": skor.std(ddof=1),
               "Fitur": X2.shape[1]})
 lipatan["2. + siklik"] = skor
 ```
@@ -211,7 +228,7 @@ libur = pd.to_datetime(["2026-01-01", "2026-03-21", "2026-03-22",
 X3["hari_libur"] = df["waktu"].dt.normalize().isin(libur).astype(int)
 
 skor = evaluasi(X3, y, "3. + pengetahuan domain")
-hasil.append({"Tahap": "3. + domain", "F1": skor.mean(), "Simpangan": skor.std(),
+hasil.append({"Tahap": "3. + domain", "F1": skor.mean(), "Simpangan": skor.std(ddof=1),
               "Fitur": X3.shape[1]})
 lipatan["3. + domain"] = skor
 ```
@@ -235,7 +252,7 @@ rata_ruas = df.groupby("ruas")["jumlah_kendaraan"].transform("mean")
 X4["kendaraan_relatif"] = X4["jumlah_kendaraan"] / rata_ruas
 
 skor = evaluasi(X4, y, "4. + rasio dan transformasi")
-hasil.append({"Tahap": "4. + rasio", "F1": skor.mean(), "Simpangan": skor.std(),
+hasil.append({"Tahap": "4. + rasio", "F1": skor.mean(), "Simpangan": skor.std(ddof=1),
               "Fitur": X4.shape[1]})
 lipatan["4. + rasio"] = skor
 ```
@@ -264,20 +281,38 @@ ax.set_ylabel("F1 (validasi silang temporal, 5 lipatan)")
 ax.set_title(f"Peningkatan dari rekayasa fitur — model dikunci (n={len(df)})")
 plt.tight_layout(); plt.show()
 
-# Kesimpulan DIHITUNG dari hasil — bukan teks tetap
+# Kesimpulan DIHITUNG dari hasil — bukan teks tetap.
+# Setiap tahap dibandingkan dengan tahap SEBELUMNYA secara BERPASANGAN per lipatan:
+# semua tahap dinilai dengan objek CV yang sama, jadi lipatan ke-i dapat dipasangkan.
 tahap = tabel["Tahap"].tolist()
 print(f"\nSumbangan terbesar: {tabel.loc[tabel['Sumbangan tahap'].idxmax(), 'Tahap']}")
+banding_tahap = {}
 for i in range(1, len(tahap)):
-    d = tabel["Sumbangan tahap"].iloc[i]
-    naik = int((lipatan[tahap[i]] > lipatan[tahap[i - 1]]).sum())
-    if d <= 0:
+    b = banding_berpasangan(lipatan[tahap[i]], lipatan[tahap[i - 1]])
+    banding_tahap[tahap[i]] = b
+    if b["bermakna"] and b["d_bar"] > 0:
+        status = "membantu (|d̄| > 2·SE dan searah di sebagian besar lipatan)"
+    elif b["bermakna"]:
+        status = "MERUGIKAN — F1 turun secara bermakna"
+    elif b["d_bar"] <= 0:
         status = "TIDAK membantu (F1 rata-rata tidak naik)"
-    elif d < tabel["Simpangan"].iloc[i]:
-        status = "naik, tetapi lebih kecil daripada simpangan antarlipatan — belum meyakinkan"
     else:
-        status = "membantu — kenaikan melebihi simpangan antarlipatan"
-    print(f"  {tahap[i]:20s} {d:+.4f} (naik di {naik}/5 lipatan): {status}")
+        status = "naik, tetapi belum bermakna menurut aturan |d̄| > 2·SE — belum meyakinkan"
+    print(f"  {tahap[i]:20s} d̄ = {b['d_bar']:+.4f} | s_d = {b['s_d']:.4f} | "
+          f"SE = {b['SE']:.4f} | 2·SE = {2 * b['SE']:.4f} | "
+          f"searah {b['searah']}/{b['k']}: {status}")
+    print(f"  {'':20s} selisih per lipatan: {np.round(b['d'], 4)}")
+
+# Kumulatif: tahap domain dibandingkan langsung dengan baseline
+b_kumulatif = banding_berpasangan(lipatan["3. + domain"], lipatan["0. Baseline"])
+print(f"\nKumulatif '3. + domain' − '0. Baseline': d̄ = {b_kumulatif['d_bar']:+.4f} | "
+      f"s_d = {b_kumulatif['s_d']:.4f} | SE = {b_kumulatif['SE']:.4f} | "
+      f"2·SE = {2 * b_kumulatif['SE']:.4f} | "
+      f"searah {b_kumulatif['searah']}/{b_kumulatif['k']} | "
+      f"bermakna: {'ya' if b_kumulatif['bermakna'] else 'tidak'}")
 ```
+
+> **Mengapa berpasangan?** Kolom `Sumbangan tahap` adalah rerata selisih $\bar d$. Membandingkannya dengan kolom `Simpangan` (simpangan baku skor **satu** tahap) keliru: sebagian besar simpangan itu berasal dari lipatannya sendiri — lipatan 1, yang data latihnya paling sedikit, memberi skor terendah di setiap tahap — dan variasi bersama itu hilang ketika skor dua tahap dikurangkan per lipatan. Ketidakpastian $\bar d$ diukur oleh galat baku $SE = s_d/\sqrt{k}$ dari selisih per lipatan. Hilangnya variasi bersama tidak menjamin $s_d$ selalu lebih kecil daripada `Simpangan`: perbandingan lama memakai besaran yang salah (simpangan baku skor satu tahap, bukan galat baku selisih per lipatan), sehingga dapat keliru **ke dua arah**. Pada data lab ini, cara lama itu menyembunyikan kenaikan yang konsisten — *+ siklik* ($\bar d \approx 0{,}03$ < `Simpangan` ≈ 0,09) akan dinyatakan "belum meyakinkan", padahal naik di 4–5 dari 5 lipatan dan lolos aturan $2 \cdot SE$ — sekaligus meloloskan kenaikan yang terpusat di satu lipatan: *+ domain* ($\bar d \approx 0{,}045$ > `Simpangan` ≈ 0,036) akan dinyatakan "membantu", padahal $s_d \approx 0{,}054$–$0{,}056$ justru lebih besar daripada `Simpangan` tahap itu dan $|\bar d| < 2 \cdot SE$. **Aturan praktis mata kuliah:** sumbangan dianggap bermakna bila $|\bar d| > 2 \cdot SE$ **dan** arahnya konsisten di minimal 4 dari 5 lipatan ([Bab 9 §9.4.2](../06-buku-ajar/bab-09-svm-naive-bayes-pemilihan-model.md#942-membaca-hasil-perbandingan), [Lampiran A.10](../06-buku-ajar/lampiran.md#a10-perbandingan-model)). Aturan ini hanya penyaring kasar — pada `TimeSeriesSplit` data latih antarlipatan pun bertumpuk, sehingga skornya tidak saling bebas. Untuk analisis formal, gunakan *corrected resampled t-test* (Nadeau & Bengio, 2003).
 
 **Pemeriksaan otomatis.** Sel berikut harus lulus tanpa `AssertionError`; bila gagal, pesannya menunjukkan apa yang perlu diperiksa.
 
@@ -290,19 +325,32 @@ f1_terbaik = tabel["F1"].max()
 assert f1_terbaik - f1_dasar > 0.15, (
     f"Dengan model TERKUNCI, rekayasa fitur seharusnya menaikkan F1 validasi jauh di atas "
     f"baseline (sekarang {f1_terbaik - f1_dasar:+.4f}) — periksa MODEL_TERKUNCI dan CV")
-unggul = int((lipatan["3. + domain"] > lipatan["0. Baseline"]).sum())
-assert unggul >= 4, (
-    f"Fitur waktu + domain seharusnya mengungguli timestamp mentah pada hampir setiap "
-    f"lipatan temporal (sekarang {unggul}/5) — periksa Langkah 4–6")
+assert b_kumulatif["bermakna"] and b_kumulatif["d_bar"] > 0, (
+    f"Fitur waktu + domain seharusnya mengungguli timestamp mentah secara bermakna "
+    f"(sekarang d̄ = {b_kumulatif['d_bar']:+.4f}, SE = {b_kumulatif['SE']:.4f}, searah "
+    f"{b_kumulatif['searah']}/{b_kumulatif['k']} lipatan) — periksa Langkah 4–6")
+assert not banding_tahap["4. + rasio"]["bermakna"], (
+    "Tahap rasio dan transformasi seharusnya TIDAK membantu secara bermakna: curah hujan "
+    "dan ruas tidak ikut menentukan target di Langkah 1 — periksa Langkah 7")
+d_uji = lipatan["2. + siklik"] - lipatan["1. + waktu terurai"]
+assert np.isclose(banding_tahap["2. + siklik"]["SE"],
+                  pd.Series(d_uji).std() / np.sqrt(len(d_uji))), (
+    "SE harus = s_d/√k dengan s_d simpangan baku SAMPEL (ddof=1) dari selisih per lipatan")
 print("Pemeriksaan otomatis lulus.")
 ```
 
-Pada data lab ini (diuji pada scikit-learn 1.6 dan 1.9), F1 validasi temporal naik dari ≈ 0,20 (± 0,19) pada *baseline* ke ≈ 0,50 (± 0,03) setelah fitur waktu dan domain ditambahkan — tanpa satu pun hiperparameter diubah. Lompatan terbesar berasal dari fitur waktu terurai; tahap rasio dan transformasi praktis tidak menambah apa-apa.
+Pada data lab ini (diuji pada scikit-learn 1.6 dan 1.9), F1 validasi temporal naik dari ≈ 0,20 (± 0,21) pada *baseline* ke ≈ 0,50 (± 0,04) setelah fitur waktu dan domain ditambahkan — tanpa satu pun hiperparameter diubah. Menurut aturan berpasangan:
+
+- **+ waktu terurai** memberi lompatan terbesar: $\bar d \approx +0{,}22$ dengan $2 \cdot SE \approx 0{,}14$, naik di 5 dari 5 lipatan — **membantu**.
+- **+ siklik**: $\bar d \approx +0{,}03$ dengan $2 \cdot SE \approx 0{,}024$–$0{,}028$, searah di 4–5 dari 5 lipatan (bergantung versi) — **membantu**, tetapi tipis ($|\bar d|$ hanya ≈ 2,1–2,3 kali $SE$).
+- **+ domain** naik di kelima lipatan ($\bar d \approx +0{,}045$–$0{,}047$), tetapi **belum lolos** aturan $2 \cdot SE$ ($2 \cdot SE \approx 0{,}05$): kenaikannya terpusat di lipatan 1 (≈ +0,14–0,15), sedangkan di lipatan 2–5 hanya +0,01 s.d. +0,04. Secara kumulatif, tahap ini jelas mengungguli *baseline* ($\bar d \approx +0{,}30$, $SE \approx 0{,}08$, searah 5/5).
+- **+ rasio dan transformasi**: $\bar d \approx +0{,}005$ dan searah hanya di 3 dari 5 lipatan — **belum meyakinkan**; praktis tidak menambah apa-apa.
 
 **Yang harus ditulis di sel Markdown:**
 - Kelompok fitur mana yang memberi peningkatan terbesar?
 - Adakah kelompok fitur yang **tidak** membantu? Apa dugaan sebabnya? *Petunjuk:* bandingkan dengan aturan pembangkit data di Langkah 1.
-- Apakah peningkatannya lebih besar daripada simpangan antarlipatan?
+- Untuk tiap tahap, berapa selisih berpasangan terhadap tahap sebelumnya ($\bar d$, $s_d$, $SE$)? Apakah $|\bar d| > 2 \cdot SE$ dan arahnya konsisten (minimal 4 dari 5 lipatan)? Mengapa membandingkan $\bar d$ dengan kolom `Simpangan` keliru?
+- Tahap *+ domain* naik di kelima lipatan, tetapi belum lolos aturan $2 \cdot SE$. Di lipatan mana kenaikannya terbesar, dan berapa jam data latih lipatan itu? Apa artinya bagi manfaat fitur pengetahuan domain ketika data latih masih sedikit?
 - Mengapa simpangan *baseline* jauh lebih besar daripada tahap lain? *Petunjuk:* hitung `df.groupby(df["waktu"].dt.hour.isin([6, 7, 8, 16, 17, 18, 19]))["macet"].mean()` — berapa peluang macet pada jam sibuk bila hari kerja dan akhir pekan tidak dibedakan?
 
 ### LANGKAH 9: Pemilihan Fitur di Dalam `Pipeline`
@@ -328,7 +376,7 @@ for k in [5, 10, 15, "all"]:
         ("clf", MODEL_TERKUNCI),
     ])
     skor = cross_val_score(pipa, X4, y, cv=CV, scoring="f1", n_jobs=-1)
-    print(f"k={str(k):>3s}: F1 = {skor.mean():.4f} ± {skor.std():.4f}")
+    print(f"k={str(k):>3s}: F1 = {skor.mean():.4f} ± {skor.std(ddof=1):.4f}")
 ```
 
 > **Perhatikan penempatannya.** `SelectKBest` berada **di dalam** `Pipeline`, sehingga pada tiap lipatan ia di-*fit* ulang hanya dari data latih lipatan itu. Menempatkannya di luar adalah kebocoran — sebagaimana ditunjukkan pada Lab 4. Baris `k=all` memakai seluruh kolom dan karena itu sama dengan tahap 4 pada Langkah 7.
@@ -357,7 +405,8 @@ Tambahkan `PolynomialFeatures(degree=2)` pada fitur numerik. Berapa kolom yang d
 - [ ] *Baseline* dengan fitur mentah dijalankan lebih dahulu
 - [ ] Minimal empat kelompok fitur ditambahkan **bertahap**
 - [ ] Skor diukur pada **validasi silang temporal** (`TimeSeriesSplit`), bukan pada data latih dan bukan dengan lipatan acak
-- [ ] Simpangan antarlipatan dilaporkan di setiap tahap
+- [ ] Simpangan antarlipatan (`ddof=1`) dilaporkan di setiap tahap
+- [ ] **Sumbangan tiap tahap dinilai dengan selisih berpasangan per lipatan** ($\bar d$, $s_d$ dengan `ddof=1`, $SE = s_d/\sqrt{k}$), bukan dengan membandingkan selisih rerata pada simpangan
 - [ ] **Catatan fitur yang gagal** beserta dugaan sebabnya
 - [ ] Fitur berisiko kebocoran diidentifikasi dan dinyatakan
 - [ ] Pemilihan fitur ditempatkan **di dalam** `Pipeline`
@@ -373,6 +422,7 @@ Tambahkan `PolynomialFeatures(degree=2)` pada fitur numerik. Berapa kolom yang d
 2. [Bab 5 buku ajar](../06-buku-ajar/bab-05-rekayasa-fitur.md)
 3. Zheng, A., & Casari, A. (2018). *Feature Engineering for Machine Learning*. O'Reilly.
 4. Dokumentasi scikit-learn — *Feature selection*. <https://scikit-learn.org/stable/modules/feature_selection.html>
+5. Nadeau, C., & Bengio, Y. (2003). Inference for the Generalization Error. *Machine Learning*, 52(3), 239–281.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

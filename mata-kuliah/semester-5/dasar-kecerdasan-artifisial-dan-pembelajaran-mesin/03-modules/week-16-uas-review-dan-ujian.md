@@ -63,7 +63,7 @@
 | 6 | **`Pipeline` mencegah kebocoran secara struktural** |
 | 7 | **Data uji dipakai sekali**, di paling akhir |
 | 8 | **Akurasi menyesatkan** pada data tak seimbang |
-| 9 | **Selisih yang lebih kecil daripada simpangan bukan perbedaan** |
+| 9 | **Bandingkan model secara berpasangan per lipatan**: selisih bermakna bila $\|\bar d\| > 2 \cdot SE$ dan arahnya konsisten — bukan dibandingkan dengan simpangan |
 | 10 | Bila setara, **pilih model yang lebih sederhana** |
 | 11 | **Skor yang terlalu bagus adalah tanda bahaya**, bukan keberhasilan |
 | 12 | **Tanggung jawab melekat pada manusia**, tidak dapat dialihkan ke model |

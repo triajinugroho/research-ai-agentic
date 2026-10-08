@@ -135,7 +135,8 @@ print("Per lipatan:", np.round(skor, 3))
 | Keadaan | Tafsir | Tindakan |
 |---------|--------|----------|
 | Simpangan < 0,02 | Kinerja stabil | Dapat dipercaya |
-| 0,02–0,05 | Wajar pada data terbatas | Laporkan rerata **dan** simpangan |
+| 0,02 sampai < 0,05 | Wajar pada data terbatas | Laporkan rerata **dan** simpangan |
+| 0,05 sampai 0,10 | Data terbatas, atau lipatan tidak seragam | Periksa skor per lipatan; selisih rerata yang kecil antarmodel belum dapat dipercaya |
 | > 0,10 | Data sedikit, atau ada lipatan yang sangat berbeda | Selidiki lipatan yang menyimpang |
 | Satu lipatan jauh lebih rendah | Ada kelompok atau periode yang berbeda sifat | Periksa apakah strategi pembagian sudah tepat |
 

@@ -277,7 +277,7 @@ bermakna = abs(d_bar) > 2 * se and searah >= 0.8 * k
 
 ---
 
-## AI Corner — Tahap *Apply → Create*
+## AI Corner — Tahap *Create*
 
 ### Kekeliruan AI yang Paling Konsisten di Bab Ini
 

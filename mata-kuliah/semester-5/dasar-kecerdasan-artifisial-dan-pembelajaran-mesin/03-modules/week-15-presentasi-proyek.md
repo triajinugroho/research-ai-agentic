@@ -55,13 +55,13 @@
 | 1 | Formulasi *task* yang lengkap | Inti `Sub-CPMK082-1` |
 | 2 | **Skor *baseline*** | Tanpa ini, angka kinerja tidak bermakna |
 | 3 | Pernyataan pencegahan kebocoran beserta buktinya | Kriteria kurikulum `Sub-CPMK102-1` |
-| 4 | Tabel perbandingan model dengan **simpangan antarlipatan** | Perbandingan yang jujur |
+| 4 | Tabel perbandingan model dengan **simpangan antarlipatan** (`ddof=1`) dan **selisih berpasangan per lipatan** dua model teratas ($\bar d$, $SE$) | Perbandingan yang jujur ([Panduan Proyek §6.1](../05-assessments/project-guidelines.md#61-isi-wajib)) |
 | 5 | Metrik yang sesuai masalah, beserta alasan pemilihannya | Inti `Sub-CPMK102-1` |
 | 6 | **Analisis kesalahan** — pola pada kasus yang salah | Kedalaman pemahaman |
 | 7 | Audit *fairness* antarkelompok | Materi Minggu 14 |
 | 8 | Keterbatasan yang dinyatakan jujur | Kriteria kurikulum |
 
-> Kelompok yang menampilkan akurasi tanpa *baseline*, atau melaporkan model terbaik tanpa menyebut simpangan antarlipatan, kehilangan nilai pada aspek yang bersangkutan — sekalipun proyeknya secara teknis baik.
+> Kelompok yang menampilkan akurasi tanpa *baseline*, atau melaporkan model terbaik tanpa menyebut simpangan antarlipatan dan selisih berpasangannya terhadap peringkat 2, kehilangan nilai pada aspek yang bersangkutan — sekalipun proyeknya secara teknis baik.
 
 ---
 
@@ -87,7 +87,7 @@ Setiap kelompok harus menyiapkan jawaban atas pertanyaan berikut. Pertanyaan dia
 
 9. Mengapa model ini yang dipilih untuk diterapkan?
 10. Apakah seluruh model memperoleh anggaran penyetelan yang sebanding?
-11. Berapa simpangan antarlipatan? Apakah selisih antarmodel lebih besar daripada simpangan itu?
+11. Berapa selisih berpasangan per lipatan antara peringkat 1 dan 2 ($\bar d$, $SE$)? Apakah $|\bar d| > 2\cdot SE$ dan arahnya konsisten? ([Bab 9 §9.4.2](../06-buku-ajar/bab-09-svm-naive-bayes-pemilihan-model.md#942-membaca-hasil-perbandingan))
 12. Apakah data uji pernah dipakai lebih dari sekali?
 
 ### Tentang Hasil

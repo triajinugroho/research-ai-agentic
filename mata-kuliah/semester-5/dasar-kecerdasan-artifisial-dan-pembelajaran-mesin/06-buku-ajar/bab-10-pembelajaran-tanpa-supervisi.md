@@ -206,7 +206,7 @@ profil["n"] = pd.Series(label).value_counts().sort_index()
 print(profil.T)
 ```
 
-**Contoh hasil segmentasi provinsi Indonesia berdasarkan indikator BPS:**
+**Contoh ilustratif format tabel interpretasi — segmentasi provinsi Indonesia** (angka rekaan untuk menunjukkan bentuk luaran; bukan hasil olahan data resmi BPS):
 
 | Klaster | n | IPM | Kepadatan | % Pertanian | **Nama yang diberikan** |
 |---------|---|-----|-----------|-------------|-------------------------|
@@ -253,7 +253,7 @@ anomali_lof = lof.fit_predict(X_skala)
 
 ---
 
-## AI Corner — Tahap *Apply → Create*
+## AI Corner — Tahap *Apply*
 
 ### Interpretasi Klaster Tidak Dapat Diserahkan
 

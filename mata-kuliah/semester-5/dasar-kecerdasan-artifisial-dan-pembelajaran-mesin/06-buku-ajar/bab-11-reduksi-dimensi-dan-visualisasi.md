@@ -230,7 +230,7 @@ Bila kasus yang salah terpusat pada kelompok tertentu — satu wilayah, satu ren
 
 ---
 
-## AI Corner — Tahap *Apply → Create*
+## AI Corner — Tahap *Apply*
 
 ### Diagnosis Adalah Keterampilan yang Tidak Dapat Dialihkan
 
