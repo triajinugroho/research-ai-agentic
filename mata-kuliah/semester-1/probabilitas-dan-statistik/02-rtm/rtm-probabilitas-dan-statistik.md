@@ -227,7 +227,7 @@ Komposisi soal dan bobot per pokok bahasan ada pada [kisi-kisi UTS](../05-assess
 | **Dilarang** | Catatan dan formularium dalam bentuk apa pun (termasuk Lampiran buku ajar), telepon genggam, jam pintar, laptop, **AI dalam bentuk apa pun** |
 | **Syarat mengikuti** | Kehadiran minimal 75% |
 
-Komposisi soal ada pada [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md).
+Komposisi soal ada pada [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md). Untuk berlatih tersedia [Latihan UAS](../05-assessments/latihan-uas.md) beserta [pembahasannya](../05-assessments/latihan-uas-pembahasan.md); naskah UAS sebenarnya adalah varian dari latihan itu dan tidak dipublikasikan.
 
 ---
 

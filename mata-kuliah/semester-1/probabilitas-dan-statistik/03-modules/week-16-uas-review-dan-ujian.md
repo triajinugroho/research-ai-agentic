@@ -87,6 +87,10 @@ Tabel distribusi dibagikan pengawas bersama lembar soal, tetapi rumus **tidak** 
 | 4 | Menyimpulkan "H₀ terbukti benar" ketika gagal menolak | Gunakan kalimat baku: "bukti tidak cukup untuk menyatakan..." |
 | 5 | Menyatakan sebab-akibat dari korelasi | Gunakan kata "berkaitan dengan", bukan "menyebabkan" |
 
+### 1.5 Simulasi: Latihan UAS
+
+Sebelum pertemuan ini, kerjakan [Latihan UAS](../05-assessments/latihan-uas.md) sebagai gladi — simulasi lengkap dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UAS — dalam 120 menit, *closed book*, tanpa AI dan tanpa membuka pembahasan, dengan tabel dari Lampiran A.1–A.5 buku ajar; catat menit yang Anda pakai per bagian. Sesudahnya cocokkan dengan [pembahasan dan pedoman skor](../05-assessments/latihan-uas-pembahasan.md) dan jadikan butir yang salah prioritas review 30 menit di atas. Naskah UAS sebenarnya adalah varian dari latihan ini (cetak biru sama; konteks, data, dan angka berbeda) dan tidak dipublikasikan.
+
 ---
 
 ## Bagian 2: Pelaksanaan Ujian (120 menit)
@@ -213,9 +217,10 @@ Selamat, Anda telah menyelesaikan mata kuliah fondasi bagi jalur Kecerdasan Arti
 ## Referensi
 
 1. [Kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md)
-2. [Kerangka asesmen](../05-assessments/assessment-framework.md)
-3. Buku ajar Bab 1–14
-4. Walpole, R. E., et al. (2016). *Probability and Statistics for Engineers and Scientists* (9th ed.). Pearson.
+2. [Latihan UAS (simulasi)](../05-assessments/latihan-uas.md) dan [pembahasannya](../05-assessments/latihan-uas-pembahasan.md) — naskah UAS sebenarnya adalah variannya dan tidak dipublikasikan
+3. [Kerangka asesmen](../05-assessments/assessment-framework.md)
+4. Buku ajar Bab 1–14
+5. Walpole, R. E., et al. (2016). *Probability and Statistics for Engineers and Scientists* (9th ed.). Pearson.
 
 ---
 

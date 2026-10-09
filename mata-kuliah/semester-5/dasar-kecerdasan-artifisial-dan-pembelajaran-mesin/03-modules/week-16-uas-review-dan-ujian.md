@@ -74,7 +74,7 @@ Dikerjakan bersama sebelum ujian:
 
 1. **Perancangan solusi:** diberikan deskripsi masalah nyata, rancang solusi ML lengkap — formulasi, data yang dibutuhkan, model kandidat, protokol evaluasi, metrik, dan risiko. *(2 kasus)*
 2. **Pemilihan model:** diberikan ciri data dan kebutuhan, tentukan model yang sesuai beserta alasannya. *(4 kasus)*
-3. **Perhitungan manual:** *entropy* dan *information gain*; satu langkah maju-mundur JST. *(2 soal)*
+3. **Perhitungan manual:** *entropy* dan *information gain*; satu langkah maju-mundur JST; *silhouette* dari tabel jarak. *(3 soal)*
 4. **Diagnosis:** dari kurva pembelajaran dan tabel hasil, tentukan kondisi model dan tindakannya. *(3 kasus)*
 5. **Etika:** diberikan tabel kinerja per kelompok, analisis ketimpangannya dan usulkan tindakan. *(1 kasus)*
 
@@ -99,7 +99,7 @@ Dikerjakan bersama sebelum ujian:
 |--------|-------|--------|-----------|
 | A. Konsep | 25% | Uraian singkat | Seluruh semester |
 | B. **Perancangan solusi** | 45% | Merancang solusi ML untuk masalah baru | Minggu 9–14 |
-| C. Perhitungan | 30% | Hitung manual | *Entropy*, *information gain*, langkah JST |
+| C. Perhitungan | 30% | Hitung manual | *Entropy*, *information gain*, langkah JST, *silhouette* |
 
 Penekanan ada pada **Sub-CPMK082-1**: kemampuan menganalisis karakteristik masalah dan **merancang** model yang sesuai.
 
@@ -126,7 +126,7 @@ Soal semacam ini **tidak memiliki satu jawaban benar**. Yang dinilai adalah kete
 |-------|-------------|
 | Merancang solusi untuk masalah yang belum pernah dilihat | Menghafal sintaks pustaka |
 | Memilih model dengan alasan yang tepat | Menghafal nilai baku hiperparameter |
-| Perhitungan *entropy* dan langkah JST | Menurunkan rumus dari awal |
+| Perhitungan *entropy*, langkah JST, dan *silhouette* | Menurunkan rumus dari awal |
 | Merancang protokol evaluasi yang adil | Menulis program lengkap |
 | Menganalisis ketimpangan kinerja antarkelompok | Menghafal nama makalah dan tahunnya |
 
@@ -141,6 +141,8 @@ Soal semacam ini **tidak memiliki satu jawaban benar**. Yang dinilai adalah kete
 | Mengerjakan Latihan Soal tingkat Mahir tiap bab | 4 jam |
 | Berlatih soal perancangan pada kisi-kisi | 4 jam |
 | Berlatih perhitungan manual tanpa komputer | 2 jam |
+
+Sebagai gladi, kerjakan [Latihan UAS](../05-assessments/latihan-uas.md) — simulasi lengkap 120 menit — tanpa AI dan tanpa membuka pembahasan, lalu cocokkan dengan [pembahasan dan pedoman skornya](../05-assessments/latihan-uas-pembahasan.md). Naskah UAS sebenarnya adalah varian latihan itu — cetak biru butirnya sama, tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
 
 ---
 
@@ -192,8 +194,9 @@ Mahasiswa yang menyelesaikan mata kuliah ini telah:
 
 1. Seluruh referensi Minggu 1–15.
 2. [Kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md).
-3. [Kerangka asesmen](../05-assessments/assessment-framework.md).
-4. [Penutup buku ajar](../06-buku-ajar/penutup.md).
+3. [Latihan UAS (simulasi)](../05-assessments/latihan-uas.md) dan [pembahasannya](../05-assessments/latihan-uas-pembahasan.md); naskah UAS sebenarnya adalah varian latihan itu dan tidak dipublikasikan.
+4. [Kerangka asesmen](../05-assessments/assessment-framework.md).
+5. [Penutup buku ajar](../06-buku-ajar/penutup.md).
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

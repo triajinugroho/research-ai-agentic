@@ -333,6 +333,7 @@ Setiap anggota mengisi **Formulir Kontribusi** secara terpisah dan rahasia: Form
 | Penekanan | Pemilihan model, *ensemble*, *clustering*, JST, AI bertanggung jawab |
 | Komposisi | 25% konsep · 45% perancangan solusi · 30% perhitungan manual |
 | Kisi-kisi | [kisi-kisi-uas.md](../05-assessments/kisi-kisi-uas.md) |
+| Latihan | [Latihan UAS](../05-assessments/latihan-uas.md) (simulasi 120 menit) dengan [pembahasan](../05-assessments/latihan-uas-pembahasan.md); naskah UAS sebenarnya adalah varian latihan ini dan tidak dipublikasikan |
 
 ---
 

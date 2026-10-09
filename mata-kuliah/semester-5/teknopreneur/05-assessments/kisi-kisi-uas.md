@@ -153,6 +153,20 @@ Jawaban yang menyatakan "keputusan kami sepenuhnya tepat sepanjang semester" tid
 2. [Kerangka asesmen](assessment-framework.md)
 3. [Penutup buku ajar](../06-buku-ajar/penutup.md)
 4. Catatan tim sendiri sejak Minggu 1 — **bahan persiapan utama**
+5. Latihan UAS (simulasi, [§9](#9-latihan-uas-simulasi)): [soal](latihan-uas.md), [pembahasan dan pedoman skor](latihan-uas-pembahasan.md), [cetak biru butir dan panduan varian](latihan-uas-cetak-biru.md)
+
+---
+
+## 9. Latihan UAS (Simulasi)
+
+Untuk berlatih tersedia simulasi lengkap UAS dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UAS:
+
+- [Latihan UAS](latihan-uas.md) — kerjakan dalam 90 menit, *closed book*, tanpa alat bantu apa pun, tanpa AI, tanpa catatan tim, dan tanpa membuka pembahasan; paling bermanfaat sesudah *Demo Day*, tetapi soalnya dapat dibaca sejak sekarang sebagai panduan mencatat bukti;
+- [Pembahasan dan pedoman skor](latihan-uas-pembahasan.md) — rubrik analitik per kriteria, contoh jawaban *Kurang*, *Cukup*, dan *Baik* dari tim fiktif, bukti yang semestinya dirujuk, dan kesalahan umum;
+- [Cetak biru butir dan panduan varian](latihan-uas-cetak-biru.md) — untuk dosen.
+
+Naskah UAS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

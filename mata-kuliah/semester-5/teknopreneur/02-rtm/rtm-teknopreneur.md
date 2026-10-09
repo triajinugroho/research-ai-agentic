@@ -346,6 +346,7 @@ Menelusur ke `TEKNO-Sub-CPMKFSTS12-1`.
 | Cakupan | Refleksi atas perjalanan proyek sendiri; pemindaian tren; rencana pembelajaran |
 | Komposisi | 40% refleksi berbasis pengalaman · 30% analisis tren · 30% rencana pengembangan diri |
 | Kisi-kisi | [kisi-kisi-uas.md](../05-assessments/kisi-kisi-uas.md) |
+| Latihan | [Latihan UAS](../05-assessments/latihan-uas.md) (simulasi) beserta [pembahasannya](../05-assessments/latihan-uas-pembahasan.md); naskah UAS sebenarnya adalah varian dari latihan itu dan tidak dipublikasikan |
 
 > UAS berbentuk **reflektif** karena Sub-CPMK yang diukurnya menuntut **mengembangkan (C6)** pola pikir adaptif dan pembelajaran berkelanjutan — dengan dimensi sikap (A4) pada CPMK induknya, `CPMKUAI32`. Yang dinilai adalah kedalaman refleksi dan bukti adaptasi — bukan hafalan. Jawaban yang menyatakan "tidak ada yang berubah sepanjang semester" hampir selalu menunjukkan refleksi yang dangkal.
 

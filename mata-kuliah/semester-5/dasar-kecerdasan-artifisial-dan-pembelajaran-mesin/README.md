@@ -70,11 +70,11 @@ Posisinya pada jalur **AI Core & Advanced**:
 | [`02-rtm/`](02-rtm/) | Rencana Tugas Mahasiswa | 1 |
 | [`03-modules/`](03-modules/) | Modul kuliah mingguan (Minggu 1–16) | 16 |
 | [`04-labs/`](04-labs/) | Praktikum Python (Lab 1–7, 9–14) | 13 |
-| [`05-assessments/`](05-assessments/) | Kerangka asesmen, kisi-kisi UTS/UAS, [Latihan UTS](05-assessments/latihan-uts.md) (soal, [pembahasan](05-assessments/latihan-uts-pembahasan.md), [cetak biru](05-assessments/latihan-uts-cetak-biru.md)), rubrik, panduan proyek | 8 |
+| [`05-assessments/`](05-assessments/) | Kerangka asesmen, kisi-kisi UTS/UAS, [Latihan UTS](05-assessments/latihan-uts.md) (soal, [pembahasan](05-assessments/latihan-uts-pembahasan.md), [cetak biru](05-assessments/latihan-uts-cetak-biru.md)), [Latihan UAS](05-assessments/latihan-uas.md) (soal, [pembahasan](05-assessments/latihan-uas-pembahasan.md), [cetak biru](05-assessments/latihan-uas-cetak-biru.md)), rubrik, panduan proyek | 11 |
 | [`06-buku-ajar/`](06-buku-ajar/) | Buku ajar: 14 bab + halaman depan + lampiran + penutup | 18 |
 | [`datasets/`](datasets/) | Panduan dataset berkonteks Indonesia | 1 |
 
-**Latihan UTS.** [Latihan UTS](05-assessments/latihan-uts.md) adalah simulasi terbuka UTS — tiga berkas: soal, [pembahasan](05-assessments/latihan-uts-pembahasan.md), dan [cetak biru](05-assessments/latihan-uts-cetak-biru.md) — dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UTS. Naskah UTS sebenarnya adalah **varian** latihan ini (cetak biru butir sama; konteks, data, dan angka berbeda) dan tidak dipublikasikan.
+**Latihan UTS dan Latihan UAS.** [Latihan UTS](05-assessments/latihan-uts.md) dan [Latihan UAS](05-assessments/latihan-uas.md) adalah simulasi terbuka UTS dan UAS — masing-masing tiga berkas: soal, pembahasan ([UTS](05-assessments/latihan-uts-pembahasan.md), [UAS](05-assessments/latihan-uas-pembahasan.md)), dan cetak biru ([UTS](05-assessments/latihan-uts-cetak-biru.md), [UAS](05-assessments/latihan-uas-cetak-biru.md)) — dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan ujiannya. Naskah UTS dan UAS sebenarnya adalah **varian** latihan masing-masing (cetak biru butir sama; konteks, data, dan angka berbeda) dan tidak dipublikasikan.
 
 ---
 

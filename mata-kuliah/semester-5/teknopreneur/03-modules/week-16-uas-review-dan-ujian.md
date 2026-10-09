@@ -65,6 +65,8 @@
 2. Diskusi: keputusan mana sepanjang semester yang paling sulit, dan apa dasarnya?
 3. Pemindaian tren: apa yang berubah pada tiga tren yang dipantau sejak Minggu 1?
 
+**Gladi mandiri sebelum pertemuan ini:** kerjakan [Latihan UAS](../05-assessments/latihan-uas.md) — simulasi lengkap dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UAS — dalam 90 menit, *closed book*, tanpa alat bantu apa pun, tanpa AI, tanpa catatan tim, dan tanpa membuka pembahasan, sebaiknya sesudah *Demo Day*. Sesudahnya nilai jawaban Anda dengan [pembahasan dan pedoman skor](../05-assessments/latihan-uas-pembahasan.md), periksa fakta yang Anda tulis dengan catatan tim, dan bawa sub-butir yang skornya rendah sebagai bahan diskusi butir 2 dan 3 di atas. Naskah UAS sebenarnya adalah varian dari latihan ini (cetak biru sama; sudut refleksi, kliping, dan batasan rencananya berbeda) dan tidak dipublikasikan.
+
 ---
 
 ## Bagian II — Ujian Akhir Semester (90 menit)
@@ -199,6 +201,8 @@ Berkas yang dihasilkannya adalah **portofolio yang dapat ditunjukkan** — bukan
 1. Seluruh referensi Minggu 1–15.
 2. [Kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md).
 3. [Penutup buku ajar](../06-buku-ajar/penutup.md).
+4. [Latihan UAS (simulasi)](../05-assessments/latihan-uas.md) dan [pembahasannya](../05-assessments/latihan-uas-pembahasan.md); naskah UAS sebenarnya adalah varian dari latihan itu dan tidak dipublikasikan.
+
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

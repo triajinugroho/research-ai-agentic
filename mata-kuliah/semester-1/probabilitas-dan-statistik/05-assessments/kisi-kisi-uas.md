@@ -290,4 +290,16 @@ Tabel distribusi dibagikan pengawas bersama lembar soal; rumus **tidak** disedia
 
 ---
 
+## 12. Latihan UAS (Simulasi)
+
+Untuk berlatih tersedia simulasi lengkap UAS dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UAS:
+
+- [Latihan UAS](latihan-uas.md) — kerjakan dalam 120 menit, *closed book*, tanpa AI dan tanpa membuka pembahasan;
+- [Pembahasan dan pedoman skor](latihan-uas-pembahasan.md) — jawaban langkah demi langkah, skor parsial, dan kesalahan umum;
+- [Cetak biru butir dan panduan varian](latihan-uas-cetak-biru.md) — untuk dosen.
+
+Naskah UAS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+
+---
+
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

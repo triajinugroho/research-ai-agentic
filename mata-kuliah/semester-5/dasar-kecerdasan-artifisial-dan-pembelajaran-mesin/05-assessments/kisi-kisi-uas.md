@@ -176,6 +176,10 @@ Pada lipatan yang sama, SVM (RBF) memperoleh rerata 0,838 dan *baseline* 0,500.
 
 Bagian B berbobot 45% — porsi terbesar. Berlatih merancang solusi untuk masalah yang belum pernah dilihat lebih berguna daripada menghafal materi.
 
+### 7.1 Latihan UAS
+
+Simulasi lengkap UAS — 10 soal, 120 menit, komposisi, lembar rumus, dan aturan alat bantu sama dengan ketentuan di atas — tersedia untuk berlatih: [Latihan UAS](latihan-uas.md) · [pembahasan dan pedoman skor](latihan-uas-pembahasan.md) · [cetak biru butir dan panduan varian](latihan-uas-cetak-biru.md). Kerjakan dalam 120 menit tanpa AI dan tanpa membuka pembahasan, baru sesudahnya cocokkan. Naskah UAS sebenarnya disusun terpisah sebagai **varian** dari latihan ini — cetak biru butirnya sama (Sub-CPMK, level Bloom, skor), tetapi konteks, data, dan angkanya berbeda — dan tidak dipublikasikan.
+
 ---
 
 ## 8. Kaidah Penilaian Bagian B
@@ -201,6 +205,7 @@ Karena soal perancangan tidak memiliki satu jawaban benar:
 2. [Kerangka asesmen](assessment-framework.md)
 3. Bab 8–13 [buku ajar](../06-buku-ajar/00-halaman-depan.md)
 4. [Lampiran buku ajar](../06-buku-ajar/lampiran.md) — formularium
+5. Latihan UAS (§7.1): [soal](latihan-uas.md) · [pembahasan dan pedoman skor](latihan-uas-pembahasan.md) · [cetak biru butir dan panduan varian](latihan-uas-cetak-biru.md)
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
