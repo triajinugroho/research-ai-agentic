@@ -8,7 +8,7 @@
 
 This is an **educational materials repository** for courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. The materials are organized **per curriculum semester** following the **Kurikulum Informatika 2025 Revisi 2026**, whose official registry is transcribed in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`.
 
-- **558 Markdown documents** under `mata-kuliah/` (count as of 8 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
+- **567 Markdown documents** under `mata-kuliah/` (count as of 9 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
 - **10 course folders:** 8 active courses in `mata-kuliah/semester-N/` (placed by their registry semester) and 2 old-curriculum courses in `mata-kuliah/arsip/`.
 - **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: execution checklist, lecturer review list, audits, and generation prompts).
 

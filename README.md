@@ -20,7 +20,7 @@ Kode, kelompok (Kel.), dan SKS mengikuti [registri kurikulum](mata-kuliah/00-kur
 
 | Kode | Mata Kuliah | Kel. | SKS | Tipe | Deskripsi | Status materi |
 |------|-------------|------|-----|------|-----------|---------------|
-| `IF52510033` | [Probabilitas dan Statistik](mata-kuliah/semester-1/probabilitas-dan-statistik/) | MKP | 3 | Teori + Lab | Fondasi berpikir di bawah ketidakpastian untuk Informatika | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; [Latihan UTS](mata-kuliah/semester-1/probabilitas-dan-statistik/05-assessments/latihan-uts.md) publik; naskah ujian (varian, privat) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
+| `IF52510033` | [Probabilitas dan Statistik](mata-kuliah/semester-1/probabilitas-dan-statistik/) | MKP | 3 | Teori + Lab | Fondasi berpikir di bawah ketidakpastian untuk Informatika | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; [Latihan UTS](mata-kuliah/semester-1/probabilitas-dan-statistik/05-assessments/latihan-uts.md) dan [Latihan UAS](mata-kuliah/semester-1/probabilitas-dan-statistik/05-assessments/latihan-uas.md) publik; naskah ujian (varian, privat) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
 
 ### [Semester 2](mata-kuliah/semester-2/) — Genap (Tingkat 1)
 
@@ -45,8 +45,8 @@ Kode, kelompok (Kel.), dan SKS mengikuti [registri kurikulum](mata-kuliah/00-kur
 
 | Kode | Mata Kuliah | Kel. | SKS | Tipe | Deskripsi | Status materi |
 |------|-------------|------|-----|------|-----------|---------------|
-| `IF52510031` | [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | MKP | 3 | Teori + Lab | Daur hidup ML dari perumusan masalah sampai AI yang bertanggung jawab | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; [Latihan UTS](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/05-assessments/latihan-uts.md) publik; naskah ujian (varian, privat) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
-| `ST52510002` | [Teknopreneur](mata-kuliah/semester-5/teknopreneur/) | MKF | 3 | Teori + Studio | Menemukan persoalan, menilai kelayakan, dan mempertanggungjawabkan usaha | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; [Latihan UTS](mata-kuliah/semester-5/teknopreneur/05-assessments/latihan-uts.md) publik; naskah ujian (varian, privat) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
+| `IF52510031` | [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/) | MKP | 3 | Teori + Lab | Daur hidup ML dari perumusan masalah sampai AI yang bertanggung jawab | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; [Latihan UTS](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/05-assessments/latihan-uts.md) dan [Latihan UAS](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/05-assessments/latihan-uas.md) publik; naskah ujian (varian, privat) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
+| `ST52510002` | [Teknopreneur](mata-kuliah/semester-5/teknopreneur/) | MKF | 3 | Teori + Studio | Menemukan persoalan, menilai kelayakan, dan mempertanggungjawabkan usaha | Selaras Kurikulum 2025 Revisi 2026 — materi lengkap; [Latihan UTS](mata-kuliah/semester-5/teknopreneur/05-assessments/latihan-uts.md) dan [Latihan UAS](mata-kuliah/semester-5/teknopreneur/05-assessments/latihan-uas.md) publik; naskah ujian (varian, privat) dan `mutu/` belum lengkap — lihat [KENDALI-EKSEKUSI](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) |
 
 ### [Semester 7](mata-kuliah/semester-7/) — Ganjil (Tingkat 4)
 
@@ -100,7 +100,7 @@ Seluruh materi di repositori ini — RPS, RTM, modul, lab, asesmen, buku ajar, d
 ## Struktur Repository
 
 ```
-mata-kuliah/                                          # 558 file .md
+mata-kuliah/                                          # 567 file .md
 ├── 00-kurikulum-if-2025-revisi-2026/                 # ★ Registri kurikulum resmi — 26 file
 │                                                     #   Transkripsi Revisi 2026 Kurikulum OBE IF 2025:
 │                                                     #   PL, CPL, BK, susunan MK & dosen, CPMK, Sub-CPMK,
@@ -112,9 +112,9 @@ mata-kuliah/                                          # 558 file .md
 ├── 00-meta/                                          # Kendali eksekusi, tinjauan dosen, audit & prompt — 7 file
 │                                                     #   (README.md: indeks dokumen meta)
 │
-├── semester-1/                                       # Ganjil — 61 file
+├── semester-1/                                       # Ganjil — 64 file
 │   ├── README.md                                     # Peta MK semester 1 (9 MK, 20 SKS wajib)
-│   └── probabilitas-dan-statistik/                   # IF52510033 — 60 file
+│   └── probabilitas-dan-statistik/                   # IF52510033 — 63 file
 │       ├── 00-strategic-analysis/                    # Analisis strategis
 │       ├── 01-rps/ 02-rtm/ 03-modules/               # RPS, RTM, 16 modul mingguan
 │       ├── 04-labs/                                  # 13 lab (scipy.stats, pandas)
@@ -159,15 +159,15 @@ mata-kuliah/                                          # 558 file .md
 │       ├── 06-buku-ajar/                             # Buku ajar (14 bab + pendukung)
 │       └── datasets/                                 # Panduan resource
 │
-├── semester-5/                                       # Ganjil — 121 file
+├── semester-5/                                       # Ganjil — 127 file
 │   ├── README.md                                     # Peta MK semester 5 (9 MK, 23 SKS wajib)
-│   ├── dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/   # IF52510031 — 60 file
+│   ├── dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/   # IF52510031 — 63 file
 │   │   ├── 00-strategic-analysis/                    # Analisis strategis
 │   │   ├── 01-rps/ 02-rtm/ 03-modules/               # RPS, RTM, 16 modul mingguan
 │   │   ├── 04-labs/                                  # 13 lab (scikit-learn)
 │   │   ├── 05-assessments/ 06-buku-ajar/             # Asesmen, buku ajar (14 bab + pendukung)
 │   │   └── datasets/                                 # Panduan dataset ML
-│   └── teknopreneur/                                 # ST52510002 — 60 file
+│   └── teknopreneur/                                 # ST52510002 — 63 file
 │       ├── 00-strategic-analysis/                    # Analisis strategis
 │       ├── 01-rps/ 02-rtm/ 03-modules/               # RPS, RTM, 16 modul mingguan
 │       ├── 04-labs/                                  # 13 studio (kerja lapangan, tanpa pemrograman)
@@ -205,7 +205,7 @@ mata-kuliah/                                          # 558 file .md
         └── datasets/                                 # Referensi resource
 ```
 
-**Total: 558 dokumen Markdown** di `mata-kuliah/` — mencakup referensi kurikulum, pedoman OBE, peta mata kuliah per semester, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dataset, dan arsip.
+**Total: 567 dokumen Markdown** di `mata-kuliah/` — mencakup referensi kurikulum, pedoman OBE, peta mata kuliah per semester, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dataset, dan arsip.
 
 > **Kendali eksekusi:** [`KENDALI-EKSEKUSI.md`](mata-kuliah/00-meta/KENDALI-EKSEKUSI.md) — ceklis pekerjaan yang masih terbuka, tenggat per minggu perkuliahan, dan keputusan yang ditunggu. Pilihan yang diambil saat dokumen bertentangan menunggu persetujuan dosen di [`TINJAUAN-DOSEN-2026-10.md`](mata-kuliah/00-meta/TINJAUAN-DOSEN-2026-10.md).
 >
