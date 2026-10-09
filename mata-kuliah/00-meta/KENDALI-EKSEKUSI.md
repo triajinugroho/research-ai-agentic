@@ -7,7 +7,7 @@ nama_mk: Seluruh paket mata kuliah
 prodi: Informatika
 versi: 1.0
 status: berlaku
-diperbarui: 2026-10-08
+diperbarui: 2026-10-09
 kriteria_lam: [1-budaya-mutu, 5-akuntabilitas]
 tahap_ppepp: [P3-pengendalian]
 siklus: 2026-2027-ganjil
@@ -17,7 +17,7 @@ siklus: 2026-2027-ganjil
 
 **Pemilik:** Tri Aji Nugroho, S.T., M.T. · **Sumber temuan:** [audit menyeluruh v1.3](AUDIT-MENYELURUH-2026-10.md), diverifikasi ulang terhadap `main` (`de6cfc8`) pada 7 Oktober 2026; status diperbarui 8 Oktober 2026 setelah eksekusi Tahap 0–1 (§7) · **Posisi semester:** Ganjil 2026/2027, perkiraan Minggu 5
 
-> **Cara pakai.** (1) Sebelum bekerja — manusia maupun sesi AI — baca berkas ini dan pilih butir dengan tenggat terdekat yang tidak berstatus ⏸. (2) Setelah selesai, ubah status menjadi ☑ beserta hash commit atau tanggal bukti, lalu perbarui `diperbarui:`. (3) ID tidak pernah dinomori ulang; butir baru diberi nomor berikutnya pada tahap yang sesuai. (4) Keputusan dosen dicatat di tabel §1 (tanggal + isi), lalu butir yang bergantung dilepas dari ⏸. (5) **Repositori ini publik** (D-08, 8 Okt 2026): Latihan UTS — naskah, pembahasan, cetak biru — boleh publik; naskah UTS/UAS sebenarnya (varian dari latihan), kuis, kuncinya, bank soal, dan nilai per mahasiswa tidak di-commit; tiga pasang UTS + kunci Genap 2025/2026 yang sudah ada menunggu sisa D-08.
+> **Cara pakai.** (1) Sebelum bekerja — manusia maupun sesi AI — baca berkas ini dan pilih butir dengan tenggat terdekat yang tidak berstatus ⏸. (2) Setelah selesai, ubah status menjadi ☑ beserta hash commit atau tanggal bukti, lalu perbarui `diperbarui:`. (3) ID tidak pernah dinomori ulang; butir baru diberi nomor berikutnya pada tahap yang sesuai. (4) Keputusan dosen dicatat di tabel §1 (tanggal + isi), lalu butir yang bergantung dilepas dari ⏸. (5) **Repositori ini publik** (D-08, 8–9 Okt 2026): Latihan UTS dan Latihan UAS — soal, pembahasan, cetak biru — boleh publik; naskah UTS/UAS sebenarnya (varian dari latihan), kuis, kuncinya, bank soal, dan nilai per mahasiswa tidak di-commit; tiga pasang UTS + kunci Genap 2025/2026 yang sudah ada menunggu sisa D-08.
 >
 > **Status:** ☐ terbuka (termasuk yang menunggu keputusan dosen — lihat kolom *Butuh*) · ◐ sebagian · ☑ selesai · ⏸ menunggu pihak luar (prodi, pengampu lain, dokumen resmi) · **Mg** = minggu perkuliahan.
 >
@@ -46,7 +46,7 @@ Nomor D-01 … D-06 sama dengan [audit §9](AUDIT-MENYELURUH-2026-10.md#9-keputu
 | D-05 | Urutan otoritas (Excel > registri > Pedoman > CLAUDE.md/prompt) dan skema kode asesmen (`ASM-*` vs `K-01/T-01/P-01`) | tata kelola | sebelum Mg 10 | ☐ |
 | D-06 | Metodologi Penelitian: serahkan paket ke Andi Arniaty Arsyad, Ph.D. (pengesahan RPS, rubrik, naskah UTS/UAS, kapasitas presentasi) | semester-7 | **Mg 5** | ☐ |
 | D-07 | Satu forum dengan Dr. Ir. Ade Jamal, M.T.: Dasar AI/ML ↔ JST (batas MLP Mg 13) dan ↔ Sains Data; Algoritma Pemrograman ↔ Dasar Pemrograman; Praktikum AP ↔ Praktikum DP | sem 2, 5 | JST sebelum Mg 13; lainnya sebelum Genap | ☐ |
-| D-08 | Penyimpanan naskah, kunci, bank soal, dan nilai: **usul** simpan privat (LMS/Drive/repo privat); repo publik hanya kisi-kisi, cetak biru butir, dan angka agregat. Putuskan juga nasib 3 pasang UTS + kunci Genap 2025/2026 yang sudah publik | semua | **Mg 5** | ◐ **2026-10-08:** draf UTS 3 MK terbit publik sebagai **Latihan UTS**; naskah UTS sebenarnya disusun terpisah sebagai varian (cetak biru sama, konteks/angka baru) dan privat. Sisa: lokasi penyimpanan privat, K-02 dan kuis lain, 3 pasang UTS Genap 2025/2026 |
+| D-08 | Penyimpanan naskah, kunci, bank soal, dan nilai: **usul** simpan privat (LMS/Drive/repo privat); repo publik hanya kisi-kisi, cetak biru butir, dan angka agregat. Putuskan juga nasib 3 pasang UTS + kunci Genap 2025/2026 yang sudah publik | semua | **Mg 5** | ◐ **2026-10-08:** draf UTS 3 MK terbit publik sebagai **Latihan UTS**; naskah UTS sebenarnya disusun terpisah sebagai varian (cetak biru sama, konteks/angka baru) dan privat. **2026-10-09:** berlaku juga untuk UAS (**Latihan UAS** publik, naskah UAS = varian privat). Sisa: lokasi penyimpanan privat, K-02 dan kuis lain, 3 pasang UTS Genap 2025/2026 |
 | D-09 | Dasar AI/ML: lab dikerjakan di kelas atau dilanjutkan di rumah (dasar Partisipasi 0%) | sem 5 | sebelum Mg 7 | ☐ |
 | D-10 | RPL: siapa menyelaraskan ke `IF52520011` dan apakah materi dipakai oleh pengampu registri, Dr. Ir. Winangsari Pradani, M.T. | sem 4 | sebelum Mg 17 | ☐ |
 | D-11 | Nama MK di materi `IF52520004/05`: "Algoritma Pemrograman" (registri) atau "Algoritma dan Pemrograman" (CLAUDE.md aturan 2, Pedoman §I.2) | sem 2 | sebelum Genap | ☐ |
@@ -89,7 +89,7 @@ Nomor D-01 … D-06 sama dengan [audit §9](AUDIT-MENYELURUH-2026-10.md#9-keputu
 | T1-07 | Pembanding model √(s₁²+s₂²) → selisih berpasangan per lipatan; seragamkan `ddof` · *8 lokasi* | Dasar AI/ML | Mg 9–16 | — | ☑ semua lokasi, `be5383e` + commit 8 Okt (TD-07) |
 | T1-08 | `assert` hasil kunci di setiap lab, dikalibrasi dan dicatat "diuji pada" versi pustaka Colab | Dasar AI/ML | per minggu lab | — | ◐ Lab 3–7, 9–14 ber-`assert` + "diuji pada"; sisa Lab 1–2 |
 | T1-09 | Label "data sintetis (simulasi)" pada lab yang sintetis; klaim "data nyata/BPS" hanya untuk data bersumber | Dasar AI/ML | Mg 9 | — | ☑ `1f9b410`–`be5383e` |
-| T1-10 | Naskah UAS + kunci/rubrik (privat) · *butir bertanda Sub-CPMK; ≥ C4 untuk 082-1* | 4 MK Ganjil | Mg 16 (draf Mg 14) | D-03, D-08 | ☐ |
+| T1-10 | Naskah UAS + kunci/rubrik = **varian privat** dari Latihan UAS (Dasar AI/ML, Probstat, Teknopreneur; Metodologi lewat D-06) · *cetak biru butir sama; konteks, data, angka baru; ≥ C4 untuk 082-1; uji coba berwaktu* | 4 MK Ganjil | Mg 16 (draf Mg 14) | D-03 | ◐ Latihan UAS publik 9 Okt; varian ☐ |
 | T1-11 | Urutan P-03 vs materi *model card*; sesi presentasi tambahan Mg 15; formulir kontribusi anggota kelompok | Dasar AI/ML | Mg 11 | — | ☑ `1f9b410`–`be5383e` |
 | T1-12 | Perbaikan akademik: Bloom Bab 4–5; peta level UNESCO; sitasi Kapoor & Narayanan, UNESCO [REG-9], CS2023 + AAAI; satu daftar larangan AI; "verbatim" → "diadaptasi"; TensorFlow di README/Mg 1; anchor Lampiran I | Dasar AI/ML | Mg 17 (daftar AI: Mg 7) | — | ◐ sisa: format sitasi UNESCO seragam (TD-29) |
 | T1-13 | Satu rubrik proyek; slot presentasi Mg 15 untuk dua kelas; *peer review* ≠ partisipasi; anchor Lampiran H; tag Sub-CPMK header Lab 04–11 (102-1 vs RPS 081-1) | Probstat | Mg 13 | D-03 (tag) | ◐ satu rubrik, slot Mg 15, *peer review* (TD-33–35); tag tunggu D-03 |
