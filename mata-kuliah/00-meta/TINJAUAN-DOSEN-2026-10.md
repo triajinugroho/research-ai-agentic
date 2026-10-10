@@ -8,7 +8,7 @@ prodi: Informatika
 universitas: Universitas Al Azhar Indonesia
 versi: 1.0
 status: draft
-diperbarui: 2026-10-08
+diperbarui: 2026-10-10
 kriteria_lam: [1-budaya-mutu, 5-akuntabilitas]
 tahap_ppepp: [P3-pengendalian]
 siklus: 2026-2027-ganjil
@@ -16,7 +16,7 @@ siklus: 2026-2027-ganjil
 
 # Tinjauan Dosen — Pilihan Agen yang Perlu Disetujui
 
-**Untuk:** Tri Aji Nugroho, S.T., M.T. · **Sumber:** catatan agen putaran 1–3 eksekusi dan penerbitan Latihan UTS, [KENDALI-EKSEKUSI](KENDALI-EKSEKUSI.md) (7–8 Oktober 2026), diperiksa ulang terhadap isi berkas per 8 Oktober 2026 · **Posisi semester:** Ganjil 2026/2027, ± Mg 5
+**Untuk:** Tri Aji Nugroho, S.T., M.T. · **Sumber:** catatan agen putaran 1–3 eksekusi dan penerbitan Latihan UTS/UAS, [KENDALI-EKSEKUSI](KENDALI-EKSEKUSI.md) (7–8 Oktober 2026), diperiksa ulang terhadap isi berkas per 8 Oktober 2026 · **Posisi semester:** Ganjil 2026/2027, ± Mg 5
 
 > **Cara pakai.** Setiap baris adalah pilihan yang diambil agen ketika dokumen saling bertentangan atau tugasnya ambigu. Untuk tiap baris, **setujui** (pilihan tetap) atau **ubah** (pakai alternatif atau arahan lain), lalu catat keputusan bertanggal beserta nomor TD di [KENDALI §1](KENDALI-EKSEKUSI.md#1-keputusan-yang-dibutuhkan-d); perubahan dikerjakan lewat butir kendali yang disebut. Baris bertanda **▲** menyentuh mahasiswa pada Mg 6–8 atau mengubah bobot/aturan penilaian — tinjau lebih dahulu. Butir yang sudah diselesaikan atau dibatalkan putaran berikutnya tidak dicantumkan. Keputusan per butir Latihan UTS ada di bagian "Catatan untuk dosen" pada `latihan-uts-cetak-biru.md` tiap MK; keputusan untuk draf K-02 (privat) ada di cetak biru privatnya dan tidak disalin ke sini.
 >
@@ -126,6 +126,21 @@ Draf UTS terbit sebagai Latihan UTS publik; naskah UTS sebenarnya adalah varian 
 | TD-64 | Cetak biru ketiga MK — panduan varian | Ujian susulan memakai varian kedua dengan prosedur yang sama; Dasar AI/ML dan Teknopreneur belum punya aturan susulan di AF | Tanpa varian kedua | AF Dasar AI/ML dan Teknopreneur |
 | TD-65 | Latihan UTS ketiga MK | Mahasiswa diminta mencatat menit per bagian dan, bila diminta, menyerahkannya tanpa nama (rekap agregat saja) sebagai data pelengkap uji coba | Tanpa pencatatan | Data waktu tambahan |
 | TD-66 ▲ | Latihan UTS Dasar AI/ML dan Teknopreneur | Butir C5–C6 dipertahankan (Dasar AI/ML 8 poin bertanda 082-1; Teknopreneur 33 poin 091-1 di atas rentang registri), sedangkan kisi-kisi/RPS/modul Mg 8 menyatakan cakupan lebih rendah | Turunkan butir ke C3–C4; atau selaraskan dokumen (KENDALI T0-19, T2-08) | Pernyataan cakupan UTS sebelum Mg 8 |
+
+## 8. Latihan UAS (D-08 diperluas, 9 Oktober 2026)
+
+Pola sama dengan §7: Latihan UAS publik, naskah UAS sebenarnya = varian privat (KENDALI T1-10). Rincian per butir ada di "Catatan untuk Dosen" tiap cetak biru UAS.
+
+| No. | Berkas | Pilihan yang diambil | Alternatif | Dampak bila diubah |
+|---|---|---|---|---|
+| TD-67 ▲ | Cetak biru UAS ketiga MK — prosedur mutu varian | Uji coba berwaktu Latihan UAS **sebelum Mg 14** dengan aturan TD-57. Taksiran: Dasar AI/ML 5 + ±107 menit kerja; Probstat ±113–119 menit (hitungan ketat ±118–124); Teknopreneur skenario lambat ±100 menit untuk batas 90. Teknopreneur baru pertama kali berjalan, sehingga penguji coba menjawab tentang proyek kelompok lain yang pernah mereka kerjakan | Uji coba oleh dosen penelaah; pangkas sebelum uji coba | Panjang varian UAS |
+| TD-68 ▲ | [Latihan UAS Dasar AI/ML](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/05-assessments/latihan-uas.md) C3; [Modul Mg 16](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/03-modules/week-16-uas-review-dan-ujian.md) | C3 menghitung *silhouette* dari tabel jarak (porsi Mg 11), bukan selisih berpasangan seperti contoh kisi-kisi C3; modul Mg 16 diselaraskan koordinator dengan kisi-kisi §3 (3 soal hitung) dan §5 (rumus *silhouette*). Bab 10 §10.3.2 belum memuat contoh hitung *silhouette* | Ganti C3 dengan hitungan selisih berpasangan (Mg 10 +8 poin, Mg 11 −5) | Bab 10 perlu contoh (KENDALI T1-23) |
+| TD-69 | [Cetak biru UAS Dasar AI/ML](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/05-assessments/latihan-uas-cetak-biru.md) | Baris hitung C1–C2 (C3) ditandai 102-1 agar Bloom tetap dalam rentang, sehingga 082-1 58% / 102-1 42% (registri: seluruh UAS 082-1); tabel 18 nilai log₂ ditetapkan latihan (usul disalin ke kisi-kisi §5); B(e) juga menilai validasi/penyetelan; Mg 1–7 18 poin (kisi-kisi 15) | Tandai menurut topik (73/27), tetapi ada baris 082-1 di C3 | Analisis ketercapaian; kisi-kisi §5 |
+| TD-70 ▲ | [Cetak biru UAS Probstat](../semester-1/probabilitas-dan-statistik/05-assessments/latihan-uas-cetak-biru.md) | Tiga pemangkasan yang mengubah peta latihan: C4(d) tanpa pernyataan teknisi (C4 menjadi C3), PPV C1(c) dicetak, C2 menjadi tiga sub-butir; cadangan pertama 7 pemangkasan (median s.d. ±82–83 menit). Bagian D mengikuti kisi-kisi §5 walaupun bobot uji hipotesis §3 (14%) lebih kecil; modul Mg 16 §2.4 diberi catatan acuan | Kembalikan butir; ubah kisi-kisi §2/§3 (KENDALI T1-22) | Varian UAS; pernyataan kisi-kisi |
+| TD-71 | [Pembahasan UAS Probstat](../semester-1/probabilitas-dan-statistik/05-assessments/latihan-uas-pembahasan.md) | Ketentuan skor usulan seperti Latihan UTS (kesalahan berantai, kelipatan 0,25, aturan §6 juga pada Bagian B dan D); rumus di luar daftar hafalan diterima lewat jalur penurunan (Uniform, ekor Eksponensial, Cohen's d berpasangan, σ√n, R² = r², λ = np) | Tambahkan rumus itu ke kisi-kisi §8 | Kisi-kisi UAS (T1-22) |
+| TD-72 | Cetak biru UAS Probstat dan Teknopreneur | Penandaan per butir: Probstat 77% 081-1 / 23% 102-1 (registri: seluruh UAS 081-1); Teknopreneur hanya 33 poin di C6 (registri UAI32-1 = C6) | Alokasi registri; lebih banyak butir C6 | Bahan T2-08 |
+| TD-73 ▲ | [Latihan UAS Teknopreneur](../semester-5/teknopreneur/05-assessments/latihan-uas.md) | Bagian B memakai kliping rekaan berlabel (B2); 15 sub-butir (contoh kisi-kisi ±25) agar jawaban berbukti muat 90 menit; A2(b) "langsung menerima bukti pembantah" bernilai penuh; latihan dibaca sejak Mg 5 sebagai panduan mencatat bukti, dikerjakan sesudah *Demo Day* | Bagian B hanya dari catatan tim; lebih banyak sub-butir | Varian UAS |
+| TD-74 | [Pembahasan UAS Teknopreneur](../semester-5/teknopreneur/05-assessments/latihan-uas-pembahasan.md) | Fakta yang bertentangan dengan berkas tim dinilai 0, dengan pemeriksaan sampel ≥ 10% lembar terhadap berkas tim (log keputusan, milestone, catatan pemindaian); urutan cadangan pemangkasan (i)–(v), dengan unsur pengakuan kesalahan sendiri (A1(b)) paling akhir | Tanpa pemeriksaan fakta; urutan lain | Beban penilaian UAS |
 
 **Di luar daftar (sinkronisasi tanpa pilihan):** paragraf Lab 01 di datasets/README §1.1 dan RTM Dasar AI/ML, frasa "data nyata … sejak Lab 1" di `mengapa-buku-ini`, judul Grinsztajn et al. (2022) di Modul Mg 9, dan tabel pita simpangan Bab 4 §4.4.1 sudah diselaraskan koordinator (8 Oktober 2026); status T0-01 dan klausul *golden template* dicatat di KENDALI.
 

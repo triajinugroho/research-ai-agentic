@@ -161,7 +161,7 @@ Jawaban yang menyatakan "keputusan kami sepenuhnya tepat sepanjang semester" tid
 
 Untuk berlatih tersedia simulasi lengkap UAS dengan komposisi, durasi, aturan alat bantu, dan tingkat kesulitan yang sama dengan UAS:
 
-- [Latihan UAS](latihan-uas.md) — kerjakan dalam 90 menit, *closed book*, tanpa alat bantu apa pun, tanpa AI, tanpa catatan tim, dan tanpa membuka pembahasan; paling bermanfaat sesudah *Demo Day*, tetapi soalnya dapat dibaca sejak sekarang sebagai panduan mencatat bukti;
+- [Latihan UAS](latihan-uas.md) — kerjakan dalam 90 menit, *closed book*, tanpa alat bantu apa pun, tanpa AI, tanpa catatan tim, dan tanpa membuka pembahasan; paling bermanfaat sesudah *Demo Day*, tetapi soalnya dapat dibaca kapan saja sejak terbit sebagai panduan mencatat bukti;
 - [Pembahasan dan pedoman skor](latihan-uas-pembahasan.md) — rubrik analitik per kriteria, contoh jawaban *Kurang*, *Cukup*, dan *Baik* dari tim fiktif, bukti yang semestinya dirujuk, dan kesalahan umum;
 - [Cetak biru butir dan panduan varian](latihan-uas-cetak-biru.md) — untuk dosen.
 

@@ -7,7 +7,7 @@ nama_mk: Seluruh paket mata kuliah
 prodi: Informatika
 versi: 1.0
 status: berlaku
-diperbarui: 2026-10-09
+diperbarui: 2026-10-10
 kriteria_lam: [1-budaya-mutu, 5-akuntabilitas]
 tahap_ppepp: [P3-pengendalian]
 siklus: 2026-2027-ganjil
@@ -50,7 +50,7 @@ Nomor D-01 … D-06 sama dengan [audit §9](AUDIT-MENYELURUH-2026-10.md#9-keputu
 | D-09 | Dasar AI/ML: lab dikerjakan di kelas atau dilanjutkan di rumah (dasar Partisipasi 0%) | sem 5 | sebelum Mg 7 | ☐ |
 | D-10 | RPL: siapa menyelaraskan ke `IF52520011` dan apakah materi dipakai oleh pengampu registri, Dr. Ir. Winangsari Pradani, M.T. | sem 4 | sebelum Mg 17 | ☐ |
 | D-11 | Nama MK di materi `IF52520004/05`: "Algoritma Pemrograman" (registri) atau "Algoritma dan Pemrograman" (CLAUDE.md aturan 2, Pedoman §I.2) | sem 2 | sebelum Genap | ☐ |
-| D-12 | Tinjau 66 pilihan agen di [TINJAUAN-DOSEN-2026-10](TINJAUAN-DOSEN-2026-10.md): setujui atau ubah, catat di sini dengan nomor TD | semua | baris ▲: **Mg 6**; lainnya Mg 10 | ☐ |
+| D-12 | Tinjau 74 pilihan agen di [TINJAUAN-DOSEN-2026-10](TINJAUAN-DOSEN-2026-10.md): setujui atau ubah, catat di sini dengan nomor TD | semua | baris ▲: **Mg 6**; lainnya Mg 10 | ☐ |
 
 ## 2. Tahap 0 — Darurat, sebelum UTS (Mg 5–8)
 
@@ -101,6 +101,8 @@ Nomor D-01 … D-06 sama dengan [audit §9](AUDIT-MENYELURUH-2026-10.md#9-keputu
 | T1-19 | Evaluasi PPEPP: ketercapaian Sub-CPMK/CPMK/CPL (**agregat saja** di repo), ≤ 5 tindak lanjut, tag penutup siklus | 4 MK Ganjil | Mg 17 | T1-16, F-03 | ☐ |
 | T1-20 | Lab 3: `.round()` pada skor *float* gagal di sklearn ≥ 1.7; demonstrasi kebocoran Lab 3 dan Lab 4 tidak menunjukkan efeknya · *skor bocor > Pipeline; efek pembagian berkelompok dan temporal nyata; `assert`* | Dasar AI/ML | crash: segera; demo: sebelum Ganjil 2027/2028 | — | ☑ `1f9b410`–`be5383e` |
 | T1-21 | Modul Mg 10 dan Lampiran: `SVC(probability=True)` memicu *FutureWarning* di scikit-learn 1.9 (parameter dihapus di 1.11) · *ROC-AUC via `decision_function`, seperti Lab 10* | Dasar AI/ML | Mg 10 | — | ☐ |
+| T1-22 | Kisi-kisi UAS Probstat: §3 (bobot uji hipotesis) vs kerangka Bagian D §5, rumus tambahan §8, ketentuan skor §6; lalu modul Mg 16 §2.4 dan Strategi mengikuti kisi-kisi dan model waktu Latihan UAS (TD-70, TD-71) | Probstat | Mg 13 | D-12 | ☐ |
+| T1-23 | Bab 10 §10.3.2: satu contoh hitung *silhouette* dari tabel jarak, dasar butir C3 Latihan UAS (TD-68) | Dasar AI/ML | Mg 11 | D-12 | ☐ |
 
 ## 4. Tahap 2 — Sebelum Genap 2026/2027 (± Februari 2027)
 
@@ -154,7 +156,8 @@ Nomor D-01 … D-06 sama dengan [audit §9](AUDIT-MENYELURUH-2026-10.md#9-keputu
 | 2026-10-07 | Laporan audit v1.3 dan berkas kendali ini | `f0f980c`, `e9f785c` |
 | 2026-10-08 | Eksekusi Tahap 0–1 (17 editor + verifikasi adversarial 2 putaran + kritikus): Lab 3–7, 9–14 dan dokumen Dasar AI/ML, Probstat, Teknopreneur, RPL T2-12, meta, validator | `1f9b410`, `5892c13`, `be5383e` |
 | 2026-10-08 | Tindak lanjut kritikus (pembanding berpasangan, *fairness*, sanksi, label data), [TINJAUAN-DOSEN](TINJAUAN-DOSEN-2026-10.md), *baseline* dan dokumentasi validator; draf naskah UTS 3 MK + K-02 diserahkan privat | `5ffd5d5`, `4130df1` |
-| 2026-10-08 | D-08 sebagian: draf UTS 3 MK terbit sebagai Latihan UTS (naskah, pembahasan, cetak biru + panduan varian) | *(commit ini)* |
+| 2026-10-08 | D-08 sebagian: draf UTS 3 MK terbit sebagai Latihan UTS (naskah, pembahasan, cetak biru + panduan varian) | `3e08bee` |
+| 2026-10-10 | Latihan UAS 3 MK (soal, pembahasan, cetak biru + panduan varian; disusun baru, verifikasi adversarial 3 putaran) dan rujukan sampai UAS | *(commit ini)* |
 
 ---
 

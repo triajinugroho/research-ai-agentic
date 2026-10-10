@@ -163,7 +163,7 @@ Data: 480.000 pesanan COD selama 18 bulan (Januari 2025–Juni 2026) dari ±150.
 
 - **(a)** Rumuskan *task*-nya: target (peristiwa yang dihitung dan batas waktu pengamatannya), jenis *task*, dan **kapan** prediksi dibutuhkan. **[C6 · 2,5 poin]**
 - **(b)** Analisislah kolom yang tersedia, lalu tentukan **dua** kolom yang tidak boleh dipakai sebagai fitur karena menimbulkan kebocoran data (*data leakage*), beserta alasannya. **[C4 · 2,5 poin]**
-- **(c)** Bandingkan dampak kedua jenis kesalahan model pada kasus ini, lalu tentukan metrik evaluasi yang sesuai dengan perbandingan itu. **[C4 · 2,5 poin]**
+- **(c)** Analisislah kerugian akibat kedua jenis kesalahan model pada kasus ini dan mana yang lebih berat, lalu tentukan metrik evaluasi yang mencerminkan hasil analisis itu. **[C4 · 2,5 poin]**
 - **(d)** Pilih minimal tiga model kandidat, dan beri argumentasi pemilihan masing-masing yang dikaitkan dengan sifat data atau kebutuhan kasus ini. **[C5 · 4,5 poin]**
 - **(e)** Rancang protokol evaluasi yang adil: cara membagi data beserta alasannya (termasuk pemakaian data uji), cara memvalidasi dan menyetel hiperparameter, cara membandingkan kandidat, dan *baseline* yang paling bermakna untuk kasus ini. **[C6 · 5,5 poin]**
 - **(f)** Nilailah dua risiko etis penerapan model ini — siapa yang dirugikan dan bagaimana — lalu tetapkan cara menangani masing-masing. **[C5 · 5 poin]**

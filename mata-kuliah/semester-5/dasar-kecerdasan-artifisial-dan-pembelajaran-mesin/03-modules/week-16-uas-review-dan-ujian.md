@@ -74,7 +74,7 @@ Dikerjakan bersama sebelum ujian:
 
 1. **Perancangan solusi:** diberikan deskripsi masalah nyata, rancang solusi ML lengkap — formulasi, data yang dibutuhkan, model kandidat, protokol evaluasi, metrik, dan risiko. *(2 kasus)*
 2. **Pemilihan model:** diberikan ciri data dan kebutuhan, tentukan model yang sesuai beserta alasannya. *(4 kasus)*
-3. **Perhitungan manual:** *entropy* dan *information gain*; satu langkah maju-mundur JST; *silhouette* dari tabel jarak. *(3 soal)*
+3. **Perhitungan manual:** *entropy* dan *information gain*; satu langkah maju-mundur JST; *silhouette* dari tabel jarak (rumusnya ada di lembar rumus). *(3 soal)*
 4. **Diagnosis:** dari kurva pembelajaran dan tabel hasil, tentukan kondisi model dan tindakannya. *(3 kasus)*
 5. **Etika:** diberikan tabel kinerja per kelompok, analisis ketimpangannya dan usulkan tindakan. *(1 kasus)*
 

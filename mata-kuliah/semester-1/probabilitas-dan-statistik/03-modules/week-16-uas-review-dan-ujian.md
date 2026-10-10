@@ -136,6 +136,8 @@ Rincian per butir ada pada [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md).
 
 ### 2.4 Bentuk Soal Studi Kasus Terpadu (Bagian D)
 
+> **Acuan yang berlaku:** bila rincian di bawah berbeda dengan [kisi-kisi UAS §5](../05-assessments/kisi-kisi-uas.md#5-bentuk-soal-studi-kasus-terpadu-bagian-d--25) dan [Latihan UAS](../05-assessments/latihan-uas.md), yang dipakai adalah kisi-kisi §5. Penyelarasan teks modul ini menunggu keputusan dosen (KENDALI `T1-22`).
+
 Satu skenario Informatika yang menuntut rangkaian keputusan:
 
 1. Menentukan jenis dan skala data.
