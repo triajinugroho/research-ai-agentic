@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Probabilitas dan Statistika, Bagian 14: Statistika Nonparametrik</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-lg:20px;--r:14px;--r-sm:10px;
+  --g-blue:#4285f4;--g-red:#ea4335;--g-yellow:#fbbc04;--g-green:#34a853;--g-purple:#a142f4;
+  --blue:#1a73e8;--on-blue:#ffffff;--blue-c:#e8f0fe;--on-blue-c:#174ea6;
+  --red:#d93025;--on-red:#ffffff;--red-c:#fce8e6;--on-red-c:#a50e0e;
+  --yellow:#fbbc04;--on-yellow:#202124;--yellow-c:#fef7e0;--on-yellow-c:#5b4200;
+  --green:#188038;--on-green:#ffffff;--green-c:#e6f4ea;--on-green-c:#0d652d;
+  --purple:#9334e6;--on-purple:#ffffff;--purple-c:#f3e8fd;--on-purple-c:#6a1b9a;
+  --bg:#f3f5f9;--surface:#ffffff;--surf-1:#eef1f6;--surf-2:#e3e8f0;--surf-3:#d3dae5;
+  --text:#1a2233;--text-2:#566074;--outline:#8590a3;--outline-v:#dde3ec;
+  --primary:var(--blue);--on-primary:var(--on-blue);--primary-c:var(--blue-c);--on-primary-c:var(--on-blue-c);
+  --sec-c:var(--green-c);--on-sec-c:var(--on-green-c);--ok:var(--green);
+  --warn-c:var(--yellow-c);--on-warn-c:var(--on-yellow-c);
+  --err:var(--red);--err-c:var(--red-c);--on-err-c:var(--on-red-c);
+  --acc:var(--blue);--on-acc:var(--on-blue);--acc-c:var(--blue-c);--on-acc-c:var(--on-blue-c);
+  --shadow:0 1px 2px rgba(20,32,60,.06),0 4px 14px rgba(20,32,60,.08);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--g-blue:#8ab4f8;--g-red:#f28b82;--g-yellow:#fdd663;--g-green:#81c995;--g-purple:#d7aefb;
+  --blue:#8ab4f8;--on-blue:#0b1b3a;--blue-c:#1e3a6e;--on-blue-c:#d2e3fc;
+  --red:#f28b82;--on-red:#3b0a07;--red-c:#5c2b29;--on-red-c:#fad2cf;
+  --yellow:#fdd663;--on-yellow:#2b2100;--yellow-c:#4d3b00;--on-yellow-c:#fde293;
+  --green:#81c995;--on-green:#0b2d16;--green-c:#1e4620;--on-green-c:#ceead6;
+  --purple:#d7aefb;--on-purple:#2c0b45;--purple-c:#3f2a5b;--on-purple-c:#ead1fb;
+  --bg:#0e1421;--surface:#151d2d;--surf-1:#1b2436;--surf-2:#232e43;--surf-3:#2f3b54;
+  --text:#e7ebf3;--text-2:#a9b4c7;--outline:#74809a;--outline-v:#2a3550;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.28);color-scheme:dark;}}
+:root[data-theme="dark"]{--g-blue:#8ab4f8;--g-red:#f28b82;--g-yellow:#fdd663;--g-green:#81c995;--g-purple:#d7aefb;
+  --blue:#8ab4f8;--on-blue:#0b1b3a;--blue-c:#1e3a6e;--on-blue-c:#d2e3fc;
+  --red:#f28b82;--on-red:#3b0a07;--red-c:#5c2b29;--on-red-c:#fad2cf;
+  --yellow:#fdd663;--on-yellow:#2b2100;--yellow-c:#4d3b00;--on-yellow-c:#fde293;
+  --green:#81c995;--on-green:#0b2d16;--green-c:#1e4620;--on-green-c:#ceead6;
+  --purple:#d7aefb;--on-purple:#2c0b45;--purple-c:#3f2a5b;--on-purple-c:#ead1fb;
+  --bg:#0e1421;--surface:#151d2d;--surf-1:#1b2436;--surf-2:#232e43;--surf-3:#2f3b54;
+  --text:#e7ebf3;--text-2:#a9b4c7;--outline:#74809a;--outline-v:#2a3550;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.28);color-scheme:dark;}
+
+.c-blue{--acc:var(--blue);--on-acc:var(--on-blue);--acc-c:var(--blue-c);--on-acc-c:var(--on-blue-c)}
+.c-red{--acc:var(--red);--on-acc:var(--on-red);--acc-c:var(--red-c);--on-acc-c:var(--on-red-c)}
+.c-yellow{--acc:var(--yellow);--on-acc:var(--on-yellow);--acc-c:var(--yellow-c);--on-acc-c:var(--on-yellow-c)}
+.c-green{--acc:var(--green);--on-acc:var(--on-green);--acc-c:var(--green-c);--on-acc-c:var(--on-green-c)}
+.c-purple{--acc:var(--purple);--on-acc:var(--on-purple);--acc-c:var(--purple-c);--on-acc-c:var(--on-purple-c)}
+
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(130px + env(safe-area-inset-top,0px));scroll-behavior:smooth;font-size:16px}
+html[data-mode="kelas"]{font-size:19px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.62;-webkit-text-size-adjust:100%;overflow-wrap:anywhere}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .5rem;font-weight:500;letter-spacing:0}
+h1{font-size:clamp(1.8rem,5.6vw,2.7rem);font-weight:500}
+h2{font-size:1.5rem;font-weight:500}
+h3{font-size:1.05rem}
+p{margin:.35rem 0 .8rem}
+a{color:var(--blue)}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--g-blue);outline-offset:2px;border-radius:6px}
+.wrap{max-width:940px;margin:0 auto;padding:0 16px}
+
+/* ikon SVG inline */
+.ic{width:1.25em;height:1.25em;vertical-align:-.26em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hi{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--acc);color:var(--on-acc);flex:none}
+.hi .ic{width:19px;height:19px;vertical-align:0}
+
+/* app bar */
+.appbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--surface);border-bottom:1px solid var(--outline-v)}
+.appbar .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:500;min-width:0}
+.logo{flex:none;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;position:relative;overflow:hidden;background:conic-gradient(var(--g-blue) 0 25%,var(--g-red) 0 50%,var(--g-yellow) 0 75%,var(--g-green) 0)}
+.logo::after{content:"Σ";position:absolute;inset:4px;border-radius:8px;background:var(--surface);color:var(--text);display:grid;place-items:center;font-weight:700;font-size:1.05rem}
+.brand-t{overflow-wrap:normal;word-break:normal;font-size:.9rem;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.brand-t small{color:var(--text-2);font-weight:400}
+.spacer{flex:1}
+.seg{display:inline-flex;border:1px solid var(--outline);border-radius:999px;overflow:hidden;flex:none;max-width:100%}
+.seg button{border:0;background:transparent;color:var(--text);padding:7px 12px;font-size:.82rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;white-space:normal;text-align:center}
+.seg button+button{border-left:1px solid var(--outline)}
+.seg button[aria-pressed="true"]{background:var(--acc-c);color:var(--on-acc-c);font-weight:500}
+.icon-btn{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--text);cursor:pointer;display:grid;place-items:center}
+.icon-btn:hover{background:var(--surf-2)}
+.progress{height:4px;background:var(--surf-2)}
+.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--g-blue),var(--g-red),var(--g-yellow),var(--g-green));transition:width .5s}
+.nav{position:sticky;top:calc(60px + env(safe-area-inset-top,0px));z-index:25;background:var(--bg);border-bottom:1px solid var(--outline-v)}
+.nav-scroll{display:flex;gap:8px;overflow-x:auto;padding:8px 0;scrollbar-width:none}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;color:var(--text);border:1px solid var(--outline-v);border-radius:999px;padding:5px 13px 5px 10px;font-size:.84rem;display:inline-flex;gap:7px;align-items:center;background:var(--surface)}
+.nav a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.nav a.on{background:var(--acc-c);color:var(--on-acc-c);border-color:var(--acc);font-weight:500}
+.nav a.done::after{content:"✓";color:var(--green);font-weight:700}
+.kelasbar{display:none;background:var(--yellow-c);color:var(--on-yellow-c);font-size:.88rem}
+.kelasbar .wrap{display:flex;gap:10px;align-items:center;justify-content:space-between;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
+body[data-mode="kelas"] .kelasbar{display:block}
+
+@media (max-width:560px){.seg button[aria-pressed="false"] .lbl{display:none}.seg button{padding:7px 10px}.appbar .wrap{gap:8px}}
+@media (max-width:430px){.brand-t{font-size:.8rem}.brand-t small{display:none}}
+@media (max-width:350px){.logo{display:none}}
+/* hero + identitas */
+.hero{padding:22px 0 6px}
+.brandline{display:flex;gap:10px;align-items:flex-start;flex-wrap:nowrap;color:var(--text-2);font-size:.9rem;margin-bottom:10px}
+.brandline .hi{background:var(--blue-c);color:var(--on-blue-c)}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center}
+@media (max-width:780px){.hero-grid{grid-template-columns:1fr}}
+.eyebrow{color:var(--blue);font-size:1rem;font-weight:500;margin:0 0 .3rem}
+.lead{font-size:1.08rem;color:var(--text-2);max-width:36rem}
+.hero-art{width:100%;height:auto;background:var(--surface);border:1px solid var(--outline-v);border-radius:24px;box-shadow:var(--shadow)}
+.hero-art .dot{opacity:.4}
+.hero-art .dot.p{opacity:1;animation:pulse 3.6s ease-in-out infinite;animation-delay:var(--d);transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5}35%{transform:scale(2);opacity:1}}
+.idgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.idgrid .idt b{font-size:.92rem}
+.idt{border-radius:14px;padding:8px 12px;background:var(--acc-c);color:var(--on-acc-c)}
+.idt span{display:block;font-size:.76rem;opacity:.85}
+.idt b{font-weight:500;font-size:.98rem}
+.lecturer{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--outline-v);border-radius:16px;padding:10px 14px;margin:10px 0}
+.avatar{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:500;color:#fff;background:conic-gradient(from 40deg,var(--g-blue),var(--g-green),var(--g-yellow),var(--g-red),var(--g-blue))}
+.avatar b{width:38px;height:38px;border-radius:50%;background:var(--surface);color:var(--text);display:grid;place-items:center;font-size:.95rem}
+.lecturer small{color:var(--text-2);display:block}
+.weeks{display:grid;grid-template-columns:repeat(16,1fr);gap:4px;margin:12px 0 4px}
+.weeks i{height:10px;border-radius:5px;background:var(--surf-3)}
+.weeks i.now{background:linear-gradient(90deg,var(--g-blue),var(--g-green));animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.55}}
+.greet{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.greet input{max-width:260px}
+.greet .hello{font-weight:500;color:var(--green)}
+
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.pill{font-size:.8rem;border-radius:999px;padding:4px 12px;background:var(--surf-2);color:var(--text)}
+.pill:nth-child(1){background:var(--blue-c);color:var(--on-blue-c)}
+.pill:nth-child(2){background:var(--red-c);color:var(--on-red-c)}
+.pill:nth-child(3){background:var(--green-c);color:var(--on-green-c)}
+.hero-grid{align-items:start}
+.hero-art{position:sticky;top:130px}
+/* kamus, panel kelas, penjelasan istilah */
+.gloss{font-size:.88rem;margin:6px 0 10px;padding:7px 11px;border-radius:10px;background:rgba(127,127,127,.16)}
+details.card{padding:0;margin:0 0 14px}
+details.card>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 18px}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary::after{content:"+";margin-left:auto;font-size:1.4rem;line-height:1;color:var(--text-2)}
+details.card[open]>summary::after{content:"−"}
+details.card>*:not(summary){margin-left:18px;margin-right:18px}
+details.card>*:last-child{margin-bottom:16px}
+.gloss-card{border-top:5px solid var(--g-yellow)}
+.classpanel{border-top:5px solid var(--purple)}
+#gloss-q{margin:4px 18px 10px;width:calc(100% - 36px)}
+#gloss-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top:0;margin-bottom:14px;max-height:420px;overflow:auto}
+@media (max-width:700px){#gloss-list{grid-template-columns:1fr}}
+#gloss-list div{padding:6px 0;border-bottom:1px solid var(--outline-v)}
+#gloss-list dt{font-weight:500;color:var(--on-blue-c)}
+#gloss-list dd{margin:2px 0 0;font-size:.92rem;color:var(--text)}
+.stepbtns{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chosen{margin:10px 0;padding-left:0;list-style:none;counter-reset:m}
+.chosen li{counter-increment:m;padding:8px 12px 8px 44px;margin:0 0 6px;border-radius:12px;background:var(--green-c);color:var(--on-green-c);position:relative;animation:slide .35s ease-out}
+.chosen li::before{content:counter(m);position:absolute;left:10px;top:7px;width:24px;height:24px;border-radius:50%;background:var(--green);color:var(--on-green);display:grid;place-items:center;font-size:.8rem;font-weight:500}
+@keyframes slide{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+.shake{animation:shake .4s}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.a-back{animation:back 7s ease-in-out infinite}
+@keyframes back{0%,8%{transform:translateX(0)}20%,30%{transform:translateX(-40px)}42%,52%{transform:translateX(-80px)}64%,74%{transform:translateX(-120px)}86%,100%{transform:translateX(-160px)}}
+.kv{display:grid;grid-template-columns:1fr;margin:8px 0 0}
+.kv>div{padding:9px 0;border-bottom:1px solid var(--outline-v)}
+.kv dt{font-weight:500;color:var(--on-acc-c)}
+.kv dd{margin:2px 0 0}
+@media (min-width:720px){.kv>div{display:grid;grid-template-columns:200px 1fr;gap:12px}.kv dd{margin:0}}
+/* kartu info */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media (max-width:840px){.grid3{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--outline-v);border-radius:18px;padding:16px 18px}
+.card.top{border-top:5px solid var(--acc)}
+.card h3{display:flex;align-items:center;gap:10px}
+.card ul{margin:.3rem 0 0;padding-left:1.15rem}
+.card li{margin:.25rem 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border-bottom:1px solid var(--outline-v);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-weight:500;color:var(--on-acc-c);background:var(--acc-c)}
+.tscroll{overflow-x:auto;border:1px solid var(--outline-v);border-radius:12px}
+.tscroll table{min-width:520px}
+.tscroll table.nw td,.tscroll table.nw th{white-space:nowrap}
+.tscroll table.nw{min-width:0}
+
+/* seksi */
+.sec,#quiz-wrap{scroll-margin-top:124px}
+.sec{margin:38px 0}
+.sec-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.num{flex:none;min-width:56px;height:56px;border-radius:18px;background:var(--acc);color:var(--on-acc);display:grid;place-items:center;font-weight:500;font-size:1.1rem;padding:0 6px;box-shadow:var(--shadow)}
+.sec-head .sub{color:var(--text-2);margin:0;font-size:.95rem}
+.time{margin-left:auto;flex:none;font-size:.8rem;color:var(--on-acc-c);background:var(--acc-c);border-radius:999px;padding:3px 11px;white-space:nowrap}
+.blk{border-radius:18px;padding:16px 18px;margin:0 0 14px;background:var(--surface);border:1px solid var(--outline-v)}
+.blk>h3{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.when{font-size:.74rem;font-weight:400;border-radius:999px;padding:2px 10px;background:var(--surf-2);color:var(--text-2)}
+.blk.why{background:var(--acc-c);color:var(--on-acc-c);border-color:transparent}
+.blk.why .when{background:rgba(127,127,127,.22);color:inherit}
+.blk.eli5{--acc:var(--blue);--on-acc:var(--on-blue);background:var(--blue-c);color:var(--on-blue-c);border-color:transparent}
+.blk.analogy{--acc:var(--green);--on-acc:var(--on-green);background:var(--green-c);color:var(--on-green-c);border-color:transparent}
+.blk.eli5 .when,.blk.analogy .when{background:rgba(127,127,127,.22);color:inherit}
+.patah{margin-top:10px;background:var(--yellow-c);color:var(--on-yellow-c);border-radius:12px;padding:10px 14px;font-size:.93rem;border-left:5px solid var(--yellow)}
+.blk.try{border:2px solid var(--acc);box-shadow:var(--shadow)}
+.blk.try>h3 .when{background:var(--acc);color:var(--on-acc)}
+.blk.formal{background:var(--surface)}
+.blk.cek{background:var(--surf-1);border-color:transparent}
+.lens{border-radius:18px;padding:14px 18px;background:var(--purple-c);color:var(--on-purple-c);margin:0 0 14px}
+.lens h4{display:flex;gap:10px;align-items:center;font-size:1rem;margin-bottom:.4rem}
+.lens .hi{background:var(--purple);color:var(--on-purple)}
+.lens dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.93rem}
+.lens dt{font-weight:500}
+.lens dd{margin:0}
+@media (max-width:560px){.lens dl{grid-template-columns:1fr}.lens dt{margin-top:6px}}
+.blkflex{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.blkflex>div{flex:1;min-width:240px}
+.art{flex:none;width:220px;max-width:100%;height:auto;border-radius:16px;background:var(--surface);border:1px solid rgba(127,127,127,.25)}
+@media (max-width:560px){.art{width:100%;max-width:300px;margin:0 auto}}
+body[data-mode="kelas"] .learn-only{display:none!important}
+body[data-mode="belajar"] .kelas-only{display:none!important}
+
+/* tombol */
+.btn{border:0;border-radius:999px;padding:10px 20px;font-size:.92rem;font-weight:500;cursor:pointer;background:var(--acc);color:var(--on-acc);display:inline-flex;align-items:center;gap:8px;min-height:40px}
+.btn:hover:not(:disabled){filter:brightness(1.07);box-shadow:var(--shadow)}
+.btn:active:not(:disabled){transform:scale(.97)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.tonal{background:var(--acc-c);color:var(--on-acc-c)}
+.btn.line{background:transparent;color:var(--on-acc-c);border:1.5px solid var(--acc)}
+.btn.small{padding:6px 14px;font-size:.85rem;min-height:34px}
+.btn.b-blue{--acc:var(--blue);--on-acc:var(--on-blue);--acc-c:var(--blue-c);--on-acc-c:var(--on-blue-c)}
+.btn.b-green{--acc:var(--green);--on-acc:var(--on-green);--acc-c:var(--green-c);--on-acc-c:var(--on-green-c)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+.chipset{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--outline);background:var(--surface);color:var(--text);border-radius:10px;padding:6px 14px;font-size:.88rem;cursor:pointer;min-height:36px}
+.chip[aria-pressed="true"]{background:var(--acc);color:var(--on-acc);border-color:transparent;font-weight:500}
+.chip:disabled{opacity:.5;cursor:default}
+
+/* MCQ */
+.mcq{margin:6px 0 10px}
+.mcq .stem{font-weight:500;margin:0 0 10px;font-size:1.02rem}
+.qmeta{font-size:.82rem;color:var(--text-2);margin:0 0 6px}
+.confrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px;font-size:.88rem;color:var(--text-2)}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--surface);color:var(--text);border:1.5px solid var(--outline-v);border-radius:14px;padding:12px 14px;font-size:.98rem;cursor:pointer;margin:0 0 8px;line-height:1.5}
+.opt:hover:not(:disabled){background:var(--surf-1);border-color:var(--acc)}
+.opt:disabled{cursor:default}
+.opt .letter{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--acc-c);color:var(--on-acc-c);font-size:.82rem;font-weight:500}
+.opt.ok{border-color:var(--green);background:var(--green-c);color:var(--on-green-c)}
+.opt.ok .letter{background:var(--green);color:var(--on-green)}
+.opt.bad{border-color:var(--red);background:var(--red-c);color:var(--on-red-c)}
+.opt.bad .letter{background:var(--red);color:var(--on-red)}
+.opt.dim{opacity:.72}
+.fbk{margin:10px 0 4px;border-radius:14px;padding:12px 14px;background:var(--surf-1);font-size:.93rem}
+.fbk .verdict{font-weight:500;font-size:1rem;margin:0 0 6px}
+.fbk .verdict.ok{color:var(--green)}
+.fbk .verdict.bad{color:var(--red)}
+.fbk ul{list-style:none;margin:0;padding:0}
+.fbk li{padding:8px 0;border-top:1px solid var(--outline-v)}
+.fbk li:first-child{border-top:0}
+.fbk .lt{font-weight:500}
+.tagmis{display:inline-block;font-size:.76rem;background:var(--yellow);color:var(--on-yellow);border-radius:999px;padding:1px 10px;margin-left:6px}
+.hintbox{margin:0 0 10px;padding:8px 12px;border-radius:10px;background:var(--yellow-c);color:var(--on-yellow-c);font-size:.9rem;border-left:5px solid var(--yellow)}
+
+/* peta */
+.mmwrap{overflow-x:auto;border:1px solid var(--outline-v);border-radius:16px;background:var(--surface);padding:8px}
+.mm-link{fill:none;stroke:var(--outline);stroke-width:1.5;opacity:.55}
+.mm-node{cursor:pointer}
+.mm-node text{font-family:var(--font);font-size:12px;dominant-baseline:middle}
+.mm-node.k-red{--x:var(--red);--ox:var(--on-red);--xc:var(--red-c);--oxc:var(--on-red-c)}
+.mm-node.k-yellow{--x:var(--yellow);--ox:var(--on-yellow);--xc:var(--yellow-c);--oxc:var(--on-yellow-c)}
+.mm-node.k-green{--x:var(--green);--ox:var(--on-green);--xc:var(--green-c);--oxc:var(--on-green-c)}
+.mm-node.k-purple{--x:var(--purple);--ox:var(--on-purple);--xc:var(--purple-c);--oxc:var(--on-purple-c)}
+.mm-node.k-blue{--x:var(--blue);--ox:var(--on-blue);--xc:var(--blue-c);--oxc:var(--on-blue-c)}
+.mm-node.n0 rect{fill:var(--blue)}.mm-node.n0 text{fill:var(--on-blue);font-weight:500}
+.mm-node.n1 rect{fill:var(--text)}.mm-node.n1 text{fill:var(--bg);font-weight:500}
+.mm-node.n2 rect{fill:var(--x)}.mm-node.n2 text{fill:var(--ox);font-weight:500}
+.mm-node.n3 rect{fill:var(--xc);stroke:var(--x);stroke-width:1.2}.mm-node.n3 text{fill:var(--oxc)}
+.mm-node.dim{opacity:.5;cursor:default}
+.mm-node:hover:not(.dim) rect{stroke:var(--text);stroke-width:2}
+.mm-node:focus-visible rect{stroke:var(--text);stroke-width:3}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:.8rem;color:var(--text-2);margin:8px 0}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:5px;vertical-align:-1px}
+
+/* kartu geser A */
+.swipe{max-width:560px;margin:0 auto}
+.scard{background:var(--acc-c);color:var(--on-acc-c);border-radius:24px;padding:24px 20px;font-size:1.08rem;min-height:120px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.55}
+.swipe .btnrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.swipe .btnrow .btn{justify-content:center;padding:14px}
+.dots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.dots i{width:11px;height:11px;border-radius:50%;background:var(--surf-3)}
+.dots i.ok{background:var(--g-green)}.dots i.bad{background:var(--g-red)}.dots i.cur{outline:2px solid var(--blue);outline-offset:2px}
+
+/* zona skala B */
+.zonegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
+@media (max-width:760px){.zonegrid{grid-template-columns:1fr 1fr}}
+.zone{border:2.5px dashed var(--outline);border-radius:16px;padding:8px;min-height:130px;background:var(--surface);cursor:pointer}
+.zone h4{margin:2px 4px 2px;font-size:.95rem}
+.zone .zs{margin:0 4px 6px;font-size:.76rem;color:var(--text-2)}
+.zone.z-nominal{border-color:var(--g-blue);background:var(--blue-c);color:var(--on-blue-c)}
+.zone.z-ordinal{border-color:var(--g-green);background:var(--green-c);color:var(--on-green-c)}
+.zone.z-interval{border-color:var(--g-yellow);background:var(--yellow-c);color:var(--on-yellow-c)}
+.zone.z-rasio{border-color:var(--g-red);background:var(--red-c);color:var(--on-red-c)}
+.zone .zs{color:inherit;opacity:.8}
+.zone.target{filter:brightness(.96)}
+.pool{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border-radius:16px;background:var(--surf-1);min-height:56px}
+.vc{border:1.5px solid var(--outline);background:var(--surface);color:var(--text);border-radius:10px;padding:6px 10px;font-size:.86rem;cursor:grab;margin:3px;text-align:left}
+.vc.sel{outline:3px solid var(--blue);background:var(--blue-c);color:var(--on-blue-c)}
+.vc.ok{border-color:var(--green);background:var(--green-c);color:var(--on-green-c)}
+.vc.bad{border-color:var(--red);background:var(--red-c);color:var(--on-red-c)}
+.infobox{margin:10px 0;padding:10px 14px;border-radius:12px;background:var(--surf-1);font-size:.92rem;border-left:5px solid var(--acc)}
+.toolq{display:grid;gap:8px}
+.toolq .qrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolq .qrow.off{opacity:.4}
+.result{font-weight:500;font-size:1.05rem;margin-top:6px}
+
+/* mesin sampel C */
+.popsvg{width:100%;height:auto;background:var(--surface);border:1px solid var(--outline-v);border-radius:16px;display:block}
+.plotsvg{width:100%;height:auto;background:var(--surface);border:1px solid var(--outline-v);border-radius:16px;display:block}
+.plotsvg text{fill:var(--text-2);font-family:var(--font);font-size:11px}
+.gradbar{height:10px;border-radius:6px;background:linear-gradient(90deg,#ea4335,#fbbc04,#34a853,#4285f4);margin:6px 0 2px}
+.gradlab{display:flex;justify-content:space-between;font-size:.76rem;color:var(--text-2)}
+.readout{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.stat{flex:1;min-width:130px;border-radius:14px;padding:8px 12px;background:var(--surf-1)}
+.stat:nth-child(1){background:var(--blue-c);color:var(--on-blue-c)}
+.stat:nth-child(2){background:var(--yellow-c);color:var(--on-yellow-c)}
+.stat:nth-child(3){background:var(--red-c);color:var(--on-red-c)}
+.stat:nth-child(4){background:var(--green-c);color:var(--on-green-c)}
+.stat b{display:block;font-size:1.35rem;font-weight:500}
+.stat span{font-size:.8rem;opacity:.9}
+.lg{display:flex;flex-wrap:wrap;gap:8px;font-size:.8rem;margin:6px 0}
+.lg span{display:inline-flex;align-items:center;gap:6px;background:var(--surf-1);border-radius:999px;padding:2px 10px}
+.lg i{width:10px;height:10px;border-radius:50%}
+
+/* form */
+textarea,select,input[type=text]{box-sizing:border-box;width:100%;font:inherit;font-size:.96rem;color:var(--text);background:var(--surface);border:1.5px solid var(--outline);border-radius:12px;padding:10px 12px}
+textarea:focus,select:focus,input[type=text]:focus{border-color:var(--blue)}
+textarea{min-height:110px;resize:vertical}
+label.chk{display:flex;gap:10px;align-items:flex-start;margin:6px 0;font-size:.94rem;cursor:pointer}
+label.chk input{margin-top:4px;width:18px;height:18px;accent-color:var(--blue)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.step3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:760px){.step3{grid-template-columns:1fr}}
+.kasus{background:var(--acc-c);color:var(--on-acc-c);border-radius:16px;padding:14px 16px;margin:8px 0 12px}
+.qrow2{display:grid;grid-template-columns:1fr 1.3fr;gap:10px;align-items:center;margin:8px 0}
+@media (max-width:680px){.qrow2{grid-template-columns:1fr}}
+.qrow2 .rs{grid-column:1/-1;font-size:.9rem;padding:6px 10px;border-radius:8px}
+.rs.ok{background:var(--green-c);color:var(--on-green-c)}.rs.bad{background:var(--red-c);color:var(--on-red-c)}
+
+/* kuis */
+.tiers{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.tier{font-size:.8rem;border-radius:999px;padding:3px 12px;border:1px solid rgba(127,127,127,.35)}
+.tier.t1{background:var(--blue-c);color:var(--on-blue-c)}.tier.t2{background:var(--green-c);color:var(--on-green-c)}
+.tier.t3{background:var(--yellow-c);color:var(--on-yellow-c)}.tier.t4{background:var(--red-c);color:var(--on-red-c)}
+.qz-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.qz-kode{font-size:.82rem;color:var(--on-acc-c);background:var(--acc-c);border-radius:999px;padding:3px 12px}
+.qdots{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 14px}
+.qdots button{width:28px;height:28px;border-radius:9px;border:1.5px solid var(--outline-v);background:var(--surface);color:var(--text-2);font-size:.74rem;cursor:pointer;padding:0}
+.qdots button.ok{background:var(--green);color:var(--on-green);border-color:transparent}
+.qdots button.bad{background:var(--red);color:var(--on-red);border-color:transparent}
+.qdots button.cur{outline:2px solid var(--blue);outline-offset:2px}
+.tierbadge{display:inline-block;border-radius:999px;padding:1px 10px;font-size:.78rem;margin-left:6px}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
+@media (max-width:640px){.res-grid{grid-template-columns:1fr 1fr}}
+.big{font-size:2rem;font-weight:500;line-height:1.1}
+.bar{height:9px;border-radius:999px;background:var(--surf-3);overflow:hidden;margin-top:6px}
+.bar>i{display:block;height:100%;background:var(--g-green);transition:width .6s}
+.review{border-top:1px solid var(--outline-v);padding:10px 0}
+.qbanner{display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-radius:18px;background:var(--acc-c);color:var(--on-acc-c);padding:14px 16px;margin-bottom:12px}
+.qbanner>div{flex:1;min-width:220px}
+.qbanner .art{width:110px;background:transparent;border:0}
+@media (max-width:560px){.qbanner .art{display:none}.qbanner{padding:12px 14px}}
+.foot{margin:40px 0 24px;color:var(--text-2);font-size:.86rem}
+
+/* animasi ilustrasi (keadaan dasar = tampilan akhir, aman untuk reduced motion) */
+.a-spoon{animation:dip 5s ease-in-out infinite}
+@keyframes dip{0%,100%{transform:translate(0,-34px)}38%,62%{transform:translate(0,4px)}}
+.a-hl{transform-box:fill-box;transform-origin:center;animation:hl 5s ease-in-out infinite}
+@keyframes hl{0%,30%,70%,100%{transform:scale(1)}42%,58%{transform:scale(1.9)}}
+.a-bar{transform-box:fill-box;transform-origin:50% 100%;animation:grow 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes grow{0%{transform:scaleY(0.02)}18%,86%{transform:scaleY(1)}100%{transform:scaleY(0.02)}}
+.a-lab{animation:fade 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes fade{0%,10%{opacity:0}22%,86%{opacity:1}100%{opacity:0}}
+.a-ring{animation:hop 6s ease-in-out infinite}
+@keyframes hop{0%,100%{transform:translate(0,0)}20%,33%{transform:translate(36px,12px)}53%,66%{transform:translate(12px,36px)}86%{transform:translate(60px,24px)}}
+.a-xb{transform-box:fill-box;transform-origin:center;animation:pop 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes pop{0%{transform:scale(0);opacity:0}10%{transform:scale(1.3);opacity:1}16%,88%{transform:scale(1);opacity:1}100%{transform:scale(0);opacity:0}}
+.a-tick{stroke-dasharray:22;animation:tick 5s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes tick{0%,8%{stroke-dashoffset:22}22%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:22}}
+.a-bounce{transform-box:fill-box;transform-origin:center bottom;animation:bounce 2.2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-8px) rotate(-6deg)}}
+.confetti-i{position:fixed;z-index:99;width:9px;height:9px;border-radius:2px;pointer-events:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ===== v2: label waktu, sesi, tebak dulu, kacamata dilipat, istilah, tombol aktivitas ===== */
+body[data-mode="belajar"] .time.tk,body[data-mode="kelas"] .time.tm{display:none}
+.sec-head .time+.time{margin-left:6px}
+.sesimap{border-top:5px solid var(--g-green);margin:0 0 14px}
+.sesilist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.sesilist li{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:baseline;padding:8px 10px;border-radius:12px;background:var(--surf-1)}
+.sesilist li a{text-decoration:none;color:var(--text)}
+.sesilist li span{font-size:.9rem;color:var(--text-2)}
+@media (max-width:560px){.sesilist li{grid-template-columns:1fr;gap:2px}}
+.sesi{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:34px 0 -18px;padding:10px 14px;border-radius:14px;background:var(--text);color:var(--bg);scroll-margin-top:124px}
+.sesi .sesi-no{font-weight:700;letter-spacing:.02em}
+.sesi-end{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:8px 0 0;padding:12px 14px;border-radius:14px;background:var(--green-c);color:var(--on-green-c)}
+.sesi-end>div{flex:1;min-width:200px;font-size:.93rem}
+.sesi-end .btn{--acc:var(--green);--on-acc:var(--on-green)}
+.sesi-end .hi{background:var(--green);color:var(--on-green)}
+.blk.tebak{border-style:dashed}
+details.mis{margin-top:8px;font-size:.92rem}
+details.mis summary{cursor:pointer;font-weight:500;color:inherit}
+details.mis p{margin:6px 0 0}
+.fbk details{margin-top:8px}
+.fbk details summary{cursor:pointer;color:var(--text-2);font-size:.88rem}
+.fbk .cor{margin-top:6px;padding-top:6px;border-top:1px solid var(--outline-v)}
+.fy-ex{margin-top:12px}
+.fy-ex .model{margin-top:8px;padding:12px 14px;border-radius:12px;background:var(--green-c);color:var(--on-green-c);font-size:.95rem}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;text-decoration:underline dotted;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.term:hover{text-decoration-color:var(--blue)}
+.term-pop{position:absolute;z-index:60;max-width:min(320px,calc(100vw - 32px));background:var(--surface);color:var(--text);border:1px solid var(--outline-v);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);font-size:.9rem;line-height:1.5}
+.term-pop b{display:block;margin-bottom:2px;color:var(--blue)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;border:0;border-radius:999px;padding:12px 18px;font:inherit;font-weight:500;background:var(--blue);color:var(--on-blue);box-shadow:var(--shadow);cursor:pointer}
+.nav a.resume{background:var(--green);color:var(--on-green);border-color:transparent;font-weight:500}
+.nav a.resume::before{background:var(--on-green)}
+body[data-mode="kelas"] .hero{padding-top:10px}
+
+/* ===== v2: perapatan ponsel, tabel jadi daftar, kartu cara memakai ===== */
+.howto>summary{font-size:1rem}
+.howto h4{margin:10px 0 2px;font-size:.95rem}
+.howto ul{margin-top:0}
+details.maprec>summary{list-style:none;cursor:pointer}
+details.maprec>summary::-webkit-details-marker{display:none}
+details.maprec>summary::after{content:"  +";color:var(--text-2)}
+details.maprec[open]>summary::after{content:"  −"}
+details.maprec>.mmwrap{margin-top:10px}
+@media (max-width:780px){.hero-art{display:none}}
+@media (max-width:560px){
+  .sec-head{flex-wrap:wrap}
+  .sec-head .time{margin-left:70px}
+  .sec-head .time.tm,.sec-head .time.tk{white-space:normal}
+  .confrow{gap:6px}
+  .confrow .chip{padding:4px 10px;min-height:32px;font-size:.84rem}
+  .opt{padding:10px 12px;margin:0 0 6px}
+  .art{max-width:230px}
+  .tscroll.stack{border:0;overflow:visible}
+  .tscroll.stack table{min-width:0}
+  .tscroll.stack thead{display:none}
+  .tscroll.stack tr{display:block;border:1px solid var(--outline-v);border-radius:12px;margin:0 0 8px;padding:6px 12px}
+  .tscroll.stack tbody th{display:block;background:none;color:var(--text);padding:4px 0 2px;border:0;font-weight:700}
+  .tscroll.stack td{display:block;border:0;padding:2px 0}
+  .tscroll.stack td::before{content:attr(data-label) ": ";font-weight:500;color:var(--text-2)}
+}
+
+@media (max-width:560px){
+  .sesilist li{grid-template-columns:auto 1fr;gap:8px;padding:6px 10px}
+  #zero .legend{display:none}
+  textarea{min-height:88px}
+  .lens{padding:12px 14px}
+  .blk{padding:14px 14px}
+}
+
+@media (max-width:560px){
+  .art{max-width:200px}
+  .zone{min-height:100px}
+  .tscroll.stack tr{padding:4px 10px;margin:0 0 6px}
+}
+@media (max-width:560px){
+  .sec{margin:28px 0}
+  .blk,.lens{margin-bottom:12px}
+}
+@media (max-width:560px){
+  .sec-head>div{flex:1 1 0;min-width:0}
+  .sec-head .time{margin-left:70px;margin-top:-6px}
+  .confrow{font-size:.8rem;gap:5px}
+  .confrow .chip{padding:3px 8px;font-size:.8rem}
+}
+@media (max-width:560px){
+  .sec-head>div{flex:1 1 calc(100% - 72px)}
+}
+a.btn{text-decoration:none}
+
+/* =====================================================================
+   v5 · Lapisan desain "dasbor belajar"
+   Tata letak: ponsel satu kolom; desktop ≥1100px navigasi pindah ke kolom kiri;
+   isi stasiun memakai grid bento bila lebar isi ≥ 820px.
+   Huruf: Plus Jakarta Sans (judul dan isi), JetBrains Mono khusus angka.
+   ===================================================================== */
+body{font-family:var(--font);font-size:1rem;line-height:1.65;font-feature-settings:"ss01"}
+h1,h2,h3,h4{font-family:var(--font);text-wrap:balance;color:var(--text)}
+h1{font-size:clamp(2rem,5.2vw,3.1rem);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:.6rem}
+h2{font-size:clamp(1.3rem,3.2vw,1.6rem);font-weight:700;letter-spacing:-.015em;line-height:1.2}
+h3{font-size:1.02rem;font-weight:700;letter-spacing:-.005em}
+h4{font-weight:700}
+.lead{font-size:1.06rem;line-height:1.6;color:var(--text-2);max-width:62ch}
+.eyebrow{font-weight:600;font-size:.92rem;color:var(--blue)}
+p,li,dd{max-width:72ch}
+b,strong{font-weight:700}
+.num-mono,.num,.time,.stat b,.big,.qz-kode,.result,.opt .letter,.qdots button,.tscroll table.nw td,.ds-min,.when{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.when{font-size:.7rem;font-weight:500}
+.time{font-size:.74rem;font-weight:500}
+
+/* bilah atas dan navigasi */
+.appbar{background:var(--surface);border-bottom:1px solid var(--outline-v)}
+.appbar .wrap{height:60px}
+.brand-t{font-weight:700;letter-spacing:-.01em}
+.nav{background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(1.2) blur(8px)}
+.nav a{border-radius:var(--r-sm);font-weight:600;font-size:.82rem}
+.progress{height:3px}
+
+/* pembuka */
+.hero{padding:26px 0 8px}
+.hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:16px}}
+.lecturer{border-radius:var(--r);box-shadow:none}
+.weeks i{height:8px;border-radius:4px}
+
+/* panel dasbor */
+.dash{background:var(--surface);border:1px solid var(--outline-v);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);display:grid;gap:14px}
+.dash-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dash-head h2{font-size:1.05rem;margin:0}
+.dash-head span{font-size:.76rem;color:var(--text-2)}
+.dash-top{display:flex;gap:16px;align-items:center}
+.ring{position:relative;width:88px;height:88px;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:7}
+.ring-bg{stroke:var(--surf-2)}
+.ring-fg{stroke:var(--g-green);stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.15rem;font-weight:700}
+.dash-total{display:grid;gap:0;min-width:0}
+.dash-total span{font-size:.78rem;color:var(--text-2)}
+.dash-total b{font-size:1.7rem;font-weight:700;line-height:1.2;color:var(--text)}
+.dash-sesi{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.dash-sesi li{display:grid;gap:4px}
+.dash-sesi a{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:baseline;text-decoration:none;color:var(--text)}
+.ds-name{font-weight:700;font-size:.88rem}
+.ds-what{font-size:.8rem;color:var(--text-2);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ds-min{font-size:.78rem;color:var(--text-2)}
+.ds-bar{height:6px;border-radius:3px;background:var(--surf-2);overflow:hidden}
+.ds-bar i{display:block;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--g-blue),var(--g-green));transition:width .5s ease}
+.dash-sesi li:nth-child(1) .ds-bar i{background:var(--g-blue)}
+.dash-sesi li:nth-child(2) .ds-bar i{background:var(--g-green)}
+.dash-sesi li:nth-child(3) .ds-bar i{background:var(--g-red)}
+.dash-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dash-stats div{background:var(--surf-1);border-radius:var(--r-sm);padding:8px 12px;display:grid}
+.dash-stats b{font-size:1.25rem;font-weight:700}
+.dash-stats span{font-size:.76rem;color:var(--text-2)}
+
+/* kepala seksi */
+.num{border-radius:var(--r);min-width:50px;height:50px;font-weight:700;font-size:1rem;box-shadow:none}
+.sec-head .sub{font-size:.93rem;max-width:60ch}
+
+/* blok: hirarki radius dan bayangan */
+.blk{border-radius:var(--r-lg)}
+.blk.try{box-shadow:var(--shadow);border-width:2px}
+.blk.why,.blk.eli5,.blk.analogy,.lens{border-radius:var(--r-lg)}
+.card{border-radius:var(--r-lg)}
+.btn{font-weight:600;letter-spacing:.005em}
+.chip{border-radius:var(--r-sm);font-weight:600}
+.opt{border-radius:var(--r)}
+.opt .letter{font-weight:700}
+.stat{border-radius:var(--r)}
+.stat b{font-weight:700;font-size:1.4rem}
+.big{font-weight:700}
+.qz-kode{font-weight:500}
+.fbk{border-radius:var(--r)}
+.tier{font-weight:600}
+.kasus{border-radius:var(--r)}
+
+/* grid bento untuk isi stasiun */
+main.wrap{container-type:inline-size}
+@container (min-width:820px){
+  .sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14px;row-gap:14px}
+  .sec>*{grid-column:1/-1;margin-bottom:0!important}
+  .sec>.eli5,.sec>.analogy,.sec>.cek,.sec>.lens{grid-column:auto}
+  #zero>*,#hero>*,#kuis>*,#pulang>*{grid-column:1/-1}
+  .sec>.eli5 .blkflex{flex-direction:column;align-items:flex-start}
+  .sec>.eli5 .art{width:100%;max-width:260px;align-self:center}
+  body[data-mode="kelas"] .sec>*{grid-column:1/-1}
+}
+
+/* desktop: navigasi menjadi kolom kiri */
+@media (min-width:1100px){
+  body{padding-left:248px}
+  .appbar{margin-left:-248px}
+  html{scroll-padding-top:84px}
+  .sec,#quiz-wrap{scroll-margin-top:84px}
+  .nav{position:fixed;top:calc(63px + env(safe-area-inset-top,0px));left:0;bottom:0;width:248px;border-bottom:0;border-right:1px solid var(--outline-v);background:var(--surface);backdrop-filter:none;overflow-y:auto;z-index:20}
+  .nav .wrap{padding:18px 14px;max-width:none}
+  .nav-scroll{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .nav a{width:100%;border:0;background:transparent;padding:9px 12px;font-size:.88rem}
+  .nav a:hover{background:var(--surf-1)}
+  .nav a.on{background:var(--acc-c);color:var(--on-acc-c)}
+  .nav a.done::after{margin-left:auto}
+  .nav a.resume{margin-bottom:8px}
+  .nav-scroll::before{content:"Isi bagian ini";font-size:.76rem;font-weight:600;color:var(--text-2);padding:0 12px 8px}
+}
+
+/* v5 · penyesuaian sesudah tinjauan layar */
+.kpi,.stat b,.big,.dash-stats b{font-family:var(--font);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.dash-total b{font-family:var(--font);font-size:1.9rem;font-weight:800;letter-spacing:-.03em}
+.ring b{all:unset}
+.ring-txt{position:absolute;inset:0;display:grid;place-content:center;text-align:center;line-height:1.05}
+.ring-txt b{font-size:1.3rem;color:var(--text)}
+.ring-txt small{font-size:.66rem;color:var(--text-2);font-weight:600}
+.card.top{border-top:1px solid var(--outline-v)}
+.gloss-card,.classpanel{border-top:1px solid var(--outline-v)}
+.grid3{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+@media (max-width:840px){.grid3{grid-template-columns:1fr}}
+@media (min-width:1100px){.appbar .wrap{max-width:none;padding:0 24px}}
+.popsvg{max-width:600px;margin:0 auto}
+.plotsvg{max-width:680px;margin:0 auto}
+.gradbar,.gradlab{max-width:600px;margin-left:auto;margin-right:auto}
+@media (max-width:430px){html[data-mode="kelas"] .brand-t{font-size:12.5px}html[data-mode="kelas"] .appbar .seg button{padding:6px 8px}}
+
+/* ===== Bagian 2: komponen baru ===== */
+.weeks i.done{background:var(--g-green)}
+.a-tilt{animation:tilt 6s ease-in-out infinite}
+@keyframes tilt{0%{transform:rotate(-7deg)}22%{transform:rotate(5deg)}40%,100%{transform:rotate(0)}}
+.a-spread{animation:spread 5s ease-in-out infinite}
+@keyframes spread{0%,10%{transform:translateX(var(--dx))}40%,100%{transform:none}}
+.a-shift{animation:shift 6s ease-in-out infinite}
+@keyframes shift{0%,15%{transform:translateX(var(--dx))}45%,100%{transform:none}}
+.balsvg{touch-action:none;user-select:none;-webkit-user-select:none}
+.balsvg .bdot{cursor:grab;transition:cx .12s ease}
+.balsvg .bdot.drag{cursor:grabbing}
+.balsvg .bdot:focus{outline:none;stroke:var(--text);stroke-width:3}
+.hbars{display:grid;gap:8px;margin:8px 0}
+.hb{display:grid;grid-template-columns:minmax(120px,1.1fr) 2fr auto;gap:10px;align-items:center;font-size:.9rem}
+.hb-t{height:14px;border-radius:7px;background:var(--surf-2);overflow:hidden}
+.hb-t i{display:block;height:100%;border-radius:7px;transition:width .4s ease}
+.hb-v{font-family:var(--font);font-weight:800;font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+@media (max-width:520px){.hb{grid-template-columns:1fr auto}.hb-t{grid-column:1/-1;grid-row:2}}
+.swipe .btnrow3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.swipe .btnrow3 .btn{justify-content:center;padding:12px 8px;text-align:center;white-space:normal;line-height:1.3}
+@media (max-width:480px){.swipe .btnrow3{grid-template-columns:1fr}}
+.btn.b-purple{--acc:var(--purple);--on-acc:var(--on-purple)}
+ol.calc{margin:10px 0 0;padding-left:1.4rem}
+ol.calc>li{margin:0 0 12px;padding-left:4px}
+ol.calc>li>b{display:block;margin-bottom:4px}
+ol.calc .mcq{margin-top:4px}
+tr.sumrow td{font-weight:700;border-top:2px solid var(--outline)}
+table.labt{width:100%}
+table.labt td:first-child{white-space:normal}
+.tscroll table.labt td,.tscroll table.labt th{white-space:normal;padding:6px 8px}
+.tscroll table.labt td:first-child{font-family:var(--font)}
+.a-barx{transform-box:fill-box;transform-origin:0 50%;animation:growx 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes growx{0%{transform:scaleX(0.02)}18%,86%{transform:scaleX(1)}100%{transform:scaleX(0.02)}}
+.a-trunc{transform-box:fill-box;transform-origin:50% 100%;animation:trunc 7s ease-in-out infinite}
+@keyframes trunc{0%,35%{transform:scaleY(.25)}55%,100%{transform:none}}
+.a-lab1{opacity:0;animation:lab1 7s ease-in-out infinite}
+@keyframes lab1{0%,35%{opacity:1}45%,100%{opacity:0}}
+.a-lab2{animation:lab2 7s ease-in-out infinite}
+@keyframes lab2{0%,40%{opacity:0}55%,100%{opacity:1}}
+/* ==ISI-CSS== */
+#a-try .srow input[type=range],#d-try .srow input[type=range]{flex:1;min-width:120px}
+#a-try .srow b,#d-try .srow b{min-width:64px;text-align:right}
+#a-try .plotsvg,#c-try .plotsvg,#d-try .plotsvg{max-width:560px}
+#b-try .tscroll table.nw{font-size:13px}
+body[data-mode="kelas"] #b-try .tscroll table.nw{font-size:14px}
+#b-try .tscroll table.nw td,#b-try .tscroll table.nw th{padding:4px 5px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol><symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol><symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></symbol><symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol><symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol><symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 4H6l6 8-6 8h12"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol><symbol id="i-map" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></symbol><symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L4.5 19a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 9V3"/><line x1="7.5" y1="15" x2="16.5" y2="15"/></symbol><symbol id="i-checksq" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol><symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><polyline points="9 14 11 16 15 12"/></symbol><symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol><symbol id="i-pointer" viewBox="0 0 24 24"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></symbol><symbol id="i-university" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/><path d="M3 21h18"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol><symbol id="i-rewind" viewBox="0 0 24 24"><polygon points="11 19 2 12 11 5 11 19"/><polygon points="22 19 13 12 22 5 22 19"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol></defs></svg>
+
+<div class="appbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Kembali ke awal halaman"><span class="logo" aria-hidden="true"></span><span class="brand-t">Probabilitas dan Statistika <small>· Bagian 14</small></span></a>
+    <span class="spacer"></span>
+    <div class="seg" role="group" aria-label="Mode tampilan">
+      <button id="m-belajar" type="button" aria-pressed="true" title="Belajar mandiri: semua bagian tampil"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span class="lbl">Belajar</span></button>
+      <button id="m-kelas" type="button" aria-pressed="false" title="Mode Kelas: ringkas, untuk ditayangkan di layar"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span class="lbl">Kelas</span></button>
+    </div>
+    <button class="icon-btn" id="theme" type="button" aria-label="Ganti tema terang atau gelap"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></button>
+  </div>
+  <div class="progress" role="progressbar" aria-label="Progres belajar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="prog"><div id="prog-bar"></div></div>
+</div>
+<nav class="nav" aria-label="Bagian halaman"><div class="wrap"><div class="nav-scroll" id="nav"></div></div></nav>
+<div class="kelasbar" role="status"><div class="wrap"><span>Mode Kelas aktif: yang tampil hanya "Kenapa", "Tebak dulu", "Coba sendiri", dan pertanyaan kacamata berpikir.</span><button class="btn small tonal" id="kelas-off" type="button">Tampilkan semua</button></div></div>
+
+<main class="wrap" id="top">
+  <noscript><p class="card">Halaman ini membutuhkan JavaScript agar simulasi dan kuis dapat berjalan.</p></noscript>
+
+  <header class="hero">
+    <div class="brandline learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><span><b>Web pendamping buku Probabilitas dan Statistika</b> · edisi web 1.0, diperbarui Oktober 2026</span></div>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Probabilitas dan Statistika · Bagian 14 dari 16</p>
+        <h1>Statistika Nonparametrik</h1>
+        <p class="lead learn-only">Rating bintang, data dengan pencilan, atau sampel kecil yang miring sering tidak cocok dengan anggapan uji t dan ANOVA. Halaman ini melatihmu memakai peringkat sebagai ganti nilai asli, menjalankan uji Mann–Whitney dan uji tanda, serta memilih kapan uji nonparametrik lebih tepat. Semua istilah dijelaskan dulu. Cukup bisa mengurutkan angka dan memakai kalkulator.</p>
+        <div class="lecturer learn-only">
+          <span class="avatar" aria-hidden="true"><b>TA</b></span>
+          <div><b>Ditulis oleh Tri Aji Nugroho, S.T., M.T.</b><small>Dosen Program Studi Informatika, Universitas Al-Azhar Indonesia</small></div>
+        </div>
+        <div class="weeks learn-only" role="img" aria-label="Bagian 14 dari 16 bagian"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i><i></i><i></i></div>
+        <p class="qmeta learn-only">Bagian 14 dari 16, mengikuti urutan satu semester. Bagian sebelumnya: <a href="https://claude.ai/artifact/AkAv4UAZ1U2g3UNfXkVYgm" target="_blank" rel="noopener">1</a>, <a href="https://claude.ai/artifact/2vsApoJKNmLmFpQmtFfQQF" target="_blank" rel="noopener">2</a>, <a href="https://claude.ai/artifact/4gBNgss3dydR5GXXbkatzj" target="_blank" rel="noopener">3</a>, <a href="https://claude.ai/artifact/Aby93MNboUWXHzquGVrk9W" target="_blank" rel="noopener">4</a>, <a href="https://claude.ai/artifact/Ph6KNDRuHDtWqRbMdmVh4t" target="_blank" rel="noopener">5</a>, <a href="https://claude.ai/artifact/UBwGSwWcNSQoWM1eycS37Y" target="_blank" rel="noopener">6</a>, <a href="https://claude.ai/artifact/HTEJByiSeMSwcLMyAQubZW" target="_blank" rel="noopener">7</a>, <a href="https://claude.ai/artifact/SLhtjUh1Kmb9bjJh5Hwpg1" target="_blank" rel="noopener">9</a>, <a href="https://claude.ai/artifact/Q3d46E5Nx2UT4V5ysA7nVd" target="_blank" rel="noopener">10</a>, <a href="https://claude.ai/artifact/M36vJ8ufdQ3aAo9XkSJhyW" target="_blank" rel="noopener">11</a>, <a href="https://claude.ai/artifact/X3pufmkudF4a7hfQVtt8pn" target="_blank" rel="noopener">12</a>, <a href="https://claude.ai/artifact/1E2xJ44RrkgYDsGa87WKzN" target="_blank" rel="noopener">13</a>.</p>
+        <div class="greet learn-only"><input type="text" id="nick" aria-label="Nama panggilan, opsional" placeholder="Nama panggilanmu (opsional)" maxlength="30"><span class="hello" id="hello" aria-live="polite"></span></div>
+      </div>
+      <aside class="dash learn-only" id="dash" aria-label="Dasbor belajarmu">
+        <div class="dash-head"><h2>Dasbor belajarmu</h2><span>Tersimpan di peramban ini</span></div>
+        <div class="dash-top">
+          <div class="ring" role="img" aria-label="Tonggak selesai" id="dash-ringwrap">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring-bg" cx="32" cy="32" r="27"/><circle class="ring-fg" id="dash-ring" cx="32" cy="32" r="27"/></svg>
+            <span class="ring-txt"><b class="kpi" id="dash-ringtxt">0/7</b><small>tonggak</small></span>
+          </div>
+          <div class="dash-total"><span>Lama belajar</span><b class="kpi">±1 jam 46 mnt</b><span>dalam 3 sesi, boleh dicicil</span></div>
+        </div>
+        <ol class="dash-sesi" id="dash-sesi">
+          <li><a href="#zero"><span class="ds-name">Sesi 1</span><span class="ds-what">Awal, 14.1, 14.2</span><span class="ds-min num-mono">32 mnt</span></a><span class="ds-bar"><i></i></span></li>
+          <li><a href="#sesi-2"><span class="ds-name">Sesi 2</span><span class="ds-what">14.3, 14.4</span><span class="ds-min num-mono">21 mnt</span></a><span class="ds-bar"><i></i></span></li>
+          <li><a href="#sesi-3"><span class="ds-name">Sesi 3</span><span class="ds-what">Puncak, kuis (hari lain)</span><span class="ds-min num-mono">53 mnt</span></a><span class="ds-bar"><i></i></span></li>
+        </ol>
+        <div class="dash-stats">
+          <div><b class="kpi" id="dash-tebak">0/7</b><span>tebakan tepat</span></div>
+          <div><b class="kpi" id="dash-kuis">–</b><span>skor kuis terbaik</span></div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <div class="grid3 learn-only">
+    <div class="card top c-blue">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg></span>Setelah bagian ini kamu bisa</h3>
+      <ul>
+        <li>Menjelaskan kapan <b>uji nonparametrik</b> lebih tepat daripada uji t atau ANOVA.</li>
+        <li>Memberi <b>peringkat</b> pada data, termasuk data yang <b>seri</b>.</li>
+        <li>Menjalankan dan menafsirkan <b>uji Mann–Whitney</b> untuk dua kelompok bebas.</li>
+        <li>Memakai <b>uji tanda</b> untuk data berpasangan, dan menimbang kelebihan serta kekurangannya.</li>
+      </ul>
+    </div>
+    <details class="card top c-green howto">
+      <summary><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></span><b>Cara memakai halaman ini dan aturan latihan</b></summary>
+      <h4>Cara memakai</h4>
+      <ul>
+        <li>Baca dari atas. Tiap stasiun berisi: Kenapa, Tebak dulu, Penjelasan sederhana, Perumpamaan, Coba sendiri, Rumus dan contoh, Cek cepat, lalu Kacamata berpikir.</li>
+        <li><b>Tebak dulu</b> sebelum membaca penjelasan. Tebakan yang salah itu berharga: di situ ada yang bisa kamu pelajari.</li>
+        <li>Istilah bergaris titik bisa diketuk untuk melihat artinya. Semua istilah juga ada di <b>Kamus mini</b> di bawah.</li>
+        <li>Halaman ini dibagi <b>tiga sesi</b>. Progresmu tersimpan di peramban ini, jadi kamu bisa berhenti dan melanjutkan kapan saja.</li>
+        <li>Sebaiknya sudah membaca Bagian 11 (uji hipotesis dan nilai-p) dan Bagian 6 (sebaran binomial). Median dari Bagian 2 juga dipakai.</li>
+      </ul>
+      <h4>Tentang latihan di sini</h4>
+      <ul>
+        <li>Latihan dan kuis <b>tidak dinilai</b>. Gunanya membantu kamu melihat seberapa paham kamu.</li>
+        <li>Boleh memakai AI sebagai teman belajar. Catat cara memakainya, dan pastikan kamu bisa menjelaskan jawabannya tanpa melihat layar.</li>
+        <li>Semua data di halaman ini fiktif, dibuat untuk latihan.</li>
+        <li><b>Dosen:</b> tombol <i>Kelas</i> di kanan atas menampilkan versi ringkas untuk layar proyektor. Tambahkan <code>#kelas</code> di akhir tautan agar langsung terbuka dalam mode itu.</li>
+      </ul>
+    </details>
+  </div>
+
+  <details class="card gloss-card learn-only" id="kamus">
+    <summary><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><b>Kamus mini istilah</b><span class="qmeta" style="margin:0">ketuk untuk membuka, ketik untuk mencari</span></summary>
+    <input type="text" id="gloss-q" aria-label="Cari istilah" placeholder="Cari istilah, misalnya: peringkat, Mann–Whitney, uji tanda">
+    <dl id="gloss-list"></dl>
+  </details>
+
+  <details class="card classpanel c-purple learn-only" id="kelasku">
+    <summary><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-university"/></svg></span><b>Kuliah di Universitas Al-Azhar Indonesia? Catatan kelasmu</b><span class="qmeta" style="margin:0">Program Studi Informatika · Kelas IF26A</span></summary>
+    <dl class="kv"><div><dt>Mata kuliah</dt><dd>Probabilitas dan Statistika, kode IF52510033, 3 SKS (teori), Semester 1 Ganjil 2026/2027</dd></div><div><dt>Kelas dan dosen</dt><dd>IF26A, Program Studi Informatika. Dosen pengampu: Tri Aji Nugroho, S.T., M.T.</dd></div><div><dt>Kemampuan yang dituju</dt><dd>Sub-CPMK PS-Sub-CPMK102-1: mengolah dan menganalisis data dengan teknik statistika nonparametrik. (CPMK = Capaian Pembelajaran Mata Kuliah. Rinciannya ada di RPS, yaitu Rencana Pembelajaran Semester.)</dd></div><div><dt>Tugas</dt><dd>Tugas T-13 (bobot 3%) dikumpulkan lewat eLearning; tenggatnya diumumkan dosen. Kerjakan sendiri. Kasus dan angka di halaman ini sengaja berbeda dari tugas itu.</dd></div><div><dt>Catatan pemakaian AI</dt><dd>Di kelas ini, setiap pemakaian AI dicatat dalam AI Usage Log: alat yang dipakai, perintah (prompt) yang diketik, dan bagian yang dipakai.</dd></div><div><dt>Cara memakai di kelas</dt><dd>Pemanasan dikerjakan sebelum pertemuan, praktik saat pertemuan (Mode Kelas), pendalaman sesudah pertemuan.</dd></div></dl>
+    <p class="qmeta" style="margin-top:8px">Dari kampus lain? Panel ini boleh diabaikan. Dosen di kampus lain dapat menyesuaikannya dengan informasi kelasnya sendiri.</p>
+  </details>
+
+
+
+  <!-- ===================== AWAL ===================== -->
+
+  <section class="sec c-blue" id="zero">
+    <div class="sec-head">
+      <span class="num">0</span>
+      <div><h2>Mulai dari nol: kompas, peta, dan tebakan</h2><p class="sub">Lihat cara berpikirnya dan gambaran besarnya dulu, lalu pasang tebakan sebelum tahu jawabannya.</p></div>
+      <span class="time tm">Mandiri ±12 mnt</span><span class="time tk">Di kelas ±10 mnt</span>
+    </div>
+
+    <div class="blk why">
+      <h3>Kenapa ini penting</h3>
+      <p>Tidak semua data cocok dengan anggapan normal. Ulasan bintang, peringkat lomba, dan waktu respons yang sesekali melonjak termasuk contohnya. Bagian ini memberimu uji yang tetap sah tanpa anggapan itu.</p>
+    </div>
+
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-rewind"/></svg></span>Kompas: mulai dari akhir <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Cara berpikir ini dipakai di seluruh buku: <b>mulai dari akhir</b> (<i>backward thinking</i>; pemain catur menyebutnya berpikir dari <i>endgame</i>, posisi akhir permainan). Bayangkan hasil akhirnya, lalu tanyakan: <b>apa yang harus benar tepat sebelumnya?</b></p>
+          <p><b>Contoh sehari-hari.</b> Tugas ditutup pukul 23.59. Mundur: unggah 23.30, periksa ulang 22.30, mulai menulis 19.00. Jam mulai ditentukan oleh tenggatnya.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 110" role="img" aria-label="Animasi: penanda bergerak mundur dari titik akhir ke titik awal"><line x1="30" y1="52" x2="190" y2="52" stroke="var(--outline)" stroke-width="3" stroke-linecap="round"/><path d="M118 28l-9 6 9 6M158 28l-9 6 9 6M78 28l-9 6 9 6" fill="none" stroke="var(--text-2)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="52" r="9" fill="var(--surface)" stroke="var(--g-blue)" stroke-width="3"/><circle cx="70" cy="52" r="9" fill="var(--surface)" stroke="var(--g-red)" stroke-width="3"/><circle cx="110" cy="52" r="9" fill="var(--surface)" stroke="var(--g-yellow)" stroke-width="3"/><circle cx="150" cy="52" r="9" fill="var(--surface)" stroke="var(--g-green)" stroke-width="3"/><circle cx="190" cy="52" r="9" fill="var(--green)"/><path d="M185.5 52l3 3 5-6" fill="none" stroke="var(--on-green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><g class="a-back"><circle cx="190" cy="52" r="15" fill="none" stroke="var(--text)" stroke-width="3"/></g><text x="30" y="88" text-anchor="middle" font-size="11" fill="var(--text-2)">Awal</text><text x="190" y="88" text-anchor="middle" font-size="11" fill="var(--text-2)">Akhir</text><text x="110" y="104" text-anchor="middle" font-size="10.5" fill="var(--text-2)">berpikir mundur dari sini</text></svg>
+      </div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-rewind"/></svg></span>Coba sendiri: mundur dari keputusan <span class="when">praktik</span></h3>
+      <div id="compass-try"></div>
+      <div class="patah learn-only"><b>Kenapa berguna di sini:</b> jenis data dan bentuk sebarannya menentukan uji yang pantas; lihat datanya sebelum memilih uji.</div>
+    </div>
+
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></span>Kacamata berpikir: mulai dari akhir</h4>
+      <p class="gloss learn-only">Kacamata berpikir (<i>mental model</i>) adalah cara berpikir yang bisa dipakai berulang untuk banyak masalah. Di akhir tiap stasiun ada satu.</p>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Keputusan apa yang akan diambil, dan bukti apa yang masih sah untuk data seperti ini?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Mulai dari keputusan, mundur ke perbandingan yang dibutuhkan, lalu periksa jenis dan bentuk data sebelum memilih uji. Dipakai lagi di Stasiun 14.4 dan Puncak.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Bila data banyak dan kira-kira normal, uji t dan ANOVA biasanya lebih kuat. Uji nonparametrik bukan pengganti untuk segala keadaan.</p></details>
+    </aside>
+
+    <div class="blk learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg></span>Peta konsep, dari besar sampai kecil <span class="when">pemanasan</span></h3>
+      <p>Pilih tingkat perbesaran: <b>makro</b> (seluruh buku), <b>meso</b> (bagian ini), <b>mikro</b> (sub-materi), <b>nano</b> (satu gagasan). Klik kotak untuk menuju stasiunnya.</p>
+      <div class="row"><div class="seg" id="depthseg" role="group" aria-label="Tingkat perbesaran peta"></div></div>
+      <div class="mmwrap" id="map-zero" tabindex="0" aria-label="Peta konsep bagian 14"></div>
+      <div class="legend"><span><i style="background:var(--blue)"></i>Makro: seluruh buku</span><span><i style="background:var(--text)"></i>Meso: topik bagian ini</span><span><i style="background:conic-gradient(var(--red) 0 25%,var(--yellow) 0 50%,var(--green) 0 75%,var(--purple) 0)"></i>Mikro: sub-materi (satu warna per stasiun)</span><span><i style="background:var(--surf-2);border:1px solid var(--outline)"></i>Nano: satu gagasan atau langkah</span></div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tiga tebakan <span class="when">pemanasan</span></h3>
+      <p>Pilih seberapa yakin kamu, lalu jawab. Menebak dulu membuat penjelasan sesudahnya lebih mudah diingat.</p>
+      <div id="zero-q"></div>
+      <div id="zero-sum"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 14.1 ===================== -->
+  <section class="sec c-red" id="sta-a">
+    <div class="sec-head">
+      <span class="num">14.1</span>
+      <div><h2>Kapan memakai uji nonparametrik</h2><p class="sub">Data peringkat, sampel kecil yang miring, dan pencilan.</p></div>
+      <span class="time tm">Mandiri ±10 mnt</span><span class="time tk">Di kelas ±9 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Uji t dan ANOVA menganggap data kira-kira normal dan diukur dengan skala yang jaraknya bermakna. Bila anggapan itu jelas tidak terpenuhi, kesimpulannya bisa menyesatkan.</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <p class="qmeta" style="margin:0 0 8px">Tebak sebelum ada penjelasan. Jawabannya terbukti di "Coba sendiri".</p>
+      <div id="a-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p class="gloss">ELI5 singkatan dari <i>Explain Like I'm 5</i>, artinya "jelaskan seolah aku berumur 5 tahun".</p>
+          <p>Tujuh teman antre di kantin. Enam orang menunggu 2 sampai 3 menit, satu orang 40 menit karena pesanannya hilang. "Rata-rata menunggu 8 menit" terdengar buruk, padahal hampir semua cepat. <b>Median</b>, nilai tengah setelah diurutkan, tetap sekitar 2,5 menit. Uji <b>nonparametrik</b> bekerja dengan urutan seperti median, jadi tidak mudah terseret satu nilai ekstrem.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: satu titik jauh di kanan menarik rata-rata ke kanan, sedangkan median tetap di tengah kerumunan"><line x1="10" y1="70" x2="210" y2="70" stroke="var(--outline)" stroke-width="2"/><circle cx="22" cy="62" r="5" fill="var(--text-2)"/><circle cx="30" cy="62" r="5" fill="var(--text-2)"/><circle cx="36" cy="62" r="5" fill="var(--text-2)"/><circle cx="42" cy="62" r="5" fill="var(--text-2)"/><circle cx="48" cy="62" r="5" fill="var(--text-2)"/><circle cx="54" cy="62" r="5" fill="var(--text-2)"/><g class="a-shift" style="--dx:-150px"><circle cx="196" cy="62" r="6" fill="var(--red)"/></g><line x1="45" y1="40" x2="45" y2="84" stroke="var(--green)" stroke-width="3"/><text x="45" y="100" text-anchor="middle" font-size="11" fill="var(--text)">median</text><g class="a-shift" style="--dx:-52px"><line x1="88" y1="40" x2="88" y2="84" stroke="var(--purple)" stroke-width="3" stroke-dasharray="5 3"/><text x="88" y="34" text-anchor="middle" font-size="11" fill="var(--text)">rata-rata</text></g><text x="110" y="122" text-anchor="middle" font-size="10.5" fill="var(--text-2)">pencilan menarik rata-rata saja</text></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span>Perumpamaan: juara lomba lari <span class="when">pemanasan</span></h3>
+      <p>Juara ditentukan dari urutan sampai di garis akhir, bukan dari selisih detiknya. Juara 1 tetap juara 1, menang tipis atau jauh.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> dalam lomba, selisih detik memang tidak penting. Dalam data, selisih kadang penting; membuangnya berarti kehilangan sebagian informasi.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg></span>Coba sendiri: Ujian Pencilan <span class="when">praktik</span></h3>
+      <p>Waktu respons 7 permintaan ke server (fiktif, milidetik). Geser permintaan terakhir dari normal sampai macet, lalu bandingkan rata-rata dan median.</p>
+      <div id="a-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Situasi</th><th>Uji parametrik</th><th>Padanan nonparametrik</th></tr></thead>
+        <tbody>
+          <tr><th>Dua kelompok bebas</th><td>Uji t dua sampel</td><td>Uji Mann–Whitney</td></tr>
+          <tr><th>Data berpasangan</th><td>Uji t berpasangan</td><td>Uji tanda atau Wilcoxon bertanda</td></tr>
+          <tr><th>Tiga kelompok atau lebih</th><td>ANOVA</td><td>Uji Kruskal–Wallis</td></tr>
+          <tr><th>Hubungan dua peubah</th><td>Korelasi Pearson</td><td>Korelasi Spearman</td></tr>
+        </tbody></table></div><p style="margin-top:10px"><b>Pakai uji nonparametrik bila:</b> data berupa peringkat atau skala ordinal (misalnya bintang 1–5), sampel kecil dan sangat miring, atau ada pencilan yang tidak bisa dibuang. Uji nonparametrik tetap butuh sampel acak dan saling bebas.</p>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah.</b> Waktu respons 7 permintaan (ms): 110, 115, 120, 118, 112, 117, 2.400.</p>
+      <ol>
+        <li><b>Rata-rata:</b> jumlahnya 3.092, jadi rata-rata = 3.092 ÷ 7 ≈ 441,7 ms.</li>
+        <li><b>Median:</b> setelah diurutkan, 110, 112, 115, 117, 118, 120, 2.400; nilai tengahnya 117 ms.</li>
+        <li><b>Bandingkan:</b> enam dari tujuh permintaan di bawah 121 ms. Rata-rata 441,7 ms tidak mewakili satu pun.</li>
+        <li><b>Pilih uji:</b> untuk membandingkan dua server dengan data seperti ini, uji yang memakai peringkat lebih tepat daripada uji t.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="a-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span>Kacamata berpikir: berpikir dari dasar</h4>
+      <p class="gloss learn-only">Berpikir dari dasar (<i>first principles</i>): bongkar masalah sampai ke bagian paling dasar yang pasti benar, lalu susun ulang dari situ.</p>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Informasi apa yang benar-benar bisa dipercaya dari data ini?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Bongkar sampai dasar: untuk rating bintang, yang pasti hanyalah urutannya; jarak bintang 4 ke 5 belum tentu sama dengan 1 ke 2. Uji yang hanya memakai urutan berdiri di atas dasar yang pasti itu.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Untuk data ukur yang jaraknya bermakna, seperti berat atau waktu tanpa lonjakan, membuang jarak berarti membuang informasi yang sah.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== 14.2 ===================== -->
+  <section class="sec c-yellow" id="sta-b">
+    <div class="sec-head">
+      <span class="num">14.2</span>
+      <div><h2>Peringkat dan data seri</h2><p class="sub">Mengubah nilai menjadi urutan, termasuk bila ada nilai yang sama.</p></div>
+      <span class="time tm">Mandiri ±10 mnt</span><span class="time tk">Di kelas ±9 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Hampir semua uji nonparametrik dimulai dengan langkah yang sama: mengganti nilai asli dengan peringkatnya. Langkah ini harus benar, terutama bila ada nilai yang sama.</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <div id="b-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Lima anak berbaris menurut tinggi badan dan diberi nomor 1 sampai 5. Bila dua anak tingginya persis sama, tidak adil memberi salah satunya nomor 2 dan yang lain nomor 3. Keduanya mendapat <b>rata-rata nomor</b> yang mereka tempati: (2 + 3) ÷ 2 = 2,5. Nilai yang sama disebut <b>seri</b>.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: lima anak berbaris menurut tinggi; dua anak setinggi sama berbagi nomor urut 2,5"><rect class="a-bar" style="--d:0.00s" x="15" y="70" width="22" height="30" rx="6" fill="var(--surf-2)" stroke="var(--text-2)"/><text x="26" y="116" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">1</text><rect class="a-bar" style="--d:0.15s" x="55" y="54" width="22" height="46" rx="6" fill="var(--yellow)" stroke="var(--text-2)"/><text x="66" y="116" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">2,5</text><rect class="a-bar" style="--d:0.30s" x="95" y="54" width="22" height="46" rx="6" fill="var(--yellow)" stroke="var(--text-2)"/><text x="106" y="116" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">2,5</text><rect class="a-bar" style="--d:0.45s" x="135" y="42" width="22" height="58" rx="6" fill="var(--surf-2)" stroke="var(--text-2)"/><text x="146" y="116" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">4</text><rect class="a-bar" style="--d:0.60s" x="175" y="30" width="22" height="70" rx="6" fill="var(--surf-2)" stroke="var(--text-2)"/><text x="186" y="116" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">5</text><text x="110" y="14" text-anchor="middle" font-size="10.5" fill="var(--text-2)">tinggi sama, peringkat dibagi rata</text></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg></span>Perumpamaan: juara bersama di lomba <span class="when">pemanasan</span></h3>
+      <p>Dua pelari yang finis bersamaan berbagi posisi. Pelari berikutnya tetap di posisi ke-4, bukan ke-3, karena posisi 2 dan 3 sudah terpakai.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> dalam lomba, dua pelari itu sering sama-sama disebut juara 2. Dalam statistik, keduanya mendapat 2,5, supaya jumlah peringkat tetap benar.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>Coba sendiri: Pemberi Peringkat <span class="when">praktik</span></h3>
+      <p>Delapan nilai (fiktif) dengan beberapa nilai yang sama. Urutkan, tebak peringkat nilai yang seri, lalu periksa apakah jumlah peringkatnya cocok.</p>
+      <div id="b-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Langkah</th><th>Aturan</th><th>Contoh 12, 15, 15, 15, 20, 22</th></tr></thead>
+        <tbody>
+          <tr><th>1. Urutkan</th><td>Dari terkecil ke terbesar</td><td>Sudah urut</td></tr>
+          <tr><th>2. Beri nomor posisi</th><td>1, 2, …, N</td><td>1, 2, 3, 4, 5, 6</td></tr>
+          <tr><th>3. Nilai seri</th><td>Rata-rata posisinya</td><td>15 di posisi 2–4: (2 + 3 + 4) ÷ 3 = 3</td></tr>
+          <tr><th>4. Periksa jumlah</th><td>Σ peringkat = N(N + 1) ÷ 2</td><td>1 + 3 + 3 + 3 + 5 + 6 = 21 = 6 × 7 ÷ 2</td></tr>
+        </tbody></table></div>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah.</b> Skor kepuasan 1–5 dari 7 pengguna (fiktif): 4, 2, 5, 4, 3, 4, 1.</p>
+      <ol>
+        <li><b>Urutkan:</b> 1, 2, 3, 4, 4, 4, 5.</li>
+        <li><b>Posisi:</b> 1 sampai 7. Ketiga angka 4 berada di posisi 4, 5, 6.</li>
+        <li><b>Peringkat seri:</b> (4 + 5 + 6) ÷ 3 = 5, jadi peringkatnya 1, 2, 3, 5, 5, 5, 7.</li>
+        <li><b>Periksa:</b> 1 + 2 + 3 + 5 + 5 + 5 + 7 = 28 = 7 × 8 ÷ 2.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="b-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Kacamata berpikir: akibat lanjutan</h4>
+      <p class="gloss learn-only">Akibat lanjutan (berpikir orde kedua, <i>second-order thinking</i>): bertanya "lalu apa?" sekali lagi untuk melihat akibat dari akibat.</p>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Kalau nilai diganti peringkat, lalu apa yang hilang dan apa yang didapat?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Yang didapat: pencilan tidak lagi mendominasi, karena nilai terbesar hanya menjadi peringkat N. Akibat lanjutannya: selisih besar dan kecil diperlakukan sama, jadi sebagian informasi hilang.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Bila datanya memang peringkat sejak awal, misalnya urutan pilihan, tidak ada informasi yang hilang sama sekali.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== 14.3 ===================== -->
+  <div class="sesi-end learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Sesi 1 selesai.</b> Lanjut sekarang atau besok? Progresmu tersimpan; saat kembali, tekan <b>Lanjutkan dari terakhir</b> di bilah navigasi.</div><a class="btn small" href="#sesi-2">Lanjut ke Sesi 2</a></div>
+
+  <div class="sesi learn-only" id="sesi-2"><span class="sesi-no">Sesi 2 dari 3</span><span>±21 mnt · 14.3 dan 14.4</span></div>
+  <section class="sec c-green" id="sta-c">
+    <div class="sec-head">
+      <span class="num">14.3</span>
+      <div><h2>Uji Mann–Whitney</h2><p class="sub">Membandingkan dua kelompok bebas lewat jumlah peringkat.</p></div>
+      <span class="time tm">Mandiri ±11 mnt</span><span class="time tk">Di kelas ±10 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Uji Mann–Whitney adalah padanan nonparametrik uji t dua kelompok. Ia menjawab: apakah nilai satu kelompok cenderung lebih besar daripada kelompok lain?</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <div id="c-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Gabungkan semua data dua kelompok, lalu beri peringkat dari yang terkecil. Bila kedua kelompok sebenarnya sama, peringkat mereka akan bercampur acak. Bila satu kelompok cenderung lebih besar, peringkatnya menumpuk di bagian atas. <b>Uji Mann–Whitney</b> mengukur seberapa jauh penumpukan itu dari yang wajar.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: titik dua kelompok digabung dalam satu barisan berperingkat 1 sampai 10; satu kelompok menumpuk di peringkat tinggi"><circle class="a-xb" style="--d:0.00s" cx="18.0" cy="56" r="8" fill="var(--blue)"/><text x="18.0" y="84" text-anchor="middle" font-size="11" fill="var(--text)">1</text><circle class="a-xb" style="--d:0.08s" cx="38.5" cy="56" r="8" fill="var(--blue)"/><text x="38.5" y="84" text-anchor="middle" font-size="11" fill="var(--text)">2</text><circle class="a-xb" style="--d:0.16s" cx="59.0" cy="56" r="8" fill="var(--blue)"/><text x="59.0" y="84" text-anchor="middle" font-size="11" fill="var(--text)">3</text><circle class="a-xb" style="--d:0.24s" cx="79.5" cy="56" r="8" fill="var(--blue)"/><text x="79.5" y="84" text-anchor="middle" font-size="11" fill="var(--text)">4</text><circle class="a-xb" style="--d:0.32s" cx="100.0" cy="56" r="8" fill="var(--red)"/><text x="100.0" y="84" text-anchor="middle" font-size="11" fill="var(--text)">5</text><circle class="a-xb" style="--d:0.40s" cx="120.5" cy="56" r="8" fill="var(--blue)"/><text x="120.5" y="84" text-anchor="middle" font-size="11" fill="var(--text)">6</text><circle class="a-xb" style="--d:0.48s" cx="141.0" cy="56" r="8" fill="var(--red)"/><text x="141.0" y="84" text-anchor="middle" font-size="11" fill="var(--text)">7</text><circle class="a-xb" style="--d:0.56s" cx="161.5" cy="56" r="8" fill="var(--red)"/><text x="161.5" y="84" text-anchor="middle" font-size="11" fill="var(--text)">8</text><circle class="a-xb" style="--d:0.64s" cx="182.0" cy="56" r="8" fill="var(--red)"/><text x="182.0" y="84" text-anchor="middle" font-size="11" fill="var(--text)">9</text><circle class="a-xb" style="--d:0.72s" cx="202.5" cy="56" r="8" fill="var(--red)"/><text x="202.5" y="84" text-anchor="middle" font-size="11" fill="var(--text)">10</text><text x="10" y="24" font-size="11" fill="var(--blue)">● kelompok B</text><text x="210" y="24" text-anchor="end" font-size="11" fill="var(--red)">● kelompok A</text><text x="110" y="114" text-anchor="middle" font-size="10.5" fill="var(--text-2)">A menumpuk di peringkat besar</text></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Perumpamaan: mengocok kartu dua warna <span class="when">pemanasan</span></h3>
+      <p>Bila kartu merah dan biru dikocok rapi, keduanya tersebar merata di tumpukan. Bila hampir semua merah ada di bawah, kocokannya mencurigakan.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> kartu bisa dikocok ulang berkali-kali untuk mengecek. Dalam uji, "pengocokan" itu dihitung: semua cara membagi peringkat dihitung untuk mendapatkan nilai-p.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg></span>Coba sendiri: Mesin Peringkat <span class="when">praktik</span></h3>
+      <p>Dua kelompok, masing-masing 5 data (fiktif). Lihat peringkat gabungannya, lalu lihat semua 252 cara membagi peringkat 1–10 menjadi dua kelompok bila H0 benar.</p>
+      <div id="c-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Bagian</th><th>Rumus</th><th>Arti</th></tr></thead>
+        <tbody>
+          <tr><th>Jumlah peringkat</th><td>R<sub>A</sub> = jumlah peringkat kelompok A</td><td>Dari peringkat gabungan</td></tr>
+          <tr><th>Statistik U</th><td>U<sub>A</sub> = R<sub>A</sub> − n<sub>A</sub>(n<sub>A</sub> + 1) ÷ 2</td><td>U<sub>A</sub> + U<sub>B</sub> = n<sub>A</sub> × n<sub>B</sub></td></tr>
+          <tr><th>Keputusan (n kecil)</th><td>Tolak H0 bila U terkecil ≤ U kritis</td><td>n<sub>A</sub> = n<sub>B</sub> = 5, α 5% dua arah: U kritis = 2</td></tr>
+          <tr><th>Pendekatan normal (n besar)</th><td>z = (U − n<sub>A</sub>n<sub>B</sub> ÷ 2) ÷ √(n<sub>A</sub>n<sub>B</sub>(N + 1) ÷ 12)</td><td>Dipakai bila kedua n sekitar 10 atau lebih</td></tr>
+        </tbody></table></div>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah.</b> Waktu muat (detik, fiktif) aplikasi versi A: 3,1; 4,0; 4,9; 5,2; 6,0 dan versi B: 4,4; 5,5; 6,3; 7,0; 7,9.</p>
+      <ol>
+        <li><b>Peringkat gabungan:</b> 3,1 (1), 4,0 (2), 4,4 (3), 4,9 (4), 5,2 (5), 5,5 (6), 6,0 (7), 6,3 (8), 7,0 (9), 7,9 (10).</li>
+        <li><b>Jumlah peringkat A:</b> 1 + 2 + 4 + 5 + 7 = 19.</li>
+        <li><b>Statistik U:</b> U<sub>A</sub> = 19 − 5 × 6 ÷ 2 = 4; U<sub>B</sub> = 25 − 4 = 21. U terkecil = 4.</li>
+        <li><b>Keputusan:</b> 4 > 2 (U kritis), jadi H0 gagal ditolak pada α 5% dua arah. Nilai-p tepatnya 24 ÷ 252 ≈ 0,095.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="c-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span>Kacamata berpikir: berpikir dari dasar</h4>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Bila kedua kelompok benar-benar sama, peringkat seperti apa yang wajar?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Dari dasar: bila H0 benar, setiap cara membagi peringkat 1–10 menjadi dua kelompok sama mungkin. Ada 252 cara. Nilai-p adalah bagian dari 252 cara itu yang seekstrem atau lebih ekstrem daripada data.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Untuk n besar, menghitung semua cara terlalu banyak; pendekatan normal dipakai sebagai gantinya.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== 14.4 ===================== -->
+  <section class="sec c-purple" id="sta-d">
+    <div class="sec-head">
+      <span class="num">14.4</span>
+      <div><h2>Uji tanda untuk data berpasangan</h2><p class="sub">Satu orang, dua pengukuran: hitung tandanya saja.</p></div>
+      <span class="time tm">Mandiri ±10 mnt</span><span class="time tk">Di kelas ±9 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Saat orang yang sama mencoba dua hal, misalnya dua aplikasi, data datang berpasangan. Uji tanda adalah cara paling sederhana untuk menguji apakah salah satunya cenderung lebih disukai.</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <div id="d-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Sepuluh temanmu mencoba dua aplikasi catatan. Untuk setiap teman, tulis <b>+</b> bila ia lebih suka aplikasi B dan <b>−</b> bila lebih suka A. Bila sebenarnya tidak ada beda, + dan − seperti hasil lemparan koin seimbang. Hitung seberapa jarang hasil seberat sebelah itu muncul. Itulah <b>uji tanda</b>.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: sepuluh pasang skor ditandai plus atau minus; sembilan plus dan satu minus"><g class="a-xb" style="--d:0.0s"><circle cx="20" cy="56" r="8.5" fill="var(--green)"/><text x="20" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.1s"><circle cx="40" cy="56" r="8.5" fill="var(--green)"/><text x="40" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.2s"><circle cx="60" cy="56" r="8.5" fill="var(--green)"/><text x="60" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.3s"><circle cx="80" cy="56" r="8.5" fill="var(--green)"/><text x="80" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.4s"><circle cx="100" cy="56" r="8.5" fill="var(--green)"/><text x="100" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.5s"><circle cx="120" cy="56" r="8.5" fill="var(--green)"/><text x="120" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.6s"><circle cx="140" cy="56" r="8.5" fill="var(--red)"/><text x="140" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">−</text></g><g class="a-xb" style="--d:0.7s"><circle cx="160" cy="56" r="8.5" fill="var(--green)"/><text x="160" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.8s"><circle cx="180" cy="56" r="8.5" fill="var(--green)"/><text x="180" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><g class="a-xb" style="--d:0.9s"><circle cx="200" cy="56" r="8.5" fill="var(--green)"/><text x="200" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="var(--on-green)">+</text></g><text x="110" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">9 plus, 1 minus</text><text x="110" y="114" text-anchor="middle" font-size="10.5" fill="var(--text-2)">hanya tanda + atau − dihitung</text></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg></span>Perumpamaan: voting suka atau tidak suka <span class="when">pemanasan</span></h3>
+      <p>Polling sederhana hanya bertanya "lebih suka yang mana?", tanpa menanyakan seberapa suka. Hasilnya mudah dihitung dan sulit dipelintir.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> polling bisa diikuti siapa saja. Uji tanda tetap butuh pasangan dari sampel acak; dan karena seberapa besar selisih diabaikan, uji ini kurang peka daripada uji yang memakainya.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg></span>Coba sendiri: Uji Tanda <span class="when">praktik</span></h3>
+      <p><b>Mulai dari akhir:</b> keputusannya memilih aplikasi untuk semua mahasiswa, jadi yang dibutuhkan adalah seberapa jarang hasil seperti ini bila tidak ada beda. Atur banyak pasangan n dan banyak tanda +, lalu lihat nilai-p dari sebaran binomial.</p>
+      <div id="d-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Langkah</th><th>Aturan</th><th>Contoh</th></tr></thead>
+        <tbody>
+          <tr><th>1. Tandai</th><td>+ bila B lebih baik, − bila A lebih baik</td><td>10 pasang: 8 plus, 1 minus, 1 seri</td></tr>
+          <tr><th>2. Buang seri</th><td>n = banyak pasangan yang tidak seri</td><td>n = 9</td></tr>
+          <tr><th>3. Statistik</th><td>X = banyak tanda +, X ~ Binomial(n; 0,5) bila H0 benar</td><td>X = 8</td></tr>
+          <tr><th>4. Nilai-p</th><td>Satu arah: P(X ≥ x); dua arah: dikali 2</td><td>P(X ≥ 8) = 10 ÷ 512 ≈ 0,0195</td></tr>
+        </tbody></table></div><p style="margin-top:10px"><b>Wilcoxon bertanda</b> memakai juga besar selisih: beri peringkat |selisih|, lalu jumlahkan peringkat yang bertanda +. <b>Kruskal–Wallis</b> adalah padanan ANOVA: semua kelompok diberi peringkat gabungan, lalu jumlah peringkat tiap kelompok dibandingkan.</p>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah.</b> Sepuluh mahasiswa membandingkan dua aplikasi: 8 lebih suka B, 1 lebih suka A, 1 sama saja.</p>
+      <ol>
+        <li><b>Buang seri:</b> n = 9, X = 8 tanda +.</li>
+        <li><b>Peluang bila H0 benar:</b> P(X = 8) = 9 ÷ 512 dan P(X = 9) = 1 ÷ 512.</li>
+        <li><b>Nilai-p:</b> satu arah 10 ÷ 512 ≈ 0,0195; dua arah ≈ 0,039.</li>
+        <li><b>Keputusan:</b> dengan α 5% dua arah, H0 ditolak: ada bukti B lebih disukai.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="d-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Kacamata berpikir: akibat lanjutan</h4>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Kalau hanya tanda yang dihitung, lalu apa akibatnya pada kesimpulan?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Akibat pertama: uji ini kebal terhadap pencilan dan skala yang tidak jelas. Akibat lanjutannya: selisih 1 poin dan 30 poin dihitung sama, sehingga uji butuh lebih banyak data untuk menangkap perbedaan yang sama.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Bila selisihnya diukur dengan baik, Wilcoxon bertanda atau uji t berpasangan memakai lebih banyak informasi dan lebih peka.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== PUNCAK ===================== -->
+  <div class="sesi-end learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Sesi 2 selesai.</b> Lanjut sekarang atau besok? Progresmu tersimpan; saat kembali, tekan <b>Lanjutkan dari terakhir</b> di bilah navigasi.</div><a class="btn small" href="#sesi-3">Lanjut ke Sesi 3</a></div>
+
+  <div class="sesi learn-only" id="sesi-3"><span class="sesi-no">Sesi 3 dari 3</span><span>±53 mnt · Puncak dan Kuis. Disarankan di hari lain.</span></div>
+  <section class="sec c-blue" id="hero">
+    <div class="sec-head">
+      <span class="num">14.5</span>
+      <div><h2>Puncak: jelaskan dan terapkan</h2><p class="sub">Menjelaskan dengan kata sendiri adalah bukti pemahaman yang paling sulit ditiru.</p></div>
+      <span class="time tm">Mandiri ±26 mnt</span><span class="time tk">Di kelas ±10 mnt</span>
+    </div>
+
+    <div class="blk learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg></span>Jelaskan dengan kata sendiri (teknik Feynman) <span class="when">pendalaman</span></h3>
+      <p class="gloss">Teknik Feynman (dari nama fisikawan Richard Feynman): menjelaskan sesuatu kepada orang awam untuk menemukan bagian yang belum kamu pahami.</p>
+      <div class="step3">
+        <div>
+          <p><b>1. Jelaskan.</b> Tulis untuk teman SMA: kapan uji nonparametrik lebih tepat, bagaimana nilai diubah menjadi peringkat, dan bagaimana uji Mann–Whitney atau uji tanda mengambil keputusan?</p>
+          <textarea id="fy1" aria-label="Penjelasan untuk teman SMA" placeholder="Tulis dengan kata-katamu sendiri, tanpa menyalin."></textarea>
+        </div>
+        <div>
+          <p><b>2. Cari celah.</b> Periksa tulisanmu:</p>
+          <label class="chk"><input type="checkbox" data-fyc="0"><span>Ada contoh data yang tidak cocok untuk uji t.</span></label>
+          <label class="chk"><input type="checkbox" data-fyc="1"><span>Ada cara memberi peringkat, termasuk seri.</span></label>
+          <label class="chk"><input type="checkbox" data-fyc="2"><span>Ada langkah uji Mann–Whitney atau uji tanda.</span></label>
+          <label class="chk"><input type="checkbox" data-fyc="3"><span>Ada kekurangan uji nonparametrik.</span></label>
+        </div>
+        <div>
+          <p><b>3. Sederhanakan.</b> Tulis ulang dalam paling banyak tiga kalimat.</p>
+          <textarea id="fy3" aria-label="Versi tiga kalimat"></textarea>
+          <p id="fy3n" class="qmeta"></p>
+        </div>
+      </div>
+      <div class="fy-ex" id="fy-ex"></div>
+    </div>
+
+    <div class="blk learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg></span>Tiga sudut pandang untuk satu gagasan <span class="when">pendalaman</span></h3>
+      <p>Gagasan: <b>"bila hanya urutan yang bisa dipercaya, ujilah urutannya."</b></p>
+      <div class="tabs" id="lens3-tabs" role="group" aria-label="Pilih sudut pandang"></div>
+      <div class="infobox" id="lens3-body" aria-live="polite"></div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span>Kasus Indonesia: rating bintang dua versi aplikasi <span class="when">praktik</span></h3>
+      <div class="kasus">Tim produk (fiktif) meminta 16 pengguna yang diundi menilai satu dari dua versi aplikasi dengan bintang 1–5. Versi A (8 orang): 3, 4, 3, 2, 4, 3, 4, 4. Versi B (8 orang): 4, 5, 4, 3, 5, 4, 4, 4. Laporan tim: <b>"Uji t memberi p = 0,049. Versi B terbukti lebih baik, rata-rata 0,75 bintang lebih tinggi."</b></div>
+      <div id="kasus-q"></div>
+      <div class="row"><button class="btn" id="kasus-check" type="button">Cek jawaban</button></div>
+      <div id="kasus-lens" style="display:none">
+        <h3>Kritik kesimpulan itu dengan satu kacamata berpikir</h3>
+        <div class="tabs" id="kl-tabs" role="group" aria-label="Pilih kacamata kritik"></div>
+        <div class="infobox" id="kl-body" aria-live="polite"></div>
+        <textarea id="kl-text" aria-label="Kritikmu dalam satu kalimat" style="min-height:70px" placeholder="Tulis kritikmu dalam satu kalimat."></textarea>
+      </div>
+    </div>
+
+    <div class="blk learn-only">
+      <details class="maprec"><summary><h3 style="display:inline-flex;gap:10px;align-items:center;margin:0"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg></span>Peta rangkuman satu layar <span class="when">pendalaman</span></h3></summary>
+      <div class="mmwrap" id="map-hero" tabindex="0" aria-label="Peta konsep rangkuman bagian 14 sampai tingkat nano"></div>
+      </details>
+      <div id="zero-recap" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+
+  <!-- ===================== KUIS ===================== -->
+  <section class="sec c-red" id="kuis">
+    <div class="sec-head">
+      <span class="num">20</span>
+      <div><h2>Kuis 20 soal</h2><p class="sub">Bertahap dari mudah sampai jebakan. Angka dan kasus berubah tiap kode soal.</p></div>
+      <span class="time tm">Mandiri ±24 mnt</span><span class="time tk">Di kelas: dikerjakan mandiri</span>
+    </div>
+    <div class="qbanner">
+      <svg class="art" viewBox="0 0 120 100" role="img" aria-label="Tanda tanya yang melompat-lompat"><g class="a-bounce"><circle cx="60" cy="54" r="34" fill="var(--red)"/><text x="60" y="69" text-anchor="middle" font-size="46" font-weight="700" fill="var(--on-red)">?</text></g></svg>
+      <div>
+        <p style="margin:0 0 6px">Pilih seberapa yakin kamu, lalu jawab. Setiap pilihan, termasuk yang salah, punya penjelasan. Siapkan kalkulator untuk soal hitung. Nilai kritis yang dibutuhkan disediakan di soalnya. Lupa arti istilah? Buka <a href="#kamus">Kamus mini</a>.</p>
+        <div class="tiers"><span class="tier t1">1–5 Fondasi (dasar)</span><span class="tier t2">6–12 Terapan (menghitung)</span><span class="tier t3">13–17 Analisis (menilai kasus)</span><span class="tier t4">18–20 Jebakan dan penerapan lain</span></div>
+        <p class="qmeta" style="margin:0">Latihan ini <b>tidak dinilai</b>. Kode soal menentukan angka dan kasusnya; catat kodenya jika ingin mengerjakan soal yang sama lagi.</p>
+      </div>
+    </div>
+    <div class="blk kelas-only"><h3>Kuis dikerjakan mandiri</h3><p>Mode Kelas sedang aktif, jadi kuis disembunyikan agar layar proyektor tetap ringkas.</p><button class="btn" id="quiz-open" type="button">Buka kuis (pindah ke mode Belajar)</button></div>
+    <div class="blk try learn-only" id="quiz-wrap"><div id="quiz-root"></div></div>
+  </section>
+
+  <section class="sec c-green learn-only" id="pulang">
+    <div class="sec-head"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><h2>Sebelum selesai</h2><p class="sub">Dua hal kecil yang menjaga belajarmu jujur.</p></div><span class="time tm">Mandiri ±3 mnt</span></div>
+    <div class="blk">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg></span>Daftar periksa pemakaian AI</h3>
+      <p>Kalau kamu memakai AI saat belajar, periksa empat hal ini. (Prompt = perintah atau pertanyaan yang kamu ketik ke AI.)</p>
+      <div id="ailog"></div>
+      <p style="margin-top:10px"><b>Satu kalimat penutup</b> (istilah asingnya <i>exit ticket</i>, tiket keluar). Lengkapi:</p>
+      <input type="text" id="ticket" aria-label="Satu kalimat penutup" placeholder="Hal yang paling saya salah pahami tadi adalah ...">
+    </div>
+  </section>
+
+  <div class="sesi-end learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Sesi 3 selesai.</b> Terima kasih sudah belajar sampai akhir. Bagian berikutnya, Aplikasi Python untuk Komputasi Statistik, menjalankan semua uji ini dengan kode.</div></div>
+
+  <div class="foot">
+    <p><b>Bacaan untuk mendalami:</b> Walpole, Myers, Myers, &amp; Ye (2016), <i>Probability and Statistics for Engineers and Scientists</i>; Montgomery &amp; Runger (2018), <i>Applied Statistics and Probability for Engineers</i>; Downey (2014), <i>Think Stats</i>. Halaman ini adalah pendamping belajar, bukan pengganti buku.</p>
+    <p>Ditulis oleh Tri Aji Nugroho, S.T., M.T., Dosen Program Studi Informatika, Universitas Al-Azhar Indonesia. Edisi web 1.0, diperbarui Oktober 2026. Semua data pada halaman ini adalah contoh fiktif untuk latihan.</p>
+  </div>
+</main>
+<button class="fab kelas-only" id="next-act" type="button" aria-label="Lompat ke aktivitas berikutnya">Aktivitas berikutnya ↓</button>
+<div class="term-pop" id="term-pop" role="dialog" aria-live="polite" hidden></div>
+
+<script>
+/* ===== KERANGKA CORE: RNG, format angka, statistik dasar, pembantu soal, perakit kuis (murni, bisa diuji di Node) ===== */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function makeRng(seed){
+  var r=mulberry32(seed>>>0);
+  return {
+    next:r,
+    int:function(a,b){return a+Math.floor(r()*(b-a+1));},
+    pick:function(arr){return arr[Math.floor(r()*arr.length)];},
+    shuffle:function(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  };
+}
+function fmt(x,d){return Number(x).toFixed(d==null?0:d).replace('.',',');}
+function fmtTrim(x){var v=Math.round(x*100)/100;if(Object.is(v,-0))v=0;return String(v).replace('.',',');}
+function fmtInt(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+function sum(a){var s=0;for(var i=0;i<a.length;i++)s+=a[i];return s;}
+function mean(a){return sum(a)/a.length;}
+function sorted(a){return a.slice().sort(function(x,y){return x-y;});}
+function median(a){var b=sorted(a),n=b.length;return n%2?b[(n-1)/2]:(b[n/2-1]+b[n/2])/2;}
+function ssq(a){var m=mean(a),s=0;for(var i=0;i<a.length;i++)s+=(a[i]-m)*(a[i]-m);return s;}
+function varS(a){return a.length>1?ssq(a)/(a.length-1):0;}
+function varP(a){return ssq(a)/a.length;}
+function sd(a){return Math.sqrt(varS(a));}
+/* Kuartil cara buku ini: Q1 = median separuh bawah, Q3 = median separuh atas; bila n ganjil, median tidak ikut ke separuh mana pun. */
+function quartiles(a){var b=sorted(a),n=b.length,h=Math.floor(n/2);return {q1:median(b.slice(0,h)),q2:median(b),q3:median(b.slice(n%2?h+1:h))};}
+function iqr(a){var q=quartiles(a);return q.q3-q.q1;}
+function modes(a){var c={},mx=0,i;for(i=0;i<a.length;i++){c[a[i]]=(c[a[i]]||0)+1;if(c[a[i]]>mx)mx=c[a[i]];}if(mx<2)return [];return Object.keys(c).filter(function(k){return c[k]===mx;}).map(Number).sort(function(x,y){return x-y;});}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function normals(seed,n){var r=makeRng(seed),z=[];for(var i=0;i<n;i++){var u1=Math.max(r.next(),1e-9),u2=r.next();z.push(Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2));}return z;}
+function trimNote(n){var s=n.replace(/^(Namun|Tetapi)\s+/,''),w=s.split(/\s/)[0];if(!/^[a-zà-ÿ][a-zà-ÿ'-]+[,.;:]?$/i.test(w))return s;return s.charAt(0).toUpperCase()+s.slice(1);}
+function opt(t,ok,note,mis){return {t:t,ok:!!ok,note:ok?note:trimNote(note),mis:mis||''};}
+function uniq(arr){return new Set(arr).size===arr.length;}
+function sq(u){return u.indexOf(' ')>=0?'('+u+')²':u+'²';}
+/* Data tugas resmi (T-xx) yang tidak boleh muncul. Diisi oleh core_isi.js: TERLARANG=[[...],[...]] */
+var TERLARANG=[];
+function terlarang(a){var b=sorted(a);return TERLARANG.some(function(t){var s=sorted(t);return s.length===b.length&&s.every(function(v,i){return v===b[i];});});}
+var TIER_OF=function(i){return i<5?1:i<12?2:i<17?3:4;};
+var TIER_NAME={1:'Fondasi',2:'Terapan',3:'Analisis',4:'Jebakan dan penerapan lain'};
+
+function buildQuiz(seed){
+  var out=[];
+  for(var i=0;i<BUILDERS.length;i++){
+    var r=makeRng((seed^Math.imul(i+1,2654435761))>>>0);
+    var q=BUILDERS[i](r);
+    var shuffled=r.shuffle(q.opts);
+    var correct=-1;for(var k=0;k<shuffled.length;k++){if(shuffled[k].ok)correct=k;}
+    out.push({n:i+1,tier:TIER_OF(i),tierName:TIER_NAME[TIER_OF(i)],stem:q.stem,opts:shuffled,correct:correct,hint:q.hint,meta:q.meta});
+  }
+  return out;
+}
+/* ==CORE-ISI== */
+/* ===== CORE ISI Bagian 14: statistika nonparametrik, peringkat, dan 20 pembangun soal ===== */
+TERLARANG=[[5,7,8,9,10],[8,10,11,12,13]]; /* kelompok T-13; dicek juga di qa/uji_kunci.js */
+
+function sg(x){return String(x).replace('.',',').replace('-','−');}
+function t2(x){var v=Math.sign(x)*Math.round(Math.abs(x)*100)/100;if(Object.is(v,-0))v=0;return sg(v);}
+function t4(x){var v=Math.round(x*10000)/10000;return sg(v);}
+/* peringkat dengan rata-rata untuk nilai seri */
+function ranks(a){var I=a.map(function(v,i){return i;}).sort(function(x,y){return a[x]-a[y];}),r=new Array(a.length),i=0;
+  while(i<I.length){var j=i;while(j+1<I.length&&a[I[j+1]]===a[I[i]])j++;var rr=(i+j+2)/2;for(var k=i;k<=j;k++)r[I[k]]=rr;i=j+1;}return r;}
+function comb(n,k){var c=1;for(var i=1;i<=k;i++)c=c*(n-k+i)/i;return Math.round(c);}
+function binomTail(n,k){var s=0;for(var x=k;x<=n;x++)s+=comb(n,x);return s/Math.pow(2,n);}
+/* sebaran tepat jumlah peringkat kelompok A (n_A dari N, tanpa seri) */
+function rankSumDist(nA,N){var D={};(function rec(start,left,sum){if(!left){D[sum]=(D[sum]||0)+1;return;}for(var r=start;r<=N-left+1;r++)rec(r+1,left-1,sum+r);})(1,nA,0);return D;}
+function mwu(A,B){var r=ranks(A.concat(B)),RA=0;for(var i=0;i<A.length;i++)RA+=r[i];var UA=RA-A.length*(A.length+1)/2;return {RA:RA,UA:UA,UB:A.length*B.length-UA,r:r};}
+var UK={5:2,6:5,7:8,8:13}; /* U kritis, n_A = n_B, α 5% dua arah */
+
+/* ---- 20 pembangun soal ---- */
+var BUILDERS=[
+/* 1 Fondasi: definisi */ function(r){
+  var N=['Uji nonparametrik','Peringkat','Uji Mann–Whitney','Uji tanda'];
+  var DEF=['uji yang tidak menganggap data berbentuk normal','nomor urut nilai setelah data diurutkan','uji dua kelompok bebas berdasarkan jumlah peringkat','uji data berpasangan yang hanya menghitung tanda + dan −'];
+  var k=r.int(0,3),low=function(x){return x.charAt(0).toLowerCase()+x.slice(1);};
+  return {stem:'Istilah yang artinya "'+DEF[k]+'" adalah ...',opts:N.map(function(nm,i){
+    return i===k?opt(nm,true,'Tepat. '+nm+' adalah '+DEF[i]+'.'):opt(nm,false,nm+' adalah '+DEF[i]+'.',nm+' tertukar dengan '+low(N[k]));}),
+    hint:'Jenis uji, nomor urut, dua kelompok, atau tanda?',meta:{k:k}};},
+/* 2 Fondasi: kapan nonparametrik */ function(r){
+  var S=r.pick([['Rating kepuasan bintang 1–5 dari dua kelompok kecil, banyak nilai seri.',0],['Waktu respons 9 permintaan dengan satu lonjakan sangat besar yang memang terjadi.',0],['Urutan pilihan lima menu kantin dari 15 mahasiswa.',0],
+    ['Tinggi badan 400 mahasiswa yang histogramnya berbentuk lonceng.',1],['Berat 200 kemasan dari mesin yang sama, sebarannya kira-kira normal.',1]]);
+  var O=['Uji nonparametrik lebih tepat','Uji t atau ANOVA sudah tepat','Data harus dibuang dulu','Tidak ada uji yang bisa dipakai'];
+  var W=['data ordinal, sampel kecil miring, atau pencilan cocok untuk uji berbasis peringkat.','data banyak dan kira-kira normal; uji parametrik lebih kuat.'];
+  return {stem:'"'+S[0]+'" Pilihan uji yang lebih tepat adalah ...',opts:O.map(function(o,i){if(i===S[1])return opt(o,true,'Tepat: '+W[i]);if(i<2)return opt(o,false,'Tidak cocok: '+W[S[1]],'Jenis data tidak diperiksa');return opt(o,false,i===2?'Data asli tidak boleh dibuang hanya agar cocok dengan uji.':'Selalu ada uji yang bisa dipakai bila rancangannya sah.',i===2?'Data dibuang demi uji':'Uji dikira tidak tersedia');}),hint:'Jenis data dan bentuk sebarannya?',meta:{k:S[1]}};},
+/* 3 Fondasi: padanan uji */ function(r){
+  var P=[['uji t dua kelompok bebas','Uji Mann–Whitney'],['uji t berpasangan','Uji tanda'],['ANOVA satu arah','Uji Kruskal–Wallis'],['korelasi Pearson','Korelasi Spearman']],k=r.int(0,3);
+  return {stem:'Padanan nonparametrik untuk '+P[k][0]+' adalah ...',opts:P.map(function(p,i){return i===k?opt(p[1],true,'Tepat. '+p[1]+' adalah padanan '+p[0]+'.'):opt(p[1],false,p[1]+' adalah padanan '+p[0]+'.','Padanan uji tertukar');}),hint:'Kelompok bebas, berpasangan, banyak kelompok, atau hubungan?',meta:{k:k}};},
+/* 4 Fondasi: median tahan pencilan */ function(r){
+  var b=r.int(3,8),d=[b,b+1,b+1,b+2,b+3],big=r.pick([60,80,100]);d[4]=big;var me=mean(d),md=median(d);
+  return {stem:'Data: '+d.join(', ')+'. Bila nilai '+big+' diganti '+(b+3)+', apa yang terjadi?',opts:[
+    opt('Rata-rata turun jauh, median tidak berubah',true,'Tepat. Median hanya bergantung pada nilai tengah ('+t2(md)+').'),
+    opt('Median turun jauh, rata-rata tidak berubah',false,'Justru rata-rata yang terseret nilai ekstrem.','Rata-rata dikira tahan pencilan'),
+    opt('Keduanya turun sama besar',false,'Median tetap '+t2(md)+'; hanya rata-rata yang berubah.','Median dikira terpengaruh pencilan'),
+    opt('Keduanya tidak berubah',false,'Rata-rata berubah dari '+t2(me)+' menjadi '+t2(mean([b,b+1,b+1,b+2,b+3]))+'.','Rata-rata dikira tahan pencilan')],hint:'Median adalah nilai tengah.',meta:{}};},
+/* 5 Fondasi: kekurangan */ function(r){
+  return {stem:r.pick(['Data dua kelompok banyak dan kira-kira normal.','Data berpasangan berupa selisih berat yang diukur teliti dan kira-kira normal.','Data tiga kelompok berukuran 30, tiap kelompok berbentuk lonceng tanpa pencilan.'])+' Dibanding uji parametrik, uji nonparametrik biasanya ...',opts:[
+    opt('Sedikit kurang peka, karena tidak memakai seluruh informasi jarak',true,'Tepat. Pada data normal, uji t sedikit lebih kuat.'),
+    opt('Jauh lebih peka',false,'Membuang jarak tidak menambah kepekaan.','Nonparametrik dikira selalu lebih kuat'),
+    opt('Tidak sah sama sekali',false,'Uji nonparametrik tetap sah, hanya kurang peka.','Nonparametrik dikira tidak sah'),
+    opt('Selalu memberi nilai-p yang sama',false,'Statistik dan nilai-p keduanya berbeda.','Kedua uji dikira identik')],hint:'Informasi apa yang dibuang?',meta:{}};},
+/* 6 Terapan: median */ function(r){
+  var n,a,o,t=0;do{n=r.pick([6,7,8,9]);a=[];for(var i=0;i<n;i++)a.push(r.int(10,60));var md=median(a),s=sorted(a);o=[t2(md),t2(mean(a)),t2(n%2?s[(n-1)/2-1]:s[n/2-1]),t2(n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2)];t++;}while((!uniq(o)||terlarang(a))&&t<200);
+  return {stem:'Data: '+a.join(', ')+'. Berapa mediannya?',opts:[
+    opt(o[0],true,'Tepat. Urutkan dulu: '+sorted(a).join(', ')+'.'),
+    opt(o[1],false,'Itu rata-rata, bukan median.','Median tertukar rata-rata'),
+    opt(o[2],false,n%2?'Median adalah nilai tengah setelah diurutkan.':'Untuk n genap, median adalah rata-rata dua nilai tengah.','Nilai tengah salah diambil'),
+    opt(o[3],false,'Data harus diurutkan dulu sebelum mengambil nilai tengah.','Data tidak diurutkan')],hint:'Urutkan, lalu ambil tengahnya.',meta:{vals:a}};},
+/* 7 Terapan: peringkat dengan seri */ function(r){
+  var a,R,q,o,t=0;do{a=[];var n=r.pick([6,7,8]);for(var i=0;i<n;i++)a.push(r.int(1,9));R=ranks(a);var cnt={};a.forEach(function(v){cnt[v]=(cnt[v]||0)+1;});var tied=a.filter(function(v){return cnt[v]>=2;});
+    if(!tied.length){t++;continue;}q=r.pick(tied);var s=sorted(a),first=s.indexOf(q)+1,last=s.lastIndexOf(q)+1;o=[t2((first+last)/2),String(first),String(last),t2(q)];t++;}while((!o||!uniq(o)||terlarang(a))&&t<300);
+  return {stem:'Data: '+a.join(', ')+'. Berapa peringkat untuk nilai '+q+'?',opts:[
+    opt(o[0],true,'Tepat. Nilai '+q+' menempati posisi '+o[1]+' sampai '+o[2]+'; rata-ratanya '+o[0]+'.'),
+    opt(o[1],false,'Nilai seri mendapat rata-rata posisinya, bukan posisi pertama.','Seri diberi posisi pertama'),
+    opt(o[2],false,'Nilai seri mendapat rata-rata posisinya, bukan posisi terakhir.','Seri diberi posisi terakhir'),
+    opt(o[3],false,'Peringkat adalah posisi urut, bukan nilai datanya.','Nilai dikira peringkat')],hint:'Rata-rata posisi untuk nilai yang sama.',meta:{a:a,q:q}};},
+/* 8 Terapan: jumlah peringkat */ function(r){
+  var nA=r.pick([4,5,6,7,8]),nB=r.pick([4,5,6,7,8]),N=nA+nB,v=r.int(0,1);
+  if(v===0){var o=[N*(N+1)/2,N*(N+1),N*N/2,nA*nB].map(t2);if(!uniq(o))o[3]=t2(N*(N-1)/2);
+    return {stem:'Dua kelompok berisi '+nA+' dan '+nB+' data digabung dan diberi peringkat. Berapa jumlah semua peringkat?',opts:[opt(o[0],true,'Tepat. N(N + 1) ÷ 2 dengan N = '+N+'.'),opt(o[1],false,'Hasil kali N(N + 1) masih harus dibagi 2.','Lupa membagi 2'),opt(o[2],false,'Rumusnya N(N + 1) ÷ 2.','Rumus jumlah salah'),opt(o[3],false,'Itu n_A × n_B, yang dipakai untuk statistik U.','Rumus U tertukar')],hint:'1 + 2 + … + N.',meta:{v:0,N:N}};}
+  var e=nA*(N+1)/2,o2=[t2(e),t2(N*(N+1)/2),t2(nA*nB/2),t2(nA*(nA+1)/2)];if(!uniq(o2))o2[2]=t2(e+nA);
+  return {stem:'Dua kelompok berisi '+nA+' dan '+nB+' data. Bila H0 benar, rata-rata jumlah peringkat kelompok A (n_A = '+nA+') adalah ...',opts:[opt(o2[0],true,'Tepat. n_A(N + 1) ÷ 2: setiap anggota A rata-rata berperingkat (N + 1) ÷ 2.'),opt(o2[1],false,'Itu jumlah semua peringkat, kedua kelompok.','Total tertukar bagian'),opt(o2[2],false,'Itu rata-rata U, bukan jumlah peringkat.','U tertukar jumlah peringkat'),opt(o2[3],false,'Itu jumlah peringkat terkecil yang mungkin.','Nilai terkecil dikira rata-rata')],hint:'Rata-rata peringkat satu data = (N + 1) ÷ 2.',meta:{v:1,nA:nA,N:N}};},
+/* 9 Terapan: U dari jumlah peringkat */ function(r){
+  var nA,nB,RA,o,t=0;do{nA=r.int(4,8);nB=r.int(4,8);var mn=nA*(nA+1)/2,mx=mn+nA*nB;RA=r.int(mn+1,mx-1);if(r.int(0,1))RA+=0.5;var U=RA-mn;o=[t2(U),t2(RA),t2(RA-nA),t2(nA*nB-U)];t++;}while((!uniq(o)||RA>nA*(nA+1)/2+nA*nB)&&t<100);
+  return {stem:'n_A = '+nA+', n_B = '+nB+', jumlah peringkat kelompok A = '+t2(RA)+'. Berapa U_A?',opts:[
+    opt(o[0],true,'Tepat. '+t2(RA)+' − '+nA+' × '+(nA+1)+' ÷ 2.'),
+    opt(o[1],false,'Jumlah peringkat masih dikurangi n_A(n_A + 1) ÷ 2.','Lupa mengurangi'),
+    opt(o[2],false,'Yang dikurangkan n_A(n_A + 1) ÷ 2, bukan n_A.','Rumus U salah'),
+    opt(o[3],false,'Itu U_B, bukan U_A.','U_A tertukar U_B')],hint:'U_A = R_A − n_A(n_A + 1) ÷ 2.',meta:{nA:nA,nB:nB,RA:RA}};},
+/* 10 Terapan: U_B dari U_A */ function(r){
+  var nA,nB,UA,o,t=0;do{nA=r.int(4,9);nB=r.int(4,9);UA=r.int(1,nA*nB-1);o=[nA*nB-UA,nA*nB+UA,UA,nA+nB-UA].map(String);t++;}while((!uniq(o)||nA+nB-UA<0)&&t<100);
+  return {stem:'n_A = '+nA+', n_B = '+nB+', U_A = '+UA+'. Berapa U_B?',opts:[opt(o[0],true,'Tepat. U_A + U_B = n_A × n_B = '+(nA*nB)+'.'),opt(o[1],false,'Kedua U dijumlahkan menjadi n_A × n_B, jadi dikurangkan.','Hubungan U salah'),opt(o[2],false,'U_A dan U_B sama hanya bila kedua kelompok setara persis.','U dikira simetris'),opt(o[3],false,'Jumlahnya n_A × n_B, bukan n_A + n_B.','Rumus U salah')],hint:'U_A + U_B = n_A × n_B.',meta:{nA:nA,nB:nB,UA:UA}};},
+/* 11 Terapan: keputusan U kritis */ function(r){
+  var n=r.pick([5,6,7,8]),uk=UK[n],U=r.pick([0,1,uk,uk+1,uk+3,Math.max(0,uk-1)]),rej=U<=uk;
+  return {stem:'n_A = n_B = '+n+'. U terkecil = '+U+'. U kritis (α 5% dua arah) = '+uk+'. Keputusannya ...',opts:[
+    opt('Tolak H0',rej,rej?'Tepat. U ≤ U kritis.':'U = '+U+' lebih besar dari '+uk+'.',rej?'':'Arah aturan U terbalik'),
+    opt('Gagal menolak H0',!rej,!rej?'Tepat. U > U kritis.':'U = '+U+' sudah ≤ '+uk+'.',!rej?'':'Arah aturan U terbalik'),
+    opt('Kedua kelompok terbukti sama',false,'Gagal menolak pun tidak membuktikan sama.','Gagal menolak dikira membuktikan H0'),
+    opt('Hitung uji t sebagai gantinya',false,'Keputusan Mann–Whitney bisa diambil langsung.','Uji nonparametrik dikira butuh uji t')],hint:'Pada uji U, tolak bila U ≤ U kritis.',meta:{U:U,uk:uk}};},
+/* 12 Terapan: nilai-p uji tanda */ function(r){
+  var n,k,o,t=0;do{n=r.pick([6,7,8,9,10]);k=r.int(n-2,n);var p=binomTail(n,k);o=[t4(p),t4(comb(n,k)/Math.pow(2,n)),t4(k/n),t4(2*p)];t++;}while(!uniq(o)&&t<50);
+  return {stem:'Uji tanda satu arah: n = '+n+' pasangan (tanpa seri), '+k+' bertanda +. Berapa nilai-p, P(X ≥ '+k+') dengan X ~ Binomial('+n+'; 0,5)?',opts:[
+    opt(o[0],true,'Tepat. Jumlahkan peluang X = '+k+' sampai '+n+', masing-masing C('+n+', x) ÷ 2^'+n+'.'),
+    opt(o[1],false,'Itu P(X = '+k+') saja; nilai-p mencakup yang lebih ekstrem.','Hanya satu nilai dihitung'),
+    opt(o[2],false,'Proporsi tanda + bukan nilai-p.','Proporsi dikira nilai-p'),
+    opt(o[3],false,'Itu nilai-p dua arah.','Arah uji tertukar')],hint:'Jumlahkan peluang binomial dari '+k+' sampai '+n+'.',meta:{n:n,k:k}};},
+/* 13 Analisis: memilih uji */ function(r){
+  var S=r.pick([['Sepuluh mahasiswa mengetik dengan dua papan ketik; kecepatan tiap orang dicatat untuk keduanya.',1],['Delapan pengguna menilai aplikasi A dan delapan pengguna lain menilai aplikasi B dengan bintang 1–5.',0],
+    ['Empat kelompok pelanggan memberi rating 1–5 untuk layanan; datanya sangat miring.',2],['Peringkat kesukaan dan peringkat harga 10 menu kantin.',3]]);
+  var O=['Uji Mann–Whitney','Uji tanda','Uji Kruskal–Wallis','Korelasi Spearman'];
+  var W=['dua kelompok bebas.','data berpasangan.','tiga kelompok atau lebih.','hubungan dua peringkat.'];
+  return {stem:'"'+S[0]+'" Uji nonparametrik yang paling cocok adalah ...',opts:O.map(function(o,i){return i===S[1]?opt(o,true,'Tepat: '+W[i]):opt(o,false,o+' untuk '+W[i],'Rancangan data salah dikenali');}),hint:'Bebas, berpasangan, banyak kelompok, atau hubungan?',meta:{k:S[1]}};},
+/* 14 Analisis: membuang seri */ function(r){
+  var n=r.pick([11,13,14,15]),s=r.int(1,3),m=r.int(1,3),p=n-s-m;
+  return {stem:n+' pasangan: '+p+' bertanda +, '+m+' bertanda −, '+s+' seri. Untuk uji tanda, n dan X adalah ...',opts:[
+    opt('n = '+(p+m)+', X = '+p,true,'Tepat. Pasangan seri dibuang.'),
+    opt('n = '+n+', X = '+p,false,'Pasangan seri tidak dihitung dalam n.','Seri tidak dibuang'),
+    opt('n = '+(p+m)+', X = '+(p+s),false,'Seri bukan tanda +.','Seri dihitung sebagai +'),
+    opt('n = '+p+', X = '+m,false,'n adalah semua pasangan yang tidak seri.','n tertukar X')],hint:'Buang seri dulu.',meta:{}};},
+/* 15 Analisis: pendekatan normal U */ function(r){
+  var n=r.pick([10,12,15,20]),U=r.int(Math.round(n*n*0.15),Math.round(n*n*0.4)),mu=n*n/2,sd=Math.sqrt(n*n*(2*n+1)/12),z=(U-mu)/sd,o=[t2(z),t2(U-mu),t2((U-mu)/(n*n)),t2(-z)];
+  return {stem:'n_A = n_B = '+n+', U = '+U+'. Dengan pendekatan normal, z = (U − n_A n_B ÷ 2) ÷ √(n_A n_B (N + 1) ÷ 12) = ...',opts:[
+    opt(o[0],true,'Tepat. Rata-rata U = '+mu+', simpangan bakunya √('+(n*n)+' × '+(2*n+1)+' ÷ 12) = '+t2(sd)+'.'),
+    opt(o[1],false,'Selisihnya masih harus dibagi simpangan baku U.','Lupa membagi simpangan baku'),
+    opt(o[2],false,'Pembaginya simpangan baku U, bukan n_A n_B.','Pembagi salah'),
+    opt(o[3],false,'Urutannya U − rata-rata, jadi tandanya terbalik.','Tanda z terbalik')],hint:'Seperti skor z: (U − rata-rata) ÷ simpangan baku.',meta:{n:n,U:U}};},
+/* 16 Analisis: Spearman */ function(r){
+  var V=r.pick([{s:'Titik naik lurus rapi, kecuali satu pencilan sangat ekstrem di kanan bawah.',k:0},{s:'Titik naik lurus rapi tanpa pencilan.',k:1},{s:'Titik membentuk huruf U.',k:2}]);
+  var O=['Spearman jauh lebih tinggi daripada Pearson','Pearson dan Spearman sama-sama tinggi','Keduanya dekat 0','Spearman selalu negatif'];
+  var N=['Satu pencilan menyeret Pearson, tetapi hanya menggeser satu peringkat.','Hubungan lurus juga searah; keduanya tinggi.','Pola U tidak searah, jadi peringkat pun tidak berpola.'];
+  return {stem:'"'+V.s+'" Bagaimana korelasi Pearson dibanding Spearman?',opts:O.map(function(o,i){return i===V.k?opt(o,true,'Tepat. '+N[V.k]):opt(o,false,i===3?'Tanda Spearman mengikuti arah hubungan.':'Tidak cocok: '+N[V.k],'Korelasi peringkat salah dipahami');}),hint:'Spearman = Pearson pada peringkat.',meta:{k:V.k}};},
+/* 17 Analisis: rata-rata rating */ function(r){
+  var a=r.pick(['4,2','3,9','4,5']),b=r.pick(['3,6','3,4','3,8']);
+  return {stem:'Laporan: "Rata-rata rating aplikasi A '+a+' bintang dan B '+b+' bintang, jadi A lebih baik '+t2(parseFloat(a.replace(',','.'))-parseFloat(b.replace(',','.')))+' bintang." Penilaian yang paling tepat adalah ...',opts:[
+    opt('Kurang tepat: jarak antarbintang belum tentu sama; laporkan median dan sebaran bintangnya, lalu uji dengan Mann–Whitney',true,'Tepat. Rating bintang adalah data ordinal.'),
+    opt('Tepat, karena rata-rata selalu bisa dihitung',false,'Bisa dihitung tidak berarti bermakna untuk data ordinal.','Rata-rata ordinal dikira bermakna'),
+    opt('Tepat, bila selisihnya lebih dari 0,5',false,'Besarnya selisih tidak mengubah masalah skala.','Selisih besar dikira cukup'),
+    opt('Keliru: rating tidak bisa dibandingkan sama sekali',false,'Bisa dibandingkan, dengan cara yang sesuai.','Data ordinal dikira tak bisa dibandingkan')],hint:'Jenis data rating?',meta:{}};},
+/* 18 Jebakan & AI: model AI pada soal evaluasi */ function(r){
+  var n=r.pick([14,16,18]),w=n-r.int(2,3);
+  return {stem:'Dua model AI diuji pada '+n+' soal evaluasi yang sama. Model B lebih baik di '+w+' soal dan lebih buruk di sisanya. Uji yang paling sederhana dan sah adalah ...',opts:[
+    opt('Uji tanda pada '+n+' pasangan',true,'Tepat. Soalnya sama untuk kedua model, jadi datanya berpasangan.'),
+    opt('Uji Mann–Whitney',false,'Mann–Whitney untuk kelompok bebas, bukan soal yang sama.','Data berpasangan dikira bebas'),
+    opt('Bandingkan rata-rata skor saja',false,'Tanpa uji, selisih bisa hanya kebetulan.','Rata-rata dikira cukup'),
+    opt('Uji Kruskal–Wallis',false,'Kruskal–Wallis untuk tiga kelompok atau lebih.','Banyak kelompok dikira dua')],hint:'Soal yang sama untuk kedua model.',meta:{}};},
+/* 19 Jebakan: anggapan tetap ada */ function(r){
+  return {stem:r.pick(['Seorang mahasiswa menulis: "Uji nonparametrik tidak butuh anggapan apa pun, jadi data dari mana saja boleh."','Laporan menyebut: "Karena memakai Mann–Whitney, sampel tidak perlu acak."','Tim menulis: "Kami memakai uji tanda, jadi tidak masalah satu orang mengisi angket berkali-kali."'])+' Penilaian yang tepat adalah ...',opts:[
+    opt('Keliru: uji nonparametrik tetap butuh sampel acak dan pengamatan saling bebas',true,'Tepat. Yang dilepas hanya anggapan bentuk sebaran.'),
+    opt('Benar, itulah kelebihan nonparametrik',false,'Kelebihannya hanya pada bentuk sebaran, bukan cara mengambil sampel.','Nonparametrik dikira tanpa anggapan'),
+    opt('Benar, asalkan n besar',false,'n besar tidak menggantikan pengambilan sampel acak.','Ukuran sampel dikira menggantikan acak'),
+    opt('Keliru: uji nonparametrik butuh data normal',false,'Justru anggapan normal yang tidak dibutuhkan.','Anggapan normal dikira wajib')],hint:'Anggapan mana yang dilepas?',meta:{}};},
+/* 20 Jebakan: tidak signifikan bukan berarti sama */ function(r){
+  var p=r.pick([0.09,0.15,0.24,0.38]),n=r.pick([5,6,7]);
+  return {stem:'Uji Mann–Whitney dengan '+n+' data per kelompok memberi nilai-p = '+sg(p)+'. Kesimpulan "kedua kelompok identik" ...',opts:[
+    opt('Berlebihan: hanya belum ada bukti cukup bahwa keduanya berbeda',true,'Tepat. Dengan n kecil, beda yang nyata pun bisa tidak terdeteksi.'),
+    opt('Tepat, karena nilai-p > 0,05',false,'Nilai-p besar tidak membuktikan H0.','Gagal menolak dikira membuktikan H0'),
+    opt('Tepat, karena uji nonparametrik tidak bisa salah',false,'Semua uji bisa membuat galat tipe II.','Uji dikira bebas galat'),
+    opt('Keliru: seharusnya pakai uji t sampai signifikan',false,'Mengganti uji demi hasil adalah mencari-cari hasil.','Mencari-cari hasil')],hint:'Gagal menolak H0 berarti apa?',meta:{}};}
+];
+/* ==ISI-DATA== */
+var ISI={
+KEY:'probstat_b14_v1',
+MS:[
+  {id:'zero',href:'#zero',t:'Awal',c:'blue'},{id:'A',href:'#sta-a',t:'14.1 Kapan dipakai',c:'red'},{id:'B',href:'#sta-b',t:'14.2 Peringkat',c:'yellow'},
+  {id:'C',href:'#sta-c',t:'14.3 Mann–Whitney',c:'green'},{id:'D',href:'#sta-d',t:'14.4 Uji tanda',c:'purple'},{id:'hero',href:'#hero',t:'Puncak',c:'blue'},{id:'quiz',href:'#quiz-wrap',t:'Kuis 20 soal',c:'red'}],
+MAP:{t:'Probabilitas dan Statistika',lvl:0,kids:[
+  {t:'Bagian 1–13 · Dasar sampai ANOVA',lvl:1,dim:true},
+  {t:'Bagian 14 · Nonparametrik',lvl:1,target:'#top',kids:[
+    {t:'0 Kompas: mulai dari akhir',lvl:2,k:'blue',target:'#zero',kids:[
+      {t:'Memilih desain',lvl:3,target:'#zero'},{t:'Jenis data dulu',lvl:3,target:'#zero'},{t:'Uji yang sah',lvl:3,target:'#zero'}]},
+    {t:'14.1 Kapan dipakai',lvl:2,k:'red',target:'#sta-a',kids:[
+      {t:'Data ordinal',lvl:3,target:'#sta-a'},{t:'Pencilan dan median',lvl:3,target:'#sta-a'},{t:'Padanan uji',lvl:3,target:'#sta-a'}]},
+    {t:'14.2 Peringkat',lvl:2,k:'yellow',target:'#sta-b',kids:[
+      {t:'Urutkan dan beri nomor',lvl:3,target:'#sta-b'},{t:'Nilai seri',lvl:3,target:'#sta-b'},{t:'Periksa jumlah',lvl:3,target:'#sta-b'}]},
+    {t:'14.3 Mann–Whitney',lvl:2,k:'green',target:'#sta-c',kids:[
+      {t:'Peringkat gabungan',lvl:3,target:'#sta-c'},{t:'Statistik U',lvl:3,target:'#sta-c'},{t:'Nilai-p',lvl:3,target:'#sta-c'}]},
+    {t:'14.4 Uji tanda',lvl:2,k:'purple',target:'#sta-d',kids:[
+      {t:'Tanda + dan −',lvl:3,target:'#sta-d'},{t:'Sebaran binomial',lvl:3,target:'#sta-d'},{t:'Wilcoxon, Kruskal–Wallis',lvl:3,target:'#sta-d'}]},
+    {t:'14.5 Puncak: jelaskan, terapkan',lvl:2,k:'blue',target:'#hero',kids:[
+      {t:'Teknik Feynman dan 3 sudut',lvl:3,target:'#hero'},{t:'Kuis 20 soal',lvl:3,target:'#quiz-wrap'}]}]},
+  {t:'Bagian 15–16 (menyusul)',lvl:1,dim:true}]},
+ZQ:[
+  {stem:'Rating bintang 1–5 adalah contoh data ...',pointer:'Ujian Pencilan (14.1)',opts:[
+    {t:'Ordinal: urutannya bermakna, jaraknya belum tentu sama',ok:true,note:'Tepat. Akibatnya dibahas di 14.1.'},
+    {t:'Rasio: nol berarti tidak ada',ok:false,note:'Bintang 0 tidak ada, dan jaraknya tidak pasti sama.',mis:'Skala data tertukar'},
+    {t:'Nominal: hanya nama tanpa urutan',ok:false,note:'Bintang 5 jelas lebih tinggi dari bintang 1.',mis:'Urutan diabaikan'}]},
+  {stem:'Peringkat sebuah nilai artinya ...',pointer:'Pemberi Peringkat (14.2)',opts:[
+    {t:'Nomor urutnya setelah semua data diurutkan',ok:true,note:'Tepat. Aturan untuk nilai yang sama dibahas di 14.2.'},
+    {t:'Nilainya dibagi nilai terbesar',ok:false,note:'Itu pembakuan, bukan peringkat.',mis:'Peringkat dikira pembakuan'},
+    {t:'Selisihnya dari rata-rata',ok:false,note:'Itu simpangan, bukan peringkat.',mis:'Peringkat dikira simpangan'}]},
+  {stem:'Uji tanda cocok untuk data ...',pointer:'Uji Tanda (14.4)',opts:[
+    {t:'Dua kelompok yang orangnya berbeda',ok:false,note:'Untuk kelompok bebas dipakai uji lain (14.3).',mis:'Data bebas dikira berpasangan'},
+    {t:'Berpasangan, misalnya orang yang sama mencoba dua hal',ok:true,note:'Tepat. Caranya dibahas di 14.4.'},
+    {t:'Satu angka saja',ok:false,note:'Uji butuh banyak pengamatan.',mis:'Uji dikira bisa dari satu data'}]}
+],
+CEK:{
+  A:[{stem:'Data: 4, 5, 5, 6, 90. Ukuran pusat yang paling mewakili adalah ...',opts:[
+      {t:'Median, 5',ok:true,note:'Tepat. Empat dari lima data di sekitar 5.'},
+      {t:'Rata-rata, 22',ok:false,note:'Rata-rata terseret satu nilai 90.',mis:'Rata-rata dikira tahan pencilan'},
+      {t:'Nilai terbesar, 90',ok:false,note:'Satu nilai ekstrem tidak mewakili pusat.',mis:'Nilai ekstrem dikira pusat'}]},
+    {stem:'Padanan nonparametrik uji t dua kelompok bebas adalah ...',opts:[
+      {t:'Uji Mann–Whitney',ok:true,note:'Tepat. Keduanya membandingkan dua kelompok bebas.'},
+      {t:'Uji tanda',ok:false,note:'Uji tanda untuk data berpasangan.',mis:'Uji berpasangan tertukar uji bebas'},
+      {t:'Uji Kruskal–Wallis',ok:false,note:'Kruskal–Wallis untuk tiga kelompok atau lebih.',mis:'Padanan ANOVA tertukar'}]}],
+  B:[{stem:'Data: 7, 9, 9, 12. Peringkat kedua angka 9 adalah ...',opts:[
+      {t:'2,5 dan 2,5',ok:true,note:'Tepat. Posisi 2 dan 3, rata-ratanya 2,5.'},
+      {t:'2 dan 3',ok:false,note:'Nilai yang sama harus mendapat peringkat yang sama.',mis:'Nilai seri diberi peringkat berbeda'},
+      {t:'2 dan 2',ok:false,note:'Dengan 2 dan 2, jumlah peringkat tidak lagi 10.',mis:'Seri diberi posisi pertama'}]},
+    {stem:'Ada N = 9 data. Jumlah semua peringkat harus ...',opts:[
+      {t:'45',ok:true,note:'Tepat. 9 × 10 ÷ 2.'},
+      {t:'90',ok:false,note:'Itu 9 × 10, belum dibagi 2.',mis:'Lupa membagi 2'},
+      {t:'Bergantung pada nilai datanya',ok:false,note:'Jumlah peringkat hanya bergantung pada N.',mis:'Peringkat dikira bergantung nilai'}]}],
+  C:[{stem:'n_A = 6, jumlah peringkat kelompok A = 30. U_A = ...',opts:[
+      {t:'9',ok:true,note:'Tepat. 30 − 6 × 7 ÷ 2 = 30 − 21.'},
+      {t:'30',ok:false,note:'R_A masih dikurangi n_A(n_A + 1) ÷ 2.',mis:'Lupa mengurangi'},
+      {t:'24',ok:false,note:'Yang dikurangkan 21, bukan 6.',mis:'Rumus U salah'}]},
+    {stem:'n_A = n_B = 5. U terkecil = 1, U kritis (α 5% dua arah) = 2. Keputusannya ...',opts:[
+      {t:'Tolak H0',ok:true,note:'Tepat. U ≤ U kritis.'},
+      {t:'Gagal menolak H0',ok:false,note:'Pada uji U, nilai kecil justru menunjukkan beda.',mis:'Arah aturan U terbalik'},
+      {t:'Butuh uji t dulu',ok:false,note:'Uji Mann–Whitney berdiri sendiri.',mis:'Uji nonparametrik dikira butuh uji t'}]}],
+  D:[{stem:'11 pasangan: 8 plus, 2 minus, 1 seri. Untuk uji tanda, n = ...',opts:[
+      {t:'10',ok:true,note:'Tepat. Pasangan seri dibuang.'},
+      {t:'11',ok:false,note:'Pasangan seri tidak dihitung.',mis:'Seri tidak dibuang'},
+      {t:'8',ok:false,note:'8 adalah banyak tanda +, bukan n.',mis:'X tertukar n'}]},
+    {stem:'Dibanding uji t berpasangan pada data normal, uji tanda biasanya ...',opts:[
+      {t:'Kurang peka, karena besar selisih diabaikan',ok:true,note:'Tepat. Ia butuh lebih banyak data untuk menangkap beda yang sama.'},
+      {t:'Lebih peka, karena lebih sederhana',ok:false,note:'Sederhana tidak berarti lebih peka.',mis:'Sederhana dikira lebih kuat'},
+      {t:'Sama persis',ok:false,note:'Informasi yang dipakai berbeda.',mis:'Kuasa dikira sama'}]}]
+},
+TEBAK:{
+  a:{stem:'Waktu respons 7 permintaan (ms): 110, 115, 120, 118, 112, 117, dan satu yang macet, 2.400. Ukuran pusat mana yang paling mewakili permintaan biasa?',opts:[
+    {t:'Rata-rata, sekitar 442 ms',ok:false,mis:'Rata-rata dikira tahan pencilan',note:'Satu nilai 2.400 menarik rata-rata jauh dari enam nilai lain.'},
+    {t:'Median, 117 ms',ok:true,note:'Tepat. Median hanya bergantung pada urutan. Buktikan di Ujian Pencilan.'},
+    {t:'Nilai terbesar',ok:false,mis:'Nilai ekstrem dikira pusat',note:'Nilai terbesar justru yang paling tidak biasa.'},
+    {t:'Modus',ok:false,mis:'Modus dipakai tanpa nilai berulang',note:'Tidak ada nilai yang muncul lebih dari sekali.'}]},
+  b:{stem:'Data 3, 5, 5, 8 diberi peringkat dari yang terkecil. Peringkat kedua angka 5 adalah ...',opts:[
+    {t:'2 dan 3',ok:false,mis:'Nilai seri diberi peringkat berbeda',note:'Dua nilai yang sama seharusnya mendapat peringkat yang sama.'},
+    {t:'2,5 dan 2,5',ok:true,note:'Tepat. Rata-rata posisi 2 dan 3. Buktikan di Pemberi Peringkat.'},
+    {t:'2 dan 2',ok:false,mis:'Seri diberi posisi pertama',note:'Dengan cara ini, jumlah peringkat tidak lagi cocok.'},
+    {t:'3 dan 3',ok:false,mis:'Seri diberi posisi terakhir',note:'Ini juga membuat jumlah peringkat berubah.'}]},
+  c:{stem:'Dua kelompok, masing-masing 5 data, digabung dan diberi peringkat 1 sampai 10. Ada 252 cara membagi peringkat itu menjadi dua kelompok berisi 5. Bila H0 benar, berapa dari 252 cara itu yang membuat kelompok A mendapat kelima peringkat terbesar (6–10)?',opts:[
+    {t:'1',ok:true,note:'Tepat. Hanya satu cara, jadi peluangnya 1 ÷ 252 ≈ 0,4%. Buktikan di Mesin Peringkat.'},
+    {t:'5',ok:false,mis:'Banyak cara dikira sama dengan n',note:'Kelompok A harus berisi tepat peringkat 6, 7, 8, 9, 10; hanya satu susunan.'},
+    {t:'25',ok:false,mis:'Banyak cara dikira n × n',note:'Itu n_A × n_B; banyak susunannya hanya satu.'},
+    {t:'126',ok:false,mis:'Separuh dikira jawaban',note:'Separuh cara memberi A jumlah peringkat di atas 27,5, bukan kelima terbesar.'}]},
+  d:{stem:'Sepuluh mahasiswa mencoba dua aplikasi catatan; 9 lebih suka aplikasi B, 1 lebih suka A. Bila sebenarnya tidak ada beda (peluang tiap pilihan 0,5), peluang 9 atau lebih dari 10 memilih B adalah sekitar ...',opts:[
+    {t:'1%',ok:true,note:'Tepat. (10 + 1) ÷ 1.024 ≈ 0,011. Buktikan di Uji Tanda.'},
+    {t:'9%',ok:false,mis:'Proporsi dikira peluang',note:'Hasil seberat sebelah ini jauh lebih jarang dari 9%.'},
+    {t:'50%',ok:false,mis:'Setiap hasil dikira setengah',note:'Peluang 0,5 untuk satu orang, bukan untuk sembilan dari sepuluh.'},
+    {t:'90%',ok:false,mis:'Persentase pemilih dikira peluang',note:'90% adalah bagian yang memilih B, bukan peluang hasil ini.'}]}
+},
+KOMPAS:{skenario:'Tim aplikasi (fiktif) memutuskan desain mana yang dipakai, berdasarkan rating kepuasan bintang 1–5 dari dua kelompok pengguna yang diundi. Lima langkah kerjanya diacak.',
+  S:[
+    {t:'Keputusan: memakai desain baru atau tetap desain lama',w:'Inilah akhirnya. Semua langkah lain ada untuk keputusan ini.'},
+    {t:'Kesimpulan: rating salah satu desain cenderung lebih tinggi, atau belum ada bukti',w:'Keputusan butuh perbandingan kedua kelompok.'},
+    {t:'Hitungan: peringkat gabungan, statistik U, dan nilai-p',w:'Rating bintang adalah data ordinal, jadi dipakai uji berbasis peringkat.'},
+    {t:'Pemeriksaan: jenis data (ordinal) dan banyak nilai seri',w:'Jenis data menentukan uji yang sah.'},
+    {t:'Data: rating dari pengguna yang diundi ke tiap desain',w:'Langkah pertama: data dari dua kelompok yang sebanding.'}],
+  show:[3,0,4,2,1],
+  hasil:'Baca dari bawah ke atas: itulah urutan kerjanya. Jenis data diperiksa sebelum uji dipilih.'},
+GLOSS:[
+  ['Uji nonparametrik','Uji yang tidak menganggap data mengikuti sebaran tertentu seperti normal; biasanya memakai peringkat atau tanda.'],
+  ['Uji Kruskal–Wallis','Padanan nonparametrik ANOVA untuk tiga kelompok atau lebih, memakai peringkat gabungan.'],
+  ['Peringkat','Nomor urut sebuah nilai setelah semua data diurutkan dari terkecil.'],
+  ['Seri','Dua nilai atau lebih yang sama besar; cara memberi peringkatnya dibahas di 14.2.'],
+  ['Uji Mann–Whitney','Uji nonparametrik untuk dua kelompok bebas, memakai jumlah peringkat dan statistik U. Disebut juga uji jumlah peringkat Wilcoxon (berbeda dari Wilcoxon bertanda).'],
+  ['Statistik U','U = R − n(n + 1) ÷ 2 untuk satu kelompok; makin kecil U terkecil, makin kuat bukti perbedaan.'],
+  ['Uji tanda','Uji untuk data berpasangan yang hanya menghitung tanda + dan − dari selisihnya.'],
+  ['Wilcoxon bertanda','Uji data berpasangan yang memakai peringkat besar selisih beserta tandanya.'],
+  ['Korelasi Spearman','Korelasi Pearson yang dihitung dari peringkat, untuk hubungan yang searah tetapi tidak harus lurus.'],
+  ['Data ordinal','Data yang urutannya bermakna tetapi jaraknya belum tentu sama, misalnya bintang 1–5.'],
+  ['Median','Nilai tengah data setelah diurutkan (Bagian 2).'],
+  ['Pencilan','Data yang letaknya jauh dari kumpulan data lainnya.'],
+  ['Data berpasangan','Dua pengukuran pada subjek yang sama, misalnya sebelum dan sesudah.'],
+  ['Kelompok bebas','Dua kelompok yang anggotanya berbeda dan tidak berpasangan.'],
+  ['Sebaran binomial','Sebaran banyak sukses dari n percobaan bebas berpeluang tetap (Bagian 6).'],
+  ['Kuasa uji','Peluang menolak H0 ketika H0 memang salah (Bagian 11).'],
+  ['ELI5','Explain Like I\'m 5: jelaskan seolah pendengarnya berumur 5 tahun. Dipakai di sini untuk penjelasan paling sederhana.'],
+  ['Kacamata berpikir (mental model)','Cara berpikir yang bisa dipakai berulang untuk banyak masalah, seperti memakai kacamata berbeda untuk melihat hal yang sama.'],
+  ['Berpikir dari dasar (first principles)','Membongkar masalah sampai ke bagian paling dasar yang pasti benar, lalu menyusun ulang jawabannya dari situ.'],
+  ['Akibat lanjutan (second-order thinking)','Bertanya "lalu apa?" sekali lagi untuk melihat akibat dari akibat sebuah keputusan. Disebut juga berpikir orde kedua.'],
+  ['Mulai dari akhir (backward thinking)','Membayangkan hasil akhir dulu, lalu mundur bertanya: apa yang harus benar tepat sebelumnya? Pemain catur menyebutnya berpikir dari posisi akhir (endgame).'],
+  ['Teknik Feynman','Menjelaskan sesuatu dengan kata sendiri kepada orang awam untuk menemukan bagian yang belum dipahami.'],
+  ['Tabayyun','Memeriksa kebenaran sebuah kabar atau angka sebelum mempercayai dan menyebarkannya.'],
+  ['Kalibrasi keyakinan','Seberapa cocok rasa yakinmu dengan hasil sebenarnya. Sering yakin tetapi salah berarti keyakinanmu belum terkalibrasi.'],
+  ['Prompt','Perintah atau pertanyaan yang kamu ketik ke AI.']],
+MAPT:[['nonparametrik','Uji nonparametrik'],['Kruskal–Wallis','Uji Kruskal–Wallis'],['peringkat','Peringkat'],['seri','Seri'],['Mann–Whitney','Uji Mann–Whitney'],['statistik U','Statistik U'],
+  ['uji tanda','Uji tanda'],['Wilcoxon bertanda','Wilcoxon bertanda'],['Spearman','Korelasi Spearman'],['ordinal','Data ordinal'],['median','Median'],['pencilan','Pencilan'],
+  ['berpasangan','Data berpasangan'],['kelompok bebas','Kelompok bebas'],['binomial','Sebaran binomial'],['kuasa','Kuasa uji'],['tabayyun','Tabayyun'],['U kritis','Statistik U'],['jumlah peringkat','Peringkat'],['data seri','Seri']],
+LENSES:[
+  ['Matematika','Bila H0 benar, setiap susunan peringkat sama mungkin, sehingga sebaran statistik U bisa dihitung tepat dengan kombinatorika: C(N, n_A) susunan. Uji tanda memakai sebaran binomial dengan p = 0,5. Untuk n besar, keduanya didekati sebaran normal.'],
+  ['Komputer dan AI','Waktu inferensi model AI sering miring dengan lonjakan sesekali. Membandingkan dua model dengan median dan uji Mann–Whitney lebih jujur daripada dengan rata-rata. Di Python, uji ini tersedia sebagai scipy.stats.mannwhitneyu.'],
+  ['Kritis dan etis (tabayyun)','Laporan "rata-rata rating 4,6" menyembunyikan bentuk datanya. Tanyakan sebaran bintangnya: 4,6 dari banyak bintang 5 dan sedikit bintang 1 bercerita lain daripada 4,6 dari sebagian besar bintang 5 dan sisanya bintang 4.']],
+KQ:[
+  {q:'Jenis data rating bintang ini adalah ...',o:['Ordinal','Rasio','Nominal'],c:0,e:'Urutannya bermakna, tetapi jarak antarbintang belum tentu sama.'},
+  {q:'Uji yang lebih cocok untuk data ini adalah ...',o:['Uji Mann–Whitney','Uji tanda','Uji t berpasangan'],c:0,e:'Dua kelompok pengguna yang berbeda dan data ordinal dengan banyak seri.'},
+  {q:'Uji Mann–Whitney pada data ini memberi U = 15,5, di atas U kritis 13 (n = 8, α 5% dua arah); nilai-p ≈ 0,06 dengan pendekatan normal, ≈ 0,10 dengan hitungan tepat. Keputusannya ...',o:['Gagal menolak H0: belum ada bukti cukup','Tolak H0: B terbukti lebih baik','B dan A terbukti sama'],c:0,e:'U > U kritis dan nilai-p > 0,05. Gagal menolak bukan berarti sama.'},
+  {q:'Kalimat "rata-rata 0,75 bintang lebih tinggi" ...',o:['Kurang tepat: jarak antarbintang belum tentu sama, jadi rata-rata bintang sulit ditafsirkan','Tepat, karena rata-rata bisa dihitung','Tepat, karena p < 0,05'],c:0,e:'Lebih jujur menyebut median atau sebaran bintang tiap versi.'}],
+KL:[
+  ['Berpikir dari dasar (first principles)','Kembali ke dasar: dari rating bintang, yang pasti hanyalah urutannya. Uji t memakai rata-rata dan jarak, yang tidak pasti. Uji berbasis peringkat hanya memakai yang pasti, dan hasilnya belum signifikan.'],
+  ['Akibat lanjutan (second-order thinking)','Bila tim memakai uji yang paling "menguntungkan", lalu apa? Kebiasaan memilih uji sesudah melihat hasil membuat galat tipe I naik, dan keputusan berikutnya dibangun di atas bukti yang rapuh.'],
+  ['Mulai dari akhir (backward thinking)','Keputusan akhirnya: ganti ke versi B atau tidak. Mundur: butuh bukti yang sah untuk data ordinal dengan 16 pengguna. Hasilnya belum cukup; tambah pengguna yang diundi sebelum mengganti.']],
+FY_EX:'Kalau datanya rating bintang atau ada satu nilai yang melonjak, rata-rata dan uji t bisa menyesatkan. Uji nonparametrik memakai urutannya saja. Caranya: gabungkan semua data, urutkan, beri peringkat 1, 2, 3, dan seterusnya; nilai yang sama mendapat rata-rata posisinya. Untuk dua kelompok bebas, uji Mann–Whitney melihat apakah peringkat satu kelompok menumpuk di atas. Untuk data berpasangan, uji tanda menghitung banyak + dan −, lalu memakai sebaran binomial. Kekurangannya, uji ini sedikit kurang peka.',
+AIQ:['Saya mencatat alat AI, perintah (prompt) yang saya ketik, dan bagian yang saya pakai.','Saya memeriksa apakah uji yang disarankan AI cocok dengan jenis data dan rancangannya.','Saya bisa menjelaskan jawabannya tanpa melihat layar.','Saya menghitung ulang peringkat dan statistik U dari jawaban AI.']
+};
+</script>
+<script>
+/* ===== APP ===== */
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+function el(tag,attrs){
+  var e=document.createElement(tag);attrs=attrs||{};
+  for(var k in attrs){var v=attrs[k];
+    if(k==='class')e.className=v;else if(k==='html')e.innerHTML=v;else if(k==='text')e.textContent=v;
+    else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),v);
+    else if(v!==false&&v!=null)e.setAttribute(k,v===true?'':v);}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null||c===false)continue;
+    if(Array.isArray(c))c.forEach(function(x){if(x)e.append(x.nodeType?x:document.createTextNode(x));});
+    else e.append(c.nodeType?c:document.createTextNode(c));}
+  return e;
+}
+var SVGNS='http://www.w3.org/2000/svg';
+var ICMAP={lightbulb:'bulb',replay:'refresh',touch_app:'pointer',fact_check:'search'};
+function ic(name){var s=document.createElementNS(SVGNS,'svg');s.setAttribute('class','ic');s.setAttribute('aria-hidden','true');var u=document.createElementNS(SVGNS,'use');u.setAttribute('href','#i-'+(ICMAP[name]||name));s.appendChild(u);return s;}
+function sv(tag,attrs){var e=document.createElementNS(SVGNS,tag);for(var k in (attrs||{}))e.setAttribute(k,attrs[k]);return e;}
+
+/* ---------- penyimpanan (aman bila localStorage kosong/diblokir) ---------- */
+var KEY=ISI.KEY,mem={},GLOSS=[];
+try{var raw=localStorage.getItem(KEY);if(raw)mem=JSON.parse(raw)||{};}catch(e){mem={};}
+var dashRefresh=function(){};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(mem));}catch(e){}try{dashRefresh();}catch(e){}}
+mem.done=mem.done||{};mem.zero=mem.zero||{};mem.cek=mem.cek||{};mem.fy=mem.fy||{c:[]};mem.kasus=mem.kasus||{};mem.log=mem.log||[];
+
+
+/* ---------- konfeti kecil (menghormati reduced motion) ---------- */
+var REDUCE=false;try{REDUCE=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);}catch(e){}
+function burst(x,y,n){
+  if(REDUCE||!document.body.animate)return;var cs=['#4285f4','#ea4335','#fbbc04','#34a853'];
+  for(var i=0;i<n;i++){var p=document.createElement('i');p.className='confetti-i';p.style.left=x+'px';p.style.top=y+'px';p.style.background=cs[i%4];document.body.appendChild(p);
+    var ang=Math.random()*Math.PI*2,d=40+Math.random()*90;
+    var an=p.animate([{transform:'translate(0,0) rotate(0deg)',opacity:1},{transform:'translate('+(Math.cos(ang)*d)+'px,'+(Math.sin(ang)*d+34)+'px) rotate('+(Math.random()*540)+'deg)',opacity:0}],{duration:800+Math.random()*500,easing:'cubic-bezier(.2,.7,.3,1)'});
+    an.onfinish=(function(e){return function(){e.remove();};})(p);}
+}
+
+/* ---------- tema & mode ---------- */
+function applyTheme(t){if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');}
+applyTheme(mem.theme);
+$('#theme').addEventListener('click',function(){
+  var cur=document.documentElement.getAttribute('data-theme');
+  var sysDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var isDark=cur?cur==='dark':sysDark;
+  mem.theme=isDark?'light':'dark';applyTheme(mem.theme);save();
+});
+function setMode(m){
+  mem.mode=m;document.documentElement.setAttribute('data-mode',m);document.body.setAttribute('data-mode',m);
+  $('#m-belajar').setAttribute('aria-pressed',String(m==='belajar'));$('#m-kelas').setAttribute('aria-pressed',String(m==='kelas'));save();
+}
+$('#m-belajar').addEventListener('click',function(){setMode('belajar');});
+$('#m-kelas').addEventListener('click',function(){setMode('kelas');});
+setMode((location.hash==='#kelas')?'kelas':(mem.mode||'belajar'));
+
+/* ---------- progres & navigasi ---------- */
+var MS=ISI.MS;
+var navEl=$('#nav');
+MS.forEach(function(m){navEl.append(el('a',{href:m.href,'data-ms':m.id,class:'c-'+m.c,text:m.t}));});
+navEl.append(el('a',{href:'#kamus',class:'c-yellow',text:'Kamus mini'}));
+if(mem.last&&mem.last!=='zero'){var rs=el('a',{href:'#'+mem.last,class:'resume',text:'Lanjutkan dari terakhir'});navEl.insertBefore(rs,navEl.firstChild);}
+function refreshProgress(){
+  var n=0;MS.forEach(function(m){var a=$('a[data-ms="'+m.id+'"]',navEl);var d=!!mem.done[m.id];if(d)n++;a.classList.toggle('done',d);});
+  $('#prog-bar').style.width=(n/MS.length*100)+'%';$('#prog').setAttribute('aria-valuenow',String(n));
+}
+function markDone(id){if(!mem.done[id]){mem.done[id]=true;save();}refreshProgress();try{dashRefresh();}catch(e){}}
+refreshProgress();
+if('IntersectionObserver' in window){
+  var secs=[['zero','zero'],['sta-a','A'],['sta-b','B'],['sta-c','C'],['sta-d','D'],['hero','hero'],['kuis','quiz']];
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){
+    $$('a',navEl).forEach(function(a){a.classList.remove('on');});
+    var id=secs.filter(function(s){return s[0]===en.target.id;})[0][1];
+    if(mem.last!==en.target.id){mem.last=en.target.id;save();}
+    var a=$('a[data-ms="'+id+'"]',navEl);if(a){a.classList.add('on');}}});},{rootMargin:'-30% 0px -60% 0px'});
+  secs.forEach(function(s){var x=document.getElementById(s[0]);if(x)io.observe(x);});
+}
+
+/* ---------- navigasi tangguh: tidak bergantung pada perilaku hash di bingkai ---------- */
+function goTo(hash){
+  var t=null;try{t=document.querySelector(hash);}catch(e){}
+  if(!t)return false;
+  if(t.tagName==='DETAILS')t.open=true;
+  var go=function(){t.scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'});};
+  if(t.offsetParent===null&&document.body.getAttribute('data-mode')==='kelas'){setMode('belajar');setTimeout(go,80);}else go();
+  return true;
+}
+document.addEventListener('click',function(ev){
+  var a=ev.target.closest?ev.target.closest('a[href^="#"]'):null;if(!a)return;
+  var h=a.getAttribute('href');
+  if(h==='#'||h.length<2){ev.preventDefault();window.scrollTo(0,0);return;}
+  if(goTo(h))ev.preventDefault();
+});
+$('#kelas-off').addEventListener('click',function(){setMode('belajar');});
+$('#quiz-open').addEventListener('click',function(){setMode('belajar');setTimeout(function(){goTo('#quiz-wrap');},80);});
+(function(){var i=$('#nick'),h=$('#hello');function upd(){var v=(mem.nick||'').trim();h.textContent=v?('Halo, '+v+'. Selamat belajar!'):'';}
+  i.value=mem.nick||'';i.addEventListener('input',function(){mem.nick=i.value;save();upd();});upd();})();
+
+/* (ilustrasi titik di pembuka diganti panel Dasbor belajarmu, lihat bagian akhir) */
+
+/* ---------- peta makro-meso-mikro-nano (SVG) ---------- */
+var MAP=ISI.MAP;
+function renderMap(host,depth){
+  host.innerHTML='';
+  var W=240,H=34,GX=40,RH=46,y=0;
+  function lay(n){var kids=(n.kids||[]).filter(function(k){return k.lvl<=depth;});n._k=kids;
+    if(!kids.length){n.y=y;y+=RH;return;}kids.forEach(lay);n.y=(kids[0].y+kids[kids.length-1].y)/2;}
+  lay(MAP);
+  var width=(depth+1)*(W+GX)-GX+8,height=Math.max(y,RH)+4;
+  var svg=sv('svg',{width:width,height:height,viewBox:'0 0 '+width+' '+height,role:'group','aria-label':'Peta konsep'});
+  var gl=sv('g'),gn=sv('g');svg.append(gl,gn);
+  function draw(n,pk){
+    var kk=n.k||pk||'blue';
+    var x=n.lvl*(W+GX)+4,cy=n.y+RH/2-2;
+    n._k.forEach(function(k){var x2=k.lvl*(W+GX)+4,cy2=k.y+RH/2-2,mx=(x+W+x2)/2;
+      gl.append(sv('path',{class:'mm-link',d:'M'+(x+W)+' '+cy+' C'+mx+' '+cy+' '+mx+' '+cy2+' '+x2+' '+cy2}));draw(k,kk);});
+    var g=sv('g',{class:'mm-node n'+n.lvl+' k-'+kk+(n.dim?' dim':''),transform:'translate('+x+' '+(cy-H/2)+')'});
+    g.append(sv('rect',{width:W,height:H,rx:10,ry:10}));
+    var t=sv('text',{x:12,y:H/2});t.textContent=n.t;g.append(t);
+    if(n.target&&!n.dim){g.setAttribute('tabindex','0');g.setAttribute('role','link');g.setAttribute('aria-label',n.t+', menuju bagian terkait');
+      var go=function(){goTo(n.target);};
+      g.addEventListener('click',go);g.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();go();}});}
+    gn.append(g);
+  }
+  draw(MAP);host.append(svg);
+}
+var depthNames=['Makro','Meso','Mikro','Nano'],curDepth=2;
+(function(){var seg=$('#depthseg');
+  depthNames.forEach(function(nm,i){seg.append(el('button',{type:'button','aria-pressed':String(i===curDepth),onclick:function(){curDepth=i;$$('button',seg).forEach(function(b,j){b.setAttribute('aria-pressed',String(j===i));});renderMap($('#map-zero'),i);},text:nm}));});
+  renderMap($('#map-zero'),curDepth);renderMap($('#map-hero'),3);})();
+
+/* ---------- komponen MCQ ---------- */
+var LET=['A','B','C','D','E'];
+function mcq(o){
+  var st={c:null,conf:null,hint:false};if(o.saved){st.c=o.saved.c;st.conf=o.saved.conf;st.hint=!!o.saved.hint;}
+  var w=el('div',{class:'mcq'});
+  if(o.meta){var mp=el('p',{class:'qmeta',text:o.meta});if(o.tier)mp.append(el('span',{class:'tier t'+o.tier,style:'margin-left:8px',text:'Jenjang '+o.tier+': '+o.tierName}));w.append(mp);}
+  w.append(el('p',{class:'stem',text:o.stem}));
+  var confBtns=[];
+  if(o.conf){
+    var cr=el('div',{class:'confrow'});cr.append(el('span',{text:'Seberapa yakin?'}));
+    [['ragu','Ragu'],['cukup','Cukup yakin'],['yakin','Yakin']].forEach(function(c){
+      var b=el('button',{type:'button',class:'chip','aria-pressed':String(st.conf===c[0]),text:c[1]});b.disabled=st.c!=null;
+      b.addEventListener('click',function(){st.conf=st.conf===c[0]?null:c[0];confBtns.forEach(function(x){x.b.setAttribute('aria-pressed',String(st.conf===x.k));});});
+      confBtns.push({b:b,k:c[0]});cr.append(b);});
+    w.append(cr);
+  }
+  var hintEl=null;
+  if(o.hint){
+    hintEl=el('div',{class:'hintbox',style:'display:none'});hintEl.textContent='Petunjuk: '+o.hint+(o.hintCost?' (mengurangi skor latihan)':'');
+    var hb=el('button',{type:'button',class:'btn tonal small'},ic('lightbulb'),'Petunjuk');
+    hb.addEventListener('click',function(){if(st.c!=null)return;st.hint=true;hintEl.style.display='block';hb.disabled=true;});
+    if(st.hint||st.c!=null)hb.disabled=true;
+    if(st.hint)hintEl.style.display='block';
+    w.append(el('div',{class:'row',style:'margin-top:0'},hb),hintEl);
+  }
+  var list=el('div',{role:'group','aria-label':'Pilihan jawaban'});w.append(list);
+  var fb=el('div',{'aria-live':'polite'});w.append(fb);
+  var btns=[];
+  function reveal(){
+    btns.forEach(function(b,i){b.disabled=true;var ok=o.opts[i].ok;
+      if(ok)b.classList.add('ok');else if(i===st.c)b.classList.add('bad');else b.classList.add('dim');});
+    confBtns.forEach(function(x){x.b.disabled=true;});
+    var ch=o.opts[st.c],good=ch.ok,corI=-1;o.opts.forEach(function(x,i){if(x.ok)corI=i;});
+    var box=el('div',{class:'fbk'});
+    box.append(el('p',{class:'verdict '+(good?'ok':'bad'),text:good?'Benar.':'Belum tepat.'}));
+    if(good){box.append(el('p',{style:'margin:0',text:ch.note}));}
+    else{
+      var p1=el('p',{style:'margin:0'},el('span',{class:'lt',text:'Pilihanmu ('+LET[st.c]+')'}));
+      if(ch.mis)p1.append(el('span',{class:'tagmis',text:'Salah kaprah: '+ch.mis}));
+      p1.append(el('br'),document.createTextNode(ch.note));box.append(p1);
+      box.append(el('p',{class:'cor',style:'margin:0'},el('span',{class:'lt',text:'Jawaban benar ('+LET[corI]+'): '}),document.createTextNode(o.opts[corI].note.replace(/^Tepat\.\s*/,''))));
+    }
+    var rest=o.opts.map(function(x,i){return i;}).filter(function(i){return i!==st.c&&i!==corI;});
+    if(rest.length){
+      var det=el('details',{},el('summary',{text:'Lihat alasan pilihan lain'}));var ul=el('ul');
+      rest.forEach(function(i){var op=o.opts[i];var li=el('li',{},el('span',{class:'lt',text:LET[i]+'. '}));if(op.mis)li.append(el('span',{class:'tagmis',text:'Salah kaprah: '+op.mis}));li.append(el('br'),document.createTextNode(op.note));ul.append(li);});
+      det.append(ul);box.append(det);
+    }
+    fb.innerHTML='';fb.append(box);
+  }
+  o.opts.forEach(function(op,i){
+    var b=el('button',{type:'button',class:'opt'},el('span',{class:'letter',text:LET[i]}),el('span',{text:op.t}));
+    b.addEventListener('click',function(){if(st.c!=null)return;st.c=i;reveal();if(op.ok){var rc=b.getBoundingClientRect();burst(rc.left+34,rc.top+16,16);}if(o.onAnswer)o.onAnswer({c:st.c,conf:st.conf,hint:st.hint,ok:op.ok});});
+    btns.push(b);list.append(b);});
+  if(st.c!=null)reveal();
+  return w;
+}
+
+function f1(x){return fmt(x,1);}
+function fmtN(x){var v=Math.round(x*100)/100,neg=v<0;v=Math.abs(v);var ip=Math.floor(v),dp=Math.round((v-ip)*100);var s=String(ip).replace(/\B(?=(\d{3})+(?!\d))/g,'.');if(dp)s+=','+(dp<10?'0'+dp:String(dp)).replace(/0$/,'');return (neg?'−':'')+s;}
+function f2(x){return fmtTrim(x);}
+/* ==ISI-STASIUN== */
+/* ============ Pembantu ============ */
+function sld(label,min,max,step,val,onin){
+  var rg=el('input',{type:'range',min:String(min),max:String(max),step:String(step),value:String(val),'aria-label':label}),out=el('b',{class:'num-mono'});
+  rg.addEventListener('input',function(){onin(+rg.value);});
+  return {row:el('div',{class:'row srow'},el('span',{class:'qmeta',style:'margin:0;min-width:24px',text:label}),rg,out),rg:rg,out:out};
+}
+function segB(host,labels,cur,on,aria){host.innerHTML='';host.setAttribute('role','group');host.setAttribute('aria-label',aria);
+  labels.forEach(function(t,i){host.append(el('button',{type:'button','aria-pressed':String(i===cur),onclick:function(){on(i);}},t));});}
+function btn(t,f,cls){return el('button',{class:'btn '+(cls||'tonal')+' small',type:'button',onclick:f},t);}
+function stat(v,t){return el('div',{class:'stat'},el('b',{text:v}),el('span',{text:t}));}
+function lihat(ins,m){ins.innerHTML='';ins.append(el('div',{class:'infobox'},el('b',{text:'Yang terlihat: '}),document.createTextNode(m)));}
+function juta(n){return 'Rp'+fmtTrim(n*0.02)+' juta';}
+function txt(svg,x,y,t,st,anc){var e=sv('text',{x:x,y:y,'text-anchor':anc||'middle',style:st||'font-size:12px'});e.textContent=t;svg.append(e);return e;}
+function ambil(rng,arr,k){var a=arr.slice();for(var i=0;i<k;i++){var j=i+Math.floor(rng.next()*(a.length-i));var t=a[i];a[i]=a[j];a[j]=t;}return a.slice(0,k);}
+function sdOf(a){if(a.length<2)return 0;var m=mean(a),s=0;a.forEach(function(v){s+=(v-m)*(v-m);});return Math.sqrt(s/(a.length-1));}
+
+function tbl(head,rows){var t=el('table',{class:'nw'}),h=el('tr');head.forEach(function(x){h.append(el('th',{text:x}));});t.append(el('thead',null,h));var b=el('tbody');
+  rows.forEach(function(r){var tr=el('tr');r.forEach(function(c){tr.append(el('td',{text:c}));});b.append(tr);});t.append(b);return el('div',{class:'tscroll'},t);}
+
+/* ============ STASIUN A: Ujian Pencilan ============ */
+(function(){
+  var host=$('#a-try');if(!host)return;
+  var B=[110,115,120,118,112,117],v=119;
+  var s=sld('Terakhir',100,3000,10,v,function(x){v=x;draw();}),plot=el('div'),ro=el('div',{class:'readout'}),ins=el('div',{'aria-live':'polite'});
+  host.append(s.row,plot,ro,ins);
+  function draw(){
+    s.out.textContent=fmtInt(v)+' ms';var D=B.concat([v]),me=mean(D),md=median(D);
+    var W=400,H=150,x0=20,x1=388,yb=96;function X(q){return x0+(Math.log10(q)-2)/(Math.log10(3200)-2)*(x1-x0);}
+    var svg=sv('svg',{class:'plotsvg',viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Tujuh waktu respons pada skala log; rata-rata '+fmt(me,1)+', median '+md});
+    svg.append(sv('line',{x1:x0,y1:yb,x2:x1,y2:yb,stroke:'var(--outline)'}));
+    D.forEach(function(q,i){svg.append(sv('circle',{cx:X(q),cy:yb-10-(i===6?0:(i%3)*7),r:5,fill:i===6?'var(--red)':'var(--text-2)'}));});
+    svg.append(sv('line',{x1:X(md),y1:24,x2:X(md),y2:yb,stroke:'var(--green)','stroke-width':3}),sv('line',{x1:X(me),y1:40,x2:X(me),y2:yb,stroke:'var(--purple)','stroke-width':3,'stroke-dasharray':'6 3'}));
+    txt(svg,X(md)+4,22,'median','font-size:12px;fill:var(--text)','start');txt(svg,X(me)+4,38,'rata-rata','font-size:12px;fill:var(--text)','start');
+    [100,200,500,1000,2000].forEach(function(q){txt(svg,X(q),yb+18,fmtInt(q),'font-size:12px');});txt(svg,x1,yb+36,'waktu respons (ms, skala log)','font-size:12px','end');
+    plot.innerHTML='';plot.append(svg);
+    ro.innerHTML='';ro.append(stat(fmt(me,1)+' ms','rata-rata'),stat(fmtTrim(md)+' ms','median'),stat(fmt(me-md,1)+' ms','selisih'));
+    lihat(ins,v<=130?'semua permintaan normal: rata-rata ('+fmt(me,1)+') dan median ('+fmtTrim(md)+') hampir sama. Geser permintaan terakhir sampai macet, misalnya 2.400 ms.':
+      'satu permintaan '+fmtInt(v)+' ms menarik rata-rata ke '+fmt(me,1)+' ms, padahal enam lainnya di bawah 121 ms. Median tetap '+fmtTrim(md)+' ms karena hanya bergantung pada urutan.');
+  }
+  draw();
+})();
+
+/* ============ STASIUN B: Pemberi Peringkat ============ */
+(function(){
+  var host=$('#b-try');if(!host)return;
+  var round=0,D,q,ans=null,score=[0,0];
+  var ctrl=el('div',{class:'row'}),area=el('div'),ro=el('div',{class:'readout'}),ins=el('div',{'aria-live':'polite'});
+  ctrl.append(btn([ic('refresh'),'Data baru'],function(){baru();draw();},'line'));
+  host.append(ctrl,area,ro,ins);
+  function baru(){var r=makeRng(14200+round*13);round++;var a,t=0;do{a=[];for(var i=0;i<8;i++)a.push(r.int(1,9));var c={};a.forEach(function(x){c[x]=(c[x]||0)+1;});var T=a.filter(function(x){return c[x]>=2;});t++;}while(!T.length&&t<50);
+    D=a;var c2={};a.forEach(function(x){c2[x]=(c2[x]||0)+1;});var tied=a.filter(function(x){return c2[x]>=2;});q=tied[0];ans=null;}
+  baru();
+  function draw(){
+    var s=sorted(D),f=s.indexOf(q)+1,l=s.lastIndexOf(q)+1,R=ranks(D),O0=[String(f),t2((f+l)/2),String(l)],ord=makeRng(14250+round).shuffle([0,1,2]),O=ord.map(function(j){return O0[j];}),kunci=ord.indexOf(1);
+    area.innerHTML='';area.append(el('p',{style:'margin:6px 0'},el('b',{text:'Data: '}),document.createTextNode(D.join(', '))),el('p',{style:'margin:6px 0'},el('b',{text:'Diurutkan: '}),document.createTextNode(s.join(', '))));
+    var sq=el('div',{class:'seg'});segB(sq,O,ans==null?-1:ans,function(i){if(ans!=null)return;ans=i;score[0]++;if(i===kunci)score[1]++;draw();},'Tebak peringkat nilai '+q);
+    area.append(el('div',{class:'row'},el('span',{class:'qmeta',style:'margin:0',text:'Peringkat nilai '+q+':'}),sq));
+    if(ans!=null)area.append(tbl(['Nilai urut','Posisi','Peringkat'],s.map(function(x,i){return [String(x),String(i+1),t2(R[D.indexOf(x)])];})));
+    ro.innerHTML='';ro.append(stat(ans==null?'–':t2(R.reduce(function(a,b){return a+b;},0)),'jumlah peringkat'),stat(String(8*9/2),'N(N + 1) ÷ 2'),stat(score[1]+' dari '+score[0],'tebakan tepat'));
+    lihat(ins,ans==null?'nilai '+q+' muncul '+(l-f+1)+' kali, di posisi '+f+' sampai '+l+'. Tebak peringkatnya.':
+      (ans===kunci?'tepat. ':'belum tepat. ')+'Nilai '+q+' mendapat rata-rata posisinya, '+t2((f+l)/2)+'. Dengan aturan ini, jumlah peringkat selalu 36 = 8 × 9 ÷ 2. Tekan "Data baru" untuk mencoba lagi.');
+  }
+  draw();
+})();
+
+/* ============ STASIUN C: Mesin Peringkat ============ */
+(function(){
+  var host=$('#c-try');if(!host)return;
+  var P=[{n:'Set 1',A:[6.2,7.1,5.8,8.4,6.9],B:[4.9,5.3,6.0,4.2,5.6]},{n:'Set 2',A:[5.1,6.4,5.9,7.2,6.6],B:[5.4,6.1,6.8,5.7,7.5]}],pi=0,D=rankSumDist(5,10),draws=[],ud=0;
+  var sP=el('div',{class:'seg'}),info=el('p',{class:'qmeta',style:'margin:6px 0'}),ctrl=el('div',{class:'row'}),plot=el('div'),ro=el('div',{class:'readout'}),ins=el('div',{'aria-live':'polite'});
+  ctrl.append(btn('Undi label sekali (H0 benar)',function(){ud++;var r=makeRng(14300+ud*17),ix=r.shuffle([1,2,3,4,5,6,7,8,9,10]).slice(0,5);draws.push(ix.reduce(function(a,b){return a+b;},0));draw();}));
+  host.append(el('div',{class:'row'},sP),info,ctrl,plot,ro,ins);
+  function draw(){
+    var p=P[pi];segB(sP,P.map(function(q){return q.n;}),pi,function(i){pi=i;draws=[];draw();},'Pilih set data');
+    info.textContent='Waktu muat (detik, fiktif). A: '+p.A.map(function(v){return fmt(v,1);}).join('; ')+'. B: '+p.B.map(function(v){return fmt(v,1);}).join('; ')+'.';
+    var m=mwu(p.A,p.B),all=p.A.concat(p.B),ord=all.map(function(v,i){return i;}).sort(function(x,y){return all[x]-all[y];});
+    var W=400,H=250,svg=sv('svg',{class:'plotsvg',viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Peringkat gabungan dan sebaran jumlah peringkat A dari 252 susunan'});
+    ord.forEach(function(ix,j){var x=24+j*38,isA=ix<5;svg.append(sv('circle',{cx:x,cy:26,r:13,fill:isA?'var(--red)':'var(--blue)'}));txt(svg,x,31,String(j+1),'font-size:12px;font-weight:700;fill:#fff');});
+    txt(svg,12,58,'● A','font-size:12px;fill:var(--red)','start');txt(svg,56,58,'● B','font-size:12px;fill:var(--blue)','start');txt(svg,388,58,'R_A = '+t2(m.RA),'font-size:12.5px;font-weight:700','end');
+    var x0=24,x1=388,y0=76,yb=212,lo=15,hi=40,mx=20;function X(v){return x0+(v-lo)/(hi-lo)*(x1-x0);}function Y(c){return yb-c/mx*(yb-y0);}
+    var dev=Math.abs(m.RA-27.5),ext=0;
+    for(var v=lo;v<=hi;v++){var c=D[v]||0,e=Math.abs(v-27.5)>=dev-1e-9;if(e)ext+=c;svg.append(sv('rect',{x:X(v)-5.5,y:Y(c),width:11,height:yb-Y(c),fill:e?'var(--yellow)':'var(--text-2)',opacity:e?0.95:0.4}));}
+    svg.append(sv('line',{x1:X(m.RA),y1:y0-4,x2:X(m.RA),y2:yb,stroke:'var(--red)','stroke-width':2.2}));
+    draws.slice(-30).forEach(function(d,i){svg.append(sv('circle',{cx:X(d),cy:yb-6-((i%6)*8),r:3.2,fill:'var(--purple)'}));});
+    svg.append(sv('line',{x1:x0,y1:yb,x2:x1,y2:yb,stroke:'var(--outline)'}));[15,20,25,27.5,30,35,40].forEach(function(v){txt(svg,X(v),yb+16,sg(v),'font-size:11.5px');});
+    txt(svg,x1,yb+33,'jumlah peringkat A dari 252 susunan','font-size:12px','end');
+    plot.innerHTML='';plot.append(svg);
+    var pv=ext/252,Umin=Math.min(m.UA,m.UB);
+    ro.innerHTML='';ro.append(stat(t2(m.RA),'R_A (rata-rata bila H0: 27,5)'),stat(t2(Umin),'U terkecil (kritis 2)'),stat(fmt(pv,4),'nilai-p tepat ('+ext+' dari 252)'));
+    var msg=(pi===0?'peringkat A menumpuk di atas: R_A = '+t2(m.RA)+'. ':'peringkat A dan B bercampur: R_A = '+t2(m.RA)+', dekat 27,5. ')+(pv<=0.05?'Hanya ':'Sebanyak ')+ext+' dari 252 susunan seekstrem ini atau lebih, jadi nilai-p = '+fmt(pv,4)+(pv<=0.05?': H0 ditolak.':': belum ada bukti beda.')+' Susunan yang memberi A peringkat 6–10 (R_A = 40) hanya ada '+(D[40]||0)+'.';
+    if(draws.length)msg+=' Undian label acak (titik ungu) jatuh di sekitar 27,5: rata-rata '+t2(mean(draws))+' dari '+draws.length+' undian.';
+    lihat(ins,msg);
+  }
+  draw();
+})();
+
+/* ============ STASIUN D: Uji Tanda ============ */
+(function(){
+  var host=$('#d-try');if(!host)return;
+  var n=10,k=9;
+  var sN=sld('n',5,20,1,n,function(v){n=v;if(k>n)k=n;sK.rg.max=String(n);sK.rg.value=String(k);draw();}),sK=sld('+',0,n,1,k,function(v){k=v;draw();}),plot=el('div'),ro=el('div',{class:'readout'}),ins=el('div',{'aria-live':'polite'});
+  host.append(sN.row,sK.row,plot,ro,ins);
+  function draw(){
+    sN.out.textContent=String(n);sK.out.textContent=String(k);
+    var pr=[],mx=0,x;for(x=0;x<=n;x++){pr.push(comb(n,x)/Math.pow(2,n));mx=Math.max(mx,pr[x]);}
+    var hi2=k>=n/2?k:n-k,lo2=n-hi2;
+    var W=400,H=210,x0=24,x1=388,y0=16,yb=172,bw=(x1-x0)/(n+1);function X(v){return x0+(v+0.5)*bw;}
+    var svg=sv('svg',{class:'plotsvg',viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Sebaran binomial n = '+n+', p = 0,5; ekor mulai '+k+' diarsir'});
+    for(x=0;x<=n;x++){var h=pr[x]/mx*(yb-y0),t1=x>=k,t2b=x>=hi2||x<=lo2;svg.append(sv('rect',{x:X(x)-bw*0.4,y:yb-h,width:bw*0.8,height:h,rx:2,fill:t1?'var(--red)':t2b?'var(--yellow)':'var(--text-2)',opacity:t1||t2b?0.9:0.4}));
+      if(n<=12||x%2===0)txt(svg,X(x),yb+16,String(x),'font-size:11.5px');}
+    svg.append(sv('line',{x1:x0,y1:yb,x2:x1,y2:yb,stroke:'var(--outline)'}));txt(svg,x1,yb+33,'banyak tanda + bila H0 benar','font-size:12px','end');
+    plot.innerHTML='';plot.append(svg);
+    var up=k>=n/2,p1=up?binomTail(n,k):binomTail(n,n-k),p2=Math.min(1,2*binomTail(n,hi2));
+    ro.innerHTML='';ro.append(stat(fmt(p1,4),'nilai-p satu arah, P(X '+(up?'≥':'≤')+' '+k+')'),stat(fmt(p2,4),'nilai-p dua arah'),stat(p2<=0.05?'Tolak H0':'Gagal menolak','keputusan, α 5% dua arah'));
+    lihat(ins,k+' dari '+n+' bertanda +. Bila tidak ada beda, hasil seberat sebelah ini atau lebih muncul dengan peluang '+fmt(p1,4)+' ('+fmt(100*p1,1)+'%). '+(p2<=0.05?'Cukup jarang untuk menolak H0 pada α 5% dua arah.':'Belum cukup jarang; kebetulan masih bisa menjelaskannya.')+(n===10&&k===9?' Inilah hasil Tebak dulu: sekitar 1%.':''));
+  }
+  draw();
+})();
+/* ==KERANGKA-B== */
+/* ============ ZERO: tiga tebakan ============ */
+var ZQ=ISI.ZQ;
+(function(){
+  var host=$('#zero-q'),sum=$('#zero-sum');mem.zero.a=mem.zero.a||[];
+  function recount(){
+    var a=mem.zero.a,n=a.filter(function(x){return x;}).length;
+    if(n<ZQ.length){sum.innerHTML='';return;}
+    var ok=0,hz=0;a.forEach(function(x,i){if(x.ok)ok++;if(x.conf==='yakin'&&!x.ok)hz++;});
+    sum.innerHTML='';
+    sum.append(el('div',{class:'infobox'},el('b',{text:'Tebakanmu: '+ok+' dari '+ZQ.length+' tepat. '}),
+      document.createTextNode(hz?('Ada '+hz+' tebakan yang kamu tandai "Yakin" tetapi keliru. Itulah bagian yang paling layak kamu perhatikan di stasiun berikutnya.'):'Tidak ada tebakan yakin yang keliru. Tetap uji dirimu di stasiun berikutnya.')));
+    markDone('zero');
+  }
+  ZQ.forEach(function(q,i){
+    var saved=mem.zero.a[i];
+    var w=mcq({stem:(i+1)+'. '+q.stem,opts:q.opts,conf:true,saved:saved,onAnswer:function(r){mem.zero.a[i]=r;save();recount();}});
+    w.append(el('p',{class:'qmeta',text:'Dibuktikan di: '+q.pointer}));
+    host.append(w);
+  });
+  recount();
+})();
+
+/* ============ Cek cepat (2 soal per stasiun) ============ */
+var CEK=ISI.CEK;
+Object.keys(CEK).forEach(function(k){
+  var host=$('#'+k.toLowerCase()+'-cek');if(!host)return;
+  function check(){var n=0;CEK[k].forEach(function(q,i){if(mem.cek[k+i])n++;});if(n===CEK[k].length)markDone(k);}
+  CEK[k].forEach(function(q,i){host.append(mcq({stem:(i+1)+'. '+q.stem,opts:q.opts,saved:mem.cek[k+i],onAnswer:function(r){mem.cek[k+i]=r;save();check();}}));});
+  check();
+});
+
+/* ============ HERO: Feynman, tiga lensa, kasus, rekap ============ */
+(function(){
+  var f1e=$('#fy1'),f3=$('#fy3'),n3=$('#fy3n');
+  f1e.value=mem.fy.s1||'';f3.value=mem.fy.s3||'';
+  $$('[data-fyc]').forEach(function(c){c.checked=!!mem.fy.c[+c.getAttribute('data-fyc')];c.addEventListener('change',function(){mem.fy.c[+c.getAttribute('data-fyc')]=c.checked;save();});});
+  function sentences(s){return (s.match(/[^.!?]+[.!?]+/g)||(s.trim()?[s]:[])).length;}
+  function upd(){var n=sentences(f3.value);n3.textContent=f3.value.trim()?(n+' kalimat'+(n<=3?' (sudah ringkas)':' (masih lebih dari 3)')):'';checkHero();}
+  f1e.addEventListener('input',function(){mem.fy.s1=f1e.value;save();checkHero();});
+  f3.addEventListener('input',function(){mem.fy.s3=f3.value;save();upd();});
+  var lenses=ISI.LENSES;
+  var li=0,tb=$('#lens3-tabs'),bd=$('#lens3-body');
+  function drawL(){tb.innerHTML='';lenses.forEach(function(l,i){tb.append(el('button',{type:'button',class:'chip','aria-pressed':String(i===li),onclick:function(){li=i;drawL();},text:l[0]}));});bd.textContent=lenses[li][1];}
+  drawL();
+  var KQ=ISI.KQ;
+  var kh=$('#kasus-q'),sels=[];mem.kasus.a=mem.kasus.a||[];
+  KQ.forEach(function(k,i){var s=el('select',{'aria-label':k.q});s.append(el('option',{value:'',text:'Pilih jawaban'}));k.o.forEach(function(o,j){s.append(el('option',{value:String(j),text:o}));});
+    if(mem.kasus.a[i]!=null)s.value=String(mem.kasus.a[i]);s.addEventListener('change',function(){mem.kasus.a[i]=s.value===''?null:+s.value;save();});
+    var r=el('div',{class:'qrow2'},el('span',{text:(i+1)+'. '+k.q}),s,el('div',{class:'rs',style:'display:none'}));kh.append(r);sels.push({s:s,r:r.lastChild});});
+  function showKasus(){
+    KQ.forEach(function(k,i){var v=sels[i].s.value;var r=sels[i].r;if(v===''){r.style.display='none';return;}var ok=+v===k.c;r.style.display='block';r.className='rs '+(ok?'ok':'bad');r.textContent=(ok?'Tepat. ':'Belum tepat. ')+k.e;});
+    $('#kasus-lens').style.display='block';mem.kasus.checked=true;save();checkHero();
+  }
+  $('#kasus-check').addEventListener('click',showKasus);
+  var KL=ISI.KL;
+  var ki=0,kt=$('#kl-tabs'),kb=$('#kl-body'),ktx=$('#kl-text');ktx.value=mem.kasus.text||'';
+  function drawKL(){kt.innerHTML='';KL.forEach(function(l,i){kt.append(el('button',{type:'button',class:'chip','aria-pressed':String(i===ki),onclick:function(){ki=i;drawKL();},text:l[0]}));});kb.textContent=KL[ki][1];}
+  drawKL();ktx.addEventListener('input',function(){mem.kasus.text=ktx.value;save();});
+  if(mem.kasus.checked)showKasus();
+  function checkHero(){if((mem.fy.s1||'').trim().length>=40&&mem.kasus.checked)markDone('hero');}
+  upd();
+  var rc=$('#zero-recap');
+  if(mem.zero.a&&mem.zero.a.length===3&&mem.zero.a.every(Boolean)){
+    var ok=mem.zero.a.filter(function(x){return x.ok;}).length;
+    rc.append(el('div',{class:'infobox'},el('b',{text:'Tebakan awalmu: '+ok+' dari 3 tepat. '}),document.createTextNode('Bandingkan dengan yang kamu pahami sekarang. Bagian mana yang berubah?')));
+  }
+  var ai=$('#ailog'),AIQ=ISI.AIQ;
+  AIQ.forEach(function(t,i){var cb=el('input',{type:'checkbox'});cb.checked=!!mem.log[i];cb.addEventListener('change',function(){mem.log[i]=cb.checked;save();});ai.append(el('label',{class:'chk'},cb,el('span',{text:t})));});
+  var tk=$('#ticket');tk.value=mem.ticket||'';tk.addEventListener('input',function(){mem.ticket=tk.value;save();});
+})();
+
+
+/* ============ KOMPAS: latihan mundur dari keputusan ============ */
+(function(){
+  var host=$('#compass-try');if(!host)return;
+  var S=ISI.KOMPAS.S;
+  var show=ISI.KOMPAS.show,n=0;
+  function draw(){
+    host.innerHTML='';
+    host.append(el('div',{class:'kasus'},el('b',{text:'Skenario: '}),document.createTextNode(ISI.KOMPAS.skenario)));
+    if(n<5)host.append(el('p',{class:'stem',style:'font-weight:500'},'Ketuk langkah yang terjadi ',el('b',{text:'paling akhir'}),' dulu, lalu mundur satu per satu sampai langkah pertama.'));
+    if(n>0){var ol=el('ol',{class:'chosen'});for(var i=0;i<n;i++){ol.append(el('li',{},el('b',{text:S[i].t}),el('br'),document.createTextNode(S[i].w)));}host.append(ol);}
+    if(n<5){
+      var box=el('div',{class:'stepbtns'});
+      var msg=el('div',{class:'hintbox','aria-live':'polite',style:'display:none'});
+      show.forEach(function(idx){if(idx<n)return;
+        var b=el('button',{type:'button',class:'chip',text:S[idx].t});
+        b.addEventListener('click',function(){
+          if(idx===n){n++;draw();}
+          else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');msg.textContent='Belum. Tanyakan: langkah mana yang terjadi paling akhir dari yang tersisa? Kita sedang mundur dari akhir.';msg.style.display='block';}});
+        box.append(b);});
+      host.append(box,msg);
+    }else{
+      host.append(el('div',{class:'infobox'},el('b',{text:'Hasilnya: '}),document.createTextNode(ISI.KOMPAS.hasil)),
+        el('div',{class:'row'},el('button',{class:'btn tonal',type:'button',onclick:function(){n=0;draw();}},ic('replay'),'Ulangi')));
+    }
+  }
+  draw();
+})();
+
+/* ============ KAMUS MINI ============ */
+(function(){
+  var G=ISI.GLOSS;
+  GLOSS=G;
+  var list=$('#gloss-list'),q=$('#gloss-q');
+  function draw(f){list.innerHTML='';var n=0;
+    G.forEach(function(g){if(f&&(g[0]+' '+g[1]).toLowerCase().indexOf(f)<0)return;n++;list.append(el('div',{},el('dt',{text:g[0]}),el('dd',{text:g[1]})));});
+    if(!n)list.append(el('p',{class:'qmeta',text:'Istilah tidak ditemukan. Coba kata lain.'}));}
+  q.addEventListener('input',function(){draw(q.value.trim().toLowerCase());});draw('');
+})();
+
+/* ============ TEBAK DULU (sebelum penjelasan) ============ */
+(function(){
+  mem.tebak=mem.tebak||{};
+  var T=ISI.TEBAK;
+  Object.keys(T).forEach(function(k){var host=$('#'+k+'-tebak');if(!host)return;
+    host.append(mcq({stem:T[k].stem,opts:T[k].opts,conf:true,saved:mem.tebak[k],onAnswer:function(r){mem.tebak[k]=r;save();}}));});
+})();
+
+/* ============ CONTOH JAWABAN FEYNMAN ============ */
+(function(){
+  var host=$('#fy-ex'),f1=$('#fy1');if(!host||!f1)return;
+  var EX=ISI.FY_EX;
+  function wc(s){return (String(s).trim().match(/\S+/g)||[]).length;}
+  function draw(){host.innerHTML='';var n=wc(f1.value);
+    if(!mem.fy.ex){var b=el('button',{class:'btn tonal small',type:'button'},'Lihat contoh jawaban yang baik');b.disabled=n<40;
+      b.addEventListener('click',function(){mem.fy.ex=true;save();draw();});
+      host.append(el('div',{class:'row'},b,el('span',{class:'qmeta',style:'margin:0',text:n<40?('Tulis minimal 40 kata dulu ('+n+'/40).'):'Sudah cukup. Bandingkan dengan contoh.'})));}
+    else{host.append(el('div',{class:'model'},el('b',{text:'Contoh jawaban yang baik. '}),document.createTextNode(EX)),
+      el('p',{class:'qmeta',style:'margin-top:6px',text:'Bandingkan: apa yang ada di contoh tetapi belum ada di tulisanmu? Perbaiki tulisanmu sendiri, jangan menyalin.'}));}}
+  f1.addEventListener('input',function(){if(!mem.fy.ex)draw();});draw();
+})();
+
+/* ============ KUIS 20 soal ============ */
+(function(){
+  var root=$('#quiz-root');
+  function newSeed(){return Math.floor(Math.random()*2147483000)+1;}
+  var Q=mem.quiz;if(!Q||!Q.seed){Q=mem.quiz={seed:newSeed(),run:1,ans:[],i:0,view:'q'};save();}
+  var qs=buildQuiz(Q.seed);
+  function tally(){var ok=0,pts=0,tiers={1:[0,0],2:[0,0],3:[0,0],4:[0,0]},answered=0;
+    qs.forEach(function(q,i){var a=Q.ans[i];tiers[q.tier][1]++;if(a){answered++;if(a.ok){ok++;tiers[q.tier][0]++;pts+=a.hint?0.5:1;}}});return {ok:ok,pts:pts,tiers:tiers,answered:answered};}
+  function render(){
+    root.innerHTML='';var t=tally();
+    var head=el('div',{class:'qz-head'});
+    head.append(el('span',{class:'qz-kode',text:'Kode soal: '+Q.seed.toString(36).toUpperCase()+' · percobaan '+Q.run}),el('span',{class:'qmeta',text:'Terjawab '+t.answered+'/20 · benar '+t.ok}));
+    root.append(head);
+    var dots=el('div',{class:'qdots',role:'group','aria-label':'Loncat ke soal'});
+    qs.forEach(function(q,i){var a=Q.ans[i];dots.append(el('button',{type:'button',class:(a?(a.ok?'ok':'bad'):'')+(Q.view==='q'&&i===Q.i?' cur':''),'aria-label':'Soal '+(i+1),onclick:function(){Q.view='q';Q.i=i;save();render();},text:String(i+1)}));});
+    root.append(dots);
+    if(Q.view==='r'){renderResult(t);return;}
+    var q=qs[Q.i],saved=Q.ans[Q.i];
+    var w=mcq({meta:'Soal '+q.n+' dari 20',tier:q.tier,tierName:q.tierName,stem:q.stem,opts:q.opts,hint:q.hint,hintCost:true,conf:true,saved:saved,
+      onAnswer:function(r){Q.ans[Q.i]=r;var t2=tally();if(t2.answered===20){mem.best=Math.max(mem.best||0,t2.ok);}save();if(t2.answered===20)markDone('quiz');renderNav(w,true);refreshHead();}});
+    root.append(w);
+    renderNav(w,!!saved);
+    function refreshHead(){var t3=tally();head.lastChild.textContent='Terjawab '+t3.answered+'/20 · benar '+t3.ok;var b=dots.children[Q.i];var a=Q.ans[Q.i];if(a)b.className=(a.ok?'ok':'bad')+' cur';}
+  }
+  var navHost=null;
+  function keep(){var w=$('#quiz-wrap');if(w&&w.getBoundingClientRect().top<70)w.scrollIntoView({block:'start'});}
+  function renderNav(w,answered){
+    if(navHost&&navHost.parentNode)navHost.parentNode.removeChild(navHost);
+    navHost=el('div',{class:'row'});
+    navHost.append(el('button',{class:'btn line',type:'button',onclick:function(){if(Q.i>0){Q.i--;save();render();keep();}}},'Sebelumnya'));
+    if(Q.i<19){var nx=el('button',{class:'btn',type:'button',onclick:function(){Q.i++;save();render();keep();}},'Soal berikutnya');nx.disabled=!answered;navHost.append(nx);}
+    var all=tally().answered===20;
+    if(all)navHost.append(el('button',{class:'btn tonal',type:'button',onclick:function(){Q.view='r';save();render();}},ic('flag'),'Lihat hasil'));
+    else if(Q.i===19&&answered)navHost.append(el('span',{class:'qmeta',text:'Masih ada soal yang belum dijawab. Ketuk nomor soal di atas untuk melompat.'}));
+    root.append(navHost);
+  }
+  function renderResult(t){
+    var box=el('div');root.append(box);
+    var hh=el('h3',{text:'Hasil latihanmu'});box.append(hh);if(t.ok>=16){setTimeout(function(){var rc=hh.getBoundingClientRect();burst(rc.left+80,rc.top+10,40);},200);}
+    var g=el('div',{class:'res-grid'});
+    g.append(el('div',{class:'card'},el('div',{class:'big',text:t.ok+' / 20'}),el('span',{class:'qmeta',text:'jawaban benar'})));
+    g.append(el('div',{class:'card'},el('div',{class:'big',text:String(t.pts).replace('.',',')+' / 20'}),el('span',{class:'qmeta',text:'skor latihan (petunjuk mengurangi 0,5)'})));
+    var tg=el('div',{class:'card',style:'grid-column:span 2'});tg.append(el('b',{text:'Per jenjang'}));
+    [1,2,3,4].forEach(function(k){var d=t.tiers[k],pc=d[1]?d[0]/d[1]*100:0;tg.append(el('div',{style:'margin-top:6px;font-size:.88rem'},document.createTextNode('Jenjang '+k+' ('+TIER_NAME[k]+'): '+d[0]+'/'+d[1]),el('div',{class:'bar'},el('i',{style:'width:'+pc+'%'}))));});
+    g.append(tg);box.append(g);
+    /* kalibrasi */
+    var cal={ragu:[0,0],cukup:[0,0],yakin:[0,0],none:[0,0]},danger=[];
+    qs.forEach(function(q,i){var a=Q.ans[i];if(!a)return;var k=a.conf||'none';cal[k][1]++;if(a.ok)cal[k][0]++;else if(a.conf==='yakin'){var mis=q.opts[a.c].mis;danger.push({n:q.n,mis:mis});}});
+    var ct=el('table'),th=el('thead');th.append(el('tr',{},el('th',{text:'Keyakinan'}),el('th',{text:'Soal'}),el('th',{text:'Benar'})));ct.append(th);var cb=el('tbody');
+    [['ragu','Ragu'],['cukup','Cukup yakin'],['yakin','Yakin'],['none','Tidak ditandai']].forEach(function(r){var d=cal[r[0]];cb.append(el('tr',{},el('td',{text:r[1]}),el('td',{text:String(d[1])}),el('td',{text:d[1]?Math.round(d[0]/d[1]*100)+'%':'–'})));});ct.append(cb);
+    box.append(el('h3',{style:'margin-top:14px',text:'Seberapa cocok yakinmu dengan hasilnya (kalibrasi)'}),el('div',{class:'tscroll'},ct));
+    var dz=el('div',{class:'infobox'});
+    if(danger.length){dz.append(el('b',{text:'Zona waspada: '}),document.createTextNode('kamu menandai "Yakin" tetapi keliru pada soal '+danger.map(function(d){return d.n;}).join(', ')+'. Salah kaprah yang perlu ditinjau: '+danger.map(function(d){return d.mis;}).filter(function(v,i,a){return v&&a.indexOf(v)===i;}).join('; ')+'.'));}
+    else if(cal.none[1]===20)dz.append(document.createTextNode('Kamu belum menandai keyakinan. Coba pada percobaan berikutnya untuk melihat seberapa akurat rasa yakinmu.'));
+    else dz.append(document.createTextNode('Tidak ada soal yang kamu jawab "Yakin" tetapi keliru. Rasa yakinmu cukup selaras dengan hasilnya.'));
+    box.append(dz);
+    /* tinjau */
+    var wrong=qs.filter(function(q,i){return Q.ans[i]&&!Q.ans[i].ok;});
+    box.append(el('h3',{style:'margin-top:14px',text:'Soal untuk ditinjau ulang ('+wrong.length+')'}));
+    if(!wrong.length)box.append(el('p',{text:'Semua benar. Coba ulangi dengan angka baru untuk memastikan pemahamanmu bukan kebetulan.'}));
+    wrong.forEach(function(q){var a=Q.ans[q.n-1];box.append(el('div',{class:'review'},el('b',{text:'Soal '+q.n+'. '}),document.createTextNode(q.stem),el('br'),el('span',{class:'qmeta',text:'Pilihanmu: '+q.opts[a.c].t}),el('br'),el('span',{class:'qmeta',text:'Jawaban benar: '+q.opts[q.correct].t}),el('br'),document.createTextNode(q.opts[q.correct].note),el('div',{class:'row'},el('button',{class:'btn line small',type:'button',onclick:function(){Q.view='q';Q.i=q.n-1;save();render();}},'Buka soal ini'))));});
+    box.append(el('div',{class:'row'},
+      el('button',{class:'btn',type:'button',onclick:function(){Q={seed:newSeed(),run:Q.run+1,ans:[],i:0,view:'q'};mem.quiz=Q;qs=buildQuiz(Q.seed);save();render();}},ic('replay'),'Ulangi dengan angka baru'),
+      el('button',{class:'btn line',type:'button',onclick:function(){Q.view='q';Q.i=0;save();render();}},'Kembali ke soal')));
+    box.append(el('p',{class:'qmeta',text:'Ini latihan untuk melihat pemahamanmu, bukan penilaian resmi.'}));
+  }
+  render();
+})();
+
+/* ============ TOMBOL AKTIVITAS BERIKUTNYA (Mode Kelas) ============ */
+(function(){var b=$('#next-act');if(!b)return;
+  b.addEventListener('click',function(){
+    var list=$$('.blk.try').filter(function(e){return e.offsetParent!==null;});
+    for(var i=0;i<list.length;i++){if(list[i].getBoundingClientRect().top>170){list[i].scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'});return;}}
+    window.scrollTo({top:0,behavior:REDUCE?'auto':'smooth'});
+  });
+})();
+
+/* ============ ISTILAH YANG BISA DIKETUK ============ */
+(function(){
+  var MAPT=ISI.MAPT;
+  var def={};GLOSS.forEach(function(g){def[g[0]]=g[1];});
+  var SKIP='[id$="-try"],[id$="-tebak"],[id$="-cek"],#zero-q,#zero-sum,#quiz-root,#kasus-q,#kasus-lens,#compass-try,#lens3-body,#kl-body,#b-tool,#d-flow,#zero-recap,#fy-ex,.fbk,.mcq,button,label,summary,code,h1,h2,h3,h4,.term';
+  ['zero','sta-a','sta-b','sta-c','sta-d','hero'].forEach(function(sid){
+    var sec=document.getElementById(sid);if(!sec)return;var used={};
+    $$('p,li,dd,td,.kasus',sec).forEach(function(blk){
+      if(blk.closest(SKIP))return;
+      var w=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT,null),nodes=[],n;while((n=w.nextNode()))nodes.push(n);
+      nodes.forEach(function(tn){
+        if(!tn.parentNode||tn.parentNode.closest(SKIP))return;
+        for(var i=0;i<MAPT.length;i++){var key=MAPT[i][0];if(used[key]||!def[MAPT[i][1]])continue;
+          var re=new RegExp('(^|[^A-Za-zÀ-ÿ])('+key+')(?![A-Za-zÀ-ÿ])','i'),m=re.exec(tn.nodeValue);if(!m)continue;
+          var start=m.index+m[1].length,after=tn.splitText(start);after.nodeValue=after.nodeValue;var rest=after.splitText(m[2].length);
+          var bt=el('button',{type:'button',class:'term','data-g':MAPT[i][1],'aria-label':m[2]+': lihat arti',text:m[2]});
+          after.parentNode.replaceChild(bt,after);used[key]=true;tn=rest;i=-1;}
+      });
+    });
+  });
+  var pop=$('#term-pop');
+  document.addEventListener('click',function(ev){
+    var t=ev.target.closest?ev.target.closest('.term'):null;
+    if(!t){if(!ev.target.closest('#term-pop'))pop.hidden=true;return;}
+    var g=t.getAttribute('data-g');pop.innerHTML='';pop.append(el('b',{text:g}),document.createTextNode(def[g]||''));pop.hidden=false;
+    var r=t.getBoundingClientRect(),pw=Math.min(320,window.innerWidth-32);
+    pop.style.left=Math.max(16,Math.min(r.left+window.scrollX,window.scrollX+window.innerWidth-pw-16))+'px';
+    pop.style.top=(r.bottom+window.scrollY+6)+'px';
+  });
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')pop.hidden=true;});
+})();
+
+
+/* ============ TABEL MENJADI DAFTAR DI PONSEL ============ */
+(function(){$$('.tscroll').forEach(function(w){var tb=w.querySelector('table');if(!tb||tb.classList.contains('nw')||w.closest('#quiz-root'))return;
+  var hs=$$('thead th',tb).map(function(h){return h.textContent.trim();});if(!hs.length)return;w.classList.add('stack');
+  $$('tbody tr',tb).forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD'&&hs[i])c.setAttribute('data-label',hs[i]);});});});})();
+
+
+/* ============ DASBOR BELAJARMU ============ */
+(function(){
+  var ring=$('#dash-ring');if(!ring)return;
+  var C=2*Math.PI*27;ring.style.strokeDasharray=C.toFixed(1);
+  var SES=[['zero','A','B'],['C','D'],['hero','quiz']];
+  dashRefresh=function(){
+    var done=0,tot=7;['zero','A','B','C','D','hero','quiz'].forEach(function(k){if(mem.done[k])done++;});
+    ring.style.strokeDashoffset=(C*(1-done/tot)).toFixed(1);
+    $('#dash-ringtxt').textContent=done+'/'+tot;$('#dash-ringwrap').setAttribute('aria-label','Tonggak selesai: '+done+' dari '+tot);
+    $$('#dash-sesi li').forEach(function(li,i){var ks=SES[i],d=ks.filter(function(k){return mem.done[k];}).length;
+      li.querySelector('.ds-bar i').style.width=(d/ks.length*100)+'%';li.classList.toggle('full',d===ks.length);});
+    var ok=0;(mem.zero.a||[]).forEach(function(x){if(x&&x.ok)ok++;});var tb=mem.tebak||{};Object.keys(tb).forEach(function(k){if(tb[k]&&tb[k].ok)ok++;});
+    $('#dash-tebak').textContent=ok+'/7';
+    $('#dash-kuis').textContent=(mem.best!=null)?(mem.best+'/20'):'–';
+  };
+  dashRefresh();
+})();
+})();
+</script>
+</body>
+</html>

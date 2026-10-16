@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Probabilitas dan Statistika, Bagian 3: Pendeskripsian Data</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-lg:20px;--r:14px;--r-sm:10px;
+  --g-blue:#4285f4;--g-red:#ea4335;--g-yellow:#fbbc04;--g-green:#34a853;--g-purple:#a142f4;
+  --blue:#1a73e8;--on-blue:#ffffff;--blue-c:#e8f0fe;--on-blue-c:#174ea6;
+  --red:#d93025;--on-red:#ffffff;--red-c:#fce8e6;--on-red-c:#a50e0e;
+  --yellow:#fbbc04;--on-yellow:#202124;--yellow-c:#fef7e0;--on-yellow-c:#5b4200;
+  --green:#188038;--on-green:#ffffff;--green-c:#e6f4ea;--on-green-c:#0d652d;
+  --purple:#9334e6;--on-purple:#ffffff;--purple-c:#f3e8fd;--on-purple-c:#6a1b9a;
+  --bg:#f3f5f9;--surface:#ffffff;--surf-1:#eef1f6;--surf-2:#e3e8f0;--surf-3:#d3dae5;
+  --text:#1a2233;--text-2:#566074;--outline:#8590a3;--outline-v:#dde3ec;
+  --primary:var(--blue);--on-primary:var(--on-blue);--primary-c:var(--blue-c);--on-primary-c:var(--on-blue-c);
+  --sec-c:var(--green-c);--on-sec-c:var(--on-green-c);--ok:var(--green);
+  --warn-c:var(--yellow-c);--on-warn-c:var(--on-yellow-c);
+  --err:var(--red);--err-c:var(--red-c);--on-err-c:var(--on-red-c);
+  --acc:var(--blue);--on-acc:var(--on-blue);--acc-c:var(--blue-c);--on-acc-c:var(--on-blue-c);
+  --shadow:0 1px 2px rgba(20,32,60,.06),0 4px 14px rgba(20,32,60,.08);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--g-blue:#8ab4f8;--g-red:#f28b82;--g-yellow:#fdd663;--g-green:#81c995;--g-purple:#d7aefb;
+  --blue:#8ab4f8;--on-blue:#0b1b3a;--blue-c:#1e3a6e;--on-blue-c:#d2e3fc;
+  --red:#f28b82;--on-red:#3b0a07;--red-c:#5c2b29;--on-red-c:#fad2cf;
+  --yellow:#fdd663;--on-yellow:#2b2100;--yellow-c:#4d3b00;--on-yellow-c:#fde293;
+  --green:#81c995;--on-green:#0b2d16;--green-c:#1e4620;--on-green-c:#ceead6;
+  --purple:#d7aefb;--on-purple:#2c0b45;--purple-c:#3f2a5b;--on-purple-c:#ead1fb;
+  --bg:#0e1421;--surface:#151d2d;--surf-1:#1b2436;--surf-2:#232e43;--surf-3:#2f3b54;
+  --text:#e7ebf3;--text-2:#a9b4c7;--outline:#74809a;--outline-v:#2a3550;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.28);color-scheme:dark;}}
+:root[data-theme="dark"]{--g-blue:#8ab4f8;--g-red:#f28b82;--g-yellow:#fdd663;--g-green:#81c995;--g-purple:#d7aefb;
+  --blue:#8ab4f8;--on-blue:#0b1b3a;--blue-c:#1e3a6e;--on-blue-c:#d2e3fc;
+  --red:#f28b82;--on-red:#3b0a07;--red-c:#5c2b29;--on-red-c:#fad2cf;
+  --yellow:#fdd663;--on-yellow:#2b2100;--yellow-c:#4d3b00;--on-yellow-c:#fde293;
+  --green:#81c995;--on-green:#0b2d16;--green-c:#1e4620;--on-green-c:#ceead6;
+  --purple:#d7aefb;--on-purple:#2c0b45;--purple-c:#3f2a5b;--on-purple-c:#ead1fb;
+  --bg:#0e1421;--surface:#151d2d;--surf-1:#1b2436;--surf-2:#232e43;--surf-3:#2f3b54;
+  --text:#e7ebf3;--text-2:#a9b4c7;--outline:#74809a;--outline-v:#2a3550;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.28);color-scheme:dark;}
+
+.c-blue{--acc:var(--blue);--on-acc:var(--on-blue);--acc-c:var(--blue-c);--on-acc-c:var(--on-blue-c)}
+.c-red{--acc:var(--red);--on-acc:var(--on-red);--acc-c:var(--red-c);--on-acc-c:var(--on-red-c)}
+.c-yellow{--acc:var(--yellow);--on-acc:var(--on-yellow);--acc-c:var(--yellow-c);--on-acc-c:var(--on-yellow-c)}
+.c-green{--acc:var(--green);--on-acc:var(--on-green);--acc-c:var(--green-c);--on-acc-c:var(--on-green-c)}
+.c-purple{--acc:var(--purple);--on-acc:var(--on-purple);--acc-c:var(--purple-c);--on-acc-c:var(--on-purple-c)}
+
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(130px + env(safe-area-inset-top,0px));scroll-behavior:smooth;font-size:16px}
+html[data-mode="kelas"]{font-size:19px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.62;-webkit-text-size-adjust:100%;overflow-wrap:anywhere}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .5rem;font-weight:500;letter-spacing:0}
+h1{font-size:clamp(1.8rem,5.6vw,2.7rem);font-weight:500}
+h2{font-size:1.5rem;font-weight:500}
+h3{font-size:1.05rem}
+p{margin:.35rem 0 .8rem}
+a{color:var(--blue)}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--g-blue);outline-offset:2px;border-radius:6px}
+.wrap{max-width:940px;margin:0 auto;padding:0 16px}
+
+/* ikon SVG inline */
+.ic{width:1.25em;height:1.25em;vertical-align:-.26em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hi{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--acc);color:var(--on-acc);flex:none}
+.hi .ic{width:19px;height:19px;vertical-align:0}
+
+/* app bar */
+.appbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--surface);border-bottom:1px solid var(--outline-v)}
+.appbar .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:500;min-width:0}
+.logo{flex:none;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;position:relative;overflow:hidden;background:conic-gradient(var(--g-blue) 0 25%,var(--g-red) 0 50%,var(--g-yellow) 0 75%,var(--g-green) 0)}
+.logo::after{content:"Σ";position:absolute;inset:4px;border-radius:8px;background:var(--surface);color:var(--text);display:grid;place-items:center;font-weight:700;font-size:1.05rem}
+.brand-t{overflow-wrap:normal;word-break:normal;font-size:.9rem;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.brand-t small{color:var(--text-2);font-weight:400}
+.spacer{flex:1}
+.seg{display:inline-flex;border:1px solid var(--outline);border-radius:999px;overflow:hidden;flex:none;max-width:100%}
+.seg button{border:0;background:transparent;color:var(--text);padding:7px 12px;font-size:.82rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;white-space:normal;text-align:center}
+.seg button+button{border-left:1px solid var(--outline)}
+.seg button[aria-pressed="true"]{background:var(--acc-c);color:var(--on-acc-c);font-weight:500}
+.icon-btn{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--text);cursor:pointer;display:grid;place-items:center}
+.icon-btn:hover{background:var(--surf-2)}
+.progress{height:4px;background:var(--surf-2)}
+.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--g-blue),var(--g-red),var(--g-yellow),var(--g-green));transition:width .5s}
+.nav{position:sticky;top:calc(60px + env(safe-area-inset-top,0px));z-index:25;background:var(--bg);border-bottom:1px solid var(--outline-v)}
+.nav-scroll{display:flex;gap:8px;overflow-x:auto;padding:8px 0;scrollbar-width:none}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;color:var(--text);border:1px solid var(--outline-v);border-radius:999px;padding:5px 13px 5px 10px;font-size:.84rem;display:inline-flex;gap:7px;align-items:center;background:var(--surface)}
+.nav a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.nav a.on{background:var(--acc-c);color:var(--on-acc-c);border-color:var(--acc);font-weight:500}
+.nav a.done::after{content:"✓";color:var(--green);font-weight:700}
+.kelasbar{display:none;background:var(--yellow-c);color:var(--on-yellow-c);font-size:.88rem}
+.kelasbar .wrap{display:flex;gap:10px;align-items:center;justify-content:space-between;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
+body[data-mode="kelas"] .kelasbar{display:block}
+
+@media (max-width:560px){.seg button[aria-pressed="false"] .lbl{display:none}.seg button{padding:7px 10px}.appbar .wrap{gap:8px}}
+@media (max-width:430px){.brand-t{font-size:.8rem}.brand-t small{display:none}}
+@media (max-width:350px){.logo{display:none}}
+/* hero + identitas */
+.hero{padding:22px 0 6px}
+.brandline{display:flex;gap:10px;align-items:flex-start;flex-wrap:nowrap;color:var(--text-2);font-size:.9rem;margin-bottom:10px}
+.brandline .hi{background:var(--blue-c);color:var(--on-blue-c)}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center}
+@media (max-width:780px){.hero-grid{grid-template-columns:1fr}}
+.eyebrow{color:var(--blue);font-size:1rem;font-weight:500;margin:0 0 .3rem}
+.lead{font-size:1.08rem;color:var(--text-2);max-width:36rem}
+.hero-art{width:100%;height:auto;background:var(--surface);border:1px solid var(--outline-v);border-radius:24px;box-shadow:var(--shadow)}
+.hero-art .dot{opacity:.4}
+.hero-art .dot.p{opacity:1;animation:pulse 3.6s ease-in-out infinite;animation-delay:var(--d);transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5}35%{transform:scale(2);opacity:1}}
+.idgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.idgrid .idt b{font-size:.92rem}
+.idt{border-radius:14px;padding:8px 12px;background:var(--acc-c);color:var(--on-acc-c)}
+.idt span{display:block;font-size:.76rem;opacity:.85}
+.idt b{font-weight:500;font-size:.98rem}
+.lecturer{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--outline-v);border-radius:16px;padding:10px 14px;margin:10px 0}
+.avatar{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:500;color:#fff;background:conic-gradient(from 40deg,var(--g-blue),var(--g-green),var(--g-yellow),var(--g-red),var(--g-blue))}
+.avatar b{width:38px;height:38px;border-radius:50%;background:var(--surface);color:var(--text);display:grid;place-items:center;font-size:.95rem}
+.lecturer small{color:var(--text-2);display:block}
+.weeks{display:grid;grid-template-columns:repeat(16,1fr);gap:4px;margin:12px 0 4px}
+.weeks i{height:10px;border-radius:5px;background:var(--surf-3)}
+.weeks i.now{background:linear-gradient(90deg,var(--g-blue),var(--g-green));animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.55}}
+.greet{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.greet input{max-width:260px}
+.greet .hello{font-weight:500;color:var(--green)}
+
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.pill{font-size:.8rem;border-radius:999px;padding:4px 12px;background:var(--surf-2);color:var(--text)}
+.pill:nth-child(1){background:var(--blue-c);color:var(--on-blue-c)}
+.pill:nth-child(2){background:var(--red-c);color:var(--on-red-c)}
+.pill:nth-child(3){background:var(--green-c);color:var(--on-green-c)}
+.hero-grid{align-items:start}
+.hero-art{position:sticky;top:130px}
+/* kamus, panel kelas, penjelasan istilah */
+.gloss{font-size:.88rem;margin:6px 0 10px;padding:7px 11px;border-radius:10px;background:rgba(127,127,127,.16)}
+details.card{padding:0;margin:0 0 14px}
+details.card>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 18px}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary::after{content:"+";margin-left:auto;font-size:1.4rem;line-height:1;color:var(--text-2)}
+details.card[open]>summary::after{content:"−"}
+details.card>*:not(summary){margin-left:18px;margin-right:18px}
+details.card>*:last-child{margin-bottom:16px}
+.gloss-card{border-top:5px solid var(--g-yellow)}
+.classpanel{border-top:5px solid var(--purple)}
+#gloss-q{margin:4px 18px 10px;width:calc(100% - 36px)}
+#gloss-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top:0;margin-bottom:14px;max-height:420px;overflow:auto}
+@media (max-width:700px){#gloss-list{grid-template-columns:1fr}}
+#gloss-list div{padding:6px 0;border-bottom:1px solid var(--outline-v)}
+#gloss-list dt{font-weight:500;color:var(--on-blue-c)}
+#gloss-list dd{margin:2px 0 0;font-size:.92rem;color:var(--text)}
+.stepbtns{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chosen{margin:10px 0;padding-left:0;list-style:none;counter-reset:m}
+.chosen li{counter-increment:m;padding:8px 12px 8px 44px;margin:0 0 6px;border-radius:12px;background:var(--green-c);color:var(--on-green-c);position:relative;animation:slide .35s ease-out}
+.chosen li::before{content:counter(m);position:absolute;left:10px;top:7px;width:24px;height:24px;border-radius:50%;background:var(--green);color:var(--on-green);display:grid;place-items:center;font-size:.8rem;font-weight:500}
+@keyframes slide{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+.shake{animation:shake .4s}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.a-back{animation:back 7s ease-in-out infinite}
+@keyframes back{0%,8%{transform:translateX(0)}20%,30%{transform:translateX(-40px)}42%,52%{transform:translateX(-80px)}64%,74%{transform:translateX(-120px)}86%,100%{transform:translateX(-160px)}}
+.kv{display:grid;grid-template-columns:1fr;margin:8px 0 0}
+.kv>div{padding:9px 0;border-bottom:1px solid var(--outline-v)}
+.kv dt{font-weight:500;color:var(--on-acc-c)}
+.kv dd{margin:2px 0 0}
+@media (min-width:720px){.kv>div{display:grid;grid-template-columns:200px 1fr;gap:12px}.kv dd{margin:0}}
+/* kartu info */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media (max-width:840px){.grid3{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--outline-v);border-radius:18px;padding:16px 18px}
+.card.top{border-top:5px solid var(--acc)}
+.card h3{display:flex;align-items:center;gap:10px}
+.card ul{margin:.3rem 0 0;padding-left:1.15rem}
+.card li{margin:.25rem 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border-bottom:1px solid var(--outline-v);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-weight:500;color:var(--on-acc-c);background:var(--acc-c)}
+.tscroll{overflow-x:auto;border:1px solid var(--outline-v);border-radius:12px}
+.tscroll table{min-width:520px}
+.tscroll table.nw td,.tscroll table.nw th{white-space:nowrap}
+.tscroll table.nw{min-width:0}
+
+/* seksi */
+.sec,#quiz-wrap{scroll-margin-top:124px}
+.sec{margin:38px 0}
+.sec-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.num{flex:none;min-width:56px;height:56px;border-radius:18px;background:var(--acc);color:var(--on-acc);display:grid;place-items:center;font-weight:500;font-size:1.1rem;padding:0 6px;box-shadow:var(--shadow)}
+.sec-head .sub{color:var(--text-2);margin:0;font-size:.95rem}
+.time{margin-left:auto;flex:none;font-size:.8rem;color:var(--on-acc-c);background:var(--acc-c);border-radius:999px;padding:3px 11px;white-space:nowrap}
+.blk{border-radius:18px;padding:16px 18px;margin:0 0 14px;background:var(--surface);border:1px solid var(--outline-v)}
+.blk>h3{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.when{font-size:.74rem;font-weight:400;border-radius:999px;padding:2px 10px;background:var(--surf-2);color:var(--text-2)}
+.blk.why{background:var(--acc-c);color:var(--on-acc-c);border-color:transparent}
+.blk.why .when{background:rgba(127,127,127,.22);color:inherit}
+.blk.eli5{--acc:var(--blue);--on-acc:var(--on-blue);background:var(--blue-c);color:var(--on-blue-c);border-color:transparent}
+.blk.analogy{--acc:var(--green);--on-acc:var(--on-green);background:var(--green-c);color:var(--on-green-c);border-color:transparent}
+.blk.eli5 .when,.blk.analogy .when{background:rgba(127,127,127,.22);color:inherit}
+.patah{margin-top:10px;background:var(--yellow-c);color:var(--on-yellow-c);border-radius:12px;padding:10px 14px;font-size:.93rem;border-left:5px solid var(--yellow)}
+.blk.try{border:2px solid var(--acc);box-shadow:var(--shadow)}
+.blk.try>h3 .when{background:var(--acc);color:var(--on-acc)}
+.blk.formal{background:var(--surface)}
+.blk.cek{background:var(--surf-1);border-color:transparent}
+.lens{border-radius:18px;padding:14px 18px;background:var(--purple-c);color:var(--on-purple-c);margin:0 0 14px}
+.lens h4{display:flex;gap:10px;align-items:center;font-size:1rem;margin-bottom:.4rem}
+.lens .hi{background:var(--purple);color:var(--on-purple)}
+.lens dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.93rem}
+.lens dt{font-weight:500}
+.lens dd{margin:0}
+@media (max-width:560px){.lens dl{grid-template-columns:1fr}.lens dt{margin-top:6px}}
+.blkflex{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.blkflex>div{flex:1;min-width:240px}
+.art{flex:none;width:220px;max-width:100%;height:auto;border-radius:16px;background:var(--surface);border:1px solid rgba(127,127,127,.25)}
+@media (max-width:560px){.art{width:100%;max-width:300px;margin:0 auto}}
+body[data-mode="kelas"] .learn-only{display:none!important}
+body[data-mode="belajar"] .kelas-only{display:none!important}
+
+/* tombol */
+.btn{border:0;border-radius:999px;padding:10px 20px;font-size:.92rem;font-weight:500;cursor:pointer;background:var(--acc);color:var(--on-acc);display:inline-flex;align-items:center;gap:8px;min-height:40px}
+.btn:hover:not(:disabled){filter:brightness(1.07);box-shadow:var(--shadow)}
+.btn:active:not(:disabled){transform:scale(.97)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.tonal{background:var(--acc-c);color:var(--on-acc-c)}
+.btn.line{background:transparent;color:var(--on-acc-c);border:1.5px solid var(--acc)}
+.btn.small{padding:6px 14px;font-size:.85rem;min-height:34px}
+.btn.b-blue{--acc:var(--blue);--on-acc:var(--on-blue);--acc-c:var(--blue-c);--on-acc-c:var(--on-blue-c)}
+.btn.b-green{--acc:var(--green);--on-acc:var(--on-green);--acc-c:var(--green-c);--on-acc-c:var(--on-green-c)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+.chipset{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--outline);background:var(--surface);color:var(--text);border-radius:10px;padding:6px 14px;font-size:.88rem;cursor:pointer;min-height:36px}
+.chip[aria-pressed="true"]{background:var(--acc);color:var(--on-acc);border-color:transparent;font-weight:500}
+.chip:disabled{opacity:.5;cursor:default}
+
+/* MCQ */
+.mcq{margin:6px 0 10px}
+.mcq .stem{font-weight:500;margin:0 0 10px;font-size:1.02rem}
+.qmeta{font-size:.82rem;color:var(--text-2);margin:0 0 6px}
+.confrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px;font-size:.88rem;color:var(--text-2)}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--surface);color:var(--text);border:1.5px solid var(--outline-v);border-radius:14px;padding:12px 14px;font-size:.98rem;cursor:pointer;margin:0 0 8px;line-height:1.5}
+.opt:hover:not(:disabled){background:var(--surf-1);border-color:var(--acc)}
+.opt:disabled{cursor:default}
+.opt .letter{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--acc-c);color:var(--on-acc-c);font-size:.82rem;font-weight:500}
+.opt.ok{border-color:var(--green);background:var(--green-c);color:var(--on-green-c)}
+.opt.ok .letter{background:var(--green);color:var(--on-green)}
+.opt.bad{border-color:var(--red);background:var(--red-c);color:var(--on-red-c)}
+.opt.bad .letter{background:var(--red);color:var(--on-red)}
+.opt.dim{opacity:.72}
+.fbk{margin:10px 0 4px;border-radius:14px;padding:12px 14px;background:var(--surf-1);font-size:.93rem}
+.fbk .verdict{font-weight:500;font-size:1rem;margin:0 0 6px}
+.fbk .verdict.ok{color:var(--green)}
+.fbk .verdict.bad{color:var(--red)}
+.fbk ul{list-style:none;margin:0;padding:0}
+.fbk li{padding:8px 0;border-top:1px solid var(--outline-v)}
+.fbk li:first-child{border-top:0}
+.fbk .lt{font-weight:500}
+.tagmis{display:inline-block;font-size:.76rem;background:var(--yellow);color:var(--on-yellow);border-radius:999px;padding:1px 10px;margin-left:6px}
+.hintbox{margin:0 0 10px;padding:8px 12px;border-radius:10px;background:var(--yellow-c);color:var(--on-yellow-c);font-size:.9rem;border-left:5px solid var(--yellow)}
+
+/* peta */
+.mmwrap{overflow-x:auto;border:1px solid var(--outline-v);border-radius:16px;background:var(--surface);padding:8px}
+.mm-link{fill:none;stroke:var(--outline);stroke-width:1.5;opacity:.55}
+.mm-node{cursor:pointer}
+.mm-node text{font-family:var(--font);font-size:12px;dominant-baseline:middle}
+.mm-node.k-red{--x:var(--red);--ox:var(--on-red);--xc:var(--red-c);--oxc:var(--on-red-c)}
+.mm-node.k-yellow{--x:var(--yellow);--ox:var(--on-yellow);--xc:var(--yellow-c);--oxc:var(--on-yellow-c)}
+.mm-node.k-green{--x:var(--green);--ox:var(--on-green);--xc:var(--green-c);--oxc:var(--on-green-c)}
+.mm-node.k-purple{--x:var(--purple);--ox:var(--on-purple);--xc:var(--purple-c);--oxc:var(--on-purple-c)}
+.mm-node.k-blue{--x:var(--blue);--ox:var(--on-blue);--xc:var(--blue-c);--oxc:var(--on-blue-c)}
+.mm-node.n0 rect{fill:var(--blue)}.mm-node.n0 text{fill:var(--on-blue);font-weight:500}
+.mm-node.n1 rect{fill:var(--text)}.mm-node.n1 text{fill:var(--bg);font-weight:500}
+.mm-node.n2 rect{fill:var(--x)}.mm-node.n2 text{fill:var(--ox);font-weight:500}
+.mm-node.n3 rect{fill:var(--xc);stroke:var(--x);stroke-width:1.2}.mm-node.n3 text{fill:var(--oxc)}
+.mm-node.dim{opacity:.5;cursor:default}
+.mm-node:hover:not(.dim) rect{stroke:var(--text);stroke-width:2}
+.mm-node:focus-visible rect{stroke:var(--text);stroke-width:3}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:.8rem;color:var(--text-2);margin:8px 0}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:5px;vertical-align:-1px}
+
+/* kartu geser A */
+.swipe{max-width:560px;margin:0 auto}
+.scard{background:var(--acc-c);color:var(--on-acc-c);border-radius:24px;padding:24px 20px;font-size:1.08rem;min-height:120px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.55}
+.swipe .btnrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.swipe .btnrow .btn{justify-content:center;padding:14px}
+.dots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.dots i{width:11px;height:11px;border-radius:50%;background:var(--surf-3)}
+.dots i.ok{background:var(--g-green)}.dots i.bad{background:var(--g-red)}.dots i.cur{outline:2px solid var(--blue);outline-offset:2px}
+
+/* zona skala B */
+.zonegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
+@media (max-width:760px){.zonegrid{grid-template-columns:1fr 1fr}}
+.zone{border:2.5px dashed var(--outline);border-radius:16px;padding:8px;min-height:130px;background:var(--surface);cursor:pointer}
+.zone h4{margin:2px 4px 2px;font-size:.95rem}
+.zone .zs{margin:0 4px 6px;font-size:.76rem;color:var(--text-2)}
+.zone.z-nominal{border-color:var(--g-blue);background:var(--blue-c);color:var(--on-blue-c)}
+.zone.z-ordinal{border-color:var(--g-green);background:var(--green-c);color:var(--on-green-c)}
+.zone.z-interval{border-color:var(--g-yellow);background:var(--yellow-c);color:var(--on-yellow-c)}
+.zone.z-rasio{border-color:var(--g-red);background:var(--red-c);color:var(--on-red-c)}
+.zone .zs{color:inherit;opacity:.8}
+.zone.target{filter:brightness(.96)}
+.pool{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border-radius:16px;background:var(--surf-1);min-height:56px}
+.vc{border:1.5px solid var(--outline);background:var(--surface);color:var(--text);border-radius:10px;padding:6px 10px;font-size:.86rem;cursor:grab;margin:3px;text-align:left}
+.vc.sel{outline:3px solid var(--blue);background:var(--blue-c);color:var(--on-blue-c)}
+.vc.ok{border-color:var(--green);background:var(--green-c);color:var(--on-green-c)}
+.vc.bad{border-color:var(--red);background:var(--red-c);color:var(--on-red-c)}
+.infobox{margin:10px 0;padding:10px 14px;border-radius:12px;background:var(--surf-1);font-size:.92rem;border-left:5px solid var(--acc)}
+.toolq{display:grid;gap:8px}
+.toolq .qrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolq .qrow.off{opacity:.4}
+.result{font-weight:500;font-size:1.05rem;margin-top:6px}
+
+/* mesin sampel C */
+.popsvg{width:100%;height:auto;background:var(--surface);border:1px solid var(--outline-v);border-radius:16px;display:block}
+.plotsvg{width:100%;height:auto;background:var(--surface);border:1px solid var(--outline-v);border-radius:16px;display:block}
+.plotsvg text{fill:var(--text-2);font-family:var(--font);font-size:11px}
+.gradbar{height:10px;border-radius:6px;background:linear-gradient(90deg,#ea4335,#fbbc04,#34a853,#4285f4);margin:6px 0 2px}
+.gradlab{display:flex;justify-content:space-between;font-size:.76rem;color:var(--text-2)}
+.readout{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.stat{flex:1;min-width:130px;border-radius:14px;padding:8px 12px;background:var(--surf-1)}
+.stat:nth-child(1){background:var(--blue-c);color:var(--on-blue-c)}
+.stat:nth-child(2){background:var(--yellow-c);color:var(--on-yellow-c)}
+.stat:nth-child(3){background:var(--red-c);color:var(--on-red-c)}
+.stat:nth-child(4){background:var(--green-c);color:var(--on-green-c)}
+.stat b{display:block;font-size:1.35rem;font-weight:500}
+.stat span{font-size:.8rem;opacity:.9}
+.lg{display:flex;flex-wrap:wrap;gap:8px;font-size:.8rem;margin:6px 0}
+.lg span{display:inline-flex;align-items:center;gap:6px;background:var(--surf-1);border-radius:999px;padding:2px 10px}
+.lg i{width:10px;height:10px;border-radius:50%}
+
+/* form */
+textarea,select,input[type=text]{box-sizing:border-box;width:100%;font:inherit;font-size:.96rem;color:var(--text);background:var(--surface);border:1.5px solid var(--outline);border-radius:12px;padding:10px 12px}
+textarea:focus,select:focus,input[type=text]:focus{border-color:var(--blue)}
+textarea{min-height:110px;resize:vertical}
+label.chk{display:flex;gap:10px;align-items:flex-start;margin:6px 0;font-size:.94rem;cursor:pointer}
+label.chk input{margin-top:4px;width:18px;height:18px;accent-color:var(--blue)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.step3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:760px){.step3{grid-template-columns:1fr}}
+.kasus{background:var(--acc-c);color:var(--on-acc-c);border-radius:16px;padding:14px 16px;margin:8px 0 12px}
+.qrow2{display:grid;grid-template-columns:1fr 1.3fr;gap:10px;align-items:center;margin:8px 0}
+@media (max-width:680px){.qrow2{grid-template-columns:1fr}}
+.qrow2 .rs{grid-column:1/-1;font-size:.9rem;padding:6px 10px;border-radius:8px}
+.rs.ok{background:var(--green-c);color:var(--on-green-c)}.rs.bad{background:var(--red-c);color:var(--on-red-c)}
+
+/* kuis */
+.tiers{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.tier{font-size:.8rem;border-radius:999px;padding:3px 12px;border:1px solid rgba(127,127,127,.35)}
+.tier.t1{background:var(--blue-c);color:var(--on-blue-c)}.tier.t2{background:var(--green-c);color:var(--on-green-c)}
+.tier.t3{background:var(--yellow-c);color:var(--on-yellow-c)}.tier.t4{background:var(--red-c);color:var(--on-red-c)}
+.qz-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.qz-kode{font-size:.82rem;color:var(--on-acc-c);background:var(--acc-c);border-radius:999px;padding:3px 12px}
+.qdots{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 14px}
+.qdots button{width:28px;height:28px;border-radius:9px;border:1.5px solid var(--outline-v);background:var(--surface);color:var(--text-2);font-size:.74rem;cursor:pointer;padding:0}
+.qdots button.ok{background:var(--green);color:var(--on-green);border-color:transparent}
+.qdots button.bad{background:var(--red);color:var(--on-red);border-color:transparent}
+.qdots button.cur{outline:2px solid var(--blue);outline-offset:2px}
+.tierbadge{display:inline-block;border-radius:999px;padding:1px 10px;font-size:.78rem;margin-left:6px}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
+@media (max-width:640px){.res-grid{grid-template-columns:1fr 1fr}}
+.big{font-size:2rem;font-weight:500;line-height:1.1}
+.bar{height:9px;border-radius:999px;background:var(--surf-3);overflow:hidden;margin-top:6px}
+.bar>i{display:block;height:100%;background:var(--g-green);transition:width .6s}
+.review{border-top:1px solid var(--outline-v);padding:10px 0}
+.qbanner{display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-radius:18px;background:var(--acc-c);color:var(--on-acc-c);padding:14px 16px;margin-bottom:12px}
+.qbanner>div{flex:1;min-width:220px}
+.qbanner .art{width:110px;background:transparent;border:0}
+@media (max-width:560px){.qbanner .art{display:none}.qbanner{padding:12px 14px}}
+.foot{margin:40px 0 24px;color:var(--text-2);font-size:.86rem}
+
+/* animasi ilustrasi (keadaan dasar = tampilan akhir, aman untuk reduced motion) */
+.a-spoon{animation:dip 5s ease-in-out infinite}
+@keyframes dip{0%,100%{transform:translate(0,-34px)}38%,62%{transform:translate(0,4px)}}
+.a-hl{transform-box:fill-box;transform-origin:center;animation:hl 5s ease-in-out infinite}
+@keyframes hl{0%,30%,70%,100%{transform:scale(1)}42%,58%{transform:scale(1.9)}}
+.a-bar{transform-box:fill-box;transform-origin:50% 100%;animation:grow 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes grow{0%{transform:scaleY(0.02)}18%,86%{transform:scaleY(1)}100%{transform:scaleY(0.02)}}
+.a-lab{animation:fade 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes fade{0%,10%{opacity:0}22%,86%{opacity:1}100%{opacity:0}}
+.a-ring{animation:hop 6s ease-in-out infinite}
+@keyframes hop{0%,100%{transform:translate(0,0)}20%,33%{transform:translate(36px,12px)}53%,66%{transform:translate(12px,36px)}86%{transform:translate(60px,24px)}}
+.a-xb{transform-box:fill-box;transform-origin:center;animation:pop 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes pop{0%{transform:scale(0);opacity:0}10%{transform:scale(1.3);opacity:1}16%,88%{transform:scale(1);opacity:1}100%{transform:scale(0);opacity:0}}
+.a-tick{stroke-dasharray:22;animation:tick 5s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes tick{0%,8%{stroke-dashoffset:22}22%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:22}}
+.a-bounce{transform-box:fill-box;transform-origin:center bottom;animation:bounce 2.2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-8px) rotate(-6deg)}}
+.confetti-i{position:fixed;z-index:99;width:9px;height:9px;border-radius:2px;pointer-events:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ===== v2: label waktu, sesi, tebak dulu, kacamata dilipat, istilah, tombol aktivitas ===== */
+body[data-mode="belajar"] .time.tk,body[data-mode="kelas"] .time.tm{display:none}
+.sec-head .time+.time{margin-left:6px}
+.sesimap{border-top:5px solid var(--g-green);margin:0 0 14px}
+.sesilist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.sesilist li{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:baseline;padding:8px 10px;border-radius:12px;background:var(--surf-1)}
+.sesilist li a{text-decoration:none;color:var(--text)}
+.sesilist li span{font-size:.9rem;color:var(--text-2)}
+@media (max-width:560px){.sesilist li{grid-template-columns:1fr;gap:2px}}
+.sesi{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:34px 0 -18px;padding:10px 14px;border-radius:14px;background:var(--text);color:var(--bg);scroll-margin-top:124px}
+.sesi .sesi-no{font-weight:700;letter-spacing:.02em}
+.sesi-end{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:8px 0 0;padding:12px 14px;border-radius:14px;background:var(--green-c);color:var(--on-green-c)}
+.sesi-end>div{flex:1;min-width:200px;font-size:.93rem}
+.sesi-end .btn{--acc:var(--green);--on-acc:var(--on-green)}
+.sesi-end .hi{background:var(--green);color:var(--on-green)}
+.blk.tebak{border-style:dashed}
+details.mis{margin-top:8px;font-size:.92rem}
+details.mis summary{cursor:pointer;font-weight:500;color:inherit}
+details.mis p{margin:6px 0 0}
+.fbk details{margin-top:8px}
+.fbk details summary{cursor:pointer;color:var(--text-2);font-size:.88rem}
+.fbk .cor{margin-top:6px;padding-top:6px;border-top:1px solid var(--outline-v)}
+.fy-ex{margin-top:12px}
+.fy-ex .model{margin-top:8px;padding:12px 14px;border-radius:12px;background:var(--green-c);color:var(--on-green-c);font-size:.95rem}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;text-decoration:underline dotted;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.term:hover{text-decoration-color:var(--blue)}
+.term-pop{position:absolute;z-index:60;max-width:min(320px,calc(100vw - 32px));background:var(--surface);color:var(--text);border:1px solid var(--outline-v);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);font-size:.9rem;line-height:1.5}
+.term-pop b{display:block;margin-bottom:2px;color:var(--blue)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;border:0;border-radius:999px;padding:12px 18px;font:inherit;font-weight:500;background:var(--blue);color:var(--on-blue);box-shadow:var(--shadow);cursor:pointer}
+.nav a.resume{background:var(--green);color:var(--on-green);border-color:transparent;font-weight:500}
+.nav a.resume::before{background:var(--on-green)}
+body[data-mode="kelas"] .hero{padding-top:10px}
+
+/* ===== v2: perapatan ponsel, tabel jadi daftar, kartu cara memakai ===== */
+.howto>summary{font-size:1rem}
+.howto h4{margin:10px 0 2px;font-size:.95rem}
+.howto ul{margin-top:0}
+details.maprec>summary{list-style:none;cursor:pointer}
+details.maprec>summary::-webkit-details-marker{display:none}
+details.maprec>summary::after{content:"  +";color:var(--text-2)}
+details.maprec[open]>summary::after{content:"  −"}
+details.maprec>.mmwrap{margin-top:10px}
+@media (max-width:780px){.hero-art{display:none}}
+@media (max-width:560px){
+  .sec-head{flex-wrap:wrap}
+  .sec-head .time{margin-left:70px}
+  .sec-head .time.tm,.sec-head .time.tk{white-space:normal}
+  .confrow{gap:6px}
+  .confrow .chip{padding:4px 10px;min-height:32px;font-size:.84rem}
+  .opt{padding:10px 12px;margin:0 0 6px}
+  .art{max-width:230px}
+  .tscroll.stack{border:0;overflow:visible}
+  .tscroll.stack table{min-width:0}
+  .tscroll.stack thead{display:none}
+  .tscroll.stack tr{display:block;border:1px solid var(--outline-v);border-radius:12px;margin:0 0 8px;padding:6px 12px}
+  .tscroll.stack tbody th{display:block;background:none;color:var(--text);padding:4px 0 2px;border:0;font-weight:700}
+  .tscroll.stack td{display:block;border:0;padding:2px 0}
+  .tscroll.stack td::before{content:attr(data-label) ": ";font-weight:500;color:var(--text-2)}
+}
+
+@media (max-width:560px){
+  .sesilist li{grid-template-columns:auto 1fr;gap:8px;padding:6px 10px}
+  #zero .legend{display:none}
+  textarea{min-height:88px}
+  .lens{padding:12px 14px}
+  .blk{padding:14px 14px}
+}
+
+@media (max-width:560px){
+  .art{max-width:200px}
+  .zone{min-height:100px}
+  .tscroll.stack tr{padding:4px 10px;margin:0 0 6px}
+}
+@media (max-width:560px){
+  .sec{margin:28px 0}
+  .blk,.lens{margin-bottom:12px}
+}
+@media (max-width:560px){
+  .sec-head>div{flex:1 1 0;min-width:0}
+  .sec-head .time{margin-left:70px;margin-top:-6px}
+  .confrow{font-size:.8rem;gap:5px}
+  .confrow .chip{padding:3px 8px;font-size:.8rem}
+}
+@media (max-width:560px){
+  .sec-head>div{flex:1 1 calc(100% - 72px)}
+}
+a.btn{text-decoration:none}
+
+/* =====================================================================
+   v5 · Lapisan desain "dasbor belajar"
+   Tata letak: ponsel satu kolom; desktop ≥1100px navigasi pindah ke kolom kiri;
+   isi stasiun memakai grid bento bila lebar isi ≥ 820px.
+   Huruf: Plus Jakarta Sans (judul dan isi), JetBrains Mono khusus angka.
+   ===================================================================== */
+body{font-family:var(--font);font-size:1rem;line-height:1.65;font-feature-settings:"ss01"}
+h1,h2,h3,h4{font-family:var(--font);text-wrap:balance;color:var(--text)}
+h1{font-size:clamp(2rem,5.2vw,3.1rem);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:.6rem}
+h2{font-size:clamp(1.3rem,3.2vw,1.6rem);font-weight:700;letter-spacing:-.015em;line-height:1.2}
+h3{font-size:1.02rem;font-weight:700;letter-spacing:-.005em}
+h4{font-weight:700}
+.lead{font-size:1.06rem;line-height:1.6;color:var(--text-2);max-width:62ch}
+.eyebrow{font-weight:600;font-size:.92rem;color:var(--blue)}
+p,li,dd{max-width:72ch}
+b,strong{font-weight:700}
+.num-mono,.num,.time,.stat b,.big,.qz-kode,.result,.opt .letter,.qdots button,.tscroll table.nw td,.ds-min,.when{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.when{font-size:.7rem;font-weight:500}
+.time{font-size:.74rem;font-weight:500}
+
+/* bilah atas dan navigasi */
+.appbar{background:var(--surface);border-bottom:1px solid var(--outline-v)}
+.appbar .wrap{height:60px}
+.brand-t{font-weight:700;letter-spacing:-.01em}
+.nav{background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(1.2) blur(8px)}
+.nav a{border-radius:var(--r-sm);font-weight:600;font-size:.82rem}
+.progress{height:3px}
+
+/* pembuka */
+.hero{padding:26px 0 8px}
+.hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:16px}}
+.lecturer{border-radius:var(--r);box-shadow:none}
+.weeks i{height:8px;border-radius:4px}
+
+/* panel dasbor */
+.dash{background:var(--surface);border:1px solid var(--outline-v);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);display:grid;gap:14px}
+.dash-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dash-head h2{font-size:1.05rem;margin:0}
+.dash-head span{font-size:.76rem;color:var(--text-2)}
+.dash-top{display:flex;gap:16px;align-items:center}
+.ring{position:relative;width:88px;height:88px;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:7}
+.ring-bg{stroke:var(--surf-2)}
+.ring-fg{stroke:var(--g-green);stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.15rem;font-weight:700}
+.dash-total{display:grid;gap:0;min-width:0}
+.dash-total span{font-size:.78rem;color:var(--text-2)}
+.dash-total b{font-size:1.7rem;font-weight:700;line-height:1.2;color:var(--text)}
+.dash-sesi{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.dash-sesi li{display:grid;gap:4px}
+.dash-sesi a{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:baseline;text-decoration:none;color:var(--text)}
+.ds-name{font-weight:700;font-size:.88rem}
+.ds-what{font-size:.8rem;color:var(--text-2);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ds-min{font-size:.78rem;color:var(--text-2)}
+.ds-bar{height:6px;border-radius:3px;background:var(--surf-2);overflow:hidden}
+.ds-bar i{display:block;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--g-blue),var(--g-green));transition:width .5s ease}
+.dash-sesi li:nth-child(1) .ds-bar i{background:var(--g-blue)}
+.dash-sesi li:nth-child(2) .ds-bar i{background:var(--g-green)}
+.dash-sesi li:nth-child(3) .ds-bar i{background:var(--g-red)}
+.dash-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dash-stats div{background:var(--surf-1);border-radius:var(--r-sm);padding:8px 12px;display:grid}
+.dash-stats b{font-size:1.25rem;font-weight:700}
+.dash-stats span{font-size:.76rem;color:var(--text-2)}
+
+/* kepala seksi */
+.num{border-radius:var(--r);min-width:50px;height:50px;font-weight:700;font-size:1rem;box-shadow:none}
+.sec-head .sub{font-size:.93rem;max-width:60ch}
+
+/* blok: hirarki radius dan bayangan */
+.blk{border-radius:var(--r-lg)}
+.blk.try{box-shadow:var(--shadow);border-width:2px}
+.blk.why,.blk.eli5,.blk.analogy,.lens{border-radius:var(--r-lg)}
+.card{border-radius:var(--r-lg)}
+.btn{font-weight:600;letter-spacing:.005em}
+.chip{border-radius:var(--r-sm);font-weight:600}
+.opt{border-radius:var(--r)}
+.opt .letter{font-weight:700}
+.stat{border-radius:var(--r)}
+.stat b{font-weight:700;font-size:1.4rem}
+.big{font-weight:700}
+.qz-kode{font-weight:500}
+.fbk{border-radius:var(--r)}
+.tier{font-weight:600}
+.kasus{border-radius:var(--r)}
+
+/* grid bento untuk isi stasiun */
+main.wrap{container-type:inline-size}
+@container (min-width:820px){
+  .sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14px;row-gap:14px}
+  .sec>*{grid-column:1/-1;margin-bottom:0!important}
+  .sec>.eli5,.sec>.analogy,.sec>.cek,.sec>.lens{grid-column:auto}
+  #zero>*,#hero>*,#kuis>*,#pulang>*{grid-column:1/-1}
+  .sec>.eli5 .blkflex{flex-direction:column;align-items:flex-start}
+  .sec>.eli5 .art{width:100%;max-width:260px;align-self:center}
+  body[data-mode="kelas"] .sec>*{grid-column:1/-1}
+}
+
+/* desktop: navigasi menjadi kolom kiri */
+@media (min-width:1100px){
+  body{padding-left:248px}
+  .appbar{margin-left:-248px}
+  html{scroll-padding-top:84px}
+  .sec,#quiz-wrap{scroll-margin-top:84px}
+  .nav{position:fixed;top:calc(63px + env(safe-area-inset-top,0px));left:0;bottom:0;width:248px;border-bottom:0;border-right:1px solid var(--outline-v);background:var(--surface);backdrop-filter:none;overflow-y:auto;z-index:20}
+  .nav .wrap{padding:18px 14px;max-width:none}
+  .nav-scroll{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .nav a{width:100%;border:0;background:transparent;padding:9px 12px;font-size:.88rem}
+  .nav a:hover{background:var(--surf-1)}
+  .nav a.on{background:var(--acc-c);color:var(--on-acc-c)}
+  .nav a.done::after{margin-left:auto}
+  .nav a.resume{margin-bottom:8px}
+  .nav-scroll::before{content:"Isi bagian ini";font-size:.76rem;font-weight:600;color:var(--text-2);padding:0 12px 8px}
+}
+
+/* v5 · penyesuaian sesudah tinjauan layar */
+.kpi,.stat b,.big,.dash-stats b{font-family:var(--font);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.dash-total b{font-family:var(--font);font-size:1.9rem;font-weight:800;letter-spacing:-.03em}
+.ring b{all:unset}
+.ring-txt{position:absolute;inset:0;display:grid;place-content:center;text-align:center;line-height:1.05}
+.ring-txt b{font-size:1.3rem;color:var(--text)}
+.ring-txt small{font-size:.66rem;color:var(--text-2);font-weight:600}
+.card.top{border-top:1px solid var(--outline-v)}
+.gloss-card,.classpanel{border-top:1px solid var(--outline-v)}
+.grid3{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+@media (max-width:840px){.grid3{grid-template-columns:1fr}}
+@media (min-width:1100px){.appbar .wrap{max-width:none;padding:0 24px}}
+.popsvg{max-width:600px;margin:0 auto}
+.plotsvg{max-width:680px;margin:0 auto}
+.gradbar,.gradlab{max-width:600px;margin-left:auto;margin-right:auto}
+@media (max-width:430px){html[data-mode="kelas"] .brand-t{font-size:12.5px}html[data-mode="kelas"] .appbar .seg button{padding:6px 8px}}
+
+/* ===== Bagian 2: komponen baru ===== */
+.weeks i.done{background:var(--g-green)}
+.a-tilt{animation:tilt 6s ease-in-out infinite}
+@keyframes tilt{0%{transform:rotate(-7deg)}22%{transform:rotate(5deg)}40%,100%{transform:rotate(0)}}
+.a-spread{animation:spread 5s ease-in-out infinite}
+@keyframes spread{0%,10%{transform:translateX(var(--dx))}40%,100%{transform:none}}
+.a-shift{animation:shift 6s ease-in-out infinite}
+@keyframes shift{0%,15%{transform:translateX(var(--dx))}45%,100%{transform:none}}
+.balsvg{touch-action:none;user-select:none;-webkit-user-select:none}
+.balsvg .bdot{cursor:grab;transition:cx .12s ease}
+.balsvg .bdot.drag{cursor:grabbing}
+.balsvg .bdot:focus{outline:none;stroke:var(--text);stroke-width:3}
+.hbars{display:grid;gap:8px;margin:8px 0}
+.hb{display:grid;grid-template-columns:minmax(120px,1.1fr) 2fr auto;gap:10px;align-items:center;font-size:.9rem}
+.hb-t{height:14px;border-radius:7px;background:var(--surf-2);overflow:hidden}
+.hb-t i{display:block;height:100%;border-radius:7px;transition:width .4s ease}
+.hb-v{font-family:var(--font);font-weight:800;font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+@media (max-width:520px){.hb{grid-template-columns:1fr auto}.hb-t{grid-column:1/-1;grid-row:2}}
+.swipe .btnrow3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.swipe .btnrow3 .btn{justify-content:center;padding:12px 8px;text-align:center;white-space:normal;line-height:1.3}
+@media (max-width:480px){.swipe .btnrow3{grid-template-columns:1fr}}
+.btn.b-purple{--acc:var(--purple);--on-acc:var(--on-purple)}
+ol.calc{margin:10px 0 0;padding-left:1.4rem}
+ol.calc>li{margin:0 0 12px;padding-left:4px}
+ol.calc>li>b{display:block;margin-bottom:4px}
+ol.calc .mcq{margin-top:4px}
+tr.sumrow td{font-weight:700;border-top:2px solid var(--outline)}
+table.labt{width:100%}
+table.labt td:first-child{white-space:normal}
+.tscroll table.labt td,.tscroll table.labt th{white-space:normal;padding:6px 8px}
+.tscroll table.labt td:first-child{font-family:var(--font)}
+.a-barx{transform-box:fill-box;transform-origin:0 50%;animation:growx 6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes growx{0%{transform:scaleX(0.02)}18%,86%{transform:scaleX(1)}100%{transform:scaleX(0.02)}}
+.a-trunc{transform-box:fill-box;transform-origin:50% 100%;animation:trunc 7s ease-in-out infinite}
+@keyframes trunc{0%,35%{transform:scaleY(.25)}55%,100%{transform:none}}
+.a-lab1{opacity:0;animation:lab1 7s ease-in-out infinite}
+@keyframes lab1{0%,35%{opacity:1}45%,100%{opacity:0}}
+.a-lab2{animation:lab2 7s ease-in-out infinite}
+@keyframes lab2{0%,40%{opacity:0}55%,100%{opacity:1}}
+/* ==ISI-CSS== */
+#a-try .turus{font-family:var(--mono);letter-spacing:.06em;white-space:normal;word-break:break-word}
+#a-try .turus s{text-decoration-thickness:2px;margin-right:2px}
+#b-try .row input[type=range],#d-try .row input[type=range]{flex:1;min-width:140px}
+#c-try .plotsvg,#b-try .plotsvg,#d-try .plotsvg,#ds-try .plotsvg{max-width:560px}
+#a-try table td:nth-child(n+3),#a-try table th{white-space:nowrap;word-break:normal}
+#a-try table td,#a-try table th{padding:6px 7px}
+@media (max-width:380px){#a-try table{font-size:.82rem}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol><symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol><symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></symbol><symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol><symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol><symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 4H6l6 8-6 8h12"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol><symbol id="i-map" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></symbol><symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L4.5 19a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 9V3"/><line x1="7.5" y1="15" x2="16.5" y2="15"/></symbol><symbol id="i-checksq" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol><symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><polyline points="9 14 11 16 15 12"/></symbol><symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol><symbol id="i-pointer" viewBox="0 0 24 24"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></symbol><symbol id="i-university" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6"/><path d="M5 10v9M9 10v9M15 10v9M19 10v9"/><path d="M3 21h18"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol><symbol id="i-rewind" viewBox="0 0 24 24"><polygon points="11 19 2 12 11 5 11 19"/><polygon points="22 19 13 12 22 5 22 19"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol></defs></svg>
+
+<div class="appbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Kembali ke awal halaman"><span class="logo" aria-hidden="true"></span><span class="brand-t">Probabilitas dan Statistika <small>· Bagian 3</small></span></a>
+    <span class="spacer"></span>
+    <div class="seg" role="group" aria-label="Mode tampilan">
+      <button id="m-belajar" type="button" aria-pressed="true" title="Belajar mandiri: semua bagian tampil"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span class="lbl">Belajar</span></button>
+      <button id="m-kelas" type="button" aria-pressed="false" title="Mode Kelas: ringkas, untuk ditayangkan di layar"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span class="lbl">Kelas</span></button>
+    </div>
+    <button class="icon-btn" id="theme" type="button" aria-label="Ganti tema terang atau gelap"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></button>
+  </div>
+  <div class="progress" role="progressbar" aria-label="Progres belajar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="prog"><div id="prog-bar"></div></div>
+</div>
+<nav class="nav" aria-label="Bagian halaman"><div class="wrap"><div class="nav-scroll" id="nav"></div></div></nav>
+<div class="kelasbar" role="status"><div class="wrap"><span>Mode Kelas aktif: yang tampil hanya "Kenapa", "Tebak dulu", "Coba sendiri", dan pertanyaan kacamata berpikir.</span><button class="btn small tonal" id="kelas-off" type="button">Tampilkan semua</button></div></div>
+
+<main class="wrap" id="top">
+  <noscript><p class="card">Halaman ini membutuhkan JavaScript agar simulasi dan kuis dapat berjalan.</p></noscript>
+
+  <header class="hero">
+    <div class="brandline learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><span><b>Web pendamping buku Probabilitas dan Statistika</b> · edisi web 1.0, diperbarui Oktober 2026</span></div>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Probabilitas dan Statistika · Bagian 3 dari 16</p>
+        <h1>Pendeskripsian Data</h1>
+        <p class="lead learn-only">Data mentah baru bercerita setelah disusun. Halaman ini melatihmu membuat tabel frekuensi, memilih grafik yang tepat, dan membaca grafik dengan kritis, termasuk grafik yang angkanya benar tetapi kesannya menyesatkan. Semua istilah dijelaskan dulu. Cukup bisa menjumlah, membagi, dan menghitung persen.</p>
+        <div class="lecturer learn-only">
+          <span class="avatar" aria-hidden="true"><b>TA</b></span>
+          <div><b>Ditulis oleh Tri Aji Nugroho, S.T., M.T.</b><small>Dosen Program Studi Informatika, Universitas Al-Azhar Indonesia</small></div>
+        </div>
+        <div class="weeks learn-only" role="img" aria-label="Bagian 3 dari 16 bagian"><i class="done"></i><i class="done"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="qmeta learn-only">Bagian 3 dari 16, mengikuti urutan satu semester. Sebelumnya: <a href="https://claude.ai/artifact/AkAv4UAZ1U2g3UNfXkVYgm" target="_blank" rel="noopener">Bagian 1</a> dan <a href="https://claude.ai/artifact/2vsApoJKNmLmFpQmtFfQQF" target="_blank" rel="noopener">Bagian 2</a>.</p>
+        <div class="greet learn-only"><input type="text" id="nick" aria-label="Nama panggilan, opsional" placeholder="Nama panggilanmu (opsional)" maxlength="30"><span class="hello" id="hello" aria-live="polite"></span></div>
+      </div>
+      <aside class="dash learn-only" id="dash" aria-label="Dasbor belajarmu">
+        <div class="dash-head"><h2>Dasbor belajarmu</h2><span>Tersimpan di peramban ini</span></div>
+        <div class="dash-top">
+          <div class="ring" role="img" aria-label="Tonggak selesai" id="dash-ringwrap">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring-bg" cx="32" cy="32" r="27"/><circle class="ring-fg" id="dash-ring" cx="32" cy="32" r="27"/></svg>
+            <span class="ring-txt"><b class="kpi" id="dash-ringtxt">0/7</b><small>tonggak</small></span>
+          </div>
+          <div class="dash-total"><span>Lama belajar</span><b class="kpi">±1 jam 45 mnt</b><span>dalam 3 sesi, boleh dicicil</span></div>
+        </div>
+        <ol class="dash-sesi" id="dash-sesi">
+          <li><a href="#zero"><span class="ds-name">Sesi 1</span><span class="ds-what">Awal, 3.1, 3.2</span><span class="ds-min num-mono">30 mnt</span></a><span class="ds-bar"><i></i></span></li>
+          <li><a href="#sesi-2"><span class="ds-name">Sesi 2</span><span class="ds-what">3.3, 3.4</span><span class="ds-min num-mono">22 mnt</span></a><span class="ds-bar"><i></i></span></li>
+          <li><a href="#sesi-3"><span class="ds-name">Sesi 3</span><span class="ds-what">Puncak, kuis (hari lain)</span><span class="ds-min num-mono">54 mnt</span></a><span class="ds-bar"><i></i></span></li>
+        </ol>
+        <div class="dash-stats">
+          <div><b class="kpi" id="dash-tebak">0/7</b><span>tebakan tepat</span></div>
+          <div><b class="kpi" id="dash-kuis">–</b><span>skor kuis terbaik</span></div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <div class="grid3 learn-only">
+    <div class="card top c-blue">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg></span>Setelah bagian ini kamu bisa</h3>
+      <ul>
+        <li>Menyusun <b>tabel sebaran frekuensi</b> lengkap dengan frekuensi relatif dan kumulatif.</li>
+        <li>Membuat <b>kelas interval</b> untuk data angka: banyak kelas, lebar, batas, dan titik tengah.</li>
+        <li>Memilih <b>grafik yang sesuai</b> dengan jenis data dan pertanyaannya.</li>
+        <li>Mengenali grafik yang menyesatkan dan menulis <b>temuan berbasis bukti</b>.</li>
+      </ul>
+    </div>
+    <details class="card top c-green howto">
+      <summary><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></span><b>Cara memakai halaman ini dan aturan latihan</b></summary>
+      <h4>Cara memakai</h4>
+      <ul>
+        <li>Baca dari atas. Tiap stasiun berisi: Kenapa, Tebak dulu, Penjelasan sederhana, Perumpamaan, Coba sendiri, Rumus dan contoh, Cek cepat, lalu Kacamata berpikir.</li>
+        <li><b>Tebak dulu</b> sebelum membaca penjelasan. Tebakan yang salah itu berharga: di situ ada yang bisa kamu pelajari.</li>
+        <li>Istilah bergaris titik bisa diketuk untuk melihat artinya. Semua istilah juga ada di <b>Kamus mini</b> di bawah.</li>
+        <li>Halaman ini dibagi <b>tiga sesi</b>. Progresmu tersimpan di peramban ini, jadi kamu bisa berhenti dan melanjutkan kapan saja.</li>
+        <li>Sebaiknya sudah membaca Bagian 1 (skala data) dan Bagian 2 (ukuran pusat dan sebaran).</li>
+      </ul>
+      <h4>Tentang latihan di sini</h4>
+      <ul>
+        <li>Latihan dan kuis <b>tidak dinilai</b>. Gunanya membantu kamu melihat seberapa paham kamu.</li>
+        <li>Boleh memakai AI sebagai teman belajar. Catat cara memakainya, dan pastikan kamu bisa menjelaskan jawabannya tanpa melihat layar.</li>
+        <li>Semua data di halaman ini fiktif, dibuat untuk latihan.</li>
+        <li><b>Dosen:</b> tombol <i>Kelas</i> di kanan atas menampilkan versi ringkas untuk layar proyektor. Tambahkan <code>#kelas</code> di akhir tautan agar langsung terbuka dalam mode itu.</li>
+      </ul>
+    </details>
+  </div>
+
+  <details class="card gloss-card learn-only" id="kamus">
+    <summary><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><b>Kamus mini istilah</b><span class="qmeta" style="margin:0">ketuk untuk membuka, ketik untuk mencari</span></summary>
+    <input type="text" id="gloss-q" aria-label="Cari istilah" placeholder="Cari istilah, misalnya: histogram, kumulatif, Pareto">
+    <dl id="gloss-list"></dl>
+  </details>
+
+  <details class="card classpanel c-purple learn-only" id="kelasku">
+    <summary><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-university"/></svg></span><b>Kuliah di Universitas Al-Azhar Indonesia? Catatan kelasmu</b><span class="qmeta" style="margin:0">Program Studi Informatika · Kelas IF26A</span></summary>
+    <dl class="kv"><div><dt>Mata kuliah</dt><dd>Probabilitas dan Statistika, kode IF52510033, 3 SKS (teori), Semester 1 Ganjil 2026/2027</dd></div><div><dt>Kelas dan dosen</dt><dd>IF26A, Program Studi Informatika. Dosen pengampu: Tri Aji Nugroho, S.T., M.T.</dd></div><div><dt>Kemampuan yang dituju</dt><dd>Sub-CPMK PS-Sub-CPMK102-1: mengolah dan memvisualisasikan data dengan tabel frekuensi dan grafik yang sesuai. (CPMK = Capaian Pembelajaran Mata Kuliah. Rinciannya ada di RPS, yaitu Rencana Pembelajaran Semester.)</dd></div><div><dt>Tugas</dt><dd>Tugas T-03 (bobot 4%) dikumpulkan lewat eLearning; tenggatnya diumumkan dosen. Kerjakan sendiri. Kasus dan angka di halaman ini sengaja berbeda dari tugas itu.</dd></div><div><dt>Catatan pemakaian AI</dt><dd>Di kelas ini, setiap pemakaian AI dicatat dalam AI Usage Log: alat yang dipakai, perintah (prompt) yang diketik, dan bagian yang dipakai.</dd></div><div><dt>Cara memakai di kelas</dt><dd>Pemanasan dikerjakan sebelum pertemuan, praktik saat pertemuan (Mode Kelas), pendalaman sesudah pertemuan.</dd></div></dl>
+    <p class="qmeta" style="margin-top:8px">Dari kampus lain? Panel ini boleh diabaikan. Dosen di kampus lain dapat menyesuaikannya dengan informasi kelasnya sendiri.</p>
+  </details>
+
+
+
+  <!-- ===================== AWAL ===================== -->
+
+  <section class="sec c-blue" id="zero">
+    <div class="sec-head">
+      <span class="num">0</span>
+      <div><h2>Mulai dari nol: kompas, peta, dan tebakan</h2><p class="sub">Lihat cara berpikirnya dan gambaran besarnya dulu, lalu pasang tebakan sebelum tahu jawabannya.</p></div>
+      <span class="time tm">Mandiri ±12 mnt</span><span class="time tk">Di kelas ±10 mnt</span>
+    </div>
+
+    <div class="blk why">
+      <h3>Kenapa ini penting</h3>
+      <p>Ratusan baris data tidak bercerita apa-apa sampai disusun. Bagian ini melatihmu menyusunnya menjadi tabel frekuensi dan grafik yang jujur, lalu membaca cerita di dalamnya.</p>
+    </div>
+
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-rewind"/></svg></span>Kompas: mulai dari akhir <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Cara berpikir ini dipakai di seluruh buku: <b>mulai dari akhir</b> (<i>backward thinking</i>; pemain catur menyebutnya berpikir dari <i>endgame</i>, posisi akhir permainan). Bayangkan hasil akhirnya, lalu tanyakan: <b>apa yang harus benar tepat sebelumnya?</b></p>
+          <p><b>Contoh sehari-hari.</b> Tugas ditutup pukul 23.59. Mundur: unggah 23.30, periksa ulang 22.30, mulai menulis 19.00. Jam mulai ditentukan oleh tenggatnya.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 110" role="img" aria-label="Animasi: penanda bergerak mundur dari titik akhir ke titik awal"><line x1="30" y1="52" x2="190" y2="52" stroke="var(--outline)" stroke-width="3" stroke-linecap="round"/><path d="M118 28l-9 6 9 6M158 28l-9 6 9 6M78 28l-9 6 9 6" fill="none" stroke="var(--text-2)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="52" r="9" fill="var(--surface)" stroke="var(--g-blue)" stroke-width="3"/><circle cx="70" cy="52" r="9" fill="var(--surface)" stroke="var(--g-red)" stroke-width="3"/><circle cx="110" cy="52" r="9" fill="var(--surface)" stroke="var(--g-yellow)" stroke-width="3"/><circle cx="150" cy="52" r="9" fill="var(--surface)" stroke="var(--g-green)" stroke-width="3"/><circle cx="190" cy="52" r="9" fill="var(--green)"/><path d="M185.5 52l3 3 5-6" fill="none" stroke="var(--on-green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><g class="a-back"><circle cx="190" cy="52" r="15" fill="none" stroke="var(--text)" stroke-width="3"/></g><text x="30" y="88" text-anchor="middle" font-size="11" fill="var(--text-2)">Awal</text><text x="190" y="88" text-anchor="middle" font-size="11" fill="var(--text-2)">Akhir</text><text x="110" y="104" text-anchor="middle" font-size="10.5" fill="var(--text-2)">berpikir mundur dari sini</text></svg>
+      </div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-rewind"/></svg></span>Coba sendiri: mundur dari keputusan <span class="when">praktik</span></h3>
+      <div id="compass-try"></div>
+      <div class="patah learn-only"><b>Kenapa berguna di sini:</b> grafik dipilih oleh keputusannya. Bila keputusannya tentang jam, data harus dicatat per jam; jumlah harian tidak akan pernah bisa diubah menjadi grafik per jam.</div>
+    </div>
+
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg></span>Kacamata berpikir: mulai dari akhir</h4>
+      <p class="gloss learn-only">Kacamata berpikir (<i>mental model</i>) adalah cara berpikir yang bisa dipakai berulang untuk banyak masalah. Di akhir tiap stasiun ada satu.</p>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Keputusan apa yang akan diambil dari grafik ini, dan grafik apa yang dibutuhkannya?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Mulai dari keputusan, mundur ke grafik, ke tabel frekuensi, lalu ke data yang dicatat. Dipakai lagi di Stasiun 3.4 dan Puncak.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Data kadang mengejutkan dan memunculkan pertanyaan baru yang tidak terbayang di awal. Jangan buang pola tak terduga hanya karena tidak ada di rencana.</p></details>
+    </aside>
+
+    <div class="blk learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg></span>Peta konsep, dari besar sampai kecil <span class="when">pemanasan</span></h3>
+      <p>Pilih tingkat perbesaran: <b>makro</b> (seluruh buku), <b>meso</b> (bagian ini), <b>mikro</b> (sub-materi), <b>nano</b> (satu gagasan). Klik kotak untuk menuju stasiunnya.</p>
+      <div class="row"><div class="seg" id="depthseg" role="group" aria-label="Tingkat perbesaran peta"></div></div>
+      <div class="mmwrap" id="map-zero" tabindex="0" aria-label="Peta konsep bagian 3"></div>
+      <div class="legend"><span><i style="background:var(--blue)"></i>Makro: seluruh buku</span><span><i style="background:var(--text)"></i>Meso: topik bagian ini</span><span><i style="background:conic-gradient(var(--red) 0 25%,var(--yellow) 0 50%,var(--green) 0 75%,var(--purple) 0)"></i>Mikro: sub-materi (satu warna per stasiun)</span><span><i style="background:var(--surf-2);border:1px solid var(--outline)"></i>Nano: satu gagasan atau langkah</span></div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tiga tebakan <span class="when">pemanasan</span></h3>
+      <p>Pilih seberapa yakin kamu, lalu jawab. Menebak dulu membuat penjelasan sesudahnya lebih mudah diingat.</p>
+      <div id="zero-q"></div>
+      <div id="zero-sum"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 3.1 ===================== -->
+  <section class="sec c-red" id="sta-a">
+    <div class="sec-head">
+      <span class="num">3.1</span>
+      <div><h2>Tabel sebaran frekuensi</h2><p class="sub">Frekuensi, frekuensi relatif, dan frekuensi kumulatif.</p></div>
+      <span class="time tm">Mandiri ±9 mnt</span><span class="time tk">Di kelas ±8 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Sebelum menghitung rata-rata atau membuat grafik, kamu perlu tahu berapa kali tiap nilai muncul. Tabel frekuensi adalah cara paling sederhana untuk melihat seluruh data sekaligus.</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <p class="qmeta" style="margin:0 0 8px">Tebak sebelum ada penjelasan. Jawabannya terbukti di "Coba sendiri".</p>
+      <div id="a-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p class="gloss">ELI5 singkatan dari <i>Explain Like I'm 5</i>, artinya "jelaskan seolah aku berumur 5 tahun".</p>
+          <p>Saat pemilihan ketua kelas, setiap suara ditulis sebagai satu garis di papan, dikelompokkan per lima. Garis-garis itu disebut <b>turus</b>. Tabel frekuensi adalah papan turus yang dirapikan: nama, banyak garis (<b>frekuensi</b>), dan bagiannya dari seluruh suara.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: garis turus bertambah untuk tiga calon, lalu batang frekuensinya tumbuh"><rect x="8" y="8" width="204" height="114" rx="12" fill="var(--surface)" stroke="var(--outline)" stroke-width="2"/><text x="18" y="36" font-size="11" fill="var(--text)">Ani</text><text x="18" y="70" font-size="11" fill="var(--text)">Budi</text><text x="18" y="104" font-size="11" fill="var(--text)">Citra</text><g stroke="var(--text)" stroke-width="2.4" stroke-linecap="round"><g class="a-xb" style="--d:0s"><path d="M58 24v16M64 24v16M70 24v16M76 24v16M54 38l26-12"/></g><g class="a-xb" style="--d:.4s"><path d="M88 24v16M94 24v16"/></g><g class="a-xb" style="--d:.8s"><path d="M58 58v16M64 58v16M70 58v16"/></g><g class="a-xb" style="--d:1.2s"><path d="M58 92v16M64 92v16M70 92v16M76 92v16"/></g></g><rect class="a-barx" style="--d:1.5s" x="128" y="24" width="56" height="16" rx="4" fill="var(--g-red)"/><rect class="a-barx" style="--d:1.7s" x="128" y="58" width="24" height="16" rx="4" fill="var(--g-yellow)"/><rect class="a-barx" style="--d:1.9s" x="128" y="92" width="32" height="16" rx="4" fill="var(--g-green)"/><text x="190" y="36" font-size="11" font-weight="700" fill="var(--text)">7</text><text x="158" y="70" font-size="11" font-weight="700" fill="var(--text)">3</text><text x="166" y="104" font-size="11" font-weight="700" fill="var(--text)">4</text></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg></span>Perumpamaan: struk belanja yang dikelompokkan <span class="when">pemanasan</span></h3>
+      <p>Daripada 30 baris "teh botol", struk menulis "teh botol × 30". Isinya sama, tetapi langsung terbaca. Tabel frekuensi melakukan hal yang sama pada data.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> struk hanya menghitung. Tabel frekuensi juga mencatat bagian dari keseluruhan (persen), yang dibutuhkan untuk membandingkan kelompok berbeda ukuran.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>Coba sendiri: Papan Turus <span class="when">praktik</span></h3>
+      <p>Tiga puluh mahasiswa menyebut moda transportasinya ke kampus satu per satu. Ketuk tombol yang sesuai untuk setiap jawaban, dan perhatikan tabelnya terisi.</p>
+      <div id="a-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Kolom</th><th>Cara menghitung</th><th>Catatan</th></tr></thead>
+        <tbody>
+          <tr><th>Frekuensi (f)</th><td>Hitung berapa kali tiap kategori muncul</td><td>Jumlah semua f = n</td></tr>
+          <tr><th>Frekuensi relatif</th><td>f ÷ n × 100%</td><td>Jumlahnya 100%</td></tr>
+          <tr><th>Frekuensi kumulatif</th><td>Jumlah f dari baris pertama sampai baris itu</td><td>Bermakna bila baris berurutan</td></tr>
+        </tbody></table></div>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah.</b> Menu pilihan 40 pengunjung kantin: nasi ayam 14, mi 10, gado-gado 8, soto 6, lainnya 2.</p>
+      <ol>
+        <li><b>Periksa:</b> 14 + 10 + 8 + 6 + 2 = 40 = n.</li>
+        <li><b>Relatif:</b> 14 ÷ 40 = 35%; lalu 25%, 20%, 15%, 5%. Jumlahnya 100%.</li>
+        <li><b>Kumulatif</b> (baris diurutkan dari terbesar): 14, 24, 32, 38, 40.</li>
+        <li><b>Baca hasilnya:</b> dua menu teratas sudah dipilih 24 dari 40 pengunjung, yaitu 60%.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="a-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span>Kacamata berpikir: prinsip 80/20 (Pareto)</h4>
+      <p class="gloss learn-only">Prinsip 80/20 (prinsip Pareto): sering kali sebagian kecil penyebab menghasilkan sebagian besar akibat. Angkanya tidak harus tepat 80 dan 20.</p>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Kategori mana yang sedikit tetapi menampung sebagian besar data?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Urutkan tabel dari frekuensi terbesar. Di Papan Turus, dua moda teratas menampung lebih dari separuh mahasiswa, jadi kebijakan untuk keduanya paling berdampak.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Kategori kecil bisa paling penting, misalnya pejalan kaki yang paling butuh trotoar aman. Fokus ke yang terbesar tidak boleh berarti mengabaikan yang paling rentan.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== 3.2 ===================== -->
+  <section class="sec c-yellow" id="sta-b">
+    <div class="sec-head">
+      <span class="num">3.2</span>
+      <div><h2>Kelas interval untuk data angka</h2><p class="sub">Banyak kelas, lebar kelas, batas, dan titik tengah.</p></div>
+      <span class="time tm">Mandiri ±9 mnt</span><span class="time tk">Di kelas ±9 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Data angka seperti nilai ujian jarang punya banyak nilai yang persis sama. Agar polanya terlihat, nilai dikelompokkan ke dalam kelas, misalnya 60–64. Cara mengelompokkan menentukan gambar yang kamu lihat.</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <div id="b-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Bayangkan menyortir pakaian ke laci. Kalau lacinya cuma dua, semua bercampur. Kalau lacinya seratus, tiap laci berisi satu potong dan polanya tetap tidak terlihat. Banyak laci yang pas, atau <b>kelas</b> yang pas, membuat isi tiap laci bercerita.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: data yang sama digambar dengan dua kelas, tujuh kelas, dan banyak kelas; yang tengah paling jelas"><line x1="8" y1="100" x2="68" y2="100" stroke="var(--outline)" stroke-width="2"/><rect class="a-bar" style="--d:0s" x="12" y="40" width="26" height="60" fill="var(--yellow)" opacity=".55"/><rect class="a-bar" style="--d:.1s" x="38" y="34" width="26" height="66" fill="var(--yellow)" opacity=".55"/><line x1="80" y1="100" x2="140" y2="100" stroke="var(--outline)" stroke-width="2"/><rect class="a-bar" style="--d:.4s" x="82" y="86" width="8" height="14" fill="var(--yellow)"/><rect class="a-bar" style="--d:.5s" x="90" y="56" width="8" height="44" fill="var(--yellow)"/><rect class="a-bar" style="--d:.6s" x="98" y="70" width="8" height="30" fill="var(--yellow)"/><rect class="a-bar" style="--d:.7s" x="106" y="84" width="8" height="16" fill="var(--yellow)"/><rect class="a-bar" style="--d:.8s" x="114" y="50" width="8" height="50" fill="var(--yellow)"/><rect class="a-bar" style="--d:.9s" x="122" y="74" width="8" height="26" fill="var(--yellow)"/><rect class="a-bar" style="--d:1s" x="130" y="90" width="8" height="10" fill="var(--yellow)"/><line x1="152" y1="100" x2="212" y2="100" stroke="var(--outline)" stroke-width="2"/><g fill="var(--yellow)" opacity=".55"><rect x="154" y="92" width="2.6" height="8"/><rect x="157" y="80" width="2.6" height="20"/><rect x="160" y="94" width="2.6" height="6"/><rect x="163" y="72" width="2.6" height="28"/><rect x="166" y="88" width="2.6" height="12"/><rect x="169" y="96" width="2.6" height="4"/><rect x="172" y="84" width="2.6" height="16"/><rect x="175" y="90" width="2.6" height="10"/><rect x="178" y="70" width="2.6" height="30"/><rect x="181" y="94" width="2.6" height="6"/><rect x="184" y="78" width="2.6" height="22"/><rect x="187" y="92" width="2.6" height="8"/><rect x="190" y="86" width="2.6" height="14"/><rect x="193" y="96" width="2.6" height="4"/><rect x="196" y="90" width="2.6" height="10"/><rect x="199" y="94" width="2.6" height="6"/><rect x="202" y="97" width="2.6" height="3"/></g><text x="38" y="118" text-anchor="middle" font-size="10.5" fill="var(--text-2)">2 kelas</text><text x="110" y="118" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text)">7 kelas</text><text x="182" y="118" text-anchor="middle" font-size="10.5" fill="var(--text-2)">17 kelas</text></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg></span>Perumpamaan: perbesaran peta <span class="when">pemanasan</span></h3>
+      <p>Diperkecil terlalu jauh, kota-kota menyatu. Diperbesar terlalu dekat, kamu hanya melihat satu jalan. Banyak kelas bekerja seperti perbesaran itu.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> di peta kamu bisa terus menggeser perbesaran. Di laporan kamu memilih satu, dan pilihan itu bisa dipakai untuk menyembunyikan pola.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg></span>Coba sendiri: Pengatur Kelas <span class="when">praktik</span></h3>
+      <p>Nilai ujian 80 mahasiswa (fiktif). Geser banyak kelas dari 2 sampai 30, dan perhatikan kapan dua kelompok nilai muncul dan kapan gambarnya hancur.</p>
+      <div id="b-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Langkah</th><th>Rumus</th><th>Catatan</th></tr></thead>
+        <tbody>
+          <tr><th>Jangkauan</th><td>R = terbesar − terkecil</td><td>Dari data mentah</td></tr>
+          <tr><th>Banyak kelas</th><td>k ≈ 1 + 3,3 × log n (aturan Sturges)</td><td>Panduan; 5–15 kelas lazim</td></tr>
+          <tr><th>Lebar kelas</th><td>c = R ÷ k, dibulatkan ke atas</td><td>Bila hasil bagi bulat, tambah 1</td></tr>
+          <tr><th>Titik tengah</th><td>(batas bawah + batas atas) ÷ 2</td><td>Mewakili kelas</td></tr>
+        </tbody></table></div>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah.</b> Tinggi 50 bibit cabai (cm, bilangan bulat): terkecil 12, terbesar 46.</p>
+      <ol>
+        <li><b>Jangkauan:</b> 46 − 12 = 34.</li>
+        <li><b>Banyak kelas:</b> 1 + 3,3 × log 50 = 1 + 3,3 × 1,699 ≈ 6,6, jadi 7 kelas.</li>
+        <li><b>Lebar kelas:</b> 34 ÷ 7 ≈ 4,86, dibulatkan ke atas menjadi 5.</li>
+        <li><b>Kelas:</b> 12–16, 17–21, 22–26, 27–31, 32–36, 37–41, 42–46. Titik tengahnya 14, 19, 24, dan seterusnya.</li>
+        <li><b>Periksa:</b> setiap data masuk tepat satu kelas; tidak ada kelas yang tumpang tindih atau berlubang.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="b-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg></span>Kacamata berpikir: peta bukan wilayah aslinya</h4>
+      <p class="gloss learn-only">Dalam bahasa Inggris: <i>the map is not the territory</i>. Grafik atau ringkasan hanyalah gambaran data, bukan datanya.</p>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Apa yang hilang dari data asli setelah dikelompokkan ke kelas?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Histogram adalah peta. Dengan 3 kelas, dua kelompok nilai lenyap dari peta walau tetap ada di wilayahnya, yaitu datanya.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Semua ringkasan membuang sesuatu. Kalau terus mencari gambar yang paling benar, kamu tidak pernah melapor. Pilih banyak kelas yang wajar, lalu sebutkan pilihanmu.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== 3.3 ===================== -->
+  <div class="sesi-end learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Sesi 1 selesai.</b> Lanjut sekarang atau besok? Progresmu tersimpan; saat kembali, tekan <b>Lanjutkan dari terakhir</b> di bilah navigasi.</div><a class="btn small" href="#sesi-2">Lanjut ke Sesi 2</a></div>
+
+  <div class="sesi learn-only" id="sesi-2"><span class="sesi-no">Sesi 2 dari 3</span><span>±22 mnt · 3.3 dan 3.4</span></div>
+  <section class="sec c-green" id="sta-c">
+    <div class="sec-head">
+      <span class="num">3.3</span>
+      <div><h2>Memilih grafik</h2><p class="sub">Batang, garis, histogram, lingkaran, dan Pareto: tiap grafik menjawab pertanyaan yang berbeda.</p></div>
+      <span class="time tm">Mandiri ±11 mnt</span><span class="time tk">Di kelas ±12 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Grafik yang tepat membuat pola terlihat sekilas; grafik yang salah membuat pembaca menebak-nebak. Jenis data dan pertanyaanmu yang menentukan grafiknya.</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <div id="c-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Grafik itu seperti alat makan: sup pakai sendok, sate pakai tusuknya. <b>Batang</b> untuk membandingkan kelompok, <b>garis</b> untuk perubahan waktu, <b>histogram</b> untuk sebaran angka, dan <b>lingkaran</b> untuk bagian dari satu keseluruhan.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: empat jenis grafik muncul bergantian: batang, garis, histogram, dan lingkaran"><g class="a-xb" style="--d:0s"><rect x="14" y="40" width="10" height="34" rx="2" fill="var(--g-blue)"/><rect x="28" y="24" width="10" height="50" rx="2" fill="var(--g-blue)"/><rect x="42" y="52" width="10" height="22" rx="2" fill="var(--g-blue)"/><text x="33" y="92" text-anchor="middle" font-size="10.5" fill="var(--text)">batang</text></g><g class="a-xb" style="--d:.5s"><polyline points="68,66 82,50 96,58 110,30 124,40" fill="none" stroke="var(--g-red)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><text x="96" y="92" text-anchor="middle" font-size="10.5" fill="var(--text)">garis</text></g><g class="a-xb" style="--d:1s"><rect x="140" y="58" width="12" height="16" fill="var(--g-yellow)"/><rect x="152" y="34" width="12" height="40" fill="var(--g-yellow)"/><rect x="164" y="44" width="12" height="30" fill="var(--g-yellow)"/><rect x="176" y="62" width="12" height="12" fill="var(--g-yellow)"/><text x="164" y="92" text-anchor="middle" font-size="10.5" fill="var(--text)">histogram</text></g><g class="a-xb" style="--d:1.5s"><circle cx="110" cy="112" r="14" fill="var(--g-green)"/><path d="M110 112 L110 98 A14 14 0 0 1 124 112 Z" fill="var(--g-blue)"/><text x="134" y="116" font-size="10.5" fill="var(--text)">lingkaran</text></g></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg></span>Perumpamaan: rambu lalu lintas <span class="when">pemanasan</span></h3>
+      <p>Bentuk dan warna rambu dipilih agar maknanya terbaca sekilas: segitiga untuk peringatan, lingkaran untuk larangan. Grafik juga punya "bentuk baku" untuk tiap pertanyaan.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> rambu dibakukan oleh aturan. Grafik tidak; kamu sendiri yang memilih jenisnya dan menulis judul, label sumbu, dan satuan.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg></span>Coba sendiri: Ganti Grafik <span class="when">praktik</span></h3>
+      <p>Empat data fiktif. Untuk tiap data, coba keempat grafik, lalu tekan grafik yang menurutmu paling tepat.</p>
+      <div id="c-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Pertanyaan</th><th>Jenis data</th><th>Grafik</th></tr></thead>
+        <tbody>
+          <tr><th>Kelompok mana paling banyak?</th><td>Kategori</td><td>Batang, urut dari terbesar</td></tr>
+          <tr><th>Bagaimana perubahannya dari waktu ke waktu?</th><td>Angka menurut waktu</td><td>Garis</td></tr>
+          <tr><th>Bagaimana sebaran nilainya?</th><td>Angka</td><td>Histogram</td></tr>
+          <tr><th>Berapa bagian dari keseluruhan?</th><td>Kategori, 2–5 bagian</td><td>Lingkaran atau batang</td></tr>
+          <tr><th>Sedikit kategori mana yang menampung sebagian besar?</th><td>Kategori</td><td>Pareto</td></tr>
+        </tbody></table></div>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah: diagram lingkaran.</b> Menu 40 pengunjung kantin: nasi ayam 14, mi 10, gado-gado 8, soto 6, lainnya 2.</p>
+      <ol>
+        <li><b>Sudut</b> = f ÷ n × 360°. Nasi ayam: 14 ÷ 40 × 360° = 126°.</li>
+        <li>Mi 90°, gado-gado 72°, soto 54°, lainnya 18°. Jumlahnya 360°.</li>
+        <li><b>Untuk Pareto:</b> urutkan batang dari terbesar, lalu tambahkan garis kumulatif: 35%, 60%, 80%, 95%, 100%.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="c-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span>Kacamata berpikir: prinsip 80/20 (Pareto)</h4>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Grafik mana yang langsung menunjukkan beberapa penyumbang terbesar?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Diagram Pareto mengurutkan batang dari terbesar dan menambah garis kumulatif, jadi titik sekitar 80% terlihat langsung.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Pareto tidak memperlihatkan urutan waktu. Untuk pertanyaan "kapan mulai naik?", pakai grafik garis.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== 3.4 ===================== -->
+  <section class="sec c-purple" id="sta-d">
+    <div class="sec-head">
+      <span class="num">3.4</span>
+      <div><h2>Membaca dan menilai grafik</h2><p class="sub">Periksa skala sebelum percaya, lalu tulis temuan yang bisa dibuktikan.</p></div>
+      <span class="time tm">Mandiri ±11 mnt</span><span class="time tk">Di kelas ±12 mnt</span>
+    </div>
+    <div class="blk why"><h3>Kenapa</h3><p>Grafik bisa benar angkanya tetapi menyesatkan kesannya. Stasiun ini melatih dua kebiasaan: memeriksa skala sebelum percaya, dan menulis temuan yang bisa dibuktikan dari grafik.</p></div>
+
+    <div class="blk try tebak">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-dice"/></svg></span>Tebak dulu <span class="when">praktik</span></h3>
+      <div id="d-tebak"></div>
+    </div>
+
+    <div class="blk eli5 learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-smile"/></svg></span>Penjelasan paling sederhana (ELI5) <span class="when">pemanasan</span></h3>
+      <div class="blkflex">
+        <div>
+          <p>Foto yang diambil dari bawah membuat hidung tampak besar. Orangnya sama, sudut kameranya berbeda. Grafik juga: datanya sama, tetapi <b>sumbu</b> yang dipotong bisa membuat selisih kecil tampak raksasa.</p>
+        </div>
+        <svg class="art" viewBox="0 0 220 130" role="img" aria-label="Animasi: dengan sumbu dari 90, batang 92 tampak seperempat batang 98; setelah sumbu dimulai dari nol keduanya hampir sama tinggi"><line x1="20" y1="110" x2="200" y2="110" stroke="var(--outline)" stroke-width="2"/><line x1="20" y1="14" x2="20" y2="110" stroke="var(--outline)" stroke-width="2"/><rect class="a-trunc" x="50" y="22" width="40" height="88" rx="4" fill="var(--purple)" opacity=".8"/><rect x="130" y="16" width="40" height="94" rx="4" fill="var(--purple)"/><text x="70" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="var(--on-purple)">92</text><text x="150" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="var(--on-purple)">98</text><text class="a-lab1" x="110" y="126" text-anchor="middle" font-size="10.5" fill="var(--red)">sumbu dari 90: B tampak 4×</text><text class="a-lab2" x="110" y="126" text-anchor="middle" font-size="10.5" fill="var(--text)">sumbu dari 0: hampir sama</text></svg>
+      </div>
+    </div>
+    <div class="blk analogy learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg></span>Perumpamaan: iklan "diskon hingga 70%" <span class="when">pemanasan</span></h3>
+      <p>Kata "hingga" menyembunyikan bahwa kebanyakan barang hanya didiskon 10%. Angka 70% benar, kesannya menyesatkan.</p>
+      <div class="patah"><b>Di mana perumpamaan ini tidak berlaku:</b> iklan sengaja menggoda. Grafik yang menyesatkan sering tidak disengaja, misalnya karena pengaturan otomatis program.</div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-tool"/></svg></span>Coba sendiri: Bengkel Grafik <span class="when">praktik</span></h3>
+      <p><b>Bagian 1.</b> Geser titik awal sumbu tegak, lalu bandingkan "kesan" dengan perbandingan nilai yang sebenarnya.</p>
+      <div id="d-try"></div>
+      <p style="margin-top:14px"><b>Bagian 2.</b> Mulai dari akhir: temuan dipakai untuk memutuskan, jadi harus bisa dibuktikan. Untuk tiap kalimat, tentukan apakah terbukti dari grafik.</p>
+      <div id="ds-try"></div>
+    </div>
+
+    <div class="blk formal learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg></span>Rumus dan contoh langkah demi langkah <span class="when">pendalaman</span></h3>
+      <div class="tscroll"><table>
+        <thead><tr><th>Periksa</th><th>Pertanyaan</th></tr></thead>
+        <tbody>
+          <tr><th>Judul dan sumber</th><td>Data apa, dari siapa, kapan?</td></tr>
+          <tr><th>Label dan satuan</th><td>Apa arti tiap sumbu?</td></tr>
+          <tr><th>Titik awal sumbu</th><td>Sumbu batang mulai dari nol?</td></tr>
+          <tr><th>Jenis grafik</th><td>Cocok dengan jenis data dan pertanyaannya?</td></tr>
+        </tbody></table></div>
+      <p style="margin-top:12px"><b>Contoh langkah demi langkah.</b> Toko A 92 pesanan, Toko B 98, sumbu tegak mulai dari 90.</p>
+      <ol>
+        <li><b>Tinggi tampak:</b> A = 92 − 90 = 2, B = 98 − 90 = 8. Kesan: B empat kali A.</li>
+        <li><b>Perbandingan sebenarnya:</b> 98 ÷ 92 ≈ 1,07, jadi B hanya sekitar 7% lebih banyak.</li>
+        <li><b>Temuan yang jujur:</b> "Toko B menerima 98 pesanan, 6 lebih banyak dari Toko A (sekitar 7%)." Format: apa, berapa, dibanding apa.</li>
+      </ol>
+    </div>
+    <div class="blk cek learn-only"><h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>Cek cepat <span class="when">pendalaman</span></h3><div id="d-cek"></div></div>
+    <aside class="lens" aria-label="Kacamata berpikir">
+      <h4><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg></span>Kacamata berpikir: peta bukan wilayah aslinya</h4>
+      <dl>
+        <dt>Pertanyaan pemandu</dt><dd>Kesan apa yang dibuat gambar ini, dan apakah angkanya mendukung kesan itu?</dd>
+        <dt class="learn-only">Cara memakainya di sini</dt><dd class="learn-only">Bandingkan perbandingan tinggi batang dengan perbandingan nilainya. Bila jauh berbeda, petanya menyesatkan.</dd>
+      </dl>
+      <details class="mis learn-only"><summary>Kapan kacamata ini menyesatkan?</summary><p>Tidak semua sumbu harus mulai dari nol. Grafik garis suhu tubuh 36–38 °C justru perlu sumbu yang dipotong agar perubahan penting terlihat. Aturan nol berlaku untuk batang.</p></details>
+    </aside>
+  </section>
+
+  <!-- ===================== PUNCAK ===================== -->
+  <div class="sesi-end learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Sesi 2 selesai.</b> Lanjut sekarang atau besok? Progresmu tersimpan; saat kembali, tekan <b>Lanjutkan dari terakhir</b> di bilah navigasi.</div><a class="btn small" href="#sesi-3">Lanjut ke Sesi 3</a></div>
+
+  <div class="sesi learn-only" id="sesi-3"><span class="sesi-no">Sesi 3 dari 3</span><span>±54 mnt · Puncak dan Kuis. Disarankan di hari lain.</span></div>
+  <section class="sec c-blue" id="hero">
+    <div class="sec-head">
+      <span class="num">3.5</span>
+      <div><h2>Puncak: jelaskan dan terapkan</h2><p class="sub">Menjelaskan dengan kata sendiri adalah bukti pemahaman yang paling sulit ditiru.</p></div>
+      <span class="time tm">Mandiri ±26 mnt</span><span class="time tk">Di kelas ±10 mnt</span>
+    </div>
+
+    <div class="blk learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg></span>Jelaskan dengan kata sendiri (teknik Feynman) <span class="when">pendalaman</span></h3>
+      <p class="gloss">Teknik Feynman (dari nama fisikawan Richard Feynman): menjelaskan sesuatu kepada orang awam untuk menemukan bagian yang belum kamu pahami.</p>
+      <div class="step3">
+        <div>
+          <p><b>1. Jelaskan.</b> Tulis untuk teman SMA: bagaimana mengubah 100 angka mentah menjadi grafik yang jujur, dan apa yang bisa membuat grafik menyesatkan?</p>
+          <textarea id="fy1" aria-label="Penjelasan untuk teman SMA" placeholder="Tulis dengan kata-katamu sendiri, tanpa menyalin."></textarea>
+        </div>
+        <div>
+          <p><b>2. Cari celah.</b> Periksa tulisanmu:</p>
+          <label class="chk"><input type="checkbox" data-fyc="0"><span>Ada langkah tabel frekuensi.</span></label>
+          <label class="chk"><input type="checkbox" data-fyc="1"><span>Ada alasan memilih jenis grafik.</span></label>
+          <label class="chk"><input type="checkbox" data-fyc="2"><span>Ada satu cara grafik menyesatkan.</span></label>
+          <label class="chk"><input type="checkbox" data-fyc="3"><span>Ada contoh temuan dengan angka.</span></label>
+        </div>
+        <div>
+          <p><b>3. Sederhanakan.</b> Tulis ulang dalam paling banyak tiga kalimat.</p>
+          <textarea id="fy3" aria-label="Versi tiga kalimat"></textarea>
+          <p id="fy3n" class="qmeta"></p>
+        </div>
+      </div>
+      <div class="fy-ex" id="fy-ex"></div>
+    </div>
+
+    <div class="blk learn-only">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg></span>Tiga sudut pandang untuk satu gagasan <span class="when">pendalaman</span></h3>
+      <p>Gagasan: <b>"grafik adalah ringkasan yang memilih apa yang ditonjolkan."</b></p>
+      <div class="tabs" id="lens3-tabs" role="group" aria-label="Pilih sudut pandang"></div>
+      <div class="infobox" id="lens3-body" aria-live="polite"></div>
+    </div>
+
+    <div class="blk try">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-droplet"/></svg></span>Kasus Indonesia: keluhan pelanggan <span class="when">praktik</span></h3>
+      <div class="kasus">Sebuah aplikasi transportasi daring (fiktif) menerima <b>400 keluhan</b> dalam sebulan: aplikasi macet 168, pengemudi terlambat 104, tarif tidak sesuai 56, pengemudi tidak sopan 40, kendaraan kotor 20, lainnya 12. Laporan direksi memakai diagram lingkaran tiga dimensi dan menulis: <b>"Keluhan tersebar merata, jadi semua bidang diperbaiki sekaligus."</b></div>
+      <div id="kasus-q"></div>
+      <div class="row"><button class="btn" id="kasus-check" type="button">Cek jawaban</button></div>
+      <div id="kasus-lens" style="display:none">
+        <h3>Kritik kesimpulan itu dengan satu kacamata berpikir</h3>
+        <div class="tabs" id="kl-tabs" role="group" aria-label="Pilih kacamata kritik"></div>
+        <div class="infobox" id="kl-body" aria-live="polite"></div>
+        <textarea id="kl-text" aria-label="Kritikmu dalam satu kalimat" style="min-height:70px" placeholder="Tulis kritikmu dalam satu kalimat."></textarea>
+      </div>
+    </div>
+
+    <div class="blk learn-only">
+      <details class="maprec"><summary><h3 style="display:inline-flex;gap:10px;align-items:center;margin:0"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg></span>Peta rangkuman satu layar <span class="when">pendalaman</span></h3></summary>
+      <div class="mmwrap" id="map-hero" tabindex="0" aria-label="Peta konsep rangkuman bagian 3 sampai tingkat nano"></div>
+      </details>
+      <div id="zero-recap" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <!-- ===================== KUIS ===================== -->
+  <section class="sec c-red" id="kuis">
+    <div class="sec-head">
+      <span class="num">20</span>
+      <div><h2>Kuis 20 soal</h2><p class="sub">Bertahap dari mudah sampai jebakan. Angka dan kasus berubah tiap kode soal.</p></div>
+      <span class="time tm">Mandiri ±25 mnt</span><span class="time tk">Di kelas: dikerjakan mandiri</span>
+    </div>
+    <div class="qbanner">
+      <svg class="art" viewBox="0 0 120 100" role="img" aria-label="Tanda tanya yang melompat-lompat"><g class="a-bounce"><circle cx="60" cy="54" r="34" fill="var(--red)"/><text x="60" y="69" text-anchor="middle" font-size="46" font-weight="700" fill="var(--on-red)">?</text></g></svg>
+      <div>
+        <p style="margin:0 0 6px">Pilih seberapa yakin kamu, lalu jawab. Setiap pilihan, termasuk yang salah, punya penjelasan. Siapkan kalkulator untuk soal hitung (soal 8 memakai log). Lupa arti istilah? Buka <a href="#kamus">Kamus mini</a>.</p>
+        <div class="tiers"><span class="tier t1">1–5 Fondasi (dasar)</span><span class="tier t2">6–12 Terapan (menghitung)</span><span class="tier t3">13–17 Analisis (menilai kasus)</span><span class="tier t4">18–20 Jebakan dan penerapan lain</span></div>
+        <p class="qmeta" style="margin:0">Latihan ini <b>tidak dinilai</b>. Kode soal menentukan angka dan kasusnya; catat kodenya jika ingin mengerjakan soal yang sama lagi.</p>
+      </div>
+    </div>
+    <div class="blk kelas-only"><h3>Kuis dikerjakan mandiri</h3><p>Mode Kelas sedang aktif, jadi kuis disembunyikan agar layar proyektor tetap ringkas.</p><button class="btn" id="quiz-open" type="button">Buka kuis (pindah ke mode Belajar)</button></div>
+    <div class="blk try learn-only" id="quiz-wrap"><div id="quiz-root"></div></div>
+  </section>
+
+  <section class="sec c-green learn-only" id="pulang">
+    <div class="sec-head"><span class="num"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><h2>Sebelum selesai</h2><p class="sub">Dua hal kecil yang menjaga belajarmu jujur.</p></div><span class="time tm">Mandiri ±3 mnt</span></div>
+    <div class="blk">
+      <h3><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg></span>Daftar periksa pemakaian AI</h3>
+      <p>Kalau kamu memakai AI saat belajar, periksa empat hal ini. (Prompt = perintah atau pertanyaan yang kamu ketik ke AI.)</p>
+      <div id="ailog"></div>
+      <p style="margin-top:10px"><b>Satu kalimat penutup</b> (istilah asingnya <i>exit ticket</i>, tiket keluar). Lengkapi:</p>
+      <input type="text" id="ticket" aria-label="Satu kalimat penutup" placeholder="Hal yang paling saya salah pahami tadi adalah ...">
+    </div>
+  </section>
+
+  <div class="sesi-end learn-only"><span class="hi"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Sesi 3 selesai.</b> Terima kasih sudah belajar sampai akhir. Bagian berikutnya, Peluang, menyusul. Bagian 1–3 adalah bahan UTS.</div></div>
+
+  <div class="foot">
+    <p><b>Bacaan untuk mendalami:</b> Walpole, Myers, Myers, &amp; Ye (2016), <i>Probability and Statistics for Engineers and Scientists</i>; Montgomery &amp; Runger (2018), <i>Applied Statistics and Probability for Engineers</i>; Downey (2014), <i>Think Stats</i>. Halaman ini adalah pendamping belajar, bukan pengganti buku.</p>
+    <p>Ditulis oleh Tri Aji Nugroho, S.T., M.T., Dosen Program Studi Informatika, Universitas Al-Azhar Indonesia. Edisi web 1.0, diperbarui Oktober 2026. Semua data pada halaman ini adalah contoh fiktif untuk latihan.</p>
+  </div>
+</main>
+<button class="fab kelas-only" id="next-act" type="button" aria-label="Lompat ke aktivitas berikutnya">Aktivitas berikutnya ↓</button>
+<div class="term-pop" id="term-pop" role="dialog" aria-live="polite" hidden></div>
+
+<script>
+/* ===== KERANGKA CORE: RNG, format angka, statistik dasar, pembantu soal, perakit kuis (murni, bisa diuji di Node) ===== */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function makeRng(seed){
+  var r=mulberry32(seed>>>0);
+  return {
+    next:r,
+    int:function(a,b){return a+Math.floor(r()*(b-a+1));},
+    pick:function(arr){return arr[Math.floor(r()*arr.length)];},
+    shuffle:function(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  };
+}
+function fmt(x,d){return Number(x).toFixed(d==null?0:d).replace('.',',');}
+function fmtTrim(x){var v=Math.round(x*100)/100;if(Object.is(v,-0))v=0;return String(v).replace('.',',');}
+function fmtInt(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+function sum(a){var s=0;for(var i=0;i<a.length;i++)s+=a[i];return s;}
+function mean(a){return sum(a)/a.length;}
+function sorted(a){return a.slice().sort(function(x,y){return x-y;});}
+function median(a){var b=sorted(a),n=b.length;return n%2?b[(n-1)/2]:(b[n/2-1]+b[n/2])/2;}
+function ssq(a){var m=mean(a),s=0;for(var i=0;i<a.length;i++)s+=(a[i]-m)*(a[i]-m);return s;}
+function varS(a){return a.length>1?ssq(a)/(a.length-1):0;}
+function varP(a){return ssq(a)/a.length;}
+function sd(a){return Math.sqrt(varS(a));}
+/* Kuartil cara buku ini: Q1 = median separuh bawah, Q3 = median separuh atas; bila n ganjil, median tidak ikut ke separuh mana pun. */
+function quartiles(a){var b=sorted(a),n=b.length,h=Math.floor(n/2);return {q1:median(b.slice(0,h)),q2:median(b),q3:median(b.slice(n%2?h+1:h))};}
+function iqr(a){var q=quartiles(a);return q.q3-q.q1;}
+function modes(a){var c={},mx=0,i;for(i=0;i<a.length;i++){c[a[i]]=(c[a[i]]||0)+1;if(c[a[i]]>mx)mx=c[a[i]];}if(mx<2)return [];return Object.keys(c).filter(function(k){return c[k]===mx;}).map(Number).sort(function(x,y){return x-y;});}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function normals(seed,n){var r=makeRng(seed),z=[];for(var i=0;i<n;i++){var u1=Math.max(r.next(),1e-9),u2=r.next();z.push(Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2));}return z;}
+function trimNote(n){var s=n.replace(/^(Namun|Tetapi)\s+/,'');return s.charAt(0).toUpperCase()+s.slice(1);}
+function opt(t,ok,note,mis){return {t:t,ok:!!ok,note:ok?note:trimNote(note),mis:mis||''};}
+function uniq(arr){return new Set(arr).size===arr.length;}
+function sq(u){return u.indexOf(' ')>=0?'('+u+')²':u+'²';}
+/* Data tugas resmi (T-xx) yang tidak boleh muncul. Diisi oleh core_isi.js: TERLARANG=[[...],[...]] */
+var TERLARANG=[];
+function terlarang(a){var b=sorted(a);return TERLARANG.some(function(t){var s=sorted(t);return s.length===b.length&&s.every(function(v,i){return v===b[i];});});}
+var TIER_OF=function(i){return i<5?1:i<12?2:i<17?3:4;};
+var TIER_NAME={1:'Fondasi',2:'Terapan',3:'Analisis',4:'Jebakan dan penerapan lain'};
+
+function buildQuiz(seed){
+  var out=[];
+  for(var i=0;i<BUILDERS.length;i++){
+    var r=makeRng((seed^Math.imul(i+1,2654435761))>>>0);
+    var q=BUILDERS[i](r);
+    var shuffled=r.shuffle(q.opts);
+    var correct=-1;for(var k=0;k<shuffled.length;k++){if(shuffled[k].ok)correct=k;}
+    out.push({n:i+1,tier:TIER_OF(i),tierName:TIER_NAME[TIER_OF(i)],stem:q.stem,opts:shuffled,correct:correct,hint:q.hint,meta:q.meta});
+  }
+  return out;
+}
+/* ==CORE-ISI== */
+/* ===== CORE ISI Bagian 3: data simulasi dan 20 pembangun soal ===== */
+TERLARANG=[[12,14,14,15,17,18,20,22]]; /* data T-02; T-03 memakai "12 data durasi": halaman ini tidak memakai konteks durasi */
+
+/* ---- Data simulasi ---- */
+/* Papan Turus: 30 mahasiswa, moda ke kampus (urutan tetap) */
+var TURUS_KAT=['Motor','KRL','Ojek daring','Bus','Jalan kaki'];
+var TURUS_DATA=(function(){var c=[11,8,5,4,2],a=[];c.forEach(function(n,i){for(var j=0;j<n;j++)a.push(i);});return makeRng(20263).shuffle(a);})();
+/* Pengatur Kelas: 80 nilai ujian dari dua kelompok (kelas pagi dan malam) */
+function makeNilai(){var z=normals(20264,80);return z.map(function(v,i){var m=i<44?58:79,s=i<44?6.5:5.5;return Math.round(Math.min(98,Math.max(35,m+s*v)));});}
+/* Kelas interval cara buku ini (data bulat): lebar = (maks − min) ÷ k dibulatkan ke atas; bila hasil baginya bulat, tambah 1. Kelas pertama mulai dari nilai terkecil. */
+function kelasInterval(a,k){var lo=Math.min.apply(null,a),hi=Math.max.apply(null,a),c=Math.floor((hi-lo)/k)+1,out=[];
+  for(var i=0;i<k;i++){var b=lo+i*c,e=b+c-1;out.push({b:b,e:e,f:a.filter(function(x){return x>=b&&x<=e;}).length});}
+  return {c:c,kelas:out};}
+function sturges(n){return 1+3.3*Math.log10(n);}
+
+function sumF(a){return a.reduce(function(x,y){return x+y;},0);}
+function pct(x){return fmtTrim(x)+'%';}
+
+/* ---- 20 pembangun soal ---- */
+var BUILDERS=[
+/* 1 Fondasi: definisi */ function(r){
+  var N=['Frekuensi relatif','Frekuensi kumulatif','Titik tengah kelas','Lebar kelas'];
+  var DEF=['frekuensi sebuah kategori dibagi banyak seluruh data','jumlah frekuensi dari baris pertama sampai baris itu','rata-rata batas bawah dan batas atas sebuah kelas','selisih batas bawah dua kelas berurutan'];
+  var k=r.int(0,3);
+  return {stem:'Istilah yang artinya "'+DEF[k]+'" adalah ...',opts:N.map(function(nm,i){
+    return i===k?opt(nm,true,'Tepat. '+nm+' adalah '+DEF[i]+'.'):opt(nm,false,nm+' adalah '+DEF[i]+'.',nm+' tertukar dengan '+N[k].toLowerCase());}),
+    hint:'Relatif = dibagi seluruh data; kumulatif = dijumlah berjalan.',meta:{k:k}};},
+/* 2 Fondasi: grafik menurut tujuan */ function(r){
+  var G=['Diagram batang','Grafik garis','Histogram','Diagram lingkaran'];
+  var V=[{s:'membandingkan frekuensi '+r.int(6,9)+' jenis keluhan secara teliti',k:0},{s:'memperlihatkan perubahan jumlah pengunjung setiap bulan selama '+r.int(2,3)+' tahun',k:1},
+    {s:'memperlihatkan sebaran '+r.int(15,40)*10+' nilai tinggi badan',k:2},{s:'memperlihatkan pembagian satu anggaran ke dalam 3 pos, untuk dilihat sekilas',k:3}];
+  var v=r.pick(V),why=['batang memudahkan membandingkan banyak kategori','garis menonjolkan naik-turun dari waktu ke waktu','histogram menggambar sebaran data angka','lingkaran menunjukkan bagian dari satu keseluruhan'];
+  var mis=['Grafik kategori dipakai untuk tujuan lain','Grafik waktu dipakai untuk tujuan lain','Grafik sebaran angka dipakai untuk kategori','Lingkaran dipakai untuk banyak kategori atau waktu'];
+  return {stem:'Grafik yang paling tepat untuk '+v.s+' adalah ...',opts:G.map(function(g,i){return i===v.k?opt(g,true,'Tepat. '+cap(why[i])+'.'):opt(g,false,cap(why[i])+'; tujuannya berbeda.',mis[i]);}),
+    hint:'Tanyakan: data kategori, data angka, atau data menurut waktu?',meta:{k:v.k}};},
+/* 3 Fondasi: data untuk histogram */ function(r){
+  var NUM=['tinggi badan (cm)','berat paket (kg)','nilai ujian (0–100)','jarak rumah ke kampus (km)','uang saku mingguan (ribu rupiah)'];
+  var KAT=['golongan darah','merek ponsel','provinsi asal','warna helm','jurusan SMA','moda transportasi'];
+  var n=r.pick(NUM),ks=r.shuffle(KAT).slice(0,3);
+  return {stem:'Data mana yang cocok digambar dengan histogram?',opts:[opt(cap(n),true,'Tepat. Histogram untuk data angka yang bersambung; batangnya bersentuhan karena kelasnya berurutan.')].concat(ks.map(function(k){return opt(cap(k),false,cap(k)+' adalah kategori; pakai diagram batang.','Kategori digambar dengan histogram');})),
+    hint:'Histogram butuh sumbu angka yang bersambung.',meta:{n:n}};},
+/* 4 Fondasi: sifat tabel frekuensi */ function(r){var n=r.pick([30,40,50,60,70,80,90,110,120]),v=r.int(0,1);
+  if(v===0)return {stem:'Sebuah tabel frekuensi dibuat dari '+n+' data. Angka di baris terakhir kolom frekuensi kumulatif adalah ...',opts:[
+    opt(String(n),true,'Tepat. Kumulatif menjumlah semua frekuensi, jadi baris terakhir = banyak data.'),
+    opt('100',false,'100 adalah jumlah frekuensi relatif dalam persen, bukan kumulatif biasa.','Kumulatif dikira persen'),
+    opt('Frekuensi baris terakhir',false,'Itu frekuensi satu baris saja, belum dijumlah berjalan.','Kumulatif tertukar dengan frekuensi'),
+    opt('Banyak kategori',false,'Banyak kategori adalah banyak baris, bukan jumlah frekuensinya.','Kumulatif dikira banyak baris')],hint:'Kumulatif = jumlah berjalan dari atas.',meta:{n:n}};
+  return {stem:'Jumlah semua frekuensi relatif (dalam persen) pada satu tabel dari '+n+' data adalah ...',opts:[
+    opt('100%, atau sangat dekat karena pembulatan',true,'Tepat. Semua bagian dari keseluruhan berjumlah satu keseluruhan.'),
+    opt(n+'%',false,n+' adalah banyak data; persentase selalu dibagi dengan banyak data.','Persen dikira frekuensi'),
+    opt('Bergantung pada banyak kategori',false,'Berapa pun banyak kategori, jumlahnya tetap 100%.','Jumlah persen dikira bergantung kategori'),
+    opt('Tidak bisa ditentukan sebelum data dilihat',false,'Jumlahnya selalu 100%, apa pun datanya.','Jumlah relatif dikira acak')],hint:'Bagian-bagian dari satu keseluruhan.',meta:{n:n}};},
+/* 5 Fondasi: sumbu batang */ function(r){var c=r.pick(['penjualan dua toko','jumlah pendaftar tiga program studi','banyak pesanan dua aplikasi','jumlah sampah dua kecamatan']);
+  return {stem:'Pada diagram batang yang membandingkan '+c+', sumbu tegak sebaiknya dimulai dari ...',opts:[
+    opt('Nol, karena panjang batang dibaca sebagai besar nilai',true,'Tepat. Batang yang dipotong membuat selisih kecil tampak besar.'),
+    opt('Nilai terkecil data, agar selisih terlihat jelas',false,'Itulah cara membuat selisih kecil tampak raksasa.','Sumbu dipotong demi kejelasan'),
+    opt('Rata-rata data',false,'Batang lalu tidak lagi sebanding dengan nilainya.','Sumbu boleh mulai dari mana saja'),
+    opt('Bebas, karena angkanya tetap tertulis',false,'Pembaca melihat panjang batang dulu, baru angkanya.','Angka tertulis menyelamatkan grafik')],hint:'Apa yang dibaca mata dari sebuah batang?',meta:{}};},
+/* 6 Terapan: frekuensi relatif */ function(r){
+  var C=r.pick([{a:'mahasiswa',b:'naik KRL ke kampus'},{a:'pengunjung kantin',b:'memesan nasi ayam'},{a:'responden',b:'memakai dompet digital'},{a:'pelanggan',b:'memberi nilai 5 bintang'}]);
+  var n,f,o,t=0;do{n=r.pick([40,50,60,80,120,150]);f=r.int(3,Math.floor(n*0.7));o=[pct(100*f/n),pct(f),pct(f/n),pct(100*f/(n-f))];t++;}while(!uniq(o)&&t<200);
+  return {stem:'Dari '+n+' '+C.a+', '+f+' orang '+C.b+'. Berapakah frekuensi relatifnya?',opts:[
+    opt(o[0],true,'Tepat. '+f+' ÷ '+n+' = '+fmtTrim(f/n)+', atau '+o[0]+'.'),
+    opt(o[1],false,'Ini frekuensinya ditulis sebagai persen, belum dibagi '+n+'.','Frekuensi dikira persen'),
+    opt(o[2],false,'Ini '+f+' ÷ '+n+' yang belum dikali 100%.','Lupa mengali 100%'),
+    opt(o[3],false,'Ini dibagi sisa data ('+(n-f)+'), bukan seluruh data.','Pembagi salah')],hint:'Bagian dibagi seluruh data.',meta:{n:n,f:f}};},
+/* 7 Terapan: frekuensi kumulatif */ function(r){
+  var C=r.pick([{v:'nilai kuis',k:['40–49','50–59','60–69','70–79','80–89']},{v:'tinggi bibit (cm)',k:['10–14','15–19','20–24','25–29','30–34']},{v:'berat paket (kg)',k:['1–2','3–4','5–6','7–8','9–10']}]);
+  var f,j,cum,o,t=0;
+  do{f=[];for(var i=0;i<5;i++)f.push(r.int(2,15));j=r.int(1,3);cum=sumF(f.slice(0,j+1));o=[cum,f[j],sumF(f.slice(0,j)),sumF(f)-cum].map(String);t++;}while(!uniq(o)&&t<300);
+  var tbl=C.k.map(function(k,i){return k+': '+f[i];}).join('; ');
+  return {stem:'Tabel frekuensi '+C.v+' → '+tbl+'. Berapakah frekuensi kumulatif sampai kelas '+C.k[j]+'?',opts:[
+    opt(o[0],true,'Tepat. '+f.slice(0,j+1).join(' + ')+' = '+cum+'.'),
+    opt(o[1],false,'Ini frekuensi kelas itu saja, belum dijumlah dari atas.','Kumulatif tertukar dengan frekuensi'),
+    opt(o[2],false,'Ini berhenti satu kelas terlalu awal.','Kelas terakhir tidak ikut dijumlah'),
+    opt(o[3],false,'Ini banyak data di atas kelas itu, bukan sampai kelas itu.','Arah kumulatif terbalik')],hint:'Jumlahkan frekuensi dari kelas pertama sampai kelas yang ditanya.',meta:{f:f,j:j}};},
+/* 8 Terapan: aturan Sturges */ function(r){
+  var n,o,t=0;do{n=r.pick([30,40,50,64,75,90,100,120,150,200,250]);var L=Math.log10(n);o=[Math.round(1+3.3*L),Math.round(3.3*L),Math.round(1+L),Math.round(n/10)].map(String);t++;}while(!uniq(o)&&t<100);
+  return {stem:'Ada '+n+' data. Menurut aturan Sturges, k = 1 + 3,3 × log n, banyak kelas yang disarankan (dibulatkan) adalah ...',opts:[
+    opt(o[0],true,'Tepat. 1 + 3,3 × log '+n+' = 1 + 3,3 × '+fmt(Math.log10(n),3)+' ≈ '+fmt(sturges(n),2)+', dibulatkan '+o[0]+'.'),
+    opt(o[1],false,'Ini lupa menambah 1.','Lupa menambah 1'),
+    opt(o[2],false,'Ini lupa mengali log n dengan 3,3.','Lupa mengali 3,3'),
+    opt(o[3],false,'Ini n ÷ 10, bukan aturan Sturges.','Banyak kelas dikira n ÷ 10')],hint:'log '+n+' ≈ '+fmt(Math.log10(n),3)+'.',meta:{n:n}};},
+/* 9 Terapan: lebar kelas */ function(r){
+  var lo,hi,k,R,o,t=0;do{lo=r.int(10,60);R=r.int(25,70);hi=lo+R;k=r.int(5,8);o=[Math.ceil(R/k),Math.floor(R/k),Math.ceil(hi/k),R].map(String);t++;}while((R%k===0||!uniq(o))&&t<300);
+  return {stem:'Data terkecil '+lo+', terbesar '+hi+', akan dibuat '+k+' kelas. Lebar kelas = (terbesar − terkecil) ÷ k, dibulatkan ke atas, adalah ...',opts:[
+    opt(o[0],true,'Tepat. ('+hi+' − '+lo+') ÷ '+k+' = '+fmt(R/k,2)+', dibulatkan ke atas '+o[0]+'.'),
+    opt(o[1],false,'Dibulatkan ke bawah, kelas terakhir tidak sampai data terbesar.','Lebar dibulatkan ke bawah'),
+    opt(o[2],false,'Ini lupa mengurangi data terkecil.','Lupa mengurangi data terkecil'),
+    opt(o[3],false,'Ini jangkauan, belum dibagi banyak kelas.','Jangkauan dikira lebar kelas')],hint:'Jangkauan dulu, lalu bagi banyak kelas.',meta:{lo:lo,hi:hi,k:k}};},
+/* 10 Terapan: titik tengah */ function(r){
+  var c=r.pick([5,10,4,6]),a=r.int(3,15)*c,b=a+c-1,o=[fmtTrim((a+b)/2),String(b),String(a+b),String(b-a)];
+  var ctx=r.pick(['nilai ujian','tinggi bibit (cm)','umur pengunjung (tahun)','jumlah pesanan per hari']);
+  return {stem:'Kelas '+a+'–'+b+' pada tabel frekuensi '+ctx+'. Berapakah titik tengah kelasnya?',opts:[
+    opt(o[0],true,'Tepat. ('+a+' + '+b+') ÷ 2 = '+o[0]+'.'),
+    opt(o[1],false,'Ini batas atas kelas.','Batas atas dikira titik tengah'),
+    opt(o[2],false,'Ini jumlah kedua batas, belum dibagi 2.','Lupa membagi 2'),
+    opt(o[3],false,'Ini selisih kedua batas.','Selisih dikira titik tengah')],hint:'Rata-rata batas bawah dan batas atas.',meta:{a:a,b:b}};},
+/* 11 Terapan: sudut diagram lingkaran */ function(r){
+  var n,f,o,t=0;do{n=r.pick([40,60,72,80,90,120,180,200]);f=r.int(2,Math.floor(n/2));o=[fmtTrim(f/n*360)+'°',fmtTrim(f/n*100)+'°',f+'°',fmtTrim(f/n*180)+'°'];t++;}while(!uniq(o)&&t<200);
+  var ctx=r.pick(['memilih menu soto','datang naik bus','menjawab "puas"','berasal dari luar kota']);
+  return {stem:'Dari '+n+' responden, '+f+' orang '+ctx+'. Pada diagram lingkaran, berapa derajat sudut irisannya?',opts:[
+    opt(o[0],true,'Tepat. '+f+' ÷ '+n+' × 360° = '+o[0]+'.'),
+    opt(o[1],false,'Ini persentasenya, belum diubah ke derajat.','Persen dikira derajat'),
+    opt(o[2],false,'Ini frekuensinya, belum diubah ke bagian lingkaran.','Frekuensi dikira derajat'),
+    opt(o[3],false,'Satu lingkaran penuh 360°, bukan 180°.','Lingkaran dikira 180°')],hint:'Bagian × 360°.',meta:{n:n,f:f}};},
+/* 12 Terapan: kesan batang pada sumbu terpotong */ function(r){
+  var s,A,B,o,t=0;do{s=r.pick([50,80,90,100,200]);A=s+r.int(2,10);B=A+r.int(2,12);o=[fmtTrim((B-s)/(A-s)),fmtTrim(B/A),String(B-A),fmtTrim((B-s)/A)];t++;}while((!uniq(o)||(B-s)/(A-s)<1.5)&&t<300);
+  return {stem:'Diagram batang dengan sumbu tegak mulai dari '+s+': batang A bernilai '+A+', batang B '+B+'. Batang B tampak berapa kali tinggi batang A?',opts:[
+    opt(o[0]+' kali',true,'Tepat. ('+B+' − '+s+') ÷ ('+A+' − '+s+') = '+o[0]+', padahal nilainya hanya '+fmtTrim(B/A)+' kali.'),
+    opt(o[1]+' kali',false,'Itu perbandingan nilai sebenarnya, bukan yang tampak.','Rasio nilai dikira rasio tampak'),
+    opt(o[2]+' kali',false,'Ini selisih nilainya, bukan perbandingan tinggi.','Selisih dikira perbandingan'),
+    opt(o[3]+' kali',false,'Penyebutnya juga harus dikurangi '+s+'.','Pemotongan sumbu hanya di satu batang')],hint:'Tinggi yang terlihat = nilai − titik awal sumbu.',meta:{s:s,A:A,B:B}};},
+/* 13 Analisis: Pareto 80% */ function(r){
+  var f,tot,k,o,t=0,cats=r.pick([['aplikasi macet','pengemudi terlambat','tarif tidak sesuai','pengemudi tidak sopan','kendaraan kotor','lainnya'],['kemasan rusak','salah kirim','terlambat','barang kurang','label salah','lainnya'],['antrean lama','menu habis','salah pesanan','harga naik','tempat kotor','lainnya']]);
+  do{f=[];for(var i=0;i<6;i++)f.push(r.int(5,90));f.sort(function(a,b){return b-a;});tot=sumF(f);var c=0;k=0;while(c<0.8*tot){c+=f[k];k++;}o=[k,k-1,k+1,k+2].map(String);t++;}while((k<2||k>4)&&t<500);
+  var list=cats.map(function(c,i){return c+' '+f[i];}).join('; ');
+  return {stem:'Keluhan sebulan (sudah urut dari terbesar): '+list+'. Paling sedikit berapa kategori teratas yang menampung minimal 80% keluhan?',opts:[
+    opt(o[0],true,'Tepat. Total '+tot+'; 80% = '+fmtTrim(0.8*tot)+'. Jumlah berjalan baru melewatinya di kategori ke-'+k+'.'),
+    opt(o[1],false,'Jumlah berjalan sampai kategori ke-'+(k-1)+' masih di bawah 80%.','Berhenti sebelum 80%'),
+    opt(o[2],false,'Kategori ke-'+k+' sudah cukup; ini kelebihan satu.','Melewati batas 80%'),
+    opt(o[3],false,'Terlalu banyak; '+k+' kategori sudah cukup.','Semua kategori besar dianggap perlu')],
+    hint:'Hitung persentase kumulatif dari atas.',meta:{f:f,k:k}};},
+/* 14 Analisis: banyak kelas */ function(r){
+  var V=[{n:r.int(30,60)*10,k:2},{n:r.int(25,40),k:r.int(20,25)},{n:r.int(15,30)*10,k:null}];var v=r.int(0,2),c=V[v];if(c.k===null)c.k=Math.round(sturges(c.n))+r.int(-1,1);
+  var L=['Terlalu sedikit kelas: pola seperti dua puncak bisa tersembunyi','Terlalu banyak kelas: batang bergerigi dan banyak kelas kosong','Wajar, dekat saran aturan Sturges','Banyak kelas tidak memengaruhi bentuk histogram'];
+  var st=fmt(sturges(c.n),1);
+  return {stem:'Histogram '+c.n+' data dibuat dengan '+c.k+' kelas (saran Sturges ≈ '+st+'). Penilaian yang paling tepat adalah ...',opts:L.map(function(t,i){
+    if(i===v)return opt(t,true,'Tepat. '+(v===0?'Dua kelas menggabungkan hampir semua data.':v===1?'Tiap kelas rata-rata hanya berisi 1–2 data.':'Banyak kelas mendekati saran.'));
+    return opt(t,false,i===3?'Banyak kelas sangat memengaruhi bentuk yang terlihat.':'Bandingkan '+c.k+' dengan saran '+st+'.',i===3?'Banyak kelas dianggap tak berpengaruh':['Kelas sedikit dianggap aman','Kelas banyak dianggap lebih teliti','Penilaian tanpa pembanding'][i]);}),
+    hint:'Bandingkan banyak kelas dengan saran Sturges dan banyak data.',meta:{v:v,n:c.n,k:c.k}};},
+/* 15 Analisis: kritik pilihan grafik */ function(r){
+  var V=[
+    {s:'Laporan memakai grafik garis untuk membandingkan jumlah mahasiswa dari '+r.int(5,8)+' provinsi.',ok:'Kurang tepat: garis menyiratkan urutan waktu; pakai diagram batang',why:'Provinsi tidak berurutan, jadi garis penghubungnya tidak bermakna.'},
+    {s:'Laporan memakai diagram lingkaran untuk jumlah pengunjung setiap bulan selama setahun.',ok:'Kurang tepat: perubahan waktu lebih jelas dengan grafik garis',why:'Dua belas irisan tidak memperlihatkan naik-turun dari bulan ke bulan.'},
+    {s:'Laporan memakai histogram untuk banyak mahasiswa per golongan darah.',ok:'Kurang tepat: golongan darah kategori; pakai diagram batang',why:'Histogram butuh sumbu angka yang bersambung.'},
+    {s:'Laporan memakai diagram lingkaran untuk survei "boleh memilih lebih dari satu"; persentasenya berjumlah '+r.int(120,180)+'%.',ok:'Kurang tepat: irisan lingkaran harus berjumlah 100%; pakai diagram batang',why:'Satu orang bisa dihitung di beberapa irisan.'}];
+  var v=r.int(0,3),c=V[v];
+  var others=[{t:'Sudah tepat, karena semua angkanya benar',n:'Angka benar tetap bisa digambar dengan grafik yang salah.',m:'Angka benar = grafik benar'},
+    {t:'Kurang tepat: seharusnya memakai tabel saja',n:'Grafik yang tepat lebih cepat dibaca daripada tabel.',m:'Tabel selalu lebih baik'},
+    {t:'Kurang tepat: grafik harus berwarna-warni',n:'Warna bukan masalah utamanya.',m:'Masalah grafik dikira soal warna'}];
+  return {stem:c.s+' Penilaian yang paling tepat adalah ...',opts:[opt(c.ok,true,'Tepat. '+c.why)].concat(others.map(function(o){return opt(o.t,false,o.n,o.m);})),
+    hint:'Cocokkan jenis data dan pertanyaannya dengan jenis grafik.',meta:{v:v}};},
+/* 16 Analisis: temuan berbasis bukti */ function(r){
+  var b=r.pick([['Bulan 1','Bulan 2','Bulan 3','Bulan 4'],['Senin','Selasa','Rabu','Kamis']]),x=[],t=0,hi,lo,o;
+  do{x=[];for(var i=0;i<4;i++)x.push(r.int(12,60)*10);hi=x.indexOf(Math.max.apply(null,x));lo=x.indexOf(Math.min.apply(null,x));t++;}while((new Set(x).size<4||x[hi]/x[lo]<1.3)&&t<300);
+  var ratio=fmt(x[hi]/x[lo],1),wrong=fmt(x[hi]/x[lo]+0.6,1);
+  var ctx=r.pick(['pengunjung perpustakaan','pesanan sebuah warung daring','pengguna aplikasi kampus']);
+  return {stem:'Grafik '+ctx+': '+b.map(function(k,i){return k+' '+x[i];}).join('; ')+'. Kalimat temuan mana yang paling berbasis bukti dari grafik ini?',opts:[
+    opt(b[hi]+' tertinggi ('+x[hi]+'), sekitar '+ratio+' kali '+b[lo]+' ('+x[lo]+')',true,'Tepat. Menyebut apa, berapa, dan dibanding apa, semua terbaca dari grafik.'),
+    opt(b[hi]+' tertinggi karena ada promosi',false,'Grafik tidak memuat penyebab; itu dugaan.','Penyebab dibaca dari grafik'),
+    opt('Periode berikutnya pasti lebih tinggi dari '+b[hi],false,'Grafik tidak memuat masa depan, apalagi "pasti".','Ramalan dikira temuan'),
+    opt(b[hi]+' tertinggi, sekitar '+wrong+' kali '+b[lo],false,'Perbandingannya salah hitung: '+x[hi]+' ÷ '+x[lo]+' ≈ '+ratio+'.','Angka temuan tidak dicek')],
+    hint:'Temuan yang baik bisa diperiksa langsung dari angka di grafik.',meta:{x:x,hi:hi,lo:lo}};},
+/* 17 Analisis: membandingkan kelompok berbeda ukuran */ function(r){
+  var nA,nB,fA,fB,t=0;do{nA=r.int(2,5)*10;nB=r.int(6,12)*10;fA=r.int(5,nA-3);fB=r.int(fA+1,nB-5);t++;}while((fA/nA<=fB/nB+0.05)&&t<500);
+  var ctx=r.pick(['membawa bekal dari rumah','pernah ikut lomba','memakai laptop sendiri']);
+  return {stem:'Kelas A: '+fA+' dari '+nA+' mahasiswa '+ctx+'. Kelas B: '+fB+' dari '+nB+' mahasiswa. Kelas mana yang porsinya lebih besar?',opts:[
+    opt('Kelas A ('+pct(100*fA/nA)+' dibanding '+pct(100*fB/nB)+')',true,'Tepat. Kelompok berukuran berbeda dibandingkan dengan frekuensi relatif.'),
+    opt('Kelas B, karena frekuensinya lebih besar ('+fB+' > '+fA+')',false,'Frekuensi B besar karena kelasnya besar.','Frekuensi dibandingkan pada ukuran berbeda'),
+    opt('Sama saja',false,'Persentasenya berbeda: '+pct(100*fA/nA)+' dan '+pct(100*fB/nB)+'.','Perbedaan diabaikan'),
+    opt('Tidak bisa dibandingkan karena ukuran kelasnya berbeda',false,'Bisa, dengan frekuensi relatif.','Kelompok berbeda ukuran tak bisa dibandingkan')],
+    hint:'Ubah ke persen dulu.',meta:{nA:nA,nB:nB,fA:fA,fB:fB}};},
+/* 18 Jebakan & AI: ketidakseimbangan label */ function(r){
+  var p=r.pick([2,3,4,5,8,10]),n=r.pick([2000,5000,10000]),C=r.pick([{m:'penipuan',u:'transaksi'},{m:'rusak',u:'foto produk'},{m:'spam',u:'pesan'}]);
+  return {stem:'Data latih sebuah model AI berisi '+fmtInt(n)+' '+C.u+'. Tabel frekuensi labelnya: '+p+'% "'+C.m+'", sisanya "bukan '+C.m+'". Model yang selalu menebak "bukan '+C.m+'" akan mendapat akurasi sekitar ...',opts:[
+    opt((100-p)+'%, padahal tidak pernah menemukan satu pun "'+C.m+'"',true,'Tepat. Karena itu tabel frekuensi label diperiksa sebelum mempercayai akurasi.'),
+    opt(p+'%',false,'Itu porsi label yang selalu dilewatkan model.','Akurasi dikira porsi label minoritas'),
+    opt('50%, karena hanya ada dua label',false,'Dua label tidak berarti porsinya seimbang.','Dua kategori dianggap seimbang'),
+    opt('Tidak bisa ditebak tanpa melatih model',false,'Bisa: cukup dari tabel frekuensi label.','Tabel frekuensi dianggap tak berguna untuk AI')],
+    hint:'Hitung berapa persen tebakan "bukan" yang benar.',meta:{p:p}};},
+/* 19 Jebakan: pilihan ganda dalam diagram lingkaran */ function(r){
+  var a=r.int(45,80),b=r.int(30,60),c=r.int(15,40),s=a+b+c,apps=r.shuffle(['aplikasi peta','aplikasi ojek daring','dompet digital','aplikasi belanja']).slice(0,3);
+  return {stem:'Survei: "Aplikasi apa yang kamu pakai minggu ini? (boleh lebih dari satu)". Hasil: '+apps[0]+' '+a+'%, '+apps[1]+' '+b+'%, '+apps[2]+' '+c+'% (jumlah '+s+'%). Grafik yang paling tepat adalah ...',opts:[
+    opt('Diagram batang, karena satu orang bisa masuk beberapa kategori',true,'Tepat. Persentase tidak membentuk satu keseluruhan, jadi bukan irisan lingkaran.'),
+    opt('Diagram lingkaran apa adanya',false,'Irisan lingkaran harus berjumlah 100%; ini '+s+'%.','Lingkaran untuk jumlah di atas 100%'),
+    opt('Diagram lingkaran setelah persentase diskalakan agar berjumlah 100%',false,'Menskalakan mengubah arti angkanya.','Menskalakan ulang memperbaiki lingkaran'),
+    opt('Histogram',false,'Aplikasi adalah kategori, bukan angka bersambung.','Kategori digambar dengan histogram')],
+    hint:'Apakah persentasenya bagian dari satu keseluruhan?',meta:{s:s}};},
+/* 20 Jebakan: kumulatif pada data nominal */ function(r){
+  var C=r.pick([{v:'golongan darah',k:'A, B, AB, O',x:'"sampai golongan B"'},{v:'provinsi asal',k:'Aceh, Banten, DKI Jakarta, Jawa Barat',x:'"sampai Banten"'},{v:'merek ponsel',k:'lima merek, diurutkan menurut abjad',x:'"sampai merek ketiga"'}]),n=r.int(4,15)*10,c=r.int(Math.round(n*0.3),Math.round(n*0.7));
+  return {stem:'Tabel frekuensi '+C.v+' ('+C.k+') dari '+n+' orang diberi kolom kumulatif, lalu ditafsirkan: "'+c+' orang berada '+C.x.replace(/"/g,'')+'". Penilaian yang tepat adalah ...',opts:[
+    opt('Tidak bermakna: kategorinya tidak punya urutan, jadi "sampai" tidak berarti apa-apa',true,'Tepat. Kumulatif bermakna untuk data berurutan atau tabel yang sengaja diurutkan menurut frekuensi (Pareto).'),
+    opt('Bermakna, karena kategorinya sudah ditulis berurutan',false,'Urutan tulisan atau abjad bukan urutan yang bermakna.','Urutan abjad dianggap bermakna'),
+    opt('Bermakna, asalkan baris terakhir berjumlah '+n,false,'Jumlahnya benar tidak membuat tafsirannya bermakna.','Hitungan benar = tafsiran benar'),
+    opt('Salah hitung, karena kumulatif harus selalu 100',false,'Kumulatif biasa berakhir di '+n+', bukan 100.','Kumulatif dikira persen')],
+    hint:'Ingat skala nominal di Bagian 1.',meta:{n:n}};}
+];
+/* ==ISI-DATA== */
+var ISI={
+KEY:'probstat_b3_v1',
+MS:[
+  {id:'zero',href:'#zero',t:'Awal',c:'blue'},{id:'A',href:'#sta-a',t:'3.1 Tabel frekuensi',c:'red'},{id:'B',href:'#sta-b',t:'3.2 Kelas interval',c:'yellow'},
+  {id:'C',href:'#sta-c',t:'3.3 Memilih grafik',c:'green'},{id:'D',href:'#sta-d',t:'3.4 Membaca grafik',c:'purple'},{id:'hero',href:'#hero',t:'Puncak',c:'blue'},{id:'quiz',href:'#quiz-wrap',t:'Kuis 20 soal',c:'red'}],
+MAP:{t:'Probabilitas dan Statistika',lvl:0,kids:[
+  {t:'Bagian 1–2 · Pengenalan, ukuran',lvl:1,dim:true},
+  {t:'Bagian 3 · Pendeskripsian Data',lvl:1,target:'#top',kids:[
+    {t:'0 Kompas: mulai dari akhir',lvl:2,k:'blue',target:'#zero',kids:[
+      {t:'Mulai dari keputusan',lvl:3,target:'#zero'},{t:'Pilih grafik yang dibutuhkan',lvl:3,target:'#zero'},{t:'Baru catat datanya',lvl:3,target:'#zero'}]},
+    {t:'3.1 Tabel frekuensi',lvl:2,k:'red',target:'#sta-a',kids:[
+      {t:'Frekuensi dan turus',lvl:3,target:'#sta-a'},{t:'Frekuensi relatif (%)',lvl:3,target:'#sta-a'},{t:'Frekuensi kumulatif',lvl:3,target:'#sta-a'}]},
+    {t:'3.2 Kelas interval',lvl:2,k:'yellow',target:'#sta-b',kids:[
+      {t:'Banyak kelas: Sturges',lvl:3,target:'#sta-b'},{t:'Lebar kelas dan batas',lvl:3,target:'#sta-b'},{t:'Titik tengah kelas',lvl:3,target:'#sta-b'}]},
+    {t:'3.3 Memilih grafik',lvl:2,k:'green',target:'#sta-c',kids:[
+      {t:'Batang: bandingkan kategori',lvl:3,target:'#sta-c'},{t:'Garis: perubahan waktu',lvl:3,target:'#sta-c'},{t:'Histogram: sebaran angka',lvl:3,target:'#sta-c'},{t:'Lingkaran dan Pareto',lvl:3,target:'#sta-c'}]},
+    {t:'3.4 Membaca grafik',lvl:2,k:'purple',target:'#sta-d',kids:[
+      {t:'Sumbu batang mulai dari nol',lvl:3,target:'#sta-d'},{t:'Temuan: apa, berapa, dibanding',lvl:3,target:'#sta-d'}]},
+    {t:'3.5 Puncak: jelaskan, terapkan',lvl:2,k:'blue',target:'#hero',kids:[
+      {t:'Teknik Feynman dan 3 sudut',lvl:3,target:'#hero'},{t:'Kuis 20 soal',lvl:3,target:'#quiz-wrap'}]}]},
+  {t:'Bagian 4–16 (menyusul)',lvl:1,dim:true}]},
+ZQ:[
+  {stem:'Dari 40 mahasiswa, 18 orang naik motor ke kampus. Berapakah frekuensi relatifnya?',pointer:'Papan Turus (3.1)',opts:[
+    {t:'18%',ok:false,note:'18 adalah frekuensinya. Persen berarti "per seratus", jadi perlu dibagi 40 dulu.',mis:'Frekuensi dikira persen'},
+    {t:'45%',ok:true,note:'Tepat. 18 ÷ 40 = 0,45, atau 45%.'},
+    {t:'2,2%',ok:false,note:'Pecahannya terbalik: 40 ÷ 18 ≈ 2,2.',mis:'Pecahan terbalik'}]},
+  {stem:'Kamu mencatat warna favorit 50 mahasiswa. Grafik mana yang TIDAK cocok untuk data ini?',pointer:'Ganti Grafik (3.3)',opts:[
+    {t:'Diagram batang',ok:false,note:'Diagram batang justru paling cocok untuk membandingkan kategori.',mis:'Batang dikira hanya untuk angka'},
+    {t:'Diagram lingkaran',ok:false,note:'Bisa dipakai bila kategorinya sedikit, karena tiap orang punya satu warna favorit.',mis:'Lingkaran dikira terlarang'},
+    {t:'Histogram',ok:true,note:'Tepat. Histogram butuh sumbu angka yang bersambung; warna adalah kategori.'}]},
+  {stem:'Dua grafik dibuat dari data yang persis sama. Mungkinkah kesan keduanya sangat berbeda?',pointer:'Bengkel Grafik (3.4)',opts:[
+    {t:'Tidak, data sama pasti menghasilkan kesan sama',ok:false,note:'Pilihan skala dan jenis grafik bisa mengubah kesan tanpa mengubah angka.',mis:'Data sama = kesan sama'},
+    {t:'Ya, misalnya lewat titik awal sumbu atau banyak kelas',ok:true,note:'Tepat. Angkanya sama, tetapi apa yang ditonjolkan bisa berbeda jauh.'},
+    {t:'Hanya bila salah satu grafik salah hitung',ok:false,note:'Grafik yang benar angkanya pun bisa menyesatkan.',mis:'Hitungan benar = grafik jujur'}]}
+],
+CEK:{
+  A:[{stem:'Dari 50 data, frekuensi suatu kategori adalah 12. Frekuensi relatifnya adalah ...',opts:[
+      {t:'24%',ok:true,note:'Tepat. 12 ÷ 50 = 0,24, atau 24%.'},
+      {t:'12%',ok:false,note:'Belum dibagi banyak data.',mis:'Frekuensi dikira persen'},
+      {t:'0,24%',ok:false,note:'0,24 belum dikali 100%.',mis:'Lupa mengali 100%'}]},
+    {stem:'Mengapa kolom frekuensi relatif berguna, padahal frekuensinya sudah ada?',opts:[
+      {t:'Agar kelompok yang ukurannya berbeda bisa dibandingkan',ok:true,note:'Tepat. 10 dari 40 dan 15 dari 60 sama-sama 25%.'},
+      {t:'Agar angkanya terlihat lebih besar',ok:false,note:'Tujuannya membandingkan, bukan memperbesar.',mis:'Persen untuk memperbesar kesan'},
+      {t:'Karena tabel wajib berisi persen',ok:false,note:'Tidak wajib; persen dipakai karena manfaatnya.',mis:'Persen dianggap aturan formal'}]}],
+  B:[{stem:'Ada 64 data. Menurut aturan Sturges (k = 1 + 3,3 × log n), banyak kelas sekitar ...',opts:[
+      {t:'7',ok:true,note:'Tepat. 1 + 3,3 × 1,806 ≈ 6,96, dibulatkan 7.'},
+      {t:'64',ok:false,note:'Satu kelas per data tidak meringkas apa pun.',mis:'Banyak kelas = banyak data'},
+      {t:'3',ok:false,note:'Terlalu sedikit; pola bisa tersembunyi.',mis:'Kelas sedikit dianggap aman'}]},
+    {stem:'Kelas 20–24 dan 25–29 berisi data bilangan bulat. Titik tengah kelas 20–24 adalah ...',opts:[
+      {t:'22',ok:true,note:'Tepat. (20 + 24) ÷ 2 = 22.'},
+      {t:'24',ok:false,note:'Itu batas atas kelas.',mis:'Batas atas dikira titik tengah'},
+      {t:'44',ok:false,note:'Belum dibagi 2.',mis:'Lupa membagi 2'}]}],
+  C:[{stem:'Histogram berbeda dari diagram batang karena ...',opts:[
+      {t:'Batangnya bersentuhan, sebab sumbunya angka yang bersambung',ok:true,note:'Tepat. Diagram batang untuk kategori, jadi batangnya diberi jarak.'},
+      {t:'Histogram selalu berwarna',ok:false,note:'Warna tidak membedakan keduanya.',mis:'Jenis grafik dikira soal warna'},
+      {t:'Diagram batang hanya untuk data waktu',ok:false,note:'Data waktu biasanya digambar dengan garis.',mis:'Batang dikira grafik waktu'}]},
+    {stem:'Pada diagram lingkaran, kategori dengan 25% data mendapat sudut ...',opts:[
+      {t:'90°',ok:true,note:'Tepat. 25% × 360° = 90°.'},
+      {t:'25°',ok:false,note:'Persen belum diubah ke derajat.',mis:'Persen dikira derajat'},
+      {t:'45°',ok:false,note:'Lingkaran penuh 360°, bukan 180°.',mis:'Lingkaran dikira 180°'}]}],
+  D:[{stem:'Diagram batang dengan sumbu tegak mulai dari 50: nilai A 60, nilai B 70. Batang B tampak berapa kali batang A?',opts:[
+      {t:'2 kali',ok:true,note:'Tepat. Yang tampak 70 − 50 = 20 dibanding 60 − 50 = 10.'},
+      {t:'1,17 kali',ok:false,note:'Itu perbandingan nilai sebenarnya, bukan yang tampak.',mis:'Rasio nilai dikira rasio tampak'},
+      {t:'7 kali',ok:false,note:'Tidak ada perhitungan yang menghasilkan 7 di sini.',mis:'Membaca grafik tanpa menghitung'}]},
+    {stem:'Kalimat temuan mana yang paling berbasis bukti dari sebuah grafik penjualan bulanan?',opts:[
+      {t:'Bulan 6 tertinggi, sekitar 1,5 kali bulan 1',ok:true,note:'Tepat. Apa, berapa, dan dibanding apa, semua terbaca dari grafik.'},
+      {t:'Penjualan naik karena iklan',ok:false,note:'Grafik tidak memuat penyebab.',mis:'Penyebab dibaca dari grafik'},
+      {t:'Penjualan akan terus naik',ok:false,note:'Grafik tidak memuat masa depan.',mis:'Ramalan dikira temuan'}]}]
+},
+TEBAK:{
+  a:{stem:'Kamu menyusun tabel frekuensi dari 30 data, dengan kolom frekuensi kumulatif (jumlah berjalan dari atas). Angka di baris terakhir kolom itu pasti ...',opts:[
+    {t:'100',ok:false,mis:'Kumulatif dikira persen',note:'100 adalah jumlah persen. Kumulatif biasa menjumlah banyak data.'},
+    {t:'Frekuensi kategori terbesar',ok:false,mis:'Kumulatif tertukar dengan frekuensi',note:'Itu frekuensi satu kategori saja.'},
+    {t:'30',ok:true,note:'Tepat. Semua frekuensi terjumlah di baris terakhir. Buktikan di Papan Turus.'},
+    {t:'Tidak bisa ditebak sebelum datanya dilihat',ok:false,mis:'Kumulatif dikira bergantung isi data',note:'Berapa pun isinya, jumlah semua frekuensi = banyak data.'}]},
+  b:{stem:'Nilai ujian 80 mahasiswa akan dibuat histogram. Banyak kelas mana yang paling memperlihatkan bentuk sebarannya?',opts:[
+    {t:'2 kelas',ok:false,mis:'Kelas sedikit dianggap aman',note:'Dua kelas menggabungkan hampir semua data; polanya hilang.'},
+    {t:'Sekitar 7 kelas',ok:true,note:'Tepat. Cukup banyak untuk memperlihatkan pola, cukup sedikit agar tiap kelas berisi. Buktikan dengan Pengatur Kelas.'},
+    {t:'40 kelas',ok:false,mis:'Kelas banyak dianggap lebih teliti',note:'Tiap kelas hanya berisi 1–2 data; gambarnya bergerigi.'},
+    {t:'Sama saja; banyak kelas tidak berpengaruh',ok:false,mis:'Banyak kelas dianggap tak berpengaruh',note:'Banyak kelas sangat memengaruhi bentuk yang terlihat.'}]},
+  c:{stem:'Jumlah pengunjung perpustakaan setiap bulan selama setahun. Grafik apa yang paling cepat memperlihatkan naik-turunnya?',opts:[
+    {t:'Diagram lingkaran',ok:false,mis:'Lingkaran dipakai untuk perubahan waktu',note:'Dua belas irisan tidak memperlihatkan urutan waktu.'},
+    {t:'Histogram',ok:false,mis:'Histogram dipakai untuk urutan waktu',note:'Histogram untuk sebaran angka, bukan urutan waktu.'},
+    {t:'Grafik garis',ok:true,note:'Tepat. Garis menghubungkan bulan berurutan, jadi naik-turunnya langsung terlihat. Buktikan di Ganti Grafik.'},
+    {t:'Tabel angka saja',ok:false,mis:'Tabel sama cepatnya dengan grafik',note:'Tabel teliti, tetapi polanya tidak terlihat sekilas.'}]},
+  d:{stem:'Diagram batang dengan sumbu tegak mulai dari 90: Toko A 92 pesanan, Toko B 98 pesanan. Batang B tampak empat kali tinggi batang A. Sebenarnya B lebih banyak sekitar ...',opts:[
+    {t:'300%',ok:false,mis:'Rasio tampak dikira rasio nilai',note:'Itu kesan dari sumbu yang dipotong.'},
+    {t:'7%',ok:true,note:'Tepat. 98 ÷ 92 ≈ 1,07, jadi hanya sekitar 7% lebih banyak. Buktikan di Bengkel Grafik.'},
+    {t:'50%',ok:false,mis:'Menebak dari kesan',note:'Hitung dari nilainya: 98 ÷ 92.'},
+    {t:'Tidak bisa diketahui dari grafik',ok:false,mis:'Angka grafik dianggap tak terbaca',note:'Bisa, dari angka yang tertulis di sumbu.'}]}
+},
+KOMPAS:{skenario:'Kepala perpustakaan kampus memutuskan perlu tidaknya jam buka diperpanjang sampai pukul 21.00. Lima langkah kerjanya diacak.',
+  S:[
+    {t:'Keputusan: memperpanjang jam buka sampai 21.00 atau tidak',w:'Inilah akhirnya. Semua langkah lain ada untuk keputusan ini.'},
+    {t:'Kesimpulan: apakah kunjungan sore dan malam cukup ramai',w:'Keputusan butuh kesimpulan tentang jam-jam terakhir, bukan total harian.'},
+    {t:'Grafik: diagram batang kunjungan per jam, berurutan menurut jam',w:'Kesimpulan paling cepat dibaca dari grafik yang tepat.'},
+    {t:'Tabel frekuensi: banyak kunjungan di setiap rentang jam',w:'Grafik digambar dari tabel frekuensi.'},
+    {t:'Data: jam masuk setiap pengunjung, dicatat selama dua minggu',w:'Langkah pertama: jam masuk dicatat, bukan hanya jumlah harian.'}],
+  show:[2,4,0,3,1],
+  hasil:'Baca dari bawah ke atas: itulah urutan kerjanya. Sebelum mencatat apa pun, kamu sudah tahu grafik yang dibutuhkan, jadi yang dicatat adalah jam masuk, bukan sekadar jumlah harian.'},
+GLOSS:[
+  ['Frekuensi','Berapa kali sebuah nilai atau kategori muncul dalam data.'],
+  ['Turus','Garis hitungan (||||) yang ditulis satu per data, dikelompokkan per lima, untuk menghitung frekuensi dengan tangan.'],
+  ['Tabel sebaran frekuensi','Tabel yang memuat setiap nilai, kategori, atau kelas beserta frekuensinya. Disebut juga tabel distribusi frekuensi.'],
+  ['Frekuensi relatif','Frekuensi dibagi banyak seluruh data, biasanya ditulis dalam persen.'],
+  ['Frekuensi kumulatif','Jumlah frekuensi dari baris pertama sampai baris itu. Baris terakhir sama dengan banyak data.'],
+  ['Kelas interval','Rentang nilai (misalnya 60–64) untuk mengelompokkan data angka sebelum dihitung frekuensinya.'],
+  ['Banyak kelas (aturan Sturges)','Saran banyak kelas: k = 1 + 3,3 × log n, dengan n banyak data. Hanya panduan, bukan aturan mati.'],
+  ['Lebar kelas','Selisih batas bawah dua kelas berurutan: jangkauan ÷ banyak kelas, dibulatkan ke atas.'],
+  ['Batas kelas','Nilai terkecil (batas bawah) dan terbesar (batas atas) yang masuk ke sebuah kelas.'],
+  ['Titik tengah kelas','Rata-rata batas bawah dan batas atas sebuah kelas; mewakili kelas itu.'],
+  ['Jangkauan','Nilai terbesar dikurangi nilai terkecil.'],
+  ['Diagram batang','Grafik batang terpisah untuk membandingkan frekuensi kategori.'],
+  ['Histogram','Grafik batang bersentuhan untuk sebaran data angka yang dikelompokkan ke kelas.'],
+  ['Grafik garis','Grafik titik yang dihubungkan garis, untuk memperlihatkan perubahan dari waktu ke waktu.'],
+  ['Diagram lingkaran','Lingkaran yang dibagi menjadi irisan; tiap irisan bagian dari satu keseluruhan (jumlahnya 100%). Sudut = bagian × 360°.'],
+  ['Diagram Pareto','Diagram batang yang diurutkan dari terbesar, ditambah garis persentase kumulatif.'],
+  ['Data kategori dan data angka','Kategori: label seperti warna atau merek. Angka: hasil menghitung atau mengukur, seperti tinggi atau nilai.'],
+  ['Skala nominal','Data berupa nama atau label tanpa urutan (dibahas di Bagian 1).'],
+  ['Sumbu','Garis acuan grafik: sumbu datar (mendatar) dan sumbu tegak (berdiri), masing-masing dengan skala dan satuan.'],
+  ['Sumbu terpotong','Sumbu tegak yang tidak dimulai dari nol, sehingga selisih kecil tampak besar.'],
+  ['Temuan berbasis bukti','Kalimat yang bisa diperiksa langsung dari angka grafik: apa, berapa, dan dibanding apa.'],
+  ['Akurasi','Persentase tebakan sebuah program yang benar.'],
+  ['Label (pada data AI)','Jawaban yang benar untuk tiap contoh data latih, misalnya "spam" atau "bukan spam".'],
+  ['Pembelajaran mesin (machine learning)','Cara membuat komputer belajar pola dari data, lalu memakainya untuk menebak.'],
+  ['ELI5','Explain Like I\'m 5: jelaskan seolah pendengarnya berumur 5 tahun. Dipakai di sini untuk penjelasan paling sederhana.'],
+  ['Kacamata berpikir (mental model)','Cara berpikir yang bisa dipakai berulang untuk banyak masalah, seperti memakai kacamata berbeda untuk melihat hal yang sama.'],
+  ['Prinsip 80/20 (prinsip Pareto)','Sering kali sebagian kecil penyebab menghasilkan sebagian besar akibat, misalnya sedikit kategori menampung kebanyakan data. Angkanya tidak selalu tepat 80 dan 20.'],
+  ['Peta bukan wilayah aslinya','(Dalam bahasa Inggris: the map is not the territory.) Grafik atau ringkasan hanyalah gambaran data, bukan datanya.'],
+  ['Mulai dari akhir (backward thinking)','Membayangkan hasil akhir dulu, lalu mundur bertanya: apa yang harus benar tepat sebelumnya? Pemain catur menyebutnya berpikir dari posisi akhir (endgame).'],
+  ['Teknik Feynman','Menjelaskan sesuatu dengan kata sendiri kepada orang awam untuk menemukan bagian yang belum dipahami.'],
+  ['Tabayyun','Memeriksa kebenaran sebuah kabar atau angka sebelum mempercayai dan menyebarkannya.'],
+  ['Kalibrasi keyakinan','Seberapa cocok rasa yakinmu dengan hasil sebenarnya. Sering yakin tetapi salah berarti keyakinanmu belum terkalibrasi.'],
+  ['Prompt','Perintah atau pertanyaan yang kamu ketik ke AI.']],
+MAPT:[['frekuensi relatif','Frekuensi relatif'],['frekuensi kumulatif','Frekuensi kumulatif'],['tabel frekuensi','Tabel sebaran frekuensi'],['kelas interval','Kelas interval'],['titik tengah','Titik tengah kelas'],['lebar kelas','Lebar kelas'],
+  ['batas kelas','Batas kelas'],['Sturges','Banyak kelas (aturan Sturges)'],['turus','Turus'],['frekuensi','Frekuensi'],['jangkauan','Jangkauan'],['diagram batang','Diagram batang'],['histogram','Histogram'],['grafik garis','Grafik garis'],
+  ['diagram lingkaran','Diagram lingkaran'],['Pareto','Diagram Pareto'],['sumbu','Sumbu'],['temuan','Temuan berbasis bukti'],['label','Label (pada data AI)'],['akurasi','Akurasi'],['nominal','Skala nominal'],['tabayyun','Tabayyun']],
+LENSES:[
+  ['Matematika','Histogram adalah tabel frekuensi yang digambar: luas batang sebanding dengan frekuensi kelasnya. Bila lebar kelas berbeda-beda, yang harus sebanding adalah luasnya, jadi tinggi batang = frekuensi ÷ lebar kelas.'],
+  ['Komputer dan AI','Sebelum melatih model, ahli data membuat tabel frekuensi label. Bila 95% data berlabel "bukan penipuan", model yang selalu menebak "bukan penipuan" sudah 95% akurat tetapi tidak berguna. Histogram juga dipakai untuk memeriksa apakah data baru masih mirip data latih.'],
+  ['Kritis dan etis (tabayyun)','Sumbu yang dipotong, irisan lingkaran tiga dimensi, atau banyak kelas yang dipilih untuk menyembunyikan puncak bisa mengubah kesan tanpa mengubah angka. Sebelum membagikan grafik, periksa sumbu, sumber, dan jenis grafiknya.']],
+KQ:[
+  {q:'Frekuensi relatif keluhan "aplikasi macet" adalah ...',o:['42%','16,8%','168%'],c:0,e:'168 ÷ 400 = 0,42, atau 42%.'},
+  {q:'Persentase kumulatif tiga kategori teratas adalah ...',o:['68%','82%','100%'],c:1,e:'(168 + 104 + 56) ÷ 400 = 82%.'},
+  {q:'Grafik yang paling tepat untuk menunjukkan penyumbang keluhan terbesar adalah ...',o:['Diagram lingkaran 3D','Diagram Pareto','Grafik garis'],c:1,e:'Batang urut dan garis kumulatif.'},
+  {q:'Kesimpulan "keluhan tersebar merata" ...',o:['Didukung data','Tidak didukung: tiga kategori menampung 82%','Tidak bisa dinilai'],c:1,e:'Separuh kategori menampung 82% keluhan.'}],
+KL:[
+  ['Prinsip 80/20 (Pareto)','Tiga dari enam kategori menampung 82% keluhan; aplikasi macet saja 42%. "Perbaiki semua bidang sekaligus" membagi tenaga rata ke masalah yang tidak sama besar.'],
+  ['Peta bukan wilayah aslinya','Diagram lingkaran 3D adalah peta yang memiringkan wilayahnya: irisan di depan tampak lebih besar. Kesan "merata" lahir dari gambarnya, bukan dari angkanya.'],
+  ['Mulai dari akhir (backward thinking)','Keputusan akhirnya: perbaikan mana yang dikerjakan lebih dulu. Keputusan itu butuh urutan kategori dan persentase kumulatifnya, yaitu diagram Pareto, bukan lingkaran 3D.']],
+FY_EX:'Dari 100 angka mentah, misalnya nilai ujian, aku membuat tabel frekuensi dulu: kelompokkan ke sekitar 7 kelas, lalu hitung berapa data di tiap kelas. Dari tabel itu aku menggambar histogram, karena datanya angka yang bersambung. Untuk kategori seperti moda transportasi aku memakai diagram batang. Grafik bisa menyesatkan kalau sumbu batangnya tidak mulai dari nol: selisih 92 dan 98 bisa tampak empat kali lipat. Temuanku kutulis dengan angka, misalnya "kelas 70–79 paling banyak, 22 dari 100 mahasiswa".',
+AIQ:['Saya mencatat alat AI, perintah (prompt) yang saya ketik, dan bagian yang saya pakai.','Saya menghitung ulang sendiri frekuensi atau persen yang diberikan AI, minimal untuk satu baris.','Saya bisa menjelaskan jawabannya tanpa melihat layar.','Saya memeriksa sumbu, label, satuan, dan sumber setiap grafik yang dibuat AI.']
+};
+</script>
+<script>
+/* ===== APP ===== */
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+function el(tag,attrs){
+  var e=document.createElement(tag);attrs=attrs||{};
+  for(var k in attrs){var v=attrs[k];
+    if(k==='class')e.className=v;else if(k==='html')e.innerHTML=v;else if(k==='text')e.textContent=v;
+    else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),v);
+    else if(v!==false&&v!=null)e.setAttribute(k,v===true?'':v);}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null||c===false)continue;
+    if(Array.isArray(c))c.forEach(function(x){if(x)e.append(x.nodeType?x:document.createTextNode(x));});
+    else e.append(c.nodeType?c:document.createTextNode(c));}
+  return e;
+}
+var SVGNS='http://www.w3.org/2000/svg';
+var ICMAP={lightbulb:'bulb',replay:'refresh',touch_app:'pointer',fact_check:'search'};
+function ic(name){var s=document.createElementNS(SVGNS,'svg');s.setAttribute('class','ic');s.setAttribute('aria-hidden','true');var u=document.createElementNS(SVGNS,'use');u.setAttribute('href','#i-'+(ICMAP[name]||name));s.appendChild(u);return s;}
+function sv(tag,attrs){var e=document.createElementNS(SVGNS,tag);for(var k in (attrs||{}))e.setAttribute(k,attrs[k]);return e;}
+
+/* ---------- penyimpanan (aman bila localStorage kosong/diblokir) ---------- */
+var KEY=ISI.KEY,mem={},GLOSS=[];
+try{var raw=localStorage.getItem(KEY);if(raw)mem=JSON.parse(raw)||{};}catch(e){mem={};}
+var dashRefresh=function(){};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(mem));}catch(e){}try{dashRefresh();}catch(e){}}
+mem.done=mem.done||{};mem.zero=mem.zero||{};mem.cek=mem.cek||{};mem.fy=mem.fy||{c:[]};mem.kasus=mem.kasus||{};mem.log=mem.log||[];
+
+
+/* ---------- konfeti kecil (menghormati reduced motion) ---------- */
+var REDUCE=false;try{REDUCE=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);}catch(e){}
+function burst(x,y,n){
+  if(REDUCE||!document.body.animate)return;var cs=['#4285f4','#ea4335','#fbbc04','#34a853'];
+  for(var i=0;i<n;i++){var p=document.createElement('i');p.className='confetti-i';p.style.left=x+'px';p.style.top=y+'px';p.style.background=cs[i%4];document.body.appendChild(p);
+    var ang=Math.random()*Math.PI*2,d=40+Math.random()*90;
+    var an=p.animate([{transform:'translate(0,0) rotate(0deg)',opacity:1},{transform:'translate('+(Math.cos(ang)*d)+'px,'+(Math.sin(ang)*d+34)+'px) rotate('+(Math.random()*540)+'deg)',opacity:0}],{duration:800+Math.random()*500,easing:'cubic-bezier(.2,.7,.3,1)'});
+    an.onfinish=(function(e){return function(){e.remove();};})(p);}
+}
+
+/* ---------- tema & mode ---------- */
+function applyTheme(t){if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');}
+applyTheme(mem.theme);
+$('#theme').addEventListener('click',function(){
+  var cur=document.documentElement.getAttribute('data-theme');
+  var sysDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var isDark=cur?cur==='dark':sysDark;
+  mem.theme=isDark?'light':'dark';applyTheme(mem.theme);save();
+});
+function setMode(m){
+  mem.mode=m;document.documentElement.setAttribute('data-mode',m);document.body.setAttribute('data-mode',m);
+  $('#m-belajar').setAttribute('aria-pressed',String(m==='belajar'));$('#m-kelas').setAttribute('aria-pressed',String(m==='kelas'));save();
+}
+$('#m-belajar').addEventListener('click',function(){setMode('belajar');});
+$('#m-kelas').addEventListener('click',function(){setMode('kelas');});
+setMode((location.hash==='#kelas')?'kelas':(mem.mode||'belajar'));
+
+/* ---------- progres & navigasi ---------- */
+var MS=ISI.MS;
+var navEl=$('#nav');
+MS.forEach(function(m){navEl.append(el('a',{href:m.href,'data-ms':m.id,class:'c-'+m.c,text:m.t}));});
+navEl.append(el('a',{href:'#kamus',class:'c-yellow',text:'Kamus mini'}));
+if(mem.last&&mem.last!=='zero'){var rs=el('a',{href:'#'+mem.last,class:'resume',text:'Lanjutkan dari terakhir'});navEl.insertBefore(rs,navEl.firstChild);}
+function refreshProgress(){
+  var n=0;MS.forEach(function(m){var a=$('a[data-ms="'+m.id+'"]',navEl);var d=!!mem.done[m.id];if(d)n++;a.classList.toggle('done',d);});
+  $('#prog-bar').style.width=(n/MS.length*100)+'%';$('#prog').setAttribute('aria-valuenow',String(n));
+}
+function markDone(id){if(!mem.done[id]){mem.done[id]=true;save();}refreshProgress();try{dashRefresh();}catch(e){}}
+refreshProgress();
+if('IntersectionObserver' in window){
+  var secs=[['zero','zero'],['sta-a','A'],['sta-b','B'],['sta-c','C'],['sta-d','D'],['hero','hero'],['kuis','quiz']];
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){
+    $$('a',navEl).forEach(function(a){a.classList.remove('on');});
+    var id=secs.filter(function(s){return s[0]===en.target.id;})[0][1];
+    if(mem.last!==en.target.id){mem.last=en.target.id;save();}
+    var a=$('a[data-ms="'+id+'"]',navEl);if(a){a.classList.add('on');}}});},{rootMargin:'-30% 0px -60% 0px'});
+  secs.forEach(function(s){var x=document.getElementById(s[0]);if(x)io.observe(x);});
+}
+
+/* ---------- navigasi tangguh: tidak bergantung pada perilaku hash di bingkai ---------- */
+function goTo(hash){
+  var t=null;try{t=document.querySelector(hash);}catch(e){}
+  if(!t)return false;
+  if(t.tagName==='DETAILS')t.open=true;
+  var go=function(){t.scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'});};
+  if(t.offsetParent===null&&document.body.getAttribute('data-mode')==='kelas'){setMode('belajar');setTimeout(go,80);}else go();
+  return true;
+}
+document.addEventListener('click',function(ev){
+  var a=ev.target.closest?ev.target.closest('a[href^="#"]'):null;if(!a)return;
+  var h=a.getAttribute('href');
+  if(h==='#'||h.length<2){ev.preventDefault();window.scrollTo(0,0);return;}
+  if(goTo(h))ev.preventDefault();
+});
+$('#kelas-off').addEventListener('click',function(){setMode('belajar');});
+$('#quiz-open').addEventListener('click',function(){setMode('belajar');setTimeout(function(){goTo('#quiz-wrap');},80);});
+(function(){var i=$('#nick'),h=$('#hello');function upd(){var v=(mem.nick||'').trim();h.textContent=v?('Halo, '+v+'. Selamat belajar!'):'';}
+  i.value=mem.nick||'';i.addEventListener('input',function(){mem.nick=i.value;save();upd();});upd();})();
+
+/* (ilustrasi titik di pembuka diganti panel Dasbor belajarmu, lihat bagian akhir) */
+
+/* ---------- peta makro-meso-mikro-nano (SVG) ---------- */
+var MAP=ISI.MAP;
+function renderMap(host,depth){
+  host.innerHTML='';
+  var W=240,H=34,GX=40,RH=46,y=0;
+  function lay(n){var kids=(n.kids||[]).filter(function(k){return k.lvl<=depth;});n._k=kids;
+    if(!kids.length){n.y=y;y+=RH;return;}kids.forEach(lay);n.y=(kids[0].y+kids[kids.length-1].y)/2;}
+  lay(MAP);
+  var width=(depth+1)*(W+GX)-GX+8,height=Math.max(y,RH)+4;
+  var svg=sv('svg',{width:width,height:height,viewBox:'0 0 '+width+' '+height,role:'group','aria-label':'Peta konsep'});
+  var gl=sv('g'),gn=sv('g');svg.append(gl,gn);
+  function draw(n,pk){
+    var kk=n.k||pk||'blue';
+    var x=n.lvl*(W+GX)+4,cy=n.y+RH/2-2;
+    n._k.forEach(function(k){var x2=k.lvl*(W+GX)+4,cy2=k.y+RH/2-2,mx=(x+W+x2)/2;
+      gl.append(sv('path',{class:'mm-link',d:'M'+(x+W)+' '+cy+' C'+mx+' '+cy+' '+mx+' '+cy2+' '+x2+' '+cy2}));draw(k,kk);});
+    var g=sv('g',{class:'mm-node n'+n.lvl+' k-'+kk+(n.dim?' dim':''),transform:'translate('+x+' '+(cy-H/2)+')'});
+    g.append(sv('rect',{width:W,height:H,rx:10,ry:10}));
+    var t=sv('text',{x:12,y:H/2});t.textContent=n.t;g.append(t);
+    if(n.target&&!n.dim){g.setAttribute('tabindex','0');g.setAttribute('role','link');g.setAttribute('aria-label',n.t+', menuju bagian terkait');
+      var go=function(){goTo(n.target);};
+      g.addEventListener('click',go);g.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();go();}});}
+    gn.append(g);
+  }
+  draw(MAP);host.append(svg);
+}
+var depthNames=['Makro','Meso','Mikro','Nano'],curDepth=2;
+(function(){var seg=$('#depthseg');
+  depthNames.forEach(function(nm,i){seg.append(el('button',{type:'button','aria-pressed':String(i===curDepth),onclick:function(){curDepth=i;$$('button',seg).forEach(function(b,j){b.setAttribute('aria-pressed',String(j===i));});renderMap($('#map-zero'),i);},text:nm}));});
+  renderMap($('#map-zero'),curDepth);renderMap($('#map-hero'),3);})();
+
+/* ---------- komponen MCQ ---------- */
+var LET=['A','B','C','D','E'];
+function mcq(o){
+  var st={c:null,conf:null,hint:false};if(o.saved){st.c=o.saved.c;st.conf=o.saved.conf;st.hint=!!o.saved.hint;}
+  var w=el('div',{class:'mcq'});
+  if(o.meta){var mp=el('p',{class:'qmeta',text:o.meta});if(o.tier)mp.append(el('span',{class:'tier t'+o.tier,style:'margin-left:8px',text:'Jenjang '+o.tier+': '+o.tierName}));w.append(mp);}
+  w.append(el('p',{class:'stem',text:o.stem}));
+  var confBtns=[];
+  if(o.conf){
+    var cr=el('div',{class:'confrow'});cr.append(el('span',{text:'Seberapa yakin?'}));
+    [['ragu','Ragu'],['cukup','Cukup yakin'],['yakin','Yakin']].forEach(function(c){
+      var b=el('button',{type:'button',class:'chip','aria-pressed':String(st.conf===c[0]),text:c[1]});b.disabled=st.c!=null;
+      b.addEventListener('click',function(){st.conf=st.conf===c[0]?null:c[0];confBtns.forEach(function(x){x.b.setAttribute('aria-pressed',String(st.conf===x.k));});});
+      confBtns.push({b:b,k:c[0]});cr.append(b);});
+    w.append(cr);
+  }
+  var hintEl=null;
+  if(o.hint){
+    hintEl=el('div',{class:'hintbox',style:'display:none'});hintEl.textContent='Petunjuk: '+o.hint+(o.hintCost?' (mengurangi skor latihan)':'');
+    var hb=el('button',{type:'button',class:'btn tonal small'},ic('lightbulb'),'Petunjuk');
+    hb.addEventListener('click',function(){if(st.c!=null)return;st.hint=true;hintEl.style.display='block';hb.disabled=true;});
+    if(st.hint||st.c!=null)hb.disabled=true;
+    if(st.hint)hintEl.style.display='block';
+    w.append(el('div',{class:'row',style:'margin-top:0'},hb),hintEl);
+  }
+  var list=el('div',{role:'group','aria-label':'Pilihan jawaban'});w.append(list);
+  var fb=el('div',{'aria-live':'polite'});w.append(fb);
+  var btns=[];
+  function reveal(){
+    btns.forEach(function(b,i){b.disabled=true;var ok=o.opts[i].ok;
+      if(ok)b.classList.add('ok');else if(i===st.c)b.classList.add('bad');else b.classList.add('dim');});
+    confBtns.forEach(function(x){x.b.disabled=true;});
+    var ch=o.opts[st.c],good=ch.ok,corI=-1;o.opts.forEach(function(x,i){if(x.ok)corI=i;});
+    var box=el('div',{class:'fbk'});
+    box.append(el('p',{class:'verdict '+(good?'ok':'bad'),text:good?'Benar.':'Belum tepat.'}));
+    if(good){box.append(el('p',{style:'margin:0',text:ch.note}));}
+    else{
+      var p1=el('p',{style:'margin:0'},el('span',{class:'lt',text:'Pilihanmu ('+LET[st.c]+')'}));
+      if(ch.mis)p1.append(el('span',{class:'tagmis',text:'Salah kaprah: '+ch.mis}));
+      p1.append(el('br'),document.createTextNode(ch.note));box.append(p1);
+      box.append(el('p',{class:'cor',style:'margin:0'},el('span',{class:'lt',text:'Jawaban benar ('+LET[corI]+'): '}),document.createTextNode(o.opts[corI].note.replace(/^Tepat\.\s*/,''))));
+    }
+    var rest=o.opts.map(function(x,i){return i;}).filter(function(i){return i!==st.c&&i!==corI;});
+    if(rest.length){
+      var det=el('details',{},el('summary',{text:'Lihat alasan pilihan lain'}));var ul=el('ul');
+      rest.forEach(function(i){var op=o.opts[i];var li=el('li',{},el('span',{class:'lt',text:LET[i]+'. '}));if(op.mis)li.append(el('span',{class:'tagmis',text:'Salah kaprah: '+op.mis}));li.append(el('br'),document.createTextNode(op.note));ul.append(li);});
+      det.append(ul);box.append(det);
+    }
+    fb.innerHTML='';fb.append(box);
+  }
+  o.opts.forEach(function(op,i){
+    var b=el('button',{type:'button',class:'opt'},el('span',{class:'letter',text:LET[i]}),el('span',{text:op.t}));
+    b.addEventListener('click',function(){if(st.c!=null)return;st.c=i;reveal();if(op.ok){var rc=b.getBoundingClientRect();burst(rc.left+34,rc.top+16,16);}if(o.onAnswer)o.onAnswer({c:st.c,conf:st.conf,hint:st.hint,ok:op.ok});});
+    btns.push(b);list.append(b);});
+  if(st.c!=null)reveal();
+  return w;
+}
+
+function f1(x){return fmt(x,1);}
+function fmtN(x){var v=Math.round(x*100)/100,neg=v<0;v=Math.abs(v);var ip=Math.floor(v),dp=Math.round((v-ip)*100);var s=String(ip).replace(/\B(?=(\d{3})+(?!\d))/g,'.');if(dp)s+=','+(dp<10?'0'+dp:String(dp)).replace(/0$/,'');return (neg?'−':'')+s;}
+function f2(x){return fmtTrim(x);}
+/* ==ISI-STASIUN== */
+/* ============ STASIUN A: Papan Turus ============ */
+(function(){
+  var host=$('#a-try');if(!host)return;
+  var K=TURUS_KAT,D=TURUS_DATA,n=D.length,i=0,c=[0,0,0,0,0],urut=false,salah=0;
+  var top=el('div'),tbl=el('div'),ins=el('div',{'aria-live':'polite'}),ctrl=el('div',{class:'row'});
+  host.append(top,tbl,ins,ctrl);
+  function tally(f){var s=el('span',{class:'turus'});for(var g=0;g<Math.floor(f/5);g++)s.append(el('s',{text:'||||'}),' ');var r=f%5;if(r)s.append(document.createTextNode('|||||'.slice(0,r)));return s;}
+  function tap(k){if(i>=n)return;if(k===D[i]){c[k]++;i++;salah=0;}else salah++;draw();}
+  function draw(){
+    top.innerHTML='';
+    if(i<n){top.append(el('p',{class:'qmeta',style:'text-align:center',text:'Mahasiswa ke-'+(i+1)+' dari '+n+' menjawab:'}),el('div',{class:'scard',style:'min-height:70px',text:K[D[i]]}));
+      var row=el('div',{class:'chipset',style:'justify-content:center;margin:10px 0'});
+      K.forEach(function(nm,k){row.append(el('button',{type:'button',class:'chip',onclick:function(){tap(k);}},nm));});top.append(row);
+      if(salah)top.append(el('div',{class:'hintbox',text:'Belum cocok. Baca lagi jawaban mahasiswanya, lalu ketuk tombol yang sama.'}));}
+    else top.append(el('div',{class:'infobox'},el('b',{text:'Selesai: '}),document.createTextNode('30 jawaban sudah dihitung.')));
+    var idx=[0,1,2,3,4];if(urut)idx.sort(function(a,b){return c[b]-c[a];});
+    var tb=el('table',{class:'nw labt'});tb.append(el('thead',{},el('tr',{},el('th',{text:'Moda'}),el('th',{text:'Turus'}),el('th',{text:'f'}),el('th',{text:'%'}),el('th',{text:'Kum.'}))));
+    var bd=el('tbody'),cum=0,done=i;
+    idx.forEach(function(k){cum+=c[k];bd.append(el('tr',{},el('td',{text:K[k]}),el('td',{},tally(c[k])),el('td',{text:String(c[k])}),el('td',{text:done?fmt(100*c[k]/done,0)+'%':'–'}),el('td',{text:String(cum)})));});
+    bd.append(el('tr',{class:'sumrow'},el('td',{text:'Jumlah'}),el('td',{text:''}),el('td',{text:String(done)}),el('td',{text:done?'100%':'–'}),el('td',{text:''})));
+    tb.append(bd);tbl.innerHTML='';tbl.append(el('div',{class:'tscroll',style:'margin-top:10px'},tb),el('p',{class:'qmeta',text:'f = frekuensi, % = frekuensi relatif, Kum. = frekuensi kumulatif.'}));
+    ins.innerHTML='';
+    if(i>=n){var s=[0,1,2,3,4].sort(function(a,b){return c[b]-c[a];}),t2=c[s[0]]+c[s[1]];
+      ins.append(el('div',{class:'infobox'},el('b',{text:'Yang terlihat: '}),document.createTextNode('baris terakhir kolom kumulatif = '+n+' = banyak data, dan kolom relatif berjumlah 100%. '+K[s[0]]+' dan '+K[s[1]]+' menampung '+t2+' dari '+n+' mahasiswa ('+fmt(100*t2/n,0)+'%).')));}
+    ctrl.innerHTML='';
+    if(i<n&&i>=5)ctrl.append(el('button',{class:'btn tonal',type:'button',onclick:function(){while(i<n){c[D[i]]++;i++;}draw();}},'Isi otomatis sisanya'));
+    ctrl.append(el('button',{class:'btn line',type:'button',onclick:function(){urut=!urut;draw();}},urut?'Urutan awal':'Urutkan dari terbesar'),
+      el('button',{class:'btn line',type:'button',onclick:function(){i=0;c=[0,0,0,0,0];salah=0;draw();}},ic('replay'),'Ulangi'));
+  }
+  draw();
+})();
+
+/* ============ STASIUN B: Pengatur Kelas ============ */
+(function(){
+  var host=$('#b-try');if(!host)return;
+  var data=makeNilai(),n=data.length,k=3,st=sturges(n);
+  var rg=el('input',{type:'range',min:'2',max:'30',step:'1',value:String(k),'aria-label':'Banyak kelas'}),kv=el('b',{class:'num-mono'});
+  rg.addEventListener('input',function(){k=+rg.value;draw();});
+  var plot=el('div'),ro=el('div',{class:'readout'}),tbl=el('div'),ins=el('div',{'aria-live':'polite'});
+  host.append(el('div',{class:'row'},el('span',{class:'qmeta',style:'margin:0',text:'Banyak kelas:'}),rg,kv),plot,ro,ins,tbl);
+  function draw(){
+    kv.textContent=String(k);
+    var R=kelasInterval(data,k),ks=R.kelas,mx=Math.max.apply(null,ks.map(function(x){return x.f;})),kosong=ks.filter(function(x){return !x.f;}).length;
+    var W=400,H=222,x0=18,x1=386,yb=170,lo=ks[0].b,hi=ks[ks.length-1].e+1;function X(v){return x0+(v-lo)/(hi-lo)*(x1-x0);}
+    var svg=sv('svg',{class:'plotsvg',viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Histogram 80 nilai ujian dengan '+k+' kelas'});
+    ks.forEach(function(c){var h=c.f/mx*140;svg.append(sv('rect',{x:X(c.b)+0.5,y:yb-h,width:Math.max(1,X(c.e+1)-X(c.b)-1),height:h,fill:'var(--yellow)',stroke:'var(--surface)','stroke-width':1}));
+      if(k<=10&&c.f){var t=sv('text',{x:(X(c.b)+X(c.e+1))/2,y:yb-h-5,'text-anchor':'middle',style:'font-size:12px;fill:var(--text)'});t.textContent=String(c.f);svg.append(t);}});
+    svg.append(sv('line',{x1:x0,y1:yb,x2:x1,y2:yb,stroke:'var(--outline)'}));
+    for(var v=40;v<=100;v+=10){if(v<lo||v>hi)continue;var tx=sv('text',{x:X(v),y:yb+20,'text-anchor':'middle',style:'font-size:13px'});tx.textContent=String(v);svg.append(tx);}
+    var cp=sv('text',{x:W-4,y:yb+44,'text-anchor':'end',style:'font-size:12px'});cp.textContent='nilai ujian';svg.append(cp);
+    plot.innerHTML='';plot.append(svg);
+    ro.innerHTML='';ro.append(el('div',{class:'stat'},el('b',{text:String(k)}),el('span',{text:'banyak kelas'})),el('div',{class:'stat'},el('b',{text:String(R.c)}),el('span',{text:'lebar kelas'})),
+      el('div',{class:'stat'},el('b',{text:fmt(st,1)}),el('span',{text:'saran Sturges'})),el('div',{class:'stat'},el('b',{text:String(kosong)}),el('span',{text:'kelas kosong'})));
+    ins.innerHTML='';var msg=k<=3?'hanya satu gundukan; dua kelompok nilai tersembunyi.':k<=4?'mulai terlihat ada dua kelompok, tetapi masih kasar.':k<=12?'dua kelompok terlihat jelas, sekitar 55–60 dan 75–80.':k<=19?'dua kelompok masih terlihat, tetapi batang mulai bergerigi.':'batang bergerigi dan ada kelas kosong; polanya tenggelam oleh kebetulan.';
+    ins.append(el('div',{class:'infobox'},el('b',{text:'Yang terlihat: '}),document.createTextNode(msg)));
+    
+    tbl.innerHTML='';
+    if(k<=8){var tb=el('table',{class:'nw labt'});tb.append(el('thead',{},el('tr',{},el('th',{text:'Kelas'}),el('th',{text:'Titik tengah'}),el('th',{text:'f'}))));var bd=el('tbody');
+      ks.forEach(function(c){bd.append(el('tr',{},el('td',{text:c.b+'–'+c.e}),el('td',{text:fmtTrim((c.b+c.e)/2)}),el('td',{text:String(c.f)})));});tb.append(bd);
+      tbl.append(el('div',{class:'tscroll',style:'margin-top:10px'},tb),el('p',{class:'qmeta',text:'Kelas mulai dari nilai terkecil ('+lo+'), lebar '+R.c+'.'}));}
+  }
+  draw();
+})();
+
+/* ============ STASIUN C: Ganti Grafik ============ */
+(function(){
+  var host=$('#c-try');if(!host)return;
+  var TYPES=[['batang','Batang'],['garis','Garis'],['histogram','Histogram'],['lingkaran','Lingkaran']];
+  var DS=[
+    {q:'Moda mana yang paling banyak dipakai 30 mahasiswa?',lab:['Motor','KRL','Ojek','Bus','Jalan'],val:[11,8,5,4,2],best:'batang',
+      v:{batang:'Tepat: kategori dibandingkan dengan panjang batang.',garis:'Garis menghubungkan moda seolah berurutan waktu; tidak bermakna.',histogram:'Batang bersentuhan menyiratkan angka bersambung, padahal ini kategori.',lingkaran:'Bisa, tetapi membandingkan irisan lebih sulit daripada batang.'}},
+    {q:'Bagaimana naik-turun pengunjung perpustakaan selama 12 bulan?',lab:['1','2','3','4','5','6','7','8','9','10','11','12'],val:[320,280,350,410,520,460,300,260,430,480,510,390],best:'garis',
+      v:{batang:'Bisa dibaca, tetapi naik-turunnya kurang menonjol daripada garis.',garis:'Tepat: garis menghubungkan bulan berurutan, jadi naik-turunnya langsung terlihat.',histogram:'Bulan bukan kelas nilai; ini urutan waktu.',lingkaran:'Dua belas irisan tidak memperlihatkan urutan waktu.'}},
+    {q:'Bagaimana sebaran tinggi 120 mahasiswa (cm)?',lab:['150–154','155–159','160–164','165–169','170–174','175–179','180–184'],val:[6,15,27,32,24,11,5],best:'histogram',
+      v:{batang:'Batang terpisah menyembunyikan bahwa kelas-kelasnya bersambung.',garis:'Bisa (poligon frekuensi), tetapi histogram lebih lazim untuk sebaran.',histogram:'Tepat: kelas angka bersambung, jadi batangnya bersentuhan.',lingkaran:'Irisan tidak memperlihatkan bentuk sebaran.'}},
+    {q:'Berapa bagian anggaran kegiatan untuk tiap pos (persen)?',lab:['Konsumsi','Transport','Dekorasi','Lainnya'],val:[50,25,15,10],best:'lingkaran',
+      v:{batang:'Bisa, tetapi kesan "bagian dari satu keseluruhan" kurang terasa.',garis:'Pos anggaran tidak berurutan; garis tidak bermakna.',histogram:'Pos anggaran adalah kategori, bukan kelas angka.',lingkaran:'Tepat: empat bagian dari satu anggaran, berjumlah 100%.'}}];
+  var di=0,ti={},pick={};
+  var COL=['var(--g-blue)','var(--g-red)','var(--g-yellow)','var(--g-green)','var(--purple)','var(--text-2)'];
+  function chart(d,t){
+    var W=400,H=220,x0=30,x1=388,yb=180,mx=Math.max.apply(null,d.val),n=d.val.length,svg=sv('svg',{class:'plotsvg',viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Grafik '+t});
+    function Y(v){return yb-v/mx*140;}
+    function lab(x,s){var tx=sv('text',{x:x,y:yb+18,'text-anchor':'middle',style:'font-size:'+(n>8?11:12)+'px'});tx.textContent=s;svg.append(tx);}
+    if(t==='lingkaran'){var cx=W/2-60,cy=H/2,r=80,a0=-Math.PI/2,tot=d.val.reduce(function(a,b){return a+b;},0);
+      d.val.forEach(function(v,i){var a1=a0+v/tot*2*Math.PI,lg=a1-a0>Math.PI?1:0;svg.append(sv('path',{d:'M'+cx+' '+cy+'L'+(cx+r*Math.cos(a0))+' '+(cy+r*Math.sin(a0))+'A'+r+' '+r+' 0 '+lg+' 1 '+(cx+r*Math.cos(a1))+' '+(cy+r*Math.sin(a1))+'Z',fill:COL[i%6],stroke:'var(--surface)','stroke-width':1.5}));a0=a1;});
+      var ly=Math.max(16,cy-n*9);d.lab.forEach(function(s,i){if(n>8&&i%2)return;svg.append(sv('rect',{x:W/2+40,y:ly+i*(n>8?9:18)-10,width:11,height:11,fill:COL[i%6]}));var tx=sv('text',{x:W/2+56,y:ly+i*(n>8?9:18),style:'font-size:14px;fill:var(--text)'});tx.textContent=s+' ('+fmt(100*d.val[i]/tot,0)+'%)';svg.append(tx);});
+      return svg;}
+    svg.append(sv('line',{x1:x0,y1:yb,x2:x1,y2:yb,stroke:'var(--outline)'}));
+    var bw=(x1-x0)/n;
+    if(t==='garis'){var pts=d.val.map(function(v,i){return (x0+bw*(i+.5))+','+Y(v);}).join(' ');svg.append(sv('polyline',{points:pts,fill:'none',stroke:'var(--g-red)','stroke-width':3,'stroke-linejoin':'round'}));
+      d.val.forEach(function(v,i){svg.append(sv('circle',{cx:x0+bw*(i+.5),cy:Y(v),r:3.5,fill:'var(--g-red)'}));});}
+    else d.val.forEach(function(v,i){var gap=t==='histogram'?0:bw*.25;svg.append(sv('rect',{x:x0+bw*i+gap/2,y:Y(v),width:bw-gap,height:yb-Y(v),fill:t==='histogram'?'var(--g-yellow)':'var(--g-blue)',stroke:'var(--surface)','stroke-width':t==='histogram'?1:0}));});
+    d.lab.forEach(function(s,i){if(n>7&&d.lab[0].length>3&&i%2)return;lab(x0+bw*(i+.5),n>7&&s.length>3?s.split('–')[0]:s);});
+    return svg;}
+  function draw(){
+    host.innerHTML='';var tabs=el('div',{class:'tabs'});
+    DS.forEach(function(d,i){tabs.append(el('button',{type:'button',class:'chip'+(pick[i]?(pick[i]===d.best?' okc':' badc'):''),'aria-pressed':String(i===di),onclick:function(){di=i;draw();},text:'Data '+(i+1)+(pick[i]?(pick[i]===d.best?' ✓':' ✗'):'')}));});
+    host.append(tabs);var d=DS[di],t=ti[di]||'batang';
+    host.append(el('div',{class:'kasus'},el('b',{text:'Pertanyaan: '}),document.createTextNode(d.q)));
+    var seg=el('div',{class:'seg',role:'group','aria-label':'Jenis grafik'});
+    TYPES.forEach(function(tp){seg.append(el('button',{type:'button','aria-pressed':String(t===tp[0]),onclick:function(){ti[di]=tp[0];draw();},text:tp[1]}));});
+    host.append(el('div',{class:'row'},seg),chart(d,t),el('p',{class:'qmeta',text:d.v[t]}));
+    var row=el('div',{class:'row'});
+    if(!pick[di])row.append(el('button',{class:'btn',type:'button',onclick:function(){pick[di]=t;draw();}},ic('check'),'Ini yang paling tepat'));
+    else row.append(el('div',{class:'fbk',style:'flex:1'},el('p',{class:'verdict '+(pick[di]===d.best?'ok':'bad'),text:pick[di]===d.best?'Benar.':'Belum tepat. Yang paling tepat: '+d.best+'.'}),document.createTextNode(d.v[d.best])));
+    host.append(row);
+    var nd=Object.keys(pick).length;
+    if(nd===DS.length){var ok=DS.filter(function(x,i){return pick[i]===x.best;}).length;host.append(el('div',{class:'infobox'},el('b',{text:'Skormu '+ok+' dari 4. '}),document.createTextNode('Pertanyaannya yang menentukan grafik: bandingkan kategori, ikuti waktu, lihat sebaran, atau lihat bagian.')),el('div',{class:'row'},el('button',{class:'btn line',type:'button',onclick:function(){pick={};ti={};di=0;draw();}},ic('replay'),'Ulangi')));}
+    else if(pick[di]&&di<DS.length-1)host.append(el('div',{class:'row'},el('button',{class:'btn tonal',type:'button',onclick:function(){di++;draw();}},'Data berikutnya')));
+  }
+  draw();
+})();
+
+/* ============ STASIUN D: Bengkel Grafik + sortir temuan ============ */
+(function(){
+  var host=$('#d-try');if(!host)return;
+  var A=92,B=98,s=90;
+  var rg=el('input',{type:'range',min:'0',max:'91',step:'1',value:String(s),'aria-label':'Titik awal sumbu tegak'}),sv0=el('b',{class:'num-mono'});
+  rg.addEventListener('input',function(){s=+rg.value;draw();});
+  var plot=el('div'),ro=el('div',{class:'readout'}),ins=el('div',{'aria-live':'polite'});
+  host.append(el('div',{class:'row'},el('span',{class:'qmeta',style:'margin:0',text:'Sumbu tegak mulai dari:'}),rg,sv0),plot,ro,ins);
+  function draw(){
+    sv0.textContent=String(s);
+    var W=360,H=210,x0=40,yb=180,top=20,top_v=100;function Y(v){return yb-(v-s)/(top_v-s)*(yb-top);}
+    var svg=sv('svg',{class:'plotsvg',viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Diagram batang Toko A dan Toko B dengan sumbu mulai dari '+s});
+    svg.append(sv('line',{x1:x0,y1:top-6,x2:x0,y2:yb,stroke:'var(--outline)'}),sv('line',{x1:x0,y1:yb,x2:W-10,y2:yb,stroke:'var(--outline)'}));
+    [s,Math.round((s+top_v)/2),top_v].forEach(function(v){var t=sv('text',{x:x0-6,y:Y(v)+4,'text-anchor':'end',style:'font-size:12px'});t.textContent=String(v);svg.append(t);});
+    [[A,'Toko A',90],[B,'Toko B',210]].forEach(function(b){svg.append(sv('rect',{x:b[2],y:Y(b[0]),width:70,height:yb-Y(b[0]),rx:4,fill:'var(--purple)'}));
+      var t=sv('text',{x:b[2]+35,y:Y(b[0])-6,'text-anchor':'middle',style:'font-size:14px;font-weight:700;fill:var(--text)'});t.textContent=String(b[0]);svg.append(t);
+      var l=sv('text',{x:b[2]+35,y:yb+18,'text-anchor':'middle',style:'font-size:13px'});l.textContent=b[1];svg.append(l);});
+    plot.innerHTML='';plot.append(svg);
+    var kes=(B-s)/(A-s);
+    ro.innerHTML='';ro.append(el('div',{class:'stat'},el('b',{text:fmt(kes,2)+'×'}),el('span',{text:'kesan: B tampak sekian kali A'})),el('div',{class:'stat'},el('b',{text:fmt(B/A,2)+'×'}),el('span',{text:'sebenarnya: B = sekian kali A'})));
+    ins.innerHTML='';ins.append(el('div',{class:'infobox'},el('b',{text:'Yang terlihat: '}),document.createTextNode(s===0?'dengan sumbu dari nol, kesan sama dengan kenyataan: B hanya sekitar 7% lebih banyak.':'dengan sumbu dari '+s+', selisih '+(B-A)+' pesanan tampak '+fmt(kes,1)+' kali lipat. Geser ke 0 untuk melihat perbandingan yang jujur.')));
+    
+  }
+  draw();
+})();
+(function(){
+  var host=$('#ds-try');if(!host)return;
+  var V=[320,280,350,410,520,460];
+  var S=[
+    {t:'Bulan 5 paling banyak pengunjung, yaitu 520.',ok:true,why:'Terbaca langsung dari grafik.'},
+    {t:'Pengunjung naik karena perpustakaan menambah kursi.',ok:false,why:'Grafik tidak memuat penyebab; itu dugaan yang perlu data lain.'},
+    {t:'Bulan 2 paling sedikit, yaitu 280.',ok:true,why:'Terbaca langsung dari grafik.'},
+    {t:'Bulan 7 pasti lebih dari 500 pengunjung.',ok:false,why:'Grafik tidak memuat masa depan, apalagi "pasti".'},
+    {t:'Pengunjung bulan 5 hampir dua kali bulan 2.',ok:true,why:'520 ÷ 280 ≈ 1,86, jadi "hampir dua kali" bisa diperiksa.'},
+    {t:'Semua mahasiswa makin rajin ke perpustakaan.',ok:false,why:'Grafik menghitung kunjungan, bukan orang. Satu orang bisa datang berkali-kali.',trap:true}];
+  var i=0,ans=[];
+  function mini(){var W=360,H=150,x0=24,x1=350,yb=120,mx=600;function X(j){return x0+(j+.5)*(x1-x0)/6;}function Y(v){return yb-v/mx*100;}
+    var svg=sv('svg',{class:'plotsvg',viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Grafik garis pengunjung bulan 1 sampai 6'});
+    svg.append(sv('line',{x1:x0,y1:yb,x2:x1,y2:yb,stroke:'var(--outline)'}),sv('polyline',{points:V.map(function(v,j){return X(j)+','+Y(v);}).join(' '),fill:'none',stroke:'var(--purple)','stroke-width':3}));
+    V.forEach(function(v,j){svg.append(sv('circle',{cx:X(j),cy:Y(v),r:3.5,fill:'var(--purple)'}));var t=sv('text',{x:X(j),y:Y(v)-8,'text-anchor':'middle',style:'font-size:12px;fill:var(--text)'});t.textContent=String(v);svg.append(t);
+      var l=sv('text',{x:X(j),y:yb+16,'text-anchor':'middle',style:'font-size:12px'});l.textContent='Bln '+(j+1);svg.append(l);});
+    return svg;}
+  function render(){
+    host.innerHTML='';host.append(mini());var box=el('div',{class:'swipe'});host.append(box);
+    if(i>=S.length){var ok=ans.filter(function(a){return a.ok;}).length;
+      box.append(el('div',{class:'infobox'},el('b',{text:'Skormu '+ok+' dari '+S.length+'. '}),document.createTextNode('Temuan yang baik menyebut apa, berapa, dan dibanding apa. Penyebab dan ramalan butuh data lain.')),
+        el('div',{class:'row'},el('button',{class:'btn tonal',type:'button',onclick:function(){i=0;ans=[];render();}},ic('replay'),'Ulangi')));return;}
+    var d=el('div',{class:'dots','aria-hidden':'true'});S.forEach(function(s,j){d.append(el('i',{class:(ans[j]?(ans[j].ok?'ok':'bad'):'')+(j===i?' cur':'')}));});
+    box.append(d,el('div',{class:'scard',style:'min-height:80px',text:S[i].t}));
+    var row=el('div',{class:'btnrow'}),out=el('div',{'aria-live':'polite'});
+    [[true,'Terbukti dari grafik','b-green'],[false,'Tidak terbukti','b-blue']].forEach(function(o){row.append(el('button',{class:'btn '+o[2],type:'button',onclick:function(){
+      var ok=o[0]===S[i].ok;ans[i]={ok:ok};$$('button',row).forEach(function(b){b.disabled=true;});
+      out.append(el('div',{class:'fbk'},el('p',{class:'verdict '+(ok?'ok':'bad'),text:(ok?'Benar. ':'Belum tepat. ')+(S[i].ok?'Terbukti':'Tidak terbukti')+(S[i].trap?' (jebakan).':'.')}),document.createTextNode(S[i].why)),
+        el('div',{class:'row'},el('button',{class:'btn',type:'button',onclick:function(){i++;render();}},i===S.length-1?'Lihat hasil':'Kalimat berikutnya')));}},o[1]));});
+    box.append(row,out);
+  }
+  render();
+})();
+/* ==KERANGKA-B== */
+/* ============ ZERO: tiga tebakan ============ */
+var ZQ=ISI.ZQ;
+(function(){
+  var host=$('#zero-q'),sum=$('#zero-sum');mem.zero.a=mem.zero.a||[];
+  function recount(){
+    var a=mem.zero.a,n=a.filter(function(x){return x;}).length;
+    if(n<ZQ.length){sum.innerHTML='';return;}
+    var ok=0,hz=0;a.forEach(function(x,i){if(x.ok)ok++;if(x.conf==='yakin'&&!x.ok)hz++;});
+    sum.innerHTML='';
+    sum.append(el('div',{class:'infobox'},el('b',{text:'Tebakanmu: '+ok+' dari '+ZQ.length+' tepat. '}),
+      document.createTextNode(hz?('Ada '+hz+' tebakan yang kamu tandai "Yakin" tetapi keliru. Itulah bagian yang paling layak kamu perhatikan di stasiun berikutnya.'):'Tidak ada tebakan yakin yang keliru. Tetap uji dirimu di stasiun berikutnya.')));
+    markDone('zero');
+  }
+  ZQ.forEach(function(q,i){
+    var saved=mem.zero.a[i];
+    var w=mcq({stem:(i+1)+'. '+q.stem,opts:q.opts,conf:true,saved:saved,onAnswer:function(r){mem.zero.a[i]=r;save();recount();}});
+    w.append(el('p',{class:'qmeta',text:'Dibuktikan di: '+q.pointer}));
+    host.append(w);
+  });
+  recount();
+})();
+
+/* ============ Cek cepat (2 soal per stasiun) ============ */
+var CEK=ISI.CEK;
+Object.keys(CEK).forEach(function(k){
+  var host=$('#'+k.toLowerCase()+'-cek');if(!host)return;
+  function check(){var n=0;CEK[k].forEach(function(q,i){if(mem.cek[k+i])n++;});if(n===CEK[k].length)markDone(k);}
+  CEK[k].forEach(function(q,i){host.append(mcq({stem:(i+1)+'. '+q.stem,opts:q.opts,saved:mem.cek[k+i],onAnswer:function(r){mem.cek[k+i]=r;save();check();}}));});
+  check();
+});
+
+/* ============ HERO: Feynman, tiga lensa, kasus, rekap ============ */
+(function(){
+  var f1e=$('#fy1'),f3=$('#fy3'),n3=$('#fy3n');
+  f1e.value=mem.fy.s1||'';f3.value=mem.fy.s3||'';
+  $$('[data-fyc]').forEach(function(c){c.checked=!!mem.fy.c[+c.getAttribute('data-fyc')];c.addEventListener('change',function(){mem.fy.c[+c.getAttribute('data-fyc')]=c.checked;save();});});
+  function sentences(s){return (s.match(/[^.!?]+[.!?]+/g)||(s.trim()?[s]:[])).length;}
+  function upd(){var n=sentences(f3.value);n3.textContent=f3.value.trim()?(n+' kalimat'+(n<=3?' (sudah ringkas)':' (masih lebih dari 3)')):'';checkHero();}
+  f1e.addEventListener('input',function(){mem.fy.s1=f1e.value;save();checkHero();});
+  f3.addEventListener('input',function(){mem.fy.s3=f3.value;save();upd();});
+  var lenses=ISI.LENSES;
+  var li=0,tb=$('#lens3-tabs'),bd=$('#lens3-body');
+  function drawL(){tb.innerHTML='';lenses.forEach(function(l,i){tb.append(el('button',{type:'button',class:'chip','aria-pressed':String(i===li),onclick:function(){li=i;drawL();},text:l[0]}));});bd.textContent=lenses[li][1];}
+  drawL();
+  var KQ=ISI.KQ;
+  var kh=$('#kasus-q'),sels=[];mem.kasus.a=mem.kasus.a||[];
+  KQ.forEach(function(k,i){var s=el('select',{'aria-label':k.q});s.append(el('option',{value:'',text:'Pilih jawaban'}));k.o.forEach(function(o,j){s.append(el('option',{value:String(j),text:o}));});
+    if(mem.kasus.a[i]!=null)s.value=String(mem.kasus.a[i]);s.addEventListener('change',function(){mem.kasus.a[i]=s.value===''?null:+s.value;save();});
+    var r=el('div',{class:'qrow2'},el('span',{text:(i+1)+'. '+k.q}),s,el('div',{class:'rs',style:'display:none'}));kh.append(r);sels.push({s:s,r:r.lastChild});});
+  function showKasus(){
+    KQ.forEach(function(k,i){var v=sels[i].s.value;var r=sels[i].r;if(v===''){r.style.display='none';return;}var ok=+v===k.c;r.style.display='block';r.className='rs '+(ok?'ok':'bad');r.textContent=(ok?'Tepat. ':'Belum tepat. ')+k.e;});
+    $('#kasus-lens').style.display='block';mem.kasus.checked=true;save();checkHero();
+  }
+  $('#kasus-check').addEventListener('click',showKasus);
+  var KL=ISI.KL;
+  var ki=0,kt=$('#kl-tabs'),kb=$('#kl-body'),ktx=$('#kl-text');ktx.value=mem.kasus.text||'';
+  function drawKL(){kt.innerHTML='';KL.forEach(function(l,i){kt.append(el('button',{type:'button',class:'chip','aria-pressed':String(i===ki),onclick:function(){ki=i;drawKL();},text:l[0]}));});kb.textContent=KL[ki][1];}
+  drawKL();ktx.addEventListener('input',function(){mem.kasus.text=ktx.value;save();});
+  if(mem.kasus.checked)showKasus();
+  function checkHero(){if((mem.fy.s1||'').trim().length>=40&&mem.kasus.checked)markDone('hero');}
+  upd();
+  var rc=$('#zero-recap');
+  if(mem.zero.a&&mem.zero.a.length===3&&mem.zero.a.every(Boolean)){
+    var ok=mem.zero.a.filter(function(x){return x.ok;}).length;
+    rc.append(el('div',{class:'infobox'},el('b',{text:'Tebakan awalmu: '+ok+' dari 3 tepat. '}),document.createTextNode('Bandingkan dengan yang kamu pahami sekarang. Bagian mana yang berubah?')));
+  }
+  var ai=$('#ailog'),AIQ=ISI.AIQ;
+  AIQ.forEach(function(t,i){var cb=el('input',{type:'checkbox'});cb.checked=!!mem.log[i];cb.addEventListener('change',function(){mem.log[i]=cb.checked;save();});ai.append(el('label',{class:'chk'},cb,el('span',{text:t})));});
+  var tk=$('#ticket');tk.value=mem.ticket||'';tk.addEventListener('input',function(){mem.ticket=tk.value;save();});
+})();
+
+
+/* ============ KOMPAS: latihan mundur dari keputusan ============ */
+(function(){
+  var host=$('#compass-try');if(!host)return;
+  var S=ISI.KOMPAS.S;
+  var show=ISI.KOMPAS.show,n=0;
+  function draw(){
+    host.innerHTML='';
+    host.append(el('div',{class:'kasus'},el('b',{text:'Skenario: '}),document.createTextNode(ISI.KOMPAS.skenario)));
+    if(n<5)host.append(el('p',{class:'stem',style:'font-weight:500'},'Ketuk langkah yang terjadi ',el('b',{text:'paling akhir'}),' dulu, lalu mundur satu per satu sampai langkah pertama.'));
+    if(n>0){var ol=el('ol',{class:'chosen'});for(var i=0;i<n;i++){ol.append(el('li',{},el('b',{text:S[i].t}),el('br'),document.createTextNode(S[i].w)));}host.append(ol);}
+    if(n<5){
+      var box=el('div',{class:'stepbtns'});
+      var msg=el('div',{class:'hintbox','aria-live':'polite',style:'display:none'});
+      show.forEach(function(idx){if(idx<n)return;
+        var b=el('button',{type:'button',class:'chip',text:S[idx].t});
+        b.addEventListener('click',function(){
+          if(idx===n){n++;draw();}
+          else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');msg.textContent='Belum. Tanyakan: langkah mana yang terjadi paling akhir dari yang tersisa? Kita sedang mundur dari akhir.';msg.style.display='block';}});
+        box.append(b);});
+      host.append(box,msg);
+    }else{
+      host.append(el('div',{class:'infobox'},el('b',{text:'Hasilnya: '}),document.createTextNode(ISI.KOMPAS.hasil)),
+        el('div',{class:'row'},el('button',{class:'btn tonal',type:'button',onclick:function(){n=0;draw();}},ic('replay'),'Ulangi')));
+    }
+  }
+  draw();
+})();
+
+/* ============ KAMUS MINI ============ */
+(function(){
+  var G=ISI.GLOSS;
+  GLOSS=G;
+  var list=$('#gloss-list'),q=$('#gloss-q');
+  function draw(f){list.innerHTML='';var n=0;
+    G.forEach(function(g){if(f&&(g[0]+' '+g[1]).toLowerCase().indexOf(f)<0)return;n++;list.append(el('div',{},el('dt',{text:g[0]}),el('dd',{text:g[1]})));});
+    if(!n)list.append(el('p',{class:'qmeta',text:'Istilah tidak ditemukan. Coba kata lain.'}));}
+  q.addEventListener('input',function(){draw(q.value.trim().toLowerCase());});draw('');
+})();
+
+/* ============ TEBAK DULU (sebelum penjelasan) ============ */
+(function(){
+  mem.tebak=mem.tebak||{};
+  var T=ISI.TEBAK;
+  Object.keys(T).forEach(function(k){var host=$('#'+k+'-tebak');if(!host)return;
+    host.append(mcq({stem:T[k].stem,opts:T[k].opts,conf:true,saved:mem.tebak[k],onAnswer:function(r){mem.tebak[k]=r;save();}}));});
+})();
+
+/* ============ CONTOH JAWABAN FEYNMAN ============ */
+(function(){
+  var host=$('#fy-ex'),f1=$('#fy1');if(!host||!f1)return;
+  var EX=ISI.FY_EX;
+  function wc(s){return (String(s).trim().match(/\S+/g)||[]).length;}
+  function draw(){host.innerHTML='';var n=wc(f1.value);
+    if(!mem.fy.ex){var b=el('button',{class:'btn tonal small',type:'button'},'Lihat contoh jawaban yang baik');b.disabled=n<40;
+      b.addEventListener('click',function(){mem.fy.ex=true;save();draw();});
+      host.append(el('div',{class:'row'},b,el('span',{class:'qmeta',style:'margin:0',text:n<40?('Tulis minimal 40 kata dulu ('+n+'/40).'):'Sudah cukup. Bandingkan dengan contoh.'})));}
+    else{host.append(el('div',{class:'model'},el('b',{text:'Contoh jawaban yang baik. '}),document.createTextNode(EX)),
+      el('p',{class:'qmeta',style:'margin-top:6px',text:'Bandingkan: apa yang ada di contoh tetapi belum ada di tulisanmu? Perbaiki tulisanmu sendiri, jangan menyalin.'}));}}
+  f1.addEventListener('input',function(){if(!mem.fy.ex)draw();});draw();
+})();
+
+/* ============ KUIS 20 soal ============ */
+(function(){
+  var root=$('#quiz-root');
+  function newSeed(){return Math.floor(Math.random()*2147483000)+1;}
+  var Q=mem.quiz;if(!Q||!Q.seed){Q=mem.quiz={seed:newSeed(),run:1,ans:[],i:0,view:'q'};save();}
+  var qs=buildQuiz(Q.seed);
+  function tally(){var ok=0,pts=0,tiers={1:[0,0],2:[0,0],3:[0,0],4:[0,0]},answered=0;
+    qs.forEach(function(q,i){var a=Q.ans[i];tiers[q.tier][1]++;if(a){answered++;if(a.ok){ok++;tiers[q.tier][0]++;pts+=a.hint?0.5:1;}}});return {ok:ok,pts:pts,tiers:tiers,answered:answered};}
+  function render(){
+    root.innerHTML='';var t=tally();
+    var head=el('div',{class:'qz-head'});
+    head.append(el('span',{class:'qz-kode',text:'Kode soal: '+Q.seed.toString(36).toUpperCase()+' · percobaan '+Q.run}),el('span',{class:'qmeta',text:'Terjawab '+t.answered+'/20 · benar '+t.ok}));
+    root.append(head);
+    var dots=el('div',{class:'qdots',role:'group','aria-label':'Loncat ke soal'});
+    qs.forEach(function(q,i){var a=Q.ans[i];dots.append(el('button',{type:'button',class:(a?(a.ok?'ok':'bad'):'')+(Q.view==='q'&&i===Q.i?' cur':''),'aria-label':'Soal '+(i+1),onclick:function(){Q.view='q';Q.i=i;save();render();},text:String(i+1)}));});
+    root.append(dots);
+    if(Q.view==='r'){renderResult(t);return;}
+    var q=qs[Q.i],saved=Q.ans[Q.i];
+    var w=mcq({meta:'Soal '+q.n+' dari 20',tier:q.tier,tierName:q.tierName,stem:q.stem,opts:q.opts,hint:q.hint,hintCost:true,conf:true,saved:saved,
+      onAnswer:function(r){Q.ans[Q.i]=r;var t2=tally();if(t2.answered===20){mem.best=Math.max(mem.best||0,t2.ok);}save();if(t2.answered===20)markDone('quiz');renderNav(w,true);refreshHead();}});
+    root.append(w);
+    renderNav(w,!!saved);
+    function refreshHead(){var t3=tally();head.lastChild.textContent='Terjawab '+t3.answered+'/20 · benar '+t3.ok;var b=dots.children[Q.i];var a=Q.ans[Q.i];if(a)b.className=(a.ok?'ok':'bad')+' cur';}
+  }
+  var navHost=null;
+  function keep(){var w=$('#quiz-wrap');if(w&&w.getBoundingClientRect().top<70)w.scrollIntoView({block:'start'});}
+  function renderNav(w,answered){
+    if(navHost&&navHost.parentNode)navHost.parentNode.removeChild(navHost);
+    navHost=el('div',{class:'row'});
+    navHost.append(el('button',{class:'btn line',type:'button',onclick:function(){if(Q.i>0){Q.i--;save();render();keep();}}},'Sebelumnya'));
+    if(Q.i<19){var nx=el('button',{class:'btn',type:'button',onclick:function(){Q.i++;save();render();keep();}},'Soal berikutnya');nx.disabled=!answered;navHost.append(nx);}
+    var all=tally().answered===20;
+    if(all)navHost.append(el('button',{class:'btn tonal',type:'button',onclick:function(){Q.view='r';save();render();}},ic('flag'),'Lihat hasil'));
+    else if(Q.i===19&&answered)navHost.append(el('span',{class:'qmeta',text:'Masih ada soal yang belum dijawab. Ketuk nomor soal di atas untuk melompat.'}));
+    root.append(navHost);
+  }
+  function renderResult(t){
+    var box=el('div');root.append(box);
+    var hh=el('h3',{text:'Hasil latihanmu'});box.append(hh);if(t.ok>=16){setTimeout(function(){var rc=hh.getBoundingClientRect();burst(rc.left+80,rc.top+10,40);},200);}
+    var g=el('div',{class:'res-grid'});
+    g.append(el('div',{class:'card'},el('div',{class:'big',text:t.ok+' / 20'}),el('span',{class:'qmeta',text:'jawaban benar'})));
+    g.append(el('div',{class:'card'},el('div',{class:'big',text:String(t.pts).replace('.',',')+' / 20'}),el('span',{class:'qmeta',text:'skor latihan (petunjuk mengurangi 0,5)'})));
+    var tg=el('div',{class:'card',style:'grid-column:span 2'});tg.append(el('b',{text:'Per jenjang'}));
+    [1,2,3,4].forEach(function(k){var d=t.tiers[k],pc=d[1]?d[0]/d[1]*100:0;tg.append(el('div',{style:'margin-top:6px;font-size:.88rem'},document.createTextNode('Jenjang '+k+' ('+TIER_NAME[k]+'): '+d[0]+'/'+d[1]),el('div',{class:'bar'},el('i',{style:'width:'+pc+'%'}))));});
+    g.append(tg);box.append(g);
+    /* kalibrasi */
+    var cal={ragu:[0,0],cukup:[0,0],yakin:[0,0],none:[0,0]},danger=[];
+    qs.forEach(function(q,i){var a=Q.ans[i];if(!a)return;var k=a.conf||'none';cal[k][1]++;if(a.ok)cal[k][0]++;else if(a.conf==='yakin'){var mis=q.opts[a.c].mis;danger.push({n:q.n,mis:mis});}});
+    var ct=el('table'),th=el('thead');th.append(el('tr',{},el('th',{text:'Keyakinan'}),el('th',{text:'Soal'}),el('th',{text:'Benar'})));ct.append(th);var cb=el('tbody');
+    [['ragu','Ragu'],['cukup','Cukup yakin'],['yakin','Yakin'],['none','Tidak ditandai']].forEach(function(r){var d=cal[r[0]];cb.append(el('tr',{},el('td',{text:r[1]}),el('td',{text:String(d[1])}),el('td',{text:d[1]?Math.round(d[0]/d[1]*100)+'%':'–'})));});ct.append(cb);
+    box.append(el('h3',{style:'margin-top:14px',text:'Seberapa cocok yakinmu dengan hasilnya (kalibrasi)'}),el('div',{class:'tscroll'},ct));
+    var dz=el('div',{class:'infobox'});
+    if(danger.length){dz.append(el('b',{text:'Zona waspada: '}),document.createTextNode('kamu menandai "Yakin" tetapi keliru pada soal '+danger.map(function(d){return d.n;}).join(', ')+'. Salah kaprah yang perlu ditinjau: '+danger.map(function(d){return d.mis;}).filter(function(v,i,a){return v&&a.indexOf(v)===i;}).join('; ')+'.'));}
+    else if(cal.none[1]===20)dz.append(document.createTextNode('Kamu belum menandai keyakinan. Coba pada percobaan berikutnya untuk melihat seberapa akurat rasa yakinmu.'));
+    else dz.append(document.createTextNode('Tidak ada soal yang kamu jawab "Yakin" tetapi keliru. Rasa yakinmu cukup selaras dengan hasilnya.'));
+    box.append(dz);
+    /* tinjau */
+    var wrong=qs.filter(function(q,i){return Q.ans[i]&&!Q.ans[i].ok;});
+    box.append(el('h3',{style:'margin-top:14px',text:'Soal untuk ditinjau ulang ('+wrong.length+')'}));
+    if(!wrong.length)box.append(el('p',{text:'Semua benar. Coba ulangi dengan angka baru untuk memastikan pemahamanmu bukan kebetulan.'}));
+    wrong.forEach(function(q){var a=Q.ans[q.n-1];box.append(el('div',{class:'review'},el('b',{text:'Soal '+q.n+'. '}),document.createTextNode(q.stem),el('br'),el('span',{class:'qmeta',text:'Pilihanmu: '+q.opts[a.c].t}),el('br'),el('span',{class:'qmeta',text:'Jawaban benar: '+q.opts[q.correct].t}),el('br'),document.createTextNode(q.opts[q.correct].note),el('div',{class:'row'},el('button',{class:'btn line small',type:'button',onclick:function(){Q.view='q';Q.i=q.n-1;save();render();}},'Buka soal ini'))));});
+    box.append(el('div',{class:'row'},
+      el('button',{class:'btn',type:'button',onclick:function(){Q={seed:newSeed(),run:Q.run+1,ans:[],i:0,view:'q'};mem.quiz=Q;qs=buildQuiz(Q.seed);save();render();}},ic('replay'),'Ulangi dengan angka baru'),
+      el('button',{class:'btn line',type:'button',onclick:function(){Q.view='q';Q.i=0;save();render();}},'Kembali ke soal')));
+    box.append(el('p',{class:'qmeta',text:'Ini latihan untuk melihat pemahamanmu, bukan penilaian resmi.'}));
+  }
+  render();
+})();
+
+/* ============ TOMBOL AKTIVITAS BERIKUTNYA (Mode Kelas) ============ */
+(function(){var b=$('#next-act');if(!b)return;
+  b.addEventListener('click',function(){
+    var list=$$('.blk.try').filter(function(e){return e.offsetParent!==null;});
+    for(var i=0;i<list.length;i++){if(list[i].getBoundingClientRect().top>170){list[i].scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'});return;}}
+    window.scrollTo({top:0,behavior:REDUCE?'auto':'smooth'});
+  });
+})();
+
+/* ============ ISTILAH YANG BISA DIKETUK ============ */
+(function(){
+  var MAPT=ISI.MAPT;
+  var def={};GLOSS.forEach(function(g){def[g[0]]=g[1];});
+  var SKIP='[id$="-try"],[id$="-tebak"],[id$="-cek"],#zero-q,#zero-sum,#quiz-root,#kasus-q,#kasus-lens,#compass-try,#lens3-body,#kl-body,#b-tool,#d-flow,#zero-recap,#fy-ex,.fbk,.mcq,button,label,summary,code,h1,h2,h3,h4,.term';
+  ['zero','sta-a','sta-b','sta-c','sta-d','hero'].forEach(function(sid){
+    var sec=document.getElementById(sid);if(!sec)return;var used={};
+    $$('p,li,dd,td,.kasus',sec).forEach(function(blk){
+      if(blk.closest(SKIP))return;
+      var w=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT,null),nodes=[],n;while((n=w.nextNode()))nodes.push(n);
+      nodes.forEach(function(tn){
+        if(!tn.parentNode||tn.parentNode.closest(SKIP))return;
+        for(var i=0;i<MAPT.length;i++){var key=MAPT[i][0];if(used[key]||!def[MAPT[i][1]])continue;
+          var re=new RegExp('(^|[^A-Za-zÀ-ÿ])('+key+')(?![A-Za-zÀ-ÿ])','i'),m=re.exec(tn.nodeValue);if(!m)continue;
+          var start=m.index+m[1].length,after=tn.splitText(start);after.nodeValue=after.nodeValue;var rest=after.splitText(m[2].length);
+          var bt=el('button',{type:'button',class:'term','data-g':MAPT[i][1],'aria-label':m[2]+': lihat arti',text:m[2]});
+          after.parentNode.replaceChild(bt,after);used[key]=true;tn=rest;i=-1;}
+      });
+    });
+  });
+  var pop=$('#term-pop');
+  document.addEventListener('click',function(ev){
+    var t=ev.target.closest?ev.target.closest('.term'):null;
+    if(!t){if(!ev.target.closest('#term-pop'))pop.hidden=true;return;}
+    var g=t.getAttribute('data-g');pop.innerHTML='';pop.append(el('b',{text:g}),document.createTextNode(def[g]||''));pop.hidden=false;
+    var r=t.getBoundingClientRect(),pw=Math.min(320,window.innerWidth-32);
+    pop.style.left=Math.max(16,Math.min(r.left+window.scrollX,window.scrollX+window.innerWidth-pw-16))+'px';
+    pop.style.top=(r.bottom+window.scrollY+6)+'px';
+  });
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')pop.hidden=true;});
+})();
+
+
+/* ============ TABEL MENJADI DAFTAR DI PONSEL ============ */
+(function(){$$('.tscroll').forEach(function(w){var tb=w.querySelector('table');if(!tb||tb.classList.contains('nw')||w.closest('#quiz-root'))return;
+  var hs=$$('thead th',tb).map(function(h){return h.textContent.trim();});if(!hs.length)return;w.classList.add('stack');
+  $$('tbody tr',tb).forEach(function(tr){Array.prototype.forEach.call(tr.children,function(c,i){if(c.tagName==='TD'&&hs[i])c.setAttribute('data-label',hs[i]);});});});})();
+
+
+/* ============ DASBOR BELAJARMU ============ */
+(function(){
+  var ring=$('#dash-ring');if(!ring)return;
+  var C=2*Math.PI*27;ring.style.strokeDasharray=C.toFixed(1);
+  var SES=[['zero','A','B'],['C','D'],['hero','quiz']];
+  dashRefresh=function(){
+    var done=0,tot=7;['zero','A','B','C','D','hero','quiz'].forEach(function(k){if(mem.done[k])done++;});
+    ring.style.strokeDashoffset=(C*(1-done/tot)).toFixed(1);
+    $('#dash-ringtxt').textContent=done+'/'+tot;$('#dash-ringwrap').setAttribute('aria-label','Tonggak selesai: '+done+' dari '+tot);
+    $$('#dash-sesi li').forEach(function(li,i){var ks=SES[i],d=ks.filter(function(k){return mem.done[k];}).length;
+      li.querySelector('.ds-bar i').style.width=(d/ks.length*100)+'%';li.classList.toggle('full',d===ks.length);});
+    var ok=0;(mem.zero.a||[]).forEach(function(x){if(x&&x.ok)ok++;});var tb=mem.tebak||{};Object.keys(tb).forEach(function(k){if(tb[k]&&tb[k].ok)ok++;});
+    $('#dash-tebak').textContent=ok+'/7';
+    $('#dash-kuis').textContent=(mem.best!=null)?(mem.best+'/20'):'–';
+  };
+  dashRefresh();
+})();
+})();
+</script>
+</body>
+</html>
