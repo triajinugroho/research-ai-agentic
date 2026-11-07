@@ -262,7 +262,7 @@ print(f"SciPy       : {scipy.__version__}")
 ```python
 import pandas as pd
 
-# Memuat dataset nilai mahasiswa (disediakan di LMS)
+# Memuat dataset nilai mahasiswa (sintetis; folder datasets/ repositori atau LMS)
 df = pd.read_csv("nilai_mahasiswa_if.csv")
 
 # Tiga hal pertama yang SELALU dilakukan pada dataset baru

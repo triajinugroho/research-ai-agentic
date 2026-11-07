@@ -8,7 +8,7 @@
 | **Prasyarat** | Akun Google aktif |
 | **Sub-CPMK** | `PS-Sub-CPMK102-1` |
 | **Bobot** | 1,92% (bagian dari Observasi 25%) |
-| **Berkas data** | `nilai_mahasiswa_if.csv` (tersedia di LMS) |
+| **Berkas data** | [`nilai_mahasiswa_if.csv`](../datasets/nilai_mahasiswa_if.csv) (sintetis; juga diunggah ke LMS) |
 
 ---
 
@@ -29,7 +29,7 @@ Setelah menyelesaikan lab ini, mahasiswa mampu:
 1. Buka <https://colab.research.google.com> dan masuk dengan akun Google.
 2. Buat notebook baru: **File → New notebook**.
 3. Ganti namanya menjadi `Lab01_NIM_NamaLengkap`.
-4. Unduh `nilai_mahasiswa_if.csv` dari LMS UAI.
+4. Unduh [`nilai_mahasiswa_if.csv`](../datasets/nilai_mahasiswa_if.csv) dari folder `datasets/` repositori ini atau dari LMS UAI. Seluruh dataset lab dijelaskan di [Panduan Dataset](../datasets/README.md).
 
 > **Catatan tentang dataset.** Berkas `nilai_mahasiswa_if.csv` bersifat **sintetis** — dibuat menyerupai sebaran nilai nyata untuk keperluan latihan. Ia **tidak** menggambarkan mahasiswa sesungguhnya. Hal ini dinyatakan terbuka agar Anda terbiasa memeriksa asal-usul data sebelum menarik kesimpulan apa pun.
 

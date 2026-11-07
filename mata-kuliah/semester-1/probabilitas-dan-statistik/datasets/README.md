@@ -68,24 +68,24 @@ Katalog data terbuka lintas kementerian dan pemerintah daerah.
 
 ---
 
-## 3. Dataset yang Disediakan untuk Lab
+## 3. Dataset Latihan di Folder Ini
 
-Dataset berikut disiapkan dosen dan tersedia di LMS UAI. Seluruhnya berukuran kecil agar lab berjalan cepat.
+Delapan berkas berikut **ada di folder ini** dan dapat langsung dipakai. Seluruhnya **sintetis**: dibangkitkan oleh [`bangkitkan_dataset.py`](bangkitkan_dataset.py) dari *seed* tetap (2026), meniru pola yang wajar untuk konteks Indonesia, dan **bukan statistik resmi**. Menjalankan ulang skrip itu selalu menghasilkan berkas yang identik.
 
-| Berkas | Baris | Kolom Utama | Dipakai pada |
-|--------|-------|-------------|--------------|
-| `nilai_mahasiswa_if.csv` | 240 | nim, kelas, nilai_uts, nilai_uas, jam_belajar, asal_sekolah | Lab 01, 02, 03, 07, 11, 12, 14 |
-| `waktu_respons_server.csv` | 1.000 | timestamp, endpoint, waktu_ms, status_code | Lab 02, 07, 09 |
-| `bug_report_harian.csv` | 365 | tanggal, jumlah_bug, modul, prioritas | Lab 06 |
-| `email_spam_indonesia.csv` | 800 | teks, label (spam/ham) | Lab 05 |
-| `transjakarta_koridor.csv` | 1.200 | koridor, hari, jumlah_penumpang, cuaca | Lab 13 |
-| `harga_rumah_jabodetabek.csv` | 600 | luas_tanah, luas_bangunan, kamar, lokasi, harga_juta | Lab 14 |
-| `ab_test_fitur_checkout.csv` | 2.000 | user_id, grup, konversi, durasi_detik | Lab 12 |
-| `ispu_jakarta_2025.csv` | 365 | tanggal, stasiun, pm25, pm10, kategori | Lab 07, 10 |
+| Berkas | Baris | Kolom | Dipakai pada | Pola yang sengaja dibangun |
+|--------|------:|-------|--------------|----------------------------|
+| `nilai_mahasiswa_if.csv` | 240 | nim, kelas (IF26A/IF26H), nilai_uts, nilai_uas, jam_belajar, asal_sekolah | Lab 01, 02, 03, 07, 10, 11, 12, 13; Minggu 1–3, 5, 7, 10–14 | Jam belajar miring kanan; korelasi jam belajar–UAS ±0,5; selisih kecil antarkelas |
+| `waktu_respons_server.csv` | 1.000 | timestamp, endpoint, waktu_ms, status_code | Lab 02, 03, 07, 09, 11 | Lognormal (miring kanan); rata-rata ±220 ms, median ±195 ms |
+| `bug_report_harian.csv` | 365 | tanggal, jumlah_bug, modul, prioritas | Lab 06; Minggu 6 | Laju tidak konstan (hari kerja, minggu rilis) → *overdispersion* (var/mean ±1,6) |
+| `email_spam_indonesia.csv` | 800 | teks, label (spam/ham) | Lab 05 (Tantangan 1) | 35% spam; kata kunci khas tiap kelas dengan tumpang tindih |
+| `transjakarta_koridor.csv` | 1.200 | koridor, hari, jumlah_penumpang, cuaca | Lab 13 | Rata-rata berbeda antarkoridor; akhir pekan dan hujan menurunkan penumpang |
+| `harga_rumah_jabodetabek.csv` | 600 | luas_tanah, luas_bangunan, kamar, lokasi, harga_juta | Lab 14; Minggu 14 | Harga naik terhadap luas; lokasi sangat berpengaruh (R² luas saja sedang) |
+| `ab_test_fitur_checkout.csv` | 2.000 | user_id, grup (A/B), konversi, durasi_detik | Lab 12 | Konversi A ±8%, B ±11% |
+| `ispu_jakarta_2025.csv` | 365 | tanggal, stasiun, pm25, pm10, kategori | Latihan mandiri Minggu 7 dan 10 | PM2.5 lebih tinggi pada Juni–Oktober |
 
-> Seluruh dataset ini disusun dari data publik yang sudah diagregasi dan dianonimkan. Berkas `nilai_mahasiswa_if.csv` bersifat **sintetis** dan dibuat menyerupai sebaran nilai nyata — dipakai untuk latihan, tidak untuk menarik kesimpulan tentang mahasiswa sesungguhnya. Hal ini dinyatakan terbuka agar mahasiswa terbiasa memeriksa asal-usul data.
+> **Mengapa sintetis?** Agar setiap mahasiswa memperoleh angka yang sama, lab berjalan tanpa akses LMS, dan tidak ada data pribadi. Konsekuensinya, dataset ini **hanya untuk melatih teknik** — jangan menarik kesimpulan tentang mahasiswa, TransJakarta, atau pasar properti sungguhan darinya. Untuk proyek akhir dan klaim substantif, gunakan data resmi dari §2 (BPS, Satu Data Indonesia, Jakarta Open Data) dan catat tabel serta tahunnya.
 
----
+> **Catatan `nim`.** Bila dibaca biasa, `pd.read_csv` mengubah `nim` menjadi angka dan **membuang nol di depan** (`0102526001` → `102526001`). Ini contoh nyata "kolom yang tipenya tampak keliru" pada Lab 1. Perbaikannya: `pd.read_csv("nilai_mahasiswa_if.csv", dtype={"nim": str})`.
 
 ## 4. Memuat Data di Google Colab
 
@@ -95,7 +95,9 @@ Dataset berikut disiapkan dosen dan tersedia di LMS UAI. Seluruhnya berukuran ke
 import pandas as pd
 
 # Membaca CSV langsung dari tautan
-url = "https://raw.githubusercontent.com/<pengguna>/<repo>/main/nilai_mahasiswa_if.csv"
+# Berlaku bila repositori dapat diakses publik; bila tidak, pakai cara 4.2
+url = ("https://raw.githubusercontent.com/triajinugroho/research-ai-agentic/main/"
+       "mata-kuliah/semester-1/probabilitas-dan-statistik/datasets/nilai_mahasiswa_if.csv")
 df = pd.read_csv(url)
 print(df.shape)
 df.head()

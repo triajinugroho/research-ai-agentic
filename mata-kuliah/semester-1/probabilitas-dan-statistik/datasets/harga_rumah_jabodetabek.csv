@@ -1,0 +1,601 @@
+luas_tanah,luas_bangunan,kamar,lokasi,harga_juta
+69,69,2,Jakarta Selatan,2100
+146,123,3,Jakarta Selatan,4011
+247,181,6,Depok,2539
+245,213,6,Jakarta Selatan,7195
+176,169,6,Jakarta Timur,2984
+263,174,5,Jakarta Selatan,6228
+223,146,4,Jakarta Timur,3001
+98,97,3,Jakarta Timur,1677
+67,54,3,Depok,683
+149,162,6,Tangerang Selatan,2171
+98,99,2,Jakarta Timur,1708
+61,58,2,Jakarta Timur,1233
+92,59,3,Bogor,515
+48,47,2,Jakarta Selatan,1364
+122,111,3,Bogor,1019
+189,158,5,Jakarta Timur,3321
+156,147,5,Jakarta Selatan,4813
+104,71,2,Tangerang Selatan,1511
+127,150,3,Bogor,1226
+213,152,4,Tangerang Selatan,2718
+44,52,1,Depok,608
+218,155,3,Bogor,2254
+79,78,3,Tangerang Selatan,1598
+253,168,5,Depok,3156
+202,138,3,Jakarta Selatan,5819
+92,65,3,Depok,755
+118,80,1,Tangerang Selatan,2327
+62,65,2,Bogor,426
+118,118,3,Bekasi,1367
+124,89,4,Depok,1219
+154,174,5,Depok,2000
+151,107,2,Bogor,1191
+45,41,1,Jakarta Timur,949
+107,116,3,Tangerang Selatan,2307
+179,138,3,Depok,1938
+128,99,4,Bekasi,1112
+152,108,4,Tangerang Selatan,1711
+77,90,4,Bekasi,896
+101,96,4,Bekasi,1414
+370,241,7,Bekasi,3021
+80,54,3,Jakarta Selatan,1909
+163,145,3,Bekasi,2115
+166,160,4,Bogor,1601
+116,86,2,Depok,1178
+142,117,4,Tangerang Selatan,2589
+99,78,1,Bogor,948
+173,117,2,Depok,2034
+81,60,1,Depok,1198
+112,86,2,Tangerang Selatan,1434
+279,190,4,Bogor,1797
+81,93,3,Tangerang Selatan,1417
+168,131,5,Tangerang Selatan,2712
+213,175,4,Bekasi,2303
+328,217,7,Bekasi,3830
+200,157,3,Jakarta Selatan,4981
+154,123,4,Bogor,1636
+159,105,2,Tangerang Selatan,2499
+221,171,5,Tangerang Selatan,2552
+93,78,3,Jakarta Selatan,2307
+126,105,3,Bekasi,1243
+162,115,2,Tangerang Selatan,2073
+204,171,6,Depok,1897
+136,159,4,Tangerang Selatan,2082
+101,102,3,Bekasi,1278
+152,112,4,Bogor,1189
+257,184,6,Jakarta Timur,4336
+54,42,2,Tangerang Selatan,852
+179,186,5,Jakarta Selatan,6482
+51,63,1,Depok,715
+80,96,2,Jakarta Selatan,3020
+155,99,2,Jakarta Timur,2409
+110,115,3,Jakarta Selatan,3067
+107,89,3,Tangerang Selatan,1896
+204,137,4,Depok,2919
+111,125,4,Tangerang Selatan,1280
+111,107,2,Tangerang Selatan,1678
+50,38,1,Depok,621
+88,82,2,Bogor,614
+77,51,1,Depok,905
+150,111,3,Tangerang Selatan,2904
+75,86,3,Jakarta Timur,1706
+114,94,3,Tangerang Selatan,2167
+75,75,3,Bekasi,994
+137,132,3,Bogor,1185
+201,139,4,Jakarta Selatan,5492
+172,108,3,Jakarta Selatan,4619
+206,131,5,Jakarta Selatan,5104
+188,166,4,Depok,2468
+272,194,7,Bekasi,2462
+188,121,4,Bekasi,1742
+197,133,5,Jakarta Timur,2755
+84,77,3,Jakarta Timur,1435
+111,120,2,Bogor,870
+169,183,4,Bekasi,2320
+196,132,4,Depok,2703
+121,139,5,Jakarta Selatan,4703
+125,123,5,Jakarta Selatan,3406
+114,83,2,Tangerang Selatan,1701
+73,88,4,Bogor,552
+177,128,4,Tangerang Selatan,2351
+120,117,4,Bekasi,1452
+271,281,7,Bekasi,3255
+178,129,5,Bekasi,1725
+77,70,1,Bekasi,837
+100,66,1,Bogor,605
+91,70,1,Depok,1247
+177,115,4,Jakarta Timur,2189
+58,48,1,Tangerang Selatan,1027
+129,92,2,Depok,1310
+144,178,6,Tangerang Selatan,2263
+103,128,5,Tangerang Selatan,2344
+86,54,3,Depok,911
+128,105,2,Tangerang Selatan,1906
+111,87,1,Depok,1238
+90,67,3,Jakarta Selatan,2468
+137,87,2,Tangerang Selatan,1713
+245,171,4,Bekasi,2305
+204,128,3,Depok,1619
+171,150,4,Tangerang Selatan,2062
+127,107,3,Jakarta Timur,2834
+69,77,1,Jakarta Selatan,1714
+92,105,4,Depok,1917
+103,74,3,Jakarta Timur,2317
+91,82,3,Bekasi,1050
+95,68,3,Tangerang Selatan,1121
+199,149,4,Jakarta Selatan,5285
+54,56,1,Tangerang Selatan,952
+86,68,3,Bekasi,887
+109,95,3,Bogor,807
+40,37,1,Bogor,489
+191,139,4,Tangerang Selatan,2295
+239,235,6,Bogor,2537
+191,192,4,Bekasi,2506
+233,148,4,Jakarta Timur,3161
+184,125,4,Jakarta Timur,2978
+92,72,1,Bekasi,1046
+40,31,1,Jakarta Timur,943
+79,79,3,Tangerang Selatan,1089
+157,100,4,Bekasi,1317
+94,111,2,Jakarta Timur,2409
+237,150,5,Tangerang Selatan,2796
+167,117,2,Bekasi,1976
+51,49,1,Depok,952
+54,51,1,Jakarta Timur,817
+205,160,5,Depok,2159
+166,133,4,Depok,1884
+148,127,3,Jakarta Selatan,4158
+85,73,2,Jakarta Timur,1959
+90,84,2,Jakarta Selatan,3167
+156,146,4,Bekasi,1282
+147,161,6,Bekasi,1732
+181,126,4,Jakarta Timur,1874
+49,45,1,Tangerang Selatan,804
+115,100,4,Jakarta Selatan,2527
+95,66,1,Bogor,610
+87,67,1,Tangerang Selatan,1013
+110,82,1,Jakarta Selatan,3509
+188,135,4,Bekasi,1671
+65,63,3,Tangerang Selatan,1037
+112,93,4,Jakarta Selatan,3275
+70,62,2,Depok,1003
+58,58,1,Bekasi,570
+186,120,2,Tangerang Selatan,2394
+81,60,1,Bogor,785
+67,50,2,Jakarta Timur,1383
+142,134,4,Jakarta Selatan,5728
+63,47,1,Bekasi,665
+131,93,4,Bekasi,1144
+79,78,2,Depok,728
+98,74,2,Jakarta Timur,1715
+360,238,7,Tangerang Selatan,5783
+205,196,7,Depok,2450
+129,124,5,Bekasi,1609
+111,99,3,Bekasi,1370
+123,101,2,Bogor,883
+187,186,6,Bekasi,1640
+51,52,1,Jakarta Timur,903
+151,144,5,Depok,2005
+85,69,2,Bekasi,797
+100,84,1,Jakarta Selatan,2546
+102,65,3,Tangerang Selatan,1250
+107,92,4,Tangerang Selatan,1562
+76,54,1,Jakarta Timur,1249
+117,126,3,Bekasi,1516
+160,184,6,Jakarta Selatan,5301
+332,210,5,Jakarta Selatan,8010
+174,109,4,Jakarta Selatan,3407
+81,54,2,Depok,1324
+134,116,3,Tangerang Selatan,1842
+130,108,4,Tangerang Selatan,2007
+309,274,7,Bekasi,3124
+71,80,2,Bogor,723
+55,65,2,Bogor,444
+64,57,1,Jakarta Selatan,1875
+97,64,2,Jakarta Timur,1549
+188,131,4,Jakarta Selatan,4207
+169,148,3,Depok,1935
+82,93,2,Bogor,754
+94,99,2,Bekasi,991
+176,130,4,Depok,2082
+130,108,4,Bekasi,1483
+128,131,5,Tangerang Selatan,2303
+130,159,5,Depok,1782
+190,126,3,Depok,2010
+49,48,1,Jakarta Timur,1228
+244,168,6,Jakarta Selatan,5478
+108,80,3,Jakarta Timur,1977
+103,123,3,Tangerang Selatan,1856
+239,173,4,Bekasi,2815
+165,123,3,Jakarta Selatan,5315
+217,228,7,Bekasi,2761
+127,91,3,Depok,1707
+90,78,3,Jakarta Timur,1397
+323,223,7,Bekasi,2672
+98,73,2,Depok,942
+61,67,3,Bogor,528
+59,62,1,Tangerang Selatan,901
+76,73,2,Bogor,578
+119,75,2,Depok,1345
+157,165,5,Bekasi,2539
+143,116,3,Jakarta Timur,3129
+93,87,1,Jakarta Timur,1955
+238,163,6,Depok,3195
+136,97,4,Depok,1443
+290,188,6,Depok,2371
+80,83,2,Depok,1130
+208,157,3,Bekasi,1683
+72,71,3,Bekasi,843
+132,156,4,Tangerang Selatan,2011
+131,161,5,Bekasi,1066
+217,146,5,Depok,2777
+136,125,4,Tangerang Selatan,2329
+76,73,3,Bogor,887
+318,216,6,Bogor,2711
+83,82,3,Jakarta Selatan,2212
+60,47,1,Depok,723
+189,149,5,Depok,1663
+132,135,3,Jakarta Selatan,2928
+90,74,3,Tangerang Selatan,1613
+91,95,3,Bekasi,890
+56,36,1,Depok,508
+124,80,2,Tangerang Selatan,1798
+78,61,3,Depok,744
+40,30,1,Bekasi,555
+108,94,3,Tangerang Selatan,2162
+89,56,1,Bekasi,833
+193,204,6,Depok,1938
+88,56,2,Jakarta Timur,1167
+291,204,6,Bogor,1716
+135,94,3,Tangerang Selatan,2445
+407,296,7,Depok,3392
+197,165,4,Jakarta Selatan,5505
+205,152,3,Bogor,1955
+115,137,4,Depok,1634
+116,137,3,Tangerang Selatan,2067
+121,105,2,Jakarta Selatan,4266
+123,82,1,Depok,1138
+129,132,5,Jakarta Selatan,3233
+174,141,3,Bogor,1465
+97,113,4,Jakarta Selatan,3469
+150,109,2,Tangerang Selatan,2058
+83,71,2,Tangerang Selatan,1269
+237,194,7,Bekasi,1922
+176,132,4,Jakarta Timur,2930
+129,127,5,Tangerang Selatan,2715
+73,53,1,Bekasi,772
+74,78,2,Bogor,678
+59,38,1,Jakarta Selatan,1812
+145,159,5,Bogor,1259
+116,101,3,Tangerang Selatan,1739
+161,185,5,Bekasi,1405
+40,30,1,Jakarta Selatan,953
+129,117,4,Jakarta Selatan,3088
+139,94,4,Jakarta Timur,2015
+211,147,4,Bogor,2026
+246,159,4,Bekasi,2670
+63,46,1,Bogor,524
+219,149,3,Jakarta Selatan,6041
+52,37,1,Bogor,482
+82,53,3,Jakarta Timur,1634
+301,217,7,Tangerang Selatan,4558
+187,180,6,Tangerang Selatan,3553
+114,98,3,Bogor,941
+188,153,3,Depok,1648
+152,132,3,Jakarta Timur,3442
+76,77,1,Bogor,569
+120,94,3,Jakarta Selatan,3417
+88,76,3,Bekasi,859
+183,133,3,Jakarta Selatan,4348
+72,80,3,Jakarta Timur,1634
+279,183,5,Depok,2487
+100,81,1,Jakarta Timur,1865
+79,88,4,Jakarta Timur,1680
+56,44,1,Depok,499
+54,61,3,Jakarta Timur,1050
+235,176,5,Depok,2437
+201,127,3,Depok,1520
+161,107,4,Bogor,878
+100,70,1,Bekasi,1003
+108,85,1,Bekasi,799
+292,212,7,Jakarta Timur,6638
+189,141,5,Tangerang Selatan,3118
+83,55,1,Tangerang Selatan,1140
+134,135,4,Jakarta Timur,2723
+75,56,1,Depok,571
+117,133,4,Depok,1053
+151,106,4,Jakarta Selatan,2752
+66,58,3,Bogor,676
+95,66,1,Bogor,793
+130,94,4,Bekasi,1118
+98,80,3,Tangerang Selatan,1205
+59,61,2,Jakarta Timur,1278
+66,48,1,Depok,786
+283,186,4,Depok,2790
+201,131,4,Bogor,2193
+148,107,4,Bekasi,1258
+58,51,2,Depok,568
+212,159,6,Bekasi,2178
+122,143,5,Bogor,1132
+114,114,2,Depok,1498
+153,111,2,Bogor,1495
+55,43,2,Bekasi,590
+73,76,2,Tangerang Selatan,1041
+188,130,5,Bogor,1335
+113,118,2,Jakarta Selatan,3677
+133,112,3,Depok,1322
+159,139,4,Tangerang Selatan,3885
+244,184,6,Bogor,1547
+50,57,2,Depok,771
+66,44,2,Jakarta Selatan,1697
+119,94,4,Jakarta Timur,2815
+85,104,2,Depok,1316
+88,107,3,Bekasi,1265
+242,162,6,Tangerang Selatan,3157
+108,79,3,Jakarta Timur,2077
+98,108,2,Jakarta Timur,2521
+92,80,3,Bekasi,905
+47,41,1,Bekasi,475
+160,124,4,Bogor,1279
+101,113,2,Depok,1261
+95,107,3,Depok,968
+99,105,4,Bogor,994
+102,78,1,Jakarta Selatan,3978
+88,72,3,Tangerang Selatan,1415
+139,102,4,Jakarta Selatan,4271
+150,118,4,Bogor,912
+159,154,5,Bogor,1088
+235,156,3,Jakarta Selatan,6182
+51,37,1,Jakarta Selatan,1382
+147,113,3,Bekasi,1925
+202,161,5,Bogor,1221
+145,92,2,Bogor,810
+148,101,2,Tangerang Selatan,2198
+202,153,5,Depok,2226
+91,83,3,Jakarta Selatan,2846
+65,47,1,Depok,640
+122,101,3,Bekasi,1097
+105,111,3,Depok,1486
+57,53,3,Tangerang Selatan,929
+127,87,3,Tangerang Selatan,1915
+40,40,1,Bogor,384
+207,151,3,Depok,2319
+129,97,3,Tangerang Selatan,2330
+122,138,3,Tangerang Selatan,2095
+194,128,5,Bekasi,2003
+85,79,1,Bogor,614
+142,102,4,Depok,1310
+82,92,2,Bekasi,1080
+150,150,5,Tangerang Selatan,2832
+85,64,1,Depok,785
+64,62,2,Jakarta Timur,1113
+131,109,3,Jakarta Selatan,2652
+208,162,6,Depok,1691
+184,130,4,Tangerang Selatan,3279
+87,58,2,Tangerang Selatan,1370
+172,117,3,Bekasi,1980
+188,118,4,Bekasi,1893
+188,224,5,Bogor,2057
+62,60,2,Depok,809
+102,64,3,Jakarta Timur,1469
+54,60,2,Tangerang Selatan,708
+154,134,5,Depok,1744
+106,101,3,Bekasi,1000
+131,116,4,Bogor,929
+145,148,4,Tangerang Selatan,1985
+116,111,3,Tangerang Selatan,1778
+82,69,3,Depok,1046
+100,73,1,Tangerang Selatan,1352
+78,67,2,Jakarta Timur,1037
+48,46,1,Bekasi,574
+115,86,3,Jakarta Selatan,3114
+62,68,2,Depok,956
+93,78,2,Bekasi,1163
+98,102,3,Tangerang Selatan,1266
+44,30,1,Jakarta Selatan,991
+305,207,6,Jakarta Selatan,7764
+155,137,5,Tangerang Selatan,2248
+87,57,1,Tangerang Selatan,1165
+181,122,2,Bogor,1662
+187,199,6,Jakarta Timur,4743
+135,157,5,Tangerang Selatan,2721
+104,90,3,Bogor,989
+127,112,4,Bekasi,1407
+139,103,4,Tangerang Selatan,1941
+424,298,7,Bogor,3897
+66,46,2,Bogor,532
+43,34,2,Depok,482
+86,73,2,Jakarta Selatan,2935
+146,155,4,Jakarta Selatan,5053
+75,78,2,Bogor,546
+150,129,3,Bekasi,1902
+188,145,3,Tangerang Selatan,4012
+276,191,6,Tangerang Selatan,3304
+212,154,5,Jakarta Selatan,6359
+154,175,5,Bekasi,1461
+152,155,5,Tangerang Selatan,2905
+104,78,1,Jakarta Timur,1834
+98,62,1,Tangerang Selatan,1617
+67,65,1,Bogor,679
+74,86,3,Tangerang Selatan,1333
+96,82,1,Tangerang Selatan,2290
+40,32,1,Jakarta Selatan,1072
+40,44,1,Jakarta Timur,919
+150,123,4,Jakarta Timur,3134
+221,165,4,Tangerang Selatan,3105
+154,114,4,Jakarta Selatan,3243
+90,60,3,Jakarta Selatan,2498
+70,46,1,Tangerang Selatan,1180
+112,92,3,Jakarta Timur,2124
+194,131,4,Tangerang Selatan,2994
+83,77,1,Bekasi,1085
+64,60,1,Tangerang Selatan,929
+119,149,4,Depok,1239
+51,52,1,Jakarta Selatan,2076
+177,156,5,Jakarta Selatan,4795
+91,77,2,Jakarta Timur,1478
+185,120,3,Depok,1943
+40,30,1,Jakarta Selatan,1158
+58,69,2,Bogor,732
+207,165,6,Depok,2775
+238,157,4,Jakarta Timur,4527
+137,138,3,Depok,1331
+69,43,2,Bogor,449
+148,102,4,Bogor,982
+90,93,4,Jakarta Timur,2000
+149,94,2,Tangerang Selatan,2004
+109,77,1,Jakarta Selatan,3588
+222,164,6,Jakarta Selatan,6118
+89,82,1,Bekasi,820
+98,61,3,Jakarta Timur,1314
+142,132,3,Tangerang Selatan,1826
+119,85,1,Jakarta Timur,2165
+46,57,2,Tangerang Selatan,1007
+156,148,4,Tangerang Selatan,2796
+147,111,2,Jakarta Timur,2439
+154,123,5,Jakarta Timur,2341
+64,73,2,Tangerang Selatan,1313
+118,120,4,Bekasi,1214
+147,94,3,Depok,2309
+98,92,3,Bogor,650
+55,41,1,Tangerang Selatan,643
+102,68,2,Depok,985
+124,81,2,Bekasi,1536
+255,189,4,Bekasi,2287
+107,125,3,Bogor,1005
+169,137,3,Depok,1565
+181,174,4,Tangerang Selatan,2337
+78,89,3,Bogor,724
+81,55,3,Depok,901
+134,144,3,Bogor,1173
+299,189,4,Tangerang Selatan,4637
+190,136,3,Bekasi,1640
+246,196,7,Jakarta Selatan,5624
+106,88,3,Jakarta Timur,2470
+102,83,1,Jakarta Selatan,2791
+169,132,4,Depok,1833
+125,110,4,Jakarta Timur,1565
+51,58,1,Bogor,467
+102,73,1,Depok,1310
+217,152,5,Bekasi,2489
+180,137,3,Bekasi,1770
+136,149,5,Jakarta Timur,3235
+117,102,4,Bekasi,1369
+109,72,1,Tangerang Selatan,1614
+144,174,6,Jakarta Selatan,4082
+98,115,4,Jakarta Timur,2282
+80,95,3,Bogor,886
+103,97,4,Depok,1032
+169,180,5,Bogor,1619
+153,106,4,Bekasi,1695
+103,74,2,Jakarta Selatan,3654
+78,59,2,Tangerang Selatan,1108
+177,121,4,Tangerang Selatan,2591
+73,54,3,Bogor,488
+113,125,3,Jakarta Timur,2437
+268,171,6,Bekasi,2959
+118,81,1,Depok,1229
+210,134,5,Jakarta Selatan,4704
+114,101,4,Depok,1595
+150,133,4,Bogor,942
+177,143,4,Depok,1926
+267,188,4,Jakarta Selatan,6387
+64,62,1,Bekasi,764
+152,146,3,Bekasi,1394
+175,181,4,Bekasi,2513
+169,189,5,Tangerang Selatan,2742
+40,30,1,Jakarta Selatan,1214
+103,77,1,Jakarta Timur,1883
+70,79,1,Depok,928
+116,103,4,Bekasi,1029
+147,99,4,Bekasi,1409
+111,88,4,Tangerang Selatan,1427
+164,103,3,Depok,2004
+127,89,4,Jakarta Timur,2107
+226,147,3,Depok,1888
+137,151,5,Depok,1497
+153,125,4,Depok,1454
+147,98,3,Tangerang Selatan,2293
+282,236,7,Tangerang Selatan,5309
+91,94,4,Depok,1100
+133,108,4,Depok,1401
+113,78,2,Depok,939
+118,88,4,Bogor,1115
+139,93,4,Bogor,912
+269,170,6,Jakarta Timur,4892
+122,102,2,Jakarta Selatan,2955
+217,137,5,Bekasi,1783
+225,142,3,Jakarta Selatan,8799
+53,43,1,Tangerang Selatan,814
+67,50,1,Bekasi,675
+266,169,5,Bogor,1583
+66,67,1,Tangerang Selatan,1078
+146,96,4,Jakarta Timur,2894
+143,140,5,Jakarta Timur,2718
+254,160,6,Jakarta Selatan,5965
+70,69,2,Tangerang Selatan,1469
+161,115,4,Bekasi,1925
+40,34,1,Jakarta Timur,1244
+40,37,1,Jakarta Timur,1040
+79,71,2,Jakarta Timur,1202
+53,56,1,Jakarta Selatan,1627
+156,149,3,Depok,1783
+90,98,2,Jakarta Timur,2130
+108,119,4,Bekasi,1417
+182,135,5,Bogor,1220
+145,98,2,Jakarta Selatan,3609
+102,70,2,Bekasi,804
+93,80,1,Depok,1052
+243,152,3,Jakarta Timur,3204
+167,134,5,Jakarta Timur,2509
+40,30,1,Bekasi,398
+141,117,2,Jakarta Selatan,3253
+142,96,2,Depok,1201
+109,84,2,Depok,984
+65,61,2,Jakarta Selatan,2378
+153,113,3,Bogor,1027
+163,122,4,Depok,1814
+115,101,3,Depok,1432
+183,117,4,Tangerang Selatan,2808
+154,111,2,Depok,1910
+98,71,2,Jakarta Timur,2130
+179,126,5,Jakarta Selatan,4888
+40,30,1,Tangerang Selatan,610
+149,169,6,Tangerang Selatan,2330
+75,56,1,Jakarta Timur,1150
+65,59,3,Tangerang Selatan,999
+81,56,1,Tangerang Selatan,1221
+91,108,4,Jakarta Selatan,3208
+185,220,7,Bekasi,2272
+79,69,3,Depok,1079
+130,112,2,Bogor,956
+48,32,2,Bogor,336
+80,65,3,Bogor,553
+104,98,4,Depok,1429
+156,161,4,Bogor,1791
+148,184,6,Depok,1911
+40,40,1,Jakarta Selatan,1254
+160,110,2,Depok,1476
+49,52,2,Jakarta Selatan,1553
+85,75,2,Bekasi,789
+158,129,4,Bekasi,1400
+146,109,2,Bogor,1225
+221,158,6,Depok,2476
+89,73,3,Depok,931
+40,30,1,Bogor,229
+166,149,4,Jakarta Timur,3426
+264,183,4,Depok,2994
+335,315,7,Jakarta Timur,5218
+41,30,1,Jakarta Selatan,1202
+242,159,5,Depok,1713
+114,87,2,Depok,1347
+249,208,7,Depok,2745
+83,102,4,Tangerang Selatan,995
+98,111,3,Bekasi,1096
+138,99,4,Bekasi,1378
+239,151,4,Jakarta Selatan,6855
+148,105,3,Bekasi,1328
+117,79,2,Depok,1234
+173,128,5,Depok,2477
+80,51,1,Jakarta Selatan,2183
