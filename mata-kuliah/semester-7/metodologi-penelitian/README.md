@@ -24,6 +24,26 @@
 
 ---
 
+## Mulai di Sini — untuk Mahasiswa
+
+| Langkah | Buka | Untuk apa |
+|:-------:|------|-----------|
+| 1 | [RPS](01-rps/rps-metodologi-penelitian.md) | Jadwal 16 minggu, Sub-CPMK, dan bobot penilaian. Baca sekali di awal semester. |
+| 2 | [Modul minggu ini](03-modules/) | Bahan pra-kelas, kegiatan kelas, dan tugas pasca-kelas. Nama berkas mengikuti nomor minggu (`week-NN-…`). |
+| 3 | [Lokakarya minggu ini](04-labs/) | Lembar kerja yang membangun proposal penelitian Anda sedikit demi sedikit. |
+| 4 | [Rencana Tugas Mahasiswa](02-rtm/rtm-metodologi-penelitian.md) | Rincian setiap tugas, tenggat, dan cara pengumpulan. |
+| 5 | [Kisi-kisi UTS](05-assessments/kisi-kisi-uts.md) · [Kisi-kisi UAS](05-assessments/kisi-kisi-uas.md) | Cakupan, bentuk soal, dan cetak biru butir ujian. |
+| 6 | [Buku ajar](06-buku-ajar/00-halaman-depan.md) | Penjelasan lengkap dan Latihan Soal per bab. |
+| ★ | [Panduan proyek](05-assessments/project-guidelines.md) | Proposal penelitian akhir (Bab 14 buku ajar) dan rubriknya. |
+
+**Tiga aturan yang paling sering ditanyakan:**
+
+1. AI boleh dipakai sebagai mitra kerja di luar ujian, dengan **AI Usage Log**; setiap rujukan yang disarankan AI wajib diverifikasi sendiri ke sumber aslinya ([kerangka asesmen](05-assessments/assessment-framework.md)).
+2. **UTS dan UAS bersifat *closed book* dan tanpa AI** dalam bentuk apa pun.
+3. Nilai akhir dikonversi dengan [skala resmi UAI](../../00-pedoman-obe/konversi-nilai.md) (lulus minimal C, 55,00).
+
+---
+
 ## Identitas Mata Kuliah
 
 | Aspek | Keterangan |

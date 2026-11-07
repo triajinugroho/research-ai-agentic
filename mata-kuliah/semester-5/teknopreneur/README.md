@@ -7,6 +7,26 @@
 
 ---
 
+## Mulai di Sini — untuk Mahasiswa
+
+| Langkah | Buka | Untuk apa |
+|:-------:|------|-----------|
+| 1 | [RPS](01-rps/rps-teknopreneur.md) | Jadwal 16 minggu, Sub-CPMK, dan bobot penilaian. Baca sekali di awal semester. |
+| 2 | [Modul minggu ini](03-modules/) | Bahan pra-kelas, kegiatan kelas, dan tugas pasca-kelas. Nama berkas mengikuti nomor minggu (`week-NN-…`). |
+| 3 | [Studio minggu ini](04-labs/) | Lembar kerja studio untuk kelompok; hasilnya menjadi bagian dari portofolio usaha. |
+| 4 | [Rencana Tugas Mahasiswa](02-rtm/rtm-teknopreneur.md) | Rincian setiap tugas, tenggat, dan cara pengumpulan. |
+| 5 | [Kisi-kisi UTS](05-assessments/kisi-kisi-uts.md) · [Kisi-kisi UAS](05-assessments/kisi-kisi-uas.md) | Cakupan, bentuk soal, dan cetak biru butir ujian. |
+| 6 | [Buku ajar](06-buku-ajar/00-halaman-depan.md) | Penjelasan lengkap dan Latihan Soal per bab. |
+| ★ | [Panduan proyek](05-assessments/project-guidelines.md) | Satu usaha sepanjang semester: milestone, wawancara pelanggan, MVP, dan *Demo Day*. |
+
+**Tiga aturan yang paling sering ditanyakan:**
+
+1. AI boleh dipakai sebagai mitra kerja di luar ujian, dengan **AI Usage Log**; wawancara pelanggan **wajib** dilakukan sendiri dengan manusia sungguhan ([kerangka asesmen](05-assessments/assessment-framework.md)).
+2. **UTS dan UAS bersifat *closed book* dan tanpa AI** dalam bentuk apa pun.
+3. Nilai akhir dikonversi dengan [skala resmi UAI](../../00-pedoman-obe/konversi-nilai.md) (lulus minimal C, 55,00).
+
+---
+
 ## Identitas Ringkas
 
 | Aspek | Keterangan |

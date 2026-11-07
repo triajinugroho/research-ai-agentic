@@ -10,6 +10,26 @@ Materi kuliah lengkap untuk mata kuliah **Probabilitas dan Statistik** Program S
 
 ---
 
+## Mulai di Sini — untuk Mahasiswa
+
+| Langkah | Buka | Untuk apa |
+|:-------:|------|-----------|
+| 1 | [RPS](01-rps/rps-probabilitas-dan-statistik.md) | Jadwal 16 minggu, Sub-CPMK, dan bobot penilaian. Baca sekali di awal semester. |
+| 2 | [Modul minggu ini](03-modules/) | Bahan pra-kelas, kegiatan kelas, dan tugas pasca-kelas. Nama berkas mengikuti nomor minggu (`week-NN-…`). |
+| 3 | [Lab minggu ini](04-labs/) + [dataset](datasets/README.md) | Kerjakan di Google Colab. Delapan dataset latihan ada di `datasets/` (sintetis, untuk melatih teknik). |
+| 4 | [Rencana Tugas Mahasiswa](02-rtm/rtm-probabilitas-dan-statistik.md) | Rincian setiap tugas, tenggat, dan cara pengumpulan. |
+| 5 | [Kisi-kisi UTS](05-assessments/kisi-kisi-uts.md) · [Kisi-kisi UAS](05-assessments/kisi-kisi-uas.md) | Cakupan, bentuk soal, dan cetak biru butir ujian. |
+| 6 | [Buku ajar](06-buku-ajar/00-halaman-depan.md) | Penjelasan lengkap dan Latihan Soal per bab. |
+| ★ | [Pendamping interaktif](#pendamping-interaktif) | Simulasi dan latihan mandiri di peramban; peta Minggu ↔ Bagian ada di bagian itu. |
+
+**Tiga aturan yang paling sering ditanyakan:**
+
+1. AI boleh dipakai sebagai mitra belajar di luar ujian, dengan **AI Usage Log** pada setiap tugas (lihat [Kebijakan AI](#kebijakan-ai)).
+2. **UTS dan UAS bersifat *closed book* dan tanpa AI** dalam bentuk apa pun.
+3. Nilai akhir dikonversi dengan [skala resmi UAI](../../00-pedoman-obe/konversi-nilai.md) (lulus minimal C, 55,00).
+
+---
+
 ## Tentang Mata Kuliah
 
 | Atribut | Detail |
