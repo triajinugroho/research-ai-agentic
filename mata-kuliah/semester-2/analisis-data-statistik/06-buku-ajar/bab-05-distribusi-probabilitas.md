@@ -1210,3 +1210,7 @@ Uji fungsi tersebut pada tiga dataset yang Anda generate sendiri: satu dari dist
 ---
 
 *Bab berikutnya: **Bab 6 --- Sampling dan Estimasi Parameter***
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

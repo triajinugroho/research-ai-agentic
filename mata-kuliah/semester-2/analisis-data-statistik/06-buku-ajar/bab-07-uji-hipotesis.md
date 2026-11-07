@@ -1075,3 +1075,7 @@ angkatan_2023 = [82, 87, 75, 91, 79, 85, 89, 77, 83, 90,
 
 *Bab ini merupakan bagian dari mata kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia.*
 *Penulis: Tri Aji Nugroho, S.T., M.T. | CPMK-4 (C4 — Analyze)*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -161,3 +161,7 @@ Huruf ditentukan dari Nilai (0-100) hasil formula di atas; kolom Total Skor adal
 ---
 
 *Dokumen ini merupakan bagian dari RPS mata kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

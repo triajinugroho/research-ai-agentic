@@ -671,3 +671,7 @@ Tulis kode Python untuk: (a) Mean, median, std, CV per tim. (b) Tim dengan varia
 ---
 
 *Bab berikutnya: **Bab 3 — Visualisasi Data dengan matplotlib dan seaborn***
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

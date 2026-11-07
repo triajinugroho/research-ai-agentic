@@ -570,3 +570,7 @@ Notebook Google Colab yang berisi **semua 10 step** dengan dokumentasi lengkap:
 2. **Adversarial testing**: Sengaja berikan AI informasi yang salah atau ambigu. Apakah AI mengoreksi Anda atau mengikuti instruksi yang salah? Dokumentasikan temuannya.
 
 3. **Reproducibility challenge**: Minta teman Anda menggunakan prompt yang sama dengan AI tool yang sama. Apakah hasilnya identik? Apa implikasi ini untuk reproducibility dalam penelitian?
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

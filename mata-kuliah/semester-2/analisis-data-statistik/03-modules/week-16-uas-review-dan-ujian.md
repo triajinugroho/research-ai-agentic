@@ -764,3 +764,7 @@ Ini bukan akhir perjalanan — ini adalah **fondasi** untuk langkah-langkah sela
 *Modul ini merupakan bagian dari mata kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia. Semester Genap 2025/2026.*
 
 *Semoga sukses di UAS dan di perjalanan selanjutnya!*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

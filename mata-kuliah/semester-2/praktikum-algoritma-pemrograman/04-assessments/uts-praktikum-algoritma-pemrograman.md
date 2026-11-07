@@ -225,3 +225,7 @@ Daftar (urut terbesar → terkecil):
 **"Man jadda wajada"** — Siapa bersungguh-sungguh, pasti berhasil.
 
 **~ Selamat Mengerjakan — Jazakumullahu khairan ~**
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

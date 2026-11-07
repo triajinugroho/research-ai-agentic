@@ -349,3 +349,7 @@ Kunci suksesnya terletak pada satu prinsip: **"Teach the thinking, not just the 
 ---
 
 *Dokumen ini adalah bagian dari materi kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia, Semester Genap 2025/2026.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

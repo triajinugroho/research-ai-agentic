@@ -1189,7 +1189,7 @@ Menambahkan fitur pencarian buku berdasarkan judul, penulis, dan kategori.
 
 **Contoh feedback yang baik:**
 
-```markdown
+````markdown
 # [BLOCKER] SQL Injection vulnerability
 Baris 45: `db.execute(f"SELECT * FROM users WHERE id = {user_id}")`
 
@@ -1219,7 +1219,7 @@ Baris 12: `studet_name` → `student_name`
 
 # [PRAISE]
 Nice use of dataclass di baris 5-15! Jauh lebih clean dari dict.
-```
+````
 
 ### 7.5.4 Pola Kolaborasi Tim di Indonesia
 

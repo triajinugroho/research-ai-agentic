@@ -829,3 +829,7 @@ Untuk setiap variabel, tentukan:
 ---
 
 *Bab berikutnya: **Bab 2 — Statistika Deskriptif dan Eksplorasi Data dengan Python***
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

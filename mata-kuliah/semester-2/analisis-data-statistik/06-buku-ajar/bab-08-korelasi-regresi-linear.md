@@ -1260,3 +1260,7 @@ Uji fungsi tersebut dengan minimal 2 dataset yang berbeda.
 ---
 
 *Bab berikutnya: **Bab 9 — Analisis Varians (ANOVA)***
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

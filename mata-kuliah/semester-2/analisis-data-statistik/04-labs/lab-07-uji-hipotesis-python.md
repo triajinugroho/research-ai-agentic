@@ -727,3 +727,7 @@ print("- Dengan d=0.5 dan sigma=10, dibutuhkan n ~65 per grup untuk power 80%")
 ---
 
 > **Peringatan:** p-value BUKAN probabilitas bahwa H0 benar. p-value adalah probabilitas mendapatkan data seextrem (atau lebih ekstrem) dari yang diamati, JIKA H0 benar. Selalu interpretasikan p-value dengan benar dan sertakan effect size dalam laporan Anda.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

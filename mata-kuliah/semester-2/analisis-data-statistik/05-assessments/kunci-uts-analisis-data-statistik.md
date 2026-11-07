@@ -632,3 +632,7 @@ Interpretasi praktis untuk manajemen TransJakarta: *"Berdasarkan sampel 16 perja
 
 > *"Fa'in 'amiltum fa-innamaa ta'maluuna li-anfusikum."*
 > (Maka jika kamu beramal, sesungguhnya kamu beramal untuk dirimu sendiri.)
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

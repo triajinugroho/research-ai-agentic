@@ -278,3 +278,7 @@ Detail lengkap: lihat `04-assessments/project-guidelines.md`
 ---
 
 *Pedoman ini berlaku untuk Semester Genap 2025/2026. Perubahan akan diinformasikan melalui platform komunikasi resmi.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

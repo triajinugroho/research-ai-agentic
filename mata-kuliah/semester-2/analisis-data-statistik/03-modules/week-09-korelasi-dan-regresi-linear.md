@@ -533,3 +533,7 @@ c. Adakah kemungkinan *confounding variable*? Jika ya, apa?
 ---
 
 *Modul ini adalah bagian dari mata kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia. Semester Genap 2025/2026.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

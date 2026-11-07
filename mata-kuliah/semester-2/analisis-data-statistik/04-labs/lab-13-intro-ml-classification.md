@@ -579,3 +579,7 @@ Buat notebook Google Colab yang berisi:
    ```
 
 3. **Decision Boundary Plot**: Buat visualisasi decision boundary menggunakan 2 fitur terbaik untuk membandingkan bagaimana Decision Tree dan k-NN memisahkan kelas.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

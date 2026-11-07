@@ -773,3 +773,7 @@ IPK = 1.2 + 0.04(Jam_Belajar) + 0.015(Kehadiran) - 0.003(Jarak_Kampus)
 ---
 
 *Bab berikutnya: **Bab 10 — Analysis of Variance (ANOVA)***
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

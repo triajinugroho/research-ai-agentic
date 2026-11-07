@@ -509,3 +509,7 @@ Buat notebook Google Colab yang berisi:
    ```
 
 3. **Analisis survei nyata**: Gunakan data survei yang Anda kumpulkan sendiri (misalnya survei Google Forms di kelas) dan lakukan analisis Chi-Square lengkap.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

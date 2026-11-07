@@ -281,3 +281,7 @@ A: Tidak ada batas, ASALKAN didokumentasikan dan mahasiswa memahami setiap langk
 ---
 
 *Dokumen ini merupakan bagian dari RPS mata kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

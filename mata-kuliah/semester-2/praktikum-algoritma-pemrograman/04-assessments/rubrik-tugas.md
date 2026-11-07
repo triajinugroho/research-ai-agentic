@@ -661,3 +661,7 @@ Mahasiswa yang memperoleh nilai akhir di bawah 55.00 (huruf D atau E) pada kompo
 
 *Disusun oleh: Tri Aji Nugroho, S.T., M.T.*
 *Jakarta, Februari 2026*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

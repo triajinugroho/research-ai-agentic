@@ -697,3 +697,7 @@ Minggu 14 akan membahas **AI-Augmented Data Analysis** — bagaimana menggunakan
 ---
 
 *Modul ini merupakan bagian dari mata kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia. Semester Genap 2025/2026.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

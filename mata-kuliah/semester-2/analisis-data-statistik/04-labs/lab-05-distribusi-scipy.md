@@ -613,3 +613,7 @@ print("- Jika titik melengkung -> data tidak normal (skewed/heavy-tailed)")
 > **Referensi:**
 > - [scipy.stats documentation](https://docs.scipy.org/doc/scipy/reference/stats.html)
 > - Khan Academy: [Central Limit Theorem](https://www.khanacademy.org/math/statistics-probability/sampling-distributions-library)
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

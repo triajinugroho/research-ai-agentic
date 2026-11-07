@@ -375,3 +375,7 @@ plt.show()
 ---
 
 > **Tips:** Jika mengalami error, baca pesan error dengan teliti. Biasanya pesan error memberikan petunjuk yang cukup jelas tentang masalahnya. Jangan ragu bertanya kepada dosen atau asisten lab.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -415,3 +415,7 @@ Buat notebook Google Colab yang berisi:
 2. **Implementasikan stepwise regression**: mulai dari semua variabel, lalu hapus variabel yang tidak signifikan satu per satu. Bandingkan adjusted R² pada setiap langkah.
 
 3. **Tambahkan interaksi variabel**: Buat variabel baru `jam_belajar × kehadiran_persen` dan lihat apakah model membaik.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

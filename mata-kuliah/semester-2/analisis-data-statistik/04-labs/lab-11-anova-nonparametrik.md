@@ -474,3 +474,7 @@ Buat notebook Google Colab yang berisi:
 2. **Buat fungsi Python lengkap** yang menerima DataFrame dan secara otomatis: (a) mengecek asumsi, (b) memilih uji yang tepat, (c) melakukan post-hoc jika diperlukan, (d) membuat visualisasi.
 
 3. **Repeated Measures**: Cari tahu bagaimana melakukan Friedman test (non-parametrik untuk repeated measures) dengan `scipy.stats.friedmanchisquare`.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

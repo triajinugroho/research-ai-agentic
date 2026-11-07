@@ -207,3 +207,7 @@
 ---
 
 *Kisi-kisi ini merupakan panduan cakupan materi. Soal ujian sebenarnya mungkin bervariasi dalam format dan tingkat kesulitan.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

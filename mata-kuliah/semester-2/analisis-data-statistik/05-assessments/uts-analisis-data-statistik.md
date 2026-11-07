@@ -403,3 +403,7 @@ Sifat simetri: P(Z < −z) = P(Z > z); P(−z < Z < z) = 2·P(Z ≤ z) − 1.
 **"Man jadda wajada"** — Siapa bersungguh-sungguh, pasti berhasil.
 
 **~ Selamat Mengerjakan — Jazakumullahu khairan ~**
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

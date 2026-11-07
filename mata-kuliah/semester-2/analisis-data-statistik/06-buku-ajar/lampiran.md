@@ -970,3 +970,7 @@ Z-test — Bab 7
 *Lampiran ini merupakan bagian dari buku ajar "Analisis Data Statistik" untuk Program Studi Informatika, Universitas Al Azhar Indonesia.*
 
 *Penulis: Tri Aji Nugroho, S.T., M.T.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

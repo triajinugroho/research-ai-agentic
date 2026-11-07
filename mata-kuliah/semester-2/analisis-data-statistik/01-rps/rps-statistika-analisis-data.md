@@ -436,3 +436,7 @@ Mahasiswa (kelompok 2-3 orang) melakukan analisis data end-to-end pada dataset r
 *Dokumen RPS ini disusun berdasarkan standar SN-Dikti, KKNI Level 6, dan pedoman OBE yang diacu oleh Prodi Informatika Universitas Al Azhar Indonesia.*
 
 *Diperbarui: Februari 2026*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

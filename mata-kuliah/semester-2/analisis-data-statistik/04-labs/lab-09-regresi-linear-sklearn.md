@@ -364,3 +364,7 @@ Buat notebook Google Colab yang berisi:
 2. **Bandingkan dua model regresi** untuk variabel dependen yang sama tetapi variabel independen yang berbeda. Mana yang memiliki R² lebih tinggi? Apakah R² lebih tinggi selalu berarti model lebih baik?
 
 3. **Buat fungsi Python** yang menerima dua array dan secara otomatis mengembalikan: korelasi, persamaan regresi, R², dan visualisasi lengkap.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

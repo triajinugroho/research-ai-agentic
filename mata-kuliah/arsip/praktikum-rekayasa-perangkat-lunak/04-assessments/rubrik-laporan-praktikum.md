@@ -70,7 +70,7 @@ Bagian utama laporan. Dokumentasikan **setiap langkah** yang dikerjakan dengan:
 - Screenshot hasil/output
 - Penjelasan singkat apa yang dilakukan dan mengapa
 
-```markdown
+````markdown
 ## Langkah-langkah
 
 ### Langkah 1: [Judul Langkah]
@@ -86,7 +86,7 @@ Bagian utama laporan. Dokumentasikan **setiap langkah** yang dikerjakan dengan:
 ![Screenshot output](images/lab-NN-step1.png)
 
 [Penjelasan output — apa yang terjadi dan mengapa]
-```
+````
 
 ### B.4 Tantangan Tambahan
 

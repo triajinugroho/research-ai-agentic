@@ -828,3 +828,7 @@ Plot hasilnya dalam satu grafik (simulasi vs teoritis).
 ---
 
 *Modul ini adalah bagian dari mata kuliah Analisis Data Statistik, Program Studi Informatika, Universitas Al Azhar Indonesia. Semester Genap 2025/2026.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -236,9 +236,25 @@ for p, d in dok.items():
         lapor("V11", p, f"{d['baris']} baris melampaui pagu {PAGU[t]} baris")
 
 # --------------------------------------------------------------------- V10
+def buang_blok_kode(teks):
+    """Hapus isi blok kode berpagar (``` atau ~~~, panjang pagar ≥ 3) ala CommonMark."""
+    keluar, pagar = [], None
+    for baris in teks.split("\n"):
+        m = re.match(r"^ {0,3}(`{3,}|~{3,})", baris)
+        if pagar is None:
+            if m:
+                pagar = m.group(1)
+                continue
+            keluar.append(baris)
+        elif m and m.group(1)[0] == pagar[0] and len(m.group(1)) >= len(pagar) \
+                and not baris.strip()[len(m.group(1)):].strip():
+            pagar = None
+    return "\n".join(keluar)
+
 for p, d in dok.items():
-    # buang inline code span agar contoh ilustratif tidak dianggap tautan
-    bersih = re.sub(r"`[^`\n]*`", "", d["teks"])
+    # buang blok kode berpagar dan inline code span agar contoh ilustratif
+    # (templat README mahasiswa, potongan kode) tidak dianggap tautan
+    bersih = re.sub(r"`[^`\n]*`", "", buang_blok_kode(d["teks"]))
     for tautan in RE_TAUTAN.findall(bersih):
         target = tautan.split("#")[0].strip()
         if not target: continue

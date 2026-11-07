@@ -763,3 +763,7 @@ Hitung: (a) Accuracy, (b) Precision, (c) Recall, (d) F1-Score untuk kelas "Fraud
 ---
 
 *Bab berikutnya: **Bab 13 — AI-Augmented Data Analysis***
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -415,3 +415,7 @@ Jawab pertanyaan-pertanyaan berikut sebagai bahan refleksi:
 ---
 
 > **Preview Minggu Depan:** Kita akan membahas **Statistika Deskriptif dan Eksplorasi Data dengan Python** -- menghitung mean, median, modus, variance, standard deviation, serta membuat ringkasan data menggunakan pandas dan numpy.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

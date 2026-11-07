@@ -1259,3 +1259,7 @@ grup_3 = [5, 15, 30, 45, 55]      # Mean = 30, Std = 20.00
 ---
 
 *Bab berikutnya: **Bab 11 — Analisis Data Kategorikal dan Uji Chi-Square***
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

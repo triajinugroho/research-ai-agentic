@@ -627,3 +627,7 @@ Daftar (urut terbesar → terkecil):
 ---
 
 **~ Barakallahu fiikum — Selamat Mengoreksi ~**
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

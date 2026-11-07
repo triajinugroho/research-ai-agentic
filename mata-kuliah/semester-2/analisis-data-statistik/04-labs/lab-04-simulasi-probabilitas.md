@@ -544,3 +544,7 @@ print(f"Teori (p=0.5): P(menang) = modal_awal/target = 50/100 = 0.5000")
 ---
 
 > **Catatan:** Semua simulasi menggunakan `np.random.seed()` untuk reproducibility. Namun, setiap kali Anda menjalankan ulang sel tanpa seed, hasilnya akan sedikit berbeda -- dan itu normal! Yang penting adalah rata-rata simulasi mendekati nilai teoritis.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

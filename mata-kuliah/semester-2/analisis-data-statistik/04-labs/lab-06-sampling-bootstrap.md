@@ -677,3 +677,7 @@ print(f"Keputusan (alpha=0.05): {'Tolak H0' if p_value < 0.05 else 'Gagal tolak 
 ---
 
 > **Catatan penting:** Bootstrap adalah teknik yang sangat powerful karena tidak memerlukan asumsi distribusi tertentu (non-parametric). Namun, bootstrap tetap memerlukan sampel yang representatif terhadap populasi.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

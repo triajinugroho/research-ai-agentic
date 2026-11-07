@@ -114,3 +114,7 @@ data_ipm = pd.DataFrame({
 ---
 
 *Dokumen ini merupakan bagian dari materi kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

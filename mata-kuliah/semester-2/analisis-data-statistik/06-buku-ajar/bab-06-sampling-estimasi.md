@@ -1159,3 +1159,7 @@ Anda ingin melakukan survei kepuasan akademik dengan n = 200 responden total men
 ---
 
 *Bab ini merupakan bagian dari buku ajar Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia. Hak cipta dilindungi.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

@@ -697,3 +697,7 @@ Minggu 6 akan membahas **Sampling dan Estimasi**. Untuk persiapan:
 ---
 
 *Modul ini merupakan bagian dari mata kuliah Analisis Data Statistik, Prodi Informatika, Universitas Al Azhar Indonesia.*
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

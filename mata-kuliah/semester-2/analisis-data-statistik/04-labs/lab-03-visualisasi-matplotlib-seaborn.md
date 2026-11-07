@@ -481,3 +481,7 @@ plt.show()
 > - [Matplotlib Gallery](https://matplotlib.org/stable/gallery/index.html)
 > - [Seaborn Gallery](https://seaborn.pydata.org/examples/index.html)
 > - [Python Graph Gallery](https://python-graph-gallery.com/)
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

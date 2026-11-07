@@ -925,3 +925,7 @@ Lakukan analisis deskriptif lengkap dan buat laporan singkat (1-2 halaman) yang 
 ---
 
 > **Preview Minggu Depan:** Kita akan mempelajari **Visualisasi Data dengan matplotlib dan seaborn** -- membuat histogram, boxplot, scatter plot, dan visualisasi statistik lainnya untuk mengeksplorasi data secara visual.
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

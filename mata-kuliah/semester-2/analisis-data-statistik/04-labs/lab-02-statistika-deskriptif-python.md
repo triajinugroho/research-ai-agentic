@@ -481,3 +481,7 @@ plt.show()
 ---
 
 > **Catatan:** Data dalam lab ini adalah simulasi. Dalam praktik nyata, data BPS dapat diakses melalui [bps.go.id](https://www.bps.go.id) atau [webapi.bps.go.id](https://webapi.bps.go.id).
+
+---
+
+*"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia
