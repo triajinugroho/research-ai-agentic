@@ -1,0 +1,10 @@
+=== CATATAN MAHASISWA ===
+Nama     : Dewi Sartika
+NIM      : 20250042
+Prodi    : Informatika
+Semester : 2
+
+Mata Kuliah:
+1. Algoritma dan Pemrograman
+2. Kalkulus II
+3. Basis Data

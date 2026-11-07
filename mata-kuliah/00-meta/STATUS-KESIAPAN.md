@@ -26,10 +26,10 @@ Satu halaman untuk menjawab "MK mana yang siap dipakai, apa yang masih kurang, d
 | [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](../semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/README.md) `IF52510031` | V | 2025 Rev. 2026 | ✅ | ✅ 13/13 | 🟡 draf di dosen | ❌ | **Siap dipakai**; naskah UAS dan kuis berikutnya belum ada |
 | [Teknopreneur](../semester-5/teknopreneur/README.md) `ST52510002` | V | 2025 Rev. 2026 | ✅ | — (studio) | 🟡 draf di dosen | ❌ | **Siap dengan catatan**: syarat lulus tambahan perlu persetujuan prodi |
 | [Metodologi Penelitian](../semester-7/metodologi-penelitian/README.md) `IF52510021` | VII | 2025 Rev. 2026 | ✅ | — (lokakarya) | ❌ keputusan pengampu | ❌ | **Menunggu pengampu** (Andi Arniaty Arsyad, Ph.D.) |
-| [Algoritma Pemrograman](../semester-2/algoritma-pemrograman/README.md) `IF52520004` | II | Lama (INF-101) | ❌ 2 Sub-CPMK | belum diuji | ada (skema lama) | ✅ | **Perlu diselaraskan** sebelum Februari 2027 |
-| [Praktikum Algoritma Pemrograman](../semester-2/praktikum-algoritma-pemrograman/README.md) `IF52520005` | II | Lama (INF-102) | ❌ 2 Sub-CPMK | belum diuji | ada (skema lama) | ❌ | **Perlu diselaraskan** sebelum Februari 2027 |
-| [Analisis Data Statistik](../semester-2/analisis-data-statistik/README.md) `IF52520025` | II | Lama (2 SKS) | ❌ 3 Sub-CPMK | belum diuji | ada (skema lama) | ❌ | **Perlu diselaraskan berat**: 2 → 3 SKS, pisahkan dari ProbStat |
-| [Rekayasa Perangkat Lunak](../semester-4/rekayasa-perangkat-lunak/README.md) `IF52520011` | IV | Lama (IF2205) | ❌ 5 Sub-CPMK | belum diuji | ada (skema lama) | ❌ | **Perlu diselaraskan**; pengampu registri Dr. Ir. Winangsari Pradani, M.T. |
+| [Algoritma Pemrograman](../semester-2/algoritma-pemrograman/README.md) `IF52520004` | II | Lama (INF-101) | ❌ 2 Sub-CPMK | — (tanpa folder lab) | ada (skema lama) | ✅ | **Perlu diselaraskan** sebelum Februari 2027 |
+| [Praktikum Algoritma Pemrograman](../semester-2/praktikum-algoritma-pemrograman/README.md) `IF52520005` | II | Lama (INF-102) | ❌ 2 Sub-CPMK | 🟡 8/13 otomatis; Lab 4, 5, 9–11 interaktif/berat → uji manual | ada (skema lama) | ❌ | **Perlu diselaraskan** sebelum Februari 2027 |
+| [Analisis Data Statistik](../semester-2/analisis-data-statistik/README.md) `IF52520025` | II | Lama (2 SKS) | ❌ 3 Sub-CPMK | ✅ 13/13 | ada (skema lama) | ❌ | **Perlu diselaraskan berat**: 2 → 3 SKS, pisahkan dari ProbStat |
+| [Rekayasa Perangkat Lunak](../semester-4/rekayasa-perangkat-lunak/README.md) `IF52520011` | IV | Lama (IF2205) | ❌ 5 Sub-CPMK | belum diuji (aplikasi web; butuh lingkungan sendiri) | ada (skema lama) | ❌ | **Perlu diselaraskan**; pengampu registri Dr. Ir. Winangsari Pradani, M.T. |
 
 **Keterangan:**
 - **V14** dihitung otomatis oleh `python3 tools/validasi-obe.py`: ✅ berarti setiap Sub-CPMK registri MK itu disebut di RPS-nya; ❌ *n* berarti *n* Sub-CPMK registri belum disebut.
@@ -56,6 +56,8 @@ Satu halaman untuk menjawab "MK mana yang siap dipakai, apa yang masih kurang, d
 | Validator tidak memahami registri | ✅ Aturan baru **V14** (penempatan, kode Sub-CPMK, cakupan Sub-CPMK di RPS) | [Pedoman §Q](../00-pedoman-obe/pedoman-obe-konvensi.md#q-aturan-validasi) |
 | Web interaktif ProbStat tidak terhubung | ✅ Peta Minggu ↔ Bagian; setiap modul menautkan bagian yang sesuai | [README ProbStat](../semester-1/probabilitas-dan-statistik/README.md#pendamping-interaktif) |
 | Tidak ada pintu masuk mahasiswa | ✅ Bagian "Mulai di Sini" di README empat MK baru | README MK |
+| §5 — jangkar tautan Lampiran rusak | ✅ Lima jangkar diperbaiki; V10 kini memeriksa jangkar `#judul` | Validator V10 = 0 |
+| Lab MK lama belum pernah dijalankan | 🟡 ADS 13/13 setelah satu perbaikan (Lab 11, faktor kedua *Two-Way ANOVA*); PAP 8/13 otomatis | `tools/uji-lab.py` |
 
 ---
 
@@ -78,7 +80,7 @@ Satu halaman untuk menjawab "MK mana yang siap dipakai, apa yang masih kurang, d
 2. **Kuis K-02 sampai K-04** Dasar AI/ML beserta kuncinya.
 3. **`mutu/` dan *front-matter*** untuk empat MK baru, agar evaluasi Minggu 17 menghasilkan bukti ketercapaian **per butir**.
 4. **Selaraskan empat MK semester II dan IV** ke registri. V14 menjadi daftar periksa: temuan V14 = 0 berarti setiap Sub-CPMK registri sudah masuk RPS.
-5. **Uji lab MK lama** dengan `tools/uji-lab.py` sebelum Genap 2026/2027.
+5. **Uji manual lab interaktif PAP** (Lab 4, 5, 9–11) dan siapkan lingkungan uji untuk lab RPL sebelum Genap 2026/2027.
 6. **Pedoman OBE v3.0 dan sinkronisasi prompt** (Fase 2.5), setelah keputusan K-2.
 
 ---

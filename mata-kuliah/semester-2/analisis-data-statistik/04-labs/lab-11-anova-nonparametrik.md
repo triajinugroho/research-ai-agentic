@@ -467,6 +467,9 @@ Buat notebook Google Colab yang berisi:
    ```python
    import statsmodels.api as sm
    from statsmodels.formula.api import ols
+   # Contoh faktor kedua: dibangkitkan acak (tanpa efek nyata) agar kode dapat dijalankan.
+   # Ganti dengan kolom sungguhan bila data Anda memilikinya.
+   data['gender'] = np.random.default_rng(42).choice(['L', 'P'], size=len(data))
    model = ols('nilai ~ C(metode) * C(gender)', data=data).fit()
    sm.stats.anova_lm(model, typ=2)
    ```
