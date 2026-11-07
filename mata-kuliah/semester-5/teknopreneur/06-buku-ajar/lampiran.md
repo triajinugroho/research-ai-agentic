@@ -10,10 +10,10 @@
 |----------|-----|
 | [A](#lampiran-a--templat-siap-pakai) | Templat siap pakai |
 | [B](#lampiran-b--daftar-periksa) | Daftar periksa |
-| [C](#lampiran-c--sumber-data-indonesia) | Sumber data Indonesia yang dapat ditelusuri |
+| [C](#lampiran-c--sumber-data-indonesia-yang-dapat-ditelusuri) | Sumber data Indonesia yang dapat ditelusuri |
 | [D](#lampiran-d--perkakas-tanpa-biaya) | Perkakas tanpa biaya |
 | [E](#lampiran-e--glosarium) | Glosarium istilah |
-| [F](#lampiran-f--rujukan-silang-bab-modul-studio) | Rujukan silang bab–modul–studio |
+| [F](#lampiran-f--rujukan-silang-babmodulstudio) | Rujukan silang bab–modul–studio |
 
 ---
 

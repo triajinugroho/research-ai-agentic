@@ -17,7 +17,7 @@ Dasar Kecerdasan Artifisial dan Pembelajaran Mesin (IF52510031) — Program Stud
 | [F](#lampiran-f-glosarium) | Glosarium | Padanan Indonesia–Inggris |
 | [G](#lampiran-g-kesalahan-tafsir-yang-sering-terjadi) | Kesalahan Tafsir yang Sering Terjadi | Sebelum menulis laporan |
 | [H](#lampiran-h-templat-model-card) | Templat *Model Card* | Laporan proyek |
-| [I](#lampiran-i-peta-bab-modul-praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
+| [I](#lampiran-i-peta-bab--modul--praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
 
 > **Ketentuan ujian:** UTS dan UAS bersifat *closed book* — alat bantu yang diperkenankan hanya kalkulator. Rumus yang diperlukan **dicetak pada lembar soal** (lihat [kisi-kisi UTS](../05-assessments/kisi-kisi-uts.md) dan [kisi-kisi UAS](../05-assessments/kisi-kisi-uas.md)); Lampiran A dipakai untuk belajar dan **tidak dibawa** ke ruang ujian. Alat bantu AI **tidak diperkenankan** dalam bentuk apa pun selama ujian.
 

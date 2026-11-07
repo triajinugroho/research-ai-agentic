@@ -31,8 +31,8 @@ baris di atasnya diberi label "skala disederhanakan" (contoh latihan).
 V14 membaca registri 00-kurikulum-if-2025-revisi-2026/15b-15e: setiap folder
 semester-N/<slug>/ harus berada di semester registrinya, setiap kode Sub-CPMK
 registri (mis. PS-Sub-CPMK081-1) yang disebut materi harus ada di registri, dan
-setiap Sub-CPMK registri milik MK itu harus disebut di RPS-nya. V10 mengabaikan
-isi blok kode berpagar.
+setiap Sub-CPMK registri milik MK itu harus disebut di RPS-nya. V10 juga
+memeriksa jangkar #judul (slug ala GitHub) dan mengabaikan isi blok kode berpagar.
 
 Python murni, tanpa dependensi eksternal. Jalankan dari akar repositori:
 
@@ -242,6 +242,22 @@ for p, d in dok.items():
         lapor("V11", p, f"{d['baris']} baris melampaui pagu {PAGU[t]} baris")
 
 # --------------------------------------------------------------------- V10
+_jangkar = {}
+def jangkar_md(path):
+    """Himpunan jangkar judul ala GitHub untuk sebuah berkas Markdown."""
+    if path not in _jangkar:
+        teks = buang_blok_kode(open(path, encoding="utf-8").read())
+        hasil, hitung = set(), {}
+        for judul in re.findall(r'^#{1,6}\s+(.*?)\s*#*\s*$', teks, re.M):
+            judul = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', judul)      # [teks](url) -> teks
+            judul = re.sub(r'<[^>]+>', '', judul)                          # tag HTML
+            dasar = re.sub(r'[^\w\- ]', '', judul.strip().lower()).replace(' ', '-')
+            n = hitung.get(dasar, 0)
+            hasil.add(dasar if n == 0 else f"{dasar}-{n}")
+            hitung[dasar] = n + 1
+        _jangkar[path] = hasil
+    return _jangkar[path]
+
 def buang_blok_kode(teks):
     """Hapus isi blok kode berpagar (``` atau ~~~, panjang pagar ≥ 3) ala CommonMark."""
     keluar, pagar = [], None
@@ -262,10 +278,17 @@ for p, d in dok.items():
     # (templat README mahasiswa, potongan kode) tidak dianggap tautan
     bersih = re.sub(r"`[^`\n]*`", "", buang_blok_kode(d["teks"]))
     for tautan in RE_TAUTAN.findall(bersih):
-        target = tautan.split("#")[0].strip()
-        if not target: continue
-        if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(p), target))):
+        target, _, frag = tautan.strip().partition("#")
+        jalur = os.path.normpath(os.path.join(os.path.dirname(p), target)) if target else p
+        if target and not os.path.exists(jalur):
             lapor("V10", p, f"tautan relatif putus: {target}")
+        elif frag and jalur.endswith(".md") and os.path.isfile(jalur) \
+                and frag not in jangkar_md(jalur):
+            lapor("V10", p, f"jangkar tidak ditemukan: {target}#{frag}")
+    # tautan jangkar di dalam berkas yang sama: (#judul)
+    for frag in re.findall(r'\]\(#([^)\s]+)\)', bersih):
+        if frag not in jangkar_md(p):
+            lapor("V10", p, f"jangkar tidak ditemukan: #{frag}")
 
 # --------------------------------------------------------------------- V13
 # Skala konversi nilai: tabel huruf mutu ↔ rentang 0-100 harus sama dengan

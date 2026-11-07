@@ -16,7 +16,7 @@ Probabilitas dan Statistik (IF52510033) — Program Studi Informatika, Universit
 | [E](#lampiran-e-glosarium) | Glosarium Istilah Statistika | Padanan Indonesia–Inggris |
 | [F](#lampiran-f-kesalahan-tafsir-yang-sering-terjadi) | Kesalahan Tafsir yang Sering Terjadi | Pemeriksaan sebelum menulis laporan |
 | [G](#lampiran-g-sumber-data-berkonteks-indonesia) | Sumber Data Berkonteks Indonesia | Bahan proyek |
-| [H](#lampiran-h-peta-bab-modul-praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
+| [H](#lampiran-h-peta-bab--modul--praktikum) | Peta Bab – Modul – Praktikum | Navigasi materi |
 
 > **Ketentuan ujian:** Lampiran A dan B **boleh dibawa** saat UTS dan UAS dalam bentuk cetak. Lampiran lain tidak. Alat bantu AI **tidak diperkenankan** dalam bentuk apa pun selama ujian.
 

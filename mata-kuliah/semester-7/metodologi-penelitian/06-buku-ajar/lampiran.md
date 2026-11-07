@@ -16,7 +16,7 @@
 | [C](#lampiran-c--sumber-dan-basis-data) | Sumber dan basis data |
 | [D](#lampiran-d--perkakas) | Perkakas |
 | [E](#lampiran-e--glosarium) | Glosarium istilah |
-| [F](#lampiran-f--rujukan-silang-bab-modul-lokakarya) | Rujukan silang bab–modul–lokakarya |
+| [F](#lampiran-f--rujukan-silang-babmodullokakarya) | Rujukan silang bab–modul–lokakarya |
 
 ---
 

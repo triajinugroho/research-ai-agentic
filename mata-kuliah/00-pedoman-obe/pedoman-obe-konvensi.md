@@ -410,7 +410,7 @@ Ditegakkan oleh `tools/validasi-obe.py` dan `checklist-verifikasi.md`.
 | **V7** | **Data induk konsisten** — `nama_mk`, `kode_mk`, `tahun_akademik`, dosen seragam; **`sks` hanya di RPS** | Konflik SKS |
 | **V8** | Konvensi — footer tagline; Bab 13 = AI; Bab 14 = Proyek Akhir; tahun 2026 | Regresi konvensi |
 | **V9** | Sitasi — nol rujukan "Nomor 3 Tahun 2020"; tiap `[REG-*]` yang dirujuk terdefinisi | Sitasi usang |
-| **V10** | Tautan relatif antar-berkas tidak putus (isi blok kode berpagar diabaikan) | Tautan mati |
+| **V10** | Tautan relatif antar-berkas tidak putus, dan jangkar `#judul` ke berkas Markdown ada (slug ala GitHub); isi blok kode berpagar diabaikan | Tautan dan jangkar mati |
 | **V11** | **Pagu ukuran** — RPS ≤550 baris; tiap berkas `mutu/` ≤180 baris | Pembengkakan dokumen |
 | **V12** | RPS `status: berlaku` ditolak selama `cpl_status: interim` | Pengesahan prematur |
 | **V13** | **Skala konversi nilai** — setiap tabel huruf mutu ↔ rentang 0–100 wajib sama persis dengan tabel §A `konversi-nilai.md` (rentang, huruf, bobot) dan memuat kesembilan huruf | Kambuhnya skala nilai yang tidak resmi |
