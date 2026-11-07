@@ -5,9 +5,9 @@ judul: Audit Menyeluruh Repositori Materi Kuliah — Oktober 2026
 kode_mk: PRODI-IF
 nama_mk: Seluruh paket mata kuliah
 prodi: Informatika
-versi: 1.2
+versi: 1.3
 status: draft
-diperbarui: 2026-10-07
+diperbarui: 2026-11-07
 kriteria_lam: [1-budaya-mutu, 2-relevansi-pendidikan, 5-akuntabilitas]
 tahap_ppepp: [E-evaluasi, P3-pengendalian]
 siklus: 2026-2027-ganjil
@@ -16,6 +16,13 @@ siklus: 2026-2027-ganjil
 # Audit Menyeluruh Repositori — Oktober 2026
 
 **Pemilik:** Tri Aji Nugroho, S.T., M.T. · **Tanggal audit:** 7 Oktober 2026 · **Status:** draf untuk telaah dosen
+
+> **Pembaruan v1.3 (7 November 2026).** Tindak lanjut Tahap 0 dan sebagian Tahap 1 dikerjakan. Keadaan terkini per MK kini dicatat di [**Dasbor Kesiapan**](STATUS-KESIAPAN.md); laporan ini tetap menjadi rekam temuan.
+>
+> - **K2, T2, T3** selesai: Lab 3, 4, 9, 10, 11, 13, 14 Dasar AI/ML dirancang ulang dan diverifikasi berjalan pada beberapa *seed*; teori *fairness* dikoreksi; bagian Persiapan ditambahkan pada Lab 4–14.
+> - **0.3** selesai: delapan dataset latihan ProbStat (sintetis, dapat dibangkitkan ulang) ada di `datasets/`.
+> - **0.1, K1, K3, K4** sebagian: cetak biru butir per Sub-CPMK ada di kisi-kisi UTS ProbStat, Dasar AI/ML, dan Teknopreneur. Draf naskah dan kunci diserahkan kepada dosen dan **tidak** disimpan di repositori karena repositori publik.
+> - **Validator:** aturan baru **V14** (keselarasan registri); V10 mengabaikan isi blok kode; V8 dan V10 kini 0. Total pelanggaran 837 → 783: V1 518 dan V4 253 tetap baseline, ditambah 12 temuan V14 pada empat MK lama yang memang belum diselaraskan. Alat baru [`tools/uji-lab.py`](../../tools/uji-lab.py) menjalankan seluruh sel Python lab (butir 1.1 dan Tahap 3, "uji otomatis").
 
 > **Pembaruan v1.2 (7 Oktober 2026).** Repositori disusun ulang per semester kurikulum (commit `d339d8a`, `f7904f1`).
 >

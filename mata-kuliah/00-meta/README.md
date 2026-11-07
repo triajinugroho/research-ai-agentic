@@ -5,16 +5,22 @@ judul: Dokumen Meta Repositori
 kode_mk: PRODI-IF
 nama_mk: Dokumen meta repositori
 prodi: Informatika
-versi: 1.0
+versi: 1.1
 status: berlaku
-diperbarui: 2026-10-07
+diperbarui: 2026-11-07
 ---
 
 # Dokumen Meta Repositori
 
-Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: dua laporan audit dan dua prompt generator. Isinya tidak dipakai langsung di kelas. Untuk substansi kurikulum, acuannya tetap [registri Kurikulum Informatika 2025 Revisi 2026](../00-kurikulum-if-2025-revisi-2026/README.md). Untuk konvensi repositori, acuannya [Pedoman OBE](../00-pedoman-obe/pedoman-obe-konvensi.md), dan untuk skala nilai, [registri konversi nilai](../00-pedoman-obe/konversi-nilai.md).
+Folder ini menyimpan dokumen **tentang** repositori, bukan materi kuliah: dasbor kesiapan, dua laporan audit, dan dua prompt generator. Isinya tidak dipakai langsung di kelas. Untuk substansi kurikulum, acuannya tetap [registri Kurikulum Informatika 2025 Revisi 2026](../00-kurikulum-if-2025-revisi-2026/README.md). Untuk konvensi repositori, acuannya [Pedoman OBE](../00-pedoman-obe/pedoman-obe-konvensi.md), dan untuk skala nilai, [registri konversi nilai](../00-pedoman-obe/konversi-nilai.md).
 
 > **Penyusun materi.** Seluruh materi di repositori ini disusun oleh **Tri Aji Nugroho, S.T., M.T.**, termasuk Rekayasa Perangkat Lunak (`IF52520011`), yang menurut registri kurikulum diampu oleh Dr. Ir. Winangsari Pradani, M.T. Kolom pengampu pada peta semester mengikuti registri dan dapat berbeda dari penyusun materi.
+
+## Dasbor Kesiapan
+
+| Berkas | Isi | Status |
+|---|---|---|
+| [`STATUS-KESIAPAN.md`](STATUS-KESIAPAN.md) | Satu halaman per MK: kurikulum materi, keselarasan registri (V14), lab berjalan, naskah ujian, `mutu/`, keputusan yang menunggu dosen, dan pekerjaan berikutnya | **Berlaku.** Mulai dari sini untuk mengetahui keadaan terkini; diperbarui setiap kali status berubah |
 
 ## Laporan Audit
 

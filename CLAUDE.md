@@ -8,9 +8,10 @@
 
 This is an **educational materials repository** for courses in the Computer Science (Informatika) program at **Universitas Al Azhar Indonesia (UAI)**. The materials are organized **per curriculum semester** following the **Kurikulum Informatika 2025 Revisi 2026**, whose official registry is transcribed in `mata-kuliah/00-kurikulum-if-2025-revisi-2026/`.
 
-- **547 Markdown documents** under `mata-kuliah/` (count as of 7 October 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
+- **548 Markdown documents** under `mata-kuliah/` (count as of 7 November 2026 — recount with `find mata-kuliah -name '*.md' | wc -l` before quoting a number).
 - **10 course folders:** 8 active courses in `mata-kuliah/semester-N/` (placed by their registry semester) and 2 old-curriculum courses in `mata-kuliah/arsip/`.
-- **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: audits and generation prompts).
+- **Reference layers:** the curriculum registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`), the internal OBE guidelines and registries (`mata-kuliah/00-pedoman-obe/`), and repository meta documents (`mata-kuliah/00-meta/`: readiness dashboard, audits and generation prompts).
+- **Outside `mata-kuliah/`:** `docs/` — the interactive web companion for Probabilitas dan Statistik (portal `docs/index.html` + 16 pages `docs/probstat/bagian-NN.html`, intended for GitHub Pages from `/docs`); `skills/research-to-publication/` — a proprietary research-to-publication AI skill by the same author (not course material; see its `LICENSE`).
 
 **Author of all materials (*penyusun materi*):** Tri Aji Nugroho, S.T., M.T. — for **every** course in this repository, including courses whose registry instructor (*pengampu*) is someone else:
 
@@ -21,7 +22,13 @@ This is an **educational materials repository** for courses in the Computer Scie
 
 For all other active courses the registry *pengampu* is also Tri Aji Nugroho, S.T., M.T.
 
-The content is static Markdown plus **one interactive HTML module**, `mata-kuliah/semester-2/analisis-data-statistik/03-modules/regresi-berganda.html` (self-contained page with an inline `<script>`; not counted in the Markdown total and not scanned by the validator). The only script/tool is `tools/validasi-obe.py`, a dependency-free consistency validator. There is **no application code, no build system, no automated test suite, and no CI/CD**.
+The course content is static Markdown plus HTML: one interactive module inside a course, `mata-kuliah/semester-2/analisis-data-statistik/03-modules/regresi-berganda.html`, and the `docs/` web companion (neither counted in the Markdown total nor scanned by the validator). There are three scripts:
+
+- `tools/validasi-obe.py` — dependency-free consistency validator (rules V1–V14).
+- `tools/uji-lab.py` — runs every ```` ```python ```` block of a course's `04-labs/lab-*.md` in order, the way Colab would (needs numpy, pandas, scipy, scikit-learn, matplotlib, seaborn, statsmodels).
+- `mata-kuliah/semester-1/probabilitas-dan-statistik/datasets/bangkitkan_dataset.py` — regenerates that course's eight synthetic lab CSVs (fixed seed; identical output on every run).
+
+There is **no application code, no build system, and no CI/CD**.
 
 ---
 
@@ -33,8 +40,11 @@ The content is static Markdown plus **one interactive HTML module**, `mata-kulia
 research-ai-agentic/
 ├── README.md                                 # Root overview: course list, structure, total file count
 ├── CLAUDE.md                                 # This file
+├── docs/                                     # Web companion for Probabilitas dan Statistik (GitHub Pages)
+├── skills/research-to-publication/           # Research-to-publication AI skill (proprietary; not course material)
 ├── tools/
-│   └── validasi-obe.py                       # OBE consistency validator (rules V1–V13), pure Python
+│   ├── validasi-obe.py                       # OBE consistency validator (rules V1–V14), pure Python
+│   └── uji-lab.py                            # Runs all Python cells of a course's labs
 └── mata-kuliah/
     ├── 00-kurikulum-if-2025-revisi-2026/     # Official curriculum registry (Markdown transcription of
     │                                         #   Revisi_2026_Kurikulum_OBE_IF_2025_2.xlsx): profil lulusan,
@@ -46,6 +56,7 @@ research-ai-agentic/
     │                                         #   migrasi/ (Sub-CPMK code migration table for INF-101)
     ├── 00-meta/
     │   ├── README.md                         # Index of the meta documents and their status
+    │   ├── STATUS-KESIAPAN.md                # Readiness dashboard per course: current state + pending decisions
     │   ├── AUDIT-MENYELURUH-2026-10.md       # Full repository audit, October 2026
     │   ├── AUDIT-KESELARASAN-IF2205-IF2206.md    # Historical IF2205 × IF2206 alignment audit
     │   ├── prompt-algoritma-pemrograman.md       # Master prompt (Algoritma dan Pemrograman) — flagged outdated
@@ -333,21 +344,36 @@ python3 tools/validasi-obe.py                # whole repository
 python3 tools/validasi-obe.py --mk INF-101   # one course, by kode_mk in its RPS front-matter
 ```
 
-- Checks every `mata-kuliah/**/*.md` against rules V1–V13 (Pedoman OBE §Q): V1 front-matter, V2 unique `id`, V3 referential integrity, V4 old code patterns, V5 coverage, V6 weights = 100%, V7 master data (SKS only in RPS), V8 footer tagline, V9 revoked regulation citations, V10 relative links, V11 size caps, V12 approval status, V13 grade scale vs. `konversi-nilai.md`.
+- Checks every `mata-kuliah/**/*.md` against rules V1–V14 (Pedoman OBE §Q): V1 front-matter, V2 unique `id`, V3 referential integrity, V4 old code patterns, V5 coverage, V6 weights = 100%, V7 master data (SKS only in RPS), V8 footer tagline, V9 revoked regulation citations, V10 relative links (content of fenced code blocks is ignored), V11 size caps, V12 approval status, V13 grade scale vs. `konversi-nilai.md`, V14 registry alignment (each `semester-N/<slug>/` sits in its registry semester; every registry Sub-CPMK code cited exists in `15b`–`15e`; every registry Sub-CPMK of the course is cited in its RPS).
 - Exits with code 1 when any violation exists. The baseline is **not clean**:
   - **V1 (no front-matter):** most files outside `mata-kuliah/semester-2/algoritma-pemrograman/` and `mata-kuliah/00-pedoman-obe/` have none — including the **new-curriculum course folders** under `mata-kuliah/` (`semester-1/probabilitas-dan-statistik/`, `semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/`, `semester-5/teknopreneur/`, `semester-7/metodologi-penelitian/`; about 228 V1 findings as of 7 October 2026) and the registry (`mata-kuliah/00-kurikulum-if-2025-revisi-2026/`, 26 files). A V1 finding on these files is baseline, not a new violation — and these folders are **not** validator-clean.
-  - **V4/V8/V10:** old-curriculum folders also carry these legacy findings (the outdated prompts in `mata-kuliah/00-meta/` carry V4 as well).
+  - **V4:** old-curriculum folders carry legacy code patterns (the outdated prompts in `mata-kuliah/00-meta/` as well).
+  - **V14:** the four active old-curriculum courses (semester 2 and Rekayasa Perangkat Lunak) carry 12 findings — their RPS does not yet cite the registry Sub-CPMK. These disappear only when a course is realigned; do not "fix" them by pasting codes without aligning the content.
+  - **V8 and V10 are 0** (as of 7 November 2026) and must stay 0.
+  - Totals as of 7 November 2026: 783 (V1 518, V4 253, V14 12).
   - Only courses whose RPS has front-matter `tipe: rps` (currently INF-101) are recognized for V3/V5/V6/V7.
-- Run it before and after your change and make sure you introduce **no new** violations — especially V8 (footer), V10 (relative links) and V13 (grade scale).
+- Run it before and after your change and make sure you introduce **no new** violations — especially V8 (footer), V10 (relative links), V13 (grade scale) and V14 (registry alignment).
+
+### Lab Verification
+
+- After editing any lab code, run `python3 tools/uji-lab.py <course-folder>` (optionally `--lab NN`, `--seed N`). As of 7 November 2026, all 13 labs of Probabilitas dan Statistik and of Dasar Kecerdasan Artifisial dan Pembelajaran Mesin run without errors (scikit-learn 1.9, pandas 3.0, NumPy 2.5).
+- The tool only proves that code **runs**. Read the printed numbers against the lab text: a lab whose output contradicts its own narrative (audit Oct 2026 §4.1 K2) is a defect. Prefer conclusions that are **computed from the numbers** (`if … print(...)`) over fixed sentences, and check a redesigned synthetic dataset on several seeds (`--seed`).
+- Label synthetic data as synthetic. Do not present generated numbers as BPS or other official statistics.
 - The validator does not scan files outside `mata-kuliah/` (e.g., this file or the root README); check their relative links manually with `test -e`.
+
+### Exams and a Public Repository
+
+- The GitHub repository is **public**. Do **not** commit new exam papers (*naskah UTS/UAS/kuis*) or answer keys (*kunci*). Hand them to the lecturer as files outside the repository.
+- What belongs in the repository is the **item blueprint** (*cetak biru butir*: item × indicator × Bloom × Sub-CPMK × points), placed in the course's `kisi-kisi-*.md`, so attainment can be computed per Sub-CPMK.
+- Old-curriculum keys already in the repository (`kunci-uts-*.md` in semester 2) are an open decision for the lecturer (`mata-kuliah/00-meta/STATUS-KESIAPAN.md` §3, K-4); do not delete them on your own.
 
 ### What This Repository Does NOT Have
 
 - No package manager (no `package.json`, `pyproject.toml`, etc.)
 - No build system or compilation step
-- No automated test suite or CI/CD pipelines (the validator is run manually)
+- No CI/CD pipelines (the validator and the lab runner are run manually)
 - No deployment configuration
-- No application code — only educational documentation with embedded Python examples, one interactive HTML module (`mata-kuliah/semester-2/analisis-data-statistik/03-modules/regresi-berganda.html`), plus `tools/validasi-obe.py`
+- No application code — only educational documentation with embedded Python examples, interactive HTML (`docs/`, `mata-kuliah/semester-2/analisis-data-statistik/03-modules/regresi-berganda.html`), the two tools in `tools/`, and one dataset generator
 
 ---
 
@@ -377,6 +403,7 @@ python3 tools/validasi-obe.py --mk INF-101   # one course, by kode_mk in its RPS
 3. `mata-kuliah/arsip/README.md` lists the archived courses (old code, SKS, file count, reason, successor) and the archive rules
 4. Each course has its own `README.md` with course-specific details
 5. When adding files, update the relevant file count tables (root README, `arsip/README.md`), recounting with `find`
+6. When a course's readiness changes (labs fixed, exam blueprint added, realignment done, a decision taken), update `mata-kuliah/00-meta/STATUS-KESIAPAN.md`
 
 ### Working with the Generation Prompts
 
@@ -394,7 +421,10 @@ Both carry a banner marking their conventions **outdated** (as of 5 September 20
 | File | Purpose |
 |------|---------|
 | `README.md` | Repository overview with course listing, structure and file count |
-| `tools/validasi-obe.py` | OBE consistency validator (V1–V13) |
+| `tools/validasi-obe.py` | OBE consistency validator (V1–V14) |
+| `tools/uji-lab.py` | Lab runner: executes all Python cells of a course's labs |
+| `mata-kuliah/00-meta/STATUS-KESIAPAN.md` | Readiness dashboard per course and decisions pending from the lecturer — start here for the current state |
+| `docs/README.md` | Interactive web companion for Probabilitas dan Statistik; week ↔ section map in the course README |
 | `mata-kuliah/semester-N/README.md` | Course map per curriculum semester (1–8) |
 | `mata-kuliah/arsip/README.md` | Archived courses, reasons, content-bank mapping, archive rules |
 | `mata-kuliah/00-kurikulum-if-2025-revisi-2026/README.md` | Registry index |
@@ -407,7 +437,7 @@ Both carry a banner marking their conventions **outdated** (as of 5 September 20
 | `mata-kuliah/00-pedoman-obe/pedoman-obe-konvensi.md` | Repository conventions (§D folders, §G metadata, §I consistency, §Q validation) |
 | `mata-kuliah/00-pedoman-obe/konversi-nilai.md` | Official UAI grade conversion scale (single source) |
 | `mata-kuliah/00-pedoman-obe/checklist-verifikasi.md` | Manual verification checklist |
-| `mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md` | Latest full audit: readiness per course, open decisions |
+| `mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md` | Full audit (Oct 2026, v1.3 update note Nov 2026): findings per course, roadmap |
 | `mata-kuliah/00-meta/prompt-algoritma-pemrograman.md` | Master prompt for Algoritma dan Pemrograman (outdated) |
 | `mata-kuliah/semester-2/algoritma-pemrograman/01-rps/rps-algoritma-pemrograman.md` | Algoritma dan Pemrograman (INF-101 → `IF52520004`) semester learning plan |
 | `mata-kuliah/semester-2/algoritma-pemrograman/05-buku-ajar/00-halaman-depan.md` | Algoritma dan Pemrograman textbook front matter and table of contents |

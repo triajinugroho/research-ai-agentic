@@ -100,7 +100,7 @@ Seluruh materi di repositori ini — RPS, RTM, modul, lab, asesmen, buku ajar, d
 ## Struktur Repository
 
 ```
-mata-kuliah/                                          # 547 file .md
+mata-kuliah/                                          # 548 file .md
 ├── 00-kurikulum-if-2025-revisi-2026/                 # ★ Registri kurikulum resmi — 26 file
 │                                                     #   Transkripsi Revisi 2026 Kurikulum OBE IF 2025:
 │                                                     #   PL, CPL, BK, susunan MK & dosen, CPMK, Sub-CPMK,
@@ -109,8 +109,8 @@ mata-kuliah/                                          # 547 file .md
 ├── 00-pedoman-obe/                                   # Pedoman & registri OBE internal — 10 file
 │                                                     #   (termasuk konversi-nilai.md dan migrasi/)
 │
-├── 00-meta/                                          # Laporan audit & prompt penyusunan materi — 5 file
-│                                                     #   (README.md: indeks dokumen meta)
+├── 00-meta/                                          # Dasbor kesiapan, laporan audit & prompt — 6 file
+│                                                     #   (STATUS-KESIAPAN.md: keadaan terkini per MK)
 │
 ├── semester-1/                                       # Ganjil — 58 file
 │   ├── README.md                                     # Peta MK semester 1 (9 MK, 20 SKS wajib)
@@ -120,7 +120,7 @@ mata-kuliah/                                          # 547 file .md
 │       ├── 04-labs/                                  # 13 lab (scipy.stats, pandas)
 │       ├── 05-assessments/                           # Framework, rubrik, kisi-kisi, proyek
 │       ├── 06-buku-ajar/                             # Buku ajar (14 bab + lampiran tabel statistik)
-│       └── datasets/                                 # Panduan dataset
+│       └── datasets/                                 # Panduan dataset + 8 CSV latihan (sintetis)
 │
 ├── semester-2/                                       # Genap — 132 file
 │   ├── README.md                                     # Peta MK semester 2 (9 MK, 20 SKS wajib)
@@ -205,9 +205,40 @@ mata-kuliah/                                          # 547 file .md
         └── datasets/                                 # Referensi resource
 ```
 
-**Total: 547 dokumen Markdown** di `mata-kuliah/` — mencakup referensi kurikulum, pedoman OBE, peta mata kuliah per semester, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dataset, dan arsip.
+**Total: 548 dokumen Markdown** di `mata-kuliah/` — mencakup referensi kurikulum, pedoman OBE, peta mata kuliah per semester, RPS, RTM, modul perkuliahan, buku ajar, lab, asesmen, dataset, dan arsip.
 
-> **Audit kesiapan terbaru:** [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md) — peta seluruh repositori, temuan per mata kuliah, dan arah perbaikan. Skala konversi nilai resmi UAI (A ≥ 81, sembilan huruf, lulus minimal C 55,00): [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
+> **Keadaan terkini:** [`STATUS-KESIAPAN.md`](mata-kuliah/00-meta/STATUS-KESIAPAN.md) — kesiapan per mata kuliah dan keputusan yang menunggu dosen. Rekam temuan lengkap: [`AUDIT-MENYELURUH-2026-10.md`](mata-kuliah/00-meta/AUDIT-MENYELURUH-2026-10.md). Skala konversi nilai resmi UAI (A ≥ 81, sembilan huruf, lulus minimal C 55,00): [`konversi-nilai.md`](mata-kuliah/00-pedoman-obe/konversi-nilai.md).
+
+## Mulai dari Sini
+
+| Saya… | Buka |
+|-------|------|
+| **Mahasiswa** | README mata kuliah Anda, bagian **"Mulai di Sini"**: [Probabilitas dan Statistik](mata-kuliah/semester-1/probabilitas-dan-statistik/README.md#mulai-di-sini--untuk-mahasiswa) · [Dasar Kecerdasan Artifisial dan Pembelajaran Mesin](mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin/README.md#mulai-di-sini--untuk-mahasiswa) · [Teknopreneur](mata-kuliah/semester-5/teknopreneur/README.md#mulai-di-sini--untuk-mahasiswa) · [Metodologi Penelitian](mata-kuliah/semester-7/metodologi-penelitian/README.md#mulai-di-sini--untuk-mahasiswa). Untuk Probabilitas dan Statistik tersedia juga [web interaktif](docs/README.md). |
+| **Dosen pengampu** | [Dasbor kesiapan](mata-kuliah/00-meta/STATUS-KESIAPAN.md) (apa yang siap, apa yang menunggu keputusan), lalu RPS dan kisi-kisi mata kuliah. |
+| **Penjamin mutu / asesor** | [Registri kurikulum](mata-kuliah/00-kurikulum-if-2025-revisi-2026/README.md) → RPS mata kuliah (Sub-CPMK verbatim) → **cetak biru butir** pada kisi-kisi UTS (butir × Bloom × Sub-CPMK × skor) → [Pedoman OBE](mata-kuliah/00-pedoman-obe/pedoman-obe-konvensi.md) dan hasil validator. |
+| **Penyusun materi / agen AI** | [`CLAUDE.md`](CLAUDE.md), lalu jalankan alat pemeriksa di bawah sebelum dan sesudah mengubah materi. |
+
+### Alat Pemeriksa
+
+```bash
+python3 tools/validasi-obe.py
+```
+
+Validator konsistensi OBE (aturan V1–V14, termasuk **V14 keselarasan dengan registri kurikulum**).
+
+```bash
+python3 tools/uji-lab.py mata-kuliah/semester-5/dasar-kecerdasan-artifisial-dan-pembelajaran-mesin
+```
+
+Menjalankan seluruh sel Python setiap lab, seperti di Colab. Per 7 November 2026 semua lab Probabilitas dan Statistik dan Dasar AI/ML berjalan tanpa galat.
+
+## Di Luar Folder Mata Kuliah
+
+| Folder | Isi |
+|--------|-----|
+| [`docs/`](docs/README.md) | Web interaktif **Probabilitas dan Statistik**: portal dan 16 halaman simulasi/latihan, siap diterbitkan dengan GitHub Pages. Peta Minggu ↔ Bagian ada di README mata kuliah. |
+| [`skills/research-to-publication/`](skills/research-to-publication/README.md) | *Skill* AI penelitian-ke-publikasi karya penyusun (hak cipta pada [LICENSE](skills/research-to-publication/LICENSE)); bukan bagian dari materi mata kuliah. |
+| [`tools/`](tools/) | `validasi-obe.py` dan `uji-lab.py`. |
 
 ## Referensi Kurikulum Terbaru
 
