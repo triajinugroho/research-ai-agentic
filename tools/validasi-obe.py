@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validator konsistensi OBE untuk paket mata kuliah Prodi Informatika UAI.
 
-Menegakkan aturan V1-V13 pada Pedoman OBE & Konvensi (00-pedoman-obe) sec. Q;
+Menegakkan aturan V1-V14 pada Pedoman OBE & Konvensi (00-pedoman-obe) sec. Q;
 skala acuan V13 dibaca dari registri 00-pedoman-obe/konversi-nilai.md:
 
     V1  Metadata front-matter          V8  Konvensi (footer tagline)
@@ -10,7 +10,7 @@ skala acuan V13 dibaca dari registri 00-pedoman-obe/konversi-nilai.md:
     V4  Pola kode lama                 V11 Pagu ukuran
     V5  Cakupan (constructive align.)  V12 Pengesahan (cpl_status)
     V6  Bobot asesmen = 100%           V13 Skala konversi nilai
-    V7  Data induk
+    V7  Data induk                     V14 Keselarasan registri kurikulum
 
 V13 membaca tabel §A konversi-nilai.md (rentang, huruf, bobot) saat dijalankan,
 lalu memeriksa setiap tabel Markdown di luar blok kode yang memuat >= 3 baris
@@ -27,6 +27,12 @@ nilainya ikut dicocokkan. Bila registri tidak ditemukan atau tabel §A-nya tidak
 terbaca, V13 dilaporkan pada registri. Dikecualikan: konversi-nilai.md,
 AUDIT-KESELARASAN-IF2205-IF2206.md (dokumen historis), dan tabel yang dalam lima
 baris di atasnya diberi label "skala disederhanakan" (contoh latihan).
+
+V14 membaca registri 00-kurikulum-if-2025-revisi-2026/15b-15e: setiap folder
+semester-N/<slug>/ harus berada di semester registrinya, setiap kode Sub-CPMK
+registri (mis. PS-Sub-CPMK081-1) yang disebut materi harus ada di registri, dan
+setiap Sub-CPMK registri milik MK itu harus disebut di RPS-nya. V10 mengabaikan
+isi blok kode berpagar.
 
 Python murni, tanpa dependensi eksternal. Jalankan dari akar repositori:
 
@@ -411,11 +417,81 @@ if skala_resmi:
                     v13_periksa_tabel(p, tabel)
                 tabel = []
 
+# --------------------------------------------------------------------- V14
+# Keselarasan dengan registri Kurikulum 2025 Revisi 2026:
+#   (a) folder semester-N/ sesuai semester registri;
+#   (b) kode Sub-CPMK registri yang disebut di materi memang ada di registri;
+#   (c) setiap Sub-CPMK registri milik MK itu disebut di RPS-nya.
+# Kode resmi MK diambil dari README semester (tabel registri yang menautkan folder),
+# lalu dari README MK. MK kurikulum lama yang belum diselaraskan akan muncul di (c):
+# itu temuan nyata, bukan galat validator.
+REG = os.path.join(MK, "00-kurikulum-if-2025-revisi-2026")
+RE_SUB_REG = re.compile(r'\b([A-Z][A-Z0-9]*-Sub-CPMK[A-Z0-9]+-\d+)\b')
+RE_KODE_MK = re.compile(r'\b((?:IF|ST|AI)5\d{7})\b')
+ROMAWI = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8}
+reg_mk = {}                                     # kode -> {"sem": n, "sub": set()}
+if os.path.isdir(REG):
+    for nama in sorted(os.listdir(REG)):
+        if not re.match(r'15[b-e]-', nama): continue
+        kini = None
+        for baris in open(os.path.join(REG, nama), encoding="utf-8"):
+            m = re.match(r'^\|\s*((?:IF|ST|AI)5\d{7})\s*\|\s*\d+\s*\|\s*([IVX]+)\s*\|', baris)
+            if m:
+                kini = m.group(1)
+                reg_mk.setdefault(kini, {"sem": ROMAWI.get(m.group(2)), "sub": set()})
+                continue
+            m = re.match(r'^####\s+`([^`]+)`', baris)
+            if m and kini:
+                reg_mk[kini]["sub"].add(m.group(1))
+semua_sub_reg = set().union(*(v["sub"] for v in reg_mk.values())) if reg_mk else set()
+
+def kode_folder(dir_mk):
+    """Kode resmi MK untuk folder semester-N/<slug>/ (None bila tak ditemukan)."""
+    slug = os.path.basename(dir_mk)
+    fsem = os.path.join(os.path.dirname(dir_mk), "README.md")
+    if os.path.exists(fsem):
+        for baris in open(fsem, encoding="utf-8"):
+            if f"]({slug}/)" in baris:
+                m = RE_KODE_MK.search(baris)
+                if m: return m.group(1)
+    frd = os.path.join(dir_mk, "README.md")
+    if os.path.exists(frd):
+        kode = RE_KODE_MK.findall(open(frd, encoding="utf-8").read())
+        if kode: return max(set(kode), key=kode.count)
+    return None
+
+if reg_mk and not FILTER:
+    for p, d in dok.items():
+        if p.startswith(REG): continue
+        for c in set(RE_SUB_REG.findall(d["teks"])) - semua_sub_reg:
+            lapor("V14", p, f"kode '{c}' tidak ada di registri (15b–15e)")
+    for nsem in sorted(os.listdir(MK)):
+        msem = re.match(r'semester-(\d)$', nsem)
+        if not msem: continue
+        for slug in sorted(os.listdir(os.path.join(MK, nsem))):
+            dir_mk = os.path.join(MK, nsem, slug)
+            if not os.path.isdir(dir_mk): continue
+            kode = kode_folder(dir_mk)
+            if not kode or kode not in reg_mk:
+                lapor("V14", os.path.join(dir_mk, "README.md"), "kode resmi MK tidak ditemukan di registri")
+                continue
+            if reg_mk[kode]["sem"] and reg_mk[kode]["sem"] != int(msem.group(1)):
+                lapor("V14", os.path.join(dir_mk, "README.md"),
+                      f"{kode} berada di {nsem}/, padahal registri menempatkannya di semester {reg_mk[kode]['sem']}")
+            rps = [os.path.join(dir_mk, "01-rps", f) for f in sorted(os.listdir(os.path.join(dir_mk, "01-rps")))
+                   if f.startswith("rps-") and f.endswith(".md")] if os.path.isdir(os.path.join(dir_mk, "01-rps")) else []
+            if not rps:
+                lapor("V14", os.path.join(dir_mk, "README.md"), "tidak ada berkas RPS (01-rps/rps-*.md)"); continue
+            teks_rps = open(rps[0], encoding="utf-8").read()
+            for sub in sorted(reg_mk[kode]["sub"]):
+                if sub not in teks_rps:
+                    lapor("V14", rps[0], f"Sub-CPMK registri {sub} ({kode}) tidak disebut di RPS")
+
 # ------------------------------------------------------------------- laporan
 ATURAN = {"V1":"Metadata","V2":"Keunikan id","V3":"Integritas referensial","V4":"Pola kode lama",
           "V5":"Cakupan (constructive alignment)","V6":"Bobot asesmen","V7":"Data induk",
           "V8":"Konvensi","V9":"Sitasi","V10":"Tautan","V11":"Pagu ukuran","V12":"Pengesahan",
-          "V13":"Skala konversi nilai"}
+          "V13":"Skala konversi nilai","V14":"Keselarasan registri"}
 print(f"# Laporan Validasi OBE\n\nBerkas diperiksa: {len(dok)}  |  Mata kuliah: {len(mk_daftar)}\n")
 if not masalah:
     print("**Hasil: 0 pelanggaran.**"); sys.exit(0)

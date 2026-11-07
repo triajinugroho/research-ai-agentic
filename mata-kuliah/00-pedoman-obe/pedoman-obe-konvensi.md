@@ -410,10 +410,11 @@ Ditegakkan oleh `tools/validasi-obe.py` dan `checklist-verifikasi.md`.
 | **V7** | **Data induk konsisten** — `nama_mk`, `kode_mk`, `tahun_akademik`, dosen seragam; **`sks` hanya di RPS** | Konflik SKS |
 | **V8** | Konvensi — footer tagline; Bab 13 = AI; Bab 14 = Proyek Akhir; tahun 2026 | Regresi konvensi |
 | **V9** | Sitasi — nol rujukan "Nomor 3 Tahun 2020"; tiap `[REG-*]` yang dirujuk terdefinisi | Sitasi usang |
-| **V10** | Tautan relatif antar-berkas tidak putus | Tautan mati |
+| **V10** | Tautan relatif antar-berkas tidak putus (isi blok kode berpagar diabaikan) | Tautan mati |
 | **V11** | **Pagu ukuran** — RPS ≤550 baris; tiap berkas `mutu/` ≤180 baris | Pembengkakan dokumen |
 | **V12** | RPS `status: berlaku` ditolak selama `cpl_status: interim` | Pengesahan prematur |
 | **V13** | **Skala konversi nilai** — setiap tabel huruf mutu ↔ rentang 0–100 wajib sama persis dengan tabel §A `konversi-nilai.md` (rentang, huruf, bobot) dan memuat kesembilan huruf | Kambuhnya skala nilai yang tidak resmi |
+| **V14** | **Keselarasan registri** — folder `semester-N/<slug>/` berada di semester registri MK-nya; kode Sub-CPMK registri yang disebut materi ada di `15b`–`15e`; setiap Sub-CPMK registri milik MK itu disebut di RPS-nya *(ditambahkan 2026-11-07)* | MK yang belum diselaraskan dengan Kurikulum 2025 Revisi 2026 |
 
 **Yang tetap memerlukan manusia:** mutu rumusan Sub-CPMK (kata kerja operasional dan terukur), kesesuaian level taksonomi dengan bentuk asesmen, keselarasan isi materi dengan Sub-CPMK, dan kebenaran substansi regulasi. Ditangani `checklist-verifikasi.md` **dengan tanda tangan penelaah sejawat** — telaah sejawat itu sendiri adalah bukti kriteria 1 (Budaya Mutu).
 
