@@ -20,6 +20,14 @@
 
 ---
 
+## Persiapan
+
+1. Buka notebook baru di Google Colab dan simpan sebagai `NIM_Nama_Lab13.ipynb`.
+2. Jalankan **sel pembuka baku** dari [Lab 1, Langkah 1](lab-01-setup-ekosistem-ml.md) (impor pustaka, pencatatan versi, `RANDOM_STATE = 42`). Langkah-langkah di bawah memakai `np`, `pd`, `plt`, dan `RANDOM_STATE` dari sel itu — tanpanya Langkah 1 berhenti dengan `NameError`.
+3. Pastikan prasyarat terpenuhi: Lab 12 sudah selesai.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Perhitungan Manual — Langkah Maju
@@ -114,7 +122,7 @@ print("Loss turun:", loss_baru < loss)
 
 ```python
 # =============================================
-# LANGKAH 3: Data tabular nyata
+# LANGKAH 3: Data tabular (sintetis, meniru data kredit UMKM)
 # =============================================
 import pandas as pd
 from sklearn.model_selection import train_test_split, StratifiedKFold
@@ -267,13 +275,14 @@ print(f"MLP TANPA penskalaan : {auc_tanpa:.4f}")
 print(f"Selisih              : {roc_auc_score(y_test, prob_mlp) - auc_tanpa:+.4f}")
 ```
 
-### LANGKAH 8: MLP vs *Random Forest* — Bagian Utama Lab Ini
+### LANGKAH 8: MLP vs *Random Forest*, *Gradient Boosting*, dan Regresi Logistik — Bagian Utama Lab Ini
 
 ```python
 # =============================================
 # LANGKAH 8: Perbandingan yang jujur pada data tabular
 # =============================================
 from sklearn.ensemble import RandomForestClassifier, HistGradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score
 
 CV = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
@@ -281,8 +290,15 @@ CV = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
 kandidat = {
     "MLP (64, 32)": Pipeline([
         ("pra", pra(True)),
-        ("clf", MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=500,
-                              early_stopping=True, random_state=RANDOM_STATE))]),
+        # Tanpa early stopping: pada data 11% positif, early stopping memantau
+        # AKURASI validasi, yang sudah 0,89 bila model menebak "lancar" untuk semua —
+        # sehingga sebagian lipatan berhenti terlalu dini. Sebagai gantinya,
+        # regularisasi L2 (alpha) yang cukup kuat mencegah overfitting.
+        ("clf", MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=300,
+                              alpha=1.0, random_state=RANDOM_STATE))]),
+    "Regresi Logistik": Pipeline([
+        ("pra", pra(True)),
+        ("clf", LogisticRegression(max_iter=1000))]),
     "Random Forest": Pipeline([
         ("pra", pra(False)),
         ("clf", RandomForestClassifier(n_estimators=300,
@@ -293,26 +309,33 @@ kandidat = {
                                                random_state=RANDOM_STATE))]),
 }
 
-baris = []
+baris, skor_lipatan = [], {}
 for nama, pipa in kandidat.items():
     t0 = time.time()
     skor = cross_val_score(pipa, X_train, y_train, cv=CV,
                            scoring="roc_auc", n_jobs=-1)
+    skor_lipatan[nama] = skor            # lipatan SAMA untuk semua model (CV tetap)
     baris.append({"Model": nama, "ROC-AUC": skor.mean(),
-                  "Simpangan": skor.std(), "Waktu (s)": time.time() - t0})
+                  "Simpangan": skor.std(ddof=1), "Waktu (s)": time.time() - t0})
 
 tabel = pd.DataFrame(baris).sort_values("ROC-AUC", ascending=False)
 print(tabel.round(4).to_string(index=False))
 
-t = tabel.reset_index(drop=True)
-selisih = t.loc[0, "ROC-AUC"] - t.loc[1, "ROC-AUC"]
-simp = np.sqrt(t.loc[0, "Simpangan"]**2 + t.loc[1, "Simpangan"]**2)
-print(f"\nSelisih peringkat 1-2: {selisih:.4f} | Simpangan gabungan: {simp:.4f}")
-print("Kesimpulan:", "perbedaan kemungkinan nyata" if selisih > simp
+# Membandingkan peringkat 1 dan 2 secara BERPASANGAN, lipatan demi lipatan.
+# Karena kedua model diuji pada lipatan yang sama, yang relevan adalah
+# sebaran SELISIH per lipatan, bukan simpangan masing-masing model.
+m1, m2 = tabel["Model"].iloc[0], tabel["Model"].iloc[1]
+d = skor_lipatan[m1] - skor_lipatan[m2]
+se = d.std(ddof=1) / np.sqrt(len(d))
+print(f"\nSelisih per lipatan ({m1} − {m2}): {np.round(d, 4)}")
+print(f"Rata-rata selisih: {d.mean():.4f} | galat baku selisih: {se:.4f}")
+print("Kesimpulan:", f"{m1} kemungkinan lebih baik" if d.mean() > 2 * se
       else "TIDAK DAPAT DISIMPULKAN mana yang lebih baik")
+# Catatan: lipatan CV saling berbagi data latih, sehingga galat baku ini
+# cenderung terlalu kecil (Nadeau & Bengio, 2003). Perlakukan sebagai batas bawah.
 ```
 
-> **Tulis kesimpulan yang jujur.** Bila *Random Forest* atau *gradient boosting* mengungguli MLP pada data tabular ini — yang sering terjadi — itulah temuannya, dan itu **sesuai dengan literatur** (Grinsztajn et al., 2022). Melaporkannya apa adanya adalah yang dinilai, bukan memaksa MLP menang.
+> **Tulis kesimpulan yang jujur.** Model mana yang terbaik pada data ini, dan apakah selisihnya dapat disimpulkan? Perhatikan bahwa data Langkah 3 **dibangkitkan dari model logistik** — hubungannya mulus dan hampir linear. Pada data seperti itu, model sederhana (regresi logistik) atau MLP yang diregularisasi wajar menyamai atau mengungguli model berbasis pohon. Pada **data tabular nyata**, yang sering memuat fitur tidak informatif dan hubungan bertangga, model berbasis pohon lebih sering unggul (Grinsztajn et al., 2022). Pelajarannya: **jenis data menentukan model yang cocok**, dan model yang lebih rumit tidak otomatis lebih baik. Melaporkan hasil apa adanya adalah yang dinilai, bukan memaksa satu model menang.
 
 ---
 

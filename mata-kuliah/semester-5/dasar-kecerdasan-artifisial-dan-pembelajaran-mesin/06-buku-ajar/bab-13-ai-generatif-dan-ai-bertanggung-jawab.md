@@ -100,17 +100,23 @@ Angka keseluruhan (0,86) tampak baik. Bagi penduduk Papua, model ini **melewatka
 
 ## 13.3 Mengukur *Fairness*
 
-### 13.3.1 Tiga Ukuran Pokok
+### 13.3.1 Empat Ukuran Pokok
 
 | Ukuran | Definisi | Menuntut |
 |--------|----------|----------|
 | **Demographic parity** | $P(\hat{y}=1\mid A=a)$ sama untuk semua kelompok | Proporsi prediksi positif setara |
 | **Equal opportunity** | *Recall* sama untuk semua kelompok | Yang layak memperoleh peluang setara |
 | **Equalized odds** | *Recall* **dan** FPR sama | Kedua jenis kesalahan setara |
+| **Predictive parity** | *Precision* sama untuk semua kelompok | Prediksi "berisiko" sama dapat dipercaya di setiap kelompok |
 
-### 13.3.2 Ketiganya Tidak Dapat Dipenuhi Sekaligus
+### 13.3.2 Ukuran Mana yang Saling Bertentangan?
 
-Kleinberg, Mullainathan, dan Raghavan (2016) membuktikan bahwa ketika angka kejadian dasar (*base rate*) berbeda antarkelompok, ukuran-ukuran ini **saling bertentangan secara matematis**. Tidak ada model yang dapat memenuhi semuanya — bukan karena kurang canggih, melainkan karena tidak mungkin.
+Bila angka kejadian dasar (*base rate*) berbeda antarkelompok dan model tidak sempurna, dua hasil berikut **terbukti secara matematis**:
+
+- **Chouldechova (2017):** *predictive parity* (*precision* sama) dan *equalized odds* (*recall* **dan** FPR sama) tidak dapat dipenuhi bersamaan. Penyebabnya identitas $\text{FPR} = \frac{p}{1-p}\cdot\frac{1-\text{PPV}}{\text{PPV}}\cdot\text{recall}$, dengan $p$ = *base rate*: bila $p$ berbeda, menyamakan PPV memaksa *recall* atau FPR berbeda.
+- **Kleinberg, Mullainathan, dan Raghavan (2016):** **kalibrasi per kelompok** tidak dapat dipenuhi bersamaan dengan keseimbangan galat pada kelas positif dan kelas negatif.
+
+*Demographic parity*, *equal opportunity*, dan *equalized odds* **dapat** dipenuhi bersamaan — misalnya oleh model yang memprediksi semua orang "lancar". Model itu adil menurut ketiga ukuran, tetapi tidak berguna. Jadi ketegangannya ada di dua tempat: antarukuran *fairness* tertentu, dan antara *fairness* dan kegunaan model.
 
 > **Konsekuensinya bagi praktik:** *fairness* bukan kotak centang yang dapat dipenuhi, melainkan **pilihan yang harus dinyatakan dan dipertanggungjawabkan**. Insinyur wajib menyatakan ukuran mana yang dipilih, mengapa, dan **apa yang dikorbankan**.
 
@@ -311,8 +317,8 @@ Alasannya sama sepanjang buku ini, dan di sini paling tajam: **yang dituntut buk
 9. Lakukan audit *fairness* lengkap pada model Anda sendiri.
    (a) Latih model pada data nyata dengan kelompok yang timpang representasinya.
    (b) Ukur kinerja terpisah per kelompok.
-   (c) Hitung ketiga ukuran *fairness*.
-   (d) Tunjukkan bahwa ketiganya tidak dapat dipenuhi sekaligus, dengan angka dari data Anda.
+   (c) Hitung keempat ukuran *fairness*.
+   (d) Tunjukkan dengan angka dari data Anda bahwa *predictive parity* dan *equalized odds* tidak dapat dipenuhi bersamaan ketika *base rate* berbeda.
    (e) Pilih satu ukuran, nyatakan alasannya, dan sebutkan apa yang dikorbankan.
    (f) Susun *model card* lengkap.
 
@@ -348,6 +354,7 @@ Alasannya sama sepanjang buku ini, dan di sini paling tajam: **yang dituntut buk
 1. Barocas, S., Hardt, M., & Narayanan, A. (2023). *Fairness and Machine Learning*. MIT Press. <https://fairmlbook.org>
 2. Mitchell, M., et al. (2019). Model Cards for Model Reporting. *FAT* '19*, 220–229.
 3. Kleinberg, J., Mullainathan, S., & Raghavan, M. (2016). Inherent Trade-Offs in the Fair Determination of Risk Scores. *arXiv:1609.05807*.
+   Chouldechova, A. (2017). Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments. *Big Data*, 5(2), 153–163.
 4. Angwin, J., et al. (2016). Machine Bias. *ProPublica*.
 5. Suresh, H., & Guttag, J. (2021). A Framework for Understanding Sources of Harm throughout the ML Life Cycle. *EAAMO '21*.
 6. Lundberg, S. M., & Lee, S.-I. (2017). A Unified Approach to Interpreting Model Predictions. *NeurIPS*.

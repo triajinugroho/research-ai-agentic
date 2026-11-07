@@ -13,10 +13,18 @@
 
 ## Tujuan Praktikum
 
-1. Mengukur kinerja model terpisah per kelompok.
-2. Menghitung ukuran *fairness* dan menunjukkan pertentangannya.
-3. Membuktikan bahwa menghapus atribut sensitif tidak menghapus *bias*.
+1. Mengukur kinerja model terpisah per kelompok, dan membaca angkanya dengan memperhitungkan ukuran sampel.
+2. Menghitung empat ukuran *fairness* dan menunjukkan dengan angka ukuran mana yang **secara matematis** tidak dapat dipenuhi bersamaan.
+3. Membuktikan bahwa menghapus atribut sensitif tidak menghapus ketimpangan ketika ada **fitur proksi**.
 4. Menyusun *model card* yang lengkap dan jujur.
+
+---
+
+## Persiapan
+
+1. Buka notebook baru di Google Colab dan simpan sebagai `NIM_Nama_Lab14.ipynb`.
+2. Jalankan **sel pembuka baku** dari [Lab 1, Langkah 1](lab-01-setup-ekosistem-ml.md) (impor pustaka, pencatatan versi, `RANDOM_STATE = 42`). Semua langkah di bawah memakai variabel `RANDOM_STATE` dari sel itu.
+3. Siapkan model proyek kelompok Anda; teknik di lab ini akan Anda terapkan padanya pada Langkah 8.
 
 ---
 
@@ -24,11 +32,13 @@
 
 > **Audit dilakukan pada model proyek Anda sendiri**, bukan pada contoh. Contoh pada lab ini hanya untuk mempelajari tekniknya. Luaran yang dinilai adalah audit atas model kelompok Anda.
 
+> **Tentang data contoh.** Data pada lab ini **sintetis** (dibangkitkan dengan `numpy`), dirancang meniru dua pola yang lazim pada data kredit UMKM di Indonesia: data terpusat di Jawa, dan akses layanan keuangan yang timpang antarwilayah. Angka-angkanya bukan statistik resmi.
+
 ---
 
 ## Langkah-langkah
 
-### LANGKAH 1: Data dengan Ketimpangan Representasi
+### LANGKAH 1: Data dengan Ketimpangan Representasi dan Fitur Proksi
 
 ```python
 # =============================================
@@ -42,34 +52,47 @@ rng = np.random.default_rng(RANDOM_STATE)
 wilayah_nama = ["Jawa", "Sumatera", "Kalimantan", "Sulawesi", "Papua"]
 wilayah_prop = [0.62, 0.20, 0.09, 0.07, 0.02]
 n = 10_000
-
 wilayah = rng.choice(wilayah_nama, size=n, p=wilayah_prop)
 
+# Jarak ke kantor layanan keuangan terdekat — median berbeda per wilayah.
+# Kolom ini TIDAK menyebut wilayah, tetapi "membawa" informasi wilayah (proksi).
+median_jarak = {"Jawa": 3, "Sumatera": 8, "Kalimantan": 20,
+                "Sulawesi": 15, "Papua": 45}
+jarak = pd.Series(wilayah).map(median_jarak).values * rng.lognormal(0, 0.5, size=n)
+
 df = pd.DataFrame({
-    "wilayah":        wilayah,
-    "omzet_jt":       rng.gamma(2.0, 20, size=n).round(1),
-    "lama_usaha_thn": rng.gamma(2.0, 2.5, size=n).round(1),
-    "rasio_utang":    rng.beta(2, 5, size=n).round(3),
-    "riwayat_telat":  rng.poisson(0.8, size=n),
-    "jenis_usaha":    rng.choice(["Kuliner","Retail","Jasa","Produksi"], size=n),
+    "wilayah":          wilayah,
+    "omzet_jt":         rng.gamma(2.0, 20, size=n).round(1),
+    "lama_usaha_thn":   rng.gamma(2.0, 2.5, size=n).round(1),
+    "rasio_utang":      rng.beta(2, 5, size=n).round(3),
+    "riwayat_telat":    rng.poisson(0.8, size=n),
+    "jenis_usaha":      rng.choice(["Kuliner", "Retail", "Jasa", "Produksi"], size=n),
+    "jarak_layanan_km": jarak.round(1),
 })
 
-# Pola hubungan BERBEDA antar wilayah — model tunggal akan kesulitan
-# pada wilayah yang datanya sedikit
-efek_wilayah = {"Jawa": 0.0, "Sumatera": 0.2, "Kalimantan": 0.4,
-                "Sulawesi": 0.5, "Papua": 0.9}
-logit = (-1.8 - 0.021 * df["omzet_jt"] - 0.15 * df["lama_usaha_thn"]
-         + 2.7 * df["rasio_utang"] + 0.40 * df["riwayat_telat"]
+# Pola hubungan BERBEDA di luar Jawa:
+# - riwayat telat bayar kurang informatif (pencatatan kredit belum merata);
+# - guncangan musiman (cuaca, logistik) yang TIDAK tercatat lebih berpengaruh.
+luar_jawa = (df["wilayah"] != "Jawa").values
+guncangan_musiman = rng.normal(0, 1, size=n)          # tidak masuk ke data
+efek_wilayah = {"Jawa": 0.0, "Sumatera": 0.4, "Kalimantan": 0.8,
+                "Sulawesi": 0.7, "Papua": 1.2}
+logit = (-1.6 - 0.025 * df["omzet_jt"] - 0.15 * df["lama_usaha_thn"]
+         + 3.0 * df["rasio_utang"]
+         + np.where(luar_jawa, 0.25, 0.75) * df["riwayat_telat"]
+         + np.where(luar_jawa, 0.9, 0.1) * guncangan_musiman
          + df["wilayah"].map(efek_wilayah))
 df["gagal_bayar"] = rng.binomial(1, 1 / (1 + np.exp(-logit)))
 
 print("Sebaran wilayah:")
 print(df["wilayah"].value_counts().to_string())
-print("\nProporsi gagal bayar per wilayah:")
+print("\nProporsi gagal bayar (base rate) per wilayah:")
 print(df.groupby("wilayah")["gagal_bayar"].mean().round(3).to_string())
+print("\nMedian jarak ke layanan keuangan (km) per wilayah:")
+print(df.groupby("wilayah")["jarak_layanan_km"].median().round(1).to_string())
 ```
 
-> **Perhatikan:** angka kejadian dasar (*base rate*) berbeda antarwilayah. Inilah kondisi yang membuat ukuran-ukuran *fairness* saling bertentangan (Kleinberg et al., 2016).
+> **Perhatikan tiga hal:** (1) jumlah data per wilayah sangat timpang; (2) *base rate* berbeda antarwilayah; (3) jarak ke layanan keuangan hampir "menyebutkan" wilayahnya. Ketiganya akan muncul kembali dalam audit.
 
 ### LANGKAH 2: Melatih Model
 
@@ -80,9 +103,9 @@ print(df.groupby("wilayah")["gagal_bayar"].mean().round(3).to_string())
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, recall_score
 
 X = df.drop(columns=["gagal_bayar"]); y = df["gagal_bayar"]
 X_train, X_test, y_train, y_test = train_test_split(
@@ -91,20 +114,28 @@ X_train, X_test, y_train, y_test = train_test_split(
 kol_kat = ["wilayah", "jenis_usaha"]
 kol_num = [c for c in X.columns if c not in kol_kat]
 
-pra = ColumnTransformer([
-    ("num", "passthrough", kol_num),
-    ("kat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), kol_kat),
-])
+def buat_model(kolom_kategorik):
+    # Pipeline yang sama dipakai untuk model dengan dan tanpa wilayah
+    pra = ColumnTransformer([
+        ("num", "passthrough", kol_num),
+        ("kat", OneHotEncoder(handle_unknown="ignore", sparse_output=False),
+         kolom_kategorik),
+    ])
+    # class_weight="balanced": kelas gagal bayar (±18%) diberi bobot lebih besar.
+    # Tanpa ini, model nyaris tidak pernah memprediksi "gagal bayar"
+    # dan recall-nya hanya beberapa persen.
+    return Pipeline([
+        ("pra", pra),
+        ("clf", HistGradientBoostingClassifier(
+            max_iter=300, early_stopping=True, class_weight="balanced",
+            random_state=RANDOM_STATE)),
+    ])
 
-model = Pipeline([
-    ("pra", pra),
-    ("clf", HistGradientBoostingClassifier(max_iter=300, early_stopping=True,
-                                           random_state=RANDOM_STATE)),
-]).fit(X_train, y_train)
-
+model = buat_model(kol_kat).fit(X_train, y_train)
 pred = model.predict(X_test)
 prob = model.predict_proba(X_test)[:, 1]
 print(f"ROC-AUC keseluruhan: {roc_auc_score(y_test, prob):.4f}")
+print(f"Recall keseluruhan : {recall_score(y_test, pred):.4f}")
 ```
 
 ### LANGKAH 3: Audit per Kelompok — Inti Lab Ini
@@ -114,107 +145,133 @@ print(f"ROC-AUC keseluruhan: {roc_auc_score(y_test, prob):.4f}")
 # LANGKAH 3: Fungsi audit
 # =============================================
 from sklearn.metrics import (accuracy_score, precision_score,
-                             recall_score, f1_score, confusion_matrix)
+                             recall_score, confusion_matrix)
 
 def audit_kelompok(y_true, y_pred, y_prob, kelompok, nama_kelompok="Kelompok"):
     # Menghitung metrik terpisah per kelompok
+    y_true, y_pred, y_prob = map(np.asarray, (y_true, y_pred, y_prob))
+    kelompok = np.asarray(kelompok)
     baris = []
     for k in pd.unique(kelompok):
-        m = (kelompok == k).values if hasattr(kelompok, "values") else (kelompok == k)
-        yt, yp = np.asarray(y_true)[m], np.asarray(y_pred)[m]
-        cm = confusion_matrix(yt, yp, labels=[0, 1])
-        tn, fp, fn, tp = cm.ravel()
+        m = kelompok == k
+        yt, yp = y_true[m], y_pred[m]
+        tn, fp, fn, tp = confusion_matrix(yt, yp, labels=[0, 1]).ravel()
         baris.append({
             nama_kelompok: k,
             "n": int(m.sum()),
+            "n positif": int(yt.sum()),
             "Base rate": yt.mean(),
             "Akurasi": accuracy_score(yt, yp),
             "Precision": precision_score(yt, yp, zero_division=0),
             "Recall": recall_score(yt, yp, zero_division=0),
             "FPR": fp / (fp + tn) if (fp + tn) else 0.0,
             "Prop. prediksi positif": yp.mean(),
-            "ROC-AUC": (roc_auc_score(yt, np.asarray(y_prob)[m])
+            "ROC-AUC": (roc_auc_score(yt, y_prob[m])
                         if len(np.unique(yt)) > 1 else np.nan),
         })
     return pd.DataFrame(baris).sort_values("n", ascending=False)
 
 tabel = audit_kelompok(y_test, pred, prob, X_test["wilayah"], "Wilayah")
 print("Audit kinerja per wilayah:")
-print(tabel.round(4).to_string(index=False))
+print(tabel.round(3).to_string(index=False))
 
-print(f"\nKinerja KESELURUHAN — akurasi {accuracy_score(y_test, pred):.4f}, "
-      f"recall {recall_score(y_test, pred):.4f}")
-print(f"\nSelisih recall maks-min   : "
-      f"{tabel['Recall'].max() - tabel['Recall'].min():.4f}")
-print(f"Selisih precision maks-min: "
-      f"{tabel['Precision'].max() - tabel['Precision'].min():.4f}")
-print(f"Selisih FPR maks-min      : "
-      f"{tabel['FPR'].max() - tabel['FPR'].min():.4f}")
+# Pembanding yang lebih stabil: Jawa vs gabungan luar Jawa
+jawa_vs_luar = np.where(X_test["wilayah"] == "Jawa", "Jawa", "Luar Jawa")
+tabel_jl = audit_kelompok(y_test, pred, prob, jawa_vs_luar, "Kelompok")
+print("\nJawa vs luar Jawa (gabungan):")
+print(tabel_jl.round(3).to_string(index=False))
+
+print(f"\nKinerja KESELURUHAN — akurasi {accuracy_score(y_test, pred):.3f}, "
+      f"recall {recall_score(y_test, pred):.3f}")
 ```
 
-**Tulis temuan:** wilayah mana yang kinerjanya paling rendah? Apakah berkaitan dengan jumlah datanya? Apa artinya bagi orang yang tinggal di sana?
+> **Membaca angka per kelompok dengan hati-hati.** Papua hanya memiliki sekitar 50 baris uji dan belasan kasus positif. Satu kasus yang berubah dapat menggeser *recall*-nya sampai 5–10 poin persentase. Karena itu, untuk kelompok kecil, bandingkan juga pada tingkat **gabungan** (Jawa vs luar Jawa), dan jangan menyimpulkan dari selisih *recall* satu wilayah saja.
 
-### LANGKAH 4: Tiga Ukuran *Fairness*
+**Tulis temuan:** pada kelompok mana ROC-AUC lebih rendah? Pada kelompok mana FPR (nasabah yang sebenarnya lancar, tetapi ditandai berisiko) lebih tinggi? Apa artinya bagi pelaku usaha yang tinggal di sana?
+
+### LANGKAH 4: Empat Ukuran *Fairness* dan Pertentangannya
+
+| Ukuran | Menuntut | Kolom pada tabel audit |
+|--------|----------|------------------------|
+| *Demographic parity* | Proporsi prediksi positif sama | `Prop. prediksi positif` |
+| *Equal opportunity* | *Recall* sama | `Recall` |
+| *Equalized odds* | *Recall* **dan** FPR sama | `Recall`, `FPR` |
+| *Predictive parity* | *Precision* sama | `Precision` |
 
 ```python
 # =============================================
-# LANGKAH 4: Ukuran fairness dan pertentangannya
+# LANGKAH 4: Ukuran fairness — gunakan tabel Jawa vs luar Jawa
 # =============================================
-print("Demographic parity — proporsi prediksi positif harus SAMA:")
-print(tabel[["Wilayah", "Prop. prediksi positif"]].round(4).to_string(index=False))
-print(f"  Selisih maks-min: "
-      f"{tabel['Prop. prediksi positif'].max() - tabel['Prop. prediksi positif'].min():.4f}")
+t = tabel_jl.set_index("Kelompok")
+def selisih(kolom):
+    return abs(t.loc["Jawa", kolom] - t.loc["Luar Jawa", kolom])
 
-print("\nEqual opportunity — recall harus SAMA:")
-print(tabel[["Wilayah", "Recall"]].round(4).to_string(index=False))
-print(f"  Selisih maks-min: {tabel['Recall'].max() - tabel['Recall'].min():.4f}")
+print("Selisih Jawa vs luar Jawa:")
+print(f"  Demographic parity (prop. prediksi positif): {selisih('Prop. prediksi positif'):.3f}")
+print(f"  Equal opportunity  (recall)                : {selisih('Recall'):.3f}")
+print(f"  Equalized odds     (FPR)                   : {selisih('FPR'):.3f}")
+print(f"  Predictive parity  (precision)             : {selisih('Precision'):.3f}")
+print(f"\nBase rate — Jawa {t.loc['Jawa', 'Base rate']:.3f}, "
+      f"luar Jawa {t.loc['Luar Jawa', 'Base rate']:.3f}")
 
-print("\nEqualized odds — recall DAN FPR harus SAMA:")
-print(tabel[["Wilayah", "Recall", "FPR"]].round(4).to_string(index=False))
-
-print("\nBase rate per wilayah (angka kejadian sebenarnya):")
-print(tabel[["Wilayah", "Base rate"]].round(4).to_string(index=False))
-print("\nKarena base rate BERBEDA antarwilayah, ketiga ukuran di atas")
-print("TIDAK DAPAT dipenuhi sekaligus (Kleinberg et al., 2016).")
-print("Insinyur harus MEMILIH salah satu dan menyatakan alasannya.")
+# Identitas Chouldechova (2017): untuk setiap kelompok berlaku
+#   FPR = p/(1-p) * (1-PPV)/PPV * recall,  dengan p = base rate, PPV = precision.
+# Bila p berbeda dan model tidak sempurna, precision yang sama memaksa
+# recall atau FPR berbeda — dan sebaliknya.
+for k in ["Jawa", "Luar Jawa"]:
+    p, ppv, rec = t.loc[k, ["Base rate", "Precision", "Recall"]]
+    print(f"{k:9s}: FPR teramati {t.loc[k, 'FPR']:.3f} | "
+          f"FPR dari identitas {p/(1-p) * (1-ppv)/ppv * rec:.3f}")
 ```
+
+> **Apa yang sebenarnya terbukti secara matematis.** Chouldechova (2017) menunjukkan identitas di atas: bila *base rate* berbeda antarkelompok dan model tidak sempurna, **predictive parity** (*precision* sama) dan **equalized odds** (*recall* dan FPR sama) **tidak dapat dipenuhi bersamaan**. Kleinberg, Mullainathan, dan Raghavan (2016) membuktikan hal serupa untuk **kalibrasi per kelompok** versus keseimbangan galat kedua kelas.
+>
+> Hati-hati: *demographic parity*, *equal opportunity*, dan *equalized odds* **dapat** dipenuhi bersamaan — misalnya oleh model yang memprediksi semua orang "lancar". Model seperti itu adil menurut ketiga ukuran, tetapi tidak berguna. Jadi pertentangannya adalah antara ukuran *fairness* yang saling bertentangan **dan** antara *fairness* dengan kegunaan. Insinyur harus **memilih**, menyatakan alasannya, dan mengakui apa yang dikorbankan.
 
 ### LANGKAH 5: Menghapus Atribut Sensitif Tidak Cukup
 
 ```python
 # =============================================
-# LANGKAH 5: Membuang kolom wilayah — apakah bias hilang?
+# LANGKAH 5: Membuang kolom wilayah — apakah ketimpangan hilang?
 # =============================================
-X2 = X.drop(columns=["wilayah"])
-X2_train, X2_test = X2.loc[X_train.index], X2.loc[X_test.index]
+X2_train = X_train.drop(columns=["wilayah"])
+X2_test  = X_test.drop(columns=["wilayah"])
 
-pra2 = ColumnTransformer([
-    ("num", "passthrough", kol_num),
-    ("kat", OneHotEncoder(handle_unknown="ignore", sparse_output=False),
-     ["jenis_usaha"]),
-])
-model2 = Pipeline([
-    ("pra", pra2),
-    ("clf", HistGradientBoostingClassifier(max_iter=300, early_stopping=True,
-                                           random_state=RANDOM_STATE)),
-]).fit(X2_train, y_train)
-
+model2 = buat_model(["jenis_usaha"]).fit(X2_train, y_train)
 pred2 = model2.predict(X2_test)
 prob2 = model2.predict_proba(X2_test)[:, 1]
 
 # Audit TETAP dilakukan per wilayah, meski wilayah bukan lagi fitur
 tabel2 = audit_kelompok(y_test, pred2, prob2, X_test["wilayah"], "Wilayah")
+tabel2_jl = audit_kelompok(y_test, pred2, prob2, jawa_vs_luar, "Kelompok").set_index("Kelompok")
 print("Audit setelah kolom wilayah DIBUANG:")
-print(tabel2.round(4).to_string(index=False))
+print(tabel2.round(3).to_string(index=False))
 
-print(f"\nSelisih recall — dengan wilayah : "
-      f"{tabel['Recall'].max() - tabel['Recall'].min():.4f}")
-print(f"Selisih recall — tanpa wilayah  : "
-      f"{tabel2['Recall'].max() - tabel2['Recall'].min():.4f}")
-print("\nKetimpangan TIDAK hilang hanya dengan membuang atributnya.")
+def gap_fpr(tb):
+    return tb.loc["Luar Jawa", "FPR"] - tb.loc["Jawa", "FPR"]
+
+g1, g2 = gap_fpr(t), gap_fpr(tabel2_jl)
+print(f"\nSelisih FPR (luar Jawa − Jawa) — dengan wilayah : {g1:+.3f}")
+print(f"Selisih FPR (luar Jawa − Jawa) — tanpa wilayah  : {g2:+.3f}")
+
+# Seberapa kuat jarak menjadi proksi wilayah?
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import cross_val_score
+akurasi_proksi = cross_val_score(
+    DecisionTreeClassifier(max_depth=3, random_state=RANDOM_STATE),
+    X[["jarak_layanan_km"]], (X["wilayah"] == "Jawa"), cv=5).mean()
+print(f"Jawa/luar Jawa dapat ditebak dari jarak saja dengan akurasi {akurasi_proksi:.3f}")
+
+# Kesimpulan DIHITUNG dari angka, bukan ditulis tetap
+if g2 > 0.5 * g1 and g2 > 0.02:
+    print("\nKESIMPULAN: ketimpangan FPR TIDAK hilang setelah wilayah dibuang "
+          f"(semula {g1:+.3f}, kini {g2:+.3f}). Jarak bertindak sebagai proksi.")
+else:
+    print("\nKESIMPULAN: ketimpangan FPR mengecil tajam setelah wilayah dibuang. "
+          "Periksa apakah ada fitur proksi lain pada data Anda.")
 ```
 
-> **Kesimpulan yang harus ditulis:** ketimpangan bersumber dari **jumlah data dan pola yang berbeda antarkelompok**, bukan semata dari hadirnya kolom itu sebagai fitur. Karena itu pengukuran per kelompok tetap wajib, **bahkan ketika atributnya tidak dipakai**.
+> **Kesimpulan yang harus ditulis:** ketimpangan bersumber dari **pola yang berbeda antarkelompok, jumlah data yang timpang, dan fitur proksi** — bukan semata dari hadirnya kolom wilayah sebagai fitur. Karena itu pengukuran per kelompok tetap wajib, **bahkan ketika atributnya tidak dipakai sebagai fitur**. Untuk itu atribut sensitif tetap perlu **disimpan untuk keperluan audit**, meskipun tidak dipakai untuk memprediksi.
 
 ### LANGKAH 6: Visualisasi Ketimpangan
 
@@ -225,28 +282,29 @@ print("\nKetimpangan TIDAK hilang hanya dengan membuang atributnya.")
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(1, 3, figsize=(16, 4.5))
-
 urut = tabel.sort_values("n", ascending=False)
 
 ax[0].barh(urut["Wilayah"][::-1], urut["n"][::-1])
 ax[0].set_xlabel("Jumlah data uji"); ax[0].set_title("1. Representasi dalam data")
 
-ax[1].barh(urut["Wilayah"][::-1], urut["Recall"][::-1], color="tab:orange")
-ax[1].axvline(recall_score(y_test, pred), color="red", ls="--",
-              label=f"Keseluruhan ({recall_score(y_test, pred):.3f})")
-ax[1].set_xlabel("Recall"); ax[1].set_title("2. Recall per wilayah"); ax[1].legend()
+ax[1].barh(urut["Wilayah"][::-1], urut["FPR"][::-1], color="tab:orange")
+fpr_total = ((pred == 1) & (y_test.values == 0)).sum() / (y_test.values == 0).sum()
+ax[1].axvline(fpr_total, color="red", ls="--", label=f"Keseluruhan ({fpr_total:.3f})")
+ax[1].set_xlabel("FPR (lancar, tetapi ditandai berisiko)")
+ax[1].set_title("2. FPR per wilayah"); ax[1].legend()
 
-ax[2].scatter(urut["n"], urut["Recall"], s=110)
+ax[2].scatter(urut["n"], urut["ROC-AUC"], s=110)
 for _, r in urut.iterrows():
-    ax[2].annotate(r["Wilayah"], (r["n"], r["Recall"]),
+    ax[2].annotate(r["Wilayah"], (r["n"], r["ROC-AUC"]),
                    xytext=(5, 5), textcoords="offset points", fontsize=8)
-ax[2].set_xlabel("Jumlah data"); ax[2].set_ylabel("Recall")
-ax[2].set_title("3. Hubungan jumlah data dan kinerja")
+ax[2].set_xscale("log")
+ax[2].set_xlabel("Jumlah data uji (skala log)"); ax[2].set_ylabel("ROC-AUC")
+ax[2].set_title("3. Jumlah data dan kemampuan membedakan")
 
 plt.tight_layout(); plt.show()
 ```
 
-**Tulis pembahasan:** apakah grafik ketiga menunjukkan hubungan? Apa implikasinya bagi pengumpulan data di masa depan?
+**Tulis pembahasan:** apakah grafik ketiga menunjukkan bahwa wilayah dengan data lebih sedikit dilayani lebih buruk? Apa implikasinya bagi pengumpulan data di masa depan?
 
 ### LANGKAH 7: Satu Model vs Model per Kelompok
 
@@ -258,28 +316,23 @@ baris = []
 for w in wilayah_nama:
     m_tr = (X_train["wilayah"] == w).values
     m_te = (X_test["wilayah"] == w).values
-    if m_tr.sum() < 100 or len(np.unique(y_test[m_te])) < 2:
+    auc_tunggal = tabel.loc[tabel["Wilayah"] == w, "ROC-AUC"].iloc[0]
+    if m_tr.sum() < 300:
         baris.append({"Wilayah": w, "n latih": int(m_tr.sum()),
-                      "Recall (model tunggal)": tabel.loc[tabel["Wilayah"]==w,
-                                                          "Recall"].iloc[0],
-                      "Recall (model terpisah)": np.nan,
-                      "Catatan": "data terlalu sedikit"})
+                      "AUC (model tunggal)": auc_tunggal,
+                      "AUC (model terpisah)": np.nan,
+                      "Catatan": "data terlalu sedikit untuk model sendiri"})
         continue
-    m_khusus = Pipeline([
-        ("pra", pra2),
-        ("clf", HistGradientBoostingClassifier(max_iter=200, early_stopping=True,
-                                               random_state=RANDOM_STATE)),
-    ]).fit(X2_train[m_tr], y_train[m_tr])
-    r = recall_score(y_test[m_te], m_khusus.predict(X2_test[m_te]), zero_division=0)
+    m_khusus = buat_model(["jenis_usaha"]).fit(X2_train[m_tr], y_train[m_tr])
+    auc_khusus = roc_auc_score(y_test[m_te], m_khusus.predict_proba(X2_test[m_te])[:, 1])
     baris.append({"Wilayah": w, "n latih": int(m_tr.sum()),
-                  "Recall (model tunggal)": tabel.loc[tabel["Wilayah"]==w,
-                                                      "Recall"].iloc[0],
-                  "Recall (model terpisah)": r, "Catatan": ""})
+                  "AUC (model tunggal)": auc_tunggal,
+                  "AUC (model terpisah)": auc_khusus, "Catatan": ""})
 
-print(pd.DataFrame(baris).round(4).to_string(index=False))
+print(pd.DataFrame(baris).round(3).to_string(index=False))
 ```
 
-> **Perhatikan baris "data terlalu sedikit".** Kelompok yang paling membutuhkan model khusus justru yang paling tidak mungkin memperolehnya, karena datanya paling sedikit. Ini adalah bentuk ketimpangan yang tidak dapat diselesaikan secara teknis semata.
+> **Perhatikan baris "data terlalu sedikit".** Kelompok yang paling membutuhkan model khusus justru yang paling tidak mungkin memperolehnya, karena datanya paling sedikit. Ini bentuk ketimpangan yang tidak dapat diselesaikan secara teknis semata — jalan keluarnya ada pada **pengumpulan data**, bukan pada algoritma.
 
 ### LANGKAH 8: Menyusun *Model Card*
 
@@ -379,9 +432,10 @@ Simulasikan bias umpan balik: (a) latih model, (b) pakai prediksinya untuk memut
 
 - [ ] Audit kinerja **model proyek sendiri**, terpisah per minimal dua kelompok
 - [ ] Selisih *recall*, *precision*, dan FPR antarkelompok dilaporkan
-- [ ] Ketiga ukuran *fairness* dihitung
-- [ ] **Pertentangan antarukuran ditunjukkan** dengan bukti *base rate* berbeda
-- [ ] Dibuktikan bahwa membuang atribut sensitif **tidak** menghapus ketimpangan
+- [ ] Keempat ukuran *fairness* dihitung
+- [ ] **Pertentangan *predictive parity* vs *equalized odds* ditunjukkan** dengan bukti *base rate* berbeda
+- [ ] Fitur proksi atribut sensitif pada data sendiri diidentifikasi
+- [ ] Diperiksa dengan angka apakah membuang atribut sensitif menghapus ketimpangan
 - [ ] Hubungan jumlah data dan kinerja divisualisasikan
 - [ ] **Ukuran *fairness* yang dipilih dinyatakan beserta alasan dan pengorbanannya**
 - [ ] *Model card* lengkap sebagai berkas terpisah
@@ -399,7 +453,8 @@ Simulasikan bias umpan balik: (a) latih model, (b) pakai prediksinya untuk memut
 3. Barocas, S., Hardt, M., & Narayanan, A. (2023). *Fairness and Machine Learning*. MIT Press. <https://fairmlbook.org>
 4. Mitchell, M., et al. (2019). Model Cards for Model Reporting. *FAT* '19*, 220–229.
 5. Kleinberg, J., Mullainathan, S., & Raghavan, M. (2016). Inherent Trade-Offs in the Fair Determination of Risk Scores. *arXiv:1609.05807*.
-6. Suresh, H., & Guttag, J. (2021). A Framework for Understanding Sources of Harm throughout the ML Life Cycle. *EAAMO '21*.
+6. Chouldechova, A. (2017). Fair Prediction with Disparate Impact: A Study of Bias in Recidivism Prediction Instruments. *Big Data*, 5(2), 153–163.
+7. Suresh, H., & Guttag, J. (2021). A Framework for Understanding Sources of Harm throughout the ML Life Cycle. *EAAMO '21*.
 ---
 
 *"Problem Solvers in Digital, Driven by Ethics and Islamic Values"* — Program Studi Informatika, Universitas Al Azhar Indonesia

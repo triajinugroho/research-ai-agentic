@@ -26,6 +26,14 @@
 
 ---
 
+## Persiapan
+
+1. Buka notebook baru di Google Colab dan simpan sebagai `NIM_Nama_Lab05.ipynb`.
+2. Jalankan **sel pembuka baku** dari [Lab 1, Langkah 1](lab-01-setup-ekosistem-ml.md) (impor pustaka, pencatatan versi, `RANDOM_STATE = 42`). Langkah-langkah di bawah memakai `np`, `pd`, `plt`, dan `RANDOM_STATE` dari sel itu — tanpanya Langkah 1 berhenti dengan `NameError`.
+3. Pastikan prasyarat terpenuhi: Lab 4 sudah selesai.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Data dengan Fitur Mentah

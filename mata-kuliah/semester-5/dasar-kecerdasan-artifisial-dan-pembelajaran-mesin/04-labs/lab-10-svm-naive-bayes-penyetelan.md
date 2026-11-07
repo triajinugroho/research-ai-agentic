@@ -20,6 +20,14 @@
 
 ---
 
+## Persiapan
+
+1. Buka notebook baru di Google Colab dan simpan sebagai `NIM_Nama_Lab10.ipynb`.
+2. Jalankan **sel pembuka baku** dari [Lab 1, Langkah 1](lab-01-setup-ekosistem-ml.md) (impor pustaka, pencatatan versi, `RANDOM_STATE = 42`). Langkah-langkah di bawah memakai `np`, `pd`, `plt`, dan `RANDOM_STATE` dari sel itu — tanpanya Langkah 1 berhenti dengan `NameError`.
+3. Pastikan prasyarat terpenuhi: Lab 9 sudah selesai.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Data dan Pembagian
@@ -194,8 +202,10 @@ skor_uji = roc_auc_score(y_test,
 print(f"best_score_ (CV data latih): {pencarian.best_score_:.4f}")
 print(f"Skor pada data uji         : {skor_uji:.4f}")
 print(f"Selisih                    : {pencarian.best_score_ - skor_uji:+.4f}")
-print("\nbest_score_ SUDAH DIOPTIMALKAN atas ruang pencarian,")
-print("sehingga cenderung lebih tinggi daripada kinerja sebenarnya.")
+print("\nbest_score_ adalah skor TERBAIK dari banyak kombinasi yang dicoba pada")
+print("lipatan yang sama, sehingga RATA-RATA-nya cenderung terlalu optimistis.")
+print("Pada satu pembagian, skor uji bisa lebih tinggi atau lebih rendah karena")
+print("variasi acak — bandingkan selisih di atas dengan simpangan antarlipatan.")
 print("Yang dilaporkan sebagai kinerja akhir adalah skor pada data uji.")
 ```
 
@@ -214,7 +224,15 @@ kandidat = {
     "Naive Bayes":          buat_pipa(GaussianNB()),
     "Regresi logistik":     buat_pipa(LogisticRegression(max_iter=1000,
                                                          random_state=RANDOM_STATE)),
-    "SVM (RBF, disetel)":   pencarian.best_estimator_,
+    # BUKAN pencarian.best_estimator_: parameternya dipilih memakai lipatan CV
+    # yang sama, sehingga skornya di sini akan bocor (aturan kebocoran #6).
+    # Objek GridSearchCV dimasukkan utuh, sehingga penyetelan diulang di dalam
+    # setiap lipatan luar (CV bersarang) — adil terhadap model lain.
+    "SVM (RBF, disetel)":   GridSearchCV(
+                                buat_pipa(SVC(kernel="rbf", random_state=RANDOM_STATE)),
+                                ruang, scoring="roc_auc",
+                                cv=StratifiedKFold(n_splits=3, shuffle=True,
+                                                   random_state=RANDOM_STATE)),
     "Random Forest":        buat_pipa(RandomForestClassifier(
                                 n_estimators=300, random_state=RANDOM_STATE, n_jobs=-1),
                                 skala=False),
@@ -223,28 +241,33 @@ kandidat = {
                                 random_state=RANDOM_STATE), skala=False),
 }
 
-baris = []
+baris, skor_lipatan = [], {}
 for nama, pipa in kandidat.items():
     t0 = time.time()
     skor = cross_val_score(pipa, X_train, y_train, cv=CV,   # CV yang SAMA
                            scoring="roc_auc", n_jobs=-1)
-    baris.append({"Model": nama, "ROC-AUC": skor.mean(), "Simpangan": skor.std(),
+    skor_lipatan[nama] = skor
+    baris.append({"Model": nama, "ROC-AUC": skor.mean(), "Simpangan": skor.std(ddof=1),
                   "Min": skor.min(), "Maks": skor.max(),
                   "Waktu (s)": time.time() - t0})
 
 tabel = pd.DataFrame(baris).sort_values("ROC-AUC", ascending=False)
 print(tabel.round(4).to_string(index=False))
 
-# Apakah selisih antara peringkat 1 dan 2 lebih besar daripada simpangannya?
-t = tabel.reset_index(drop=True)
-selisih = t.loc[0, "ROC-AUC"] - t.loc[1, "ROC-AUC"]
-simpangan_gabung = np.sqrt(t.loc[0, "Simpangan"]**2 + t.loc[1, "Simpangan"]**2)
-print(f"\nSelisih peringkat 1 dan 2 : {selisih:.4f}")
-print(f"Simpangan gabungan        : {simpangan_gabung:.4f}")
-print("Kesimpulan:",
-      "perbedaan kemungkinan nyata" if selisih > simpangan_gabung
+# Bandingkan peringkat 1 dan 2 secara BERPASANGAN: lipatannya sama,
+# jadi yang relevan adalah sebaran SELISIH per lipatan.
+m1, m2 = tabel["Model"].iloc[0], tabel["Model"].iloc[1]
+d = skor_lipatan[m1] - skor_lipatan[m2]
+se = d.std(ddof=1) / np.sqrt(len(d))
+print(f"\nSelisih per lipatan ({m1} − {m2}): {np.round(d, 4)}")
+print(f"Rata-rata selisih: {d.mean():.4f} | galat baku selisih: {se:.4f}")
+print("Kesimpulan:", f"{m1} kemungkinan lebih baik" if d.mean() > 2 * se
       else "TIDAK DAPAT DISIMPULKAN mana yang lebih baik")
+# Lipatan CV berbagi data latih, sehingga galat baku ini cenderung
+# terlalu kecil (Nadeau & Bengio, 2003). Perlakukan sebagai batas bawah.
 ```
+
+**Tulis pembahasan:** bandingkan skor SVM pada tabel ini dengan `best_score_` di Langkah 6. Mengapa skor di sini lebih rendah? Apa yang akan terjadi pada peringkat bila Anda memakai `pencarian.best_estimator_` (yang parameternya dipilih dengan melihat lipatan yang sama)?
 
 ### LANGKAH 9: Validasi Silang Bersarang
 

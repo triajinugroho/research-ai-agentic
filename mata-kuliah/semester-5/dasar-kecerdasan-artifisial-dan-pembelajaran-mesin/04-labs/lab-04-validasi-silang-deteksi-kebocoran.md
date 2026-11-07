@@ -20,6 +20,14 @@
 
 ---
 
+## Persiapan
+
+1. Buka notebook baru di Google Colab dan simpan sebagai `NIM_Nama_Lab04.ipynb`.
+2. Jalankan **sel pembuka baku** dari [Lab 1, Langkah 1](lab-01-setup-ekosistem-ml.md) (impor pustaka, pencatatan versi, `RANDOM_STATE = 42`). Langkah-langkah di bawah memakai `np`, `pd`, `plt`, dan `RANDOM_STATE` dari sel itu — tanpanya Langkah 1 berhenti dengan `NameError`.
+3. Pastikan prasyarat terpenuhi: Lab 3 sudah selesai.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Data Uji dengan Empat Kebocoran
@@ -33,19 +41,30 @@ rng = np.random.default_rng(RANDOM_STATE)
 n = 3000
 
 tanggal = pd.date_range("2024-01-01", periods=n, freq="6h")
+id_pelanggan = rng.integers(1, 401, size=n)          # 400 pelanggan BERULANG
+
+# Ciri yang TETAP per pelanggan
+kecenderungan = rng.normal(0, 2.6, size=401)         # selera belanja — tidak tercatat
+usia_akun = rng.integers(30, 2000, size=401)         # hari sejak daftar — tercatat
 
 df = pd.DataFrame({
     "tanggal":        tanggal,
-    "id_pelanggan":   rng.integers(1, 401, size=n),   # pelanggan BERULANG
+    "id_pelanggan":   id_pelanggan,
+    "usia_akun_hari": usia_akun[id_pelanggan],       # sama untuk semua sesi pelanggan itu
     "durasi_sesi":    rng.gamma(2.0, 8, size=n).round(1),
     "jumlah_klik":    rng.poisson(12, size=n),
     "nilai_keranjang":rng.gamma(2.0, 150_000, size=n).round(0),
     "kategori":       rng.choice(["Elektronik", "Fashion", "Makanan", "Buku"], size=n),
 })
 
-# Target: pembelian terjadi atau tidak
-logit = (-1.4 + 0.035 * df["durasi_sesi"] + 0.06 * df["jumlah_klik"]
-         + 0.0000012 * df["nilai_keranjang"])
+# Target: pembelian terjadi atau tidak.
+# (1) Tiap pelanggan punya kecenderungan sendiri -> baris satu pelanggan saling mirip.
+# (2) POLA BERGESER seiring waktu: sesi panjang makin TIDAK berarti niat membeli
+#     (misalnya karena fitur "jelajah" baru) — inilah yang tidak terlihat bila dibagi acak.
+waktu = np.arange(n) / n                              # 0 = awal, 1 = akhir periode
+logit = (-4.6 + (0.16 - 0.22 * waktu) * df["durasi_sesi"]
+         + 0.22 * df["jumlah_klik"] + 0.0000015 * df["nilai_keranjang"]
+         + kecenderungan[id_pelanggan])
 df["beli"] = rng.binomial(1, 1 / (1 + np.exp(-logit)))
 
 # KEBOCORAN TARGET: kolom yang hanya ada SETELAH pembelian terjadi
@@ -70,7 +89,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 
-kol_fitur = ["durasi_sesi", "jumlah_klik", "nilai_keranjang", "nomor_invoice"]
+kol_fitur = ["usia_akun_hari", "durasi_sesi", "jumlah_klik", "nilai_keranjang",
+             "nomor_invoice"]
 X_salah = df[kol_fitur].copy()
 y = df["beli"]
 
@@ -79,7 +99,7 @@ X_salah = pd.DataFrame(StandardScaler().fit_transform(X_salah),
                        columns=kol_fitur)
 
 # BOCOR 2: pemilihan fitur memakai SELURUH y
-pemilih = SelectKBest(f_classif, k=3).fit(X_salah, y)
+pemilih = SelectKBest(f_classif, k=4).fit(X_salah, y)
 X_salah = pd.DataFrame(pemilih.transform(X_salah),
                        columns=np.array(kol_fitur)[pemilih.get_support()])
 
@@ -107,7 +127,7 @@ from sklearn.pipeline import Pipeline
 hasil = [{"Tahap": "Seluruh kebocoran", "ROC-AUC": auc_salah}]
 
 # Perbaikan 1: buang kolom bocor target
-kol_bersih = ["durasi_sesi", "jumlah_klik", "nilai_keranjang"]
+kol_bersih = ["usia_akun_hari", "durasi_sesi", "jumlah_klik", "nilai_keranjang"]
 X = df[kol_bersih]
 
 Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.2,
@@ -135,7 +155,7 @@ tabel["Penurunan"] = tabel["ROC-AUC"].iloc[0] - tabel["ROC-AUC"]
 print(tabel.round(4).to_string(index=False))
 ```
 
-**Tulis kesimpulan:** perbaikan mana yang paling besar dampaknya? Mengapa?
+**Tulis kesimpulan:** perbaikan mana yang paling besar dampaknya? Mengapa skor **turun lagi** pada pembagian temporal, padahal tidak ada kolom yang dibuang? (Petunjuk: data uji temporal berasal dari periode **akhir**, ketika pola durasi sesi sudah bergeser. Pembagian acak mencampur periode awal dan akhir, sehingga data uji "mirip" data latih — padahal di dunia nyata model selalu dipakai pada masa depan.)
 
 ### LANGKAH 4: Pembagian Berkelompok
 
@@ -165,7 +185,9 @@ print(f"GroupKFold      : {skor_grup.mean():.4f} ± {skor_grup.std():.4f}")
 print(f"Selisih         : {skor_biasa.mean() - skor_grup.mean():+.4f}")
 ```
 
-> Pada data ini 400 pelanggan menghasilkan 3.000 baris — rata-rata 7,5 baris per pelanggan. Semakin banyak baris per entitas, semakin besar selisihnya.
+> Pada data ini 400 pelanggan menghasilkan 3.000 baris — rata-rata 7,5 baris per pelanggan. Kolom `usia_akun_hari` sama untuk setiap sesi seorang pelanggan, sehingga model dapat "mengenali" pelanggan dan mengingat kecenderungannya. Bila pelanggan yang sama ada di data latih dan uji, kemampuan mengingat itu tampak seperti kemampuan memprediksi. Semakin banyak baris per entitas, semakin besar selisihnya.
+
+**Tulis kesimpulan:** berapa selisih StratifiedKFold dan GroupKFold? Skor mana yang menggambarkan kinerja pada **pelanggan baru**?
 
 ### LANGKAH 5: Pembagian Temporal dengan `TimeSeriesSplit`
 

@@ -69,8 +69,10 @@ df["modal_awal"] = [f"Rp {v:,.0f}".replace(",", ".")
 df = pd.concat([df, df.iloc[:40]], ignore_index=True)
 
 # Target
+# (omzet -99 dianggap 0 di sini; pada data nyata nilai sebenarnya tidak diketahui)
 df["berkembang"] = rng.binomial(
-    1, 1 / (1 + np.exp(-(-1.0 + 0.012 * df["omzet_bulanan"].clip(lower=0)))))
+    1, 1 / (1 + np.exp(-(-2.2 + 0.035 * df["omzet_bulanan"].clip(lower=0)
+                          + 0.08 * df["jumlah_pegawai"]))))
 
 print("Dimensi awal:", df.shape)
 display(df.head())
@@ -223,9 +225,40 @@ print(f"ROC-AUC dengan Pipeline  : {auc_benar:.4f}")
 print(f"Selisih                  : {auc_bocor - auc_benar:+.4f}")
 ```
 
-**Tulis penjelasan:** mengapa cara pertama menghasilkan skor yang lebih tinggi, dan mengapa skor itu **tidak jujur**?
+**Tulis penjelasan:** berapa selisih yang Anda peroleh? Mengapa selisihnya **kecil** di sini (petunjuk: median dan rata-rata dari 1.500 baris hampir sama dengan dari 1.200 baris latih), dan mengapa prosedur pertama **tetap tidak jujur** walaupun angkanya hampir sama?
 
-> Pada data yang cukup besar dan bersih, selisihnya kecil. Pada data kecil atau berpencilan, selisihnya bisa sangat besar. Yang keliru bukan besarnya selisih, melainkan **prosedurnya**.
+> **Yang keliru bukan besarnya selisih, melainkan prosedurnya.** Imputasi dan penskalaan hanya "mengintip" statistik ringkas (median, rata-rata, simpangan baku) dari data uji. Pada data besar dampaknya kecil, tetapi pada data kecil, berpencilan, atau bila prapemrosesannya memakai **target**, dampaknya bisa sangat besar. Langkah 6b menunjukkan kasus yang besar itu.
+
+### LANGKAH 6b: Kebocoran yang Besar — Seleksi Fitur sebelum Pembagian
+
+```python
+# =============================================
+# LANGKAH 6b: Memilih fitur memakai SELURUH data
+# =============================================
+from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.model_selection import cross_val_score
+
+# 200 baris, 2.000 kolom ACAK MURNI — tidak ada hubungan sama sekali dengan target
+rng_b = np.random.default_rng(RANDOM_STATE)
+X_acak = rng_b.normal(size=(200, 2000))
+y_acak = rng_b.integers(0, 2, size=200)
+
+# --- CARA SALAH: pilih 20 fitur "terbaik" dari seluruh data, baru validasi ---
+X_terpilih = SelectKBest(f_classif, k=20).fit_transform(X_acak, y_acak)
+auc_salah = cross_val_score(LogisticRegression(max_iter=1000), X_terpilih, y_acak,
+                            cv=5, scoring="roc_auc").mean()
+
+# --- CARA BENAR: seleksi fitur di DALAM Pipeline, diulang di setiap lipatan ---
+alur = Pipeline([("pilih", SelectKBest(f_classif, k=20)),
+                 ("clf", LogisticRegression(max_iter=1000))])
+auc_benar_b = cross_val_score(alur, X_acak, y_acak, cv=5, scoring="roc_auc").mean()
+
+print(f"ROC-AUC seleksi di luar validasi : {auc_salah:.3f}   <- tampak 'bagus'")
+print(f"ROC-AUC seleksi di dalam Pipeline: {auc_benar_b:.3f}   <- sekitar 0,5 = menebak")
+print("Data ini ACAK MURNI. Skor jauh di atas 0,5 hanya mungkin karena kebocoran.")
+```
+
+**Tulis penjelasan:** mengapa memilih fitur dengan melihat target pada **seluruh** data membuat model tampak mampu memprediksi data yang sebenarnya acak? Hubungkan dengan aturan "semua yang dipelajari dari data harus dipelajari dari data latih saja".
 
 ### LANGKAH 7: `Pipeline` Lengkap dengan `ColumnTransformer`
 
@@ -274,7 +307,7 @@ model = Pipeline([
 ])
 
 model.fit(X_train, y_train)
-print("ROC-AUC:", roc_auc_score(y_test, model.predict_proba(X_test)[:, 1]).round(4))
+print("ROC-AUC:", round(roc_auc_score(y_test, model.predict_proba(X_test)[:, 1]), 4))
 ```
 
 ### LANGKAH 8: Memeriksa Hasil Transformasi

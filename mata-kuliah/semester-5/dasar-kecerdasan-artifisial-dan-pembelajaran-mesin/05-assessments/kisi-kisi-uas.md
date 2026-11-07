@@ -85,7 +85,7 @@ Nilai $\log_2$ yang sering dipakai juga disediakan dalam tabel kecil.
 
 **A3.** Sebuah tim melaporkan skor *silhouette* 0,68 pada hasil *clustering* mereka, lalu menyimpulkan bahwa klasternya bermakna. Jelaskan mengapa kesimpulan itu belum sah, dan apa yang masih harus dilakukan.
 
-**A4.** Jelaskan mengapa ukuran-ukuran *fairness* (*demographic parity*, *equal opportunity*, *equalized odds*) **tidak dapat dipenuhi sekaligus** ketika angka kejadian dasar berbeda antarkelompok. Apa konsekuensinya bagi seorang insinyur?
+**A4.** Sebuah model kredit memiliki *precision* yang sama di dua kelompok, tetapi *base rate* kedua kelompok berbeda. Jelaskan mengapa model itu (jika tidak sempurna) pasti memiliki *recall* atau FPR yang berbeda antarkelompok (Chouldechova, 2017). Mengapa model yang memprediksi semua orang "lancar" memenuhi *demographic parity* dan *equalized odds* sekaligus, dan apa konsekuensinya bagi seorang insinyur?
 
 **A5.** Sebuah model memiliki akurasi keseluruhan 0,88, tetapi *recall* pada kelompok yang hanya berjumlah 3% dari data adalah 0,45. Jelaskan (a) mengapa angka keseluruhan tidak memperlihatkan masalah ini, dan (b) apa yang harus dilaporkan pada *model card*.
 

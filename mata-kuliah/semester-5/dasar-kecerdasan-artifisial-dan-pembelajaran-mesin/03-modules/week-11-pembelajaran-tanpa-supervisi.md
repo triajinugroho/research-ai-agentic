@@ -242,9 +242,9 @@ print("Titik derau   :", (label == -1).sum())
 from sklearn.metrics import (silhouette_score, davies_bouldin_score,
                              calinski_harabasz_score)
 
-print("Silhouette       :", silhouette_score(X_scaled, label).round(3))
-print("Davies-Bouldin   :", davies_bouldin_score(X_scaled, label).round(3))
-print("Calinski-Harabasz:", calinski_harabasz_score(X_scaled, label).round(1))
+print("Silhouette       :", round(silhouette_score(X_scaled, label), 3))
+print("Davies-Bouldin   :", round(davies_bouldin_score(X_scaled, label), 3))
+print("Calinski-Harabasz:", round(calinski_harabasz_score(X_scaled, label), 1))
 ```
 
 #### 11.6.2 Bila Label Sebenarnya Tersedia (*External*)

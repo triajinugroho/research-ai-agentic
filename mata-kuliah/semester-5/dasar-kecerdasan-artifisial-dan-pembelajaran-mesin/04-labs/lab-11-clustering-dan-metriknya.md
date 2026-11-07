@@ -26,6 +26,14 @@
 
 ---
 
+## Persiapan
+
+1. Buka notebook baru di Google Colab dan simpan sebagai `NIM_Nama_Lab11.ipynb`.
+2. Jalankan **sel pembuka baku** dari [Lab 1, Langkah 1](lab-01-setup-ekosistem-ml.md) (impor pustaka, pencatatan versi, `RANDOM_STATE = 42`). Langkah-langkah di bawah memakai `np`, `pd`, `plt`, dan `RANDOM_STATE` dari sel itu — tanpanya Langkah 1 berhenti dengan `NameError`.
+3. Pastikan prasyarat terpenuhi: Lab 10 sudah selesai.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Data Indikator Provinsi Indonesia
@@ -36,8 +44,10 @@
 # =============================================
 import numpy as np, pandas as pd
 
-# Data berdasarkan struktur publikasi BPS. Pada praktikum sebenarnya,
-# unduh data terbaru dari bps.go.id dan unggah ke Colab.
+# Angka ILUSTRATIF: besarannya meniru publikasi BPS untuk 34 provinsi,
+# tetapi sudah dibulatkan dan tidak merujuk satu tahun tertentu — JANGAN dikutip.
+# Untuk laporan, unduh data resmi terbaru dari bps.go.id (catat tabel dan tahunnya),
+# lalu ganti kamus `data` di bawah ini.
 data = {
     "provinsi": ["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi",
                  "Sumatera Selatan","Bengkulu","Lampung","Bangka Belitung",
@@ -289,10 +299,21 @@ silang = pd.crosstab(df["klaster_kmeans"], df["klaster_hc"],
 print("\nTabel silang:")
 print(silang.to_string())
 
-beda = df[df["klaster_kmeans"] != df["klaster_hc"]]["provinsi"].tolist()
-print(f"\nProvinsi yang penempatannya berbeda antar metode ({len(beda)}):")
+# Nomor klaster hanyalah NAMA, bukan urutan: "klaster 0" K-Means tidak harus
+# sama dengan "klaster 0" Hierarchical. Sebelum membandingkan per provinsi,
+# pasangkan dulu nomor klaster yang paling banyak beririsan (algoritma Hungaria).
+from scipy.optimize import linear_sum_assignment
+baris_idx, kolom_idx = linear_sum_assignment(-silang.values)
+peta = {int(silang.columns[k]): int(silang.index[b]) for b, k in zip(baris_idx, kolom_idx)}
+df["klaster_hc_selaras"] = df["klaster_hc"].map(peta)
+
+print("\nPemetaan nomor Hierarchical -> K-Means:", peta)
+beda = df[df["klaster_kmeans"] != df["klaster_hc_selaras"]]["provinsi"].tolist()
+print(f"\nProvinsi yang penempatannya berbeda antar metode ({len(beda)} dari {len(df)}):")
 print(" ", ", ".join(beda) if beda else "  (tidak ada)")
 ```
+
+> **Mengapa harus diselaraskan?** Tanpa langkah ini, dua pengelompokan yang **identik** pun bisa tampak "berbeda di semua provinsi" hanya karena penomorannya tertukar. ARI tidak terpengaruh penomoran, sehingga dapat langsung dibandingkan; daftar provinsi baru bermakna setelah nomor diselaraskan.
 
 **Tulis pembahasan:** provinsi mana yang penempatannya tidak stabil antarmetode? Apa artinya — apakah provinsi itu berada di perbatasan antarkelompok?
 

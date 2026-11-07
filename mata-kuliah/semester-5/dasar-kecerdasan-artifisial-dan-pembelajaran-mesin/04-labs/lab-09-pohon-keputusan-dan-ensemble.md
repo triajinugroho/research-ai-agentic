@@ -20,6 +20,14 @@
 
 ---
 
+## Persiapan
+
+1. Buka notebook baru di Google Colab dan simpan sebagai `NIM_Nama_Lab09.ipynb`.
+2. Jalankan **sel pembuka baku** dari [Lab 1, Langkah 1](lab-01-setup-ekosistem-ml.md) (impor pustaka, pencatatan versi, `RANDOM_STATE = 42`). Langkah-langkah di bawah memakai `np`, `pd`, `plt`, dan `RANDOM_STATE` dari sel itu — tanpanya Langkah 1 berhenti dengan `NameError`.
+3. Pastikan prasyarat terpenuhi: Lab 7 dan UTS sudah selesai.
+
+---
+
 ## Langkah-langkah
 
 ### LANGKAH 1: Perhitungan Manual *Entropy*
@@ -86,12 +94,13 @@ print("\nEntropy akar menurut sklearn:", round(pohon.tree_.impurity[0], 4))
 print("Entropy akar hitungan manual  :", round(H_induk, 4))
 ```
 
-### LANGKAH 3: Data Nyata
+### LANGKAH 3: Data Kredit UMKM (Sintetis)
 
 ```python
 # =============================================
 # LANGKAH 3: Data kelayakan kredit UMKM
 # =============================================
+# Data SINTETIS yang meniru pola kredit UMKM; bukan data bank sungguhan.
 rng = np.random.default_rng(RANDOM_STATE)
 n = 4000
 
@@ -144,9 +153,12 @@ pra = ColumnTransformer([
 hasil = []
 for nama, kedalaman in [("Tanpa batas", None), ("max_depth=3", 3),
                         ("max_depth=5", 5), ("max_depth=8", 8)]:
+    # class_weight="balanced": gagal bayar hanya ±11%. Tanpa pembobotan, pohon
+    # dangkal memilih "Lancar" di SETIAP daun (F1 = 0) karena itu meminimalkan galat.
     p = Pipeline([("pra", pra),
                   ("clf", DecisionTreeClassifier(max_depth=kedalaman,
                                                  min_samples_leaf=1,
+                                                 class_weight="balanced",
                                                  random_state=RANDOM_STATE))]).fit(X_train, y_train)
     f1_tr = f1_score(y_train, p.predict(X_train))
     f1_te = f1_score(y_test, p.predict(X_test))
@@ -158,7 +170,9 @@ for nama, kedalaman in [("Tanpa batas", None), ("max_depth=3", 3),
 print(pd.DataFrame(hasil).round(4).to_string(index=False))
 ```
 
-**Tulis kesimpulan:** pada pohon tanpa batas, berapa selisih F1 latih dan uji? Apa yang ditunjukkan jumlah daunnya?
+**Tulis kesimpulan:** pada pohon tanpa batas, berapa selisih F1 latih dan uji? Apa yang ditunjukkan jumlah daunnya? Kedalaman mana yang memberi F1 uji terbaik?
+
+> **Coba sendiri:** hapus `class_weight="balanced"` lalu jalankan ulang. Pohon `max_depth=3` akan memprediksi "Lancar" untuk semua nasabah (F1 = 0) — model yang tampak akurat 89% tetapi tidak berguna sama sekali.
 
 ### LANGKAH 5: Menampilkan Struktur Pohon
 
@@ -172,6 +186,7 @@ from sklearn.tree import plot_tree
 pohon_dangkal = Pipeline([
     ("pra", pra),
     ("clf", DecisionTreeClassifier(max_depth=3, min_samples_leaf=50,
+                                   class_weight="balanced",
                                    random_state=RANDOM_STATE)),
 ]).fit(X_train, y_train)
 
