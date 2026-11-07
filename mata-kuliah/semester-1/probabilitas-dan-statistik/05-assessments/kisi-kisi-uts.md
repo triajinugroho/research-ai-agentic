@@ -150,6 +150,34 @@ Mahasiswa dapat:
 
 ---
 
+## Cetak Biru Butir
+
+| Butir | Pokok bahasan (Minggu) | Bloom | Sub-CPMK | Skor |
+|-------|------------------------|:-----:|----------|-----:|
+| A1–A3 | Jenis data, skala, sampel (1) | C2–C3 | 102-1 | 4 |
+| A4–A7 | Deskriptif dan visualisasi (2–3) | C3–C4 | 102-1 | 5,33 |
+| A8–A11 | Probabilitas dan pencacahan (4–6) | C3 | 081-1 | 5,33 |
+| A12–A15 | Distribusi (6–7) | C3 | 081-1 | 5,33 |
+| B1–B3 | Deskriptif: pemusatan, kuartil, pencilan, varians (2) | C3 | 102-1 | 9 |
+| B4–B5 | Bersyarat, kebebasan, permutasi (4–5) | C3 | 081-1 | 6 |
+| B6–B8 | Binomial, Poisson, Normal (6–7) | C3 | 081-1 | 10 |
+| C1 | Memilih ukuran ringkasan untuk data berpencilan (2) | C4 | 102-1 | 10 |
+| C2 | Teorema Bayes dan *base rate fallacy* (5) | C3–C4 | 081-1 | 10 |
+| C3 | Memilih dan menerapkan distribusi (6–7) | C3–C4 | 081-1 | 10 |
+| C4 | Kebebasan dan keandalan sistem (5) | C3–C4 | 081-1 | 10 |
+| D | Studi kasus terpadu: log API SIAKAD (1–7) | C4 | 102-1 (butir 1, 2, 6) · 081-1 (butir 3–5) | 15 |
+| | **Jumlah** | | | **100** |
+
+**Rekap per Sub-CPMK:**
+- `102-1`: A1–A7 (9,33) + B1–B3 (9) + C1 (10) + D1, D2, D6 (6) = **34,33 poin**
+- `081-1`: A8–A15 (10,67) + B4–B8 (16) + C2–C4 (30) + D3–D5 (9) = **65,67 poin**
+
+Pembulatan: setiap PG bernilai 4/3 poin; total Bagian A = 20.
+
+> Cetak biru ini memetakan **setiap butir** naskah ujian ke indikator, level Bloom, Sub-CPMK, dan skornya. Ketercapaian Sub-CPMK dihitung dari skor butir yang dipetakan ke Sub-CPMK tersebut. Naskah dan kunci **tidak** disimpan di repositori ini (repositori publik); keduanya dipegang dosen pengampu.
+
+---
+
 ## 5. Bentuk Soal Studi Kasus Terpadu (Bagian D)
 
 Satu skenario Informatika yang menuntut rangkaian keputusan. Contoh kerangka:

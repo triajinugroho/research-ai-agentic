@@ -135,6 +135,26 @@ Susun naskah wawancara masalah untuk ranah ini, dengan ketentuan:
 
 ---
 
+## Cetak Biru Butir
+
+| Butir | Indikator yang diukur | Bloom | Sub-CPMK | Skor |
+|-------|-----------------------|:-----:|----------|-----:|
+| A1 | Membedakan ranah dan solusi pada pernyataan tim | C2–C4 | 091-1 | 5 |
+| A2 | Mengubah pertanyaan hipotetis menjadi pertanyaan perilaku masa lalu | C3 | 091-1 | 5 |
+| A3 | Merumuskan *job-to-be-done* dari cerita narasumber | C3 | 091-1 | 5 |
+| A4 | Mengidentifikasi konteks penggunaan yang menentukan rancangan | C4 | 091-1 | 5 |
+| A5 | Menghitung dan menafsirkan *unit economics* dasar | C3–C4 | UAI21-1 | 10 |
+| B1 | Menilai naskah wawancara | C4 | 091-1 | 12 |
+| B2 | Menilai catatan wawancara dan memisahkan fakta dari tafsiran | C4 | 091-1 | 12 |
+| B3 | Menerjemahkan keinginan menjadi kebutuhan dan *constraint* | C4 | 091-1 | 13 |
+| B4 | Menilai keterlacakan dan keterujian persyaratan | C4 | 091-1 | 13 |
+| C1 | Merancang naskah wawancara masalah | C4 | 091-1 | 20 |
+| | **Jumlah** | | | **100** |
+
+> Cetak biru ini memetakan **setiap butir** naskah ujian ke indikator, level Bloom, Sub-CPMK, dan skornya. Ketercapaian Sub-CPMK dihitung dari skor butir yang dipetakan ke Sub-CPMK tersebut. Naskah dan kunci **tidak** disimpan di repositori ini (repositori publik); keduanya dipegang dosen pengampu.
+
+---
+
 ## 6. Persiapan yang Disarankan
 
 | Kegiatan | Perkiraan waktu |

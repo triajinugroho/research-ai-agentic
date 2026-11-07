@@ -176,6 +176,31 @@ print(model.score(X_te, y_te))
 
 ---
 
+## Cetak Biru Butir
+
+| Butir | Indikator yang diukur | Bloom | Sub-CPMK | Skor |
+|-------|-----------------------|:-----:|----------|-----:|
+| A1 | Memilih penyandian untuk fitur berkardinalitas tinggi dan menilai dampaknya per jenis model | C4 | 102-1 | 5 |
+| A2 | Memilah langkah prapemrosesan yang aman sebelum pembagian vs wajib di dalam `Pipeline` | C3 | 102-1 | 5 |
+| A3 | Mendiagnosis mekanisme data hilang dan dampaknya pada imputasi | C4 | 102-1 | 5 |
+| A4 | Memilih regularisasi untuk data dimensi tinggi berfitur berkorelasi | C4 | 102-1 | 5 |
+| A5 | Memilih metrik regresi sesuai sebaran target dan biaya galat | C4 | 102-1 | 5 |
+| A6 | Menurunkan fitur dari tanggal dan menilai risiko kebocorannya | C3–C4 | 102-1 | 5 |
+| B1 | Menemukan dan memperbaiki tiga kebocoran pada kode | C4 | 102-1 | 12 |
+| B2 | Menilai ketersediaan fitur pada saat prediksi (kebocoran target/temporal) | C4 | 102-1 | 10 |
+| B3 | Merancang strategi pembagian untuk data berkelompok dan bertemporal | C4 | 102-1 | 9 |
+| B4 | Mendiagnosis *overfitting/underfitting* dari metrik latih–validasi–*baseline* | C4 | 102-1 | 9 |
+| C1 | Menghitung metrik klasifikasi dan memilih ambang berdasarkan biaya | C3–C4 | 102-1 | 11 |
+| C2 | Menghitung dan menafsirkan MAE, RMSE, R², dan *baseline* | C3–C4 | 102-1 | 10 |
+| C3 | Membandingkan dua model secara berpasangan dari skor CV | C3–C4 | 102-1 | 9 |
+| | **Jumlah** | | | **100** |
+
+Porsi sesuai kisi-kisi §3: Bagian A 30 (6 soal) · Bagian B 40 (4 soal) · Bagian C 30 (3 soal). Sebaran topik: data dan prapemrosesan (A2, A3) 10%; kebocoran dan pembagian (B1–B3) 31%; rekayasa fitur dan regularisasi (A1, A4, A6) 15%; metrik dan diagnosis (A5, B4, C1–C3) 44%.
+
+> Cetak biru ini memetakan **setiap butir** naskah ujian ke indikator, level Bloom, Sub-CPMK, dan skornya. Ketercapaian Sub-CPMK dihitung dari skor butir yang dipetakan ke Sub-CPMK tersebut. Naskah dan kunci **tidak** disimpan di repositori ini (repositori publik); keduanya dipegang dosen pengampu.
+
+---
+
 ## 7. Persiapan yang Disarankan
 
 | Kegiatan | Perkiraan waktu |
