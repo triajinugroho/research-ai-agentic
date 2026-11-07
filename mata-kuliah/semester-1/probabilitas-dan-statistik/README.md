@@ -125,6 +125,31 @@ probabilitas-dan-statistik/
 
 ---
 
+## Pendamping Interaktif
+
+Enam belas halaman web interaktif (simulasi, kuis mandiri, latihan) tersedia di [`docs/probstat/`](../../../docs/probstat/). Urutan bagiannya mengikuti struktur buku statistika klasik, sehingga tidak selalu sama dengan urutan minggu RPS. Gunakan peta berikut:
+
+| Minggu RPS | Bagian web yang sesuai |
+|:----------:|------------------------|
+| 1 | [01 — Pengenalan Ilmu Statistika](../../../docs/probstat/bagian-01.html) |
+| 2 | [02 — Ukuran Statistik bagi Data](../../../docs/probstat/bagian-02.html) · [03 — Pendeskripsian Data](../../../docs/probstat/bagian-03.html) |
+| 3 | [03 — Pendeskripsian Data](../../../docs/probstat/bagian-03.html) |
+| 4 | [04 — Peluang](../../../docs/probstat/bagian-04.html) |
+| 5 | [04 — Peluang](../../../docs/probstat/bagian-04.html) |
+| 6 | [05 — Sebaran Variabel Acak](../../../docs/probstat/bagian-05.html) · [06 — Sebaran Peluang Diskrit (Binomial)](../../../docs/probstat/bagian-06.html) |
+| 7 | [07 — Sebaran Peluang Kontinu](../../../docs/probstat/bagian-07.html) |
+| 8 | [08 — Ulasan dan Latihan Ujian Tengah Semester](../../../docs/probstat/bagian-08.html) |
+| 9 | [05 — Sebaran Variabel Acak](../../../docs/probstat/bagian-05.html) · [09 — Teori Penarikan Sampel](../../../docs/probstat/bagian-09.html) |
+| 10 | [10 — Pendugaan Parameter](../../../docs/probstat/bagian-10.html) |
+| 11 | [11 — Pengujian Hipotesis](../../../docs/probstat/bagian-11.html) |
+| 12 | [11 — Pengujian Hipotesis](../../../docs/probstat/bagian-11.html) |
+| 13 | [13 — Analisis Varians](../../../docs/probstat/bagian-13.html) (chi-square belum ada halaman interaktifnya) |
+| 14 | [12 — Regresi dan Korelasi](../../../docs/probstat/bagian-12.html) |
+| 15 | [15 — Aplikasi Python untuk Komputasi Statistik](../../../docs/probstat/bagian-15.html) |
+| 16 | [16 — Ulasan dan Latihan Ujian Akhir Semester](../../../docs/probstat/bagian-16.html) |
+
+[Bagian 14 — Statistika Nonparametrik](../../../docs/probstat/bagian-14.html) (Mann-Whitney, Wilcoxon, Kruskal-Wallis) bersifat **pengayaan**: tidak tercantum di RPS dan tidak diujikan. Versi daring: <https://triajinugroho.github.io/research-ai-agentic/probstat/> (aktif setelah GitHub Pages dinyalakan dari folder `/docs`). Kemajuan yang tercatat di halaman web hanya tersimpan di peramban masing-masing mahasiswa dan bukan bagian dari penilaian.
+
 ## Bobot Penilaian
 
 Bobot melekat pada Sub-CPMK sesuai penetapan Kurikulum 2025 Revisi 2026.

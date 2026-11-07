@@ -1,5 +1,7 @@
 # Minggu 9: Ekspektasi, Varians, dan Distribusi Sampling
 
+> **Pendamping interaktif:** [Bagian 5 — Sebaran Variabel Acak](../../../../docs/probstat/bagian-05.html) · [Bagian 9 — Teori Penarikan Sampel](../../../../docs/probstat/bagian-09.html). Halaman ini memuat simulasi dan latihan mandiri; buka berkas HTML-nya di peramban, atau versi daringnya di <https://triajinugroho.github.io/research-ai-agentic/probstat/> bila GitHub Pages sudah diaktifkan. Kemajuan belajar di halaman itu tersimpan di peramban Anda saja dan **bukan** nilai.
+
 ## Informasi Modul
 
 | Komponen | Detail |

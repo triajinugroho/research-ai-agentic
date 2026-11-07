@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>UAI Interactive Learning | Probabilitas dan Statistika</title>
-<meta name="description" content="Portal bahan ajar interaktif Probabilitas dan Statistika untuk mahasiswa Program Studi Informatika Universitas Al-Azhar Indonesia.">
+<title>UAI Interactive Learning | Probabilitas dan Statistik</title>
+<meta name="description" content="Portal bahan ajar interaktif Probabilitas dan Statistik untuk mahasiswa Program Studi Informatika Universitas Al Azhar Indonesia.">
 <style>
 :root{--ink:#102a43;--muted:#52677e;--blue:#1060da;--cyan:#00a9c7;--bg:#f5f8fc;--line:#dbe5ef;--white:#fff;--shadow:0 16px 44px rgba(23,52,86,.065);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit}button,input{font:inherit}.wrap{width:min(1150px,calc(100% - 40px));margin:auto}.skip{position:absolute;top:-70px;left:14px;background:white;padding:12px;z-index:9}.skip:focus{top:12px}
@@ -19,12 +19,12 @@
 </head>
 <body>
 <a class="skip" href="#materi">Langsung ke materi</a>
-<header class="topbar"><div class="wrap"><div class="identity"><div class="mark" aria-hidden="true">UAI</div><div class="brand">Informatika · Fakultas Sains dan Teknologi<small>Universitas Al-Azhar Indonesia</small></div></div><a class="toplinks" href="#materi">Jelajahi 16 modul ↗</a></div></header>
+<header class="topbar"><div class="wrap"><div class="identity"><div class="mark" aria-hidden="true">UAI</div><div class="brand">Informatika · Fakultas Sains dan Teknologi<small>Universitas Al Azhar Indonesia</small></div></div><a class="toplinks" href="#materi">Jelajahi 16 modul ↗</a></div></header>
 <main>
 <section class="hero"><div class="wrap">
 <p class="eyebrow">Interactive Learning Hub · Semester Ganjil 2026/2027</p>
 <h1>Belajar Statistika lewat <span>eksplorasi, bukan hafalan.</span></h1>
-<p>Pilih modul, pelajari konsep, coba simulasi dan latihan interaktif. Disusun untuk pembelajaran Probabilitas dan Statistika Program Studi Informatika, Universitas Al-Azhar Indonesia.</p>
+<p>Pilih modul, pelajari konsep, coba simulasi dan latihan interaktif. Disusun untuk pembelajaran Probabilitas dan Statistik Program Studi Informatika, Universitas Al Azhar Indonesia.</p>
 <div class="metrics"><div class="metric"><strong>16</strong>modul belajar</div><div class="metric"><strong>01–16</strong>urut pembelajaran</div><div class="metric"><strong>HTML</strong>langsung di browser</div></div>
 </div></section>
 <section id="materi" class="section"><div class="wrap">
@@ -49,7 +49,7 @@
 <div class="empty" id="empty" hidden>Tidak ada modul yang cocok. Coba kata kunci atau filter lain.</div>
 <div class="note"><strong>Catatan:</strong> Setiap modul merupakan halaman interaktif mandiri. Beberapa dapat menyimpan status aktivitas di browser yang digunakan; data tersebut tidak otomatis masuk ke Moodle dan tidak menggantikan penilaian resmi. Materi ini dapat disempurnakan sesuai RPS dan umpan balik pembelajaran.</div>
 </div></section></main>
-<footer class="foot"><div class="wrap"><span>© 2026 · Materi ajar Probabilitas dan Statistika · Universitas Al-Azhar Indonesia</span><span>Pengampu: Tri Aji Nugroho, S.T., M.T. · <a href="https://github.com/triajinugroho/research-ai-agentic">Repository</a></span></div></footer>
+<footer class="foot"><div class="wrap"><span>© 2026 · Materi ajar Probabilitas dan Statistik · Universitas Al Azhar Indonesia</span><span>Pengampu: Tri Aji Nugroho, S.T., M.T. · <a href="https://github.com/triajinugroho/research-ai-agentic/tree/main/mata-kuliah/semester-1/probabilitas-dan-statistik">Materi MK (RPS, modul, lab, buku ajar)</a></span></div></footer>
 <script>
 (function(){'use strict';const q=document.getElementById('search'),buttons=[...document.querySelectorAll('.filter')],cards=[...document.querySelectorAll('.lesson')],count=document.getElementById('count'),empty=document.getElementById('empty');let chosen='Semua';function update(){let n=0;const term=q.value.toLocaleLowerCase('id').trim();for(const c of cards){const ok=(chosen==='Semua'||c.dataset.group===chosen)&&c.dataset.search.includes(term);c.hidden=!ok;if(ok)n++}count.textContent=n+' dari 16 modul';empty.hidden=n!==0}for(const b of buttons)b.addEventListener('click',()=>{chosen=b.dataset.filter;for(const x of buttons){const active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active))}update()});q.addEventListener('input',update);try{const key='uai-learning-visited-probstat-v1';const seen=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(seen))for(const c of cards)if(seen.includes(c.getAttribute('href')))c.classList.add('was-visited');for(const c of cards)c.addEventListener('click',()=>{const href=c.getAttribute('href');let arr=[];try{arr=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(arr))arr=[]}catch(e){}if(!arr.includes(href))arr.push(href);localStorage.setItem(key,JSON.stringify(arr));})}catch(e){/* browser may disable storage */}update()})();
 </script>

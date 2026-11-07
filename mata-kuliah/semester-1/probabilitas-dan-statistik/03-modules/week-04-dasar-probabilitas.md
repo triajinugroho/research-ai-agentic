@@ -1,5 +1,7 @@
 # Minggu 4: Dasar Probabilitas
 
+> **Pendamping interaktif:** [Bagian 4 — Peluang](../../../../docs/probstat/bagian-04.html). Halaman ini memuat simulasi dan latihan mandiri; buka berkas HTML-nya di peramban, atau versi daringnya di <https://triajinugroho.github.io/research-ai-agentic/probstat/> bila GitHub Pages sudah diaktifkan. Kemajuan belajar di halaman itu tersimpan di peramban Anda saja dan **bukan** nilai.
+
 ## Informasi Modul
 
 | Komponen | Detail |

@@ -1,5 +1,7 @@
 # Minggu 2: Statistika Deskriptif — Pemusatan, Penyebaran, dan Posisi
 
+> **Pendamping interaktif:** [Bagian 2 — Ukuran Statistik bagi Data](../../../../docs/probstat/bagian-02.html) · [Bagian 3 — Pendeskripsian Data](../../../../docs/probstat/bagian-03.html). Halaman ini memuat simulasi dan latihan mandiri; buka berkas HTML-nya di peramban, atau versi daringnya di <https://triajinugroho.github.io/research-ai-agentic/probstat/> bila GitHub Pages sudah diaktifkan. Kemajuan belajar di halaman itu tersimpan di peramban Anda saja dan **bukan** nilai.
+
 ## Informasi Modul
 
 | Komponen | Detail |

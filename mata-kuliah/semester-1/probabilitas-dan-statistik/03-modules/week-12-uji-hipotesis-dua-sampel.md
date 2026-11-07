@@ -1,5 +1,7 @@
 # Minggu 12: Uji Hipotesis Dua Sampel dan Uji Proporsi
 
+> **Pendamping interaktif:** [Bagian 11 — Pengujian Hipotesis](../../../../docs/probstat/bagian-11.html). Halaman ini memuat simulasi dan latihan mandiri; buka berkas HTML-nya di peramban, atau versi daringnya di <https://triajinugroho.github.io/research-ai-agentic/probstat/> bila GitHub Pages sudah diaktifkan. Kemajuan belajar di halaman itu tersimpan di peramban Anda saja dan **bukan** nilai.
+
 ## Informasi Modul
 
 | Komponen | Detail |
