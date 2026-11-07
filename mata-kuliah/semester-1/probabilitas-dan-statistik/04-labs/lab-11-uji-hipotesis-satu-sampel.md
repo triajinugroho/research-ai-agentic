@@ -160,8 +160,10 @@ for n in [30, 100, 1_000, 10_000, 100_000, 1_000_000]:
     status = "SIGNIFIKAN" if p < 0.05 else "tidak signifikan"
     print(f"{n:>10,}  {s.mean():>9.3f}  {p:>12.6f}  {d:>9.4f}  {status}")
 
-print("\n→ Cohen's d tetap ~0,014 (sangat kecil) di semua n.")
-print("→ Tetapi p-value terus mengecil seiring n bertambah.")
+print("\n→ Cohen's d SEBENARNYA 0,5/35 ≈ 0,014 (sangat kecil). Taksirannya")
+print("  berfluktuasi pada n kecil, tetapi tidak pernah menjadi besar.")
+print("→ Pada n kecil p-value naik-turun secara acak; pada n sangat besar")
+print("  efek 0,5 ms yang tidak berarti pun menjadi 'SIGNIFIKAN'.")
 print("→ KESIMPULAN: SELALU laporkan ukuran efek, bukan hanya p-value.")
 ```
 
